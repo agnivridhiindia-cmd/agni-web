@@ -1,19 +1,38 @@
-export interface CaseStudyMetric {
+import type { ServiceCategory } from "./service";
+
+export interface CaseStudyStatistic {
   readonly label: string;
   readonly value: string;
-  readonly detail?: string;
+  readonly context?: string;
 }
 
-export interface CaseStudy {
-  readonly slug: string;
+export interface CaseStudyQuote {
+  readonly text: string;
+  readonly author?: string | null;
+  readonly role?: string | null;
+}
+
+export interface CaseStudyFrontmatter {
+  readonly slug: string; // Lowercase kebab-case matching /success-stories/[slug]
   readonly title: string;
-  readonly clientIndustry: string;
-  readonly location: string;
-  readonly serviceCategory: string;
+  readonly client: string | null; // e.g. "Precision Auto Components Manufacturer" or null if confidential
+  readonly category: ServiceCategory;
+  readonly services: readonly string[]; // Related service slugs
+  readonly summary: string;
   readonly challenge: string;
   readonly solution: string;
-  readonly outcome: string;
-  readonly metrics?: readonly CaseStudyMetric[];
-  readonly publishedAt: string;
+  readonly process?: readonly string[];
+  readonly outcomes: readonly string[];
+  readonly statistics?: readonly CaseStudyStatistic[];
+  readonly quote?: CaseStudyQuote;
+  readonly publishedAt: string; // ISO date string
   readonly featured?: boolean;
+  readonly coverImage?: string | null;
+  readonly metadata?: {
+    readonly title?: string;
+    readonly description?: string;
+  };
 }
+
+// Backwards compatibility alias if needed
+export type CaseStudy = CaseStudyFrontmatter;

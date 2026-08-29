@@ -33,7 +33,7 @@ export default function TokenGalleryPage() {
                 {siteConfig.name}
               </span>
               <span className="ml-2 text-xs uppercase tracking-widest text-teal-600 font-sans font-semibold bg-teal-50 px-2 py-0.5 rounded-pill border border-teal-200">
-                Phase 2 System
+                Phase 3 Architecture
               </span>
             </div>
           </div>
@@ -330,31 +330,39 @@ export default function TokenGalleryPage() {
 
         {/* Section 7: Quality Checklist */}
         <section className="bg-white border border-slate-200 rounded-lg p-8 shadow-card">
-          <h2 className="type-h3 text-slate-900 mb-4">Phase 2 Verification Checklist</h2>
+          <h2 className="type-h3 text-slate-900 mb-4">Phase 2 & 3 Verification Checklist</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="flex items-center gap-3">
               <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
-              <span className="text-sm text-slate-700">Teal 50–950 & Gold 50–950 scales fully mapped</span>
+              <span className="text-sm text-slate-700">Single Source of Truth: <code>lib/site-config.ts</code></span>
             </div>
             <div className="flex items-center gap-3">
               <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
-              <span className="text-sm text-slate-700">Editorial Fraunces + Inter type scale implemented</span>
+              <span className="text-sm text-slate-700">Services Catalog: 4 strict categories (<code>data/services.ts</code>)</span>
             </div>
             <div className="flex items-center gap-3">
               <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
-              <span className="text-sm text-slate-700">Restrained radius & multi-layer shadow system</span>
+              <span className="text-sm text-slate-700">Factual Integrity: Unverified facts strictly set to <code>null</code></span>
             </div>
             <div className="flex items-center gap-3">
               <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
-              <span className="text-sm text-slate-700">Framer Motion duration & easing tokens defined</span>
+              <span className="text-sm text-slate-700">Address Consistency: 1 canonical address (no conflicting branches)</span>
             </div>
             <div className="flex items-center gap-3">
               <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
-              <span className="text-sm text-slate-700">Button & Card primitives customized for Agnivridhi</span>
+              <span className="text-sm text-slate-700">Testimonials: <code>verified: false</code> & no fabricated names</span>
             </div>
             <div className="flex items-center gap-3">
               <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
-              <span className="text-sm text-slate-700">Full compliance with prefers-reduced-motion & WCAG</span>
+              <span className="text-sm text-slate-700">MDX Infrastructure: Strongly typed loader (<code>lib/mdx.ts</code>)</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
+              <span className="text-sm text-slate-700">Form Validation: Zod schema (<code>contact-form.ts</code>)</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
+              <span className="text-sm text-slate-700">Design Tokens: Teal `#0891B2`, Gold `#B8891F`, Slate, Fraunces + Inter</span>
             </div>
           </div>
         </section>

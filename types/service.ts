@@ -1,33 +1,44 @@
-export type ServiceCategory =
-  | "government-funding"
-  | "compliance-certifications"
-  | "digital-transformation";
+/**
+ * Strict category union for Agnivridhi India services.
+ * Arbitrary strings are strictly prohibited.
+ */
+export type ServiceCategory = "funding" | "compliance" | "digital" | "it";
 
-export interface ServiceKeyBenefit {
-  readonly title: string;
-  readonly description: string;
-}
-
-export interface ServiceEligibilityItem {
-  readonly criteria: string;
-  readonly notes?: string;
+export interface ServiceCategoryMeta {
+  readonly id: ServiceCategory;
+  readonly name: string;
+  readonly shortDescription: string;
+  readonly icon: string;
 }
 
 export interface ServiceProcessStep {
-  readonly stepNumber: number;
+  readonly step: number;
   readonly title: string;
   readonly description: string;
 }
 
+export interface ServiceFaq {
+  readonly question: string;
+  readonly answer: string;
+}
+
 export interface Service {
-  readonly slug: string;
-  readonly title: string;
+  readonly id: string;
+  readonly slug: string; // Predictable lowercase kebab-case (e.g., "cgtmse-funding")
+  readonly name: string;
   readonly shortDescription: string;
+  readonly description: string;
   readonly category: ServiceCategory;
-  readonly summary: string;
-  readonly keyBenefits: readonly ServiceKeyBenefit[];
-  readonly eligibility?: readonly ServiceEligibilityItem[];
-  readonly process?: readonly ServiceProcessStep[];
-  readonly deliverables?: readonly string[];
+  readonly icon: string; // Lucide icon identifier
+  readonly audience: readonly string[];
+  readonly benefits: readonly string[];
+  readonly process: readonly ServiceProcessStep[];
+  readonly timeline?: string | null;
+  readonly faqs?: readonly ServiceFaq[];
+  readonly relatedServices?: readonly string[]; // Array of related service slugs
   readonly featured?: boolean;
+  readonly metadata?: {
+    readonly title?: string;
+    readonly description?: string;
+  };
 }
