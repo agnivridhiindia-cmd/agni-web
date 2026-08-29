@@ -7,7 +7,6 @@ import {
   ArrowDown,
   Layers,
   CheckCircle2,
-  ExternalLink,
   MessageSquare,
   Smartphone,
   Sparkles,
@@ -288,7 +287,7 @@ export function Phase5Review() {
           </CardHeader>
           <CardContent className="space-y-3">
             <p className="type-body-sm text-slate-600">
-              Current production config: <code className="text-xs bg-slate-100 px-1.5 py-0.5 rounded">siteConfig.contact.whatsapp = null</code>.
+              Current production config: <code className="text-xs bg-slate-100 px-1.5 py-0.5 rounded">siteConfig.contact.whatsapp = {String(siteConfig.contact.whatsapp)}</code>.
             </p>
             <Button
               variant={showWhatsAppDemo ? "destructive" : "accent"}

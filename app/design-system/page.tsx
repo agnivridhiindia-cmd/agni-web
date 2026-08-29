@@ -63,6 +63,7 @@ import { Container } from "@/components/shared/container";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { StatDisplay } from "@/components/shared/stat-display";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/shared/motion-wrapper";
+import { MotionShowcase } from "@/components/design-system/motion-showcase";
 import {
   Sparkles,
   ArrowRight,
@@ -628,6 +629,9 @@ export default function DesignSystemShowcasePage() {
               </div>
             </div>
           </section>
+
+          {/* Section 7: Motion, Transitions & Interaction System (Phase 6) */}
+          <MotionShowcase />
         </Container>
       </div>
     </TooltipProvider>

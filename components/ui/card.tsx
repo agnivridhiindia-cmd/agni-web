@@ -12,6 +12,12 @@ export const cardVariants = cva(
           "bg-white border border-slate-200 shadow-card hover:border-slate-300",
         standard:
           "bg-white border border-slate-200 shadow-card hover:border-slate-300",
+        // Static: Zero hover or lift (purely informational container)
+        static:
+          "bg-white border border-slate-200 shadow-card",
+        // Interactive: Subtle lift, border emphasis, and cursor feedback
+        interactive:
+          "bg-white border border-slate-200 shadow-card hover:border-teal-500/60 hover:shadow-elevated hover:-translate-y-0.5 active:translate-y-0 cursor-pointer",
         // Elevated: More prominent depth for interactive service/story cards
         elevated:
           "bg-white border border-slate-200/80 shadow-elevated hover:shadow-floating hover:-translate-y-0.5",
@@ -24,6 +30,9 @@ export const cardVariants = cva(
         // Featured: Prestige frame with signature teal-gold gradient border line
         featured:
           "bg-white border border-slate-200 shadow-elevated relative overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1 before:bg-gradient-to-r before:from-teal-600 before:to-gold-500 hover:border-slate-300",
+        // Glow: Restrained teal glow for flagship conversion cards
+        glow:
+          "bg-white border border-slate-200 shadow-card hover:border-teal-500/50 hover:shadow-glow-teal hover:-translate-y-0.5 transition-all duration-200",
       },
     },
     defaultVariants: {
