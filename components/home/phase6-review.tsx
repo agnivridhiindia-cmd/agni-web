@@ -8,9 +8,6 @@ import {
   RotateCcw,
   Compass,
   CheckCircle2,
-  Sliders,
-  Maximize2,
-  MousePointer,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge, Eyebrow } from "@/components/ui/badge";
