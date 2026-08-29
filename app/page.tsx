@@ -1,3 +1,4 @@
+import { Phase5Review } from "@/components/home/phase5-review";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -21,6 +22,9 @@ export default function TokenGalleryPage() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 bg-noise">
       <div className="max-w-content mx-auto page-gutters py-12 space-y-16">
+        {/* Phase 5 Deliverables Review Suite */}
+        <Phase5Review />
+
         {/* Section 1: Editorial Typography & Overview */}
         <section className="space-y-4 max-w-reading">
           <span className="type-eyebrow text-teal-600">Visual System Architecture</span>
