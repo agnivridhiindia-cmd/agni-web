@@ -25,7 +25,7 @@ export function Hero() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative overflow-hidden pt-12 pb-16 md:pt-20 md:pb-24 lg:pt-28 lg:pb-32 bg-slate-50/70 bg-noise border-b border-slate-200/70"
+      className="relative overflow-hidden pt-28 pb-16 sm:pt-32 md:pt-36 md:pb-24 lg:pt-36 lg:pb-32 bg-slate-50/70 bg-noise border-b border-slate-200/70"
     >
       {/* 1. Atmospheric Ambient Lighting & Grid Accent */}
       <div
@@ -49,12 +49,12 @@ export function Hero() {
           {/* ============================================================
               LEFT COLUMN: Editorial Brand Authority & Direct Conversion
               ============================================================ */}
-          <div className="lg:col-span-7 space-y-8">
+          <div className="lg:col-span-7 space-y-6 sm:space-y-8">
             {/* Category Eyebrow */}
             <FadeIn direction="none" delay={0.05}>
-              <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-pill bg-white/80 backdrop-blur-md border border-slate-200/80 shadow-subtle">
-                <span className="w-2 h-2 rounded-full bg-gold-500 animate-pulse" />
-                <Eyebrow accent className="text-[11px] tracking-widest text-slate-700">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-pill bg-white/80 backdrop-blur-md border border-slate-200/80 shadow-subtle max-w-full">
+                <span className="w-2 h-2 rounded-full bg-gold-500 animate-pulse shrink-0" />
+                <Eyebrow accent className="text-[10px] sm:text-[11px] tracking-wider sm:tracking-widest text-slate-700 truncate">
                   GOVERNMENT SCHEMES • CGTMSE FUNDING • COMPLIANCE • GROWTH
                 </Eyebrow>
               </div>
@@ -64,7 +64,7 @@ export function Hero() {
             <FadeIn direction="up" distance={16} delay={0.12}>
               <h1
                 id="hero-heading"
-                className="font-serif text-4xl sm:text-5xl lg:text-[3.75rem] font-bold tracking-tight text-slate-950 leading-[1.12]"
+                className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.75rem] font-bold tracking-tight text-slate-950 leading-[1.14]"
               >
                 Catalyzing Enterprise Scale Through{" "}
                 <span className="text-teal-700 italic font-serif relative inline-block">
