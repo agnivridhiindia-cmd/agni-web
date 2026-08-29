@@ -63,15 +63,23 @@ export interface SocialLinksConfig {
 export interface StatMetric {
   readonly id: string;
   readonly label: string;
-  readonly value: string | null; // e.g., "50+ Cr" once audited, or null if unverified
+  readonly value: string | null; // e.g., "5" or "24+" or null if unverified
+  readonly numericValue?: number | null; // Optional numeric target for animated interpolation
   readonly prefix?: string;
   readonly suffix?: string;
   readonly description: string;
   readonly verified: boolean;
+  readonly featured?: boolean; // Primary highlighted metric in credibility presentation
 }
 
 export interface SiteStatsConfig {
-  // Centralized metric stores: components must consume these rather than hardcoding numbers
+  // Verified Institutional Parameters & Scheme Limits
+  readonly maxGuaranteeSanction: StatMetric;
+  readonly sovereignRiskCoverage: StatMetric;
+  readonly advisoryPractices: StatMetric;
+  readonly programsCovered: StatMetric;
+
+  // Business Operational Claims (strictly gated by verified flag)
   readonly fundingFacilitated: StatMetric;
   readonly businessesSupported: StatMetric;
   readonly yearsOfExperience: StatMetric;
@@ -214,46 +222,97 @@ export const siteConfig: MasterSiteConfig = {
   },
 
   stats: {
+    maxGuaranteeSanction: {
+      id: "max-guarantee-sanction",
+      label: "Max Collateral-Free Cover",
+      value: "5",
+      numericValue: 5,
+      prefix: "₹",
+      suffix: " Cr",
+      description: "Sovereign credit guarantee ceiling per eligible MSME under CGTMSE",
+      verified: true,
+      featured: true,
+    },
+    sovereignRiskCoverage: {
+      id: "sovereign-coverage",
+      label: "Sovereign Risk Backstop",
+      value: "85",
+      numericValue: 85,
+      suffix: "%",
+      description: "Maximum institutional debt risk underwritten by central guarantee trust",
+      verified: true,
+      featured: false,
+    },
+    advisoryPractices: {
+      id: "advisory-practices",
+      label: "Institutional Divisions",
+      value: "4",
+      numericValue: 4,
+      suffix: " Verticals",
+      description: "Funding, Compliance, Digital & IT dedicated advisory desks",
+      verified: true,
+      featured: false,
+    },
+    programsCovered: {
+      id: "programs-covered",
+      label: "Regulatory Programs",
+      value: "24",
+      numericValue: 24,
+      suffix: "+ Schemes",
+      description: "Central, state subsidies & statutory certification pathways",
+      verified: true,
+      featured: false,
+    },
     fundingFacilitated: {
       id: "funding-facilitated",
       label: "Funding Facilitated",
       value: null, // TODO: Pending verified audited figure (do NOT assume legacy '₹50+ Cr' is accurate)
+      numericValue: null,
       prefix: "₹",
       suffix: " Cr+",
       description: "Institutional credit and government scheme funding assisted",
       verified: false,
+      featured: false,
     },
     businessesSupported: {
       id: "businesses-supported",
       label: "Enterprises Assisted",
       value: null, // TODO: Pending verified client count
+      numericValue: null,
       suffix: "+",
       description: "MSMEs, manufacturing units, and startups advised",
       verified: false,
+      featured: false,
     },
     yearsOfExperience: {
       id: "years-experience",
       label: "Years of Advisory",
       value: null, // TODO: Pending verified operational tenure
+      numericValue: null,
       suffix: "+ Years",
       description: "Dedicated consulting experience across Indian regulatory ecosystems",
       verified: false,
+      featured: false,
     },
     clientsServed: {
       id: "clients-served",
       label: "Active Clients",
       value: null, // TODO: Pending verified active client base
+      numericValue: null,
       suffix: "+",
       description: "Businesses actively engaged in recurring compliance and financing",
       verified: false,
+      featured: false,
     },
     certificationsProjects: {
       id: "certifications-projects",
       label: "Compliance Deliveries",
       value: null, // TODO: Pending verified project deliveries
+      numericValue: null,
       suffix: "+",
       description: "ISO, GST, and MSME registrations successfully filed",
       verified: false,
+      featured: false,
     },
   },
 

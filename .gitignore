@@ -37,3 +37,4 @@ next-env.d.ts
 # test artifacts & qa screenshots
 .playwright-mcp/
 hero-*.png
+stats-*.png

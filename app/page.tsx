@@ -1,14 +1,21 @@
 import { Hero } from "@/components/home/hero";
+import { StatsBar } from "@/components/home/stats-bar";
 import { Phase6Review } from "@/components/home/phase6-review";
 import { Phase5Review } from "@/components/home/phase5-review";
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
-      {/* Flagship Homepage Hero (Phase 7) */}
-      <Hero />
+      {/* Primary Flagship Content Container */}
+      <main id="main-content">
+        {/* Phase 7: Flagship Homepage Hero */}
+        <Hero />
 
-      {/* Development & Phase Verification Harness */}
+        {/* Phase 8: Unified Stats & Credibility Bar */}
+        <StatsBar />
+      </main>
+
+      {/* Development & Phase Verification Harnesses */}
       <section className="bg-noise py-16 border-t border-slate-200">
         <div className="max-w-content mx-auto page-gutters space-y-12">
           <div className="border-b border-slate-200 pb-4">
