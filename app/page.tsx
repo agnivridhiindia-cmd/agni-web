@@ -1,4 +1,5 @@
 import { Phase5Review } from "@/components/home/phase5-review";
+import { Phase6Review } from "@/components/home/phase6-review";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -22,6 +23,9 @@ export default function TokenGalleryPage() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 bg-noise">
       <div className="max-w-content mx-auto page-gutters py-12 space-y-16">
+        {/* Phase 6 Motion, Transitions & Interaction System Review */}
+        <Phase6Review />
+
         {/* Phase 5 Deliverables Review Suite */}
         <Phase5Review />
 
