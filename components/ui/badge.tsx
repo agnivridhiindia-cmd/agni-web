@@ -21,6 +21,12 @@ export const badgeVariants = cva(
           "bg-amber-50 text-amber-800 border border-amber-200",
         outline:
           "border border-slate-200 text-slate-700 bg-transparent",
+        glass:
+          "bg-white/70 backdrop-blur-sm text-slate-800 border border-white/80 shadow-xs hover:bg-white/90 transition-colors",
+        "glass-teal":
+          "bg-teal-500/15 backdrop-blur-sm text-teal-900 border border-teal-400/40 shadow-xs",
+        "glass-accent":
+          "bg-gold-500/15 backdrop-blur-sm text-gold-950 border border-gold-400/40 shadow-xs",
       },
     },
     defaultVariants: {

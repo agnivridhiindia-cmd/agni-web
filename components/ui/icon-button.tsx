@@ -9,15 +9,21 @@ export const iconButtonVariants = cva(
     variants: {
       variant: {
         primary:
-          "bg-teal-600 text-white hover:bg-teal-700 active:bg-teal-800 shadow-subtle",
+          "bg-teal-600 text-white hover:bg-teal-700 active:bg-teal-800 shadow-subtle hover:-translate-y-0.5 active:translate-y-0",
         accent:
-          "bg-gold-600 text-white hover:bg-gold-700 active:bg-gold-800 shadow-subtle",
+          "bg-gold-600 text-white hover:bg-gold-700 active:bg-gold-800 shadow-subtle hover:-translate-y-0.5 active:translate-y-0",
         secondary:
-          "bg-slate-100 text-slate-800 hover:bg-slate-200 active:bg-slate-300",
+          "bg-slate-100 text-slate-800 hover:bg-slate-200 active:bg-slate-300 hover:-translate-y-0.5 active:translate-y-0",
         outline:
-          "border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 hover:border-slate-300",
+          "border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 hover:border-slate-300 hover:-translate-y-0.5 active:translate-y-0",
         ghost:
           "text-slate-600 hover:bg-slate-100 hover:text-slate-900",
+        glass:
+          "btn-glass text-slate-900 hover:-translate-y-0.5 active:translate-y-0",
+        "glass-teal":
+          "btn-glass-teal text-white hover:-translate-y-0.5 active:translate-y-0",
+        "glass-dark":
+          "btn-glass-dark text-white hover:-translate-y-0.5 active:translate-y-0",
       },
       size: {
         sm: "h-8 w-8 rounded-sm",

@@ -10,27 +10,36 @@ export const buttonVariants = cva(
       variant: {
         // Primary: Teal Brand Action (#0891B2)
         primary:
-          "bg-teal-600 text-white hover:bg-teal-700 active:bg-teal-800 shadow-subtle hover:shadow-card",
+          "bg-teal-600 text-white hover:bg-teal-700 active:bg-teal-800 shadow-subtle hover:shadow-card hover:-translate-y-0.5 active:translate-y-0",
         default:
-          "bg-teal-600 text-white hover:bg-teal-700 active:bg-teal-800 shadow-subtle hover:shadow-card",
+          "bg-teal-600 text-white hover:bg-teal-700 active:bg-teal-800 shadow-subtle hover:shadow-card hover:-translate-y-0.5 active:translate-y-0",
         // Accent: Sophisticated Gold Action (Key conversions)
         accent:
-          "bg-gold-600 text-white hover:bg-gold-700 active:bg-gold-800 shadow-subtle hover:shadow-card",
+          "bg-gold-600 text-white hover:bg-gold-700 active:bg-gold-800 shadow-subtle hover:shadow-card hover:-translate-y-0.5 active:translate-y-0",
         // Secondary: Quiet slate surface
         secondary:
-          "bg-slate-100 text-slate-900 hover:bg-slate-200 active:bg-slate-300",
+          "bg-slate-100 text-slate-900 hover:bg-slate-200 active:bg-slate-300 hover:-translate-y-0.5 active:translate-y-0",
         // Outline: Structural border
         outline:
-          "border border-slate-200 bg-white text-slate-800 hover:bg-slate-50 hover:border-slate-300 active:bg-slate-100",
+          "border border-slate-200 bg-white text-slate-800 hover:bg-slate-50 hover:border-slate-300 active:bg-slate-100 hover:-translate-y-0.5 active:translate-y-0",
         // Ghost: Zero surface until hover
         ghost:
           "text-slate-700 hover:bg-slate-100 hover:text-slate-900 active:bg-slate-200",
         // Destructive: For alert/deletion actions
         destructive:
-          "bg-red-600 text-white hover:bg-red-700 active:bg-red-800 shadow-subtle",
+          "bg-red-600 text-white hover:bg-red-700 active:bg-red-800 shadow-subtle hover:-translate-y-0.5 active:translate-y-0",
         // Link: Clean inline interaction
         link:
           "text-teal-600 underline-offset-4 hover:underline hover:text-teal-700 active:text-teal-800 p-0 h-auto",
+        // Glassmorphic Variants
+        glass:
+          "btn-glass text-slate-900 hover:-translate-y-0.5 active:translate-y-0 supports-[-webkit-backdrop-filter:none]:bg-white/95",
+        "glass-teal":
+          "btn-glass-teal text-white hover:-translate-y-0.5 active:translate-y-0 supports-[-webkit-backdrop-filter:none]:bg-teal-600",
+        "glass-gold":
+          "btn-glass-gold text-white hover:-translate-y-0.5 active:translate-y-0 supports-[-webkit-backdrop-filter:none]:bg-gold-600",
+        "glass-dark":
+          "btn-glass-dark text-white hover:-translate-y-0.5 active:translate-y-0 supports-[-webkit-backdrop-filter:none]:bg-slate-900",
       },
       size: {
         default: "h-10 px-4 py-2 text-sm",

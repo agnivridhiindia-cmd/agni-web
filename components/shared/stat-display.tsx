@@ -7,10 +7,10 @@ export const statDisplayVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-white border border-slate-200 shadow-card",
-        subtle: "bg-slate-50 border border-slate-200/60 shadow-none",
-        accent: "bg-white border-2 border-gold-400/40 shadow-elevated",
-        glass: "glass-surface shadow-card",
+        default: "bg-white border border-slate-200 shadow-card hover:border-slate-300 hover:shadow-elevated hover:-translate-y-0.5 transition-all duration-300",
+        subtle: "bg-slate-50 border border-slate-200/60 shadow-none hover:bg-white hover:border-slate-200 hover:-translate-y-0.5 transition-all duration-300",
+        accent: "bg-white border-2 border-gold-400/40 shadow-elevated hover:shadow-floating hover:-translate-y-0.5 transition-all duration-300",
+        glass: "glass-surface shadow-card hover:border-teal-400/50 hover:shadow-elevated hover:-translate-y-0.5 transition-all duration-300",
         compact: "p-4 bg-transparent border-0 shadow-none",
       },
     },

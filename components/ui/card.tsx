@@ -24,9 +24,11 @@ export const cardVariants = cva(
         // Subtle: Low contrast background for secondary groupings
         subtle:
           "bg-slate-50 border border-slate-200/60 shadow-none hover:bg-white hover:border-slate-200",
-        // Glass: Selective translucent backdrop blur for floating/hero panels
+        // Glass: Selective translucent backdrop blur with luminous edge and hover lift
         glass:
-          "glass-surface hover:shadow-elevated",
+          "bg-white/80 backdrop-blur-md border border-white/70 shadow-card hover:bg-white/92 hover:border-teal-500/30 hover:shadow-elevated hover:-translate-y-0.5 transition-all duration-300 supports-[-webkit-backdrop-filter:none]:bg-white/95",
+        "glass-dark":
+          "glass-surface-dark text-white hover:border-slate-600 hover:shadow-floating hover:-translate-y-0.5 transition-all duration-300",
         // Featured: Prestige frame with signature teal-gold gradient border line
         featured:
           "bg-white border border-slate-200 shadow-elevated relative overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1 before:bg-gradient-to-r before:from-teal-600 before:to-gold-500 hover:border-slate-300",

@@ -182,20 +182,29 @@ export function Phase6Review() {
               Subtle hover elevation, 0.98 active press scale, and 2px accessible focus ring.
             </CardDescription>
           </CardHeader>
-          <CardContent className="space-y-3">
-            <div className="flex flex-wrap gap-2.5">
-              <Button variant="primary" size="sm">
-                Hover Me
-              </Button>
-              <Button variant="accent" size="sm">
-                Press Feedback
-              </Button>
-              <Button variant="outline" size="sm">
-                Outline Shift
-              </Button>
+          <CardContent className="space-y-4">
+            <div>
+              <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider block mb-2">Standard Buttons (with micro-lift &amp; active press)</span>
+              <div className="flex flex-wrap gap-2">
+                <Button variant="primary" size="sm">Primary</Button>
+                <Button variant="accent" size="sm">Accent</Button>
+                <Button variant="outline" size="sm">Outline</Button>
+                <Button variant="secondary" size="sm">Secondary</Button>
+              </div>
             </div>
+
+            <div className="pt-2 border-t border-slate-100">
+              <span className="text-[11px] font-semibold text-teal-700 uppercase tracking-wider block mb-2">Glassmorphism Buttons (Translucent + Luminous Bevel)</span>
+              <div className="flex flex-wrap gap-2">
+                <Button variant="glass" size="sm">Glass Light</Button>
+                <Button variant="glass-teal" size="sm">Glass Teal</Button>
+                <Button variant="glass-gold" size="sm">Glass Gold</Button>
+                <Button variant="glass-dark" size="sm">Glass Dark</Button>
+              </div>
+            </div>
+
             <p className="text-xs text-slate-500 pt-1">
-              Press Tab to test keyboard focus ring with accessible 2px offset.
+              Hover to see smooth 2px micro-lift and luminous edge glow. Press for tactile scale feedback.
             </p>
           </CardContent>
         </Card>
@@ -238,20 +247,27 @@ export function Phase6Review() {
               Graduated feedback based on component importance.
             </CardDescription>
           </CardHeader>
-          <CardContent className="space-y-2">
+          <CardContent className="space-y-2.5">
             <Card variant="interactive" className="p-3">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-semibold">variant=&quot;interactive&quot;</span>
                 <ArrowRight className="w-3.5 h-3.5 text-teal-600" />
               </div>
-              <p className="text-[11px] text-slate-500 mt-1">Lift + border emphasis + cursor feedback</p>
+              <p className="text-[11px] text-slate-500 mt-0.5">Lift + border emphasis + cursor feedback</p>
+            </Card>
+            <Card variant="glass" className="p-3">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-semibold">variant=&quot;glass&quot;</span>
+                <Badge variant="glass-teal" className="text-[10px]">Glass Badge</Badge>
+              </div>
+              <p className="text-[11px] text-slate-500 mt-0.5">Translucent frosted blur with luminous bevel</p>
             </Card>
             <Card variant="glow" className="p-3">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-semibold">variant=&quot;glow&quot;</span>
                 <Sparkles className="w-3.5 h-3.5 text-teal-600" />
               </div>
-              <p className="text-[11px] text-slate-500 mt-1">Soft teal glow for flagship conversion items</p>
+              <p className="text-[11px] text-slate-500 mt-0.5">Soft teal glow for flagship conversion items</p>
             </Card>
           </CardContent>
         </Card>
