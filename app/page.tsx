@@ -1,4 +1,3 @@
-import { siteConfig } from "@/lib/site-config";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -21,34 +20,7 @@ import {
 export default function TokenGalleryPage() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 bg-noise">
-      {/* Header Banner */}
-      <header className="border-b border-slate-200 bg-white/90 backdrop-blur-md sticky top-0 z-40">
-        <div className="max-w-content mx-auto page-gutters h-16 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="h-8 w-8 rounded-md bg-teal-600 flex items-center justify-center text-white font-serif font-bold text-lg shadow-subtle">
-              A
-            </div>
-            <div>
-              <span className="font-serif font-semibold text-lg text-slate-900 tracking-tight">
-                {siteConfig.name}
-              </span>
-              <span className="ml-2 text-xs uppercase tracking-widest text-teal-600 font-sans font-semibold bg-teal-50 px-2 py-0.5 rounded-pill border border-teal-200">
-                Phase 3 Architecture
-              </span>
-            </div>
-          </div>
-          <div className="flex items-center gap-3">
-            <Button variant="outline" size="sm">
-              Design System
-            </Button>
-            <Button variant="primary" size="sm">
-              Tokens Verified
-            </Button>
-          </div>
-        </div>
-      </header>
-
-      <main className="max-w-content mx-auto page-gutters py-12 space-y-16">
+      <div className="max-w-content mx-auto page-gutters py-12 space-y-16">
         {/* Section 1: Editorial Typography & Overview */}
         <section className="space-y-4 max-w-reading">
           <span className="type-eyebrow text-teal-600">Visual System Architecture</span>
@@ -366,7 +338,7 @@ export default function TokenGalleryPage() {
             </div>
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 }
