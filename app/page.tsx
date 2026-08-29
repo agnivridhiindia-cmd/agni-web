@@ -1,5 +1,6 @@
 import { Hero } from "@/components/home/hero";
 import { StatsBar } from "@/components/home/stats-bar";
+import { RecognitionSection } from "@/components/home/recognition-section";
 import { Phase6Review } from "@/components/home/phase6-review";
 import { Phase5Review } from "@/components/home/phase5-review";
 
@@ -13,6 +14,9 @@ export default function HomePage() {
 
         {/* Phase 8: Unified Stats & Credibility Bar */}
         <StatsBar />
+
+        {/* Phase 9: Recognition & Social Proof Section */}
+        <RecognitionSection />
       </main>
 
       {/* Development & Phase Verification Harnesses */}
