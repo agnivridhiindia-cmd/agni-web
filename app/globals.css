@@ -2,67 +2,108 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ==========================================================================
+   1. DESIGN TOKENS & CSS VARIABLES
+   ========================================================================== */
+
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Base Neutral Surface & Text */
+    --background: 0 0% 100%;            /* #FFFFFF */
+    --background-subtle: 210 40% 98%;   /* #F8FAFC (slate-50) */
+    --background-elevated: 0 0% 100%;   /* #FFFFFF */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --surface: 0 0% 100%;
+    --surface-hover: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --foreground: 222.2 47.4% 11.2%;   /* #0F172A (slate-900) */
+    --foreground-muted: 215.4 16.3% 46.9%; /* #475569 (slate-600) */
+    --foreground-subtle: 215.3 25% 65.1%;  /* #94A3B8 (slate-400) */
 
-    /* Primary: #0891B2 */
+    /* Primary Brand Anchor: Teal (#0891B2 = 188 94% 37%) */
     --primary: 188 94% 37%;
     --primary-foreground: 210 40% 98%;
+    --primary-hover: 192 82% 31%;       /* #0E7490 (teal-700) */
+    --primary-active: 194 69% 27%;      /* #155E75 (teal-800) */
+    --primary-muted: 168 85% 90%;       /* #CCFBF1 (teal-100) */
 
-    --secondary: 210 40% 96.1%;
+    /* Accent Anchor: Refined Burnished Gold ("Agni" / Growth: #B8891F = 42 71% 42%) */
+    --accent: 42 71% 42%;
+    --accent-foreground: 0 0% 100%;
+    --accent-hover: 40 71% 34%;         /* #936719 (gold-700) */
+    --accent-muted: 45 86% 95%;         /* #FEF9E6 (gold-100) */
+
+    /* Secondary Neutral Controls */
+    --secondary: 210 40% 96.1%;         /* #F1F5F9 (slate-100) */
     --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary-hover: 214.3 31.8% 91.4%;/* #E2E8F0 (slate-200) */
 
+    /* Functional Muted & Cards */
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    /* Golden accent foundation */
-    --accent: 38 92% 50%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
+    /* Borders & Focus Ring */
+    --border: 214.3 31.8% 91.4%;        /* #E2E8F0 (slate-200) */
+    --border-subtle: 210 40% 96.1%;     /* #F1F5F9 (slate-100) */
+    --border-strong: 213 27% 84%;       /* #CBD5E1 (slate-300) */
     --input: 214.3 31.8% 91.4%;
     --ring: 188 94% 37%;
 
-    --radius: 0.5rem;
+    /* Radius Foundation */
+    --radius: 0.5rem;                   /* 8px */
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 222.2 47.4% 11.2%;
+    --background-subtle: 217.2 32.6% 17.5%;
+    --background-elevated: 217.2 32.6% 14%;
+
+    --surface: 222.2 47.4% 11.2%;
+    --surface-hover: 217.2 32.6% 17.5%;
+
     --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --foreground-muted: 215 20.2% 65.1%;
+    --foreground-subtle: 215 16% 47%;
 
     --primary: 188 94% 37%;
     --primary-foreground: 210 40% 98%;
+    --primary-hover: 187 92% 43%;
+    --primary-active: 173 80% 40%;
+    --primary-muted: 194 69% 27%;
+
+    --accent: 42 71% 52%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent-hover: 42 71% 60%;
+    --accent-muted: 40 71% 25%;
 
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
+    --secondary-hover: 217.2 32.6% 22%;
 
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 38 92% 50%;
-    --accent-foreground: 210 40% 98%;
+    --card: 222.2 47.4% 11.2%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 47.4% 11.2%;
+    --popover-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 217.2 32.6% 17.5%;
+    --border-subtle: 217.2 32.6% 14%;
+    --border-strong: 215 25% 27%;
     --input: 217.2 32.6% 17.5%;
     --ring: 188 94% 37%;
   }
@@ -87,7 +128,7 @@
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
-    font-feature-settings: "rlig" 1, "calt" 1;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     min-height: 100vh;
@@ -102,5 +143,232 @@
   :focus-visible {
     outline: 2px solid hsl(var(--ring));
     outline-offset: 2px;
+  }
+}
+
+/* ==========================================================================
+   2. TYPOGRAPHY SYSTEM (Editorial & Coherent Scale)
+   ========================================================================== */
+
+@layer utilities {
+  /* Hero / Editorial Statement */
+  .type-display {
+    font-family: var(--font-fraunces), serif;
+    font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    font-weight: 600;
+  }
+
+  /* Main Page / Hero Headline */
+  .type-h1 {
+    font-family: var(--font-fraunces), serif;
+    font-size: clamp(2rem, 3.5vw + 0.5rem, 3.25rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+  }
+
+  /* Section Title */
+  .type-h2 {
+    font-family: var(--font-fraunces), serif;
+    font-size: clamp(1.625rem, 2.5vw + 0.25rem, 2.375rem);
+    line-height: 1.22;
+    letter-spacing: -0.015em;
+    font-weight: 600;
+  }
+
+  /* Subsection / Feature Headline */
+  .type-h3 {
+    font-family: var(--font-fraunces), serif;
+    font-size: clamp(1.25rem, 1.5vw + 0.25rem, 1.625rem);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    font-weight: 600;
+  }
+
+  /* Card / Module Title */
+  .type-h4 {
+    font-family: var(--font-inter), sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.4;
+    letter-spacing: -0.005em;
+    font-weight: 600;
+  }
+
+  /* Lead / Introductory Paragraph */
+  .type-body-lg {
+    font-family: var(--font-inter), sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    font-weight: 400;
+  }
+
+  /* Standard Body Text */
+  .type-body {
+    font-family: var(--font-inter), sans-serif;
+    font-size: 1rem;
+    line-height: 1.65;
+    font-weight: 400;
+  }
+
+  /* Secondary / Meta Body */
+  .type-body-sm {
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.875rem;
+    line-height: 1.55;
+    font-weight: 400;
+  }
+
+  /* Fine Print / Badge / Caption */
+  .type-caption {
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    font-weight: 500;
+  }
+
+  /* Category Eyebrow / Overline */
+  .type-eyebrow {
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.75rem;
+    line-height: 1;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  /* UI Button Label */
+  .type-button {
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.875rem;
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+
+  /* Navigation Link */
+  .type-nav {
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.9375rem;
+    line-height: 1.25;
+    font-weight: 500;
+  }
+}
+
+/* ==========================================================================
+   3. RESTRAINED EFFECTS (Glassmorphism, Gradients, Glows, Noise)
+   ========================================================================== */
+
+@layer utilities {
+  /* Selective Glass Surface (Light) */
+  .glass-surface {
+    background-color: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);
+  }
+
+  /* Selective Glass Surface (Dark) */
+  .glass-surface-dark {
+    background-color: rgba(15, 23, 42, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(51, 65, 85, 0.6);
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Gradients (Calibrated, not rainbow) */
+  .gradient-primary {
+    background-image: linear-gradient(135deg, #0891B2 0%, #0E7490 100%);
+  }
+
+  .gradient-accent {
+    background-image: linear-gradient(135deg, #DCAE32 0%, #B8891F 100%);
+  }
+
+  .gradient-brand {
+    background-image: linear-gradient(135deg, #0891B2 0%, #0E7490 65%, #B8891F 100%);
+  }
+
+  .gradient-subtle {
+    background-image: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
+  }
+
+  /* Subtle Glows */
+  .glow-teal {
+    box-shadow: 0 0 24px -4px rgba(8, 145, 178, 0.25);
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 24px -4px rgba(184, 137, 31, 0.25);
+  }
+
+  /* Tactile Micro-Noise Texture Layer (Optional tactile depth, ~2.5% opacity) */
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.025'/%3E%3C/svg%3E");
+  }
+}
+
+/* ==========================================================================
+   4. LAYOUT & SECTION SPACING RHYTHM
+   ========================================================================== */
+
+@layer utilities {
+  .section-compact {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  @media (min-width: 768px) {
+    .section-compact {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+  }
+
+  .section-standard {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  @media (min-width: 768px) {
+    .section-standard {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+
+  .section-generous {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+  @media (min-width: 768px) {
+    .section-generous {
+      padding-top: 8rem;
+      padding-bottom: 8rem;
+    }
+  }
+
+  .page-gutters {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  @media (min-width: 640px) {
+    .page-gutters {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .page-gutters {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+  @media (min-width: 1280px) {
+    .page-gutters {
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+    }
   }
 }
