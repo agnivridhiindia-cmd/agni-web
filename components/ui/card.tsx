@@ -2,27 +2,32 @@ import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
-const cardVariants = cva(
+export const cardVariants = cva(
   "rounded-lg transition-all duration-200 text-slate-900",
   {
     variants: {
       variant: {
-        // Standard: Quiet, structured border with subtle shadow
+        // Default / Standard: Quiet structural border with subtle shadow
+        default:
+          "bg-white border border-slate-200 shadow-card hover:border-slate-300",
         standard:
           "bg-white border border-slate-200 shadow-card hover:border-slate-300",
-        // Elevated: More prominent depth for interactive or emphasized modules
+        // Elevated: More prominent depth for interactive service/story cards
         elevated:
           "bg-white border border-slate-200/80 shadow-elevated hover:shadow-floating hover:-translate-y-0.5",
+        // Subtle: Low contrast background for secondary groupings
+        subtle:
+          "bg-slate-50 border border-slate-200/60 shadow-none hover:bg-white hover:border-slate-200",
         // Glass: Selective translucent backdrop blur for floating/hero panels
         glass:
           "glass-surface hover:shadow-elevated",
-        // Featured: Prestige frame with subtle gold or teal accent foundation
+        // Featured: Prestige frame with signature teal-gold gradient border line
         featured:
-          "bg-white border-2 border-teal-600/20 shadow-elevated relative overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1 before:bg-gradient-to-r before:from-teal-600 before:to-gold-500",
+          "bg-white border border-slate-200 shadow-elevated relative overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1 before:bg-gradient-to-r before:from-teal-600 before:to-gold-500 hover:border-slate-300",
       },
     },
     defaultVariants: {
-      variant: "standard",
+      variant: "default",
     },
   }
 );
@@ -31,7 +36,7 @@ export interface CardProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof cardVariants> {}
 
-const Card = React.forwardRef<HTMLDivElement, CardProps>(
+export const Card = React.forwardRef<HTMLDivElement, CardProps>(
   ({ className, variant, ...props }, ref) => (
     <div
       ref={ref}
@@ -42,7 +47,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
 );
 Card.displayName = "Card";
 
-const CardHeader = React.forwardRef<
+export const CardHeader = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
@@ -54,14 +59,14 @@ const CardHeader = React.forwardRef<
 ));
 CardHeader.displayName = "CardHeader";
 
-const CardTitle = React.forwardRef<
+export const CardTitle = React.forwardRef<
   HTMLHeadingElement,
   React.HTMLAttributes<HTMLHeadingElement>
 >(({ className, ...props }, ref) => (
   <h3
     ref={ref}
     className={cn(
-      "font-serif text-xl font-semibold leading-none tracking-tight text-slate-900",
+      "font-serif text-xl font-semibold leading-snug tracking-tight text-slate-900",
       className
     )}
     {...props}
@@ -69,7 +74,7 @@ const CardTitle = React.forwardRef<
 ));
 CardTitle.displayName = "CardTitle";
 
-const CardDescription = React.forwardRef<
+export const CardDescription = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
@@ -81,7 +86,7 @@ const CardDescription = React.forwardRef<
 ));
 CardDescription.displayName = "CardDescription";
 
-const CardContent = React.forwardRef<
+export const CardContent = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
@@ -89,24 +94,14 @@ const CardContent = React.forwardRef<
 ));
 CardContent.displayName = "CardContent";
 
-const CardFooter = React.forwardRef<
+export const CardFooter = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("flex items-center p-6 pt-0 border-t border-slate-100 mt-4", className)}
+    className={cn("flex items-center p-6 pt-0 border-t border-slate-100 mt-auto", className)}
     {...props}
   />
 ));
 CardFooter.displayName = "CardFooter";
-
-export {
-  Card,
-  CardHeader,
-  CardFooter,
-  CardTitle,
-  CardDescription,
-  CardContent,
-  cardVariants,
-};
