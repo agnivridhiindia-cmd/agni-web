@@ -2,6 +2,7 @@ import { Hero } from "@/components/home/hero";
 import { StatsBar } from "@/components/home/stats-bar";
 import { RecognitionSection } from "@/components/home/recognition-section";
 import { FeaturedStories } from "@/components/home/featured-stories";
+import { ServicesTeaser } from "@/components/home/services-teaser";
 import { Phase6Review } from "@/components/home/phase6-review";
 import { Phase5Review } from "@/components/home/phase5-review";
 
@@ -21,6 +22,9 @@ export default function HomePage() {
 
         {/* Phase 10: Featured Success Stories Section */}
         <FeaturedStories />
+
+        {/* Phase 11: Homepage Services Teaser Section */}
+        <ServicesTeaser />
       </main>
 
       {/* Development & Phase Verification Harnesses */}
