@@ -39,3 +39,5 @@ next-env.d.ts
 hero-*.png
 stats-*.png
 recognition-*.png
+stories-*.png
+featured-stories-*.png

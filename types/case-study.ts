@@ -24,6 +24,9 @@ export interface CaseStudyFrontmatter {
   readonly process?: readonly string[];
   readonly outcomes: readonly string[];
   readonly statistics?: readonly CaseStudyStatistic[];
+  readonly statValue?: string;
+  readonly statLabel?: string;
+  readonly statContext?: string;
   readonly quote?: CaseStudyQuote;
   readonly publishedAt: string; // ISO date string
   readonly featured?: boolean;

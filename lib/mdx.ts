@@ -189,7 +189,21 @@ export async function getCaseStudyBySlug(
     solution: (frontmatter.solution as string) || "",
     process: (frontmatter.process as readonly string[]) || [],
     outcomes: (frontmatter.outcomes as readonly string[]) || [],
-    statistics: (frontmatter.statistics as CaseStudyFrontmatter["statistics"]) || [],
+    statistics:
+      (frontmatter.statistics as CaseStudyFrontmatter["statistics"])?.length
+        ? (frontmatter.statistics as CaseStudyFrontmatter["statistics"])
+        : frontmatter.statValue && frontmatter.statLabel
+        ? [
+            {
+              value: frontmatter.statValue as string,
+              label: frontmatter.statLabel as string,
+              context: frontmatter.statContext as string | undefined,
+            },
+          ]
+        : [],
+    statValue: frontmatter.statValue as string | undefined,
+    statLabel: frontmatter.statLabel as string | undefined,
+    statContext: frontmatter.statContext as string | undefined,
     quote: frontmatter.quote as CaseStudyFrontmatter["quote"],
     publishedAt: (frontmatter.publishedAt as string) || new Date().toISOString().split("T")[0],
     featured: Boolean(frontmatter.featured),
@@ -214,4 +228,15 @@ export async function getAllCaseStudies(): Promise<readonly CaseStudyFrontmatter
   return caseStudies.sort(
     (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
   );
+}
+
+/**
+ * Retrieves curated featured case studies for homepage and highlight surfaces.
+ * Prioritizes stories explicitly flagged with `featured: true`.
+ */
+export async function getFeaturedCaseStudies(limit = 3): Promise<readonly CaseStudyFrontmatter[]> {
+  const allStudies = await getAllCaseStudies();
+  const featured = allStudies.filter((study) => study.featured);
+  const regular = allStudies.filter((study) => !study.featured);
+  return [...featured, ...regular].slice(0, limit);
 }
