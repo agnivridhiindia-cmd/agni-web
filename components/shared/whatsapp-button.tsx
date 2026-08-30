@@ -22,7 +22,7 @@ export interface WhatsAppButtonProps {
 /**
  * WhatsApp SVG icon (clean, accessible vector path).
  */
-function WhatsAppIcon({ className }: { className?: string }) {
+export function WhatsAppIcon({ className }: { className?: string }) {
   return (
     <svg
       viewBox="0 0 24 24"
