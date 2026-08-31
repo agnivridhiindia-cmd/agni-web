@@ -94,12 +94,15 @@ export interface FounderRecognition {
 }
 
 export interface FounderConfig {
-  readonly name: string | null; // TODO: Verified founder name
-  readonly role: string | null; // TODO: Verified title (e.g. "Founder & Managing Director")
+  readonly name: string | null;
+  readonly role: string | null;
+  readonly specialty?: string;
   readonly shortBio: string | null;
   readonly fullBio: string | null;
   readonly image: string | null;
   readonly linkedin: string | null;
+  readonly quote?: string;
+  readonly directives?: readonly string[];
   readonly recognition: readonly FounderRecognition[];
   readonly milestones: readonly string[];
 }
@@ -319,12 +322,22 @@ export const siteConfig: MasterSiteConfig = {
   },
 
   founder: {
-    name: null, // TODO: Pending verified founder details
-    role: null, // TODO: Pending verified title
-    shortBio: null,
-    fullBio: null,
-    image: null,
-    linkedin: null,
+    name: "Rahul Kumar Singh",
+    role: "Founder & Principal Executive",
+    specialty: "Institutional Leadership & Corporate Direction",
+    shortBio:
+      "Steering Agnivridhi India's strategic expansion across corporate consulting, sovereign debt advisory, and enterprise digital capabilities, Rahul anchors the institution's commitment to exponential client elevation and uncompromising ethical governance.",
+    fullBio:
+      "With a focus on eliminating fragmented agency middlemen, Rahul established Agnivridhi's synchronized advisory pods to provide Indian MSMEs with direct access to sovereign credit guarantees, statutory accreditations, and institutional scale.",
+    image: null, // Strictly verified: no stock image or artificial photo used
+    linkedin: "https://linkedin.com/company/agnivridhi-india",
+    quote:
+      "True enterprise momentum is forged at the intersection of regulatory certainty, capital leverage, and technological supremacy. We built Agnivridhi to give Indian founders institutional power.",
+    directives: [
+      "Uncompromising ethical governance in every bank and government filing",
+      "Total elimination of fragmented agencies through synchronized advisory pods",
+      "Ensuring Indian MSMEs access sovereign capital without punitive collateral",
+    ],
     recognition: [],
     milestones: [],
   },
