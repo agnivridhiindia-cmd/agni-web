@@ -163,6 +163,26 @@ export async function getAllPosts(): Promise<readonly BlogPostFrontmatter[]> {
 }
 
 /**
+ * Retrieves related blog posts for an article detail page, prioritizing matching category and excluding the current slug.
+ */
+export async function getRelatedPosts(
+  currentSlug: string,
+  category?: string,
+  limit = 2
+): Promise<readonly BlogPostFrontmatter[]> {
+  const allPosts = await getAllPosts();
+  const candidates = allPosts.filter((post) => post.slug !== currentSlug);
+
+  if (category) {
+    const sameCategory = candidates.filter((post) => post.category.toLowerCase() === category.toLowerCase());
+    const otherCategory = candidates.filter((post) => post.category.toLowerCase() !== category.toLowerCase());
+    return [...sameCategory, ...otherCategory].slice(0, limit);
+  }
+
+  return candidates.slice(0, limit);
+}
+
+/**
  * ==============================================================================
  * CASE STUDY HELPERS (Canonical Route: /success-stories/[slug])
  * ==============================================================================
