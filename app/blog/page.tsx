@@ -1,17 +1,47 @@
+import * as React from "react";
 import type { Metadata } from "next";
+import { Suspense } from "react";
+import { getAllPosts } from "@/lib/mdx";
+import { BlogHero } from "@/components/blog/blog-hero";
+import { BlogListing } from "@/components/blog/blog-listing";
 
 export const metadata: Metadata = {
-  title: "Blog & Insights",
-  description: "Expert insights, funding guides, and business regulatory updates from Agnivridhi India.",
+  title: "Insights & Regulatory Guides | Agnivridhi India",
+  description:
+    "Practical knowledge, sovereign scheme breakdowns, and statutory compliance guides covering CGTMSE, PMEGP, MUDRA, and ISO certifications for Indian MSMEs.",
+  alternates: {
+    canonical: "https://agnivridhi.com/blog",
+  },
+  openGraph: {
+    title: "Insights & Regulatory Guides | Agnivridhi India",
+    description:
+      "Practical knowledge, sovereign scheme breakdowns, and statutory compliance guides covering CGTMSE, PMEGP, MUDRA, and ISO certifications for Indian MSMEs.",
+    url: "https://agnivridhi.com/blog",
+    siteName: "Agnivridhi India",
+    type: "website",
+  },
 };
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const posts = await getAllPosts();
+
   return (
-    <div className="container mx-auto py-16 px-4">
-      <h1 className="font-serif text-3xl font-semibold text-slate-900 mb-4">Blog & Insights</h1>
-      <p className="text-slate-600 font-sans">
-        This section is prepared for Phase 2 implementation.
-      </p>
+    <div className="min-h-screen bg-background">
+      {/* 1. Editorial Knowledge Desk Hero */}
+      <BlogHero totalArticles={posts.length} />
+
+      {/* 2. Interactive Category Filter & Articles Collection */}
+      <main id="main-content">
+        <Suspense
+          fallback={
+            <div className="py-20 text-center text-slate-500 text-sm">
+              Loading knowledge hub...
+            </div>
+          }
+        >
+          <BlogListing initialPosts={posts} />
+        </Suspense>
+      </main>
     </div>
   );
 }

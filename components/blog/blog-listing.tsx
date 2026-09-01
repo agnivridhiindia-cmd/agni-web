@@ -1,0 +1,166 @@
+"use client";
+
+import * as React from "react";
+import { useRouter, useSearchParams, usePathname } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
+import { BookOpen, RotateCcw } from "lucide-react";
+import type { BlogPostFrontmatter } from "@/types/blog-post";
+import { Container } from "@/components/shared/container";
+import { Button } from "@/components/ui/button";
+import { ArticleCard } from "./article-card";
+import { CategoryFilter, type BlogFilterCategory } from "./category-filter";
+import { useReducedMotionPreference } from "@/components/shared/motion";
+
+interface BlogListingProps {
+  initialPosts: readonly BlogPostFrontmatter[];
+}
+
+export function BlogListing({ initialPosts }: BlogListingProps) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const prefersReducedMotion = useReducedMotionPreference();
+
+  // Read active category from URL (?category=...)
+  const activeCategory = (searchParams.get("category") || "all").toLowerCase();
+
+  // Build dynamic category taxonomy strictly from verified blog articles
+  const categories = React.useMemo<BlogFilterCategory[]>(() => {
+    const list: BlogFilterCategory[] = [
+      {
+        id: "all",
+        label: "All Insights",
+        count: initialPosts.length,
+      },
+    ];
+
+    const categoryMap: Record<string, { label: string; count: number }> = {};
+    for (const post of initialPosts) {
+      const catKey = post.category.toLowerCase();
+      if (!categoryMap[catKey]) {
+        categoryMap[catKey] = { label: post.category, count: 0 };
+      }
+      categoryMap[catKey].count += 1;
+    }
+
+    for (const [key, data] of Object.entries(categoryMap)) {
+      list.push({
+        id: key,
+        label: data.label,
+        count: data.count,
+      });
+    }
+
+    return list;
+  }, [initialPosts]);
+
+  // Filtered posts based on active category
+  const filteredPosts = React.useMemo(() => {
+    if (activeCategory === "all") {
+      return initialPosts;
+    }
+    return initialPosts.filter(
+      (post) => post.category.toLowerCase() === activeCategory
+    );
+  }, [initialPosts, activeCategory]);
+
+  // Handle category selection and sync with URL
+  const handleSelectCategory = React.useCallback(
+    (categoryId: string) => {
+      const params = new URLSearchParams(searchParams.toString());
+      if (categoryId === "all") {
+        params.delete("category");
+      } else {
+        params.set("category", categoryId);
+      }
+      const query = params.toString();
+      router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false });
+    },
+    [router, pathname, searchParams]
+  );
+
+  // Separate featured article from the remaining grid (no duplicates)
+  const featuredPost = React.useMemo(() => {
+    return filteredPosts.find((p) => p.featured) || (filteredPosts.length > 0 ? filteredPosts[0] : null);
+  }, [filteredPosts]);
+
+  const regularPosts = React.useMemo(() => {
+    if (!featuredPost) {
+      return filteredPosts;
+    }
+    return filteredPosts.filter((p) => p.slug !== featuredPost.slug);
+  }, [filteredPosts, featuredPost]);
+
+  const transitionConfig = prefersReducedMotion
+    ? { duration: 0 }
+    : { duration: 0.2, ease: "easeOut" as const };
+
+  return (
+    <section className="py-12 sm:py-16 lg:py-20">
+      <Container width="wide">
+        {/* Dynamic Category Navigation */}
+        <CategoryFilter
+          categories={categories}
+          activeCategory={activeCategory}
+          onSelectCategory={handleSelectCategory}
+        />
+
+        {/* Filtered Content Presentation */}
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            key={activeCategory}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={transitionConfig}
+          >
+            {filteredPosts.length === 0 ? (
+              /* Empty Filter State */
+              <div className="py-16 sm:py-20 text-center rounded-2xl border border-dashed border-slate-300 bg-slate-50/50 max-w-xl mx-auto space-y-4 px-6">
+                <div className="w-12 h-12 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center mx-auto">
+                  <BookOpen className="w-6 h-6" />
+                </div>
+                <div className="space-y-1">
+                  <h3 className="font-serif text-xl font-semibold text-slate-900">
+                    No Articles in This Category
+                  </h3>
+                  <p className="text-slate-600 text-sm font-sans">
+                    We currently have no published guides under this category filter.
+                  </p>
+                </div>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => handleSelectCategory("all")}
+                  className="mt-2 inline-flex items-center gap-1.5"
+                >
+                  <RotateCcw className="w-3.5 h-3.5" />
+                  <span>View All Insights</span>
+                </Button>
+              </div>
+            ) : (
+              /* Editorial Articles Composition */
+              <div className="space-y-8 sm:space-y-10">
+                {/* 1. Featured Prominent Guide */}
+                {featuredPost && (
+                  <div>
+                    <ArticleCard post={featuredPost} featured={true} />
+                  </div>
+                )}
+
+                {/* 2. Structured Secondary Grid */}
+                {regularPosts.length > 0 && (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                    {regularPosts.map((post) => (
+                      <ArticleCard key={post.slug} post={post} featured={false} />
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
+          </motion.div>
+        </AnimatePresence>
+      </Container>
+    </section>
+  );
+}

@@ -3,13 +3,13 @@ import path from "node:path";
 import type { BlogPostFrontmatter } from "@/types/blog-post";
 import type { CaseStudyFrontmatter } from "@/types/case-study";
 
-const CONTENT_ROOT = path.join(process.cwd(), "content");
-const BLOG_DIR = path.join(CONTENT_ROOT, "blog");
-const CASE_STUDIES_DIR = path.join(CONTENT_ROOT, "case-studies");
+const CONTENT_DIR = path.join(process.cwd(), "content");
+const BLOG_DIR = path.join(CONTENT_DIR, "blog");
+const CASE_STUDIES_DIR = path.join(CONTENT_DIR, "case-studies");
 
 /**
  * Lightweight, safe frontmatter parser.
- * Extracts standard YAML key-value pairs from MDX/Markdown files without bloated dependencies.
+ * Extracts standard YAML key-value pairs, nested objects, and arrays from MDX/Markdown files without bloated dependencies.
  */
 function parseFrontmatter<T>(rawContent: string): { frontmatter: Partial<T>; content: string } {
   const normalized = rawContent.replace(/\r\n/g, "\n");
@@ -26,39 +26,53 @@ function parseFrontmatter<T>(rawContent: string): { frontmatter: Partial<T>; con
   const lines = rawYaml.split("\n");
   let currentKey: string | null = null;
   let currentArray: string[] | null = null;
+  let currentObject: Record<string, unknown> | null = null;
 
   for (const line of lines) {
     const trimmed = line.trim();
     if (!trimmed || trimmed.startsWith("#")) continue;
 
+    const isIndented = line.startsWith("  ") || line.startsWith("\t");
+
     // Array item handling (e.g. "  - item")
-    if (trimmed.startsWith("- ") && currentKey && currentArray) {
+    if (trimmed.startsWith("- ") && currentKey) {
+      if (!currentArray) {
+        currentArray = [];
+        frontmatter[currentKey] = currentArray;
+      }
       currentArray.push(trimmed.replace(/^- /, "").trim().replace(/^['"](.*)['"]$/, "$1"));
       continue;
     }
 
-    const colonIndex = line.indexOf(":");
+    const colonIndex = trimmed.indexOf(":");
     if (colonIndex !== -1) {
-      const key = line.slice(0, colonIndex).trim();
-      const value = line.slice(colonIndex + 1).trim();
+      const key = trimmed.slice(0, colonIndex).trim();
+      const value = trimmed.slice(colonIndex + 1).trim();
 
-      if (value === "") {
-        // Multi-line or array start
+      // Clean value quotes and booleans/numbers
+      let parsedVal: unknown = value.replace(/^['"](.*)['"]$/, "$1");
+      if (value === "true") parsedVal = true;
+      else if (value === "false") parsedVal = false;
+      else if (value === "null") parsedVal = null;
+      else if (/^\d+$/.test(value)) parsedVal = Number.parseInt(value, 10);
+      else if (/^\d+\.\d+$/.test(value)) parsedVal = Number.parseFloat(value);
+
+      if (isIndented && currentKey && !currentArray) {
+        // Nested object property (e.g. author.name, quote.text)
+        if (!currentObject) {
+          currentObject = {};
+          frontmatter[currentKey] = currentObject;
+        }
+        currentObject[key] = parsedVal;
+      } else if (value === "") {
+        // Start of a new block (array or object)
         currentKey = key;
-        currentArray = [];
-        frontmatter[key] = currentArray;
+        currentArray = null;
+        currentObject = null;
       } else {
         currentKey = null;
         currentArray = null;
-
-        // Clean value quotes and booleans/numbers
-        let parsedVal: unknown = value.replace(/^['"](.*)['"]$/, "$1");
-        if (value === "true") parsedVal = true;
-        else if (value === "false") parsedVal = false;
-        else if (value === "null") parsedVal = null;
-        else if (/^\d+$/.test(value)) parsedVal = Number.parseInt(value, 10);
-        else if (/^\d+\.\d+$/.test(value)) parsedVal = Number.parseFloat(value);
-
+        currentObject = null;
         frontmatter[key] = parsedVal;
       }
     }
@@ -105,16 +119,21 @@ export async function getPostBySlug(
   const rawFile = await fs.promises.readFile(filePath, "utf-8");
   const { frontmatter, content } = parseFrontmatter<BlogPostFrontmatter>(rawFile);
 
+  const parsedAuthor =
+    frontmatter.author && typeof frontmatter.author === "object" && "name" in frontmatter.author
+      ? (frontmatter.author as BlogPostFrontmatter["author"])
+      : {
+          name: "Agnivridhi Advisory Desk",
+          role: "Editorial Practice",
+          avatar: null,
+        };
+
   const completeFrontmatter: BlogPostFrontmatter = {
     slug,
     title: (frontmatter.title as string) || slug,
     excerpt: (frontmatter.excerpt as string) || "",
     category: (frontmatter.category as string) || "General",
-    author: (frontmatter.author as BlogPostFrontmatter["author"]) || {
-      name: "Agnivridhi Research",
-      role: "Editorial Team",
-      avatar: null,
-    },
+    author: parsedAuthor,
     publishedAt: (frontmatter.publishedAt as string) || new Date().toISOString().split("T")[0],
     updatedAt: (frontmatter.updatedAt as string) || null,
     readingTime: (frontmatter.readingTime as number) || Math.max(1, Math.ceil(content.split(/\s+/).length / 200)),
