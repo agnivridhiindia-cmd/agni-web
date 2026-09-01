@@ -1,6 +1,15 @@
 import type { Metadata } from "next";
-import { getAllServices, getServiceBySlug } from "@/data/services";
 import { notFound } from "next/navigation";
+import { getAllServices, getServiceBySlug, getRelatedServices } from "@/data/services";
+import { Container } from "@/components/shared/container";
+import { ServiceBreadcrumb } from "@/components/services/service-breadcrumb";
+import { ServiceDetailHero } from "@/components/services/service-detail-hero";
+import { ServiceOverview } from "@/components/services/service-overview";
+import { ServiceProcess } from "@/components/services/service-process";
+import { ServiceFaq } from "@/components/services/service-faq";
+import { ServiceSidebar } from "@/components/services/service-sidebar";
+import { RelatedServices } from "@/components/services/related-services";
+import { ServiceDetailCta } from "@/components/services/service-detail-cta";
 
 interface ServicePageProps {
   params: Promise<{
@@ -21,13 +30,26 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
 
   if (!service) {
     return {
-      title: "Service Not Found",
+      title: "Service Not Found | Agnivridhi India",
+      description: "The requested advisory practice could not be located.",
     };
   }
 
+  const title = service.metadata?.title || `${service.name} | Agnivridhi India`;
+  const description = service.metadata?.description || service.shortDescription;
+
   return {
-    title: service.metadata?.title || `${service.name} | Agnivridhi India`,
-    description: service.metadata?.description || service.shortDescription,
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: "website",
+      url: `https://agnivridhi.com/services/${service.slug}`,
+    },
+    alternates: {
+      canonical: `https://agnivridhi.com/services/${service.slug}`,
+    },
   };
 }
 
@@ -39,18 +61,42 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
     notFound();
   }
 
+  const relatedServices = getRelatedServices(service);
+
   return (
-    <div className="container mx-auto py-16 px-4">
-      <span className="type-eyebrow text-teal-600 uppercase">{service.category}</span>
-      <h1 className="font-serif text-3xl font-semibold text-slate-900 mt-2 mb-4">
-        {service.name}
-      </h1>
-      <p className="text-slate-600 font-sans max-w-reading text-lg mb-6">
-        {service.shortDescription}
-      </p>
-      <div className="p-4 rounded-md bg-slate-50 border border-slate-200 text-sm text-slate-500 font-sans">
-        Phase 3 Data Architecture connected. Structured service data loaded from <code>@/data/services</code>. Detailed service UI layout will be implemented in future phases.
-      </div>
+    <div className="min-h-screen bg-white">
+      <main id="main-content">
+        {/* Semantic Breadcrumb Navigation */}
+        <ServiceBreadcrumb service={service} />
+
+        {/* Editorial Service Header */}
+        <ServiceDetailHero service={service} />
+
+        {/* Core Content Layout with Sticky Consultation Desk Sidebar */}
+        <section className="py-14 sm:py-18 lg:py-20">
+          <Container width="wide">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
+              {/* Primary Content Stream (8 columns on desktop) */}
+              <div className="lg:col-span-8 space-y-14 sm:space-y-16">
+                <ServiceOverview service={service} />
+
+                <ServiceProcess process={service.process} />
+
+                <ServiceFaq faqs={service.faqs} serviceName={service.name} />
+              </div>
+
+              {/* Sticky Consultation Sidebar (4 columns on desktop) */}
+              <ServiceSidebar service={service} />
+            </div>
+          </Container>
+        </section>
+
+        {/* Related Advisory Practices */}
+        <RelatedServices services={relatedServices} />
+
+        {/* Closing Conversion CTA */}
+        <ServiceDetailCta service={service} />
+      </main>
     </div>
   );
 }
