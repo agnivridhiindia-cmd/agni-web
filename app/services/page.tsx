@@ -1,4 +1,3 @@
-
 import type { Metadata } from "next";
 import { getAllServices, getServiceCategories } from "@/data/services";
 import { ServicesHero } from "@/components/services/services-hero";
@@ -19,14 +18,17 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-white">
       <main id="main-content">
-        {/* Phase 15 Architecture:
+        {/* Phase 16 Architecture:
             1. Services Hero: Strategic positioning & credibility parameters
-            2. Category Navigation: Sticky accessible anchor rail with scroll-spy
-            3. Four Distinct Categorical Sections (01 Funding, 02 Compliance, 03 Digital, 04 IT)
+            2. Category Navigation: Sticky accessible anchor rail with dynamic counts & scroll-spy
+            3. Four Distinct Categorical Editorial Directories (01 Funding, 02 Compliance, 03 Digital, 04 IT)
             4. Closing Advisory Diagnostic CTA */}
         <ServicesHero />
 
-        <CategoryNavigation categories={categories} />
+        <CategoryNavigation
+          categories={categories}
+          totalServicesCount={services.length}
+        />
 
         <div className="divide-y divide-slate-100">
           {categories.map((cat, idx) => {
