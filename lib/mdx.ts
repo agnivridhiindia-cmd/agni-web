@@ -240,3 +240,23 @@ export async function getFeaturedCaseStudies(limit = 3): Promise<readonly CaseSt
   const regular = allStudies.filter((study) => !study.featured);
   return [...featured, ...regular].slice(0, limit);
 }
+
+/**
+ * Retrieves related case studies for a detail page, prioritizing matching category and excluding the current slug.
+ */
+export async function getRelatedCaseStudies(
+  currentSlug: string,
+  category?: string,
+  limit = 2
+): Promise<readonly CaseStudyFrontmatter[]> {
+  const allStudies = await getAllCaseStudies();
+  const candidates = allStudies.filter((study) => study.slug !== currentSlug);
+
+  if (category) {
+    const sameCategory = candidates.filter((study) => study.category === category);
+    const otherCategory = candidates.filter((study) => study.category !== category);
+    return [...sameCategory, ...otherCategory].slice(0, limit);
+  }
+
+  return candidates.slice(0, limit);
+}
