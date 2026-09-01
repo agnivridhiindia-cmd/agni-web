@@ -1,7 +1,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { type VariantProps } from "class-variance-authority";
-import { buttonVariants } from "@/components/ui/button";
+import { buttonVariants, renderLetterSwipeChildren } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ExternalLink } from "lucide-react";
 
@@ -48,6 +48,8 @@ export const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
       buttonVariants({ variant, size, fullWidth, className })
     );
 
+    const renderedChildren = renderLetterSwipeChildren(children, variant);
+
     if (isExplicitExternal) {
       return (
         <a
@@ -58,21 +60,21 @@ export const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
           rel="noopener noreferrer"
           {...props}
         >
-          {leftIcon && <span className="mr-2 inline-flex shrink-0">{leftIcon}</span>}
-          <span>{children}</span>
+          {leftIcon && <span className="mr-2 inline-flex shrink-0 group-hover:-translate-x-1 transition-transform duration-200">{leftIcon}</span>}
+          {renderedChildren}
           {showExternalIcon && (
             <ExternalLink className="ml-1.5 h-3.5 w-3.5 opacity-70 shrink-0" />
           )}
-          {rightIcon && <span className="ml-2 inline-flex shrink-0">{rightIcon}</span>}
+          {rightIcon && <span className="ml-2 inline-flex shrink-0 group-hover:translate-x-1 transition-transform duration-200">{rightIcon}</span>}
         </a>
       );
     }
 
     return (
       <Link ref={ref} href={href} className={combinedClassName} {...props}>
-        {leftIcon && <span className="mr-2 inline-flex shrink-0">{leftIcon}</span>}
-        <span>{children}</span>
-        {rightIcon && <span className="ml-2 inline-flex shrink-0">{rightIcon}</span>}
+        {leftIcon && <span className="mr-2 inline-flex shrink-0 group-hover:-translate-x-1 transition-transform duration-200">{leftIcon}</span>}
+        {renderedChildren}
+        {rightIcon && <span className="ml-2 inline-flex shrink-0 group-hover:translate-x-1 transition-transform duration-200">{rightIcon}</span>}
       </Link>
     );
   }

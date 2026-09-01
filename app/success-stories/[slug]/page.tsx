@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getCaseStudyBySlug, getCaseStudySlugs, getRelatedCaseStudies } from "@/lib/mdx";
+import { createPageMetadata, getBreadcrumbJsonLd } from "@/lib/seo";
 import { Container } from "@/components/shared/container";
 import { CaseStudyBreadcrumb } from "@/components/success-stories/detail/case-study-breadcrumb";
 import { CaseStudyHero } from "@/components/success-stories/detail/case-study-hero";
@@ -39,35 +40,23 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
   const result = await getCaseStudyBySlug(slug);
 
   if (!result) {
-    return {
-      title: "Case Study Not Found | Agnivridhi India",
+    return createPageMetadata({
+      title: "Case Study Not Found",
       description: "The requested enterprise case study could not be located.",
-    };
+      path: `/success-stories/${slug}`,
+      noIndex: true,
+    });
   }
 
   const { frontmatter: study } = result;
-  const pageTitle = `${study.title} | Case Study | Agnivridhi India`;
 
-  return {
-    title: pageTitle,
+  return createPageMetadata({
+    title: study.title,
     description: study.summary,
-    alternates: {
-      canonical: `https://agnivridhi.com/success-stories/${slug}`,
-    },
-    openGraph: {
-      title: pageTitle,
-      description: study.summary,
-      url: `https://agnivridhi.com/success-stories/${slug}`,
-      siteName: "Agnivridhi India",
-      type: "article",
-      publishedTime: study.publishedAt,
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: pageTitle,
-      description: study.summary,
-    },
-  };
+    path: `/success-stories/${slug}`,
+    openGraphType: "article",
+    publishedTime: study.publishedAt,
+  });
 }
 
 /**
@@ -86,8 +75,20 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
   const relatedStudies = await getRelatedCaseStudies(slug, study.category, 2);
   const categoryLabel = categoryLabels[study.category] || study.category;
 
+  const breadcrumbJsonLd = getBreadcrumbJsonLd([
+    { name: "Home", path: "/" },
+    { name: "Success Stories", path: "/success-stories" },
+    { name: study.title, path: `/success-stories/${slug}` },
+  ]);
+
   return (
     <div className="min-h-screen bg-background flex flex-col">
+      {/* Schema.org Breadcrumbs */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+
       {/* 1. Semantic Breadcrumb */}
       <CaseStudyBreadcrumb
         title={study.title}

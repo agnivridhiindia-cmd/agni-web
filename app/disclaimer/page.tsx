@@ -1,26 +1,17 @@
 import * as React from "react";
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site-config";
+import { createPageMetadata } from "@/lib/seo";
 import { LegalHeader } from "@/components/legal/legal-header";
 import { LegalNav } from "@/components/legal/legal-nav";
 import { LegalLayout } from "@/components/legal/legal-layout";
 
-export const metadata: Metadata = {
-  title: "Regulatory Disclaimer | Agnivridhi India",
+export const metadata: Metadata = createPageMetadata({
+  title: "Regulatory Disclaimer",
   description:
     "Official regulatory disclaimer and institutional consulting status of Agnivridhi India regarding government schemes, loans, and subsidies.",
-  alternates: {
-    canonical: "https://agnivridhi.com/disclaimer",
-  },
-  openGraph: {
-    title: "Regulatory Disclaimer | Agnivridhi India",
-    description:
-      "Official regulatory disclaimer and institutional consulting status of Agnivridhi India regarding government schemes, loans, and subsidies.",
-    url: "https://agnivridhi.com/disclaimer",
-    siteName: "Agnivridhi India",
-    type: "website",
-  },
-};
+  path: "/disclaimer",
+});
 
 export default function DisclaimerPage() {
   const { city, state, country } = siteConfig.company.location;

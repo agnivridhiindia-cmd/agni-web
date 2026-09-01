@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getAllServices, getServiceBySlug, getRelatedServices } from "@/data/services";
+import { createPageMetadata, getBreadcrumbJsonLd, getServiceJsonLd } from "@/lib/seo";
 import { Container } from "@/components/shared/container";
 import { ServiceBreadcrumb } from "@/components/services/service-breadcrumb";
 import { ServiceDetailHero } from "@/components/services/service-detail-hero";
@@ -29,28 +30,22 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   const service = getServiceBySlug(slug);
 
   if (!service) {
-    return {
-      title: "Service Not Found | Agnivridhi India",
+    return createPageMetadata({
+      title: "Service Not Found",
       description: "The requested advisory practice could not be located.",
-    };
+      path: `/services/${slug}`,
+      noIndex: true,
+    });
   }
 
-  const title = service.metadata?.title || `${service.name} | Agnivridhi India`;
+  const title = service.metadata?.title || service.name;
   const description = service.metadata?.description || service.shortDescription;
 
-  return {
+  return createPageMetadata({
     title,
     description,
-    openGraph: {
-      title,
-      description,
-      type: "website",
-      url: `https://agnivridhi.com/services/${service.slug}`,
-    },
-    alternates: {
-      canonical: `https://agnivridhi.com/services/${service.slug}`,
-    },
-  };
+    path: `/services/${service.slug}`,
+  });
 }
 
 export default async function ServiceDetailPage({ params }: ServicePageProps) {
@@ -63,8 +58,31 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
   const relatedServices = getRelatedServices(service);
 
+  const breadcrumbJsonLd = getBreadcrumbJsonLd([
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/services" },
+    { name: service.name, path: `/services/${service.slug}` },
+  ]);
+
+  const serviceJsonLd = getServiceJsonLd({
+    name: service.name,
+    description: service.shortDescription,
+    slug: service.slug,
+    categoryName: service.category,
+  });
+
   return (
     <div className="min-h-screen bg-white">
+      {/* Schema.org Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
+
       <main id="main-content">
         {/* Semantic Breadcrumb Navigation */}
         <ServiceBreadcrumb service={service} />
@@ -92,7 +110,9 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         </section>
 
         {/* Related Advisory Practices */}
-        <RelatedServices services={relatedServices} />
+        {relatedServices.length > 0 && (
+          <RelatedServices services={relatedServices} />
+        )}
 
         {/* Closing Conversion CTA */}
         <ServiceDetailCta service={service} />

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getBlogPostSlugs, getPostBySlug, getRelatedPosts } from "@/lib/mdx";
 import { extractTocFromMarkdown } from "@/lib/toc";
+import { createPageMetadata, getArticleJsonLd, getBreadcrumbJsonLd } from "@/lib/seo";
 import { Container } from "@/components/shared/container";
 import { ReadingProgress } from "@/components/blog/detail/reading-progress";
 import { ArticleBreadcrumb } from "@/components/blog/detail/article-breadcrumb";
@@ -28,38 +29,24 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   const postData = await getPostBySlug(slug);
 
   if (!postData) {
-    return {
-      title: "Article Not Found | Agnivridhi India",
+    return createPageMetadata({
+      title: "Article Not Found",
       description: "The requested advisory guide could not be located.",
-    };
+      path: `/blog/${slug}`,
+      noIndex: true,
+    });
   }
 
   const { frontmatter } = postData;
-  const title = `${frontmatter.title} | Insights | Agnivridhi India`;
-  const description = frontmatter.excerpt;
-  const canonicalUrl = `https://agnivridhi.com/blog/${slug}`;
 
-  return {
-    title,
-    description,
-    alternates: {
-      canonical: canonicalUrl,
-    },
-    openGraph: {
-      title,
-      description,
-      url: canonicalUrl,
-      siteName: "Agnivridhi India",
-      type: "article",
-      publishedTime: frontmatter.publishedAt,
-      authors: [frontmatter.author.name],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-    },
-  };
+  return createPageMetadata({
+    title: frontmatter.title,
+    description: frontmatter.excerpt,
+    path: `/blog/${slug}`,
+    openGraphType: "article",
+    publishedTime: frontmatter.publishedAt,
+    authors: [frontmatter.author.name],
+  });
 }
 
 export default async function BlogPostDetailPage({ params }: BlogPostPageProps) {
@@ -74,34 +61,31 @@ export default async function BlogPostDetailPage({ params }: BlogPostPageProps) 
   const relatedPosts = await getRelatedPosts(slug, frontmatter.category, 2);
   const tocItems = extractTocFromMarkdown(content);
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: frontmatter.title,
+  const articleJsonLd = getArticleJsonLd({
+    title: frontmatter.title,
     description: frontmatter.excerpt,
-    datePublished: frontmatter.publishedAt,
-    author: {
-      "@type": "Organization",
-      name: frontmatter.author.name,
-      jobTitle: frontmatter.author.role,
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "Agnivridhi India",
-      url: "https://agnivridhi.com",
-    },
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `https://agnivridhi.com/blog/${slug}`,
-    },
-  };
+    publishedAt: frontmatter.publishedAt,
+    authorName: frontmatter.author.name,
+    authorRole: frontmatter.author.role,
+    slug,
+  });
+
+  const breadcrumbJsonLd = getBreadcrumbJsonLd([
+    { name: "Home", path: "/" },
+    { name: "Insights & Blog", path: "/blog" },
+    { name: frontmatter.title, path: `/blog/${slug}` },
+  ]);
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
-      {/* JSON-LD Structured Data */}
+      {/* Schema.org Structured Data */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
       {/* 1. Scroll Reading Progress */}

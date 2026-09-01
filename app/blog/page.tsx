@@ -1,38 +1,28 @@
 import * as React from "react";
 import type { Metadata } from "next";
-import { Suspense } from "react";
 import { getAllPosts } from "@/lib/mdx";
+import { createPageMetadata } from "@/lib/seo";
 import { BlogHero } from "@/components/blog/blog-hero";
 import { BlogListing } from "@/components/blog/blog-listing";
 
-export const metadata: Metadata = {
-  title: "Insights & Regulatory Guides | Agnivridhi India",
+export const metadata: Metadata = createPageMetadata({
+  title: "Insights & Advisory Knowledge Hub",
   description:
-    "Practical knowledge, sovereign scheme breakdowns, and statutory compliance guides covering CGTMSE, PMEGP, MUDRA, and ISO certifications for Indian MSMEs.",
-  alternates: {
-    canonical: "https://agnivridhi.com/blog",
-  },
-  openGraph: {
-    title: "Insights & Regulatory Guides | Agnivridhi India",
-    description:
-      "Practical knowledge, sovereign scheme breakdowns, and statutory compliance guides covering CGTMSE, PMEGP, MUDRA, and ISO certifications for Indian MSMEs.",
-    url: "https://agnivridhi.com/blog",
-    siteName: "Agnivridhi India",
-    type: "website",
-  },
-};
+    "Explore authoritative regulatory breakdowns, scheme blueprints, and compliance roadmaps curated for Indian MSMEs, manufacturers, and startup founders.",
+  path: "/blog",
+});
 
 export default async function BlogPage() {
   const posts = await getAllPosts();
 
   return (
     <div className="min-h-screen bg-background">
-      {/* 1. Editorial Knowledge Desk Hero */}
-      <BlogHero totalArticles={posts.length} />
-
-      {/* 2. Interactive Category Filter & Articles Collection */}
       <main id="main-content">
-        <Suspense
+        {/* Editorial Header */}
+        <BlogHero totalArticles={posts.length} />
+
+        {/* Client filter directory wrapped in Suspense for search params */}
+        <React.Suspense
           fallback={
             <div className="py-20 text-center text-slate-500 text-sm">
               Loading knowledge hub...
@@ -40,7 +30,7 @@ export default async function BlogPage() {
           }
         >
           <BlogListing initialPosts={posts} />
-        </Suspense>
+        </React.Suspense>
       </main>
     </div>
   );

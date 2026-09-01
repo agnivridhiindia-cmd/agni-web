@@ -1,3 +1,6 @@
+import type { Metadata } from "next";
+import { siteConfig } from "@/lib/site-config";
+import { createPageMetadata } from "@/lib/seo";
 import { Hero } from "@/components/home/hero";
 import { StatsBar } from "@/components/home/stats-bar";
 import { RecognitionSection } from "@/components/home/recognition-section";
@@ -6,6 +9,13 @@ import { ServicesTeaser } from "@/components/home/services-teaser";
 import { FinalCta } from "@/components/home/final-cta";
 import { Phase6Review } from "@/components/home/phase6-review";
 import { Phase5Review } from "@/components/home/phase5-review";
+
+export const metadata: Metadata = createPageMetadata({
+  title: "Agnivridhi India | MSME & Startup Business Consulting",
+  description: siteConfig.seo.defaultDescription,
+  path: "/",
+  isAbsoluteTitle: true,
+});
 
 export default function HomePage() {
   return (

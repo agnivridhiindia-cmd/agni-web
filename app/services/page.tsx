@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo";
 import { getAllServices, getServiceCategories } from "@/data/services";
 import { ServicesHero } from "@/components/services/services-hero";
 import { CategoryNavigation } from "@/components/services/category-navigation";
 import { ServiceCategorySection } from "@/components/services/service-category-section";
 import { ServicesCta } from "@/components/services/services-cta";
 
-export const metadata: Metadata = {
-  title: "Advisory Practices & Business Solutions | Agnivridhi India",
+export const metadata: Metadata = createPageMetadata({
+  title: "Advisory Practices & Business Solutions",
   description:
     "Explore our four core institutional practices: Government & Debt Funding, Compliance & ISO Certifications, Digital Transformation, and Custom Software & IT Systems.",
-};
+  path: "/services",
+});
 
 export default function ServicesPage() {
   const services = getAllServices();

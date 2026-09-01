@@ -3,21 +3,24 @@
 import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import {
   Menu,
+  X,
   ChevronDown,
   ArrowRight,
   Landmark,
   ShieldCheck,
   Globe,
   Cpu,
+  Phone,
+  Mail,
+  MapPin,
 } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 import { serviceCategories } from "@/data/services";
 import { cn } from "@/lib/utils";
-import { Container } from "@/components/shared/container";
 import { LinkButton } from "@/components/ui/link-button";
-import { MobileNav } from "@/components/layout/mobile-nav";
 
 const categoryIcons: Record<string, React.ElementType> = {
   funding: Landmark,
@@ -31,9 +34,9 @@ export function Header() {
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [servicesOpen, setServicesOpen] = React.useState(false);
   const [mobileNavOpen, setMobileNavOpen] = React.useState(false);
+  const shouldReduceMotion = useReducedMotion();
 
   const servicesRef = React.useRef<HTMLDivElement>(null);
-  const menuTriggerRef = React.useRef<HTMLButtonElement>(null);
   const hoverTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
 
   // Scroll detection with RAF throttling
@@ -50,9 +53,7 @@ export function Header() {
       }
     };
 
-    // Initial check
     handleScroll();
-
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -81,8 +82,9 @@ export function Header() {
   // Keyboard navigation for dropdown: Escape to close
   React.useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape" && servicesOpen) {
+      if (event.key === "Escape") {
         setServicesOpen(false);
+        setMobileNavOpen(false);
       }
     };
 
@@ -90,7 +92,7 @@ export function Header() {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [servicesOpen]);
+  }, [servicesOpen, mobileNavOpen]);
 
   // Close menus when pathname changes
   React.useEffect(() => {
@@ -125,232 +127,382 @@ export function Header() {
   const brandFirst = brandNameParts[0];
   const brandRest = brandNameParts.slice(1).join(" ") || "India";
 
+  const springTransition = shouldReduceMotion
+    ? { duration: 0 }
+    : { type: "spring" as const, bounce: 0.2, duration: 0.4 };
+
   return (
     <>
-      <header
-        className={cn(
-          "sticky top-0 z-40 w-full transition-all duration-300",
-          isScrolled
-            ? "h-16 bg-white/92 dark:bg-slate-900/92 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800 shadow-subtle"
-            : "h-20 bg-white/70 dark:bg-slate-900/70 backdrop-blur-sm border-b border-slate-200/40 dark:border-slate-800/40"
+      {/* Backdrop overlay when mobile menu is open */}
+      <AnimatePresence>
+        {mobileNavOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: shouldReduceMotion ? 0 : 0.18 }}
+            onClick={() => setMobileNavOpen(false)}
+            aria-hidden="true"
+            className="fixed inset-0 z-40 bg-slate-950/60 backdrop-blur-xs lg:hidden"
+          />
         )}
-      >
-        <Container width="wide" className="h-full flex items-center justify-between">
-          {/* ==========================================================
-              LEFT: Brand Mark / Typographic Treatment
-              ========================================================== */}
-          <Link
-            href="/"
-            aria-label={`${siteConfig.company.name} - Home`}
-            className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 rounded-sm"
-          >
-            <div className="w-9 h-9 rounded-md bg-teal-600 text-white flex items-center justify-center font-serif font-bold text-lg shadow-subtle group-hover:bg-teal-700 transition-colors">
-              {brandFirst[0]}
-            </div>
-            <div className="flex flex-col">
-              <span className="font-serif font-semibold text-lg text-slate-900 dark:text-slate-100 tracking-tight leading-none">
-                {brandFirst}
-              </span>
-              <span className="text-[11px] uppercase font-sans font-semibold tracking-widest text-gold-600 dark:text-gold-500 leading-tight mt-0.5">
-                {brandRest}
-              </span>
-            </div>
-          </Link>
+      </AnimatePresence>
 
-          {/* ==========================================================
-              CENTER: Desktop Navigation
-              ========================================================== */}
-          <nav
-            aria-label="Main Navigation"
-            className="hidden lg:flex items-center gap-1 xl:gap-2"
-          >
-            {/* Home */}
+      {/* Floating Centered Wrapper */}
+      <header className="fixed top-0 inset-x-0 z-50 flex justify-center px-3 sm:px-6 pt-3 sm:pt-4 pointer-events-none transition-all duration-300">
+        <motion.nav
+          layout
+          layoutId="navbar-pill"
+          transition={springTransition}
+          aria-label="Main Navigation"
+          className={cn(
+            "pointer-events-auto relative w-full border shadow-floating select-none transition-colors",
+            "bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/80 dark:border-slate-800",
+            mobileNavOpen
+              ? "max-w-lg rounded-[24px] p-4 sm:p-5"
+              : isScrolled
+              ? "max-w-4xl rounded-full px-4 py-2 sm:px-5 sm:py-2"
+              : "max-w-6xl rounded-full px-5 py-2.5 sm:px-6 sm:py-3"
+          )}
+        >
+          {/* Top Bar Row (Brand, Desktop Nav, CTA, Mobile Toggle) */}
+          <div className="flex items-center justify-between gap-3 sm:gap-4 w-full">
+            {/* Brand Mark */}
             <Link
               href="/"
-              className={cn(
-                "relative px-3.5 py-2 text-sm font-medium transition-colors rounded-md group",
-                isRouteActive("/")
-                  ? "text-teal-700 dark:text-teal-400 font-semibold"
-                  : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-800/50"
-              )}
+              onClick={() => setMobileNavOpen(false)}
+              aria-label={`${siteConfig.company.name} - Home`}
+              className="flex items-center gap-2.5 sm:gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 rounded-full select-none shrink-0"
             >
-              <span>Home</span>
-              {isRouteActive("/") && (
-                <span className="absolute bottom-0 inset-x-3.5 h-0.5 bg-accent rounded-full animate-in fade-in duration-200" />
-              )}
+              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-teal-600 text-white flex items-center justify-center font-serif font-bold text-base sm:text-lg shadow-subtle group-hover:bg-teal-700 transition-transform group-hover:scale-105 duration-200">
+                {brandFirst[0]}
+              </div>
+              <div className="flex flex-col">
+                <span className="font-serif font-semibold text-base sm:text-lg text-slate-900 dark:text-slate-100 tracking-tight leading-none group-hover:text-teal-600 transition-colors">
+                  {brandFirst}
+                </span>
+                <span className="text-[9px] sm:text-[10px] uppercase font-sans font-semibold tracking-widest text-gold-600 dark:text-gold-500 leading-tight mt-0.5">
+                  {brandRest}
+                </span>
+              </div>
             </Link>
 
-            {/* About */}
-            <Link
-              href="/about"
-              className={cn(
-                "relative px-3.5 py-2 text-sm font-medium transition-colors rounded-md group",
-                isRouteActive("/about")
-                  ? "text-teal-700 dark:text-teal-400 font-semibold"
-                  : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-800/50"
-              )}
-            >
-              <span>About</span>
-              {isRouteActive("/about") && (
-                <span className="absolute bottom-0 inset-x-3.5 h-0.5 bg-accent rounded-full animate-in fade-in duration-200" />
-              )}
-            </Link>
+            {/* Desktop Navigation Links */}
+            <div className="hidden lg:flex items-center gap-1 xl:gap-1.5">
+              {/* Home */}
+              <Link
+                href="/"
+                className={cn(
+                  "relative text-xs xl:text-sm font-medium transition-colors rounded-full px-3 py-1.5 group",
+                  isRouteActive("/")
+                    ? "text-teal-700 dark:text-teal-400 font-semibold bg-teal-50 dark:bg-teal-950/50"
+                    : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-100/70 dark:hover:bg-slate-800/60"
+                )}
+              >
+                <span>Home</span>
+              </Link>
 
-            {/* Services with Accessible Dropdown */}
-            <div
-              ref={servicesRef}
-              className="relative"
-              onMouseEnter={handleMouseEnterServices}
-              onMouseLeave={handleMouseLeaveServices}
-            >
+              {/* About */}
+              <Link
+                href="/about"
+                className={cn(
+                  "relative text-xs xl:text-sm font-medium transition-colors rounded-full px-3 py-1.5 group",
+                  isRouteActive("/about")
+                    ? "text-teal-700 dark:text-teal-400 font-semibold bg-teal-50 dark:bg-teal-950/50"
+                    : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-100/70 dark:hover:bg-slate-800/60"
+                )}
+              >
+                <span>About</span>
+              </Link>
+
+              {/* Services with Dropdown */}
+              <div
+                ref={servicesRef}
+                className="relative"
+                onMouseEnter={handleMouseEnterServices}
+                onMouseLeave={handleMouseLeaveServices}
+              >
+                <button
+                  type="button"
+                  onClick={() => setServicesOpen(!servicesOpen)}
+                  aria-expanded={servicesOpen}
+                  aria-haspopup="true"
+                  aria-controls="services-menu"
+                  className={cn(
+                    "relative text-xs xl:text-sm font-medium transition-colors rounded-full px-3 py-1.5 inline-flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 cursor-pointer",
+                    isServicesActive || servicesOpen
+                      ? "text-teal-700 dark:text-teal-400 font-semibold bg-teal-50 dark:bg-teal-950/50"
+                      : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-100/70 dark:hover:bg-slate-800/60"
+                  )}
+                >
+                  <span>Services</span>
+                  <ChevronDown
+                    className={cn(
+                      "w-3.5 h-3.5 transition-transform duration-200",
+                      servicesOpen && "rotate-180 text-teal-600"
+                    )}
+                  />
+                </button>
+
+                {/* Dropdown Menu */}
+                {servicesOpen && (
+                  <div
+                    id="services-menu"
+                    role="menu"
+                    aria-label="Services Submenu"
+                    className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[540px] rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-floating p-4 animate-in fade-in zoom-in-95 duration-150 z-50"
+                  >
+                    <div className="grid grid-cols-2 gap-2">
+                      {serviceCategories.map((category) => {
+                        const IconComp = categoryIcons[category.id] || Landmark;
+                        return (
+                          <Link
+                            key={category.id}
+                            href={`/services#${category.id}`}
+                            role="menuitem"
+                            onClick={() => setServicesOpen(false)}
+                            className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600"
+                          >
+                            <div className="w-8 h-8 rounded-lg bg-teal-50 dark:bg-teal-950/60 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-teal-600 group-hover:text-white transition-colors">
+                              <IconComp className="w-4 h-4" />
+                            </div>
+                            <div>
+                              <span className="block font-medium text-xs sm:text-sm text-slate-900 dark:text-slate-100 group-hover:text-teal-700 dark:group-hover:text-teal-300 transition-colors">
+                                {category.name}
+                              </span>
+                              <span className="block text-[11px] text-slate-500 dark:text-slate-400 line-clamp-1 mt-0.5">
+                                {category.shortDescription}
+                              </span>
+                            </div>
+                          </Link>
+                        );
+                      })}
+                    </div>
+
+                    <div className="mt-3 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between px-2">
+                      <span className="text-xs text-slate-500">
+                        Advisory across 24+ business solutions
+                      </span>
+                      <Link
+                        href="/services"
+                        role="menuitem"
+                        onClick={() => setServicesOpen(false)}
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-teal-600 hover:text-teal-700 transition-colors"
+                      >
+                        <span>Explore all services</span>
+                        <ArrowRight className="w-3 h-3" />
+                      </Link>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Success Stories */}
+              <Link
+                href="/success-stories"
+                className={cn(
+                  "relative text-xs xl:text-sm font-medium transition-colors rounded-full px-3 py-1.5 group",
+                  isRouteActive("/success-stories")
+                    ? "text-teal-700 dark:text-teal-400 font-semibold bg-teal-50 dark:bg-teal-950/50"
+                    : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-100/70 dark:hover:bg-slate-800/60"
+                )}
+              >
+                <span>Success Stories</span>
+              </Link>
+
+              {/* Blog */}
+              <Link
+                href="/blog"
+                className={cn(
+                  "relative text-xs xl:text-sm font-medium transition-colors rounded-full px-3 py-1.5 group",
+                  isRouteActive("/blog")
+                    ? "text-teal-700 dark:text-teal-400 font-semibold bg-teal-50 dark:bg-teal-950/50"
+                    : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-100/70 dark:hover:bg-slate-800/60"
+                )}
+              >
+                <span>Blog</span>
+              </Link>
+            </div>
+
+            {/* Right Action & Mobile Toggle */}
+            <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+              <div className="hidden sm:block">
+                <LinkButton
+                  href="/contact"
+                  variant="primary"
+                  size="sm"
+                  className="rounded-full px-4 py-1.5 font-medium tracking-wide text-xs shadow-subtle hover:scale-[1.02] active:scale-[0.98] transition-transform"
+                >
+                  Contact Us
+                </LinkButton>
+              </div>
+
+              {/* Mobile Hamburger Button */}
               <button
                 type="button"
-                onClick={() => setServicesOpen(!servicesOpen)}
-                aria-expanded={servicesOpen}
-                aria-haspopup="true"
-                aria-controls="services-menu"
-                className={cn(
-                  "relative px-3.5 py-2 text-sm font-medium transition-colors rounded-md inline-flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600",
-                  isServicesActive
-                    ? "text-teal-700 dark:text-teal-400 font-semibold"
-                    : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-800/50"
-                )}
+                onClick={() => setMobileNavOpen((prev) => !prev)}
+                aria-expanded={mobileNavOpen}
+                aria-label={mobileNavOpen ? "Close navigation menu" : "Open navigation menu"}
+                className="lg:hidden w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-full text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 cursor-pointer"
               >
-                <span>Services</span>
-                <ChevronDown
-                  className={cn(
-                    "w-3.5 h-3.5 transition-transform duration-200",
-                    servicesOpen && "rotate-180"
-                  )}
-                />
-                {isServicesActive && (
-                  <span className="absolute bottom-0 inset-x-3.5 h-0.5 bg-accent rounded-full animate-in fade-in duration-200" />
-                )}
+                {mobileNavOpen ? <X className="w-4 h-4 sm:w-5 sm:h-5" /> : <Menu className="w-4 h-4 sm:w-5 sm:h-5" />}
               </button>
+            </div>
+          </div>
 
-              {/* Desktop Dropdown Panel */}
-              {servicesOpen && (
-                <div
-                  id="services-menu"
-                  role="menu"
-                  aria-label="Services Submenu"
-                  className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-[560px] rounded-lg border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-floating p-4 animate-in fade-in zoom-in-95 duration-150"
-                >
+          {/* Morphing Mobile Content */}
+          <AnimatePresence>
+            {mobileNavOpen && (
+              <motion.div
+                initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -6 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: -6 }}
+                transition={{
+                  duration: shouldReduceMotion ? 0 : 0.2,
+                  delay: shouldReduceMotion ? 0 : 0.16,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                className="w-full pt-4 pb-2 border-t border-slate-200/80 dark:border-slate-800 mt-3 flex flex-col font-sans overflow-hidden"
+              >
+                <div className="max-h-[calc(76vh-4rem)] overflow-y-auto pr-1 space-y-2.5">
+                  {/* Home & About Links */}
                   <div className="grid grid-cols-2 gap-2">
-                    {serviceCategories.map((category) => {
-                      const IconComp = categoryIcons[category.id] || Landmark;
-                      return (
-                        <Link
-                          key={category.id}
-                          href={`/services#${category.id}`}
-                          role="menuitem"
-                          onClick={() => setServicesOpen(false)}
-                          className="flex items-start gap-3 p-3 rounded-md hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600"
-                        >
-                          <div className="w-8 h-8 rounded-md bg-teal-50 dark:bg-teal-950/60 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-teal-600 group-hover:text-white transition-colors">
-                            <IconComp className="w-4 h-4" />
-                          </div>
-                          <div>
-                            <span className="block font-medium text-sm text-slate-900 dark:text-slate-100 group-hover:text-teal-700 dark:group-hover:text-teal-300 transition-colors">
-                              {category.name}
-                            </span>
-                            <span className="block text-xs text-slate-500 dark:text-slate-400 line-clamp-2 mt-0.5">
-                              {category.shortDescription}
-                            </span>
-                          </div>
-                        </Link>
-                      );
-                    })}
-                  </div>
-
-                  <div className="mt-3 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between px-2">
-                    <span className="text-xs text-slate-500">
-                      Advisory across 24+ business solutions
-                    </span>
                     <Link
-                      href="/services"
-                      role="menuitem"
-                      onClick={() => setServicesOpen(false)}
-                      className="inline-flex items-center gap-1 text-xs font-semibold text-teal-600 hover:text-teal-700 transition-colors"
+                      href="/"
+                      onClick={() => setMobileNavOpen(false)}
+                      className={cn(
+                        "p-2.5 text-center rounded-xl text-xs font-semibold uppercase tracking-wider transition-colors border",
+                        isRouteActive("/")
+                          ? "bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 border-teal-200 dark:border-teal-800"
+                          : "bg-slate-50 dark:bg-slate-800/60 text-slate-800 dark:text-slate-200 border-slate-200/80 dark:border-slate-800 hover:bg-slate-100"
+                      )}
                     >
-                      <span>Explore all services</span>
-                      <ArrowRight className="w-3 h-3" />
+                      Home
+                    </Link>
+                    <Link
+                      href="/about"
+                      onClick={() => setMobileNavOpen(false)}
+                      className={cn(
+                        "p-2.5 text-center rounded-xl text-xs font-semibold uppercase tracking-wider transition-colors border",
+                        isRouteActive("/about")
+                          ? "bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 border-teal-200 dark:border-teal-800"
+                          : "bg-slate-50 dark:bg-slate-800/60 text-slate-800 dark:text-slate-200 border-slate-200/80 dark:border-slate-800 hover:bg-slate-100"
+                      )}
+                    >
+                      About
                     </Link>
                   </div>
+
+                  {/* Services Accordion List */}
+                  <div className="rounded-xl border border-slate-200/80 dark:border-slate-800 overflow-hidden bg-slate-50/50 dark:bg-slate-800/30">
+                    <div className="p-3 bg-slate-100/70 dark:bg-slate-800/70 border-b border-slate-200/80 dark:border-slate-800 flex items-center justify-between text-xs font-semibold text-slate-900 dark:text-slate-100">
+                      <span>Advisory Services</span>
+                      <Link
+                        href="/services"
+                        onClick={() => setMobileNavOpen(false)}
+                        className="text-[11px] text-teal-600 font-medium hover:underline flex items-center gap-1"
+                      >
+                        <span>View all</span>
+                        <ArrowRight className="w-3 h-3" />
+                      </Link>
+                    </div>
+                    <div className="p-2 space-y-1">
+                      {serviceCategories.map((cat) => {
+                        const IconComp = categoryIcons[cat.id] || Landmark;
+                        return (
+                          <Link
+                            key={cat.id}
+                            href={`/services#${cat.id}`}
+                            onClick={() => setMobileNavOpen(false)}
+                            className="flex items-center gap-2.5 p-2 rounded-lg hover:bg-white dark:hover:bg-slate-800 text-xs text-slate-700 dark:text-slate-300 transition-colors"
+                          >
+                            <div className="w-6 h-6 rounded-md bg-teal-50 dark:bg-teal-950/60 text-teal-600 flex items-center justify-center shrink-0">
+                              <IconComp className="w-3.5 h-3.5" />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <p className="font-medium text-slate-900 dark:text-slate-100 truncate">
+                                {cat.name}
+                              </p>
+                            </div>
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Stories & Blog */}
+                  <div className="grid grid-cols-2 gap-2">
+                    <Link
+                      href="/success-stories"
+                      onClick={() => setMobileNavOpen(false)}
+                      className={cn(
+                        "p-2.5 text-center rounded-xl text-xs font-semibold uppercase tracking-wider transition-colors border",
+                        isRouteActive("/success-stories")
+                          ? "bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 border-teal-200 dark:border-teal-800"
+                          : "bg-slate-50 dark:bg-slate-800/60 text-slate-800 dark:text-slate-200 border-slate-200/80 dark:border-slate-800 hover:bg-slate-100"
+                      )}
+                    >
+                      Stories
+                    </Link>
+                    <Link
+                      href="/blog"
+                      onClick={() => setMobileNavOpen(false)}
+                      className={cn(
+                        "p-2.5 text-center rounded-xl text-xs font-semibold uppercase tracking-wider transition-colors border",
+                        isRouteActive("/blog")
+                          ? "bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 border-teal-200 dark:border-teal-800"
+                          : "bg-slate-50 dark:bg-slate-800/60 text-slate-800 dark:text-slate-200 border-slate-200/80 dark:border-slate-800 hover:bg-slate-100"
+                      )}
+                    >
+                      Blog
+                    </Link>
+                  </div>
+
+                  {/* Contact Info */}
+                  <div className="p-2.5 rounded-xl border border-slate-200/80 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/30 text-xs space-y-1.5">
+                    {siteConfig.contact.phone && (
+                      <a
+                        href={`tel:${siteConfig.contact.phone}`}
+                        className="flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-teal-600 transition-colors"
+                      >
+                        <Phone className="w-3.5 h-3.5 text-teal-600 shrink-0" />
+                        <span className="font-mono text-[11px]">{siteConfig.contact.phone}</span>
+                      </a>
+                    )}
+                    {siteConfig.contact.email && (
+                      <a
+                        href={`mailto:${siteConfig.contact.email}`}
+                        className="flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-teal-600 transition-colors"
+                      >
+                        <Mail className="w-3.5 h-3.5 text-teal-600 shrink-0" />
+                        <span className="font-mono text-[11px]">{siteConfig.contact.email}</span>
+                      </a>
+                    )}
+                    <div className="flex items-center gap-2 text-[10px] text-slate-500 pt-0.5">
+                      <MapPin className="w-3.5 h-3.5 text-gold-600 shrink-0" />
+                      <span>{siteConfig.company.location.city}, {siteConfig.company.location.state}</span>
+                    </div>
+                  </div>
+
+                  {/* Primary CTA in Modal */}
+                  <div className="pt-1">
+                    <LinkButton
+                      href="/contact"
+                      onClick={() => setMobileNavOpen(false)}
+                      variant="primary"
+                      size="default"
+                      fullWidth
+                      className="rounded-full uppercase tracking-wider text-xs font-semibold py-2.5"
+                    >
+                      Contact Advisory Team
+                    </LinkButton>
+                  </div>
                 </div>
-              )}
-            </div>
-
-            {/* Success Stories */}
-            <Link
-              href="/success-stories"
-              className={cn(
-                "relative px-3.5 py-2 text-sm font-medium transition-colors rounded-md group",
-                isRouteActive("/success-stories")
-                  ? "text-teal-700 dark:text-teal-400 font-semibold"
-                  : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-800/50"
-              )}
-            >
-              <span>Success Stories</span>
-              {isRouteActive("/success-stories") && (
-                <span className="absolute bottom-0 inset-x-3.5 h-0.5 bg-accent rounded-full animate-in fade-in duration-200" />
-              )}
-            </Link>
-
-            {/* Blog */}
-            <Link
-              href="/blog"
-              className={cn(
-                "relative px-3.5 py-2 text-sm font-medium transition-colors rounded-md group",
-                isRouteActive("/blog")
-                  ? "text-teal-700 dark:text-teal-400 font-semibold"
-                  : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-800/50"
-              )}
-            >
-              <span>Blog</span>
-              {isRouteActive("/blog") && (
-                <span className="absolute bottom-0 inset-x-3.5 h-0.5 bg-accent rounded-full animate-in fade-in duration-200" />
-              )}
-            </Link>
-          </nav>
-
-          {/* ==========================================================
-              RIGHT: Contact CTA & Mobile Menu Trigger
-              ========================================================== */}
-          <div className="flex items-center gap-3">
-            {/* Desktop Contact CTA */}
-            <div className="hidden sm:block">
-              <LinkButton
-                href="/contact"
-                variant="primary"
-                size={isScrolled ? "sm" : "default"}
-                className="font-medium tracking-wide transition-all"
-              >
-                Contact Us
-              </LinkButton>
-            </div>
-
-            {/* Mobile Menu Hamburger */}
-            <button
-              ref={menuTriggerRef}
-              type="button"
-              onClick={() => setMobileNavOpen(true)}
-              aria-expanded={mobileNavOpen}
-              aria-label="Open navigation menu"
-              className="lg:hidden min-w-[44px] min-h-[44px] flex items-center justify-center rounded-md text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600"
-            >
-              <Menu className="w-5 h-5" />
-            </button>
-          </div>
-        </Container>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.nav>
       </header>
-
-      {/* Mobile Navigation Drawer */}
-      <MobileNav
-        isOpen={mobileNavOpen}
-        onClose={() => setMobileNavOpen(false)}
-        triggerRef={menuTriggerRef}
-      />
     </>
   );
 }

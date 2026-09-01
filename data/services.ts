@@ -427,3 +427,27 @@ export function getFeaturedServices(): readonly Service[] {
 export function getServiceCategories(): readonly ServiceCategoryMeta[] {
   return serviceCategories;
 }
+
+export function getRelatedServices(service: Service): readonly Service[] {
+  const relatedSlugs = service.relatedServices || [];
+  if (relatedSlugs.length === 0) {
+    return servicesCatalog
+      .filter((s) => s.category === service.category && s.slug !== service.slug)
+      .slice(0, 3);
+  }
+  const related = servicesCatalog.filter((s) =>
+    relatedSlugs.includes(s.slug)
+  );
+  if (related.length < 3) {
+    const additional = servicesCatalog.filter(
+      (s) =>
+        s.category === service.category &&
+        s.slug !== service.slug &&
+        !related.some((r) => r.slug === s.slug)
+    );
+    return [...related, ...additional].slice(0, 3);
+  }
+  return related.slice(0, 3);
+}
+
+

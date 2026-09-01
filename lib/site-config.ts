@@ -422,7 +422,7 @@ export const siteConfig: MasterSiteConfig = {
       "Startup funding consultant India",
     ],
     ogImage: "/og-image.jpg",
-    siteUrl: "https://agnivridhi.com",
+    siteUrl: "https://agnivridhiindia.com",
     locale: "en_IN",
     organization: {
       name: "Agnivridhi India",

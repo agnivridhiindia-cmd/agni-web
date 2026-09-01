@@ -1,26 +1,17 @@
 import * as React from "react";
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site-config";
+import { createPageMetadata } from "@/lib/seo";
 import { LegalHeader } from "@/components/legal/legal-header";
 import { LegalNav } from "@/components/legal/legal-nav";
 import { LegalLayout } from "@/components/legal/legal-layout";
 
-export const metadata: Metadata = {
-  title: "Terms of Service | Agnivridhi India",
+export const metadata: Metadata = createPageMetadata({
+  title: "Terms of Service",
   description:
     "Terms and conditions governing the use of Agnivridhi India website, preliminary advisory diagnostics, and consulting services.",
-  alternates: {
-    canonical: "https://agnivridhi.com/terms",
-  },
-  openGraph: {
-    title: "Terms of Service | Agnivridhi India",
-    description:
-      "Terms and conditions governing the use of Agnivridhi India website, preliminary advisory diagnostics, and consulting services.",
-    url: "https://agnivridhi.com/terms",
-    siteName: "Agnivridhi India",
-    type: "website",
-  },
-};
+  path: "/terms",
+});
 
 export default function TermsPage() {
   const { state, country } = siteConfig.company.location;

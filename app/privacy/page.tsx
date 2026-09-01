@@ -1,26 +1,17 @@
 import * as React from "react";
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site-config";
+import { createPageMetadata } from "@/lib/seo";
 import { LegalHeader } from "@/components/legal/legal-header";
 import { LegalNav } from "@/components/legal/legal-nav";
 import { LegalLayout } from "@/components/legal/legal-layout";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy | Agnivridhi India",
+export const metadata: Metadata = createPageMetadata({
+  title: "Privacy Policy",
   description:
     "Privacy policy and data governance practices of Agnivridhi India. Learn how enterprise metrics, DPR data, and client records are protected.",
-  alternates: {
-    canonical: "https://agnivridhi.com/privacy",
-  },
-  openGraph: {
-    title: "Privacy Policy | Agnivridhi India",
-    description:
-      "Privacy policy and data governance practices of Agnivridhi India. Learn how enterprise metrics, DPR data, and client records are protected.",
-    url: "https://agnivridhi.com/privacy",
-    siteName: "Agnivridhi India",
-    type: "website",
-  },
-};
+  path: "/privacy",
+});
 
 export default function PrivacyPage() {
   const { city, state, country } = siteConfig.company.location;

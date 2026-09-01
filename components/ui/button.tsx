@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
 
 export const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-all duration-200 select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 active:scale-[0.98]",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-all duration-200 select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 active:scale-[0.98] group cursor-pointer",
   {
     variants: {
       variant: {
@@ -71,6 +71,116 @@ export interface ButtonProps
   rightIcon?: React.ReactNode;
 }
 
+/**
+ * Letter-Swipe Hover Effect Renderer:
+ * Splits a string label into per-character slots with alternate translateY transitions
+ * triggered via group hover, marked aria-hidden for screen-reader safety.
+ */
+export function renderLetterSwipeText(text: string) {
+  const chars = Array.from(text);
+
+  return (
+    <span className="relative inline-flex items-center">
+      {/* Accessible visually-hidden plain label for screen readers */}
+      <span className="sr-only">{text}</span>
+
+      {/* Decorative letter-swipe presentation */}
+      <span aria-hidden="true" className="inline-flex overflow-hidden">
+        {chars.map((char, i) => {
+          if (char === " ") {
+            return (
+              <span key={i} className="inline-block whitespace-pre">
+                {" "}
+              </span>
+            );
+          }
+
+          const isEven = i % 2 === 0;
+          const delayMs = i * 16;
+          const style: React.CSSProperties = {
+            transitionDelay: `${delayMs}ms`,
+          };
+
+          return (
+            <span
+              key={i}
+              className="relative inline-flex flex-col h-[1.25em] overflow-hidden leading-[1.25em]"
+            >
+              {/* Primary character: slides out on group-hover */}
+              <span
+                style={style}
+                className={cn(
+                  "inline-block transition-transform duration-[380ms] ease-[cubic-bezier(0.25,0.75,0.25,1)]",
+                  isEven
+                    ? "group-hover:-translate-y-full"
+                    : "group-hover:translate-y-full"
+                )}
+              >
+                {char}
+              </span>
+
+              {/* Secondary character: slides in on group-hover */}
+              <span
+                style={style}
+                className={cn(
+                  "absolute inset-0 inline-block transition-transform duration-[380ms] ease-[cubic-bezier(0.25,0.75,0.25,1)]",
+                  isEven
+                    ? "translate-y-full group-hover:translate-y-0"
+                    : "-translate-y-full group-hover:translate-y-0"
+                )}
+              >
+                {char}
+              </span>
+            </span>
+          );
+        })}
+      </span>
+    </span>
+  );
+}
+
+export function renderLetterSwipeChildren(children: React.ReactNode, variant?: string | null): React.ReactNode {
+  if (variant === "link") {
+    return children;
+  }
+
+  // Handle direct string child
+  if (typeof children === "string") {
+    return renderLetterSwipeText(children);
+  }
+
+  // Handle children with nested strings or <span>text</span> patterns
+  if (React.isValidElement(children)) {
+    // If child is <span>text</span>
+    const childElement = children as React.ReactElement<{ children?: React.ReactNode; className?: string }>;
+    if (typeof childElement.props?.children === "string") {
+      return React.cloneElement(childElement, {
+        children: renderLetterSwipeText(childElement.props.children),
+      });
+    }
+  }
+
+  // Handle array of children (e.g. <span>Label</span> and <Icon />)
+  if (Array.isArray(children)) {
+    return React.Children.map(children, (child) => {
+      if (typeof child === "string") {
+        return renderLetterSwipeText(child);
+      }
+      if (React.isValidElement(child)) {
+        const childElement = child as React.ReactElement<{ children?: React.ReactNode }>;
+        if (typeof childElement.props?.children === "string") {
+          return React.cloneElement(childElement, {
+            children: renderLetterSwipeText(childElement.props.children),
+          });
+        }
+      }
+      return child;
+    });
+  }
+
+  return children;
+}
+
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
@@ -87,6 +197,8 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref
   ) => {
+    const renderedChildren = renderLetterSwipeChildren(children, variant);
+
     return (
       <button
         className={cn(buttonVariants({ variant, size, fullWidth, className }))}
@@ -99,11 +211,11 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           <Loader2 className="mr-2 h-4 w-4 animate-spin text-current shrink-0" />
         )}
         {!loading && leftIcon && (
-          <span className="mr-2 inline-flex shrink-0">{leftIcon}</span>
+          <span className="mr-2 inline-flex shrink-0 group-hover:-translate-x-1 transition-transform duration-200">{leftIcon}</span>
         )}
-        <span>{children}</span>
+        {renderedChildren}
         {!loading && rightIcon && (
-          <span className="ml-2 inline-flex shrink-0">{rightIcon}</span>
+          <span className="ml-2 inline-flex shrink-0 group-hover:translate-x-1 transition-transform duration-200">{rightIcon}</span>
         )}
       </button>
     );

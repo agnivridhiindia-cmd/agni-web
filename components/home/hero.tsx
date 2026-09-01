@@ -11,6 +11,7 @@ import {
   FileCheck2,
   Building,
 } from "lucide-react";
+import Image from "next/image";
 import { siteConfig } from "@/lib/site-config";
 import { Container } from "@/components/shared/container";
 import { Eyebrow, Badge } from "@/components/ui/badge";
@@ -25,22 +26,38 @@ export function Hero() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative overflow-hidden pt-28 pb-16 sm:pt-32 md:pt-36 md:pb-24 lg:pt-36 lg:pb-32 bg-slate-50/70 bg-noise border-b border-slate-200/70"
+      className="relative overflow-hidden pt-28 pb-16 sm:pt-32 md:pt-36 md:pb-24 lg:pt-36 lg:pb-32 border-b border-slate-200/80"
     >
-      {/* 1. Atmospheric Ambient Lighting & Grid Accent */}
+      {/* 1. Hero Background Photography with Sophisticated Atmospheric Overlays */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
+        className="pointer-events-none absolute inset-0 z-0 overflow-hidden select-none"
       >
+        {/* Responsive Optimized Photography */}
+        <Image
+          src="/img/hero-bg.jpg"
+          alt="Agnivridhi Strategic Advisory Office"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center transform-gpu will-change-transform"
+        />
+
+        {/* Directional Optical Veil: Soft localized wash over left text column, clear view for right image area */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-white/15 sm:from-white/88 sm:via-white/50 sm:to-transparent" />
+
+        {/* Vertical Transition: Subtle fade at top and bottom to seamlessly merge with navbar and lower section */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/50 via-transparent to-white/70" />
+
         {/* Soft Teal Radial Aura - Top Right */}
         <div className="absolute -top-32 right-[-10%] h-[500px] w-[500px] rounded-full bg-teal-500/10 blur-[120px] will-change-transform" />
 
         {/* Soft Burnished Gold Ambient Whisper - Bottom Left */}
-        <div className="absolute -bottom-24 left-[-10%] h-[420px] w-[420px] rounded-full bg-gold-500/8 blur-[100px] will-change-transform" />
+        <div className="absolute -bottom-24 left-[-10%] h-[420px] w-[420px] rounded-full bg-gold-500/10 blur-[100px] will-change-transform" />
 
         {/* Fine Architectural Grid Pattern with Radial Gradient Fade */}
         <div
-          className="absolute inset-0 opacity-[0.03] [background-image:linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] [background-size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)]"
+          className="absolute inset-0 opacity-[0.02] [background-image:linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] [background-size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)]"
         />
       </div>
 

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Fraunces } from "next/font/google";
 import { siteConfig } from "@/lib/site-config";
+import { getOrganizationJsonLd } from "@/lib/seo";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { WhatsAppButton } from "@/components/shared/whatsapp-button";
@@ -19,23 +20,49 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.seo.siteUrl),
   title: {
-    default: `${siteConfig.name} | MSME & Startup Business Consulting`,
-    template: `%s | ${siteConfig.name}`,
+    default: "Agnivridhi India | MSME & Startup Business Consulting",
+    template: `%s | ${siteConfig.company.name}`,
   },
-  description: siteConfig.description,
-  metadataBase: new URL(siteConfig.url),
+  description: siteConfig.seo.defaultDescription,
+  keywords: [...siteConfig.seo.keywords],
+  authors: [{ name: siteConfig.company.name, url: siteConfig.seo.siteUrl }],
+  creator: siteConfig.company.name,
+  publisher: siteConfig.company.name,
+  alternates: {
+    canonical: siteConfig.seo.siteUrl,
+  },
   openGraph: {
-    title: siteConfig.name,
-    description: siteConfig.description,
-    url: siteConfig.url,
-    siteName: siteConfig.name,
-    locale: "en_IN",
+    title: "Agnivridhi India | MSME & Startup Business Consulting",
+    description: siteConfig.seo.defaultDescription,
+    url: siteConfig.seo.siteUrl,
+    siteName: siteConfig.company.name,
+    locale: siteConfig.seo.locale,
     type: "website",
+    images: [
+      {
+        url: `${siteConfig.seo.siteUrl}${siteConfig.seo.ogImage}`,
+        alt: "Agnivridhi India Institutional Business Advisory",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Agnivridhi India | MSME & Startup Business Consulting",
+    description: siteConfig.seo.defaultDescription,
+    images: [`${siteConfig.seo.siteUrl}${siteConfig.seo.ogImage}`],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
@@ -44,8 +71,17 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const organizationJsonLd = getOrganizationJsonLd();
+
   return (
     <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
+      <head>
+        {/* Schema.org Organization Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+      </head>
       <body className="font-sans antialiased bg-background text-foreground flex min-h-screen flex-col selection:bg-teal-600 selection:text-white">
         <a
           href="#main-content"
@@ -63,4 +99,3 @@ export default function RootLayout({
     </html>
   );
 }
-

@@ -1,6 +1,7 @@
 import * as React from "react";
 import type { Metadata } from "next";
 import { Suspense } from "react";
+import { createPageMetadata } from "@/lib/seo";
 import { Container } from "@/components/shared/container";
 import { ContactHero } from "@/components/contact/contact-hero";
 import { ContactInfo } from "@/components/contact/contact-info";
@@ -9,22 +10,12 @@ import { ContactFaq } from "@/components/contact/contact-faq";
 import { MapLocation } from "@/components/contact/map-location";
 import { ContactForm } from "@/components/contact/contact-form";
 
-export const metadata: Metadata = {
-  title: "Contact & Preliminary Consultation | Agnivridhi India",
+export const metadata: Metadata = createPageMetadata({
+  title: "Contact & Preliminary Consultation",
   description:
     "Schedule a confidential preliminary diagnostic with Agnivridhi India. Connect with MSME funding and compliance advisors in Noida, UP.",
-  alternates: {
-    canonical: "https://agnivridhi.com/contact",
-  },
-  openGraph: {
-    title: "Contact & Preliminary Consultation | Agnivridhi India",
-    description:
-      "Schedule a confidential preliminary diagnostic with Agnivridhi India. Connect with MSME funding and compliance advisors in Noida, UP.",
-    url: "https://agnivridhi.com/contact",
-    siteName: "Agnivridhi India",
-    type: "website",
-  },
-};
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (
