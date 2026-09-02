@@ -7,7 +7,10 @@ import { FadeIn } from "@/components/shared/motion";
 
 export function AboutHero() {
   return (
-    <header className="relative pt-24 pb-16 sm:pt-28 sm:pb-20 lg:pt-32 lg:pb-24 bg-slate-50/70 bg-noise border-b border-slate-200/80">
+    <section
+      aria-labelledby="about-hero-heading"
+      className="relative border-b border-slate-200/80 bg-slate-50/70 bg-noise pt-28 pb-14 sm:pt-32 sm:pb-16 lg:pt-36 lg:pb-20 overflow-hidden"
+    >
       <Container width="wide">
         <FadeIn direction="up" distance={20} delay={0.05}>
           <div className="max-w-4xl space-y-6 sm:space-y-8">
@@ -20,7 +23,10 @@ export function AboutHero() {
             </div>
 
             {/* Main Editorial Headline */}
-            <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-semibold text-slate-950 tracking-tight leading-[1.15]">
+            <h1
+              id="about-hero-heading"
+              className="font-serif text-3xl sm:text-5xl lg:text-6xl font-semibold text-slate-950 tracking-tight leading-[1.15]"
+            >
               A Strategic Advisory Desk Built for Indian Enterprise Momentum.
             </h1>
 
@@ -56,6 +62,6 @@ export function AboutHero() {
           </div>
         </FadeIn>
       </Container>
-    </header>
+    </section>
   );
 }

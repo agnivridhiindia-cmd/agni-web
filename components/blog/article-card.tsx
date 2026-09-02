@@ -55,7 +55,7 @@ export function ArticleCard({ post, featured = false, className }: ArticleCardPr
       {featured && (
         <div
           aria-hidden="true"
-          className="absolute top-0 left-0 right-0 h-1.5 bg-linear-to-r from-gold-500 via-teal-600 to-teal-500 rounded-t-2xl"
+          className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-gold-500 via-teal-600 to-teal-500 rounded-t-2xl"
         />
       )}
 
