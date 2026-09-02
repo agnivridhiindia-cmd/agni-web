@@ -18,7 +18,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { CheckCircle2, Send, RotateCcw, Loader2, ShieldCheck } from "lucide-react";
+import { CheckCircle2, Send, RotateCcw, Loader2, ShieldCheck, AlertCircle } from "lucide-react";
 
 interface ContactFormProps {
   initialService?: string;
@@ -32,6 +32,8 @@ export function ContactForm({ initialService = "" }: ContactFormProps) {
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [isSubmitted, setIsSubmitted] = React.useState(false);
   const [referenceCode, setReferenceCode] = React.useState<string>("");
+  const [submitError, setSubmitError] = React.useState<string | null>(null);
+  const honeypotRef = React.useRef<HTMLInputElement>(null);
   const services = getAllServices();
 
   const {
@@ -54,19 +56,36 @@ export function ContactForm({ initialService = "" }: ContactFormProps) {
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
-    if (process.env.NODE_ENV === "development") {
-      // eslint-disable-next-line no-console
-      console.log("Inbound consultation inquiry submitted:", data);
+    setSubmitError(null);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...data, website: honeypotRef.current?.value ?? "" }),
+      });
+
+      const result = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        throw new Error(result?.error || "Failed to submit inquiry. Please try again.");
+      }
+
+      setReferenceCode(result.referenceCode ?? `AGNI-${Math.floor(100000 + Math.random() * 900000)}`);
+      setIsSubmitted(true);
+    } catch (err) {
+      setSubmitError(
+        err instanceof Error
+          ? err.message
+          : "Something went wrong while submitting your inquiry. Please try again."
+      );
+    } finally {
+      setIsSubmitting(false);
     }
-    // Simulate initial diagnostic dispatch latency
-    await new Promise((resolve) => setTimeout(resolve, 800));
-    setReferenceCode(`AGNI-${Math.floor(100000 + Math.random() * 900000)}`);
-    setIsSubmitting(false);
-    setIsSubmitted(true);
   };
 
   const handleReset = () => {
     setIsSubmitted(false);
+    setSubmitError(null);
     reset({
       name: "",
       email: "",
@@ -119,9 +138,23 @@ export function ContactForm({ initialService = "" }: ContactFormProps) {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200/90 shadow-md space-y-5"
+      className="relative p-6 sm:p-8 rounded-2xl bg-white border border-slate-200/90 shadow-md space-y-5"
       noValidate
     >
+      {/* Honeypot field — hidden from real users, catches basic bots.
+          Kept out of the validation schema; checked server-side in /api/contact. */}
+      <div className="absolute -left-[9999px] w-px h-px overflow-hidden" aria-hidden="true">
+        <label htmlFor="website">Website</label>
+        <input
+          ref={honeypotRef}
+          id="website"
+          name="website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
+
       <div className="border-b border-slate-100 pb-4">
         <h3 className="font-serif text-xl sm:text-2xl font-semibold text-slate-900">
           Request Confidential Diagnostic
@@ -202,7 +235,7 @@ export function ContactForm({ initialService = "" }: ContactFormProps) {
           name="service"
           control={control}
           render={({ field }) => (
-            <Select onValueChange={field.onChange} value={field.value || undefined}>
+            <Select onValueChange={field.onChange} value={field.value ?? ""}>
               <SelectTrigger id="contact-service" error={Boolean(errors.service)}>
                 <SelectValue placeholder="Select primary practice area or scheme..." />
               </SelectTrigger>
@@ -236,6 +269,15 @@ export function ContactForm({ initialService = "" }: ContactFormProps) {
 
       {/* Trust & Submit row */}
       <div className="pt-2 space-y-3">
+        {submitError && (
+          <div
+            role="alert"
+            className="flex items-start gap-2 p-3 rounded-lg bg-red-50 border border-red-200 text-red-700 text-xs"
+          >
+            <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" aria-hidden="true" />
+            <span>{submitError}</span>
+          </div>
+        )}
         <Button
           type="submit"
           variant="primary"
