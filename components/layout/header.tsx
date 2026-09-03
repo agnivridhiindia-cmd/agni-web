@@ -156,13 +156,13 @@ export function Header() {
           transition={springTransition}
           aria-label="Main Navigation"
           className={cn(
-            "pointer-events-auto relative w-full border shadow-floating select-none transition-colors",
-            "bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-slate-200/80 dark:border-slate-800",
+            "pointer-events-auto relative w-full border shadow-floating select-none transition-all duration-300",
+            "backdrop-blur-2xl backdrop-saturate-150 supports-[backdrop-filter]:bg-white/50 bg-white/75 dark:supports-[backdrop-filter]:bg-slate-900/50 dark:bg-slate-900/75",
             mobileNavOpen
-              ? "max-w-lg rounded-[24px] p-4 sm:p-5"
+              ? "max-w-lg rounded-[24px] p-4 sm:p-5 border-slate-200/80 dark:border-slate-800"
               : isScrolled
-              ? "max-w-4xl rounded-full px-4 py-2 sm:px-5 sm:py-2"
-              : "max-w-6xl rounded-full px-5 py-2.5 sm:px-6 sm:py-3"
+              ? "max-w-4xl rounded-full px-4 py-2 sm:px-5 sm:py-2 border-white/70 dark:border-slate-800/80 supports-[backdrop-filter]:bg-white/65 shadow-elevated"
+              : "max-w-6xl rounded-full px-5 py-2.5 sm:px-6 sm:py-3 border-white/60 dark:border-white/10"
           )}
         >
           {/* Top Bar Row (Brand, Desktop Nav, CTA, Mobile Toggle) */}
@@ -250,7 +250,7 @@ export function Header() {
                     id="services-menu"
                     role="menu"
                     aria-label="Services Submenu"
-                    className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[540px] rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-floating p-4 animate-in fade-in zoom-in-95 duration-150 z-50"
+                    className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[540px] rounded-2xl border border-white/60 dark:border-slate-800 supports-[backdrop-filter]:bg-white/80 bg-white/95 dark:supports-[backdrop-filter]:bg-slate-900/85 dark:bg-slate-900 backdrop-blur-2xl shadow-floating p-4 animate-in fade-in zoom-in-95 duration-150 z-50"
                   >
                     <div className="grid grid-cols-2 gap-2">
                       {serviceCategories.map((category) => {

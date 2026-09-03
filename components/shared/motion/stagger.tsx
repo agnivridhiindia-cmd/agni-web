@@ -76,6 +76,7 @@ export function StaggerContainer({
 export interface StaggerItemProps extends Omit<HTMLMotionProps<"div">, "children"> {
   children?: React.ReactNode;
   distance?: number;
+  direction?: "up" | "down" | "left" | "right";
   duration?: number;
   className?: string;
 }
@@ -86,6 +87,7 @@ export interface StaggerItemProps extends Omit<HTMLMotionProps<"div">, "children
 export function StaggerItem({
   children,
   distance = 12,
+  direction = "up",
   duration = motionDuration.normal,
   className,
   ...props
@@ -99,9 +101,14 @@ export function StaggerItem({
   return (
     <motion.div
       variants={{
-        hidden: { opacity: 0, y: distance },
+        hidden: {
+          opacity: 0,
+          x: direction === "left" ? -distance : direction === "right" ? distance : 0,
+          y: direction === "up" ? distance : direction === "down" ? -distance : 0,
+        },
         visible: {
           opacity: 1,
+          x: 0,
           y: 0,
           transition: {
             duration,

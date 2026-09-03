@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import Link from "next/link";
 import {
@@ -25,6 +27,42 @@ interface SocialLinkDefinition {
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const videoRef = React.useRef<HTMLVideoElement>(null);
+
+  // IntersectionObserver: Ensure video only runs when visible in viewport
+  React.useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.defaultMuted = true;
+    video.muted = true;
+
+    // Check prefers-reduced-motion
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (mediaQuery.matches) {
+      video.pause();
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {
+            // Autoplay policy fallback
+          });
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.05 }
+    );
+
+    observer.observe(video);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   // Social links configuration with strict null-checks (zero '#' or dead links)
   const socialCandidates: SocialLinkDefinition[] = [
@@ -62,7 +100,6 @@ export function Footer() {
       item.href !== "#"
   );
 
-
   // Address formatted cleanly from single source of truth
   const addressParts = [
     siteConfig.contact.address.street,
@@ -73,38 +110,65 @@ export function Footer() {
   ].filter(Boolean);
 
   return (
-    <footer className="bg-slate-950 text-slate-300 border-t border-slate-800/80">
-      <Container width="wide" className="page-gutters py-16 lg:py-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
+    <footer className="relative overflow-hidden border-t border-slate-200/80 bg-slate-100 text-slate-800 min-h-[560px] sm:min-h-[640px] lg:min-h-[720px] flex flex-col justify-between">
+      {/* Background Video Layer with atmospheric overlays */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-0 overflow-hidden select-none"
+      >
+        <video
+          ref={videoRef}
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          className="absolute inset-0 h-full w-full object-cover object-center transform-gpu will-change-transform"
+        >
+          <source
+            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260815_032550_4c49689d-a215-41e0-bb76-8ef78f562429.mp4"
+            type="video/mp4"
+          />
+        </video>
+
+        {/* Soft atmospheric gradient: completely clear across the center so the video, cliffs, and flowers are prominently visible */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-transparent via-70% to-white/60" />
+
+        {/* Ambient brand glow whispers */}
+        <div className="absolute -bottom-24 -right-16 h-[450px] w-[450px] rounded-full bg-teal-500/10 blur-[120px] will-change-transform" />
+        <div className="absolute -top-24 -left-16 h-[400px] w-[400px] rounded-full bg-gold-500/10 blur-[100px] will-change-transform" />
+      </div>
+
+      <Container width="wide" className="page-gutters relative z-10 pt-20 pb-16 sm:pt-28 sm:pb-20 lg:pt-32 lg:pb-24 flex flex-col flex-1 justify-between">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12">
           {/* ==========================================================
               COLUMN 1: Brand & Strategic Positioning (Span 4)
               ========================================================== */}
-          <div className="lg:col-span-4 space-y-4">
+          <div className="lg:col-span-4 space-y-5">
             <Link
               href="/"
               aria-label="Agnivridhi India - Home"
               className="inline-flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 rounded-sm"
             >
-              <div className="w-9 h-9 rounded-md bg-teal-600 text-white flex items-center justify-center font-serif font-bold text-lg shadow-subtle group-hover:bg-teal-500 transition-colors">
+              <div className="w-10 h-10 rounded-lg bg-teal-700 text-white flex items-center justify-center font-serif font-bold text-xl shadow-subtle group-hover:bg-teal-800 transition-colors">
                 A
               </div>
               <div className="flex flex-col">
-                <span className="font-serif font-semibold text-lg text-white tracking-tight leading-none">
+                <span className="font-serif font-bold text-xl text-slate-950 tracking-tight leading-none group-hover:text-teal-700 transition-colors">
                   {siteConfig.company.name.split(" ")[0]}
                 </span>
-                <span className="text-[11px] uppercase font-sans font-semibold tracking-widest text-gold-500 leading-tight mt-0.5">
+                <span className="text-[11px] uppercase font-sans font-bold tracking-widest text-teal-800 leading-tight mt-0.5">
                   {siteConfig.company.name.split(" ").slice(1).join(" ") || "India"}
                 </span>
               </div>
             </Link>
 
-            <p className="text-sm text-slate-400 font-sans leading-relaxed max-w-sm">
+            <p className="text-sm text-slate-700 font-sans font-medium leading-relaxed max-w-sm">
               {siteConfig.company.longDescription}
             </p>
 
             {/* Verified Location Stamp */}
-            <div className="flex items-center gap-2 text-xs text-slate-400 pt-2">
-              <MapPin className="w-4 h-4 text-gold-500 shrink-0" />
+            <div className="flex items-center gap-2 text-xs font-medium text-slate-700 pt-1">
+              <MapPin className="w-4 h-4 text-teal-700 shrink-0" />
               <span>
                 {siteConfig.company.location.city},{" "}
                 {siteConfig.company.location.state},{" "}
@@ -124,7 +188,7 @@ export function Footer() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`Follow Agnivridhi India on ${social.name}`}
-                      className="w-8 h-8 rounded-md bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700 hover:bg-slate-800 flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600"
+                      className="w-9 h-9 rounded-lg bg-white/80 hover:bg-white border border-slate-200/90 text-slate-700 hover:text-teal-700 hover:border-teal-400/50 shadow-subtle flex items-center justify-center transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600"
                     >
                       <Icon className="w-4 h-4" />
                     </a>
@@ -138,14 +202,14 @@ export function Footer() {
               COLUMN 2: Company Navigation (Span 2)
               ========================================================== */}
           <div className="lg:col-span-2 space-y-4">
-            <h3 className="text-xs uppercase font-sans font-semibold tracking-widest text-slate-200">
+            <h3 className="text-xs uppercase font-sans font-bold tracking-widest text-slate-950">
               Company
             </h3>
-            <ul className="space-y-2.5 text-sm">
+            <ul className="space-y-3 text-sm font-medium">
               <li>
                 <Link
                   href="/about"
-                  className="text-slate-400 hover:text-white transition-colors"
+                  className="text-slate-700 hover:text-teal-800 transition-colors inline-block"
                 >
                   About Us
                 </Link>
@@ -153,7 +217,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/success-stories"
-                  className="text-slate-400 hover:text-white transition-colors"
+                  className="text-slate-700 hover:text-teal-800 transition-colors inline-block"
                 >
                   Success Stories
                 </Link>
@@ -161,15 +225,15 @@ export function Footer() {
               <li>
                 <Link
                   href="/blog"
-                  className="text-slate-400 hover:text-white transition-colors"
+                  className="text-slate-700 hover:text-teal-800 transition-colors inline-block"
                 >
-                  Insights & Blog
+                  Insights &amp; Blog
                 </Link>
               </li>
               <li>
                 <Link
                   href="/contact"
-                  className="text-slate-400 hover:text-white transition-colors"
+                  className="text-slate-700 hover:text-teal-800 transition-colors inline-block"
                 >
                   Contact Advisory
                 </Link>
@@ -181,28 +245,28 @@ export function Footer() {
               COLUMN 3: Services Categories (Span 3)
               ========================================================== */}
           <div className="lg:col-span-3 space-y-4">
-            <h3 className="text-xs uppercase font-sans font-semibold tracking-widest text-slate-200">
+            <h3 className="text-xs uppercase font-sans font-bold tracking-widest text-slate-950">
               Advisory Services
             </h3>
-            <ul className="space-y-2.5 text-sm">
+            <ul className="space-y-3 text-sm font-medium">
               {serviceCategories.map((category) => (
                 <li key={category.id}>
                   <Link
                     href={`/services#${category.id}`}
-                    className="text-slate-400 hover:text-white transition-colors flex items-center gap-1 group"
+                    className="text-slate-700 hover:text-teal-800 transition-colors flex items-center gap-1 group"
                   >
                     <span>{category.name}</span>
-                    <ArrowRight className="w-3 h-3 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-teal-400" />
+                    <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-teal-700" />
                   </Link>
                 </li>
               ))}
-              <li className="pt-1">
+              <li className="pt-2">
                 <Link
                   href="/services"
-                  className="text-xs font-semibold text-teal-400 hover:text-teal-300 transition-colors inline-flex items-center gap-1"
+                  className="text-xs font-bold text-teal-700 hover:text-teal-900 transition-colors inline-flex items-center gap-1.5"
                 >
                   <span>View All 24+ Services</span>
-                  <ArrowRight className="w-3 h-3" />
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </li>
             </ul>
@@ -212,14 +276,14 @@ export function Footer() {
               COLUMN 4: Verified Contact / Advisory Desk (Span 3)
               ========================================================== */}
           <div className="lg:col-span-3 space-y-4">
-            <h3 className="text-xs uppercase font-sans font-semibold tracking-widest text-slate-200">
+            <h3 className="text-xs uppercase font-sans font-bold tracking-widest text-slate-950">
               Advisory Desk
             </h3>
-            <div className="space-y-3 text-sm text-slate-400">
+            <div className="space-y-3.5 text-sm text-slate-700 font-medium">
               {/* Address (Only rendered if components exist) */}
               {addressParts.length > 0 && (
                 <div className="flex items-start gap-2.5">
-                  <MapPin className="w-4 h-4 text-slate-500 shrink-0 mt-0.5" />
+                  <MapPin className="w-4 h-4 text-teal-700 shrink-0 mt-0.5" />
                   <span className="leading-relaxed">
                     {addressParts.join(", ")}
                   </span>
@@ -229,10 +293,10 @@ export function Footer() {
               {/* Phone (Only rendered if verified non-null) */}
               {siteConfig.contact.phone && (
                 <div className="flex items-center gap-2.5">
-                  <Phone className="w-4 h-4 text-slate-500 shrink-0" />
+                  <Phone className="w-4 h-4 text-teal-700 shrink-0" />
                   <a
                     href={`tel:${siteConfig.contact.phone}`}
-                    className="hover:text-white transition-colors"
+                    className="text-slate-800 hover:text-teal-700 transition-colors"
                   >
                     {siteConfig.contact.phone}
                   </a>
@@ -242,10 +306,10 @@ export function Footer() {
               {/* Email (Only rendered if verified non-null) */}
               {siteConfig.contact.email && (
                 <div className="flex items-center gap-2.5">
-                  <Mail className="w-4 h-4 text-slate-500 shrink-0" />
+                  <Mail className="w-4 h-4 text-teal-700 shrink-0" />
                   <a
                     href={`mailto:${siteConfig.contact.email}`}
-                    className="hover:text-white transition-colors"
+                    className="text-slate-800 hover:text-teal-700 transition-colors"
                   >
                     {siteConfig.contact.email}
                   </a>
@@ -263,7 +327,7 @@ export function Footer() {
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-white transition-colors"
+                    className="text-slate-800 hover:text-emerald-700 transition-colors"
                   >
                     WhatsApp Business
                   </a>
@@ -271,7 +335,7 @@ export function Footer() {
               )}
 
               {/* Consultation availability note */}
-              <div className="pt-2 border-t border-slate-900 text-xs text-slate-500 leading-relaxed">
+              <div className="pt-2.5 border-t border-slate-300/70 text-xs text-slate-600 leading-relaxed font-normal">
                 Advising MSMEs, manufacturing enterprises, and emerging startups across India.
               </div>
             </div>
@@ -281,7 +345,7 @@ export function Footer() {
         {/* ==========================================================
             BOTTOM BAR: Copyright & Legal Navigation
             ========================================================== */}
-        <div className="mt-16 pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="mt-20 pt-8 border-t border-slate-300/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-semibold text-slate-800 drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)]">
           <p>
             &copy; {currentYear} {siteConfig.company.name}. All rights reserved.
           </p>
@@ -291,7 +355,7 @@ export function Footer() {
               <Link
                 key={legalItem.href}
                 href={legalItem.href}
-                className="hover:text-slate-300 transition-colors"
+                className="hover:text-teal-900 transition-colors"
               >
                 {legalItem.label}
               </Link>

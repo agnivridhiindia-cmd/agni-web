@@ -2,6 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes hero-ambient-drift {
+  0% {
+    transform: translate3d(-2%, -1%, 0) scale(1.04);
+  }
+  50% {
+    transform: translate3d(2%, 1%, 0) scale(1.08);
+  }
+  100% {
+    transform: translate3d(-2%, -1%, 0) scale(1.04);
+  }
+}
+
+.hero-ambient-drift {
+  position: absolute;
+  inset: -8%;
+  pointer-events: none;
+  opacity: 0.06;
+  background:
+    radial-gradient(circle at 18% 30%, rgb(13 148 136 / 0.8), transparent 34%),
+    radial-gradient(circle at 82% 64%, rgb(202 138 4 / 0.6), transparent 32%);
+  animation: hero-ambient-drift 75s linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-ambient-drift {
+    animation: none;
+    transform: translate3d(-2%, -1%, 0) scale(1.04);
+  }
+
+  .hero-headline-word {
+    clip-path: inset(0 0 0 0) !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 /* ==========================================================================
    1. DESIGN TOKENS & CSS VARIABLES
    ========================================================================== */

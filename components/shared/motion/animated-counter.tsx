@@ -41,8 +41,6 @@ export function AnimatedCounter({
   const inView = useInView(ref, { once: true, margin: "-20px" });
   const prefersReduced = useReducedMotionPreference();
 
-  const [displayValue, setDisplayValue] = React.useState<string>("0");
-
   // Parse numeric target from string or number
   const numericTarget = React.useMemo(() => {
     if (value === null || value === undefined) return null;
@@ -58,6 +56,10 @@ export function AnimatedCounter({
       maximumFractionDigits: decimals,
     });
   }, [locale, decimals]);
+
+  const [displayValue, setDisplayValue] = React.useState<string>(() =>
+    numericTarget === null ? fallback : formatter.format(numericTarget)
+  );
 
   React.useEffect(() => {
     if (numericTarget === null) {
