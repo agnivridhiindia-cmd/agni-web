@@ -10,13 +10,13 @@ export function SuccessStoriesHero({ totalStories }: SuccessStoriesHeroProps) {
   return (
     <section
       aria-labelledby="stories-hero-heading"
-      className="relative border-b border-slate-200/80 bg-slate-50/70 pt-32 pb-14 sm:pt-36 sm:pb-16 lg:pt-40 lg:pb-20 overflow-hidden"
+      className="relative border-b border-[#232727] bg-[#080909] pt-32 pb-14 sm:pt-36 sm:pb-16 lg:pt-40 lg:pb-20 overflow-hidden"
     >
       <Container width="wide">
         <div className="max-w-3xl space-y-6">
           {/* Eyebrow & Credibility Badge */}
           <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
-            <span className="font-mono text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded border bg-teal-50 border-teal-200/90 text-teal-900">
+            <span className="font-mono text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded border bg-[#C79A4A]/10 border-[#C79A4A]/30 text-[#C79A4A]">
               PROVEN OUTCOMES &bull; CASE STUDIES
             </span>
 
@@ -31,13 +31,13 @@ export function SuccessStoriesHero({ totalStories }: SuccessStoriesHeroProps) {
           {/* Headline */}
           <h1
             id="stories-hero-heading"
-            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-slate-900 tracking-tight leading-[1.15]"
+            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-[#F3EFE7] tracking-tight leading-[1.15]"
           >
             Progress looks different for every business.
           </h1>
 
           {/* Subtitle */}
-          <p className="type-body-lg text-slate-600 font-sans leading-relaxed max-w-2xl">
+          <p className="type-body-lg text-[#D1CBC1] font-sans leading-relaxed max-w-2xl">
             Real-world engagement summaries demonstrating how structured financial engineering,
             sovereign credit guarantee schemes, and statutory compliance unlock scalable
             enterprise momentum across Indian industry.

@@ -327,7 +327,7 @@ export function ContactForm({ initialService = "" }: ContactFormProps) {
   // Submission Confirmed Screen
   if (isSubmitted) {
     return (
-      <div className="p-8 md:p-10 rounded-2xl bg-white border border-slate-200/90 shadow-xl text-center space-y-6 animate-in fade-in zoom-in-95 duration-300">
+      <div className="p-8 md:p-10 rounded-2xl bg-[#111313] border border-[#232727] shadow-2xl text-center space-y-6 animate-in fade-in zoom-in-95 duration-300">
         <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto shadow-xs border border-emerald-200">
           <CheckCircle2 className="w-8 h-8" aria-hidden="true" />
         </div>
@@ -336,21 +336,21 @@ export function ContactForm({ initialService = "" }: ContactFormProps) {
           <span className="font-mono text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full">
             {activeTab === "slot" ? "Diagnostic Slot Reserved" : "Inquiry Registered"}
           </span>
-          <h3 className="font-serif text-2xl sm:text-3xl font-semibold text-slate-900">
+          <h3 className="font-serif text-2xl sm:text-3xl font-semibold text-[#F3EFE7]">
             {activeTab === "slot"
               ? "30-Minute Preliminary Session Confirmed"
               : "Advisory Diagnostic Parameters Received"}
           </h3>
-          <p className="text-slate-600 text-sm max-w-md mx-auto font-sans leading-relaxed">
+          <p className="text-[#D1CBC1] text-sm max-w-md mx-auto font-sans leading-relaxed">
             {activeTab === "slot"
               ? `Your consultation with Rahul Kumar Singh / Practice Principal is slated for ${selectedDate} at ${selectedTime}. An executive calendar invite has been dispatched.`
               : "Your enterprise parameters have been allocated to the senior underwriting practice lead. You will receive an initial appraisal within 24 business hours."}
           </p>
         </div>
 
-        <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-700 font-mono max-w-xs mx-auto space-y-1">
-          <div className="text-slate-500 text-[11px] uppercase tracking-wider">Reference Ledger Code</div>
-          <div className="text-base font-bold text-slate-900 tracking-wide">{referenceCode}</div>
+        <div className="p-4 rounded-xl bg-[#181A1A] border border-[#232727] text-xs text-[#D1CBC1] font-mono max-w-xs mx-auto space-y-1">
+          <div className="text-[#8E8B82] text-[11px] uppercase tracking-wider">Reference Ledger Code</div>
+          <div className="text-base font-bold text-[#F3EFE7] tracking-wide">{referenceCode}</div>
         </div>
 
         <div className="pt-2">
@@ -369,7 +369,7 @@ export function ContactForm({ initialService = "" }: ContactFormProps) {
   }
 
   return (
-    <div className="relative rounded-2xl bg-white border border-slate-200/90 shadow-xl overflow-hidden">
+    <div className="relative rounded-2xl bg-[#111313] border border-[#232727] shadow-2xl overflow-hidden">
       {/* Honeypot field for bot suppression */}
       <div className="absolute -left-[9999px] w-px h-px overflow-hidden" aria-hidden="true">
         <label htmlFor="website">Website</label>
@@ -377,15 +377,15 @@ export function ContactForm({ initialService = "" }: ContactFormProps) {
       </div>
 
       {/* Top Tab Switcher: Stepper Form vs Instant Slot Booking */}
-      <div className="p-3 bg-slate-50 border-b border-slate-200 flex items-center gap-2">
+      <div className="p-3 bg-[#0B0C0C] border-b border-[#232727] flex items-center gap-2">
         <button
           type="button"
           onClick={() => setActiveTab("stepper")}
           className={cn(
             "flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-all",
             activeTab === "stepper"
-              ? "bg-white text-slate-900 shadow-sm border border-slate-200/80"
-              : "text-slate-500 hover:text-slate-900 hover:bg-slate-100"
+              ? "bg-[#181A1A] text-[#F3EFE7] shadow-sm border border-[#C79A4A]/60"
+              : "text-[#8E8B82] hover:text-[#F3EFE7] hover:bg-[#141616]"
           )}
         >
           <ClipboardCheck className="w-4 h-4 text-teal-700" />
@@ -398,8 +398,8 @@ export function ContactForm({ initialService = "" }: ContactFormProps) {
           className={cn(
             "flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-all",
             activeTab === "slot"
-              ? "bg-white text-slate-900 shadow-sm border border-slate-200/80"
-              : "text-slate-500 hover:text-slate-900 hover:bg-slate-100"
+              ? "bg-[#181A1A] text-[#F3EFE7] shadow-sm border border-[#C79A4A]/60"
+              : "text-[#8E8B82] hover:text-[#F3EFE7] hover:bg-[#141616]"
           )}
         >
           <CalendarClock className="w-4 h-4 text-amber-600" />
@@ -416,16 +416,16 @@ export function ContactForm({ initialService = "" }: ContactFormProps) {
             {/* Stepper Progress Bar */}
             <div className="space-y-2">
               <div className="flex items-center justify-between text-xs font-mono">
-                <span className="font-bold uppercase tracking-wider text-teal-900">
+                <span className="font-bold uppercase tracking-wider text-[#C79A4A]">
                   Step {currentStep} of 3
                 </span>
-                <span className="text-slate-500">
+                <span className="text-[#8E8B82]">
                   {currentStep === 1 && "Enterprise Need"}
                   {currentStep === 2 && "Turnover Scale"}
                   {currentStep === 3 && "Executive Details"}
                 </span>
               </div>
-              <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+              <div className="w-full h-1.5 bg-[#181A1A] rounded-full overflow-hidden">
                 <div
                   className="h-full bg-gradient-to-r from-teal-600 to-amber-500 transition-all duration-300"
                   style={{ width: `${(currentStep / 3) * 100}%` }}
@@ -437,10 +437,10 @@ export function ContactForm({ initialService = "" }: ContactFormProps) {
             {currentStep === 1 && (
               <div className="space-y-4">
                 <div className="space-y-1">
-                  <h4 className="font-serif text-lg font-semibold text-slate-900">
+                  <h4 className="font-serif text-lg font-semibold text-[#F3EFE7]">
                     Select Your Enterprise Need
                   </h4>
-                  <p className="text-xs text-slate-500 font-sans">
+                  <p className="text-xs text-[#8E8B82] font-sans">
                     Choose the primary practice area for preliminary sovereign or statutory underwriting.
                   </p>
                 </div>
@@ -457,30 +457,30 @@ export function ContactForm({ initialService = "" }: ContactFormProps) {
                         className={cn(
                           "w-full text-left p-4 rounded-xl border transition-all flex items-start gap-3.5 group",
                           isSelected
-                            ? "bg-teal-50/70 border-teal-600 shadow-xs ring-1 ring-teal-600/30"
-                            : "bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50/60"
+                            ? "bg-[#181A1A] border-[#C79A4A] shadow-md ring-1 ring-[#C79A4A]/40"
+                            : "bg-[#111313] border-[#232727] hover:border-[#C79A4A]/50 hover:bg-[#151717]"
                         )}
                       >
                         <div
                           className={cn(
                             "w-9 h-9 rounded-lg flex items-center justify-center shrink-0 border transition-colors",
                             isSelected
-                              ? "bg-teal-700 text-white border-teal-800"
-                              : "bg-slate-100 text-slate-600 border-slate-200 group-hover:bg-teal-50 group-hover:text-teal-700"
+                              ? "bg-[#C79A4A] text-[#080909] border-[#C79A4A]"
+                              : "bg-[#161818] text-[#C79A4A] border-[#232727] group-hover:bg-[#1E2020] group-hover:text-[#D4A85B]"
                           )}
                         >
                           <Icon className="w-5 h-5" />
                         </div>
                         <div className="space-y-1 min-w-0 flex-1">
                           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                            <span className="font-serif font-semibold text-sm text-slate-900 block">
+                            <span className="font-serif font-semibold text-sm text-[#F3EFE7] block">
                               {need.title}
                             </span>
-                            <span className="self-start text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-amber-50 text-amber-900 border border-amber-200 shrink-0">
+                            <span className="self-start text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-[#C79A4A]/10 text-[#C79A4A] border border-[#C79A4A]/30 shrink-0">
                               {need.ceiling}
                             </span>
                           </div>
-                          <p className="text-xs text-slate-500 font-sans leading-relaxed">
+                          <p className="text-xs text-[#8E8B82] font-sans leading-relaxed">
                             {need.description}
                           </p>
                         </div>
@@ -508,10 +508,10 @@ export function ContactForm({ initialService = "" }: ContactFormProps) {
             {currentStep === 2 && (
               <div className="space-y-4">
                 <div className="space-y-1">
-                  <h4 className="font-serif text-lg font-semibold text-slate-900">
+                  <h4 className="font-serif text-lg font-semibold text-[#F3EFE7]">
                     Select Annual Turnover Scale
                   </h4>
-                  <p className="text-xs text-slate-500 font-sans">
+                  <p className="text-xs text-[#8E8B82] font-sans">
                     Turnover determines sovereign risk bracket, bank consortium routing, and subsidy eligibility.
                   </p>
                 </div>
@@ -527,22 +527,22 @@ export function ContactForm({ initialService = "" }: ContactFormProps) {
                         className={cn(
                           "w-full text-left p-4 rounded-xl border transition-all group",
                           isSelected
-                            ? "bg-teal-50/70 border-teal-600 shadow-xs ring-1 ring-teal-600/30"
-                            : "bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50/60"
+                            ? "bg-[#181A1A] border-[#C79A4A] shadow-md ring-1 ring-[#C79A4A]/40"
+                            : "bg-[#111313] border-[#232727] hover:border-[#C79A4A]/50 hover:bg-[#151717]"
                         )}
                       >
                         <div className="flex items-center justify-between gap-2">
                           <div className="flex items-center gap-2">
-                            <span className="font-serif font-bold text-base text-slate-900">
+                            <span className="font-serif font-bold text-base text-[#F3EFE7]">
                               {scale.title}
                             </span>
-                            <span className="text-xs text-teal-800 bg-teal-100/70 px-2 py-0.5 rounded font-sans font-medium">
+                            <span className="text-xs text-[#2DD4BF] bg-[#2DD4BF]/10 border border-[#2DD4BF]/30 px-2 py-0.5 rounded font-sans font-medium">
                               {scale.sub}
                             </span>
                           </div>
-                          {isSelected && <CheckCircle2 className="w-4 h-4 text-teal-700 shrink-0" />}
+                          {isSelected && <CheckCircle2 className="w-4 h-4 text-[#C79A4A] shrink-0" />}
                         </div>
-                        <p className="text-xs text-slate-500 font-sans mt-1 leading-relaxed">
+                        <p className="text-xs text-[#8E8B82] font-sans mt-1 leading-relaxed">
                           {scale.detail}
                         </p>
                       </button>
@@ -579,10 +579,10 @@ export function ContactForm({ initialService = "" }: ContactFormProps) {
             {currentStep === 3 && (
               <div className="space-y-4">
                 <div className="space-y-1">
-                  <h4 className="font-serif text-lg font-semibold text-slate-900">
+                  <h4 className="font-serif text-lg font-semibold text-[#F3EFE7]">
                     Executive Contact &amp; Financial Scope
                   </h4>
-                  <p className="text-xs text-slate-500 font-sans">
+                  <p className="text-xs text-[#8E8B82] font-sans">
                     Information is evaluated strictly under bilateral Non-Disclosure Agreement (NDA).
                   </p>
                 </div>
@@ -688,7 +688,7 @@ export function ContactForm({ initialService = "" }: ContactFormProps) {
 
                 {/* Optional DPR / Balance Sheet Upload Dropzone */}
                 <div className="space-y-1.5 pt-1">
-                  <Label className="text-xs font-semibold text-slate-700 flex items-center justify-between">
+                  <Label className="text-xs font-semibold text-[#D1CBC1] flex items-center justify-between">
                     <span>Attach Draft DPR or Balance Sheet (Optional)</span>
                     <span className="text-[11px] font-mono text-slate-400 font-normal">PDF, XLSX up to 15MB</span>
                   </Label>
@@ -705,12 +705,12 @@ export function ContactForm({ initialService = "" }: ContactFormProps) {
                   {uploadedFile ? (
                     <div className="p-3 rounded-xl border border-teal-300 bg-teal-50/60 flex items-center justify-between gap-3">
                       <div className="flex items-center gap-2.5 min-w-0">
-                        <FileText className="w-5 h-5 text-teal-700 shrink-0" />
+                        <FileText className="w-5 h-5 text-[#C79A4A] shrink-0" />
                         <div className="min-w-0">
-                          <p className="text-xs font-semibold text-slate-900 truncate">
+                          <p className="text-xs font-semibold text-[#F3EFE7] truncate">
                             {uploadedFile.name}
                           </p>
-                          <p className="text-[11px] text-slate-500 font-mono">
+                          <p className="text-[11px] text-[#8E8B82] font-mono">
                             {uploadedFile.size} · Attached for Underwriting
                           </p>
                         </div>
@@ -728,10 +728,10 @@ export function ContactForm({ initialService = "" }: ContactFormProps) {
                     <button
                       type="button"
                       onClick={() => fileInputRef.current?.click()}
-                      className="w-full p-4 rounded-xl border border-dashed border-slate-300 bg-slate-50/50 hover:bg-slate-100/70 hover:border-slate-400 transition-colors flex flex-col items-center justify-center gap-1.5 text-center cursor-pointer"
+                      className="w-full p-4 rounded-xl border border-dashed border-slate-300 bg-[#181A1A]/50 hover:bg-slate-100/70 hover:border-slate-400 transition-colors flex flex-col items-center justify-center gap-1.5 text-center cursor-pointer"
                     >
-                      <UploadCloud className="w-5 h-5 text-slate-500" />
-                      <span className="text-xs font-semibold text-slate-700">
+                      <UploadCloud className="w-5 h-5 text-[#8E8B82]" />
+                      <span className="text-xs font-semibold text-[#D1CBC1]">
                         Upload Provisional DPR / 3-Year Audited Balance Sheet
                       </span>
                       <span className="text-[11px] text-slate-400">
@@ -797,8 +797,8 @@ export function ContactForm({ initialService = "" }: ContactFormProps) {
                   </span>
                 </div>
               </div>
-              <div className="text-right text-xs font-mono text-slate-400">
-                <div className="flex items-center gap-1.5 text-teal-300 justify-end">
+              <div className="text-right text-xs font-mono text-[#8E8B82]">
+                <div className="flex items-center gap-1.5 text-[#C79A4A] justify-end">
                   <Video className="w-3.5 h-3.5" />
                   <span>Google Meet</span>
                 </div>
@@ -808,8 +808,8 @@ export function ContactForm({ initialService = "" }: ContactFormProps) {
 
             {/* Date Selector */}
             <div className="space-y-2">
-              <Label className="text-xs font-semibold text-slate-700 flex items-center gap-1.5">
-                <Calendar className="w-3.5 h-3.5 text-teal-700" />
+              <Label className="text-xs font-semibold text-[#D1CBC1] flex items-center gap-1.5">
+                <Calendar className="w-3.5 h-3.5 text-[#C79A4A]" />
                 <span>Select Consultation Date (Upcoming Business Days)</span>
               </Label>
               <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
@@ -821,8 +821,8 @@ export function ContactForm({ initialService = "" }: ContactFormProps) {
                     className={cn(
                       "p-2.5 rounded-xl border text-center transition-all text-xs",
                       selectedDate === d.dateStr
-                        ? "bg-teal-800 text-white border-teal-900 shadow-xs font-bold"
-                        : "bg-white border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-50"
+                        ? "bg-[#C79A4A] text-[#080909] border-[#C79A4A] shadow-xs font-bold"
+                        : "bg-[#141616] border-[#232727] text-[#D1CBC1] hover:border-[#C79A4A]/40 hover:bg-[#181A1A]"
                     )}
                   >
                     <span className="block text-[11px] opacity-80">{d.dateStr.split(",")[0]}</span>
@@ -834,8 +834,8 @@ export function ContactForm({ initialService = "" }: ContactFormProps) {
 
             {/* Time Slot Selector */}
             <div className="space-y-2">
-              <Label className="text-xs font-semibold text-slate-700 flex items-center gap-1.5">
-                <Clock className="w-3.5 h-3.5 text-teal-700" />
+              <Label className="text-xs font-semibold text-[#D1CBC1] flex items-center gap-1.5">
+                <Clock className="w-3.5 h-3.5 text-[#C79A4A]" />
                 <span>Select Available Time Slot (Asia/Kolkata IST)</span>
               </Label>
               <div className="grid grid-cols-2 gap-2">
@@ -847,8 +847,8 @@ export function ContactForm({ initialService = "" }: ContactFormProps) {
                     className={cn(
                       "py-2.5 px-3 rounded-xl border text-xs font-mono font-semibold transition-all flex items-center justify-center gap-2",
                       selectedTime === time
-                        ? "bg-teal-50 border-teal-600 text-teal-950 ring-1 ring-teal-600 shadow-xs"
-                        : "bg-white border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-50"
+                        ? "bg-[#C79A4A] border-[#C79A4A] text-[#080909] font-bold shadow-xs"
+                        : "bg-[#141616] border-[#232727] text-[#D1CBC1] hover:border-[#C79A4A]/40 hover:bg-[#181A1A]"
                     )}
                   >
                     <span>{time}</span>
@@ -858,7 +858,7 @@ export function ContactForm({ initialService = "" }: ContactFormProps) {
             </div>
 
             {/* Executive Participant Information */}
-            <div className="space-y-3 pt-2 border-t border-slate-100">
+            <div className="space-y-3 pt-2 border-t border-[#232727]">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <FormField>
                   <Label htmlFor="slot-name" required>
@@ -951,7 +951,7 @@ export function ContactForm({ initialService = "" }: ContactFormProps) {
         {submitError && (
           <div
             role="alert"
-            className="flex items-start gap-2 p-3 rounded-lg bg-red-50 border border-red-200 text-red-700 text-xs"
+            className="flex items-start gap-2 p-3 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400 text-xs"
           >
             <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" aria-hidden="true" />
             <span>{submitError}</span>
@@ -961,17 +961,17 @@ export function ContactForm({ initialService = "" }: ContactFormProps) {
         {/* =========================================================================
             AUTHORITY INDICATORS & INSTITUTIONAL SEALS
         ========================================================================= */}
-        <div className="pt-4 border-t border-slate-100 space-y-2.5">
-          <div className="flex items-start gap-2 text-xs text-slate-700 font-sans">
-            <ShieldCheck className="w-4 h-4 text-teal-700 shrink-0 mt-0.5" aria-hidden="true" />
+        <div className="pt-4 border-t border-[#232727] space-y-2.5">
+          <div className="flex items-start gap-2 text-xs text-[#D1CBC1] font-sans">
+            <ShieldCheck className="w-4 h-4 text-[#C79A4A] shrink-0 mt-0.5" aria-hidden="true" />
             <span>
               <strong>Protected by Mutual Non-Disclosure Agreement (NDA):</strong> All shared financial statements,
               balance sheets, and DPR projections are protected under statutory confidentiality covenants.
             </span>
           </div>
 
-          <div className="flex items-start gap-2 text-xs text-slate-700 font-sans">
-            <Lock className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" aria-hidden="true" />
+          <div className="flex items-start gap-2 text-xs text-[#D1CBC1] font-sans">
+            <Lock className="w-4 h-4 text-[#C79A4A] shrink-0 mt-0.5" aria-hidden="true" />
             <span>
               <strong>Direct Consultation with Practice Principals (No Sales Callers):</strong> Consultations are
               conducted exclusively by senior banking underwriters and certified quality auditors.

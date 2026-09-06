@@ -3,38 +3,30 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 export const cardVariants = cva(
-  "rounded-lg transition-all duration-200 text-slate-900",
+  "rounded-xl transition-all duration-200 text-[#F3EFE7]",
   {
     variants: {
       variant: {
-        // Default / Standard: Quiet structural border with subtle shadow
         default:
-          "bg-white border border-slate-200 shadow-card hover:border-slate-300",
+          "bg-[#111313] border border-[#232727] shadow-lg hover:border-[#C79A4A]/40",
         standard:
-          "bg-white border border-slate-200 shadow-card hover:border-slate-300",
-        // Static: Zero hover or lift (purely informational container)
+          "bg-[#111313] border border-[#232727] shadow-lg hover:border-[#C79A4A]/40",
         static:
-          "bg-white border border-slate-200 shadow-card",
-        // Interactive: Subtle lift, border emphasis, and cursor feedback
+          "bg-[#111313] border border-[#232727] shadow-lg",
         interactive:
-          "bg-white border border-slate-200 shadow-card hover:border-teal-500/60 hover:shadow-elevated hover:-translate-y-0.5 active:translate-y-0 cursor-pointer",
-        // Elevated: More prominent depth for interactive service/story cards
+          "bg-[#111313] border border-[#232727] shadow-lg hover:border-[#C79A4A]/60 hover:shadow-2xl hover:-translate-y-0.5 active:translate-y-0 cursor-pointer",
         elevated:
-          "bg-white border border-slate-200/80 shadow-elevated hover:shadow-floating hover:-translate-y-0.5",
-        // Subtle: Low contrast background for secondary groupings
+          "bg-[#141616] border border-[#232727] shadow-xl hover:shadow-2xl hover:border-[#C79A4A]/50 hover:-translate-y-0.5",
         subtle:
-          "bg-slate-50 border border-slate-200/60 shadow-none hover:bg-white hover:border-slate-200",
-        // Glass: Selective translucent backdrop blur with luminous edge and hover lift
+          "bg-[#0E0F0F] border border-[#232727] shadow-none hover:bg-[#111313] hover:border-[#333737]",
         glass:
-          "bg-white/80 backdrop-blur-md border border-white/70 shadow-card hover:bg-white/92 hover:border-teal-500/30 hover:shadow-elevated hover:-translate-y-0.5 transition-all duration-300 supports-[-webkit-backdrop-filter:none]:bg-white/95",
+          "bg-[#111313]/80 backdrop-blur-md border border-[#232727] shadow-lg hover:border-[#C79A4A]/40 hover:-translate-y-0.5 transition-all duration-300",
         "glass-dark":
-          "glass-surface-dark text-white hover:border-slate-600 hover:shadow-floating hover:-translate-y-0.5 transition-all duration-300",
-        // Featured: Prestige frame with signature teal-gold gradient border line
+          "glass-surface-dark text-white hover:border-[#C79A4A]/50 hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-300",
         featured:
-          "bg-white border border-slate-200 shadow-elevated relative overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1 before:bg-gradient-to-r before:from-teal-600 before:to-gold-500 hover:border-slate-300",
-        // Glow: Restrained teal glow for flagship conversion cards
+          "bg-[#111313] border border-[#232727] shadow-xl relative overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1 before:bg-gradient-to-r before:from-[#2DD4BF] before:to-[#C79A4A] hover:border-[#C79A4A]/50",
         glow:
-          "bg-white border border-slate-200 shadow-card hover:border-teal-500/50 hover:shadow-glow-teal hover:-translate-y-0.5 transition-all duration-200",
+          "bg-[#111313] border border-[#232727] shadow-lg hover:border-[#C79A4A]/50 hover:shadow-[0_0_25px_rgba(199,154,74,0.15)] hover:-translate-y-0.5 transition-all duration-200",
       },
     },
     defaultVariants: {
@@ -77,7 +69,7 @@ export const CardTitle = React.forwardRef<
   <h3
     ref={ref}
     className={cn(
-      "font-serif text-xl font-semibold leading-snug tracking-tight text-slate-900",
+      "font-serif text-lg font-semibold leading-none tracking-tight text-[#F3EFE7]",
       className
     )}
     {...props}
@@ -91,7 +83,7 @@ export const CardDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
-    className={cn("text-sm text-slate-600 leading-relaxed font-sans", className)}
+    className={cn("text-xs text-[#8E8B82] font-sans leading-relaxed", className)}
     {...props}
   />
 ));
@@ -101,7 +93,7 @@ export const CardContent = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
+  <div ref={ref} className={cn("p-6 pt-0 text-[#D1CBC1]", className)} {...props} />
 ));
 CardContent.displayName = "CardContent";
 
@@ -111,7 +103,10 @@ export const CardFooter = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("flex items-center p-6 pt-0 border-t border-slate-100 mt-auto", className)}
+    className={cn(
+      "flex items-center p-6 pt-0 border-t border-[#232727] mt-4",
+      className
+    )}
     {...props}
   />
 ));

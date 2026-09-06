@@ -121,7 +121,7 @@ export function MobileNav({ isOpen, onClose, triggerRef }: MobileNavProps) {
     >
       {/* Backdrop overlay */}
       <div
-        className="fixed inset-0 bg-slate-950/60 backdrop-blur-sm transition-opacity duration-300 animate-in fade-in"
+        className="fixed inset-0 bg-[#080909]/85 backdrop-blur-md transition-opacity duration-300 animate-in fade-in"
         onClick={onClose}
         aria-hidden="true"
       />
@@ -129,24 +129,24 @@ export function MobileNav({ isOpen, onClose, triggerRef }: MobileNavProps) {
       {/* Drawer content panel */}
       <div
         ref={containerRef}
-        className="fixed inset-y-0 right-0 w-full max-w-sm bg-white dark:bg-slate-900 shadow-floating flex flex-col z-10 transition-transform duration-300 ease-out animate-in slide-in-from-right"
+        className="fixed inset-y-0 right-0 w-full max-w-sm bg-[#0D0E0E] border-l border-[#232727] shadow-2xl flex flex-col z-10 transition-transform duration-300 ease-out animate-in slide-in-from-right"
       >
         {/* Header bar */}
-        <div className="flex items-center justify-between px-6 py-5 border-b border-slate-200 dark:border-slate-800">
+        <div className="flex items-center justify-between px-6 py-5 border-b border-[#232727]">
           <Link
             href="/"
             onClick={onClose}
             aria-label={`${siteConfig.company.name} - Home`}
-            className="flex items-center gap-2.5 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 rounded-sm"
+            className="flex items-center gap-2.5 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C79A4A] rounded-sm"
           >
-            <div className="w-8 h-8 rounded-md bg-teal-600 text-white flex items-center justify-center font-serif font-bold text-base shadow-subtle group-hover:bg-teal-700 transition-colors">
+            <div className="w-8 h-8 rounded-md bg-[#C79A4A] text-[#080909] flex items-center justify-center font-serif font-bold text-base shadow-subtle group-hover:bg-[#DFC286] transition-colors">
               {brandFirst[0]}
             </div>
             <div className="flex flex-col">
-              <span className="font-serif font-semibold text-base text-slate-900 dark:text-slate-100 tracking-tight leading-none">
+              <span className="font-serif font-semibold text-base text-[#F3EFE7] tracking-tight leading-none">
                 {brandFirst}
               </span>
-              <span className="text-[10px] uppercase font-sans font-semibold tracking-widest text-gold-600 leading-tight mt-0.5">
+              <span className="text-[10px] uppercase font-sans font-semibold tracking-widest text-[#C79A4A] leading-tight mt-0.5">
                 {brandRest}
               </span>
             </div>
@@ -157,7 +157,7 @@ export function MobileNav({ isOpen, onClose, triggerRef }: MobileNavProps) {
             type="button"
             onClick={onClose}
             aria-label="Close navigation menu"
-            className="min-w-[48px] min-h-[48px] flex items-center justify-center rounded-md text-slate-500 hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 dark:text-slate-400 dark:hover:text-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600"
+            className="min-w-[48px] min-h-[48px] flex items-center justify-center rounded-md text-[#8E8B82] hover:text-[#F3EFE7] hover:bg-[#181A1A] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C79A4A]"
           >
             <X className="w-5 h-5" />
           </button>
@@ -173,13 +173,13 @@ export function MobileNav({ isOpen, onClose, triggerRef }: MobileNavProps) {
               className={cn(
                 "min-h-[48px] px-3.5 flex items-center justify-between rounded-md text-base font-medium transition-colors",
                 isRouteActive("/")
-                  ? "bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 font-semibold"
-                  : "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900"
+                  ? "bg-[#181A1A] text-[#DFC286] font-semibold border border-[#C79A4A]/30"
+                  : "text-[#D1CBC1] hover:bg-[#141616] hover:text-[#F3EFE7]"
               )}
             >
               <span>Home</span>
               {isRouteActive("/") && (
-                <span className="w-1.5 h-1.5 rounded-full bg-teal-600" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#C79A4A]" />
               )}
             </Link>
 
@@ -190,13 +190,13 @@ export function MobileNav({ isOpen, onClose, triggerRef }: MobileNavProps) {
               className={cn(
                 "min-h-[48px] px-3.5 flex items-center justify-between rounded-md text-base font-medium transition-colors",
                 isRouteActive("/about")
-                  ? "bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 font-semibold"
-                  : "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900"
+                  ? "bg-[#181A1A] text-[#DFC286] font-semibold border border-[#C79A4A]/30"
+                  : "text-[#D1CBC1] hover:bg-[#141616] hover:text-[#F3EFE7]"
               )}
             >
               <span>About</span>
               {isRouteActive("/about") && (
-                <span className="w-1.5 h-1.5 rounded-full bg-teal-600" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#C79A4A]" />
               )}
             </Link>
 
@@ -209,8 +209,8 @@ export function MobileNav({ isOpen, onClose, triggerRef }: MobileNavProps) {
                   className={cn(
                     "flex-1 min-h-[48px] px-3.5 flex items-center text-base font-medium rounded-l-md transition-colors",
                     isRouteActive("/services")
-                      ? "bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 font-semibold"
-                      : "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900"
+                      ? "bg-[#181A1A] text-[#DFC286] font-semibold border-y border-l border-[#C79A4A]/30"
+                      : "text-[#D1CBC1] hover:bg-[#141616] hover:text-[#F3EFE7]"
                   )}
                 >
                   <span>Services</span>
@@ -224,7 +224,7 @@ export function MobileNav({ isOpen, onClose, triggerRef }: MobileNavProps) {
                       ? "Collapse services category list"
                       : "Expand services category list"
                   }
-                  className="min-w-[48px] min-h-[48px] flex items-center justify-center rounded-r-md text-slate-500 hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                  className="min-w-[48px] min-h-[48px] flex items-center justify-center rounded-r-md text-[#8E8B82] hover:text-[#F3EFE7] hover:bg-[#181A1A] transition-colors"
                 >
                   <ChevronDown
                     className={cn(
@@ -237,7 +237,7 @@ export function MobileNav({ isOpen, onClose, triggerRef }: MobileNavProps) {
 
               {/* Collapsible Services sub-menu */}
               {servicesExpanded && (
-                <div className="mt-2 ml-3 pl-3 border-l-2 border-slate-200 dark:border-slate-800 space-y-1">
+                <div className="mt-2 ml-3 pl-3 border-l-2 border-[#232727] space-y-1">
                   {serviceCategories.map((cat) => {
                     const IconComponent = categoryIcons[cat.id] || Landmark;
                     return (
@@ -245,16 +245,16 @@ export function MobileNav({ isOpen, onClose, triggerRef }: MobileNavProps) {
                         key={cat.id}
                         href={`/services#${cat.id}`}
                         onClick={onClose}
-                        className="min-h-[44px] px-3 py-2 flex items-start gap-3 rounded-md text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors"
+                        className="min-h-[44px] px-3 py-2 flex items-start gap-3 rounded-md text-sm text-[#8E8B82] hover:text-[#F3EFE7] hover:bg-[#141616] transition-colors"
                       >
-                        <div className="w-6 h-6 rounded bg-teal-50 dark:bg-teal-950 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0 mt-0.5">
+                        <div className="w-6 h-6 rounded bg-[#181A1A] border border-[#232727] text-[#C79A4A] flex items-center justify-center shrink-0 mt-0.5">
                           <IconComponent className="w-3.5 h-3.5" />
                         </div>
                         <div>
-                          <p className="font-medium text-slate-900 dark:text-slate-100 text-xs">
+                          <p className="font-medium text-[#F3EFE7] text-xs">
                             {cat.name}
                           </p>
-                          <p className="text-[11px] text-slate-500 line-clamp-1 mt-0.5">
+                          <p className="text-[11px] text-[#8E8B82] line-clamp-1 mt-0.5">
                             {cat.shortDescription}
                           </p>
                         </div>
@@ -264,7 +264,7 @@ export function MobileNav({ isOpen, onClose, triggerRef }: MobileNavProps) {
                   <Link
                     href="/services"
                     onClick={onClose}
-                    className="min-h-[40px] px-3 flex items-center gap-1.5 text-xs font-semibold text-teal-600 hover:text-teal-700 transition-colors pt-1"
+                    className="min-h-[40px] px-3 flex items-center gap-1.5 text-xs font-semibold text-[#C79A4A] hover:text-[#DFC286] transition-colors pt-1"
                   >
                     <span>View all advisory services</span>
                     <ArrowRight className="w-3 h-3" />
@@ -280,13 +280,13 @@ export function MobileNav({ isOpen, onClose, triggerRef }: MobileNavProps) {
               className={cn(
                 "min-h-[48px] px-3.5 flex items-center justify-between rounded-md text-base font-medium transition-colors",
                 isRouteActive("/success-stories")
-                  ? "bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 font-semibold"
-                  : "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900"
+                  ? "bg-[#181A1A] text-[#DFC286] font-semibold border border-[#C79A4A]/30"
+                  : "text-[#D1CBC1] hover:bg-[#141616] hover:text-[#F3EFE7]"
               )}
             >
               <span>Success Stories</span>
               {isRouteActive("/success-stories") && (
-                <span className="w-1.5 h-1.5 rounded-full bg-teal-600" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#C79A4A]" />
               )}
             </Link>
 
@@ -297,21 +297,21 @@ export function MobileNav({ isOpen, onClose, triggerRef }: MobileNavProps) {
               className={cn(
                 "min-h-[48px] px-3.5 flex items-center justify-between rounded-md text-base font-medium transition-colors",
                 isRouteActive("/blog")
-                  ? "bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 font-semibold"
-                  : "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900"
+                  ? "bg-[#181A1A] text-[#DFC286] font-semibold border border-[#C79A4A]/30"
+                  : "text-[#D1CBC1] hover:bg-[#141616] hover:text-[#F3EFE7]"
               )}
             >
               <span>Blog</span>
               {isRouteActive("/blog") && (
-                <span className="w-1.5 h-1.5 rounded-full bg-teal-600" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#C79A4A]" />
               )}
             </Link>
           </nav>
 
           {/* Quick Contact Info */}
-          <div className="pt-4 border-t border-slate-200 dark:border-slate-800 space-y-2.5">
-            <div className="flex items-center gap-2.5 text-xs text-slate-500 dark:text-slate-400">
-              <MapPin className="w-3.5 h-3.5 text-gold-600 shrink-0" />
+          <div className="pt-4 border-t border-[#232727] space-y-2.5">
+            <div className="flex items-center gap-2.5 text-xs text-[#8E8B82]">
+              <MapPin className="w-3.5 h-3.5 text-[#C79A4A] shrink-0" />
               <span>
                 {siteConfig.company.location.city},{" "}
                 {siteConfig.company.location.state},{" "}
@@ -319,22 +319,22 @@ export function MobileNav({ isOpen, onClose, triggerRef }: MobileNavProps) {
               </span>
             </div>
             {siteConfig.contact.phone && (
-              <div className="flex items-center gap-2.5 text-xs text-slate-500 dark:text-slate-400">
-                <Phone className="w-3.5 h-3.5 text-teal-600 shrink-0" />
+              <div className="flex items-center gap-2.5 text-xs text-[#8E8B82]">
+                <Phone className="w-3.5 h-3.5 text-[#C79A4A] shrink-0" />
                 <a
                   href={`tel:${siteConfig.contact.phone}`}
-                  className="hover:text-slate-900 transition-colors"
+                  className="hover:text-[#F3EFE7] transition-colors"
                 >
                   {siteConfig.contact.phone}
                 </a>
               </div>
             )}
             {siteConfig.contact.email && (
-              <div className="flex items-center gap-2.5 text-xs text-slate-500 dark:text-slate-400">
-                <Mail className="w-3.5 h-3.5 text-teal-600 shrink-0" />
+              <div className="flex items-center gap-2.5 text-xs text-[#8E8B82]">
+                <Mail className="w-3.5 h-3.5 text-[#C79A4A] shrink-0" />
                 <a
                   href={`mailto:${siteConfig.contact.email}`}
-                  className="hover:text-slate-900 transition-colors"
+                  className="hover:text-[#F3EFE7] transition-colors"
                 >
                   {siteConfig.contact.email}
                 </a>
@@ -344,7 +344,7 @@ export function MobileNav({ isOpen, onClose, triggerRef }: MobileNavProps) {
         </div>
 
         {/* Drawer footer CTA */}
-        <div className="p-6 border-t border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-950/50">
+        <div className="p-6 border-t border-[#232727] bg-[#080909]">
           <LinkButton
             href="/contact"
             onClick={onClose}

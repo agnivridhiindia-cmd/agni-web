@@ -9,54 +9,60 @@ export function AboutHero() {
   return (
     <section
       aria-labelledby="about-hero-heading"
-      className="relative border-b border-slate-200/80 bg-slate-50/70 bg-noise pt-32 pb-14 sm:pt-36 sm:pb-16 lg:pt-40 lg:pb-20 overflow-hidden"
+      className="relative border-b border-[#232727] bg-[#080909] pt-32 pb-14 sm:pt-36 sm:pb-16 lg:pt-40 lg:pb-20 overflow-hidden"
     >
-      <Container width="wide">
+      {/* Editorial Luxury Ambient Gradient */}
+      <div
+        className="absolute top-0 inset-x-0 h-96 bg-[radial-gradient(ellipse_70%_60%_at_50%_-10%,rgba(199,154,74,0.08),rgba(8,9,9,0))] pointer-events-none"
+        aria-hidden="true"
+      />
+
+      <Container width="wide" className="relative z-10">
         <FadeIn direction="up" distance={20} delay={0.05}>
           <div className="max-w-4xl space-y-6 sm:space-y-8">
             {/* Section Eyebrow */}
             <div className="flex items-center gap-2">
-              <Eyebrow>About Agnivridhi India</Eyebrow>
-              <span className="text-xs font-mono text-slate-400 hidden sm:inline" aria-hidden="true">
-                &bull; Institutional Advisory Practice
+              <Eyebrow accent>About Agnivridhi India</Eyebrow>
+              <span className="text-xs font-mono text-[#8E8B82] hidden sm:inline" aria-hidden="true">
+                &bull; Institutional Advisory Practice &bull; Noida HQ
               </span>
             </div>
 
             {/* Main Editorial Headline */}
             <h1
               id="about-hero-heading"
-              className="font-serif text-3xl sm:text-5xl lg:text-6xl font-semibold text-slate-950 tracking-tight leading-[1.15]"
+              className="font-serif text-3xl sm:text-5xl lg:text-6xl font-semibold text-[#F3EFE7] tracking-tight leading-[1.15]"
             >
               A Strategic Advisory Desk Built for Indian Enterprise Momentum.
             </h1>
 
             {/* Supporting Positioning Paragraphs */}
-            <div className="space-y-4 max-w-3xl text-slate-600 font-sans">
+            <div className="space-y-4 max-w-3xl text-[#D1CBC1] font-sans">
               <p className="type-body-lg leading-relaxed">
                 Headquartered in Noida, Uttar Pradesh, Agnivridhi India operates with a single guiding conviction: micro, small, and medium enterprises represent the real sovereign growth engine of India, yet routinely encounter friction when navigating institutional credit appraisal and statutory compliance.
               </p>
-              <p className="type-body leading-relaxed text-slate-600">
+              <p className="type-body leading-relaxed text-[#9E9B93]">
                 We eliminate that friction through audit-grade financial modeling, rigorous Detailed Project Report (DPR) formulations, and deep regulatory literacy across central credit guarantee schemes and quality standards.
               </p>
             </div>
 
             {/* Corporate Metadata Pill Strip */}
-            <div className="pt-4 flex items-center gap-4 sm:gap-6 flex-wrap text-xs text-slate-600 font-mono border-t border-slate-200/80">
+            <div className="pt-4 flex items-center gap-4 sm:gap-6 flex-wrap text-xs text-[#9E9B93] font-mono border-t border-[#232727]">
               <div className="flex items-center gap-2">
-                <MapPin className="w-3.5 h-3.5 text-teal-600 shrink-0" />
-                <span>
+                <MapPin className="w-3.5 h-3.5 text-[#2DD4BF] shrink-0" />
+                <span className="text-[#D1CBC1]">
                   {siteConfig.company.location.city}, {siteConfig.company.location.state}
                 </span>
               </div>
 
               <div className="flex items-center gap-2">
-                <Building2 className="w-3.5 h-3.5 text-gold-600 shrink-0" />
-                <span>Pan-India MSME &amp; Industrial Scope</span>
+                <Building2 className="w-3.5 h-3.5 text-[#C79A4A] shrink-0" />
+                <span className="text-[#D1CBC1]">Pan-India MSME &amp; Industrial Scope</span>
               </div>
 
               <div className="flex items-center gap-2">
-                <Layers className="w-3.5 h-3.5 text-slate-500 shrink-0" />
-                <span>4 Dedicated Advisory Desks</span>
+                <Layers className="w-3.5 h-3.5 text-[#8E8B82] shrink-0" />
+                <span className="text-[#D1CBC1]">4 Dedicated Advisory Desks</span>
               </div>
             </div>
           </div>

@@ -34,7 +34,7 @@ export default function TermsPage() {
         <section aria-labelledby="section-scope" className="space-y-3.5">
           <h2
             id="section-scope"
-            className="font-serif text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
           >
             1. Advisory Scope &amp; Formal Mandates
           </h2>
@@ -54,7 +54,7 @@ export default function TermsPage() {
         <section aria-labelledby="section-status" className="space-y-3.5">
           <h2
             id="section-status"
-            className="font-serif text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
           >
             2. Institutional Status &amp; Non-Banking Disclaimer
           </h2>
@@ -73,7 +73,7 @@ export default function TermsPage() {
         <section aria-labelledby="section-authenticity" className="space-y-3.5">
           <h2
             id="section-authenticity"
-            className="font-serif text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
           >
             3. Client Responsibility &amp; Information Authenticity
           </h2>
@@ -89,7 +89,7 @@ export default function TermsPage() {
         <section aria-labelledby="section-ip" className="space-y-3.5">
           <h2
             id="section-ip"
-            className="font-serif text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
           >
             4. Intellectual Property &amp; Advisory Deliverables
           </h2>
@@ -104,7 +104,7 @@ export default function TermsPage() {
         <section aria-labelledby="section-gazette" className="space-y-3.5">
           <h2
             id="section-gazette"
-            className="font-serif text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
           >
             5. Government Schemes &amp; Regulatory Changes
           </h2>
@@ -120,7 +120,7 @@ export default function TermsPage() {
         <section aria-labelledby="section-liability" className="space-y-3.5">
           <h2
             id="section-liability"
-            className="font-serif text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
           >
             6. Limitation of Liability
           </h2>
@@ -135,7 +135,7 @@ export default function TermsPage() {
         <section aria-labelledby="section-jurisdiction" className="space-y-3.5">
           <h2
             id="section-jurisdiction"
-            className="font-serif text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
           >
             7. Governing Law &amp; Jurisdiction
           </h2>
@@ -150,7 +150,7 @@ export default function TermsPage() {
         <section aria-labelledby="section-amendments" className="space-y-3.5">
           <h2
             id="section-amendments"
-            className="font-serif text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
           >
             8. Amendments &amp; Communication
           </h2>

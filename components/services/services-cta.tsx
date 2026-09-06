@@ -9,12 +9,12 @@ export function ServicesCta() {
   return (
     <section
       aria-labelledby="services-cta-heading"
-      className="py-16 sm:py-20 lg:py-24 bg-slate-900 text-white relative overflow-hidden"
+      className="py-16 sm:py-20 lg:py-24 bg-[#0B0C0C] text-[#F3EFE7] border-t border-[#232727] relative overflow-hidden"
     >
       <Container width="wide">
         <FadeIn direction="up" distance={18} delay={0.05}>
           <div className="relative z-10 max-w-3xl space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/20 border border-teal-400/30 text-teal-300 text-xs font-semibold">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C79A4A]/10 border border-[#C79A4A]/30 text-[#C79A4A] text-xs font-semibold">
               <Sparkles className="w-3.5 h-3.5" />
               <span>Multi-Disciplinary Diagnostic</span>
             </div>
@@ -26,20 +26,20 @@ export function ServicesCta() {
               Not sure which advisory pathway fits your business?
             </h2>
 
-            <p className="text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed font-sans">
+            <p className="text-[#D1CBC1] text-sm sm:text-base md:text-lg leading-relaxed font-sans">
               Our principal consultants perform comprehensive DPR feasibility reviews, Udyam compliance
               audits, and loan eligibility evaluations to identify the highest leverage pathway for your
               enterprise.
             </p>
 
             {/* Advisory assurances */}
-            <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-slate-300">
+            <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-[#D1CBC1]">
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-teal-400 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-[#2DD4BF] shrink-0" />
                 <span>Zero speculation on unverified funding outcomes</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-teal-400 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-[#2DD4BF] shrink-0" />
                 <span>Synchronized filing across legal, bank &amp; tech desks</span>
               </div>
             </div>
@@ -51,7 +51,7 @@ export function ServicesCta() {
               </LinkButton>
               <Link
                 href="/success-stories"
-                className="text-sm font-medium text-slate-300 hover:text-white transition-colors underline-offset-4 hover:underline px-2 py-1"
+                className="text-sm font-medium text-[#D1CBC1] hover:text-white transition-colors underline-offset-4 hover:underline px-2 py-1"
               >
                 Review Client Impact Stories &rarr;
               </Link>

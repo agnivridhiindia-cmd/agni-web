@@ -17,17 +17,17 @@ export function RelatedServices({ services }: RelatedServicesProps) {
   return (
     <section
       aria-labelledby="related-services-heading"
-      className="border-t border-slate-200/80 bg-slate-50/60 py-14 sm:py-18 lg:py-20"
+      className="border-t border-[#232727] bg-[#080909] py-14 sm:py-18 lg:py-20"
     >
       <Container width="wide">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-10 gap-4 border-b border-slate-200/90 pb-5">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-10 gap-4 border-b border-[#232727] pb-5">
           <div className="space-y-1">
-            <span className="type-eyebrow text-teal-700 font-mono">
+            <span className="type-eyebrow text-[#C79A4A] font-mono">
               Complementary Capabilities
             </span>
             <h2
               id="related-services-heading"
-              className="font-serif text-2xl sm:text-3xl font-semibold text-slate-900 tracking-tight"
+              className="font-serif text-2xl sm:text-3xl font-semibold text-[#F3EFE7] tracking-tight"
             >
               Related Advisory Practices
             </h2>
@@ -35,7 +35,7 @@ export function RelatedServices({ services }: RelatedServicesProps) {
 
           <Link
             href="/services"
-            className="text-xs sm:text-sm font-semibold text-teal-700 hover:text-teal-800 transition-colors inline-flex items-center gap-1.5 shrink-0"
+            className="text-xs sm:text-sm font-semibold text-[#C79A4A] hover:text-[#F3EFE7] transition-colors inline-flex items-center gap-1.5 shrink-0"
           >
             <span>Browse Full Directory</span>
             <ArrowRight className="w-3.5 h-3.5" />

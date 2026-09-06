@@ -116,15 +116,15 @@ export function BlogListing({ initialPosts }: BlogListingProps) {
           >
             {filteredPosts.length === 0 ? (
               /* Empty Filter State */
-              <div className="py-16 sm:py-20 text-center rounded-2xl border border-dashed border-slate-300 bg-slate-50/50 max-w-xl mx-auto space-y-4 px-6">
-                <div className="w-12 h-12 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center mx-auto">
+              <div className="py-16 sm:py-20 text-center rounded-2xl border border-dashed border-[#232727] bg-[#111313] max-w-xl mx-auto space-y-4 px-6">
+                <div className="w-12 h-12 rounded-full bg-[#181A1A] border border-[#232727] text-[#C79A4A] flex items-center justify-center mx-auto">
                   <BookOpen className="w-6 h-6" />
                 </div>
                 <div className="space-y-1">
-                  <h3 className="font-serif text-xl font-semibold text-slate-900">
+                  <h3 className="font-serif text-xl font-semibold text-[#F3EFE7]">
                     No Articles in This Category
                   </h3>
-                  <p className="text-slate-600 text-sm font-sans">
+                  <p className="text-[#D1CBC1] text-sm font-sans">
                     We currently have no published guides under this category filter.
                   </p>
                 </div>

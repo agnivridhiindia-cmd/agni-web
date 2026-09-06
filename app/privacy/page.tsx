@@ -34,7 +34,7 @@ export default function PrivacyPage() {
         <section aria-labelledby="section-governance" className="space-y-3.5">
           <h2
             id="section-governance"
-            className="font-serif text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
           >
             1. Commitment to Data Governance
           </h2>
@@ -50,7 +50,7 @@ export default function PrivacyPage() {
         <section aria-labelledby="section-collection" className="space-y-3.5">
           <h2
             id="section-collection"
-            className="font-serif text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
           >
             2. Information Collection &amp; Purpose
           </h2>
@@ -82,7 +82,7 @@ export default function PrivacyPage() {
         <section aria-labelledby="section-nda" className="space-y-3.5">
           <h2
             id="section-nda"
-            className="font-serif text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
           >
             3. Non-Disclosure &amp; Institutional Confidentiality
           </h2>
@@ -98,7 +98,7 @@ export default function PrivacyPage() {
         <section aria-labelledby="section-sharing" className="space-y-3.5">
           <h2
             id="section-sharing"
-            className="font-serif text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
           >
             4. Third-Party Sharing Restrictions
           </h2>
@@ -117,7 +117,7 @@ export default function PrivacyPage() {
         <section aria-labelledby="section-session" className="space-y-3.5">
           <h2
             id="section-session"
-            className="font-serif text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
           >
             5. Technical Safeguards &amp; Session Data
           </h2>
@@ -132,7 +132,7 @@ export default function PrivacyPage() {
         <section aria-labelledby="section-rights" className="space-y-3.5">
           <h2
             id="section-rights"
-            className="font-serif text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
           >
             6. Client Data Rights &amp; Advisory Inquiries
           </h2>
@@ -150,7 +150,7 @@ export default function PrivacyPage() {
         <section aria-labelledby="section-updates" className="space-y-3.5">
           <h2
             id="section-updates"
-            className="font-serif text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
           >
             7. Policy Modifications
           </h2>

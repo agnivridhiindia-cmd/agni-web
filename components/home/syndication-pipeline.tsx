@@ -300,13 +300,13 @@ export function SyndicationPipeline() {
     <section
       id="syndication-pipeline"
       aria-labelledby="syndication-pipeline-heading"
-      className="relative bg-slate-100/70 py-16 sm:py-20 lg:py-28 border-b border-slate-200/80 overflow-hidden"
+      className="relative bg-[#080909] text-[#F3EFE7] py-20 sm:py-28 lg:py-36 border-b border-white/[0.08] overflow-hidden"
     >
       {/* Background CAD / Blueprint Grid Accent */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.035]"
+        className="absolute inset-0 pointer-events-none opacity-[0.025]"
         style={{
-          backgroundImage: `linear-gradient(to right, #0F172A 1px, transparent 1px), linear-gradient(to bottom, #0F172A 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(to right, #F3EFE7 1px, transparent 1px), linear-gradient(to bottom, #F3EFE7 1px, transparent 1px)`,
           backgroundSize: "32px 32px",
         }}
         aria-hidden="true"
@@ -316,24 +316,19 @@ export function SyndicationPipeline() {
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
           <div className="space-y-3.5 max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-50 border border-amber-200/80 text-amber-900">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-600 animate-pulse" />
-              <Eyebrow
-                accent={false}
-                className="text-[11px] sm:text-xs font-semibold tracking-wider uppercase font-sans text-amber-900"
-              >
-                DEBT SYNDICATION ARCHITECTURE &bull; 4-STAGE MILESTONES
-              </Eyebrow>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-xs font-mono tracking-widest text-[#C79A4A] uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#C79A4A] animate-pulse" />
+              <span>DEBT SYNDICATION ARCHITECTURE &bull; 4-STAGE MILESTONES</span>
             </div>
 
             <h2
               id="syndication-pipeline-heading"
-              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-950 !leading-[1.16]"
+              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-[#F3EFE7] !leading-[1.15]"
             >
               The Sovereign Credit Lifecycle: DPR to Disbursal.
             </h2>
 
-            <p className="type-body text-slate-600 leading-relaxed max-w-2xl">
+            <p className="font-sans text-sm sm:text-base text-[#A5A29A] leading-relaxed max-w-2xl">
               Bank debt syndication and government subsidy allocations engineered into
               a transparent, predictable 4-stage pipeline. We eliminate banking friction,
               mitigate credit committee rejections, and lock sovereign guarantees before
@@ -342,21 +337,21 @@ export function SyndicationPipeline() {
           </div>
 
           {/* Quick Metrics Badge */}
-          <div className="shrink-0 flex items-center gap-3 bg-white p-4 rounded-2xl border border-slate-200/90 shadow-xs">
+          <div className="shrink-0 flex items-center gap-4 bg-[#111313] p-4 rounded-2xl border border-white/[0.08] shadow-xs">
             <div className="space-y-0.5">
-              <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 font-bold block">
+              <span className="text-[10px] font-mono uppercase tracking-wider text-[#8E8D86] font-bold block">
                 Average End-to-End Cycle
               </span>
-              <div className="font-serif text-2xl font-bold text-slate-950">
-                45–60 <span className="text-sm font-sans font-medium text-slate-600">Business Days</span>
+              <div className="font-serif text-2xl font-normal text-[#F3EFE7]">
+                45–60 <span className="text-xs font-sans font-medium text-[#A5A29A]">Business Days</span>
               </div>
             </div>
-            <div className="w-px h-10 bg-slate-200" aria-hidden="true" />
+            <div className="w-px h-10 bg-white/10" aria-hidden="true" />
             <div className="space-y-0.5 pl-1">
-              <span className="text-[10px] font-mono uppercase tracking-wider text-teal-700 font-bold block">
+              <span className="text-[10px] font-mono uppercase tracking-wider text-[#C79A4A] font-bold block">
                 Sanction Approval Rate
               </span>
-              <div className="font-serif text-2xl font-bold text-teal-800">
+              <div className="font-serif text-2xl font-normal text-[#C79A4A]">
                 98.4%
               </div>
             </div>
@@ -370,11 +365,11 @@ export function SyndicationPipeline() {
           {/* Progress Connecting Line (Desktop) */}
           <div className="relative">
             <div
-              className="hidden lg:block absolute top-7 left-12 right-12 h-0.5 bg-slate-200"
+              className="hidden lg:block absolute top-7 left-12 right-12 h-0.5 bg-white/10"
               aria-hidden="true"
             >
               <div
-                className="h-full bg-gradient-to-r from-teal-600 via-amber-500 to-amber-600 transition-all duration-500 ease-out"
+                className="h-full bg-gradient-to-r from-[#C79A4A] via-[#DFC286] to-[#C79A4A] transition-all duration-500 ease-out"
                 style={{
                   width: `${(activeStageIndex / (pipelineStages.length - 1)) * 100}%`,
                 }}
@@ -392,12 +387,12 @@ export function SyndicationPipeline() {
                   <button
                     key={stage.id}
                     onClick={() => setActiveStageIndex(idx)}
-                    className={`group relative text-left p-4 sm:p-5 rounded-2xl border transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 ${
+                    className={`group relative text-left p-4 sm:p-5 rounded-2xl border transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C79A4A] ${
                       isActive
-                        ? "bg-white border-amber-500/70 shadow-[0_8px_24px_-6px_rgba(217,119,6,0.18)] ring-1 ring-amber-500/30 -translate-y-1"
+                        ? "bg-[#171918] border-[#C79A4A]/60 shadow-[0_8px_24px_-6px_rgba(199,154,74,0.18)] ring-1 ring-[#C79A4A]/25 -translate-y-1"
                         : isPast
-                        ? "bg-white/80 border-teal-300/60 hover:border-teal-500/40 hover:bg-white text-slate-800"
-                        : "bg-white/60 border-slate-200/80 hover:border-slate-300 hover:bg-white text-slate-600"
+                        ? "bg-[#111313]/90 border-white/10 hover:border-white/20 hover:bg-[#141615] text-[#A5A29A]"
+                        : "bg-[#0E1010]/90 border-white/[0.06] hover:border-white/15 hover:bg-[#111313] text-[#8E8D86]"
                     }`}
                     aria-selected={isActive}
                     role="tab"
@@ -409,22 +404,22 @@ export function SyndicationPipeline() {
                       <div
                         className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300 ${
                           isActive
-                            ? "bg-amber-600 text-white shadow-xs scale-105"
+                            ? "bg-[#C79A4A] text-[#080909] shadow-xs scale-105"
                             : isPast
-                            ? "bg-teal-50 text-teal-700 border border-teal-200/60"
-                            : "bg-slate-100 text-slate-500 border border-slate-200"
+                            ? "bg-white/[0.06] text-[#DFC286] border border-white/10"
+                            : "bg-white/[0.03] text-[#8E8D86] border border-white/[0.06]"
                         }`}
                       >
                         <Icon className="w-4 h-4" />
                       </div>
 
                       <span
-                        className={`font-mono text-[11px] font-bold px-2 py-0.5 rounded transition-colors ${
+                        className={`font-mono text-[11px] font-medium px-2 py-0.5 rounded transition-colors ${
                           isActive
-                            ? "bg-amber-100 text-amber-950 border border-amber-300/80"
+                            ? "bg-[#C79A4A]/15 text-[#DFC286] border border-[#C79A4A]/30"
                             : isPast
-                            ? "bg-teal-50 text-teal-800 border border-teal-200/60"
-                            : "bg-slate-100 text-slate-500 border border-slate-200"
+                            ? "bg-white/[0.04] text-[#A5A29A] border border-white/[0.08]"
+                            : "bg-white/[0.02] text-[#8E8D86] border border-white/[0.05]"
                         }`}
                       >
                         {stage.timeline}
@@ -433,12 +428,12 @@ export function SyndicationPipeline() {
 
                     {/* Step Stage & Title */}
                     <div className="space-y-1">
-                      <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
+                      <span className="font-mono text-[10px] uppercase tracking-wider text-[#8E8D86] block">
                         STAGE {stage.number}
                       </span>
                       <h3
-                        className={`font-serif text-sm sm:text-base font-bold leading-snug transition-colors line-clamp-1 ${
-                          isActive ? "text-slate-950" : "text-slate-700 group-hover:text-slate-950"
+                        className={`font-serif text-sm sm:text-base font-normal leading-snug transition-colors line-clamp-1 ${
+                          isActive ? "text-[#F3EFE7]" : "text-[#A5A29A] group-hover:text-[#F3EFE7]"
                         }`}
                       >
                         {stage.title}
@@ -447,7 +442,7 @@ export function SyndicationPipeline() {
 
                     {/* Active Accent Bar */}
                     {isActive && (
-                      <div className="absolute bottom-0 left-4 right-4 h-1 bg-gradient-to-r from-amber-500 to-teal-600 rounded-t-full" />
+                      <div className="absolute bottom-0 left-4 right-4 h-0.5 bg-gradient-to-r from-[#C79A4A] to-[#DFC286] rounded-t-full" />
                     )}
                   </button>
                 );
@@ -472,41 +467,41 @@ export function SyndicationPipeline() {
           >
             <SpotlightCard
               glowVariant="amber"
-              className="w-full shadow-lg border border-slate-200/90"
-              innerClassName="p-6 sm:p-8 lg:p-10 space-y-8"
+              className="w-full bg-[#111313] border border-white/[0.08] shadow-2xl"
+              innerClassName="p-6 sm:p-8 lg:p-10 space-y-8 bg-[#111313]"
             >
               {/* Header inside Card: Stage Name, SLA & Overview */}
-              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-slate-100">
-                <div className="space-y-1.5">
+              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-white/[0.08]">
+                <div className="space-y-2">
                   <div className="flex items-center gap-2.5 flex-wrap">
-                    <span className="font-mono text-xs font-bold px-2.5 py-0.5 rounded-full bg-slate-900 text-white uppercase tracking-wider">
+                    <span className="font-mono text-xs font-bold px-2.5 py-0.5 rounded-full bg-white/[0.08] text-[#F3EFE7] uppercase tracking-wider border border-white/10">
                       STAGE {currentStage.number}
                     </span>
-                    <span className="font-mono text-xs font-semibold text-amber-700 uppercase tracking-wide">
+                    <span className="font-mono text-xs font-semibold text-[#C79A4A] uppercase tracking-wide">
                       {currentStage.phase}
                     </span>
-                    <span className="text-slate-300 font-mono" aria-hidden="true">&bull;</span>
-                    <span className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-slate-600 bg-slate-100 px-2.5 py-0.5 rounded border border-slate-200">
-                      <Clock className="w-3.5 h-3.5 text-slate-500" />
+                    <span className="text-[#8E8D86] font-mono" aria-hidden="true">&bull;</span>
+                    <span className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-[#A5A29A] bg-white/[0.04] px-2.5 py-0.5 rounded border border-white/[0.08]">
+                      <Clock className="w-3.5 h-3.5 text-[#C79A4A]" />
                       {currentStage.sla}
                     </span>
                   </div>
 
-                  <h3 className="font-serif text-2xl sm:text-3xl font-bold text-slate-950 tracking-tight">
+                  <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#F3EFE7] tracking-tight">
                     {currentStage.title}
                   </h3>
 
-                  <p className="type-body-sm text-slate-600 max-w-3xl leading-relaxed">
+                  <p className="font-sans text-sm sm:text-base text-[#A5A29A] max-w-3xl leading-relaxed">
                     {currentStage.description}
                   </p>
                 </div>
 
                 {/* Target Metric Badge */}
-                <div className="shrink-0 lg:text-right bg-amber-50/70 border border-amber-200/80 rounded-2xl p-4 self-start lg:self-auto">
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-amber-900 font-bold block">
+                <div className="shrink-0 lg:text-right bg-[#171918] border border-[#C79A4A]/30 rounded-2xl p-4 self-start lg:self-auto">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#C79A4A] font-bold block">
                     {currentStage.statHighlight.label}
                   </span>
-                  <span className="font-mono text-xl sm:text-2xl font-bold text-amber-950">
+                  <span className="font-mono text-xl sm:text-2xl font-bold text-[#DFC286]">
                     {currentStage.statHighlight.value}
                   </span>
                 </div>
@@ -517,15 +512,15 @@ export function SyndicationPipeline() {
                   ======================================================== */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
                 {/* Column A: Promoter Handover (What You Provide) */}
-                <div className="space-y-4 rounded-2xl bg-slate-50/90 p-5 sm:p-6 border border-slate-200/80">
-                  <div className="flex items-center justify-between gap-3 pb-3 border-b border-slate-200">
+                <div className="space-y-4 rounded-2xl bg-[#141615] p-5 sm:p-6 border border-white/[0.08]">
+                  <div className="flex items-center justify-between gap-3 pb-3 border-b border-white/[0.08]">
                     <div className="flex items-center gap-2">
-                      <FileText className="w-5 h-5 text-slate-700" />
-                      <h4 className="font-sans text-sm sm:text-base font-bold text-slate-950 uppercase tracking-wide">
+                      <FileText className="w-5 h-5 text-[#A5A29A]" />
+                      <h4 className="font-sans text-sm sm:text-base font-semibold text-[#F3EFE7] uppercase tracking-wide">
                         1. Promoter Document Handover
                       </h4>
                     </div>
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider bg-white text-slate-600 px-2 py-0.5 rounded border border-slate-200">
+                    <span className="text-[10px] font-mono uppercase tracking-wider bg-white/[0.06] text-[#A5A29A] px-2 py-0.5 rounded border border-white/10">
                       Client Responsibility
                     </span>
                   </div>
@@ -534,16 +529,16 @@ export function SyndicationPipeline() {
                     {currentStage.promoterHandover.map((item, idx) => (
                       <div
                         key={idx}
-                        className="flex items-start gap-3 p-3 rounded-xl bg-white border border-slate-200/70 shadow-2xs"
+                        className="flex items-start gap-3 p-3 rounded-xl bg-[#0B0C0C] border border-white/[0.06]"
                       >
-                        <div className="w-5 h-5 rounded-full bg-slate-100 text-slate-700 font-mono text-[10px] font-bold flex items-center justify-center shrink-0 mt-0.5">
+                        <div className="w-5 h-5 rounded-full bg-white/[0.06] text-[#A5A29A] font-mono text-[10px] font-bold flex items-center justify-center shrink-0 mt-0.5">
                           {idx + 1}
                         </div>
                         <div className="space-y-0.5">
-                          <h5 className="font-sans text-xs sm:text-sm font-bold text-slate-900 leading-snug">
+                          <h5 className="font-sans text-xs sm:text-sm font-semibold text-[#F3EFE7] leading-snug">
                             {item.title}
                           </h5>
-                          <p className="text-xs text-slate-600 leading-relaxed font-sans">
+                          <p className="text-xs text-[#A5A29A] leading-relaxed font-sans">
                             {item.description}
                           </p>
                         </div>
@@ -553,15 +548,15 @@ export function SyndicationPipeline() {
                 </div>
 
                 {/* Column B: Agnivridhi Mandate Execution (What We Deliver) */}
-                <div className="space-y-4 rounded-2xl bg-teal-50/50 p-5 sm:p-6 border border-teal-200/80">
-                  <div className="flex items-center justify-between gap-3 pb-3 border-b border-teal-200/80">
+                <div className="space-y-4 rounded-2xl bg-[#171918]/90 p-5 sm:p-6 border border-[#C79A4A]/25">
+                  <div className="flex items-center justify-between gap-3 pb-3 border-b border-[#C79A4A]/25">
                     <div className="flex items-center gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-teal-700" />
-                      <h4 className="font-sans text-sm sm:text-base font-bold text-teal-950 uppercase tracking-wide">
+                      <CheckCircle2 className="w-5 h-5 text-[#C79A4A]" />
+                      <h4 className="font-sans text-sm sm:text-base font-semibold text-[#DFC286] uppercase tracking-wide">
                         2. Agnivridhi Institutional Execution
                       </h4>
                     </div>
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider bg-teal-600 text-white px-2 py-0.5 rounded shadow-2xs">
+                    <span className="text-[10px] font-mono uppercase tracking-wider bg-[#C79A4A]/20 text-[#DFC286] px-2 py-0.5 rounded border border-[#C79A4A]/30">
                       Agnivridhi Mandate
                     </span>
                   </div>
@@ -570,14 +565,14 @@ export function SyndicationPipeline() {
                     {currentStage.agnivridhiExecutes.map((item, idx) => (
                       <div
                         key={idx}
-                        className="flex items-start gap-3 p-3 rounded-xl bg-white border border-teal-200/60 shadow-2xs"
+                        className="flex items-start gap-3 p-3 rounded-xl bg-[#0B0C0C] border border-[#C79A4A]/15"
                       >
-                        <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-[#C79A4A] shrink-0 mt-0.5" />
                         <div className="space-y-0.5">
-                          <h5 className="font-sans text-xs sm:text-sm font-bold text-slate-900 leading-snug">
+                          <h5 className="font-sans text-xs sm:text-sm font-semibold text-[#F3EFE7] leading-snug">
                             {item.title}
                           </h5>
-                          <p className="text-xs text-slate-600 leading-relaxed font-sans">
+                          <p className="text-xs text-[#A5A29A] leading-relaxed font-sans">
                             {item.description}
                           </p>
                         </div>
@@ -588,16 +583,16 @@ export function SyndicationPipeline() {
               </div>
 
               {/* Bottom Callout: Risk Mitigation & Direct Action Bar */}
-              <div className="pt-6 border-t border-slate-100 flex flex-col md:flex-row md:items-center justify-between gap-5 bg-gradient-to-r from-amber-50/70 via-slate-50 to-teal-50/40 -mx-6 sm:-mx-8 lg:-mx-10 -mb-6 sm:-mb-8 lg:-mb-10 p-6 sm:p-8 rounded-b-3xl">
+              <div className="pt-6 border-t border-white/[0.08] flex flex-col md:flex-row md:items-center justify-between gap-5 bg-[#141615] -mx-6 sm:-mx-8 lg:-mx-10 -mb-6 sm:-mb-8 lg:-mb-10 p-6 sm:p-8 rounded-b-3xl">
                 <div className="flex items-start gap-3 max-w-2xl">
-                  <div className="w-8 h-8 rounded-xl bg-amber-100 border border-amber-300/80 flex items-center justify-center text-amber-900 shrink-0 mt-0.5">
-                    <AlertTriangle className="w-4 h-4 text-amber-700" />
+                  <div className="w-8 h-8 rounded-xl bg-[#C79A4A]/10 border border-[#C79A4A]/30 flex items-center justify-center text-[#C79A4A] shrink-0 mt-0.5">
+                    <AlertTriangle className="w-4 h-4 text-[#C79A4A]" />
                   </div>
                   <div className="space-y-1">
-                    <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-amber-950 block">
+                    <span className="font-mono text-[10px] uppercase tracking-wider text-[#C79A4A] block">
                       Critical Risk Mitigated at this Stage
                     </span>
-                    <p className="text-xs sm:text-sm text-slate-700 font-sans leading-relaxed">
+                    <p className="text-xs sm:text-sm text-[#A5A29A] font-sans leading-relaxed">
                       {currentStage.riskMitigated}
                     </p>
                   </div>
@@ -606,18 +601,18 @@ export function SyndicationPipeline() {
                 <div className="shrink-0 flex items-center gap-3">
                   <Link
                     href="/contact?service=cgtmse-funding"
-                    className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-950 hover:bg-slate-900 text-white font-sans text-xs sm:text-sm font-semibold shadow-sm transition-all hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+                    className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#C79A4A] hover:bg-[#B88B3B] text-[#080909] font-sans text-xs sm:text-sm font-semibold shadow-sm transition-all hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C79A4A]"
                   >
                     <span>Initiate Stage 01 Audit</span>
-                    <ArrowRight className="w-4 h-4 text-amber-400" />
+                    <ArrowRight className="w-4 h-4 text-[#080909]" />
                   </Link>
 
                   <Link
                     href="/services/cgtmse-funding"
-                    className="hidden sm:inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-white border border-slate-200 hover:border-slate-300 text-slate-700 font-sans text-xs font-semibold transition-colors"
+                    className="hidden sm:inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-white/[0.04] border border-white/15 hover:border-white/30 text-[#F3EFE7] font-sans text-xs font-semibold transition-colors"
                   >
                     <span>Scheme Specs</span>
-                    <ExternalLink className="w-3.5 h-3.5 text-slate-500" />
+                    <ExternalLink className="w-3.5 h-3.5 text-[#A5A29A]" />
                   </Link>
                 </div>
               </div>

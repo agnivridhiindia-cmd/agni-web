@@ -72,7 +72,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   });
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       {/* Schema.org Structured Data */}
       <script
         type="application/ld+json"

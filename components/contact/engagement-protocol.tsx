@@ -25,10 +25,10 @@ export function EngagementProtocol() {
   return (
     <section aria-labelledby="protocol-heading" className="space-y-5 pt-4">
       <div className="space-y-1">
-        <span className="font-mono text-xs font-bold uppercase tracking-wider text-teal-800 bg-teal-50 border border-teal-200/80 px-2.5 py-0.5 rounded">
+        <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#C79A4A] bg-[#C79A4A]/10 border border-[#C79A4A]/30 px-2.5 py-0.5 rounded">
           Consultation Lifecycle
         </span>
-        <h3 id="protocol-heading" className="font-serif text-2xl font-semibold text-slate-900 pt-1">
+        <h3 id="protocol-heading" className="font-serif text-2xl font-semibold text-[#F3EFE7] pt-1">
           What Happens After You Inquire?
         </h3>
       </div>
@@ -37,16 +37,16 @@ export function EngagementProtocol() {
         {steps.map((step) => (
           <div
             key={step.number}
-            className="p-4 sm:p-5 rounded-xl bg-white border border-slate-200/90 shadow-xs flex items-start gap-4 transition-all hover:border-teal-300"
+            className="p-4 sm:p-5 rounded-xl bg-[#111313] border border-[#232727] shadow-xs flex items-start gap-4 transition-all hover:border-[#C79A4A]/40"
           >
-            <div className="w-8 h-8 rounded-lg bg-teal-50 text-teal-800 border border-teal-200/80 font-mono text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
+            <div className="w-8 h-8 rounded-lg bg-[#181A1A] text-[#C79A4A] border border-[#232727] font-mono text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
               {step.number}
             </div>
             <div className="space-y-1">
-              <h4 className="text-base font-semibold text-slate-900 font-serif">
+              <h4 className="text-base font-semibold text-[#F3EFE7] font-serif">
                 {step.title}
               </h4>
-              <p className="text-xs sm:text-sm text-slate-600 font-sans leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#D1CBC1] font-sans leading-relaxed">
                 {step.description}
               </p>
             </div>

@@ -17,7 +17,7 @@ export default async function SuccessStoriesPage() {
   const caseStudies = await getAllCaseStudies();
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       {/* Editorial Hero Header */}
       <SuccessStoriesHero totalStories={caseStudies.length} />
 

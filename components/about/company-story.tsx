@@ -7,7 +7,7 @@ export function CompanyStory() {
   return (
     <section
       aria-labelledby="company-story-heading"
-      className="py-16 sm:py-20 lg:py-28 bg-white border-b border-slate-200/80"
+      className="py-16 sm:py-20 lg:py-28 bg-[#080909] border-b border-[#232727]"
     >
       <Container width="wide">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
@@ -22,14 +22,14 @@ export function CompanyStory() {
                 align="left"
               />
 
-              <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-3 mt-6">
-                <span className="font-mono text-xs font-bold uppercase tracking-wider text-teal-700 block">
+              <div className="p-6 rounded-2xl bg-[#111313] border border-[#232727] space-y-3 mt-6">
+                <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#C79A4A] block">
                   The Core Reality
                 </span>
-                <blockquote className="font-serif text-lg sm:text-xl font-medium text-slate-900 leading-snug italic">
+                <blockquote className="font-serif text-lg sm:text-xl font-medium text-[#F3EFE7] leading-snug italic">
                   &ldquo;Indian entrepreneurs excel on the shop floor. But in bank credit appraisal and statutory scrutiny, operational grit alone does not guarantee institutional access.&rdquo;
                 </blockquote>
-                <p className="text-xs text-slate-500 font-sans leading-relaxed pt-1">
+                <p className="text-xs text-[#9E9B93] font-sans leading-relaxed pt-1">
                   Central programs provide sovereign risk coverage up to 85%, yet thousands of deserving enterprises miss out due to documentation and compliance misalignment.
                 </p>
               </div>
@@ -37,10 +37,10 @@ export function CompanyStory() {
           </div>
 
           {/* Right Column: In-Depth Narrative (7 cols) */}
-          <div className="lg:col-span-7 space-y-8 font-sans text-slate-600">
+          <div className="lg:col-span-7 space-y-8 font-sans text-[#D1CBC1]">
             <FadeIn direction="up" distance={16} delay={0.1}>
               <div className="space-y-4">
-                <h3 className="font-serif text-2xl font-bold text-slate-900 leading-snug">
+                <h3 className="font-serif text-2xl font-bold text-[#F3EFE7] leading-snug">
                   01. The Problem: Operational Strength vs. Institutional Legibility
                 </h3>
                 <p className="type-body leading-relaxed">
@@ -53,8 +53,8 @@ export function CompanyStory() {
             </FadeIn>
 
             <FadeIn direction="up" distance={16} delay={0.15}>
-              <div className="space-y-4 pt-4 border-t border-slate-100">
-                <h3 className="font-serif text-2xl font-bold text-slate-900 leading-snug">
+              <div className="space-y-4 pt-4 border-t border-[#232727]">
+                <h3 className="font-serif text-2xl font-bold text-[#F3EFE7] leading-snug">
                   02. Our Role: The Embedded Strategic Translator
                 </h3>
                 <p className="type-body leading-relaxed">
@@ -67,8 +67,8 @@ export function CompanyStory() {
             </FadeIn>
 
             <FadeIn direction="up" distance={16} delay={0.2}>
-              <div className="space-y-4 pt-4 border-t border-slate-100">
-                <h3 className="font-serif text-2xl font-bold text-slate-900 leading-snug">
+              <div className="space-y-4 pt-4 border-t border-[#232727]">
+                <h3 className="font-serif text-2xl font-bold text-[#F3EFE7] leading-snug">
                   03. The Result: Measurable Balance Sheet Momentum
                 </h3>
                 <p className="type-body leading-relaxed">

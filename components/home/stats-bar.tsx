@@ -106,17 +106,17 @@ function StatCard({ stat, indexNumber, isInView }: StatCardProps) {
     <div className="w-[300px] sm:w-[340px] lg:w-[360px] shrink-0 px-3 h-full">
       <SpotlightCard
         glowVariant="amber"
-        className="h-full hover:-translate-y-1.5 transition-all duration-300 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_32px_-8px_rgba(217,119,6,0.12)] border-slate-200/80 bg-white"
-        innerClassName="p-6 sm:p-7 flex flex-col justify-between h-full min-h-[300px]"
+        className="h-full hover:-translate-y-1.5 transition-all duration-300 shadow-[0_12px_30px_-8px_rgba(0,0,0,0.8)] border-white/[0.08] bg-[#111313] hover:border-[#C79A4A]/40"
+        innerClassName="p-6 sm:p-7 flex flex-col justify-between h-full min-h-[300px] bg-[#111313] text-[#F3EFE7]"
       >
         <div className="space-y-4">
           {/* Top Row: Icon Container + Step Number */}
           <div className="flex items-center justify-between gap-3">
-            <div className="w-11 h-11 rounded-xl bg-slate-50 border border-slate-200/90 text-teal-700 flex items-center justify-center shadow-xs group-hover/spotlight:bg-teal-600 group-hover/spotlight:text-white group-hover/spotlight:scale-105 group-hover/spotlight:border-teal-600 transition-all duration-300">
+            <div className="w-11 h-11 rounded-xl bg-white/[0.04] border border-white/10 text-[#C79A4A] flex items-center justify-center shadow-xs group-hover/spotlight:bg-[#C79A4A] group-hover/spotlight:text-[#080909] transition-all duration-300">
               <Icon className="w-5 h-5" />
             </div>
 
-            <span className="font-mono text-xs font-bold px-2 py-0.5 rounded-md bg-slate-100/80 text-slate-500 group-hover/spotlight:bg-amber-50 group-hover/spotlight:text-amber-800 transition-colors">
+            <span className="font-mono text-xs font-semibold px-2 py-0.5 rounded-md bg-white/[0.03] text-[#A5A29A] group-hover/spotlight:text-[#C79A4A] transition-colors">
               {indexNumber}
             </span>
           </div>
@@ -129,11 +129,11 @@ function StatCard({ stat, indexNumber, isInView }: StatCardProps) {
             }: ${stat.label}`}
           >
             {stat.prefix && (
-              <span className="font-serif text-2xl sm:text-3xl text-teal-700 font-bold mr-0.5 leading-none">
+              <span className="font-serif text-2xl sm:text-3xl text-[#C79A4A] font-light mr-0.5 leading-none">
                 {stat.prefix}
               </span>
             )}
-            <span className="font-serif text-3xl sm:text-4xl lg:text-[2.6rem] font-bold text-slate-950 tracking-tight leading-none tabular-nums">
+            <span className="font-serif text-3xl sm:text-4xl lg:text-[2.6rem] font-normal text-[#F3EFE7] tracking-tight leading-none tabular-nums">
               {stat.numericValue !== null && stat.numericValue !== undefined ? (
                 <StatCountUp
                   target={stat.numericValue}
@@ -145,30 +145,30 @@ function StatCard({ stat, indexNumber, isInView }: StatCardProps) {
               )}
             </span>
             {stat.suffix && (
-              <span className="text-base sm:text-lg font-sans font-medium text-slate-600 ml-1.5 leading-none">
+              <span className="text-base sm:text-lg font-sans font-normal text-[#A5A29A] ml-1.5 leading-none">
                 {stat.suffix.trim()}
               </span>
             )}
           </div>
 
           {/* Stat Label */}
-          <h3 className="font-sans text-base sm:text-lg font-bold text-slate-900 leading-snug group-hover/spotlight:text-amber-950 transition-colors line-clamp-1">
+          <h3 className="font-sans text-base sm:text-lg font-semibold text-[#F3EFE7] leading-snug group-hover/spotlight:text-[#DFC286] transition-colors line-clamp-1">
             {stat.label}
           </h3>
 
           {/* Short Description */}
-          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-sans line-clamp-3">
+          <p className="text-xs sm:text-sm text-[#A5A29A] leading-relaxed font-sans line-clamp-3">
             {stat.description}
           </p>
         </div>
 
         {/* Bottom Verification Footer */}
-        <div className="mt-5 pt-3.5 border-t border-slate-200/60 flex items-center justify-between text-[11px] font-sans text-slate-500">
-          <span className="inline-flex items-center gap-1.5 font-medium text-emerald-800">
-            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-            Verified
+        <div className="mt-5 pt-3.5 border-t border-white/[0.06] flex items-center justify-between text-[11px] font-mono text-[#8E8D86]">
+          <span className="inline-flex items-center gap-1.5 text-[#C79A4A]">
+            <CheckCircle2 className="w-3.5 h-3.5 text-[#C79A4A] shrink-0" />
+            Verified Metric
           </span>
-          <span className="font-mono text-[10px] text-slate-400 uppercase tracking-wider">
+          <span className="text-[#8E8D86] uppercase tracking-wider">
             Mandate Standard
           </span>
         </div>
@@ -204,17 +204,17 @@ export function StatsBar() {
     <section
       ref={sectionRef}
       aria-labelledby="stats-heading"
-      className="relative bg-slate-100/80 py-16 sm:py-20 lg:py-24 border-b border-slate-200/80 overflow-hidden"
+      className="relative bg-[#080909] text-[#F3EFE7] py-16 sm:py-20 lg:py-24 border-b border-white/[0.08] overflow-hidden"
     >
       <Container width="wide" className="space-y-8 sm:space-y-10">
-        {/* Section Heading matching Bconsult's "Core Advantages" intro */}
+        {/* Section Heading */}
         <FadeIn direction="up" distance={16} delay={0.05}>
           <div className="text-center max-w-3xl mx-auto space-y-3 sm:space-y-4">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 border border-teal-200/70 text-teal-800">
-              <span className="w-1.5 h-1.5 rounded-full bg-teal-600" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-[#C79A4A]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#C79A4A]" />
               <Eyebrow
                 accent={false}
-                className="text-[11px] sm:text-xs font-semibold tracking-wider uppercase font-sans text-teal-800"
+                className="text-[11px] sm:text-xs font-mono tracking-widest uppercase text-[#C79A4A]"
               >
                 OUR CORE ADVANTAGES &bull; INSTITUTIONAL PARAMETERS
               </Eyebrow>
@@ -222,38 +222,38 @@ export function StatsBar() {
 
             <h2
               id="stats-heading"
-              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-950 !leading-[1.18]"
+              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-[#F3EFE7] !leading-[1.15]"
             >
               Engineered for Exponential Enterprise Scale
             </h2>
 
-            <p className="type-body text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            <p className="font-sans text-sm sm:text-base text-[#A5A29A] max-w-2xl mx-auto leading-relaxed">
               Verified institutional metrics establishing sovereign debt
               leverage, statutory compliance execution, and scalable technology architectures.
             </p>
 
             {/* Interaction hint & pause toggle */}
             <div className="flex items-center justify-center gap-3 pt-2">
-              <span className="inline-flex items-center gap-1.5 text-xs font-mono text-slate-500 bg-white/70 px-3 py-1 rounded-full border border-slate-200/80 shadow-2xs">
-                <span className="w-2 h-2 rounded-full bg-teal-500 animate-pulse" />
+              <span className="inline-flex items-center gap-1.5 text-xs font-mono text-[#A5A29A] bg-white/[0.03] px-3 py-1 rounded-full border border-white/10">
+                <span className="w-2 h-2 rounded-full bg-[#C79A4A] animate-pulse" />
                 Hover any card to inspect &amp; pause
               </span>
 
               <button
                 type="button"
                 onClick={() => setIsPaused((prev) => !prev)}
-                className="inline-flex items-center gap-1.5 text-xs font-mono text-slate-600 hover:text-slate-950 bg-white/70 hover:bg-white px-2.5 py-1 rounded-full border border-slate-200/80 transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs font-mono text-[#A5A29A] hover:text-[#F3EFE7] bg-white/[0.03] hover:bg-white/[0.08] px-2.5 py-1 rounded-full border border-white/10 transition-colors"
                 aria-label={isPaused ? "Resume metric ticker" : "Pause metric ticker"}
                 title={isPaused ? "Resume metric ticker" : "Pause metric ticker"}
               >
                 {isPaused ? (
                   <>
-                    <Play className="w-3 h-3 text-teal-600 fill-teal-600" />
+                    <Play className="w-3 h-3 text-[#C79A4A] fill-[#C79A4A]" />
                     <span>Resume</span>
                   </>
                 ) : (
                   <>
-                    <Pause className="w-3 h-3 text-slate-500 fill-slate-500" />
+                    <Pause className="w-3 h-3 text-[#A5A29A] fill-[#A5A29A]" />
                     <span>Pause</span>
                   </>
                 )}
@@ -269,11 +269,11 @@ export function StatsBar() {
       <div className="relative w-full overflow-hidden mt-8 sm:mt-10 group">
         {/* Soft edge gradient masks */}
         <div
-          className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-28 lg:w-44 z-20 bg-gradient-to-r from-slate-100 via-slate-100/90 to-transparent"
+          className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-32 lg:w-48 z-20 bg-gradient-to-r from-[#080909] via-[#080909]/90 to-transparent"
           aria-hidden="true"
         />
         <div
-          className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-28 lg:w-44 z-20 bg-gradient-to-l from-slate-100 via-slate-100/90 to-transparent"
+          className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-32 lg:w-48 z-20 bg-gradient-to-l from-[#080909] via-[#080909]/90 to-transparent"
           aria-hidden="true"
         />
 

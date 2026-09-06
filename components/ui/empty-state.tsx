@@ -20,18 +20,18 @@ export function EmptyState({
   return (
     <div
       className={cn(
-        "flex flex-col items-center justify-center p-8 sm:p-12 text-center rounded-lg border border-dashed border-slate-200 bg-slate-50/50",
+        "flex flex-col items-center justify-center p-8 sm:p-12 text-center rounded-2xl border border-dashed border-[#232727] bg-[#111313]",
         className
       )}
       {...props}
     >
-      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-slate-100 text-slate-500 mb-4">
+      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#181A1A] border border-[#232727] text-[#C79A4A] mb-4">
         {icon || <FolderSearch className="h-6 w-6" />}
       </div>
-      <h3 className="font-serif text-lg font-semibold text-slate-900 mb-1">
+      <h3 className="font-serif text-lg font-semibold text-[#F3EFE7] mb-1">
         {title}
       </h3>
-      <p className="type-body-sm text-slate-500 max-w-sm mb-6 leading-relaxed font-sans">
+      <p className="type-body-sm text-[#D1CBC1] max-w-sm mb-6 leading-relaxed font-sans">
         {description}
       </p>
       {action && <div className="inline-flex items-center">{action}</div>}

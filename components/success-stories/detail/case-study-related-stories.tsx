@@ -15,30 +15,30 @@ export function CaseStudyRelatedStories({ relatedStudies }: CaseStudyRelatedStor
   return (
     <section
       aria-labelledby="related-stories-heading"
-      className="border-t border-slate-200/80 bg-white py-14 sm:py-16 lg:py-20"
+      className="border-t border-[#232727] bg-[#0B0C0C] py-14 sm:py-16 lg:py-20"
     >
       <Container width="wide">
         <div className="space-y-8 sm:space-y-10">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div className="max-w-xl space-y-2">
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-teal-800">
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#C79A4A]">
                 <BookOpen className="w-4 h-4 text-teal-600 shrink-0" aria-hidden="true" />
                 <span>Verified Case Collection</span>
               </div>
               <h2
                 id="related-stories-heading"
-                className="font-serif text-2xl sm:text-3xl font-semibold text-slate-900 tracking-tight"
+                className="font-serif text-2xl sm:text-3xl font-semibold text-[#F3EFE7] tracking-tight"
               >
                 Complementary Enterprise Outcomes
               </h2>
-              <p className="text-slate-600 text-sm font-sans">
+              <p className="text-[#D1CBC1] text-sm font-sans">
                 Explore how other Indian manufacturing and enterprise clients secured debt financing and statutory accreditation.
               </p>
             </div>
 
             <Link
               href="/success-stories"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-teal-700 hover:text-teal-900 transition-colors"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#C79A4A] hover:text-[#F3EFE7] transition-colors"
             >
               <span>View All Success Stories</span>
               <ArrowRight className="w-4 h-4" />

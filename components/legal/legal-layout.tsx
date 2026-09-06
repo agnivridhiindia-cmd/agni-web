@@ -9,7 +9,7 @@ export function LegalLayout({ children }: LegalLayoutProps) {
   return (
     <div className="py-12 sm:py-16 lg:py-20">
       <Container width="reading">
-        <article className="space-y-10 text-slate-700 font-sans leading-relaxed text-sm sm:text-base">
+        <article className="space-y-10 text-[#D1CBC1] font-sans leading-relaxed text-sm sm:text-base">
           {children}
         </article>
       </Container>

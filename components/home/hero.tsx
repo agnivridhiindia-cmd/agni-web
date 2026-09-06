@@ -2,199 +2,124 @@
 
 import * as React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, type Variants } from "framer-motion";
 import {
-  CheckCircle2,
-  Sparkles,
+  ArrowRight,
   ShieldCheck,
-  TrendingUp,
   Building2,
-  ArrowUpRight,
 } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 import { Container } from "@/components/shared/container";
-import { Eyebrow } from "@/components/ui/badge";
-import { LinkButton } from "@/components/ui/link-button";
-import { CtaArrow } from "@/components/ui/cta-arrow";
-import { MagneticButton } from "@/components/ui/magnetic-button";
-import {
-  FadeIn,
-  StaggerContainer,
-  StaggerItem,
-  useReducedMotionPreference,
-} from "@/components/shared/motion";
-import { motionDuration, motionEase } from "@/lib/tokens/motion";
+import { useReducedMotionPreference } from "@/components/shared/motion";
 
 const heroStaggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.14,
       delayChildren: 0.05,
     },
   },
 };
 
 const heroFadeInUpItem: Variants = {
-  hidden: { opacity: 0, y: 16 },
+  hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.5,
-      ease: [0.25, 0.1, 0.25, 1] as const,
+      duration: 0.85,
+      ease: [0.16, 1, 0.3, 1] as const,
     },
   },
 };
 
-function HeroHeadline() {
-  return (
-    <h1
-      id="hero-heading"
-      className="font-serif text-3xl sm:text-4xl md:text-[2.65rem] lg:text-[3.1rem] xl:text-[3.35rem] font-bold tracking-tight text-slate-950 !leading-[1.16]"
-    >
-      Aapke Business Ki Udaan,{" "}
-      <span className="text-teal-700 italic font-serif relative inline-block">
-        Humare Saath
-        <span
-          aria-hidden="true"
-          className="absolute left-0 -bottom-1 w-full h-[3px] bg-gradient-to-r from-teal-600/80 via-amber-500/80 to-amber-600/60 rounded-full"
-        />
-      </span>
-      <span className="block font-sans text-lg sm:text-xl md:text-2xl font-semibold text-slate-700 pt-2 tracking-tight">
-        Funding &bull; Compliance &bull; Technology &bull; Marketing
-      </span>
-    </h1>
-  );
-}
+const headlineLineReveal: Variants = {
+  hidden: { y: "115%", opacity: 0 },
+  visible: {
+    y: "0%",
+    opacity: 1,
+    transition: {
+      duration: 0.95,
+      ease: [0.16, 1, 0.3, 1] as const,
+    },
+  },
+};
 
 export function Hero() {
-  const { location, name } = siteConfig.company;
   const prefersReduced = useReducedMotionPreference();
+  const { location } = siteConfig.company;
 
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative overflow-hidden bg-gradient-to-b from-teal-50/25 via-white to-slate-50/50 pt-28 pb-14 sm:pt-32 sm:pb-16 lg:pt-36 lg:pb-20 border-b border-slate-200/80"
+      className="relative overflow-hidden bg-[#080909] text-[#F3EFE7] pt-28 pb-16 sm:pt-36 sm:pb-24 lg:pt-40 lg:pb-28 border-b border-white/[0.08]"
     >
-      {/* ============================================================
-          1. FLOATING DECORATIVE AMBIENT SHAPES (Bconsult Motion Style)
-          ============================================================ */}
+      {/* Background Architectural Ambient Lighting */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 z-0 overflow-hidden select-none"
       >
-        {/* Soft Blurred Teal Orb - Drifting Top Right */}
-        {prefersReduced ? (
-          <div className="absolute -top-24 right-[-5%] h-[520px] w-[520px] rounded-full bg-teal-400/15 blur-[120px]" />
-        ) : (
-          <motion.div
-            animate={{
-              x: [0, 30, -20, 0],
-              y: [0, -35, 20, 0],
-              scale: [1, 1.08, 0.95, 1],
-            }}
-            transition={{
-              duration: 18,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="absolute -top-24 right-[-5%] h-[520px] w-[520px] rounded-full bg-teal-400/15 blur-[120px] will-change-transform"
-          />
-        )}
+        {/* Deep ambient brass glow - Top Right */}
+        <div className="absolute -top-32 right-[-10%] h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle,rgba(199,154,74,0.08)_0%,transparent_70%)] blur-3xl" />
+        
+        {/* Deep terracotta ambient glow - Bottom Left */}
+        <div className="absolute top-1/2 left-[-12%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle,rgba(140,59,36,0.06)_0%,transparent_70%)] blur-3xl" />
 
-        {/* Soft Burnished Gold Orb - Drifting Center/Bottom Left */}
-        {prefersReduced ? (
-          <div className="absolute top-1/3 left-[-8%] h-[460px] w-[460px] rounded-full bg-gold-400/15 blur-[110px]" />
-        ) : (
-          <motion.div
-            animate={{
-              x: [0, -25, 15, 0],
-              y: [0, 30, -15, 0],
-              scale: [1, 0.96, 1.06, 1],
-            }}
-            transition={{
-              duration: 22,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="absolute top-1/3 left-[-8%] h-[460px] w-[460px] rounded-full bg-gold-400/15 blur-[110px] will-change-transform"
-          />
-        )}
-
-        {/* Architectural Grid Texture Overlay */}
-        <div className="absolute inset-0 opacity-[0.025] [background-image:linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] [background-size:4rem_4rem] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_35%,#000_70%,transparent_100%)]" />
+        {/* Architectural Grid Texture */}
+        <div className="absolute inset-0 opacity-[0.035] [background-image:linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] [background-size:4.5rem_4.5rem] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_40%,#000_70%,transparent_100%)]" />
       </div>
 
       <Container width="wide" className="relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 xl:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 xl:gap-14 items-center">
           {/* ============================================================
-              LEFT COLUMN: Editorial Pitch, Staggered Headline, Dual Pills
+              LEFT COLUMN: Editorial Typography, Staggered Headline, CTAs
               ============================================================ */}
-          <div className="lg:col-span-7 xl:col-span-6 relative space-y-4 sm:space-y-5 text-left">
-            {/* Faint, low-opacity teal radial gradient behind primary typography */}
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute -top-14 -left-16 sm:-left-24 w-[480px] sm:w-[620px] h-[440px] sm:h-[540px] rounded-full bg-[radial-gradient(circle_at_center,rgba(20,184,166,0.12)_0%,rgba(13,148,136,0.04)_45%,transparent_70%)] blur-2xl -z-10 select-none"
-            />
-
+          <div className="lg:col-span-7 xl:col-span-6 relative space-y-6 sm:space-y-8 text-left">
             {prefersReduced ? (
-              <div className="space-y-4 sm:space-y-5">
-                {/* Pill Eyebrow Badge */}
-                <div>
-                  <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-subtle hover:border-teal-400/50 transition-colors">
-                    <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75" />
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-600" />
-                    </span>
-                    <Eyebrow
-                      accent
-                      className="text-[11px] sm:text-xs font-semibold tracking-wider text-slate-700 font-sans uppercase"
-                    >
-                      <span>
-                        ONE-STOP MSME &amp; STARTUP ENGINE &bull; 500+ ENTERPRISES ENABLED
-                      </span>
-                    </Eyebrow>
-                  </div>
+              <div className="space-y-6">
+                {/* Eyebrow */}
+                <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-xs font-mono tracking-widest text-[#A5A29A]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#C79A4A]" />
+                  <span>AGNIVRIDHI &bull; ADVISORY / INDIA</span>
                 </div>
 
-                {/* Main Headline */}
-                <HeroHeadline />
+                {/* Massive Headline */}
+                <h1
+                  id="hero-heading"
+                  className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[5.2rem] xl:text-[5.8rem] font-normal tracking-tight text-[#F3EFE7] !leading-[0.96] uppercase"
+                >
+                  Capital.
+                  <br />
+                  <span className="text-[#C79A4A] italic font-light">Compliance.</span>
+                  <br />
+                  Growth.
+                </h1>
 
                 {/* Supporting Copy */}
-                <p className="type-body-lg text-slate-600 max-w-xl leading-relaxed font-sans">
-                  From collateral-free debt (CGTMSE, PMEGP, MUDRA) and statutory certifications
-                  to custom software engineering, mobile apps, and B2B performance marketing—Agnivridhi
-                  India delivers the turnkey capital and technological infrastructure to accelerate
-                  enterprise scale from {location.city}, {location.country}.
+                <p className="font-sans text-base sm:text-lg text-[#A5A29A] max-w-xl leading-relaxed font-normal">
+                  Strategic advisory for ambitious Indian enterprises navigating capital,
+                  compliance and technological transformation.
                 </p>
 
-                {/* Dual Rounded-Pill CTA Buttons */}
-                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-1">
-                  <MagneticButton strength={0.15} maxOffset={5}>
-                    <LinkButton
-                      href="/contact"
-                      variant="primary"
-                      className="rounded-full px-6 py-3 text-base font-semibold shadow-card hover:shadow-glow-teal bg-teal-600 hover:bg-teal-700 text-white inline-flex items-center justify-center gap-2.5 transition-all group"
-                    >
-                      <span>Schedule Scheme Appraisal</span>
-                      <span className="w-7 h-7 rounded-full bg-white/20 text-white flex items-center justify-center group-hover:bg-white group-hover:text-teal-700 transition-all duration-200 shrink-0">
-                        <Sparkles className="w-3.5 h-3.5" />
-                      </span>
-                    </LinkButton>
-                  </MagneticButton>
-
-                  <LinkButton
+                {/* Dual CTAs */}
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+                  <Link
                     href="/services"
-                    variant="outline"
-                    className="rounded-full px-6 py-3 text-base font-semibold border-2 border-slate-200 bg-white/90 hover:bg-white text-slate-800 hover:border-teal-500/60 hover:text-teal-800 inline-flex items-center justify-center gap-2.5 shadow-xs transition-all group"
+                    className="group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-lg bg-[#C79A4A] hover:bg-[#DFC286] text-[#080909] font-sans font-semibold text-xs tracking-wider uppercase transition-all shadow-[0_0_30px_-5px_rgba(199,154,74,0.35)] hover:scale-[1.02] active:scale-[0.98]"
                   >
-                    <span>Explore 4 Advisory Desks</span>
-                    <span className="w-7 h-7 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center group-hover:bg-teal-50 group-hover:text-teal-700 transition-all duration-200 shrink-0">
-                      <CtaArrow className="w-3.5 h-3.5" />
-                    </span>
-                  </LinkButton>
+                    <span>Explore Advisory</span>
+                    <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
+                  </Link>
+
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-lg border border-white/15 hover:border-[#C79A4A]/50 text-[#F3EFE7] hover:text-[#DFC286] hover:bg-white/[0.03] font-sans font-semibold text-xs tracking-wider uppercase transition-all"
+                  >
+                    <span>Speak with an Advisor</span>
+                  </Link>
                 </div>
               </div>
             ) : (
@@ -202,188 +127,167 @@ export function Hero() {
                 initial="hidden"
                 animate="visible"
                 variants={heroStaggerContainer}
-                className="space-y-4 sm:space-y-5"
+                className="space-y-6"
               >
-                {/* Pill Eyebrow Badge */}
+                {/* Eyebrow */}
                 <motion.div variants={heroFadeInUpItem}>
-                  <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-subtle hover:border-teal-400/50 transition-colors">
-                    <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75" />
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-600" />
-                    </span>
-                    <Eyebrow
-                      accent
-                      className="text-[11px] sm:text-xs font-semibold tracking-wider text-slate-700 font-sans uppercase"
-                    >
-                      <span>
-                        ONE-STOP MSME &amp; STARTUP ENGINE &bull; 500+ ENTERPRISES ENABLED
-                      </span>
-                    </Eyebrow>
+                  <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-xs font-mono tracking-widest text-[#A5A29A]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#C79A4A] animate-pulse" />
+                    <span>AGNIVRIDHI &bull; ADVISORY / INDIA</span>
                   </div>
                 </motion.div>
 
-                {/* Staggered Fraunces Headline */}
-                <motion.div variants={heroFadeInUpItem}>
-                  <HeroHeadline />
-                </motion.div>
+                {/* Massive Headline with Line-by-Line Masked Reveals */}
+                <h1
+                  id="hero-heading"
+                  className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[5.2rem] xl:text-[5.8rem] font-normal tracking-tight text-[#F3EFE7] !leading-[0.96] uppercase"
+                >
+                  <span className="block overflow-hidden py-1">
+                    <motion.span variants={headlineLineReveal} className="block">
+                      Capital.
+                    </motion.span>
+                  </span>
+                  <span className="block overflow-hidden py-1">
+                    <motion.span
+                      variants={headlineLineReveal}
+                      className="block text-[#C79A4A] italic font-light"
+                    >
+                      Compliance.
+                    </motion.span>
+                  </span>
+                  <span className="block overflow-hidden py-1">
+                    <motion.span variants={headlineLineReveal} className="block">
+                      Growth.
+                    </motion.span>
+                  </span>
+                </h1>
 
                 {/* Supporting Copy */}
                 <motion.div variants={heroFadeInUpItem}>
-                  <p className="type-body-lg text-slate-600 max-w-xl leading-relaxed font-sans">
-                    From collateral-free debt (CGTMSE, PMEGP, MUDRA) and statutory certifications
-                    to custom software engineering, mobile apps, and B2B performance marketing—Agnivridhi
-                    India delivers the turnkey capital and technological infrastructure to accelerate
-                    enterprise scale from {location.city}, {location.country}.
+                  <p className="font-sans text-base sm:text-lg text-[#A5A29A] max-w-xl leading-relaxed font-normal">
+                    Strategic advisory for ambitious Indian enterprises navigating capital,
+                    compliance and technological transformation.
                   </p>
                 </motion.div>
 
-                {/* Dual Rounded-Pill CTA Buttons */}
+                {/* Dual CTAs */}
                 <motion.div variants={heroFadeInUpItem}>
-                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-1">
-                    {/* Primary Conversion Pill */}
-                    <MagneticButton strength={0.15} maxOffset={5}>
-                      <LinkButton
-                        href="/contact"
-                        variant="primary"
-                        className="rounded-full px-6 py-3 text-base font-semibold shadow-card hover:shadow-glow-teal bg-teal-600 hover:bg-teal-700 text-white inline-flex items-center justify-center gap-2.5 transition-all group"
-                      >
-                        <span>Schedule Scheme Appraisal</span>
-                        <span className="w-7 h-7 rounded-full bg-white/20 text-white flex items-center justify-center group-hover:bg-white group-hover:text-teal-700 transition-all duration-200 shrink-0">
-                          <Sparkles className="w-3.5 h-3.5" />
-                        </span>
-                      </LinkButton>
-                    </MagneticButton>
-
-                    {/* Secondary Exploration Pill */}
-                    <LinkButton
+                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+                    <Link
                       href="/services"
-                      variant="outline"
-                      className="rounded-full px-6 py-3 text-base font-semibold border-2 border-slate-200 bg-white/90 hover:bg-white text-slate-800 hover:border-teal-500/60 hover:text-teal-800 inline-flex items-center justify-center gap-2.5 shadow-xs transition-all group"
+                      className="group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-lg bg-[#C79A4A] hover:bg-[#DFC286] text-[#080909] font-sans font-semibold text-xs tracking-wider uppercase transition-all shadow-[0_0_30px_-5px_rgba(199,154,74,0.35)] hover:scale-[1.02] active:scale-[0.98]"
                     >
-                      <span>Explore 4 Advisory Desks</span>
-                      <span className="w-7 h-7 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center group-hover:bg-teal-50 group-hover:text-teal-700 transition-all duration-200 shrink-0">
-                        <CtaArrow className="w-3.5 h-3.5" />
-                      </span>
-                    </LinkButton>
+                      <span>Explore Advisory</span>
+                      <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
+                    </Link>
+
+                    <Link
+                      href="/contact"
+                      className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-lg border border-white/15 hover:border-[#C79A4A]/50 text-[#F3EFE7] hover:text-[#DFC286] hover:bg-white/[0.03] font-sans font-semibold text-xs tracking-wider uppercase transition-all"
+                    >
+                      <span>Speak with an Advisor</span>
+                    </Link>
                   </div>
                 </motion.div>
               </motion.div>
             )}
 
-            {/* Verified Trust Micro-Signals */}
-            <StaggerContainer
-              inView={false}
-              delayChildren={0.35}
-              staggerDelay={0.06}
-              className="pt-6 border-t border-slate-200/80 flex flex-wrap items-center gap-x-6 gap-y-2.5 text-xs text-slate-600 font-sans"
-            >
-              <StaggerItem direction="left" distance={12}>
-                <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span className="font-medium text-slate-700">
-                    Direct Liaison with Scheduled Commercial Banks
-                  </span>
-                </div>
-              </StaggerItem>
-              <StaggerItem direction="left" distance={12}>
-                <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span className="font-medium text-slate-700">
-                    Zero Upfront Collateral Mandates (CGTMSE)
-                  </span>
-                </div>
-              </StaggerItem>
-              <StaggerItem direction="left" distance={12}>
-                <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span className="font-medium text-slate-700">
-                    Headquartered in {location.city}, {location.state}
-                  </span>
-                </div>
-              </StaggerItem>
-            </StaggerContainer>
+            {/* Editorial Metadata Strip */}
+            <div className="pt-6 border-t border-white/[0.08] flex flex-wrap items-center gap-y-2.5 gap-x-6 text-[11px] font-mono text-[#8E8D86]">
+              <div className="flex items-center gap-1.5">
+                <span className="w-1 h-1 rounded-full bg-[#C79A4A]" />
+                <span className="text-[#C79A4A] font-semibold">₹5 CR</span>
+                <span>COLLATERAL-FREE CAP</span>
+              </div>
+              <span className="w-1 h-1 rounded-full bg-white/20 hidden sm:block" />
+              <div className="flex items-center gap-1.5">
+                <span className="w-1 h-1 rounded-full bg-[#C79A4A]" />
+                <span className="text-[#C79A4A] font-semibold">85%</span>
+                <span>SOVEREIGN RISK BACKSTOP</span>
+              </div>
+              <span className="w-1 h-1 rounded-full bg-white/20 hidden sm:block" />
+              <div className="flex items-center gap-1.5">
+                <span className="w-1 h-1 rounded-full bg-[#C79A4A]" />
+                <span className="text-[#C79A4A] font-semibold">24+</span>
+                <span>REGULATORY SCHEMES</span>
+              </div>
+            </div>
           </div>
 
           {/* ============================================================
-              RIGHT COLUMN: Layered Image Collage & Floating Value Cards
+              RIGHT COLUMN: Cinematic Enterprise Architectural Visual
               ============================================================ */}
           <div className="lg:col-span-5 xl:col-span-6 relative pt-4 lg:pt-0">
-            <FadeIn direction="up" distance={20} delay={0.18}>
-              <div className="relative mx-auto max-w-lg lg:max-w-none">
-                {/* 1. Main Anchor Image (Agnivridhi Advisory Offices) */}
-                <div className="relative aspect-[4/3] sm:aspect-[14/10] w-full rounded-3xl overflow-hidden shadow-floating border border-white/90 bg-slate-900 group">
-                  <Image
-                    src="/img/hero-bg.jpg"
-                    alt="Agnivridhi Corporate Advisory Operations"
-                    fill
-                    priority
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-                    className="object-cover object-center transform transition-transform duration-700 group-hover:scale-105"
-                  />
+            <motion.div
+              initial={prefersReduced ? { opacity: 1 } : { opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+              className="relative mx-auto max-w-lg lg:max-w-none"
+            >
+              {/* Architectural Crosshair Corner Accents */}
+              <div className="absolute -top-2.5 -left-2.5 text-[#C79A4A]/50 font-mono text-xs z-30 select-none hidden sm:block">+</div>
+              <div className="absolute -bottom-2.5 -right-2.5 text-[#C79A4A]/50 font-mono text-xs z-30 select-none hidden sm:block">+</div>
 
-                  {/* Gradient sheen overlay for photographic depth */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/15 to-transparent pointer-events-none" />
+              {/* Main Architectural Image Container */}
+              <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden border border-white/10 shadow-[0_30px_80px_-15px_rgba(0,0,0,0.9)] bg-[#111313] group">
+                <Image
+                  src="/img/hero-enterprise.jpg"
+                  alt="Agnivridhi Enterprise Infrastructure & Architecture"
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                  className="object-cover object-center transform transition-transform duration-1000 group-hover:scale-[1.03]"
+                />
 
-                  {/* Subtle Office Location Badge pinned to main frame bottom */}
-                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white/90 text-xs font-mono">
-                    <div className="flex items-center gap-2 bg-slate-950/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/15">
-                      <Building2 className="w-3.5 h-3.5 text-teal-400" />
-                      <span className="font-sans text-[11px] font-medium tracking-wide">
-                        Advisory Operations &bull; {location.city}, NCR
-                      </span>
-                    </div>
-                    <div className="hidden sm:flex items-center gap-1.5 bg-emerald-950/70 backdrop-blur-md px-2.5 py-1 rounded-full border border-emerald-500/30 text-emerald-300 text-[10px]">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                      <span>Active Mandates</span>
-                    </div>
+                {/* Subtle Cinematic Vignette & Grain */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#080909]/80 via-transparent to-[#080909]/20 pointer-events-none" />
+                <div className="absolute inset-0 bg-noise pointer-events-none" />
+
+                {/* Top Pinned Editorial Labels */}
+                <div className="absolute top-4 left-4 z-20 flex items-center gap-2">
+                  <div className="px-3 py-1 rounded-md bg-[#080909]/85 backdrop-blur-md border border-white/10 text-[10px] font-mono text-[#F3EFE7] uppercase tracking-wider flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#C79A4A]" />
+                    <span>AGNIVRIDHI / 01 &bull; {location.city}, NCR</span>
                   </div>
                 </div>
 
-                {/* 2. Floating Top-Right Scheme Metric Badge */}
-                <div className="absolute -top-6 -right-2 sm:-top-8 sm:-right-4 rounded-2xl bg-white/95 backdrop-blur-md px-4 py-3.5 shadow-floating border border-gold-500/30 flex items-center gap-3 z-20">
-                  <div className="w-10 h-10 rounded-xl bg-gold-50 border border-gold-200 text-gold-700 flex items-center justify-center shrink-0">
-                    <TrendingUp className="w-5 h-5" />
-                  </div>
-                  <div className="space-y-0.5">
-                    <span className="font-serif text-lg sm:text-xl font-bold text-slate-950 block leading-tight">
-                      ₹5.00 Crore
-                    </span>
-                    <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-gold-700 font-sans block">
-                      Max Collateral-Free Cover
-                    </span>
-                  </div>
+                <div className="absolute top-4 right-4 z-20 hidden sm:flex items-center gap-2 bg-[#080909]/85 backdrop-blur-md px-3 py-1 rounded-md border border-white/10 text-[#F3EFE7] text-[10px] font-mono">
+                  <Building2 className="w-3.5 h-3.5 text-[#C79A4A]" />
+                  <span className="font-sans text-[11px] font-medium tracking-wide">
+                    Industrial Scale &bull; Capital &bull; Engineering
+                  </span>
                 </div>
 
-                {/* 3. Floating Bottom-Left Executive Leadership Card */}
-                <div className="absolute -bottom-6 -left-3 sm:-bottom-8 sm:-left-6 max-w-[290px] sm:max-w-[320px] rounded-2xl bg-white/95 backdrop-blur-md p-4 sm:p-4.5 shadow-floating border border-slate-200/90 z-20">
-                  <div className="flex items-center gap-3">
-                    <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-teal-600/40 shadow-xs shrink-0 bg-slate-100">
-                      <Image
-                        src="/img/rahul-kumar-singh.jpg"
-                        alt={siteConfig.founder.name ?? "Principal Executive"}
-                        fill
-                        sizes="48px"
-                        className="object-cover object-top"
-                      />
-                    </div>
-                    <div className="space-y-0.5 min-w-0">
-                      <div className="flex items-center gap-1.5">
-                        <h3 className="font-serif text-sm font-bold text-slate-900 truncate">
-                          {siteConfig.founder.name}
-                        </h3>
-                        <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                      </div>
-                      <p className="text-[11px] text-teal-800 font-medium truncate font-sans">
-                        {siteConfig.founder.role}
-                      </p>
-                      <div className="flex items-center gap-1 text-[10px] text-slate-500 font-mono pt-0.5">
-                        <span className="truncate">Ex-Banking Underwriter</span>
-                      </div>
-                    </div>
-                  </div>
+                {/* Bottom Right Sovereign Mandate Tag */}
+                <div className="absolute bottom-4 right-4 z-20 flex items-center gap-1.5 bg-[#080909]/85 backdrop-blur-md px-3 py-1.5 rounded-md border border-white/10 text-[#C79A4A] text-[10px] font-mono">
+                  <ShieldCheck className="w-3.5 h-3.5" />
+                  <span>SOVEREIGN MANDATE</span>
                 </div>
               </div>
-            </FadeIn>
+
+              {/* Floating Leadership Glass Tag */}
+              <div className="absolute -bottom-5 left-2 sm:-bottom-6 sm:-left-5 rounded-xl bg-[#111313]/95 backdrop-blur-xl p-3 sm:p-3.5 border border-white/10 shadow-2xl flex items-center gap-3 z-30">
+                <div className="relative w-10 h-10 rounded-lg overflow-hidden border border-white/15 shrink-0 bg-black">
+                  <Image
+                    src="/img/rahul-kumar-singh.jpg"
+                    alt={siteConfig.founder.name ?? "Managing Director"}
+                    fill
+                    sizes="40px"
+                    className="object-cover object-top"
+                  />
+                </div>
+                <div className="space-y-0.5 min-w-0 pr-2">
+                  <div className="flex items-center gap-1.5">
+                    <h3 className="font-serif text-xs sm:text-sm font-semibold text-[#F3EFE7] truncate">
+                      {siteConfig.founder.name}
+                    </h3>
+                  </div>
+                  <p className="text-[10px] text-[#C79A4A] font-mono uppercase tracking-wider">
+                    {siteConfig.founder.role}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </Container>

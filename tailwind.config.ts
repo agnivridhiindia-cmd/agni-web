@@ -108,6 +108,20 @@ const config: Config = {
           foreground: "#075985",
         },
 
+        // Luxury Institutional Palette Tokens
+        luxury: {
+          black: "#080909",
+          charcoal: "#111313",
+          surface: "#171918",
+          ivory: "#F3EFE7",
+          stone: "#A5A29A",
+          muted: "#8E8D86",
+          brass: "#C79A4A",
+          "brass-light": "#DFC286",
+          "brass-dark": "#936719",
+          terracotta: "#8C3B24",
+        },
+
         // Surfaces and Borders
         background: "hsl(var(--background))",
         "background-subtle": "hsl(var(--background-subtle))",
@@ -134,8 +148,9 @@ const config: Config = {
 
       fontFamily: {
         sans: ["var(--font-inter)", ...fontFamily.sans],
-        serif: ["var(--font-fraunces)", ...fontFamily.serif],
-        display: ["var(--font-fraunces)", ...fontFamily.serif],
+        serif: ["var(--font-cormorant)", "var(--font-fraunces)", ...fontFamily.serif],
+        display: ["var(--font-cormorant)", "var(--font-fraunces)", ...fontFamily.serif],
+        editorial: ["var(--font-cormorant)", ...fontFamily.serif],
       },
 
       // --- RESTRAINED RADIUS SYSTEM ---
@@ -180,6 +195,9 @@ const config: Config = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+      },
+      transitionTimingFunction: {
+        cinematic: "cubic-bezier(0.16, 1, 0.3, 1)",
       },
     },
   },

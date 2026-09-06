@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Fraunces } from "next/font/google";
+import { Inter, Fraunces, Cormorant_Garamond } from "next/font/google";
 import { siteConfig } from "@/lib/site-config";
 import { getOrganizationJsonLd } from "@/lib/seo";
 import { Header } from "@/components/layout/header";
@@ -19,6 +19,13 @@ const fraunces = Fraunces({
   variable: "--font-fraunces",
   display: "swap",
   weight: ["400", "600", "700"],
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  variable: "--font-cormorant",
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -76,7 +83,10 @@ export default function RootLayout({
   const organizationJsonLd = getOrganizationJsonLd();
 
   return (
-    <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
+    <html
+      lang="en"
+      className={`dark ${inter.variable} ${fraunces.variable} ${cormorant.variable}`}
+    >
       <head>
         {/* Schema.org Organization Structured Data */}
         <script
@@ -84,10 +94,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
       </head>
-      <body className="font-sans antialiased bg-slate-50 text-foreground flex min-h-screen flex-col selection:bg-teal-600 selection:text-white">
+      <body className="font-sans antialiased bg-[#080909] text-[#F3EFE7] flex min-h-screen flex-col selection:bg-[#C79A4A]/25 selection:text-[#F3EFE7]">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-teal-600 focus:px-4 focus:py-2 focus:text-white focus:shadow-elevated focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-[#C79A4A] focus:px-4 focus:py-2 focus:text-[#080909] focus:shadow-elevated focus:outline-none focus:ring-2 focus:ring-[#C79A4A] focus:ring-offset-2"
         >
           Skip to main content
         </a>
@@ -97,6 +107,9 @@ export default function RootLayout({
         </main>
         <Footer />
         <WhatsAppButton />
+
+        {/* Tactile Micro-Grain Paper Texture Overlay (1.8% Opacity) */}
+        <div className="fixed inset-0 pointer-events-none z-50 bg-noise select-none opacity-60" aria-hidden="true" />
       </body>
     </html>
   );

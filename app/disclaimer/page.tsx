@@ -34,7 +34,7 @@ export default function DisclaimerPage() {
         <section aria-labelledby="section-independence" className="space-y-3.5">
           <h2
             id="section-independence"
-            className="font-serif text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
           >
             1. Independent Advisory Firm
           </h2>
@@ -54,7 +54,7 @@ export default function DisclaimerPage() {
         <section aria-labelledby="section-no-guarantee" className="space-y-3.5">
           <h2
             id="section-no-guarantee"
-            className="font-serif text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
           >
             2. Strict No-Guarantee Policy on Loan Sanctions &amp; Subsidies
           </h2>
@@ -75,7 +75,7 @@ export default function DisclaimerPage() {
         <section aria-labelledby="section-gazette-accuracy" className="space-y-3.5">
           <h2
             id="section-gazette-accuracy"
-            className="font-serif text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
           >
             3. Informational Nature of Online Scheme Metrics
           </h2>
@@ -96,7 +96,7 @@ export default function DisclaimerPage() {
         <section aria-labelledby="section-due-diligence" className="space-y-3.5">
           <h2
             id="section-due-diligence"
-            className="font-serif text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
           >
             4. Professional Due Diligence &amp; Diagnostic Purpose
           </h2>
@@ -112,7 +112,7 @@ export default function DisclaimerPage() {
         <section aria-labelledby="section-contact" className="space-y-3.5">
           <h2
             id="section-contact"
-            className="font-serif text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
           >
             5. Verification &amp; Inquiries
           </h2>

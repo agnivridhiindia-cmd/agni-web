@@ -8,38 +8,38 @@ export const buttonVariants = cva(
   {
     variants: {
       variant: {
-        // Primary: Teal Brand Action (#0891B2)
+        // Primary: Brass Gold Brand Action
         primary:
-          "bg-teal-600 text-white hover:bg-teal-700 active:bg-teal-800 shadow-subtle hover:shadow-card hover:-translate-y-0.5 active:translate-y-0",
+          "bg-[#C79A4A] text-[#080909] font-bold hover:bg-[#DFC286] active:bg-[#B3873C] shadow-sm hover:-translate-y-0.5 active:translate-y-0",
         default:
-          "bg-teal-600 text-white hover:bg-teal-700 active:bg-teal-800 shadow-subtle hover:shadow-card hover:-translate-y-0.5 active:translate-y-0",
-        // Accent: Sophisticated Gold Action (Key conversions)
+          "bg-[#C79A4A] text-[#080909] font-bold hover:bg-[#DFC286] active:bg-[#B3873C] shadow-sm hover:-translate-y-0.5 active:translate-y-0",
+        // Accent: Warm Brass Key Conversions
         accent:
-          "bg-gold-600 text-white hover:bg-gold-700 active:bg-gold-800 shadow-subtle hover:shadow-card hover:-translate-y-0.5 active:translate-y-0",
-        // Secondary: Quiet slate surface
+          "bg-[#DFC286] text-[#080909] font-bold hover:bg-[#F3EFE7] active:bg-[#C79A4A] shadow-sm hover:-translate-y-0.5 active:translate-y-0",
+        // Secondary: Deep Charcoal Surface
         secondary:
-          "bg-slate-100 text-slate-900 hover:bg-slate-200 active:bg-slate-300 hover:-translate-y-0.5 active:translate-y-0",
-        // Outline: Structural border
+          "bg-[#181A1A] text-[#F3EFE7] border border-[#232727] hover:bg-[#202323] hover:border-[#C79A4A]/40 active:bg-[#141616] hover:-translate-y-0.5 active:translate-y-0",
+        // Outline: Dark Structural Border
         outline:
-          "border border-slate-200 bg-white text-slate-800 hover:bg-slate-50 hover:border-slate-300 active:bg-slate-100 hover:-translate-y-0.5 active:translate-y-0",
-        // Ghost: Zero surface until hover
+          "border border-[#232727] bg-[#111313] text-[#F3EFE7] hover:bg-[#181A1A] hover:border-[#C79A4A]/50 active:bg-[#141616] hover:-translate-y-0.5 active:translate-y-0",
+        // Ghost: Subtle Surface
         ghost:
-          "text-slate-700 hover:bg-slate-100 hover:text-slate-900 active:bg-slate-200",
+          "text-[#D1CBC1] hover:bg-[#181A1A] hover:text-[#F3EFE7] active:bg-[#141616]",
         // Destructive: For alert/deletion actions
         destructive:
-          "bg-red-600 text-white hover:bg-red-700 active:bg-red-800 shadow-subtle hover:-translate-y-0.5 active:translate-y-0",
-        // Link: Clean inline interaction
+          "bg-red-900/80 text-white border border-red-700/50 hover:bg-red-800 active:bg-red-900 shadow-sm hover:-translate-y-0.5 active:translate-y-0",
+        // Link: Clean Brass Interaction
         link:
-          "text-teal-600 underline-offset-4 hover:underline hover:text-teal-700 active:text-teal-800 p-0 h-auto",
+          "text-[#C79A4A] underline-offset-4 hover:underline hover:text-[#DFC286] active:text-[#B3873C] p-0 h-auto",
         // Glassmorphic Variants
         glass:
-          "btn-glass text-slate-900 hover:-translate-y-0.5 active:translate-y-0 supports-[-webkit-backdrop-filter:none]:bg-white/95",
+          "bg-white/[0.05] border border-white/[0.1] text-[#F3EFE7] backdrop-blur-md hover:bg-white/[0.1] hover:-translate-y-0.5 active:translate-y-0",
         "glass-teal":
-          "btn-glass-teal text-white hover:-translate-y-0.5 active:translate-y-0 supports-[-webkit-backdrop-filter:none]:bg-teal-600",
+          "bg-[#C79A4A]/15 border border-[#C79A4A]/30 text-[#DFC286] backdrop-blur-md hover:bg-[#C79A4A]/25 hover:-translate-y-0.5 active:translate-y-0",
         "glass-gold":
-          "btn-glass-gold text-white hover:-translate-y-0.5 active:translate-y-0 supports-[-webkit-backdrop-filter:none]:bg-gold-600",
+          "bg-[#C79A4A]/20 border border-[#C79A4A]/40 text-[#DFC286] backdrop-blur-md hover:bg-[#C79A4A]/30 hover:-translate-y-0.5 active:translate-y-0",
         "glass-dark":
-          "btn-glass-dark text-white hover:-translate-y-0.5 active:translate-y-0 supports-[-webkit-backdrop-filter:none]:bg-slate-900",
+          "bg-[#080909]/80 border border-[#232727] text-[#F3EFE7] backdrop-blur-md hover:bg-[#111313] hover:-translate-y-0.5 active:translate-y-0",
       },
       size: {
         default: "h-10 px-4 py-2 text-sm",

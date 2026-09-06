@@ -57,12 +57,12 @@ function MilestoneCard({
 }: MilestoneCardProps) {
   return (
     <div
-      className={`p-7 rounded-2xl bg-white/95 backdrop-blur-sm border transition-all duration-300 ${
+      className={`p-7 rounded-2xl bg-[#111313] backdrop-blur-sm border transition-all duration-300 ${
         isActive
           ? isFinalPhase
-            ? "border-gold-400/90 shadow-[0_8px_32px_-4px_rgba(184,137,31,0.22)] ring-1 ring-gold-400/20"
-            : "border-teal-300/90 shadow-[0_8px_32px_-4px_rgba(8,145,178,0.18)] ring-1 ring-teal-400/20"
-          : "border-slate-200/80 hover:border-slate-300 shadow-sm"
+            ? "border-[#C79A4A]/80 shadow-[0_8px_32px_-4px_rgba(199,154,74,0.25)] ring-1 ring-[#C79A4A]/20"
+            : "border-[#2DD4BF]/60 shadow-[0_8px_32px_-4px_rgba(45,212,191,0.2)] ring-1 ring-[#2DD4BF]/20"
+          : "border-[#232727] hover:border-[#333737] shadow-sm"
       }`}
     >
       {/* Badge & Pillar Tag */}
@@ -71,30 +71,30 @@ function MilestoneCard({
           className={`text-[11px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded border transition-colors ${
             isActive
               ? isFinalPhase
-                ? "text-gold-950 bg-gold-50 border-gold-300/80"
-                : "text-teal-950 bg-teal-50 border-teal-200"
-              : "text-slate-600 bg-slate-100 border-slate-200"
+                ? "text-[#C79A4A] bg-[#C79A4A]/10 border-[#C79A4A]/30"
+                : "text-[#2DD4BF] bg-[#2DD4BF]/10 border-[#2DD4BF]/30"
+              : "text-[#9E9B93] bg-[#181A1A] border-[#232727]"
           }`}
         >
           {milestone.badge}
         </span>
-        <span className="text-[11px] font-mono text-slate-500 font-medium">
+        <span className="text-[11px] font-mono text-[#8E8B82] font-medium">
           {milestone.pillarTag}
         </span>
       </div>
 
       {/* Subtitle & Title */}
       <div>
-        <span className="text-xs font-mono font-semibold text-slate-500 uppercase tracking-wider block">
+        <span className="text-xs font-mono font-semibold text-[#C79A4A] uppercase tracking-wider block">
           {milestone.subtitle}
         </span>
-        <h3 className="font-serif text-2xl font-bold text-slate-900 leading-snug mt-1">
+        <h3 className="font-serif text-2xl font-bold text-[#F3EFE7] leading-snug mt-1">
           {milestone.title}
         </h3>
       </div>
 
       {/* Narrative Description */}
-      <p className="type-body-sm text-slate-600 font-sans leading-relaxed mt-3">
+      <p className="type-body-sm text-[#D1CBC1] font-sans leading-relaxed mt-3">
         {milestone.description}
       </p>
 
@@ -103,9 +103,9 @@ function MilestoneCard({
         className={`mt-5 p-4 rounded-xl border transition-all duration-300 ${
           isActive
             ? isFinalPhase
-              ? "bg-gradient-to-br from-gold-50/90 via-amber-50/50 to-white border-gold-300/90 shadow-2xs"
-              : "bg-gradient-to-br from-teal-50/90 via-cyan-50/50 to-white border-teal-200/90 shadow-2xs"
-            : "bg-slate-50/90 border-slate-200/80"
+              ? "bg-[#181A1A] border-[#C79A4A]/50 shadow-2xs"
+              : "bg-[#181A1A] border-[#2DD4BF]/40 shadow-2xs"
+            : "bg-[#161818] border-[#232727]"
         }`}
       >
         <div className="flex items-center justify-between gap-3 flex-wrap">
@@ -119,7 +119,7 @@ function MilestoneCard({
                   : "bg-slate-400"
               }`}
             />
-            <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider font-bold text-slate-600">
+            <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider font-bold text-[#D1CBC1]">
               {milestone.metricLabel}
             </span>
           </div>
@@ -128,23 +128,23 @@ function MilestoneCard({
             className={`font-mono text-sm sm:text-base font-bold tabular-nums px-2.5 py-0.5 rounded ${
               isActive
                 ? isFinalPhase
-                  ? "bg-gold-100 text-gold-950 border border-gold-300/70"
-                  : "bg-teal-100 text-teal-950 border border-teal-300/70"
-                : "bg-slate-200/70 text-slate-700"
+                  ? "bg-[#C79A4A]/20 text-[#C79A4A] border border-[#C79A4A]/50"
+                  : "bg-[#2DD4BF]/20 text-[#2DD4BF] border border-[#2DD4BF]/50"
+                : "bg-slate-200/70 text-[#D1CBC1]"
             }`}
           >
             {milestone.metric}
           </div>
         </div>
 
-        <div className="pt-2 flex items-start gap-1.5 text-xs font-sans text-slate-700 font-medium leading-snug">
+        <div className="pt-2 flex items-start gap-1.5 text-xs font-sans text-[#D1CBC1] font-medium leading-snug">
           <CheckCircle2
             className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${
               isActive
                 ? isFinalPhase
                   ? "text-gold-600"
                   : "text-teal-600"
-                : "text-slate-400"
+                : "text-[#8E8B82]"
             }`}
           />
           <span>{milestone.achievementHighlight}</span>
@@ -240,13 +240,13 @@ function DesktopMilestoneRow({
             }
             className="space-y-1 select-none"
           >
-            <span className="text-5xl lg:text-6xl font-serif font-bold text-slate-950 block tracking-tight">
+            <span className="text-5xl lg:text-6xl font-serif font-bold text-[#F3EFE7] block tracking-tight">
               {milestone.year}
             </span>
             <span className="font-mono text-xs font-bold uppercase tracking-widest text-gold-700 block">
               PHASE {milestone.phaseNumber} &bull; {milestone.badge}
             </span>
-            <span className="font-mono text-[11px] text-slate-400 block">
+            <span className="font-mono text-[11px] text-[#8E8B82] block">
               {milestone.pillarTag}
             </span>
           </motion.div>
@@ -289,7 +289,7 @@ function DesktopMilestoneRow({
                   ? isFinalPhase
                     ? "text-gold-700"
                     : "text-teal-700"
-                  : "text-slate-400"
+                  : "text-[#8E8B82]"
               }`}
             />
           </motion.div>
@@ -329,13 +329,13 @@ function DesktopMilestoneRow({
             }
             className="space-y-1 select-none"
           >
-            <span className="text-5xl lg:text-6xl font-serif font-bold text-slate-950 block tracking-tight">
+            <span className="text-5xl lg:text-6xl font-serif font-bold text-[#F3EFE7] block tracking-tight">
               {milestone.year}
             </span>
             <span className="font-mono text-xs font-bold uppercase tracking-widest text-gold-700 block">
               PHASE {milestone.phaseNumber} &bull; {milestone.badge}
             </span>
-            <span className="font-mono text-[11px] text-slate-400 block">
+            <span className="font-mono text-[11px] text-[#8E8B82] block">
               {milestone.pillarTag}
             </span>
           </motion.div>
@@ -412,7 +412,7 @@ function MobileMilestoneRow({
                 ? isFinalPhase
                   ? "text-gold-700"
                   : "text-teal-700"
-                : "text-slate-400"
+                : "text-[#8E8B82]"
             }`}
           />
         </div>
@@ -425,16 +425,16 @@ function MobileMilestoneRow({
       >
         {/* Year Header */}
         <div className="flex flex-wrap items-center gap-2.5">
-          <span className="text-2xl font-serif font-bold text-slate-950">
+          <span className="text-2xl font-serif font-bold text-[#F3EFE7]">
             {milestone.year}
           </span>
           <span
             className={`text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded border ${
               isActive
                 ? isFinalPhase
-                  ? "text-gold-950 bg-gold-50 border-gold-300/80"
-                  : "text-teal-950 bg-teal-50 border-teal-200/80"
-                : "text-slate-600 bg-slate-100 border-slate-200"
+                  ? "text-[#C79A4A] bg-[#C79A4A]/10 border-[#C79A4A]/30"
+                  : "text-[#2DD4BF] bg-[#2DD4BF]/10 border-[#2DD4BF]/30"
+                : "text-[#9E9B93] bg-[#181A1A] border-[#232727]"
             }`}
           >
             PHASE {milestone.phaseNumber} &bull; {milestone.badge}
@@ -645,7 +645,7 @@ export function CompanyTimeline() {
       ref={sectionRef}
       id="company-timeline"
       aria-labelledby="timeline-heading"
-      className="py-16 sm:py-20 lg:py-28 bg-white border-b border-slate-200/80 overflow-hidden"
+      className="py-16 sm:py-20 lg:py-28 bg-[#080909] border-b border-[#232727] overflow-hidden"
     >
       <Container width="wide" className="space-y-12 sm:space-y-16">
         {/* Section Header */}
@@ -662,7 +662,7 @@ export function CompanyTimeline() {
             />
 
             {/* Real-Time Interactive Badge */}
-            <div className="hidden lg:flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-900 text-white border border-slate-800 shadow-sm self-start lg:self-auto">
+            <div className="hidden lg:flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#111313] text-white border border-[#232727] shadow-sm self-start lg:self-auto">
               <Sparkles className="w-4 h-4 text-gold-400 animate-pulse" />
               <span className="font-mono text-xs font-medium text-slate-200">
                 Interactive Milestones Spine
@@ -718,7 +718,7 @@ export function CompanyTimeline() {
             {desktopPathData.pathD && (
               <path
                 d={desktopPathData.pathD}
-                stroke="#E2E8F0"
+                stroke="#232727"
                 strokeWidth="2.5"
                 strokeDasharray="6 6"
                 fill="none"
@@ -848,7 +848,7 @@ export function CompanyTimeline() {
             {mobilePathData.pathD && (
               <path
                 d={mobilePathData.pathD}
-                stroke="#E2E8F0"
+                stroke="#232727"
                 strokeWidth="2"
                 strokeDasharray="5 5"
                 fill="none"

@@ -61,32 +61,32 @@ export function TableOfContents({ items, variant = "all", className }: TableOfCo
     <div className={className}>
       {/* Mobile Collapsible TOC */}
       {showMobile && (
-        <div className={cn("rounded-xl border border-slate-200 bg-slate-50/90 overflow-hidden shadow-xs", variant === "all" ? "lg:hidden my-8" : "")}>
+        <div className={cn("rounded-xl border border-[#232727] bg-[#111313] overflow-hidden shadow-xs", variant === "all" ? "lg:hidden my-8" : "")}>
           <button
             type="button"
             onClick={() => setIsMobileOpen((prev) => !prev)}
-            className="w-full px-4 py-3 flex items-center justify-between text-left font-sans text-sm font-semibold text-slate-900 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-teal-600"
+            className="w-full px-4 py-3 flex items-center justify-between text-left font-sans text-sm font-semibold text-[#F3EFE7] focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#C79A4A]"
             aria-expanded={isMobileOpen}
           >
             <span className="flex items-center gap-2">
-              <List className="w-4 h-4 text-teal-700" aria-hidden="true" />
+              <List className="w-4 h-4 text-[#C79A4A]" aria-hidden="true" />
               <span>Table of Contents ({items.length} sections)</span>
             </span>
             <ChevronDown
-              className={cn("w-4 h-4 text-slate-500 transition-transform duration-200", isMobileOpen && "rotate-180")}
+              className={cn("w-4 h-4 text-[#8E8B82] transition-transform duration-200", isMobileOpen && "rotate-180")}
               aria-hidden="true"
             />
           </button>
 
           {isMobileOpen && (
-            <nav aria-label="Table of Contents (Mobile)" className="px-4 pb-4 pt-1 border-t border-slate-200/60">
+            <nav aria-label="Table of Contents (Mobile)" className="px-4 pb-4 pt-1 border-t border-[#232727]">
               <ul className="space-y-2 text-xs font-sans">
                 {items.map((item) => {
                   const isActive = activeId === item.id;
                   return (
                     <li
                       key={item.id}
-                      className={cn(item.level === 3 ? "pl-3.5 border-l border-slate-200" : "")}
+                      className={cn(item.level === 3 ? "pl-3.5 border-l border-[#232727]" : "")}
                     >
                       <a
                         href={`#${item.id}`}
@@ -94,8 +94,8 @@ export function TableOfContents({ items, variant = "all", className }: TableOfCo
                         className={cn(
                           "block py-1 transition-colors leading-relaxed",
                           isActive
-                            ? "text-teal-900 font-semibold"
-                            : "text-slate-600 hover:text-slate-900"
+                            ? "text-[#DFC286] font-semibold"
+                            : "text-[#D1CBC1] hover:text-[#F3EFE7]"
                         )}
                       >
                         {item.text}
@@ -111,13 +111,13 @@ export function TableOfContents({ items, variant = "all", className }: TableOfCo
 
       {/* Desktop Sticky Sidebar TOC (Anchored on the Right Column) */}
       {showDesktop && (
-        <div className={cn("sticky top-28 space-y-3.5 p-5 rounded-2xl border border-slate-200/90 bg-white/95 backdrop-blur-md shadow-sm", variant === "all" ? "hidden lg:block w-72 shrink-0" : "")}>
-          <div className="flex items-center justify-between pb-3 border-b border-slate-100 text-xs font-mono font-bold uppercase tracking-wider text-slate-800">
+        <div className={cn("sticky top-28 space-y-3.5 p-5 rounded-2xl border border-[#232727] bg-[#111313]/95 backdrop-blur-md shadow-2xl", variant === "all" ? "hidden lg:block w-72 shrink-0" : "")}>
+          <div className="flex items-center justify-between pb-3 border-b border-[#232727] text-xs font-mono font-bold uppercase tracking-wider text-[#F3EFE7]">
             <div className="flex items-center gap-2">
-              <List className="w-4 h-4 text-teal-700" aria-hidden="true" />
+              <List className="w-4 h-4 text-[#C79A4A]" aria-hidden="true" />
               <span>Table of Contents</span>
             </div>
-            <span className="text-[11px] px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 font-mono">
+            <span className="text-[11px] px-2 py-0.5 rounded bg-[#181A1A] border border-[#232727] text-[#DFC286] font-mono">
               {items.length}
             </span>
           </div>
@@ -129,7 +129,7 @@ export function TableOfContents({ items, variant = "all", className }: TableOfCo
                 return (
                   <li
                     key={item.id}
-                    className={cn(item.level === 3 ? "pl-3 border-l border-slate-200/80 ml-1.5" : "")}
+                    className={cn(item.level === 3 ? "pl-3 border-l border-[#232727] ml-1.5" : "")}
                   >
                     <a
                       href={`#${item.id}`}
@@ -137,12 +137,12 @@ export function TableOfContents({ items, variant = "all", className }: TableOfCo
                       className={cn(
                         "group flex items-start gap-1.5 py-1.5 px-2 rounded-lg transition-all leading-snug",
                         isActive
-                          ? "bg-teal-50/80 text-teal-950 font-semibold border-l-2 border-teal-600 shadow-2xs"
-                          : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
+                          ? "bg-[#C79A4A]/10 text-[#DFC286] font-semibold border-l-2 border-[#C79A4A] shadow-2xs"
+                          : "text-[#D1CBC1] hover:text-[#F3EFE7] hover:bg-[#181A1A]"
                       )}
                     >
                       {isActive && (
-                        <BookmarkCheck className="w-3.5 h-3.5 text-teal-700 shrink-0 mt-0.5" />
+                        <BookmarkCheck className="w-3.5 h-3.5 text-[#C79A4A] shrink-0 mt-0.5" />
                       )}
                       <span className="line-clamp-2">{item.text}</span>
                     </a>
@@ -152,9 +152,9 @@ export function TableOfContents({ items, variant = "all", className }: TableOfCo
             </ul>
           </nav>
 
-          <div className="pt-3 border-t border-slate-100 text-[11px] font-mono text-slate-400 flex items-center justify-between">
+          <div className="pt-3 border-t border-[#232727] text-[10px] font-mono text-[#8E8B82] flex items-center justify-between">
             <span>SCROLL SPY ACTIVE</span>
-            <span className="text-teal-600 font-medium">LIVE NAV</span>
+            <span className="text-[#C79A4A] font-bold">LIVE NAV</span>
           </div>
         </div>
       )}

@@ -23,9 +23,9 @@ export interface SpotlightCardProps extends React.HTMLAttributes<HTMLDivElement>
 
 const variantGlowMap = {
   amber: {
-    border: "rgba(217, 119, 6, 0.42)",
-    inner: "rgba(245, 158, 11, 0.04)",
-    beam: "from-transparent via-amber-500/50 to-transparent",
+    border: "rgba(199, 154, 74, 0.45)",
+    inner: "rgba(199, 154, 74, 0.05)",
+    beam: "from-transparent via-[#C79A4A]/50 to-transparent",
   },
   teal: {
     border: "rgba(8, 145, 178, 0.45)",
@@ -99,7 +99,7 @@ export const SpotlightCard = React.forwardRef<HTMLDivElement, SpotlightCardProps
         onMouseLeave={handleMouseLeave}
         className={cn(
           "group/spotlight relative rounded-3xl p-[1px] overflow-hidden transition-all duration-300",
-          "bg-slate-200/90 hover:shadow-[0_16px_36px_-8px_rgba(15,23,42,0.08)]",
+          "bg-white/[0.08] border border-white/[0.08] hover:border-[#C79A4A]/40",
           className
         )}
         style={
@@ -137,7 +137,7 @@ export const SpotlightCard = React.forwardRef<HTMLDivElement, SpotlightCardProps
         {/* Layer 3: Inner Card Canvas */}
         <div
           className={cn(
-            "relative h-full w-full rounded-[calc(1.5rem-1px)] bg-white p-6 sm:p-7 flex flex-col justify-between overflow-hidden transition-all duration-300",
+            "relative h-full w-full rounded-[calc(1.5rem-1px)] bg-[#111313] text-[#F3EFE7] p-6 sm:p-7 flex flex-col justify-between overflow-hidden transition-all duration-300",
             innerClassName
           )}
         >

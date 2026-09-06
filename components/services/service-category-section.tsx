@@ -23,35 +23,35 @@ const categoryVisuals: Record<
   }
 > = {
   funding: {
-    numeralColor: "text-gold-950/15",
-    badgeBg: "bg-gold-50 border-gold-200/90",
-    badgeText: "text-gold-900",
-    borderAccent: "border-l-gold-500",
-    quoteColor: "text-gold-950",
+    numeralColor: "text-white/[0.04]",
+    badgeBg: "bg-[#181A1A] border-[#232727]",
+    badgeText: "text-[#C79A4A]",
+    borderAccent: "border-l-[#C79A4A]",
+    quoteColor: "text-[#D1CBC1]",
     pov: "Sovereign credit guarantees and capital subsidies structure unencumbered growth runway without relinquishing equity control or encumbering personal residential assets.",
   },
   compliance: {
-    numeralColor: "text-teal-950/15",
-    badgeBg: "bg-teal-50 border-teal-200/90",
-    badgeText: "text-teal-900",
-    borderAccent: "border-l-teal-600",
-    quoteColor: "text-teal-950",
+    numeralColor: "text-white/[0.04]",
+    badgeBg: "bg-[#181A1A] border-[#232727]",
+    badgeText: "text-[#2DD4BF]",
+    borderAccent: "border-l-[#2DD4BF]",
+    quoteColor: "text-[#D1CBC1]",
     pov: "Rigorous statutory registrations and international quality standards transform statutory friction into competitive institutional tender qualifications.",
   },
   digital: {
-    numeralColor: "text-cyan-950/15",
-    badgeBg: "bg-cyan-50 border-cyan-200/90",
-    badgeText: "text-cyan-900",
-    borderAccent: "border-l-cyan-600",
-    quoteColor: "text-cyan-950",
+    numeralColor: "text-white/[0.04]",
+    badgeBg: "bg-[#181A1A] border-[#232727]",
+    badgeText: "text-[#38BDF8]",
+    borderAccent: "border-l-[#38BDF8]",
+    quoteColor: "text-[#D1CBC1]",
     pov: "High-performance web platforms and technical search dominance establish commercial authority and high-intent customer acquisition pipelines.",
   },
   it: {
-    numeralColor: "text-slate-900/15",
-    badgeBg: "bg-slate-100 border-slate-200",
-    badgeText: "text-slate-900",
-    borderAccent: "border-l-slate-700",
-    quoteColor: "text-slate-950",
+    numeralColor: "text-[#F3EFE7]/15",
+    badgeBg: "bg-[#181A1A] border-[#232727]",
+    badgeText: "text-[#F3EFE7]",
+    borderAccent: "border-l-[#8E8B82]",
+    quoteColor: "text-[#D1CBC1]",
     pov: "Bespoke internal software portals, ERP automations, and resilient IT infrastructure systematically eliminate operational bottlenecks.",
   },
 };
@@ -72,11 +72,11 @@ export function ServiceCategorySection({
     <section
       id={category.id}
       aria-labelledby={`heading-${category.id}`}
-      className="scroll-mt-32 py-14 sm:py-18 lg:py-20 border-b border-slate-200/80 last:border-b-0"
+      className="scroll-mt-32 py-14 sm:py-18 lg:py-20 border-b border-[#232727] last:border-b-0"
     >
       <Container width="wide" className="space-y-8 sm:space-y-10">
         {/* Category Header Row */}
-        <div className="relative border-b border-slate-200/90 pb-8">
+        <div className="relative border-b border-[#232727] pb-8">
           {/* Editorial Numeral Watermark */}
           <span
             aria-hidden="true"
@@ -99,26 +99,26 @@ export function ServiceCategorySection({
               >
                 PRACTICE {sectionNumber} &bull; {category.id.toUpperCase()}
               </span>
-              <span className="text-xs font-mono text-slate-500">
+              <span className="text-xs font-mono text-[#8E8B82]">
                 {services.length} {services.length === 1 ? "Program" : "Programs"} Catalogued
               </span>
             </div>
 
             <h2
               id={`heading-${category.id}`}
-              className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 tracking-tight leading-tight"
+              className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-[#F3EFE7] tracking-tight leading-tight"
             >
               {category.name}
             </h2>
 
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-sans max-w-3xl">
+            <p className="text-[#D1CBC1] text-sm sm:text-base leading-relaxed font-sans max-w-3xl">
               {category.shortDescription}
             </p>
 
             {/* Strategic Point of View Callout */}
             <div
               className={cn(
-                "mt-4 pl-4 border-l-2 py-2 text-xs sm:text-sm font-sans italic bg-slate-50/70 rounded-r-lg pr-4",
+                "mt-4 pl-4 border-l-2 py-2 text-xs sm:text-sm font-sans italic bg-[#111313] rounded-r-lg pr-4 border-y border-r border-[#232727]",
                 visual.borderAccent,
                 visual.quoteColor
               )}

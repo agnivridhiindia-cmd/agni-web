@@ -1,20 +1,38 @@
 import * as React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
-  ArrowUpRight,
   CheckCircle2,
   TrendingUp,
   ShieldCheck,
-  Award,
   Layers,
+  Award,
 } from "lucide-react";
 import { getFeaturedCaseStudies } from "@/lib/mdx";
 import type { CaseStudyFrontmatter } from "@/types/case-study";
 import { Container } from "@/components/shared/container";
-import { Eyebrow } from "@/components/ui/badge";
-import { Badge } from "@/components/ui/badge";
 import { LinkButton } from "@/components/ui/link-button";
+import { cn } from "@/lib/utils";
+
+const storyImages: Record<string, { src: string; alt: string }> = {
+  "cgtmse-cnc-expansion": {
+    src: "/img/practice-capital.jpg",
+    alt: "Indian automated CNC machining plant financed via sovereign debt",
+  },
+  "aadhithya-energy-digital-launch": {
+    src: "/img/practice-growth.jpg",
+    alt: "Clean energy commercial retailer executive boardroom strategy",
+  },
+  "heavy-fabrication-iso-compliance": {
+    src: "/img/practice-compliance.jpg",
+    alt: "Indian industrial fabrication quality testing and ISO certification inspection",
+  },
+  "pmegp-agro-food-processing": {
+    src: "/img/practice-capital.jpg",
+    alt: "Agro food processing facility modern production line",
+  },
+};
 
 function CategoryIcon({ category, className }: { category: string; className?: string }) {
   switch (category) {
@@ -29,150 +47,162 @@ function CategoryIcon({ category, className }: { category: string; className?: s
   }
 }
 
-function getCategoryBadge(category: string) {
-  switch (category) {
-    case "funding":
-      return { variant: "primary" as const, label: "CGTMSE Sovereign Debt" };
-    case "compliance":
-      return { variant: "accent" as const, label: "Statutory Compliance" };
-    case "digital":
-      return { variant: "default" as const, label: "Enterprise Digital" };
-    default:
-      return { variant: "outline" as const, label: "Corporate Advisory" };
-  }
-}
+function MagazineStorySpread({
+  study,
+  index,
+  total,
+}: {
+  study: CaseStudyFrontmatter;
+  index: number;
+  total: number;
+}) {
+  const isReversed = index % 2 === 1;
+  const imageInfo = storyImages[study.slug] || {
+    src: "/img/hero-enterprise.jpg",
+    alt: study.title,
+  };
 
-function DemoGridCard({ study }: { study: CaseStudyFrontmatter }) {
-  const badgeInfo = getCategoryBadge(study.category);
   const metric = study.statValue || study.dealTombstone?.highlightMetric || "Verified Mandate";
-  const metricSub = study.statLabel || study.dealTombstone?.highlightSubtitle || "Disbursed / Compliant";
-
-  // Extract concise tag chips
-  const tags: string[] = [];
-  if (study.dealTombstone?.collateralPledged) {
-    tags.push(`Collateral: ${study.dealTombstone.collateralPledged}`);
-  }
-  if (study.dealTombstone?.lenderCategory) {
-    tags.push(study.dealTombstone.lenderCategory.split(" ")[0]);
-  } else if (study.category === "funding") {
-    tags.push("Scheduled Bank");
-  }
-  if (study.outcomes && study.outcomes.length > 0) {
-    tags.push(study.outcomes[0].slice(0, 24) + "...");
-  }
+  const metricSub = study.statLabel || study.dealTombstone?.highlightSubtitle || "Institutional Structure";
+  const sector = study.dealTombstone?.industryVertical || study.category.toUpperCase();
 
   return (
-    <div className="group relative flex flex-col justify-between h-full rounded-3xl bg-gradient-to-b from-white via-white to-slate-50/70 border border-slate-200/90 hover:border-teal-500/50 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_32px_-8px_rgba(8,145,178,0.12)] hover:-translate-y-2 transition-all duration-300 overflow-hidden">
-      {/* ============================================================
-          TOP MEDIA / THUMBNAIL FRAME (Bconsult Demo Style)
-          ============================================================ */}
-      <div className="relative aspect-[16/10] w-full overflow-hidden bg-gradient-to-br from-slate-900 via-slate-950 to-teal-950 p-5 flex flex-col justify-between">
-        {/* Subtle CAD / Blueprint Geometric Background Grid */}
+    <article
+      aria-label={`Case Study: ${study.title}`}
+      className="group relative rounded-3xl bg-[#111313] border border-white/[0.08] hover:border-[#C79A4A]/30 transition-all duration-500 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
+    >
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center p-6 sm:p-8 lg:p-12">
+        {/* ============================================================
+            PHOTOGRAPHIC FRAME (Alternates Left / Right on Desktop)
+            ============================================================ */}
         <div
-          aria-hidden="true"
-          className="absolute inset-0 opacity-15 [background-image:linear-gradient(to_right,#5eead4_1px,transparent_1px),linear-gradient(to_bottom,#5eead4_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"
-        />
-
-        {/* Ambient Glow */}
-        <div
-          aria-hidden="true"
-          className="absolute -top-12 -right-12 w-40 h-40 bg-teal-500/20 rounded-full blur-2xl pointer-events-none group-hover:scale-125 transition-transform duration-500"
-        />
-
-        {/* Top Header Row: Category Badge + Icon */}
-        <div className="relative z-10 flex items-center justify-between gap-2">
-          <Badge
-            variant={badgeInfo.variant}
-            className="text-[11px] font-semibold tracking-wide shadow-xs"
-          >
-            {badgeInfo.label}
-          </Badge>
-
-          <div className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-teal-300 flex items-center justify-center shrink-0">
-            <CategoryIcon category={study.category} className="w-4 h-4" />
-          </div>
-        </div>
-
-        {/* Bottom Prominent Metric Overlay */}
-        <div className="relative z-10 space-y-0.5 pt-4">
-          <span className="font-serif text-2xl sm:text-3xl font-bold text-white tracking-tight block leading-none drop-shadow-xs">
-            {metric}
-          </span>
-          <span className="text-[11px] font-semibold uppercase tracking-wider text-teal-300 font-sans block truncate">
-            {metricSub}
-          </span>
-        </div>
-
-        {/* Hover Overlay Reveal (Bconsult "View Demo" Pattern) */}
-        <Link
-          href={`/success-stories/${study.slug}`}
-          className="absolute inset-0 z-20 bg-slate-950/70 backdrop-blur-[3px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6 text-center focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400"
-          aria-label={`View case study: ${study.title}`}
+          className={cn(
+            "lg:col-span-6 relative aspect-[16/10] sm:aspect-[4/3] w-full rounded-2xl overflow-hidden border border-white/10 bg-[#080909]",
+            isReversed ? "lg:order-2" : "lg:order-1"
+          )}
         >
-          <div className="transform translate-y-3 group-hover:translate-y-0 transition-transform duration-300">
-            <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-teal-600 hover:bg-teal-500 text-white text-sm font-semibold shadow-elevated">
-              <span>View Case Study</span>
-              <ArrowUpRight className="w-4 h-4" />
+          {/* Blueprint Corner Crosshairs */}
+          <div className="absolute top-2 left-2 font-mono text-xs text-[#C79A4A]/60 z-30 select-none">+</div>
+          <div className="absolute bottom-2 right-2 font-mono text-xs text-[#C79A4A]/60 z-30 select-none">+</div>
+
+          <Image
+            src={imageInfo.src}
+            alt={imageInfo.alt}
+            fill
+            sizes="(max-width: 1024px) 100vw, 600px"
+            className="object-cover object-center transform transition-transform duration-1000 group-hover:scale-[1.03]"
+          />
+
+          {/* Cinematic Luminance Mask */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#080909]/85 via-transparent to-[#080909]/20 pointer-events-none" />
+          <div className="absolute inset-0 bg-noise pointer-events-none" />
+
+          {/* Pinned Top Badge */}
+          <div className="absolute top-4 left-4 z-20 flex items-center gap-2">
+            <span className="px-3 py-1 rounded-md bg-[#080909]/85 backdrop-blur-md border border-white/10 text-[10px] font-mono text-[#F3EFE7] uppercase tracking-wider flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#C79A4A]" />
+              <span>CASE {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}</span>
             </span>
           </div>
-        </Link>
-      </div>
 
-      {/* ============================================================
-          CARD BODY: Tags, Title, Summary, Action
-          ============================================================ */}
-      <div className="p-6 sm:p-7 flex flex-col justify-between flex-1 space-y-4">
-        <div className="space-y-3">
-          {/* Industry Vertical Eyebrow */}
-          <span className="text-xs font-bold tracking-wider text-teal-800 uppercase block font-sans">
-            {study.dealTombstone?.industryVertical || study.category}
-          </span>
+          {/* Bottom Mandate Realization Overlay */}
+          <div className="absolute bottom-4 left-4 right-4 z-20 flex items-center justify-between gap-2">
+            <div className="px-3 py-1.5 rounded-md bg-[#080909]/90 backdrop-blur-md border border-white/10 text-xs font-mono text-[#DFC286]">
+              <span className="font-semibold text-white">{study.client}</span>
+            </div>
+            <div className="w-8 h-8 rounded-full bg-[#080909]/90 backdrop-blur-md border border-white/10 text-[#C79A4A] flex items-center justify-center shrink-0">
+              <CategoryIcon category={study.category} className="w-4 h-4" />
+            </div>
+          </div>
+        </div>
+
+        {/* ============================================================
+            EDITORIAL CONTENT COLUMN (Text, 3-tier Breakdown, CTA)
+            ============================================================ */}
+        <div
+          className={cn(
+            "lg:col-span-6 space-y-6 text-left",
+            isReversed ? "lg:order-1" : "lg:order-2"
+          )}
+        >
+          {/* Eyebrow & Index */}
+          <div className="flex items-center justify-between border-b border-white/[0.08] pb-4">
+            <span className="text-[11px] font-mono uppercase tracking-widest text-[#C79A4A] font-semibold">
+              {sector}
+            </span>
+            <span className="text-xs font-mono text-[#8E8D86]">
+              ESTABLISHED MANDATE
+            </span>
+          </div>
+
+          {/* Metric Headline */}
+          <div className="space-y-1">
+            <div className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal text-[#F3EFE7] tracking-tight leading-none">
+              {metric}
+            </div>
+            <p className="text-xs font-mono uppercase tracking-wider text-[#C79A4A]">
+              {metricSub}
+            </p>
+          </div>
 
           {/* Title */}
-          <h3 className="font-serif text-lg sm:text-xl font-bold text-slate-950 leading-snug group-hover:text-teal-800 transition-colors line-clamp-2">
-            <Link
-              href={`/success-stories/${study.slug}`}
-              className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 rounded"
-            >
-              {study.title}
-            </Link>
+          <h3 className="font-serif text-xl sm:text-2xl font-normal text-[#F3EFE7] leading-snug group-hover:text-[#DFC286] transition-colors">
+            {study.title}
           </h3>
 
-          {/* Excerpt */}
-          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-sans line-clamp-2">
-            {study.summary}
-          </p>
-        </div>
+          {/* 3-Tier Execution Matrix: Challenge -> Structure -> Outcome */}
+          <div className="space-y-3 pt-2">
+            {/* The Challenge */}
+            <div className="p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05] space-y-1">
+              <span className="text-[10px] font-mono tracking-widest text-[#8E8D86] uppercase block">
+                THE CHALLENGE
+              </span>
+              <p className="text-xs text-[#A5A29A] font-sans leading-relaxed line-clamp-2">
+                {study.challenge}
+              </p>
+            </div>
 
-        {/* Short Tag List (Deliverable Highlights) */}
-        <div className="pt-2 border-t border-slate-100 flex flex-wrap items-center gap-1.5">
-          {tags.map((tag, idx) => (
-            <span
-              key={idx}
-              className="text-[11px] font-medium font-sans px-2.5 py-1 rounded-full bg-slate-100 text-slate-700"
-            >
-              {tag}
+            {/* The Structure */}
+            <div className="p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05] space-y-1">
+              <span className="text-[10px] font-mono tracking-widest text-[#C79A4A] uppercase block">
+                THE STRUCTURE
+              </span>
+              <p className="text-xs text-[#A5A29A] font-sans leading-relaxed line-clamp-2">
+                {study.solution}
+              </p>
+            </div>
+
+            {/* The Outcome */}
+            {study.outcomes && study.outcomes.length > 0 && (
+              <div className="p-3.5 rounded-xl bg-[#C79A4A]/[0.06] border border-[#C79A4A]/20 space-y-1">
+                <span className="text-[10px] font-mono tracking-widest text-[#DFC286] uppercase block">
+                  THE OUTCOME
+                </span>
+                <p className="text-xs text-[#F3EFE7] font-sans font-medium leading-relaxed">
+                  {study.outcomes[0]}
+                </p>
+              </div>
+            )}
+          </div>
+
+          {/* Bottom Action Row */}
+          <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between">
+            <span className="inline-flex items-center gap-1.5 text-xs text-[#8E8D86] font-mono">
+              <CheckCircle2 className="w-3.5 h-3.5 text-[#C79A4A]" />
+              <span>Full Audit Documentation Verified</span>
             </span>
-          ))}
-        </div>
 
-        {/* Card Footer Link */}
-        <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-          <span className="text-slate-500 font-sans flex items-center gap-1.5">
-            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-            <span>Executed Mandate</span>
-          </span>
-
-          <Link
-            href={`/success-stories/${study.slug}`}
-            className="inline-flex items-center gap-1 text-teal-700 hover:text-teal-900 font-semibold group-hover:translate-x-0.5 transition-transform"
-          >
-            <span>Read Study</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
+            <Link
+              href={`/success-stories/${study.slug}`}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/[0.04] hover:bg-[#C79A4A] text-[#F3EFE7] hover:text-[#080909] border border-white/10 hover:border-[#C79A4A] text-xs font-mono tracking-wider uppercase transition-all"
+            >
+              <span>Read Case Study</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
         </div>
       </div>
-    </div>
+    </article>
   );
 }
 
@@ -186,30 +216,27 @@ export async function FeaturedStories() {
   return (
     <section
       aria-labelledby="featured-stories-heading"
-      className="relative bg-white py-16 sm:py-20 lg:py-28 border-b border-slate-200/80"
+      className="relative bg-[#080909] text-[#F3EFE7] py-20 sm:py-28 lg:py-36 border-b border-white/[0.08]"
     >
-      <Container width="wide" className="space-y-12 sm:space-y-14">
-        {/* Section Header with Action Button (Bconsult Style) */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div className="space-y-3 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 border border-teal-200/70 text-teal-800">
-              <span className="w-1.5 h-1.5 rounded-full bg-teal-600" />
-              <Eyebrow
-                accent={false}
-                className="text-[11px] sm:text-xs font-semibold tracking-wider uppercase font-sans text-teal-800"
-              >
-                PROVEN ENTERPRISE DELIVERABLES &bull; CASE STUDIES
-              </Eyebrow>
+      <Container width="wide" className="space-y-14 sm:space-y-20">
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/[0.08] pb-8">
+          <div className="space-y-3.5 max-w-2xl">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-[#C79A4A] text-xs font-mono tracking-widest uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#C79A4A]" />
+              <span>PROVEN ENTERPRISE DELIVERABLES &bull; EDITORIAL CASE ARCHIVE</span>
             </div>
 
             <h2
               id="featured-stories-heading"
-              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-950 !leading-[1.18]"
+              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-[#F3EFE7] !leading-[1.15]"
             >
-              Real Businesses. Real Structural Momentum.
+              Real Businesses.
+              <br />
+              <span className="text-[#C79A4A] italic font-light">Real Structural Momentum.</span>
             </h2>
 
-            <p className="type-body text-slate-600 leading-relaxed">
+            <p className="font-sans text-sm sm:text-base text-[#A5A29A] leading-relaxed">
               Measurable capital sanctions, accredited quality standards, and statutory
               subsidy realizations executed for North Indian manufacturing and
               engineering enterprises.
@@ -220,23 +247,26 @@ export async function FeaturedStories() {
             <LinkButton
               href="/success-stories"
               variant="outline"
-              className="rounded-full h-11 px-5 border-slate-200 bg-white hover:border-teal-500 hover:text-teal-700 text-slate-800 group inline-flex items-center gap-2 shadow-xs transition-all"
+              className="rounded-full h-11 px-6 border-white/15 bg-white/[0.03] hover:border-[#C79A4A] hover:text-[#DFC286] text-[#F3EFE7] group inline-flex items-center gap-2 transition-all text-xs font-mono tracking-wider uppercase"
               aria-label="View all enterprise success stories"
             >
               <span>View All Success Stories</span>
-              <ArrowRight className="w-4 h-4 text-slate-500 group-hover:text-teal-600 transition-transform duration-200 group-hover:translate-x-1" />
+              <ArrowRight className="w-4 h-4 text-[#A5A29A] group-hover:text-[#DFC286] transition-transform duration-200 group-hover:translate-x-1" />
             </LinkButton>
           </div>
         </div>
 
         {/* ============================================================
-            BCONSULT 3-COLUMN HOMEPAGE DEMO GRID
+            IMMERSIVE ALTERNATING MAGAZINE SPREADS
             ============================================================ */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
-          {stories.map((study) => (
-            <div key={study.slug} className="h-full">
-              <DemoGridCard study={study} />
-            </div>
+        <div className="space-y-12 sm:space-y-16">
+          {stories.map((study, idx) => (
+            <MagazineStorySpread
+              key={study.slug}
+              study={study}
+              index={idx}
+              total={stories.length}
+            />
           ))}
         </div>
       </Container>

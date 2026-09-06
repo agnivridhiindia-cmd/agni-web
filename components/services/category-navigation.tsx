@@ -88,12 +88,12 @@ export function CategoryNavigation({
   return (
     <nav
       aria-label="Service Practices Navigation Dock"
-      className="sticky top-[68px] sm:top-[76px] z-30 bg-white/90 backdrop-blur-md border-b border-slate-200/90 shadow-2xs transition-colors py-3"
+      className="sticky top-[68px] sm:top-[76px] z-30 bg-[#080909]/90 backdrop-blur-xl border-b border-white/[0.08] shadow-2xs transition-colors py-3"
     >
       <Container width="wide">
         <div className="flex items-center justify-between gap-4 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
           {/* Linear-Style Segmented Dock */}
-          <div className="inline-flex items-center p-1.5 rounded-2xl bg-slate-100/90 border border-slate-200/80 shadow-inner shrink-0">
+          <div className="inline-flex items-center p-1.5 rounded-2xl bg-[#111313] border border-white/[0.08] shadow-inner shrink-0">
             {categories.map((cat, idx) => {
               const isActive = activeCategory === cat.id;
               const Icon = categoryIconMap[cat.id] || Landmark;
@@ -109,14 +109,14 @@ export function CategoryNavigation({
                   onClick={(e) => scrollToCategory(cat.id, e)}
                   aria-current={isActive ? "true" : undefined}
                   className={cn(
-                    "group relative inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-colors select-none whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 focus-visible:ring-offset-1"
+                    "group relative inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-colors select-none whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C79A4A] focus-visible:ring-offset-1 focus-visible:ring-offset-[#080909]"
                   )}
                 >
                   {/* Framer Motion Gliding Pill Indicator */}
                   {isActive && (
                     <motion.div
                       layoutId="activeTab"
-                      className="absolute inset-0 rounded-xl bg-slate-950 shadow-md ring-1 ring-white/15"
+                      className="absolute inset-0 rounded-xl bg-[#171918] shadow-md ring-1 ring-[#C79A4A]/30"
                       transition={{
                         type: "spring",
                         stiffness: 380,
@@ -131,7 +131,7 @@ export function CategoryNavigation({
                     <span
                       className={cn(
                         "font-mono text-[11px] font-bold transition-colors",
-                        isActive ? "text-gold-400" : "text-slate-400"
+                        isActive ? "text-[#C79A4A]" : "text-[#8E8D86]"
                       )}
                     >
                       0{idx + 1}
@@ -142,8 +142,8 @@ export function CategoryNavigation({
                       className={cn(
                         "w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0 transition-colors",
                         isActive
-                          ? "text-teal-400"
-                          : "text-slate-500 group-hover:text-slate-800"
+                          ? "text-[#DFC286]"
+                          : "text-[#8E8D86] group-hover:text-[#F3EFE7]"
                       )}
                       aria-hidden="true"
                     />
@@ -153,8 +153,8 @@ export function CategoryNavigation({
                       className={cn(
                         "transition-colors",
                         isActive
-                          ? "text-white font-semibold tracking-tight"
-                          : "text-slate-600 group-hover:text-slate-900"
+                          ? "text-[#F3EFE7] font-semibold tracking-tight"
+                          : "text-[#A5A29A] group-hover:text-[#F3EFE7]"
                       )}
                     >
                       {config.shortName}
@@ -165,8 +165,8 @@ export function CategoryNavigation({
                       className={cn(
                         "font-mono text-[10px] tracking-tight px-1.5 py-0.5 rounded transition-colors hidden md:inline-block",
                         isActive
-                          ? "bg-white/15 text-teal-300 border border-white/10 font-semibold"
-                          : "bg-slate-200/80 text-slate-500 group-hover:text-slate-700"
+                          ? "bg-white/[0.08] text-[#DFC286] border border-white/[0.12] font-semibold"
+                          : "bg-white/[0.04] text-[#8E8D86] group-hover:text-[#A5A29A]"
                       )}
                     >
                       [{config.counterLabel}]
@@ -178,8 +178,8 @@ export function CategoryNavigation({
           </div>
 
           {/* Right Institutional Scope Badge */}
-          <div className="hidden xl:flex items-center gap-2 text-xs font-mono text-slate-500 shrink-0 pr-1">
-            <span className="w-2 h-2 rounded-full bg-teal-600 animate-pulse" />
+          <div className="hidden xl:flex items-center gap-2 text-xs font-mono text-[#8E8D86] shrink-0 pr-1">
+            <span className="w-2 h-2 rounded-full bg-[#C79A4A] animate-pulse" />
             <span>
               {categories.length} Practice Desks &bull; {totalServicesCount} Specialized Programs
             </span>

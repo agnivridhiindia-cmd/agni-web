@@ -8,25 +8,25 @@ export const badgeVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-slate-100 text-slate-800 border border-slate-200/80",
+          "bg-[#181A1A] text-[#D1CBC1] border border-[#232727]",
         primary:
-          "bg-teal-50 text-teal-800 border border-teal-200",
+          "bg-[#C79A4A]/15 text-[#DFC286] border border-[#C79A4A]/30",
         accent:
-          "bg-gold-50 text-gold-900 border border-gold-300",
+          "bg-[#C79A4A]/20 text-[#DFC286] border border-[#C79A4A]/40",
         muted:
-          "bg-slate-50 text-slate-600 border border-slate-200/60",
+          "bg-[#141616] text-[#8E8B82] border border-[#232727]",
         success:
-          "bg-emerald-50 text-emerald-800 border border-emerald-200",
+          "bg-emerald-500/15 text-emerald-300 border border-emerald-500/30",
         warning:
-          "bg-amber-50 text-amber-800 border border-amber-200",
+          "bg-[#C79A4A]/15 text-[#DFC286] border border-[#C79A4A]/30",
         outline:
-          "border border-slate-200 text-slate-700 bg-transparent",
+          "border border-[#232727] text-[#D1CBC1] bg-transparent",
         glass:
-          "bg-white/70 backdrop-blur-sm text-slate-800 border border-white/80 shadow-xs hover:bg-white/90 transition-colors",
+          "bg-white/[0.05] backdrop-blur-md text-[#F3EFE7] border border-white/[0.1] shadow-xs hover:bg-white/[0.08] transition-colors",
         "glass-teal":
-          "bg-teal-500/15 backdrop-blur-sm text-teal-900 border border-teal-400/40 shadow-xs",
+          "bg-[#C79A4A]/15 backdrop-blur-md text-[#DFC286] border border-[#C79A4A]/30 shadow-xs",
         "glass-accent":
-          "bg-gold-500/15 backdrop-blur-sm text-gold-950 border border-gold-400/40 shadow-xs",
+          "bg-[#C79A4A]/20 backdrop-blur-md text-[#DFC286] border border-[#C79A4A]/40 shadow-xs",
       },
     },
     defaultVariants: {
@@ -57,8 +57,8 @@ export function Eyebrow({ className, accent = false, ...props }: EyebrowProps) {
   return (
     <span
       className={cn(
-        "type-eyebrow inline-block",
-        accent ? "text-gold-700" : "text-teal-600",
+        "type-eyebrow inline-block font-mono uppercase tracking-widest text-xs",
+        accent ? "text-[#DFC286]" : "text-[#C79A4A]",
         className
       )}
       {...props}
