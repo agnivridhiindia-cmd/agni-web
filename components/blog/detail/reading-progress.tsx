@@ -9,7 +9,7 @@ export function ReadingProgress() {
   const prefersReducedMotion = useReducedMotionPreference();
 
   const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
+    stiffness: 120,
     damping: 30,
     restDelta: 0.001,
   });
@@ -21,11 +21,11 @@ export function ReadingProgress() {
   return (
     <div
       aria-hidden="true"
-      className="fixed top-0 left-0 right-0 h-1 z-50 bg-transparent pointer-events-none"
+      className="fixed top-0 left-0 right-0 h-[2px] z-[100] bg-slate-200/20 pointer-events-none"
     >
       <motion.div
         style={{ scaleX }}
-        className="h-full bg-linear-to-r from-teal-600 via-teal-500 to-gold-500 origin-left"
+        className="h-full bg-gradient-to-r from-teal-700 via-teal-400 to-amber-400 origin-left shadow-[0_0_10px_rgba(20,184,166,0.7)]"
       />
     </div>
   );

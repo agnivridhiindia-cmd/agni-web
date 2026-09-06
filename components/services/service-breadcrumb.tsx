@@ -1,3 +1,4 @@
+
 import * as React from "react";
 import Link from "next/link";
 import { ChevronRight, ArrowLeft } from "lucide-react";
@@ -21,7 +22,7 @@ export function ServiceBreadcrumb({ service }: ServiceBreadcrumbProps) {
   return (
     <nav
       aria-label="Breadcrumb"
-      className="border-b border-slate-200/80 bg-slate-50/50 pt-24 sm:pt-28 pb-3.5 text-xs text-slate-500 font-sans"
+      className="border-b border-slate-200/80 bg-slate-50/50 pt-28 sm:pt-32 pb-4 text-xs text-slate-500 font-sans"
     >
       <Container width="wide">
         <div className="flex flex-wrap items-center justify-between gap-3">

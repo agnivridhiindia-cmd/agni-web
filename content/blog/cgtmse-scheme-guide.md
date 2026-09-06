@@ -12,6 +12,7 @@ tags:
   - "MSME Loans"
   - "Collateral-Free"
   - "DPR Preparation"
+featured: true
 ---
 
 The Credit Guarantee Fund Trust for Micro and Small Enterprises (CGTMSE) represents one of the most transformative financial interventions initiated by the Ministry of MSME and SIDBI. For decades, the single largest barrier preventing small Indian manufacturers from modernizing their facilities was the requirement for real estate or liquid collateral.

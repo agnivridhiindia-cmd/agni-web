@@ -22,6 +22,13 @@ export interface ServiceFaq {
   readonly answer: string;
 }
 
+export interface ServiceDealSummary {
+  readonly maxLimit: string;
+  readonly collateral: string;
+  readonly turnaround: string;
+  readonly checklistDocName?: string;
+}
+
 export interface Service {
   readonly id: string;
   readonly slug: string; // Predictable lowercase kebab-case (e.g., "cgtmse-funding")
@@ -37,6 +44,8 @@ export interface Service {
   readonly faqs?: readonly ServiceFaq[];
   readonly relatedServices?: readonly string[]; // Array of related service slugs
   readonly featured?: boolean;
+  readonly schemeCeiling?: string;
+  readonly dealSummary?: ServiceDealSummary;
   readonly metadata?: {
     readonly title?: string;
     readonly description?: string;

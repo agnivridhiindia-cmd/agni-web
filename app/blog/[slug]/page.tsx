@@ -97,15 +97,15 @@ export default async function BlogPostDetailPage({ params }: BlogPostPageProps) 
       {/* 3. Article Editorial Hero */}
       <ArticleHero post={frontmatter} />
 
-      {/* 4. Reading Canvas with TOC & Article Body */}
-      <main id="main-content" className="py-12 sm:py-16 lg:py-20">
+      {/* 4. Reading Canvas with TOC on Right Column & Article Body */}
+      <div className="py-12 sm:py-16 lg:py-20">
         <Container width="wide">
-          <div className="max-w-5xl mx-auto flex flex-col lg:flex-row gap-8 lg:gap-14 items-start">
-            {/* Table of Contents (handles mobile collapsible & desktop sticky rail) */}
-            <TableOfContents items={tocItems} />
-
+          <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
             {/* Article Main Body Column */}
-            <article className="w-full flex-1 min-w-0 max-w-2xl mx-auto lg:mx-0">
+            <article className="w-full flex-1 min-w-0 max-w-3xl mx-auto lg:mx-0">
+              {/* Mobile Table of Contents (shown on small viewports) */}
+              <TableOfContents items={tocItems} variant="mobile" className="lg:hidden mb-8" />
+
               {/* MDX / Markdown Formatted Content */}
               <ArticleBody content={content} />
 
@@ -132,9 +132,14 @@ export default async function BlogPostDetailPage({ params }: BlogPostPageProps) 
               {/* Closing Contextual Advisory Consultation Banner */}
               <ArticleCta category={frontmatter.category} title={frontmatter.title} />
             </article>
+
+            {/* Sticky Table of Contents on the RIGHT Column (Desktop) */}
+            <aside className="hidden lg:block w-72 shrink-0">
+              <TableOfContents items={tocItems} variant="desktop" />
+            </aside>
           </div>
         </Container>
-      </main>
+      </div>
 
       {/* 5. Complementary Advisory Guides */}
       <ArticleRelatedPosts relatedPosts={relatedPosts} />

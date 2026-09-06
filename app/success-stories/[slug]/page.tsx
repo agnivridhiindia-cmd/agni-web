@@ -100,7 +100,7 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
       <CaseStudyHero study={study} />
 
       {/* 3. Main Narrative & Sticky Sidebar Grid */}
-      <main id="main-content" className="grow">
+      <div className="grow">
         <Container width="wide">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 py-12 sm:py-16 lg:py-20">
             {/* Main 8-column narrative */}
@@ -123,7 +123,7 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
 
         {/* 6. Contextual Final Consultation CTA */}
         <CaseStudyCta caseStudyTitle={study.title} />
-      </main>
+      </div>
     </div>
   );
 }

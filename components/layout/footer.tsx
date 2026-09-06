@@ -27,42 +27,6 @@ interface SocialLinkDefinition {
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
-  const videoRef = React.useRef<HTMLVideoElement>(null);
-
-  // IntersectionObserver: Ensure video only runs when visible in viewport
-  React.useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    video.defaultMuted = true;
-    video.muted = true;
-
-    // Check prefers-reduced-motion
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (mediaQuery.matches) {
-      video.pause();
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          video.play().catch(() => {
-            // Autoplay policy fallback
-          });
-        } else {
-          video.pause();
-        }
-      },
-      { threshold: 0.05 }
-    );
-
-    observer.observe(video);
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
 
   // Social links configuration with strict null-checks (zero '#' or dead links)
   const socialCandidates: SocialLinkDefinition[] = [
@@ -111,27 +75,16 @@ export function Footer() {
 
   return (
     <footer className="relative overflow-hidden border-t border-slate-200/80 bg-slate-100 text-slate-800 min-h-[560px] sm:min-h-[640px] lg:min-h-[720px] flex flex-col justify-between">
-      {/* Background Video Layer with atmospheric overlays */}
+      {/* Institutional Architectural Backdrop */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-0 overflow-hidden select-none"
+        className="pointer-events-none absolute inset-0 z-0 overflow-hidden select-none bg-slate-100"
       >
-        <video
-          ref={videoRef}
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          className="absolute inset-0 h-full w-full object-cover object-center transform-gpu will-change-transform"
-        >
-          <source
-            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260815_032550_4c49689d-a215-41e0-bb76-8ef78f562429.mp4"
-            type="video/mp4"
-          />
-        </video>
+        {/* Subtle geometric financial & CAD architectural grid */}
+        <div className="absolute inset-0 opacity-[0.035] [background-image:linear-gradient(to_right,#0891b2_1px,transparent_1px),linear-gradient(to_bottom,#0891b2_1px,transparent_1px)] [background-size:28px_28px]" />
 
-        {/* Soft atmospheric gradient: completely clear across the center so the video, cliffs, and flowers are prominently visible */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-transparent via-70% to-white/60" />
+        {/* Soft atmospheric radial gradients */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-slate-100/40 to-slate-200/60" />
 
         {/* Ambient brand glow whispers */}
         <div className="absolute -bottom-24 -right-16 h-[450px] w-[450px] rounded-full bg-teal-500/10 blur-[120px] will-change-transform" />

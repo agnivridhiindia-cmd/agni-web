@@ -9,7 +9,7 @@ export function AboutHero() {
   return (
     <section
       aria-labelledby="about-hero-heading"
-      className="relative border-b border-slate-200/80 bg-slate-50/70 bg-noise pt-28 pb-14 sm:pt-32 sm:pb-16 lg:pt-36 lg:pb-20 overflow-hidden"
+      className="relative border-b border-slate-200/80 bg-slate-50/70 bg-noise pt-32 pb-14 sm:pt-36 sm:pb-16 lg:pt-40 lg:pb-20 overflow-hidden"
     >
       <Container width="wide">
         <FadeIn direction="up" distance={20} delay={0.05}>

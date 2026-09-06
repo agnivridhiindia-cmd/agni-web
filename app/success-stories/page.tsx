@@ -18,24 +18,22 @@ export default async function SuccessStoriesPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <main id="main-content">
-        {/* Editorial Hero Header */}
-        <SuccessStoriesHero totalStories={caseStudies.length} />
+      {/* Editorial Hero Header */}
+      <SuccessStoriesHero totalStories={caseStudies.length} />
 
-        {/* Interactive Case Studies Directory with Category Filtering */}
-        <React.Suspense
-          fallback={
-            <div className="py-20 text-center text-slate-500 text-sm font-sans">
-              Loading verified case studies...
-            </div>
-          }
-        >
-          <StoriesListing initialStudies={caseStudies} />
-        </React.Suspense>
+      {/* Interactive Case Studies Directory with Category Filtering */}
+      <React.Suspense
+        fallback={
+          <div className="py-20 text-center text-slate-500 text-sm font-sans">
+            Loading verified case studies...
+          </div>
+        }
+      >
+        <StoriesListing initialStudies={caseStudies} />
+      </React.Suspense>
 
-        {/* Closing Conversion CTA */}
-        <SuccessStoriesCta />
-      </main>
+      {/* Closing Conversion CTA */}
+      <SuccessStoriesCta />
     </div>
   );
 }

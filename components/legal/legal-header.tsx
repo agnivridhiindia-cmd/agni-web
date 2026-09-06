@@ -15,7 +15,7 @@ export function LegalHeader({
   lastUpdated = "August 2024",
 }: LegalHeaderProps) {
   return (
-    <header className="border-b border-slate-200/80 bg-slate-50/70 pt-28 pb-10 sm:pt-32 sm:pb-14 lg:pt-36 lg:pb-16">
+    <header className="border-b border-slate-200/80 bg-slate-50/70 pt-32 pb-10 sm:pt-36 sm:pb-14 lg:pt-40 lg:pb-16">
       <Container width="reading">
         <div className="space-y-4">
           <div className="flex items-center gap-2">

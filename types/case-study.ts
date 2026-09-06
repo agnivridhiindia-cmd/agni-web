@@ -12,6 +12,16 @@ export interface CaseStudyQuote {
   readonly role?: string | null;
 }
 
+export interface DealTombstoneMatrix {
+  readonly industryVertical: string;
+  readonly highlightMetric: string;
+  readonly highlightSubtitle: string;
+  readonly lenderCategory: string;
+  readonly collateralPledged: string;
+  readonly capexUtilization: string;
+  readonly syndicateRole?: string;
+}
+
 export interface CaseStudyFrontmatter {
   readonly slug: string; // Lowercase kebab-case matching /success-stories/[slug]
   readonly title: string;
@@ -27,6 +37,7 @@ export interface CaseStudyFrontmatter {
   readonly statValue?: string;
   readonly statLabel?: string;
   readonly statContext?: string;
+  readonly dealTombstone?: DealTombstoneMatrix;
   readonly quote?: CaseStudyQuote;
   readonly publishedAt: string; // ISO date string
   readonly featured?: boolean;

@@ -46,7 +46,7 @@
 @layer base {
   :root {
     /* Base Neutral Surface & Text */
-    --background: 0 0% 100%;            /* #FFFFFF */
+    --background: 210 40% 98%;          /* #F8FAFC (slate-50) */
     --background-subtle: 210 40% 98%;   /* #F8FAFC (slate-50) */
     --background-elevated: 0 0% 100%;   /* #FFFFFF */
 

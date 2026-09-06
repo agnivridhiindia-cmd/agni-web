@@ -50,6 +50,13 @@ export const servicesCatalog: readonly Service[] = [
     description:
       "Comprehensive end-to-end assistance for eligible MSMEs seeking collateral-free financial assistance under the Ministry of MSME's CGTMSE scheme. We prepare institutional-grade detailed project reports (DPR), financial projections, and represent clients during banking credit appraisal.",
     icon: "Coins",
+    schemeCeiling: "Up to ₹5 Crore / Zero Collateral",
+    dealSummary: {
+      maxLimit: "₹5.00 Crore",
+      collateral: "0% (Zero Collateral)",
+      turnaround: "30–45 Days",
+      checklistDocName: "CGTMSE_DPR_Checklist.pdf",
+    },
     audience: [
       "New manufacturing startups",
       "Existing MSMEs expanding production capacity",
@@ -94,6 +101,13 @@ export const servicesCatalog: readonly Service[] = [
     description:
       "Assistance for micro-enterprises and non-farm small businesses to access structured refinance under the Pradhan Mantri Mudra Yojana. We guide borrowers through correct category selection, business plan preparation, and documentation.",
     icon: "CreditCard",
+    schemeCeiling: "Up to ₹20 Lakh / Zero Collateral",
+    dealSummary: {
+      maxLimit: "₹20 Lakh",
+      collateral: "0% Collateral",
+      turnaround: "15–25 Days",
+      checklistDocName: "MUDRA_Application_Dossier.pdf",
+    },
     audience: [
       "Micro-entrepreneurs and proprietors",
       "Small retail and trade establishments",
@@ -108,6 +122,7 @@ export const servicesCatalog: readonly Service[] = [
       { step: 1, title: "Tier Selection", description: "Determining eligibility across Shishu (up to ₹50k), Kishore (up to ₹5L), and Tarun (up to ₹20L)." },
       { step: 2, title: "Application Preparation", description: "Preparing standard MUDRA application dossiers and proof of enterprise." },
       { step: 3, title: "Bank Submission", description: "Liaison with public sector, private, or regional rural banking partners." },
+      { step: 4, title: "Sanction Follow-through", description: "Active coordination with branch credit teams for fund release." },
     ],
     timeline: "15 to 25 business days",
     relatedServices: ["cgtmse-funding", "pmegp-loan-subsidy"],
@@ -123,6 +138,13 @@ export const servicesCatalog: readonly Service[] = [
     description:
       "Advisory for non-farm employment generation ventures seeking credit-linked government subsidy through KVIC, KVIB, and DIC channels. We support applicants from project inception through EDP training completion and subsidy lock-in.",
     icon: "Award",
+    schemeCeiling: "Up to ₹50 Lakh / 35% Capital Subsidy",
+    dealSummary: {
+      maxLimit: "₹50 Lakh (35% Subsidy)",
+      collateral: "Govt Subsidized (35%)",
+      turnaround: "45–60 Days",
+      checklistDocName: "PMEGP_DPR_Dossier.pdf",
+    },
     audience: [
       "First-generation entrepreneurs",
       "Rural and semi-urban enterprise founders",
@@ -136,7 +158,8 @@ export const servicesCatalog: readonly Service[] = [
     process: [
       { step: 1, title: "Project Proposal", description: "Formulation of project outline adhering to PMEGP guidelines." },
       { step: 2, title: "Online Application & DLTFC", description: "Portal filing and screening by District Level Task Force Committee." },
-      { step: 3, title: "Bank Sanction & Subsidy", description: "Bank credit sanction followed by KVIC margin money deposit." },
+      { step: 3, title: "Bank Sanction & EDP", description: "Bank credit appraisal and mandatory entrepreneurship training." },
+      { step: 4, title: "Subsidy Lock-In", description: "Deposit of KVIC margin money subsidy in term loan TDR account." },
     ],
     timeline: "45 to 60 business days",
     relatedServices: ["cgtmse-funding", "mudra-scheme"],
@@ -152,6 +175,13 @@ export const servicesCatalog: readonly Service[] = [
     description:
       "End-to-end advisory for medium and large MSMEs requiring cash credit, overdraft, letter of credit, bank guarantees, and capital expenditure term loans through scheduled commercial banks and financial institutions.",
     icon: "TrendingUp",
+    schemeCeiling: "₹50 Cr+ Project Debt Syndicate",
+    dealSummary: {
+      maxLimit: "₹50 Cr+ Project Line",
+      collateral: "Asset Hypothecation",
+      turnaround: "45–90 Days",
+      checklistDocName: "Project_Finance_CMA_Checklist.pdf",
+    },
     audience: [
       "Mid-sized manufacturing enterprises",
       "Export-oriented trading entities",
@@ -165,7 +195,8 @@ export const servicesCatalog: readonly Service[] = [
     process: [
       { step: 1, title: "Financial Audit", description: "Review of audited balance sheets, cash flow models, and tax filings." },
       { step: 2, title: "CMA & Proposal Dossier", description: "Preparation of Credit Monitoring Arrangement (CMA) data." },
-      { step: 3, title: "Syndication & Sanction", description: "Coordination with commercial credit teams until sanction issuance." },
+      { step: 3, title: "Syndication & Appraisal", description: "Coordination with commercial credit teams and committee reviews." },
+      { step: 4, title: "Sanction & Line Setup", description: "Documentation, collateral charge creation, and limit activation." },
     ],
     timeline: "45 to 90 business days",
     relatedServices: ["cgtmse-funding"],
@@ -183,6 +214,13 @@ export const servicesCatalog: readonly Service[] = [
     description:
       "Flawless filing and advisory for official Udyam registration under the Ministry of MSME. We ensure accurate NIC code mapping, turnover classification, and investment verification for maximum statutory protection.",
     icon: "FileCheck",
+    schemeCeiling: "Statutory MSMED Act Protection",
+    dealSummary: {
+      maxLimit: "Statutory Protection",
+      collateral: "Zero Requirement",
+      turnaround: "2–4 Days",
+      checklistDocName: "Udyam_Registration_Checklist.pdf",
+    },
     audience: [
       "Proprietorships, partnerships, LLPs, and private limited companies",
       "Enterprises needing statutory protection against delayed payments",
@@ -195,7 +233,8 @@ export const servicesCatalog: readonly Service[] = [
     process: [
       { step: 1, title: "Data Verification", description: "Aadhaar, PAN, and GST validation for business enterprise." },
       { step: 2, title: "NIC Classification", description: "Accurate industrial classification code assignment." },
-      { step: 3, title: "Certificate Issuance", description: "Issuance of permanent Udyam Registration Certificate." },
+      { step: 3, title: "Portal Submission", description: "Direct authorized filing on official MSME Udyam portal." },
+      { step: 4, title: "Certificate Issuance", description: "Issuance of permanent Udyam Registration Certificate." },
     ],
     timeline: "2 to 4 business days",
     relatedServices: ["gst-advisory", "iso-certification"],
@@ -211,6 +250,13 @@ export const servicesCatalog: readonly Service[] = [
     description:
       "Advisory services for GST registration, jurisdictional assessment, input tax credit (ITC) reconciliation, return compliance, and response to department notices for growing commercial enterprises.",
     icon: "Receipt",
+    schemeCeiling: "Input Tax Credit (ITC) Optimization",
+    dealSummary: {
+      maxLimit: "State & Central GSTIN",
+      collateral: "Statutory Filing",
+      turnaround: "5–7 Days",
+      checklistDocName: "GST_Compliance_Checklist.pdf",
+    },
     audience: [
       "New businesses crossing mandatory turnover thresholds",
       "Interstate e-commerce sellers and service providers",
@@ -223,7 +269,8 @@ export const servicesCatalog: readonly Service[] = [
     process: [
       { step: 1, title: "Documentation", description: "Assembly of KYC, principal place of business proof, and authorization." },
       { step: 2, title: "Filing & ARN", description: "Application submission on the GST common portal." },
-      { step: 3, title: "Approval & GSTIN", description: "Monitoring through officer review to GSTIN issuance." },
+      { step: 3, title: "Clarification Handling", description: "Direct response to jurisdictional tax officer queries." },
+      { step: 4, title: "Approval & GSTIN", description: "Monitoring through officer review to GSTIN issuance." },
     ],
     timeline: "5 to 7 business days",
     relatedServices: ["msme-udyam-registration"],
@@ -239,6 +286,13 @@ export const servicesCatalog: readonly Service[] = [
     description:
       "End-to-end consulting for ISO certification readiness. We assist with internal process documentation, standard operating procedure (SOP) manuals, gap analysis, and coordination with accredited third-party certification bodies.",
     icon: "ShieldAlert",
+    schemeCeiling: "100% First-Round Audit Pass",
+    dealSummary: {
+      maxLimit: "Global Accreditation",
+      collateral: "Zero Non-Conformity",
+      turnaround: "20–30 Days",
+      checklistDocName: "ISO_Quality_Manual_Framework.pdf",
+    },
     audience: [
       "Manufacturing companies participating in institutional tenders",
       "IT and service companies requiring ISO 27001 data security compliance",
@@ -252,7 +306,8 @@ export const servicesCatalog: readonly Service[] = [
     process: [
       { step: 1, title: "Gap Analysis", description: "Assessment of existing workflows against ISO standard clauses." },
       { step: 2, title: "SOP & Documentation", description: "Drafting quality manuals, policy frameworks, and audit logs." },
-      { step: 3, title: "Audit & Certification", description: "Stage 1 and Stage 2 external audits by accredited registrar." },
+      { step: 3, title: "Internal Audit Drill", description: "Pre-audit verification and corrective actions deployment." },
+      { step: 4, title: "External Certification", description: "Stage 1 and Stage 2 external audits by accredited registrar." },
     ],
     timeline: "20 to 30 business days",
     relatedServices: ["msme-udyam-registration", "startup-india-advisory"],
@@ -268,6 +323,13 @@ export const servicesCatalog: readonly Service[] = [
     description:
       "Comprehensive advisory for innovative startups seeking DPIIT recognition. Unlock statutory benefits including exemption from Angel Tax (Section 56(2)(viib)), 3-year income tax holidays, and access to dedicated seed capital grants.",
     icon: "Rocket",
+    schemeCeiling: "3-Yr 80-IAC Tax Exemption",
+    dealSummary: {
+      maxLimit: "₹50L Seed Fund / 3-Yr Exemption",
+      collateral: "DPIIT Recognized",
+      turnaround: "15–25 Days",
+      checklistDocName: "Startup_India_Pitch_Checklist.pdf",
+    },
     audience: [
       "Technology and product startups incorporated within the last 10 years",
       "High-growth enterprises with scalable innovative business models",
@@ -281,6 +343,7 @@ export const servicesCatalog: readonly Service[] = [
       { step: 1, title: "Innovation Pitch", description: "Documentation of innovation uniqueness and employment generation." },
       { step: 2, title: "DPIIT Filing", description: "Submission on Startup India portal with statutory declarations." },
       { step: 3, title: "Tax Exemption Board", description: "Support for application to Inter-Ministerial Board for Section 80-IAC." },
+      { step: 4, title: "Grant Advisory", description: "Guidance through incubator matching for seed fund allocation." },
     ],
     timeline: "15 to 25 business days",
     relatedServices: ["iso-certification", "cgtmse-funding"],
@@ -298,6 +361,13 @@ export const servicesCatalog: readonly Service[] = [
     description:
       "Custom web engineering built on modern headless stacks (Next.js, TypeScript, Tailwind). Designed specifically for B2B enterprises, consulting firms, and industrial brands that demand editorial prestige, accessibility, and high performance.",
     icon: "Monitor",
+    schemeCeiling: "Sub-Second Core Web Vitals",
+    dealSummary: {
+      maxLimit: "Next.js Architecture",
+      collateral: "100% Code Ownership",
+      turnaround: "20–45 Days",
+      checklistDocName: "Web_Platform_Spec_Checklist.pdf",
+    },
     audience: [
       "MSMEs replacing outdated legacy websites",
       "Consulting and B2B enterprises requiring corporate authority",
@@ -311,7 +381,8 @@ export const servicesCatalog: readonly Service[] = [
     process: [
       { step: 1, title: "Architecture & Design", description: "Information architecture, design tokens, and user flow mapping." },
       { step: 2, title: "Full-Stack Development", description: "Next.js App Router engineering with strict TypeScript." },
-      { step: 3, title: "Deployment & QA", description: "Core Web Vitals auditing, SEO verification, and edge deployment." },
+      { step: 3, title: "Performance Auditing", description: "Core Web Vitals testing, accessibility checks, and schema validation." },
+      { step: 4, title: "Deployment & Edge CDN", description: "Production cutover with global CDN optimization and telemetry." },
     ],
     timeline: "20 to 45 business days",
     relatedServices: ["digital-marketing-seo", "custom-software"],
@@ -327,6 +398,13 @@ export const servicesCatalog: readonly Service[] = [
     description:
       "Strategic digital marketing engineered to drive inbound enterprise inquiries. Combining technical SEO, editorial authority content, targeted performance advertising, and localized Noida/NCR search visibility.",
     icon: "Search",
+    schemeCeiling: "Guaranteed B2B Search Lead Funnel",
+    dealSummary: {
+      maxLimit: "Pan-India B2B Search Retainer",
+      collateral: "Transparent ROI",
+      turnaround: "90-Day Reviews",
+      checklistDocName: "SEO_Growth_Funnel_Checklist.pdf",
+    },
     audience: [
       "Service and consulting companies seeking high-intent client inquiries",
       "Manufacturers and exporters targeting corporate buyers online",
@@ -339,7 +417,8 @@ export const servicesCatalog: readonly Service[] = [
     process: [
       { step: 1, title: "Market & Keyword Audit", description: "Identifying high-value search queries with purchase intent." },
       { step: 2, title: "On-Page & Content Strategy", description: "Technical optimization and authoritative content development." },
-      { step: 3, title: "Campaign Execution & Tracking", description: "Conversion rate optimization and continuous campaign refinement." },
+      { step: 3, title: "Authority Link Building", description: "High-tier institutional mentions and local citation syndication." },
+      { step: 4, title: "Campaign Optimization", description: "Conversion rate optimization and continuous campaign refinement." },
     ],
     timeline: "Ongoing retainers with 90-day milestone reviews",
     relatedServices: ["web-development"],
@@ -357,6 +436,13 @@ export const servicesCatalog: readonly Service[] = [
     description:
       "Tailored software engineering addressing unique operational bottlenecks. We develop specialized workflow portals, inventory systems, customer management databases, and cloud integrations for growing enterprises.",
     icon: "Code",
+    schemeCeiling: "100% Proprietary IP Ownership",
+    dealSummary: {
+      maxLimit: "Bespoke Enterprise Systems",
+      collateral: "Zero Vendor Lock-in",
+      turnaround: "45–90 Days",
+      checklistDocName: "Custom_Software_Scope_Checklist.pdf",
+    },
     audience: [
       "Businesses outgrowing generic spreadsheets or off-the-shelf software",
       "Industrial operations needing centralized tracking and workflow automation",
@@ -369,7 +455,8 @@ export const servicesCatalog: readonly Service[] = [
     process: [
       { step: 1, title: "Requirements Blueprint", description: "Process mapping, data schemas, and technical specification." },
       { step: 2, title: "Agile Development", description: "Sprint-based implementation with regular stakeholder reviews." },
-      { step: 3, title: "Testing & Handover", description: "User acceptance testing, staff training, and managed maintenance." },
+      { step: 3, title: "Security & Load Testing", description: "End-to-end vulnerability scanning and stress benchmark testing." },
+      { step: 4, title: "Deployment & Training", description: "User acceptance testing, staff training, and managed maintenance." },
     ],
     timeline: "45 to 90 business days",
     relatedServices: ["web-development", "erp-solutions"],
@@ -385,6 +472,13 @@ export const servicesCatalog: readonly Service[] = [
     description:
       "Implementation and custom integration of lightweight, modern ERP solutions. Unify inventory, sales, procurement, production schedules, and financial reporting under a single cohesive dashboard.",
     icon: "Database",
+    schemeCeiling: "Zero Recurring SaaS Seat Licensing",
+    dealSummary: {
+      maxLimit: "Full-Stack Enterprise ERP",
+      collateral: "On-Prem / Cloud Dedicated",
+      turnaround: "60–120 Days",
+      checklistDocName: "ERP_Implementation_Checklist.pdf",
+    },
     audience: [
       "Manufacturing plants coordinating multi-stage shop floor operations",
       "Distributors managing multi-warehouse inventory and logistics",
@@ -397,7 +491,8 @@ export const servicesCatalog: readonly Service[] = [
     process: [
       { step: 1, title: "Operational Audit", description: "Detailed audit of procurement, production, and accounting cycles." },
       { step: 2, title: "System Architecture", description: "Configuration of database schemas and departmental access roles." },
-      { step: 3, title: "Data Migration & Go-Live", description: "Historical data migration, parallel testing, and production cutover." },
+      { step: 3, title: "Data Migration & Test", description: "Historical ledger migration, parallel testing, and sandbox verification." },
+      { step: 4, title: "Production Cutover", description: "Live shop-floor deployment, staff onboarding, and executive SLA setup." },
     ],
     timeline: "60 to 120 business days",
     relatedServices: ["custom-software"],
@@ -449,5 +544,3 @@ export function getRelatedServices(service: Service): readonly Service[] {
   }
   return related.slice(0, 3);
 }
-
-

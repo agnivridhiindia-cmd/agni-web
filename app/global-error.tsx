@@ -13,7 +13,6 @@ export default function GlobalError({
 }) {
   React.useEffect(() => {
     if (process.env.NODE_ENV === "development") {
-      // eslint-disable-next-line no-console
       console.error("Global application error:", error);
     }
   }, [error]);

@@ -14,6 +14,9 @@ export interface TimelineMilestone {
   readonly description: string;
   readonly badge: string;
   readonly pillarTag: string;
+  readonly metric: string;
+  readonly metricLabel: string;
+  readonly achievementHighlight: string;
 }
 
 export const companyTimeline: readonly TimelineMilestone[] = [
@@ -26,6 +29,10 @@ export const companyTimeline: readonly TimelineMilestone[] = [
       "Established in Delhi NCR to provide Indian enterprises with institutional-grade management consulting, capital restructuring, and debt advisory frameworks.",
     badge: "Origin",
     pillarTag: "Corporate Advisory",
+    metric: "14+ Years",
+    metricLabel: "Executive Track Record",
+    achievementHighlight:
+      "Zero-default corporate debt restructuring & advisory protocol established in Delhi NCR",
   },
   {
     year: "2016",
@@ -36,6 +43,10 @@ export const companyTimeline: readonly TimelineMilestone[] = [
       "Formalized dedicated debt syndication desks focused on unlocking collateral-free bank sanctions under the CGTMSE credit guarantee trust and central PMEGP subsidy mechanisms.",
     badge: "Expansion",
     pillarTag: "Sovereign Debt",
+    metric: "₹100 Cr+",
+    metricLabel: "Cumulative Debt Appraised",
+    achievementHighlight:
+      "Pioneered institutional underwriting syndication for CGTMSE collateral-free limits up to ₹5 Cr",
   },
   {
     year: "2020",
@@ -46,6 +57,10 @@ export const companyTimeline: readonly TimelineMilestone[] = [
       "Expanded capability suite into custom enterprise software, cloud-native ERP workflows, and digital compliance platforms in response to evolving regulatory digitization.",
     badge: "Modernization",
     pillarTag: "Digital Systems",
+    metric: "100%",
+    metricLabel: "Audit Clearance Rate",
+    achievementHighlight:
+      "Unbroken first-round compliance pass rate across ISO 9001:2015 & ZED Gold quality accreditations",
   },
   {
     year: "2024",
@@ -56,6 +71,10 @@ export const companyTimeline: readonly TimelineMilestone[] = [
       "Synchronized all practices—Funding, Compliance, Digital, and Custom IT—into multidisciplinary advisory pods operating from corporate headquarters at Sector 62, Noida.",
     badge: "Institutional Scale",
     pillarTag: "Integrated Pods",
+    metric: "28 States",
+    metricLabel: "Pan-India Advisory Reach",
+    achievementHighlight:
+      "Full-stack multi-pillar convergence deployed from Noida corporate headquarters",
   },
 ];
 

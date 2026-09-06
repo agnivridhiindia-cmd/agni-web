@@ -58,6 +58,11 @@ async function sendViaResend(params: {
   serviceName: string;
   message: string;
   referenceCode: string;
+  enterpriseNeed?: string;
+  turnoverScale?: string;
+  documentName?: string;
+  bookingDate?: string;
+  bookingTime?: string;
 }) {
   const apiKey = process.env.RESEND_API_KEY;
   const fromEmail = process.env.CONTACT_FROM_EMAIL;
@@ -66,7 +71,6 @@ async function sendViaResend(params: {
   if (!apiKey || !fromEmail || !toEmail) {
     // Not configured yet — log so the submission isn't silently lost,
     // and surface a clear signal in server logs for the site operator.
-    // eslint-disable-next-line no-console
     console.warn(
       "[contact-api] RESEND_API_KEY / CONTACT_FROM_EMAIL / CONTACT_TO_EMAIL not fully configured — " +
         "email was NOT sent. Submission was:",
@@ -76,13 +80,17 @@ async function sendViaResend(params: {
   }
 
   const html = `
-    <h2>New Advisory Inquiry — ${params.referenceCode}</h2>
+    <h2>New Enterprise Diagnostic / Advisory Request — ${params.referenceCode}</h2>
     <p><strong>Name:</strong> ${escapeHtml(params.name)}</p>
     <p><strong>Email:</strong> ${escapeHtml(params.email)}</p>
     <p><strong>Phone:</strong> ${escapeHtml(params.phone)}</p>
-    <p><strong>Company:</strong> ${escapeHtml(params.company || "—")}</p>
+    <p><strong>Enterprise:</strong> ${escapeHtml(params.company || "—")}</p>
     <p><strong>Practice Area:</strong> ${escapeHtml(params.serviceName)}</p>
-    <p><strong>Message:</strong></p>
+    ${params.enterpriseNeed ? `<p><strong>Identified Need:</strong> ${escapeHtml(params.enterpriseNeed)}</p>` : ""}
+    ${params.turnoverScale ? `<p><strong>Turnover Scale:</strong> ${escapeHtml(params.turnoverScale)}</p>` : ""}
+    ${params.documentName ? `<p><strong>Attached Document:</strong> ${escapeHtml(params.documentName)}</p>` : ""}
+    ${params.bookingDate ? `<p><strong>Scheduled Slot:</strong> ${escapeHtml(params.bookingDate)} at ${escapeHtml(params.bookingTime || "")}</p>` : ""}
+    <p><strong>Executive Notes / Scope:</strong></p>
     <p>${escapeHtml(params.message).replace(/\n/g, "<br/>")}</p>
   `;
 
@@ -164,11 +172,15 @@ export async function POST(req: NextRequest) {
       serviceName: service?.name ?? data.service,
       message: data.message,
       referenceCode,
+      enterpriseNeed: data.enterpriseNeed,
+      turnoverScale: data.turnoverScale,
+      documentName: data.documentName,
+      bookingDate: data.bookingDate,
+      bookingTime: data.bookingTime,
     });
 
     return NextResponse.json({ success: true, referenceCode });
   } catch (error) {
-    // eslint-disable-next-line no-console
     console.error("[contact-api] Failed to process submission:", error);
     return NextResponse.json(
       { error: "Something went wrong while submitting your inquiry. Please try again." },

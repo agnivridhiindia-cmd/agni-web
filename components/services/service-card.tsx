@@ -19,6 +19,7 @@ import {
   Database,
   ArrowRight,
   Clock,
+  Sparkles,
   type LucideIcon,
 } from "lucide-react";
 import type { Service, ServiceCategory } from "@/types/service";
@@ -50,49 +51,48 @@ const categoryTheme: Record<
     iconHover: string;
     iconText: string;
     borderHover: string;
-    badgeBg: string;
-    badgeText: string;
+    ceilingTag: string;
     arrowText: string;
     titleHover: string;
   }
 > = {
   funding: {
-    iconBg: "bg-gold-50/80 border-gold-200/80",
-    iconHover: "group-hover:bg-gold-600 group-hover:text-white group-hover:border-gold-600",
+    iconBg: "bg-gold-50/90 border-gold-200/90",
+    iconHover: "group-hover:bg-slate-950 group-hover:text-gold-400 group-hover:border-slate-800",
     iconText: "text-gold-800",
-    borderHover: "hover:border-gold-400/80 hover:shadow-subtle",
-    badgeBg: "bg-gold-50 border-gold-200/80",
-    badgeText: "text-gold-900",
-    arrowText: "text-gold-700 group-hover:text-gold-900",
-    titleHover: "group-hover:text-gold-900",
+    borderHover:
+      "hover:border-gold-500/50 hover:shadow-[0_12px_32px_-6px_rgba(184,137,31,0.22)]",
+    ceilingTag: "bg-gold-50 text-gold-950 border-gold-300/80",
+    arrowText: "text-gold-700 group-hover:text-gold-950",
+    titleHover: "group-hover:text-slate-950",
   },
   compliance: {
-    iconBg: "bg-teal-50/80 border-teal-200/80",
-    iconHover: "group-hover:bg-teal-700 group-hover:text-white group-hover:border-teal-700",
+    iconBg: "bg-teal-50/90 border-teal-200/90",
+    iconHover: "group-hover:bg-slate-950 group-hover:text-teal-400 group-hover:border-slate-800",
     iconText: "text-teal-800",
-    borderHover: "hover:border-teal-400/80 hover:shadow-subtle",
-    badgeBg: "bg-teal-50 border-teal-200/80",
-    badgeText: "text-teal-900",
-    arrowText: "text-teal-700 group-hover:text-teal-900",
-    titleHover: "group-hover:text-teal-800",
+    borderHover:
+      "hover:border-teal-500/50 hover:shadow-[0_12px_32px_-6px_rgba(8,145,178,0.22)]",
+    ceilingTag: "bg-teal-50 text-teal-950 border-teal-300/80",
+    arrowText: "text-teal-700 group-hover:text-teal-950",
+    titleHover: "group-hover:text-slate-950",
   },
   digital: {
-    iconBg: "bg-cyan-50/80 border-cyan-200/80",
-    iconHover: "group-hover:bg-cyan-700 group-hover:text-white group-hover:border-cyan-700",
+    iconBg: "bg-cyan-50/90 border-cyan-200/90",
+    iconHover: "group-hover:bg-slate-950 group-hover:text-cyan-400 group-hover:border-slate-800",
     iconText: "text-cyan-800",
-    borderHover: "hover:border-cyan-400/80 hover:shadow-subtle",
-    badgeBg: "bg-cyan-50 border-cyan-200/80",
-    badgeText: "text-cyan-900",
-    arrowText: "text-cyan-700 group-hover:text-cyan-900",
-    titleHover: "group-hover:text-cyan-800",
+    borderHover:
+      "hover:border-cyan-500/50 hover:shadow-[0_12px_32px_-6px_rgba(6,182,212,0.22)]",
+    ceilingTag: "bg-cyan-50 text-cyan-950 border-cyan-300/80",
+    arrowText: "text-cyan-700 group-hover:text-cyan-950",
+    titleHover: "group-hover:text-slate-950",
   },
   it: {
     iconBg: "bg-slate-100/90 border-slate-200",
-    iconHover: "group-hover:bg-slate-800 group-hover:text-white group-hover:border-slate-800",
+    iconHover: "group-hover:bg-slate-950 group-hover:text-white group-hover:border-slate-800",
     iconText: "text-slate-800",
-    borderHover: "hover:border-slate-400/80 hover:shadow-subtle",
-    badgeBg: "bg-slate-100 border-slate-200",
-    badgeText: "text-slate-900",
+    borderHover:
+      "hover:border-slate-500/50 hover:shadow-[0_12px_32px_-6px_rgba(15,23,42,0.18)]",
+    ceilingTag: "bg-slate-100 text-slate-950 border-slate-300",
     arrowText: "text-slate-700 group-hover:text-slate-950",
     titleHover: "group-hover:text-slate-950",
   },
@@ -104,29 +104,31 @@ interface ServiceCardProps {
 }
 
 /**
- * Editorial Service Directory Item
- * Entire card acts as a single, accessible semantic Link without nested interactive controls.
+ * Editorial Service Directory Item with Specular Rim Lighting and Floating Scheme Ceiling Tag
  */
 export function ServiceCard({ service }: ServiceCardProps) {
   const IconComponent = (service.icon && iconMap[service.icon]) || Landmark;
   const theme = categoryTheme[service.category] || categoryTheme.funding;
+  const schemeCeiling =
+    service.schemeCeiling || (service.featured ? "Core Advisory Program" : "Institutional Program");
 
   return (
     <Link
       href={`/services/${service.slug}`}
       className={cn(
-        "group relative flex flex-col justify-between rounded-xl bg-white p-6 sm:p-7 border border-slate-200/90 transition-all duration-200",
-        "hover:-translate-y-0.5 motion-reduce:hover:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 focus-visible:ring-offset-2",
+        "group relative flex flex-col justify-between rounded-2xl bg-white p-6 sm:p-7 border border-slate-200/80 transition-all duration-300",
+        "shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_1px_3px_rgba(0,0,0,0.04)]",
+        "hover:-translate-y-1 motion-reduce:hover:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 focus-visible:ring-offset-2",
         theme.borderHover
       )}
       aria-label={`${service.name} — view specialized program details`}
     >
       <div className="space-y-4">
-        {/* Top Header Row: Icon & Tag */}
-        <div className="flex items-center justify-between gap-3">
+        {/* Top Header Row: Icon & Floating Scheme Ceiling Tag */}
+        <div className="flex items-start justify-between gap-3">
           <div
             className={cn(
-              "w-10 h-10 rounded-lg flex items-center justify-center border transition-colors duration-200 shrink-0",
+              "w-11 h-11 rounded-xl flex items-center justify-center border transition-all duration-300 shrink-0 shadow-2xs",
               theme.iconBg,
               theme.iconText,
               theme.iconHover
@@ -136,23 +138,22 @@ export function ServiceCard({ service }: ServiceCardProps) {
             <IconComponent className="w-5 h-5" />
           </div>
 
-          {service.featured && (
-            <span
-              className={cn(
-                "inline-flex items-center px-2.5 py-0.5 rounded text-[11px] font-mono font-semibold uppercase tracking-wider border",
-                theme.badgeBg,
-                theme.badgeText
-              )}
-            >
-              Core Scheme
-            </span>
-          )}
+          {/* Floating Tag indicating Scheme Ceiling */}
+          <span
+            className={cn(
+              "inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider border shadow-2xs transition-transform duration-300 group-hover:scale-[1.02]",
+              theme.ceilingTag
+            )}
+          >
+            <Sparkles className="w-3 h-3 opacity-75 shrink-0" />
+            <span className="truncate max-w-[190px] sm:max-w-[220px]">{schemeCeiling}</span>
+          </span>
         </div>
 
         {/* Title */}
         <h3
           className={cn(
-            "font-serif text-lg sm:text-xl font-semibold text-slate-900 transition-colors leading-snug",
+            "font-serif text-lg sm:text-xl font-bold text-slate-950 transition-colors leading-snug pt-1",
             theme.titleHover
           )}
         >
@@ -170,19 +171,21 @@ export function ServiceCard({ service }: ServiceCardProps) {
         {service.timeline ? (
           <div className="flex items-center gap-1.5 text-slate-500 font-sans">
             <Clock className="w-3.5 h-3.5 text-slate-400 shrink-0" aria-hidden="true" />
-            <span className="line-clamp-1 max-w-[160px] sm:max-w-[200px]">{service.timeline}</span>
+            <span className="line-clamp-1 max-w-[150px] sm:max-w-[190px] font-mono text-[11px]">
+              {service.timeline}
+            </span>
           </div>
         ) : (
-          <span className="text-slate-400 font-sans">Advisory Track</span>
+          <span className="text-slate-400 font-mono text-[11px]">Advisory Track</span>
         )}
 
         <div
           className={cn(
-            "inline-flex items-center gap-1.5 font-medium transition-colors ml-auto pl-2",
+            "inline-flex items-center gap-1.5 font-semibold transition-colors ml-auto pl-2 text-xs font-mono tracking-tight",
             theme.arrowText
           )}
         >
-          <span>Explore</span>
+          <span>Explore Program</span>
           <ArrowRight
             className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1 motion-reduce:group-hover:translate-x-0"
             aria-hidden="true"

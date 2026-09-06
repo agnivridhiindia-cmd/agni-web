@@ -17,21 +17,19 @@ export default async function BlogPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <main id="main-content">
-        {/* Editorial Header */}
-        <BlogHero totalArticles={posts.length} />
+      {/* Editorial Header */}
+      <BlogHero totalArticles={posts.length} />
 
-        {/* Client filter directory wrapped in Suspense for search params */}
-        <React.Suspense
-          fallback={
-            <div className="py-20 text-center text-slate-500 text-sm">
-              Loading knowledge hub...
-            </div>
-          }
-        >
-          <BlogListing initialPosts={posts} />
-        </React.Suspense>
-      </main>
+      {/* Client filter directory wrapped in Suspense for search params */}
+      <React.Suspense
+        fallback={
+          <div className="py-20 text-center text-slate-500 text-sm">
+            Loading knowledge hub...
+          </div>
+        }
+      >
+        <BlogListing initialPosts={posts} />
+      </React.Suspense>
     </div>
   );
 }

@@ -7,12 +7,12 @@ interface LegalLayoutProps {
 
 export function LegalLayout({ children }: LegalLayoutProps) {
   return (
-    <main id="main-content" className="py-12 sm:py-16 lg:py-20">
+    <div className="py-12 sm:py-16 lg:py-20">
       <Container width="reading">
         <article className="space-y-10 text-slate-700 font-sans leading-relaxed text-sm sm:text-base">
           {children}
         </article>
       </Container>
-    </main>
+    </div>
   );
 }

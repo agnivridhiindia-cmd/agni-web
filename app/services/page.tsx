@@ -19,35 +19,33 @@ export default function ServicesPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <main id="main-content">
-        {/* Phase 16 Architecture:
-            1. Services Hero: Strategic positioning & credibility parameters
-            2. Category Navigation: Sticky accessible anchor rail with dynamic counts & scroll-spy
-            3. Four Distinct Categorical Editorial Directories (01 Funding, 02 Compliance, 03 Digital, 04 IT)
-            4. Closing Advisory Diagnostic CTA */}
-        <ServicesHero />
+      {/* Services Architecture:
+          1. Services Hero: Strategic positioning & credibility parameters
+          2. Category Navigation: Sticky accessible anchor rail with dynamic counts & scroll-spy
+          3. Four Distinct Categorical Editorial Directories (01 Funding, 02 Compliance, 03 Digital, 04 IT)
+          4. Closing Advisory Diagnostic CTA */}
+      <ServicesHero />
 
-        <CategoryNavigation
-          categories={categories}
-          totalServicesCount={services.length}
-        />
+      <CategoryNavigation
+        categories={categories}
+        totalServicesCount={services.length}
+      />
 
-        <div className="divide-y divide-slate-100">
-          {categories.map((cat, idx) => {
-            const catServices = services.filter((s) => s.category === cat.id);
-            return (
-              <ServiceCategorySection
-                key={cat.id}
-                category={cat}
-                services={catServices}
-                index={idx}
-              />
-            );
-          })}
-        </div>
+      <div className="divide-y divide-slate-100">
+        {categories.map((cat, idx) => {
+          const catServices = services.filter((s) => s.category === cat.id);
+          return (
+            <ServiceCategorySection
+              key={cat.id}
+              category={cat}
+              services={catServices}
+              index={idx}
+            />
+          );
+        })}
+      </div>
 
-        <ServicesCta />
-      </main>
+      <ServicesCta />
     </div>
   );
 }

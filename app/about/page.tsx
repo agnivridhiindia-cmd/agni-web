@@ -18,17 +18,15 @@ export const metadata: Metadata = createPageMetadata({
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white">
-      <main id="main-content">
-        {/* Phase 13 & 14 Narrative Architecture:
-            About Hero -> Company Story -> Mission -> Founder Story -> Timeline -> Core Values -> Advisory CTA */}
-        <AboutHero />
-        <CompanyStory />
-        <MissionSection />
-        <FounderSection />
-        <CompanyTimeline />
-        <CoreValues />
-        <FounderTransition />
-      </main>
+      {/* Narrative Architecture:
+          About Hero -> Company Story -> Mission -> Founder Story -> Timeline -> Core Values -> Advisory CTA */}
+      <AboutHero />
+      <CompanyStory />
+      <MissionSection />
+      <FounderSection />
+      <CompanyTimeline />
+      <CoreValues />
+      <FounderTransition />
     </div>
   );
 }

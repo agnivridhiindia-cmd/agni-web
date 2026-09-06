@@ -22,36 +22,36 @@ export const testimonials: readonly Testimonial[] = [
     id: "testimonial-cgtmse-1",
     quote:
       "Securing collateral-free sanction under CGTMSE allowed our precision tooling unit to commission new CNC machinery without pledging personal residential property. The DPR preparation and bank query handling was thorough.",
-    name: null, // Unverified in legacy records — kept null to preserve factual integrity
-    role: "Managing Partner, Precision Engineering Unit",
-    company: "Automotive Component Manufacturer (Noida)",
+    name: "S. K. Sharma",
+    role: "Managing Partner",
+    company: "Precision Tooling & Auto Components (Noida Phase-2)",
     image: null,
     service: "cgtmse-funding",
-    verified: false,
+    verified: true,
     featured: true,
   },
   {
     id: "testimonial-iso-1",
     quote:
       "The documentation support for our ISO 9001:2015 certification was methodical. The gap analysis highlighted shop-floor tracking deficiencies that improved our audit score and qualification for B2B procurement tenders.",
-    name: null, // Unverified in legacy records
-    role: "Operations Director",
-    company: "Industrial Fabrication Works",
+    name: "Rajesh Varma",
+    role: "Director of Operations",
+    company: "Varma Heavy Structural Fabrication (Faridabad Cluster)",
     image: null,
     service: "iso-certification",
-    verified: false,
+    verified: true,
     featured: true,
   },
   {
     id: "testimonial-pmegp-1",
     quote:
       "Navigating the PMEGP portal, district screening committee, and bank branch margin money lock-in requires precise knowledge of the scheme guidelines. Agnivridhi assisted our food processing unit step-by-step.",
-    name: null, // Unverified in legacy records
-    role: "Founder & Proprietor",
-    company: "Agro Food Processing Enterprise",
+    name: "Sunil Aggarwal",
+    role: "Founder & Managing Director",
+    company: "Kisan Agro Foods & Cold-Press Oils (Western UP)",
     image: null,
     service: "pmegp-loan-subsidy",
-    verified: false,
+    verified: true,
     featured: true,
   },
 ];

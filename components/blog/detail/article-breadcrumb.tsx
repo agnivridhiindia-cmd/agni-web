@@ -12,7 +12,7 @@ export function ArticleBreadcrumb({ title, category }: ArticleBreadcrumbProps) {
   const categorySlug = category.toLowerCase();
 
   return (
-    <div className="pt-24 sm:pt-28 pb-4 border-b border-slate-200/80 bg-slate-50/50">
+    <div className="pt-28 sm:pt-32 pb-4 border-b border-slate-200/80 bg-slate-50/50">
       <Container width="wide">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-sans">
           {/* Breadcrumb path */}

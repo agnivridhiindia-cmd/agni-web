@@ -8,7 +8,15 @@ import {
   useTransform,
   type MotionValue,
 } from "framer-motion";
-import { Rocket, TrendingUp, Cpu, Building2, LucideIcon } from "lucide-react";
+import {
+  Rocket,
+  TrendingUp,
+  Cpu,
+  Building2,
+  LucideIcon,
+  CheckCircle2,
+  Sparkles,
+} from "lucide-react";
 import { companyTimeline, type TimelineMilestone } from "@/data/timeline";
 import { Container } from "@/components/shared/container";
 import { SectionHeading } from "@/components/shared/section-heading";
@@ -31,6 +39,120 @@ const milestoneIcons: Record<string, LucideIcon> = {
 
 // Normalized baseline scroll activation thresholds
 const DEFAULT_THRESHOLDS = [0.12, 0.38, 0.64, 0.9];
+
+/* ==========================================================================
+   REUSABLE MILESTONE CARD WITH STRUCTURAL ACHIEVEMENT PILLAR
+   ========================================================================== */
+
+interface MilestoneCardProps {
+  milestone: TimelineMilestone;
+  isActive: boolean;
+  isFinalPhase: boolean;
+}
+
+function MilestoneCard({
+  milestone,
+  isActive,
+  isFinalPhase,
+}: MilestoneCardProps) {
+  return (
+    <div
+      className={`p-7 rounded-2xl bg-white/95 backdrop-blur-sm border transition-all duration-300 ${
+        isActive
+          ? isFinalPhase
+            ? "border-gold-400/90 shadow-[0_8px_32px_-4px_rgba(184,137,31,0.22)] ring-1 ring-gold-400/20"
+            : "border-teal-300/90 shadow-[0_8px_32px_-4px_rgba(8,145,178,0.18)] ring-1 ring-teal-400/20"
+          : "border-slate-200/80 hover:border-slate-300 shadow-sm"
+      }`}
+    >
+      {/* Badge & Pillar Tag */}
+      <div className="flex items-center justify-between gap-2 mb-3">
+        <span
+          className={`text-[11px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded border transition-colors ${
+            isActive
+              ? isFinalPhase
+                ? "text-gold-950 bg-gold-50 border-gold-300/80"
+                : "text-teal-950 bg-teal-50 border-teal-200"
+              : "text-slate-600 bg-slate-100 border-slate-200"
+          }`}
+        >
+          {milestone.badge}
+        </span>
+        <span className="text-[11px] font-mono text-slate-500 font-medium">
+          {milestone.pillarTag}
+        </span>
+      </div>
+
+      {/* Subtitle & Title */}
+      <div>
+        <span className="text-xs font-mono font-semibold text-slate-500 uppercase tracking-wider block">
+          {milestone.subtitle}
+        </span>
+        <h3 className="font-serif text-2xl font-bold text-slate-900 leading-snug mt-1">
+          {milestone.title}
+        </h3>
+      </div>
+
+      {/* Narrative Description */}
+      <p className="type-body-sm text-slate-600 font-sans leading-relaxed mt-3">
+        {milestone.description}
+      </p>
+
+      {/* Structural Achievement Callout (e.g. ₹100 Cr+ Cumulative Debt Appraised) */}
+      <div
+        className={`mt-5 p-4 rounded-xl border transition-all duration-300 ${
+          isActive
+            ? isFinalPhase
+              ? "bg-gradient-to-br from-gold-50/90 via-amber-50/50 to-white border-gold-300/90 shadow-2xs"
+              : "bg-gradient-to-br from-teal-50/90 via-cyan-50/50 to-white border-teal-200/90 shadow-2xs"
+            : "bg-slate-50/90 border-slate-200/80"
+        }`}
+      >
+        <div className="flex items-center justify-between gap-3 flex-wrap">
+          <div className="flex items-center gap-2">
+            <span
+              className={`w-2 h-2 rounded-full ${
+                isActive
+                  ? isFinalPhase
+                    ? "bg-gold-500 animate-pulse"
+                    : "bg-teal-500 animate-pulse"
+                  : "bg-slate-400"
+              }`}
+            />
+            <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider font-bold text-slate-600">
+              {milestone.metricLabel}
+            </span>
+          </div>
+
+          <div
+            className={`font-mono text-sm sm:text-base font-bold tabular-nums px-2.5 py-0.5 rounded ${
+              isActive
+                ? isFinalPhase
+                  ? "bg-gold-100 text-gold-950 border border-gold-300/70"
+                  : "bg-teal-100 text-teal-950 border border-teal-300/70"
+                : "bg-slate-200/70 text-slate-700"
+            }`}
+          >
+            {milestone.metric}
+          </div>
+        </div>
+
+        <div className="pt-2 flex items-start gap-1.5 text-xs font-sans text-slate-700 font-medium leading-snug">
+          <CheckCircle2
+            className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${
+              isActive
+                ? isFinalPhase
+                  ? "text-gold-600"
+                  : "text-teal-600"
+                : "text-slate-400"
+            }`}
+          />
+          <span>{milestone.achievementHighlight}</span>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 /* ==========================================================================
    DESKTOP MILESTONE ROW (>= lg)
@@ -76,10 +198,7 @@ function DesktopMilestoneRow({
   const [isActive, setIsActive] = React.useState(prefersReduced);
 
   React.useEffect(() => {
-    if (prefersReduced) {
-      setIsActive(true);
-      return;
-    }
+    if (prefersReduced) return;
     const unsubscribe = progress.on("change", (latest) => {
       setIsActive(latest >= threshold - 0.02);
     });
@@ -103,48 +222,11 @@ function DesktopMilestoneRow({
             }
             className="w-full text-left"
           >
-            <div
-              className={`p-7 rounded-2xl bg-white/95 backdrop-blur-sm border shadow-sm transition-all duration-300 ${
-                isActive
-                  ? isFinalPhase
-                    ? "border-gold-300 shadow-[0_4px_24px_-4px_rgba(184,137,31,0.18)]"
-                    : "border-teal-200/90 shadow-[0_4px_24px_-4px_rgba(8,145,178,0.15)]"
-                  : "border-slate-200/80 hover:border-slate-300"
-              }`}
-            >
-              {/* Badge & Pillar Tag */}
-              <div className="flex items-center justify-between gap-2 mb-3">
-                <span
-                  className={`text-[11px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded border transition-colors ${
-                    isActive
-                      ? isFinalPhase
-                        ? "text-gold-900 bg-gold-50 border-gold-300/80"
-                        : "text-teal-900 bg-teal-50 border-teal-200"
-                      : "text-slate-600 bg-slate-100 border-slate-200"
-                  }`}
-                >
-                  {milestone.badge}
-                </span>
-                <span className="text-[11px] font-mono text-slate-500 font-medium">
-                  {milestone.pillarTag}
-                </span>
-              </div>
-
-              {/* Subtitle & Title */}
-              <div>
-                <span className="text-xs font-mono font-semibold text-slate-500 uppercase tracking-wider block">
-                  {milestone.subtitle}
-                </span>
-                <h3 className="font-serif text-2xl font-bold text-slate-900 leading-snug mt-1">
-                  {milestone.title}
-                </h3>
-              </div>
-
-              {/* Description */}
-              <p className="type-body-sm text-slate-600 font-sans leading-relaxed mt-3">
-                {milestone.description}
-              </p>
-            </div>
+            <MilestoneCard
+              milestone={milestone}
+              isActive={isActive}
+              isFinalPhase={isFinalPhase}
+            />
           </motion.div>
         ) : (
           <motion.div
@@ -173,7 +255,6 @@ function DesktopMilestoneRow({
 
       {/* Center Node Column (2 cols) */}
       <div className="col-span-2 flex items-center justify-center relative">
-        {/* Node positioning anchor with lateral wave offset */}
         <div
           ref={nodeRef}
           className={`relative z-10 flex items-center justify-center ${
@@ -185,23 +266,23 @@ function DesktopMilestoneRow({
             className={`w-12 h-12 rounded-full bg-white flex items-center justify-center transition-all duration-300 border-2 ${
               isActive
                 ? isFinalPhase
-                  ? "border-gold-600 shadow-[0_0_20px_rgba(184,137,31,0.4)]"
-                  : "border-teal-600 shadow-[0_0_20px_rgba(8,145,178,0.35)]"
+                  ? "border-gold-600 shadow-[0_0_24px_rgba(184,137,31,0.5)] ring-4 ring-gold-400/20"
+                  : "border-teal-600 shadow-[0_0_24px_rgba(8,145,178,0.45)] ring-4 ring-teal-400/20"
                 : "border-slate-300 shadow-sm"
             }`}
           >
-            {/* Active Pulse Wave Ring */}
+            {/* Active Radiant Pulse Ring */}
             {isActive && !prefersReduced && (
               <span
-                className={`absolute inset-0 rounded-full animate-ping opacity-40 ${
+                className={`absolute inset-0 rounded-full animate-ping opacity-45 ${
                   isFinalPhase ? "bg-gold-400" : "bg-teal-400"
                 }`}
-                style={{ animationDuration: "3s" }}
+                style={{ animationDuration: "2.5s" }}
                 aria-hidden="true"
               />
             )}
 
-            {/* Icon */}
+            {/* Node Icon */}
             <Icon
               className={`w-5 h-5 relative z-10 transition-colors duration-300 ${
                 isActive
@@ -230,48 +311,11 @@ function DesktopMilestoneRow({
             }
             className="w-full text-left"
           >
-            <div
-              className={`p-7 rounded-2xl bg-white/95 backdrop-blur-sm border shadow-sm transition-all duration-300 ${
-                isActive
-                  ? isFinalPhase
-                    ? "border-gold-300 shadow-[0_4px_24px_-4px_rgba(184,137,31,0.18)]"
-                    : "border-teal-200/90 shadow-[0_4px_24px_-4px_rgba(8,145,178,0.15)]"
-                  : "border-slate-200/80 hover:border-slate-300"
-              }`}
-            >
-              {/* Badge & Pillar Tag */}
-              <div className="flex items-center justify-between gap-2 mb-3">
-                <span
-                  className={`text-[11px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded border transition-colors ${
-                    isActive
-                      ? isFinalPhase
-                        ? "text-gold-900 bg-gold-50 border-gold-300/80"
-                        : "text-teal-900 bg-teal-50 border-teal-200"
-                      : "text-slate-600 bg-slate-100 border-slate-200"
-                  }`}
-                >
-                  {milestone.badge}
-                </span>
-                <span className="text-[11px] font-mono text-slate-500 font-medium">
-                  {milestone.pillarTag}
-                </span>
-              </div>
-
-              {/* Subtitle & Title */}
-              <div>
-                <span className="text-xs font-mono font-semibold text-slate-500 uppercase tracking-wider block">
-                  {milestone.subtitle}
-                </span>
-                <h3 className="font-serif text-2xl font-bold text-slate-900 leading-snug mt-1">
-                  {milestone.title}
-                </h3>
-              </div>
-
-              {/* Description */}
-              <p className="type-body-sm text-slate-600 font-sans leading-relaxed mt-3">
-                {milestone.description}
-              </p>
-            </div>
+            <MilestoneCard
+              milestone={milestone}
+              isActive={isActive}
+              isFinalPhase={isFinalPhase}
+            />
           </motion.div>
         ) : (
           <motion.div
@@ -330,10 +374,7 @@ function MobileMilestoneRow({
   const [isActive, setIsActive] = React.useState(prefersReduced);
 
   React.useEffect(() => {
-    if (prefersReduced) {
-      setIsActive(true);
-      return;
-    }
+    if (prefersReduced) return;
     const unsubscribe = progress.on("change", (latest) => {
       setIsActive(latest >= threshold - 0.02);
     });
@@ -351,17 +392,17 @@ function MobileMilestoneRow({
           className={`w-10 h-10 rounded-full bg-white flex items-center justify-center transition-all duration-300 border-2 ${
             isActive
               ? isFinalPhase
-                ? "border-gold-600 shadow-[0_0_16px_rgba(184,137,31,0.35)]"
-                : "border-teal-600 shadow-[0_0_16px_rgba(8,145,178,0.35)]"
+                ? "border-gold-600 shadow-[0_0_20px_rgba(184,137,31,0.4)] ring-2 ring-gold-400/20"
+                : "border-teal-600 shadow-[0_0_20px_rgba(8,145,178,0.4)] ring-2 ring-teal-400/20"
               : "border-slate-300 shadow-sm"
           }`}
         >
           {isActive && !prefersReduced && (
             <span
-              className={`absolute inset-0 rounded-full animate-ping opacity-30 ${
+              className={`absolute inset-0 rounded-full animate-ping opacity-35 ${
                 isFinalPhase ? "bg-gold-400" : "bg-teal-400"
               }`}
-              style={{ animationDuration: "3s" }}
+              style={{ animationDuration: "2.5s" }}
               aria-hidden="true"
             />
           )}
@@ -391,8 +432,8 @@ function MobileMilestoneRow({
             className={`text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded border ${
               isActive
                 ? isFinalPhase
-                  ? "text-gold-900 bg-gold-50 border-gold-300/80"
-                  : "text-teal-900 bg-teal-50 border-teal-200/80"
+                  ? "text-gold-950 bg-gold-50 border-gold-300/80"
+                  : "text-teal-950 bg-teal-50 border-teal-200/80"
                 : "text-slate-600 bg-slate-100 border-slate-200"
             }`}
           >
@@ -400,38 +441,19 @@ function MobileMilestoneRow({
           </span>
         </div>
 
-        {/* Card */}
-        <div
-          className={`p-6 rounded-xl bg-white/95 backdrop-blur-sm border shadow-sm transition-all duration-300 ${
-            isActive
-              ? isFinalPhase
-                ? "border-gold-300 shadow-[0_2px_16px_-2px_rgba(184,137,31,0.15)]"
-                : "border-teal-200/90 shadow-[0_2px_16px_-2px_rgba(8,145,178,0.12)]"
-              : "border-slate-200/80"
-          }`}
-        >
-          <span className="text-[11px] font-mono font-semibold uppercase tracking-wider text-slate-500 block">
-            {milestone.subtitle}
-          </span>
-          <h3 className="font-serif text-xl font-bold text-slate-900 leading-snug mt-1">
-            {milestone.title}
-          </h3>
-          <p className="text-xs sm:text-sm text-slate-600 font-sans leading-relaxed pt-2">
-            {milestone.description}
-          </p>
-          <div className="pt-3 flex items-center justify-between border-t border-slate-100 mt-3">
-            <span className="text-[10px] font-mono text-slate-400">
-              {milestone.pillarTag}
-            </span>
-          </div>
-        </div>
+        {/* Card with Structural Achievements */}
+        <MilestoneCard
+          milestone={milestone}
+          isActive={isActive}
+          isFinalPhase={isFinalPhase}
+        />
       </motion.div>
     </div>
   );
 }
 
 /* ==========================================================================
-   MAIN COMPANY TIMELINE EXPORT
+   MAIN COMPANY TIMELINE EXPORT: INTERACTIVE MILESTONES SPINE
    ========================================================================== */
 
 export function CompanyTimeline() {
@@ -450,7 +472,7 @@ export function CompanyTimeline() {
     offset: ["start 75%", "end 65%"],
   });
 
-  // Buttery-smooth spring-interpolated progress
+  // Smooth spring-interpolated progress
   const smoothProgress = useSpring(scrollYProgress, {
     stiffness: 90,
     damping: 25,
@@ -628,25 +650,35 @@ export function CompanyTimeline() {
       <Container width="wide" className="space-y-12 sm:space-y-16">
         {/* Section Header */}
         <FadeIn direction="up" distance={16} delay={0.05}>
-          <SectionHeading
-            id="timeline-heading"
-            eyebrow="EVOLUTION &amp; MILESTONES"
-            eyebrowAccent
-            title="A Chronology of Institutional Elevation."
-            description="From our origins in capital restructuring to multi-pillar advisory convergence across 28 Indian states, our trajectory reflects an uncompromising standard of regulatory rigor and technical execution."
-            align="left"
-            className="max-w-3xl"
-          />
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+            <SectionHeading
+              id="timeline-heading"
+              eyebrow="EVOLUTION &amp; MILESTONES"
+              eyebrowAccent
+              title="A Chronology of Institutional Elevation."
+              description="From our origins in capital restructuring to multi-pillar advisory convergence across 28 Indian states, our trajectory reflects an uncompromising standard of regulatory rigor and technical execution."
+              align="left"
+              className="max-w-3xl"
+            />
+
+            {/* Real-Time Interactive Badge */}
+            <div className="hidden lg:flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-900 text-white border border-slate-800 shadow-sm self-start lg:self-auto">
+              <Sparkles className="w-4 h-4 text-gold-400 animate-pulse" />
+              <span className="font-mono text-xs font-medium text-slate-200">
+                Interactive Milestones Spine
+              </span>
+            </div>
+          </div>
         </FadeIn>
 
         {/* ============================================================
-            DESKTOP / TABLET (>= lg): Scroll-Driven Snaking Journey
+            DESKTOP / TABLET (>= lg): Interactive Illuminated Milestones Spine
             ============================================================ */}
         <div
           ref={desktopTimelineRef}
           className="hidden lg:block relative pt-4 pb-12"
         >
-          {/* SVG Connector Layer */}
+          {/* SVG Connector Layer: Illuminated Gold/Teal Light Spine */}
           <svg
             className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-visible"
             aria-hidden="true"
@@ -665,6 +697,21 @@ export function CompanyTimeline() {
                 <stop offset="70%" stopColor="#DCAE32" />
                 <stop offset="100%" stopColor="#B8891F" />
               </linearGradient>
+
+              {/* Spine Radiant Light Halo Filter */}
+              <filter
+                id="spine-glow-desktop"
+                x="-30%"
+                y="-30%"
+                width="160%"
+                height="160%"
+              >
+                <feGaussianBlur stdDeviation="4.5" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
             </defs>
 
             {/* Background Faint Dashed Path */}
@@ -679,7 +726,23 @@ export function CompanyTimeline() {
               />
             )}
 
-            {/* Active Scroll-Driven Animated Connector */}
+            {/* Outer Radiant Light Halo (fills with glowing light as user scrolls) */}
+            {desktopPathData.pathD && (
+              <motion.path
+                d={desktopPathData.pathD}
+                stroke="url(#timeline-gradient-desktop)"
+                strokeWidth="10"
+                strokeOpacity="0.4"
+                fill="none"
+                strokeLinecap="round"
+                filter="url(#spine-glow-desktop)"
+                style={{
+                  pathLength: prefersReduced ? 1 : smoothProgress,
+                }}
+              />
+            )}
+
+            {/* Core Intense Laser Light Stroke */}
             {desktopPathData.pathD && (
               <motion.path
                 d={desktopPathData.pathD}
@@ -698,7 +761,7 @@ export function CompanyTimeline() {
               <circle
                 cx={desktopPathData.startX}
                 cy={0}
-                r="4.5"
+                r="5"
                 fill="#0891B2"
                 className="transition-opacity"
               />
@@ -709,7 +772,7 @@ export function CompanyTimeline() {
               <circle
                 cx={desktopPathData.endX}
                 cy={desktopPathData.endY}
-                r="4.5"
+                r="5"
                 fill="#B8891F"
                 className="transition-opacity"
               />
@@ -741,7 +804,7 @@ export function CompanyTimeline() {
         </div>
 
         {/* ============================================================
-            MOBILE ONLY (< lg): Scroll-Driven Vertical Rail
+            MOBILE ONLY (< lg): Scroll-Driven Illuminated Vertical Rail
             ============================================================ */}
         <div
           ref={mobileTimelineRef}
@@ -765,6 +828,20 @@ export function CompanyTimeline() {
                 <stop offset="75%" stopColor="#DCAE32" />
                 <stop offset="100%" stopColor="#B8891F" />
               </linearGradient>
+
+              <filter
+                id="spine-glow-mobile"
+                x="-30%"
+                y="-30%"
+                width="160%"
+                height="160%"
+              >
+                <feGaussianBlur stdDeviation="3.5" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
             </defs>
 
             {/* Background Faint Dashed Rail */}
@@ -779,7 +856,23 @@ export function CompanyTimeline() {
               />
             )}
 
-            {/* Active Scroll-Driven Rail */}
+            {/* Radiant Mobile Glow Halo */}
+            {mobilePathData.pathD && (
+              <motion.path
+                d={mobilePathData.pathD}
+                stroke="url(#timeline-gradient-mobile)"
+                strokeWidth="8"
+                strokeOpacity="0.4"
+                fill="none"
+                strokeLinecap="round"
+                filter="url(#spine-glow-mobile)"
+                style={{
+                  pathLength: prefersReduced ? 1 : smoothProgress,
+                }}
+              />
+            )}
+
+            {/* Core Scroll-Driven Mobile Rail */}
             {mobilePathData.pathD && (
               <motion.path
                 d={mobilePathData.pathD}

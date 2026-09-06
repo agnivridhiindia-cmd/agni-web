@@ -8,7 +8,7 @@ export function ServicesHero() {
   return (
     <section
       aria-labelledby="services-hero-title"
-      className="relative border-b border-slate-200/80 bg-slate-50/70 pt-28 pb-14 sm:pt-32 sm:pb-16 lg:pt-36 lg:pb-20 overflow-hidden"
+      className="relative border-b border-slate-200/80 bg-slate-50/70 pt-32 pb-14 sm:pt-36 sm:pb-16 lg:pt-40 lg:pb-20 overflow-hidden"
     >
       <Container width="wide">
         <div className="max-w-3xl space-y-6">

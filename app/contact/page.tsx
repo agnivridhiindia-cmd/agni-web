@@ -24,7 +24,7 @@ export default function ContactPage() {
       <ContactHero />
 
       {/* 2. Main Consultation & Engagement Layout */}
-      <main id="main-content" className="py-12 sm:py-16 lg:py-20">
+      <div className="py-12 sm:py-16 lg:py-20">
         <Container width="wide">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
             {/* Left Column: Firm Profile, Protocol, FAQs & Location (7 cols) */}
@@ -51,7 +51,7 @@ export default function ContactPage() {
             </div>
           </div>
         </Container>
-      </main>
+      </div>
     </div>
   );
 }

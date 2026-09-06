@@ -108,7 +108,7 @@ export async function getPostBySlug(
 
   let filePath: string | null = null;
   for (const candidate of candidates) {
-    if (fs.existsSync(candidate)) {
+    if (fs.existsSync(/*turbopackIgnore: true*/ candidate)) {
       filePath = candidate;
       break;
     }
@@ -116,7 +116,7 @@ export async function getPostBySlug(
 
   if (!filePath) return null;
 
-  const rawFile = await fs.promises.readFile(filePath, "utf-8");
+  const rawFile = await fs.promises.readFile(/*turbopackIgnore: true*/ filePath, "utf-8");
   const { frontmatter, content } = parseFrontmatter<BlogPostFrontmatter>(rawFile);
 
   const parsedAuthor =
@@ -206,7 +206,7 @@ export async function getCaseStudyBySlug(
 
   let filePath: string | null = null;
   for (const candidate of candidates) {
-    if (fs.existsSync(candidate)) {
+    if (fs.existsSync(/*turbopackIgnore: true*/ candidate)) {
       filePath = candidate;
       break;
     }
@@ -214,7 +214,7 @@ export async function getCaseStudyBySlug(
 
   if (!filePath) return null;
 
-  const rawFile = await fs.promises.readFile(filePath, "utf-8");
+  const rawFile = await fs.promises.readFile(/*turbopackIgnore: true*/ filePath, "utf-8");
   const { frontmatter, content } = parseFrontmatter<CaseStudyFrontmatter>(rawFile);
 
   const completeFrontmatter: CaseStudyFrontmatter = {
@@ -243,6 +243,7 @@ export async function getCaseStudyBySlug(
     statValue: frontmatter.statValue as string | undefined,
     statLabel: frontmatter.statLabel as string | undefined,
     statContext: frontmatter.statContext as string | undefined,
+    dealTombstone: frontmatter.dealTombstone as CaseStudyFrontmatter["dealTombstone"],
     quote: frontmatter.quote as CaseStudyFrontmatter["quote"],
     publishedAt: (frontmatter.publishedAt as string) || new Date().toISOString().split("T")[0],
     featured: Boolean(frontmatter.featured),

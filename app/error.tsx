@@ -16,14 +16,13 @@ export default function Error({
   React.useEffect(() => {
     // Log exception in development for diagnostic tracking
     if (process.env.NODE_ENV === "development") {
-      // eslint-disable-next-line no-console
       console.error("Platform application error captured:", error);
     }
   }, [error]);
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col justify-between">
-      <main id="main-content" className="flex-1 flex items-center justify-center py-24 sm:py-32">
+      <div className="flex-1 flex items-center justify-center py-24 sm:py-32">
         <Container width="standard">
           <div className="max-w-xl mx-auto text-center space-y-8">
             <div className="w-16 h-16 rounded-2xl bg-amber-50 border border-amber-200/80 text-amber-700 flex items-center justify-center mx-auto shadow-subtle">
@@ -69,7 +68,7 @@ export default function Error({
             </div>
           </div>
         </Container>
-      </main>
+      </div>
     </div>
   );
 }

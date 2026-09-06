@@ -58,21 +58,13 @@ export function AnimatedCounter({
   }, [locale, decimals]);
 
   const [displayValue, setDisplayValue] = React.useState<string>(() =>
-    numericTarget === null ? fallback : formatter.format(numericTarget)
+    numericTarget === null ? fallback : formatter.format(0)
   );
 
   React.useEffect(() => {
-    if (numericTarget === null) {
-      setDisplayValue(fallback);
+    if (numericTarget === null || prefersReduced || !inView) {
       return;
     }
-
-    if (prefersReduced) {
-      setDisplayValue(formatter.format(numericTarget));
-      return;
-    }
-
-    if (!inView) return;
 
     let startTime: number | null = null;
     let animationFrameId: number;
@@ -101,11 +93,13 @@ export function AnimatedCounter({
         window.cancelAnimationFrame(animationFrameId);
       }
     };
-  }, [inView, numericTarget, duration, formatter, prefersReduced, fallback]);
+  }, [inView, numericTarget, duration, formatter, prefersReduced]);
 
   if (numericTarget === null) {
     return <span ref={ref} className={className}>{fallback}</span>;
   }
+
+  const renderedValue = prefersReduced ? formatter.format(numericTarget) : displayValue;
 
   return (
     <span
@@ -114,7 +108,7 @@ export function AnimatedCounter({
       aria-label={`${prefix ?? ""}${numericTarget}${suffix ?? ""}`}
     >
       {prefix && <span className="mr-0.5 select-none">{prefix}</span>}
-      <span>{displayValue}</span>
+      <span>{renderedValue}</span>
       {suffix && <span className="ml-0.5 select-none">{suffix}</span>}
     </span>
   );

@@ -83,40 +83,38 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
       />
 
-      <main id="main-content">
-        {/* Semantic Breadcrumb Navigation */}
-        <ServiceBreadcrumb service={service} />
+      {/* Semantic Breadcrumb Navigation */}
+      <ServiceBreadcrumb service={service} />
 
-        {/* Editorial Service Header */}
-        <ServiceDetailHero service={service} />
+      {/* Editorial Service Header */}
+      <ServiceDetailHero service={service} />
 
-        {/* Core Content Layout with Sticky Consultation Desk Sidebar */}
-        <section className="py-14 sm:py-18 lg:py-20">
-          <Container width="wide">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
-              {/* Primary Content Stream (8 columns on desktop) */}
-              <div className="lg:col-span-8 space-y-14 sm:space-y-16">
-                <ServiceOverview service={service} />
+      {/* Core Content Layout with Sticky Consultation Desk Sidebar */}
+      <section className="py-14 sm:py-18 lg:py-20">
+        <Container width="wide">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
+            {/* Primary Content Stream (8 columns on desktop) */}
+            <div className="lg:col-span-8 space-y-14 sm:space-y-16">
+              <ServiceOverview service={service} />
 
-                <ServiceProcess process={service.process} />
+              <ServiceProcess process={service.process} />
 
-                <ServiceFaq faqs={service.faqs} serviceName={service.name} />
-              </div>
-
-              {/* Sticky Consultation Sidebar (4 columns on desktop) */}
-              <ServiceSidebar service={service} />
+              <ServiceFaq faqs={service.faqs} serviceName={service.name} />
             </div>
-          </Container>
-        </section>
 
-        {/* Related Advisory Practices */}
-        {relatedServices.length > 0 && (
-          <RelatedServices services={relatedServices} />
-        )}
+            {/* Sticky Consultation Sidebar (4 columns on desktop) */}
+            <ServiceSidebar service={service} />
+          </div>
+        </Container>
+      </section>
 
-        {/* Closing Conversion CTA */}
-        <ServiceDetailCta service={service} />
-      </main>
+      {/* Related Advisory Practices */}
+      {relatedServices.length > 0 && (
+        <RelatedServices services={relatedServices} />
+      )}
+
+      {/* Closing Conversion CTA */}
+      <ServiceDetailCta service={service} />
     </div>
   );
 }

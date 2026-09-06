@@ -95,10 +95,12 @@ export function Header() {
   }, [servicesOpen, mobileNavOpen]);
 
   // Close menus when pathname changes
-  React.useEffect(() => {
+  const [prevPathname, setPrevPathname] = React.useState(pathname);
+  if (pathname !== prevPathname) {
+    setPrevPathname(pathname);
     setServicesOpen(false);
     setMobileNavOpen(false);
-  }, [pathname]);
+  }
 
   const handleMouseEnterServices = () => {
     if (hoverTimeoutRef.current) {
@@ -148,6 +150,12 @@ export function Header() {
         )}
       </AnimatePresence>
 
+      {/* Global Ambient Top Blur Shield: gently diffuses and fades page content as it scrolls up under the floating header */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none fixed top-0 inset-x-0 h-24 sm:h-28 z-40 bg-gradient-to-b from-slate-50/90 via-slate-50/60 to-transparent dark:from-slate-950/90 dark:via-slate-950/60 backdrop-blur-md [mask-image:linear-gradient(to_bottom,black_50%,transparent)] select-none transition-opacity duration-300"
+      />
+
       {/* Floating Centered Wrapper */}
       <header className="fixed top-0 inset-x-0 z-50 flex justify-center px-3 sm:px-6 pt-3 sm:pt-4 pointer-events-none transition-all duration-300">
         <motion.nav
@@ -156,13 +164,13 @@ export function Header() {
           transition={springTransition}
           aria-label="Main Navigation"
           className={cn(
-            "pointer-events-auto relative w-full border shadow-floating select-none transition-all duration-300",
-            "backdrop-blur-2xl backdrop-saturate-150 supports-[backdrop-filter]:bg-white/50 bg-white/75 dark:supports-[backdrop-filter]:bg-slate-900/50 dark:bg-slate-900/75",
+            "pointer-events-auto relative w-full border select-none transition-all duration-300",
+            "backdrop-blur-md",
             mobileNavOpen
-              ? "max-w-lg rounded-[24px] p-4 sm:p-5 border-slate-200/80 dark:border-slate-800"
+              ? "max-w-lg rounded-[28px] p-4 sm:p-5 border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 shadow-2xl"
               : isScrolled
-              ? "max-w-4xl rounded-full px-4 py-2 sm:px-5 sm:py-2 border-white/70 dark:border-slate-800/80 supports-[backdrop-filter]:bg-white/65 shadow-elevated"
-              : "max-w-6xl rounded-full px-5 py-2.5 sm:px-6 sm:py-3 border-white/60 dark:border-white/10"
+              ? "max-w-4xl rounded-full px-4 py-2 sm:px-5 sm:py-2 border-slate-200/80 dark:border-slate-800/80 bg-white/80 dark:bg-slate-900/80 shadow-[0_12px_32px_-8px_rgba(15,23,42,0.08),_0_1px_2px_0_rgba(15,23,42,0.04),_inset_0_1px_1px_0_rgba(255,255,255,0.95)] dark:shadow-[0_12px_32px_-8px_rgba(0,0,0,0.6),_inset_0_1px_1px_0_rgba(255,255,255,0.12)]"
+              : "max-w-6xl rounded-full px-5 py-2.5 sm:px-6 sm:py-3 border-slate-200/80 dark:border-slate-800/80 bg-white/80 dark:bg-slate-900/80 shadow-[0_8px_24px_-6px_rgba(15,23,42,0.06),_0_1px_2px_0_rgba(15,23,42,0.03),_inset_0_1px_1px_0_rgba(255,255,255,0.9)] dark:shadow-[0_8px_24px_-6px_rgba(0,0,0,0.5),_inset_0_1px_1px_0_rgba(255,255,255,0.1)]"
           )}
         >
           {/* Top Bar Row (Brand, Desktop Nav, CTA, Mobile Toggle) */}

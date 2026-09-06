@@ -12,7 +12,7 @@ export const metadata = {
 export default function NotFound() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col justify-between">
-      <main id="main-content" className="flex-1 flex items-center justify-center py-24 sm:py-32">
+      <div className="flex-1 flex items-center justify-center py-24 sm:py-32">
         <Container width="standard">
           <div className="max-w-2xl mx-auto text-center space-y-8">
             {/* Monogram / Icon */}
@@ -74,7 +74,7 @@ export default function NotFound() {
             </div>
           </div>
         </Container>
-      </main>
+      </div>
     </div>
   );
 }
