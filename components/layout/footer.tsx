@@ -102,8 +102,13 @@ export function Footer() {
               aria-label="Agnivridhi India - Home"
               className="inline-flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 rounded-sm"
             >
-              <div className="w-10 h-10 rounded-lg bg-teal-700 text-white flex items-center justify-center font-serif font-bold text-xl shadow-subtle group-hover:bg-teal-800 transition-colors">
-                A
+              <div className="relative w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center shadow-subtle group-hover:scale-105 transition-transform duration-200">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/logo1.png"
+                  alt="Agnivridhi India Logo"
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div className="flex flex-col">
                 <span className="font-serif font-bold text-xl text-slate-950 tracking-tight leading-none group-hover:text-teal-700 transition-colors">

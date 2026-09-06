@@ -26,10 +26,28 @@
   will-change: transform;
 }
 
+@keyframes marquee-loop {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.animate-marquee-loop {
+  animation: marquee-loop 68s linear infinite;
+  will-change: transform;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-ambient-drift {
     animation: none;
     transform: translate3d(-2%, -1%, 0) scale(1.04);
+  }
+
+  .animate-marquee-loop {
+    animation: none !important;
   }
 
   .hero-headline-word {

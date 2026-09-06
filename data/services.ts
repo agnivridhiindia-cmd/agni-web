@@ -20,16 +20,16 @@ export const serviceCategories: readonly ServiceCategoryMeta[] = [
   },
   {
     id: "digital",
-    name: "Digital Transformation",
+    name: "Digital Growth & Marketing",
     shortDescription:
-      "Modern web platforms, performance marketing, search visibility, and conversion design.",
+      "High-conversion web platforms, B2B performance marketing, search visibility (SEO), and corporate brand strategy.",
     icon: "Globe",
   },
   {
     id: "it",
-    name: "Custom Software & IT Services",
+    name: "Technology & Software Engineering",
     shortDescription:
-      "Tailored enterprise software, ERP automation, cloud infrastructure, and IT architecture.",
+      "Tailored enterprise software, native mobile apps, cloud DevOps, ERP automation, and operational AI workflows.",
     icon: "Cpu",
   },
 ];
@@ -421,7 +421,44 @@ export const servicesCatalog: readonly Service[] = [
       { step: 4, title: "Campaign Optimization", description: "Conversion rate optimization and continuous campaign refinement." },
     ],
     timeline: "Ongoing retainers with 90-day milestone reviews",
-    relatedServices: ["web-development"],
+    relatedServices: ["web-development", "b2b-brand-strategy"],
+    featured: false,
+  },
+  {
+    id: "b2b-brand-strategy",
+    slug: "b2b-brand-strategy",
+    name: "B2B Brand Strategy & Collateral Design",
+    category: "digital",
+    shortDescription:
+      "Enterprise brand identity, industrial product catalogs, authority pitch decks, and commercial collateral engineered for B2B buyer trust.",
+    description:
+      "Elevate your enterprise positioning with institutional corporate branding. We develop comprehensive brand identity systems, high-converting product brochures, investor pitch presentations, and tender qualification portfolios tailored for Indian manufacturing and B2B sectors.",
+    icon: "Palette",
+    schemeCeiling: "Institutional Authority Positioning",
+    dealSummary: {
+      maxLimit: "Full Corporate Identity System",
+      collateral: "100% Vector & Trademark Ready",
+      turnaround: "15–30 Days",
+      checklistDocName: "Brand_Identity_Asset_Checklist.pdf",
+    },
+    audience: [
+      "MSMEs upgrading from informal branding to institutional tender eligibility",
+      "Manufacturers seeking corporate OEM vendor empanelment",
+      "Startups preparing investor presentations and seed capital pitches",
+    ],
+    benefits: [
+      "Command higher margins with premium, institutional brand positioning",
+      "Pass corporate vendor due diligence with unified commercial collateral",
+      "Vector-perfect assets prepared for digital, print, and factory signage",
+    ],
+    process: [
+      { step: 1, title: "Brand Positioning Audit", description: "Competitive benchmarking and core value proposition synthesis." },
+      { step: 2, title: "Visual Identity Engineering", description: "Logo architecture, typography hierarchy, and corporate color standards." },
+      { step: 3, title: "Collateral Production", description: "Company profile, product catalogs, and investor deck formatting." },
+      { step: 4, title: "Brand Guidelines Delivery", description: "Comprehensive brand book and master design asset handoff." },
+    ],
+    timeline: "15 to 30 business days",
+    relatedServices: ["web-development", "digital-marketing-seo"],
     featured: false,
   },
 
@@ -459,7 +496,7 @@ export const servicesCatalog: readonly Service[] = [
       { step: 4, title: "Deployment & Training", description: "User acceptance testing, staff training, and managed maintenance." },
     ],
     timeline: "45 to 90 business days",
-    relatedServices: ["web-development", "erp-solutions"],
+    relatedServices: ["web-development", "erp-solutions", "mobile-app-development"],
     featured: true,
   },
   {
@@ -495,8 +532,119 @@ export const servicesCatalog: readonly Service[] = [
       { step: 4, title: "Production Cutover", description: "Live shop-floor deployment, staff onboarding, and executive SLA setup." },
     ],
     timeline: "60 to 120 business days",
-    relatedServices: ["custom-software"],
+    relatedServices: ["custom-software", "cloud-devops-solutions"],
     featured: false,
+  },
+  {
+    id: "mobile-app-development",
+    slug: "mobile-app-development",
+    name: "Mobile Application Engineering",
+    category: "it",
+    shortDescription:
+      "High-performance iOS and Android applications built on React Native and Flutter for field force tracking, client portals, and mobile commerce.",
+    description:
+      "Tailored mobile app engineering connecting your workforce, distributors, and customers. From shop-floor dispatch scanners and dealer ordering apps to custom consumer fintech experiences with offline sync and biometric authentication.",
+    icon: "Smartphone",
+    schemeCeiling: "Native iOS & Android App Store Ready",
+    dealSummary: {
+      maxLimit: "Cross-Platform Mobile Suite",
+      collateral: "Full App Store / Play Store IP",
+      turnaround: "45–90 Days",
+      checklistDocName: "Mobile_App_Architecture_Checklist.pdf",
+    },
+    audience: [
+      "Enterprises needing real-time field force and dealer ordering systems",
+      "Manufacturers monitoring remote factory telematics and dispatch",
+      "Startups launching customer-facing mobile platforms",
+    ],
+    benefits: [
+      "Single cross-platform codebase cutting development and maintenance costs by 40%",
+      "Offline-first architecture ensuring functionality in low-connectivity factory environments",
+      "Seamless integration with existing ERP, CRM, and accounting backends",
+    ],
+    process: [
+      { step: 1, title: "UX & Workflow Prototyping", description: "Wireframing, user journey design, and interactive Figma mockups." },
+      { step: 2, title: "Client & API Engineering", description: "Cross-platform development with secure REST/GraphQL API integration." },
+      { step: 3, title: "Quality & Device Benchmarking", description: "Multi-device testing, latency audits, and battery performance checks." },
+      { step: 4, title: "App Store Publishing", description: "Full deployment to Google Play Store and Apple App Store with monitoring." },
+    ],
+    timeline: "45 to 90 business days",
+    relatedServices: ["custom-software", "cloud-devops-solutions"],
+    featured: true,
+  },
+  {
+    id: "cloud-devops-solutions",
+    slug: "cloud-devops-solutions",
+    name: "Cloud Infrastructure & DevOps",
+    category: "it",
+    shortDescription:
+      "AWS and Google Cloud architectures, containerization (Docker/Kubernetes), zero-downtime CI/CD pipelines, and enterprise security hardening.",
+    description:
+      "Modernize your company's digital backbone with scalable, compliant cloud infrastructure. We migrate on-premise servers to AWS/GCP, configure automated backup systems, establish continuous integration pipelines, and enforce zero-trust security controls.",
+    icon: "Cloud",
+    schemeCeiling: "99.99% High Availability Cloud SLA",
+    dealSummary: {
+      maxLimit: "AWS & Google Cloud Architecture",
+      collateral: "SOC2 & ISO 27001 Preparedness",
+      turnaround: "30–60 Days",
+      checklistDocName: "Cloud_DevOps_Audit_Checklist.pdf",
+    },
+    audience: [
+      "Companies moving from legacy shared hosting or on-prem servers to the cloud",
+      "Enterprises requiring disaster recovery, automatic failover, and data sovereignty",
+      "Growing tech teams needing automated CI/CD deployment pipelines",
+    ],
+    benefits: [
+      "Eliminate server crashes and scale infrastructure dynamically with traffic",
+      "Slash cloud hosting expenses by up to 35% via resource right-sizing",
+      "Automated encrypted backups and disaster recovery protocols",
+    ],
+    process: [
+      { step: 1, title: "Cloud Infrastructure Audit", description: "Evaluating current hosting workloads, security gaps, and cost leakage." },
+      { step: 2, title: "Architecture & Security Design", description: "VPC setup, IAM role least-privilege policies, and containerization." },
+      { step: 3, title: "Migration & Pipeline Setup", description: "Zero-downtime data migration and automated CI/CD pipeline implementation." },
+      { step: 4, title: "24/7 Monitoring & Optimization", description: "Telemetry setup, alerting policies, and ongoing cost governance." },
+    ],
+    timeline: "30 to 60 business days",
+    relatedServices: ["custom-software", "erp-solutions"],
+    featured: false,
+  },
+  {
+    id: "ai-automation-solutions",
+    slug: "ai-automation-solutions",
+    name: "AI & Workflow Automation",
+    category: "it",
+    shortDescription:
+      "Intelligent document processing for loans, automated CRM data routing, custom AI customer support agents, and repetitive task automation.",
+    description:
+      "Harness practical, high-ROI artificial intelligence to eliminate manual operational drag. We build automated document extractors for bank CMA / ITR financial data, intelligent conversational sales bots, and cross-platform RPA workflows connecting email, WhatsApp, and internal ERPs.",
+    icon: "Bot",
+    schemeCeiling: "Zero-Hallucination Private LLM Stack",
+    dealSummary: {
+      maxLimit: "Custom Enterprise AI Pods",
+      collateral: "Proprietary Data Isolation",
+      turnaround: "30–60 Days",
+      checklistDocName: "AI_Workflow_Feasibility_Checklist.pdf",
+    },
+    audience: [
+      "Enterprises processing hundreds of loan documents, invoices, or purchase orders manually",
+      "Customer service departments seeking 24/7 automated inquiry qualification",
+      "Operations teams eliminating duplicate data entry between disparate software tools",
+    ],
+    benefits: [
+      "Reduce document processing and data extraction time by over 80%",
+      "Capture inbound buyer leads 24/7 with intelligent WhatsApp AI agents",
+      "Complete data privacy with dedicated cloud instances that never train public models",
+    ],
+    process: [
+      { step: 1, title: "Process Discovery & Mapping", description: "Identifying high-volume, rules-based tasks suitable for automation." },
+      { step: 2, title: "Model Calibration & Testing", description: "Fine-tuning document extraction and prompt engineering with real business data." },
+      { step: 3, title: "Workflow Orchestration", description: "Connecting AI models to existing CRMs, ERPs, and messaging gateways." },
+      { step: 4, title: "Audit & Human-in-the-Loop", description: "Deploying exception handling and confidence threshold verification." },
+    ],
+    timeline: "30 to 60 business days",
+    relatedServices: ["custom-software", "erp-solutions"],
+    featured: true,
   },
 ];
 

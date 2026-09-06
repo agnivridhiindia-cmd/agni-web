@@ -17,6 +17,7 @@ import type { RecognitionItem, RecognitionType } from "@/lib/site-config";
 import { Container } from "@/components/shared/container";
 import { Eyebrow } from "@/components/ui/badge";
 import { Badge } from "@/components/ui/badge";
+import { SpotlightCard } from "@/components/ui/spotlight-card";
 import {
   FadeIn,
   useReducedMotionPreference,
@@ -184,15 +185,19 @@ export function RecognitionSection() {
             return (
               <div
                 key={item.id}
-                className="w-[300px] sm:w-[360px] lg:w-[400px] shrink-0 snap-start h-full"
+                className="w-[320px] sm:w-[380px] lg:w-[420px] shrink-0 snap-start h-full"
               >
-                <div className="group relative h-full flex flex-col justify-between rounded-3xl bg-gradient-to-b from-white via-white to-slate-50/70 p-6 sm:p-7 border border-slate-200/90 hover:border-teal-500/50 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_32px_-8px_rgba(8,145,178,0.12)] hover:-translate-y-2 transition-all duration-300">
+                <SpotlightCard
+                  glowVariant="amber"
+                  className="h-full hover:-translate-y-2 transition-all duration-300 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_32px_-8px_rgba(217,119,6,0.12)]"
+                  innerClassName="p-6 sm:p-7 justify-between bg-gradient-to-b from-white via-white to-slate-50/70"
+                >
                   <div className="space-y-4">
                     {/* Top Row: Icon Container + Category Tag + Year Pill */}
                     <div className="flex items-center justify-between gap-3">
                       <div className="flex items-center gap-3">
                         <div
-                          className={`w-11 h-11 rounded-2xl ${meta.iconBg} ${meta.iconColor} border flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform duration-300`}
+                          className={`w-11 h-11 rounded-2xl ${meta.iconBg} ${meta.iconColor} border flex items-center justify-center shadow-xs group-hover/spotlight:scale-105 transition-transform duration-300`}
                         >
                           <Icon className="w-5 h-5" />
                         </div>
@@ -206,12 +211,24 @@ export function RecognitionSection() {
                       </span>
                     </div>
 
-                    {/* Issuer / Publication Label */}
-                    <div className="pt-2">
-                      <span className="text-xs font-bold tracking-wider text-teal-800 uppercase block font-sans">
-                        {item.publicationOrOrg}
-                      </span>
-                      <h3 className="font-serif text-xl sm:text-2xl font-bold text-slate-950 leading-snug group-hover:text-teal-800 transition-colors pt-1">
+                    {/* Publication Logo or Label */}
+                    <div className="pt-2 space-y-2">
+                      {item.logoImage ? (
+                        <div className="h-10 flex items-center">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={item.logoImage}
+                            alt={item.publicationOrOrg}
+                            className="h-8 max-w-[160px] object-contain opacity-85 group-hover/spotlight:opacity-100 transition-opacity"
+                          />
+                        </div>
+                      ) : (
+                        <span className="text-xs font-bold tracking-wider text-teal-800 uppercase block font-sans">
+                          {item.publicationOrOrg}
+                        </span>
+                      )}
+
+                      <h3 className="font-serif text-xl sm:text-2xl font-bold text-slate-950 leading-snug group-hover/spotlight:text-amber-950 transition-colors pt-1">
                         {item.title}
                       </h3>
                     </div>
@@ -234,11 +251,11 @@ export function RecognitionSection() {
                         href={item.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-teal-700 hover:text-teal-900 font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 rounded"
+                        className="inline-flex items-center gap-1 text-teal-700 hover:text-amber-700 font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded transition-colors"
                         aria-label={`Read coverage: ${item.title} (opens in a new tab)`}
                       >
-                        <span>Coverage</span>
-                        <ArrowUpRight className="w-3.5 h-3.5" />
+                        <span>Read Coverage</span>
+                        <ArrowUpRight className="w-3.5 h-3.5 text-amber-600" />
                       </a>
                     ) : (
                       <span className="text-[11px] text-slate-400 font-sans">
@@ -246,7 +263,7 @@ export function RecognitionSection() {
                       </span>
                     )}
                   </div>
-                </div>
+                </SpotlightCard>
               </div>
             );
           })}

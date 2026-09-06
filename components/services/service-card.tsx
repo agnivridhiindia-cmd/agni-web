@@ -17,6 +17,10 @@ import {
   Search,
   Code,
   Database,
+  Smartphone,
+  Cloud,
+  Bot,
+  Palette,
   ArrowRight,
   Clock,
   Sparkles,
@@ -42,6 +46,10 @@ const iconMap: Record<string, LucideIcon> = {
   Search,
   Code,
   Database,
+  Smartphone,
+  Cloud,
+  Bot,
+  Palette,
 };
 
 const categoryTheme: Record<

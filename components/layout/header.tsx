@@ -182,8 +182,13 @@ export function Header() {
               aria-label={`${siteConfig.company.name} - Home`}
               className="flex items-center gap-2.5 sm:gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 rounded-full select-none shrink-0"
             >
-              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-teal-600 text-white flex items-center justify-center font-serif font-bold text-base sm:text-lg shadow-subtle group-hover:bg-teal-700 transition-transform group-hover:scale-105 duration-200">
-                {brandFirst[0]}
+              <div className="relative w-8 h-8 sm:w-9 sm:h-9 rounded-full overflow-hidden flex items-center justify-center shadow-subtle group-hover:scale-105 transition-transform duration-200">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/logo1.png"
+                  alt="Agnivridhi India Logo"
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div className="flex flex-col">
                 <span className="font-serif font-semibold text-base sm:text-lg text-slate-900 dark:text-slate-100 tracking-tight leading-none group-hover:text-teal-600 transition-colors">

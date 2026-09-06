@@ -4,6 +4,7 @@ import { createPageMetadata } from "@/lib/seo";
 import { Hero } from "@/components/home/hero";
 import { StatsBar } from "@/components/home/stats-bar";
 import { ServicesTeaser } from "@/components/home/services-teaser";
+import { SyndicationPipeline } from "@/components/home/syndication-pipeline";
 import { RecognitionSection } from "@/components/home/recognition-section";
 import { FeaturedStories } from "@/components/home/featured-stories";
 import { FinalCta } from "@/components/home/final-cta";
@@ -32,6 +33,12 @@ export default function HomePage() {
 
       {/* Core Advisory Verticals */}
       <ServicesTeaser />
+
+      {/* Hairline Divider */}
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-slate-200 to-transparent" aria-hidden="true" />
+
+      {/* Interactive Syndication Pipeline & Milestone Scrubber */}
+      <SyndicationPipeline />
 
       {/* Hairline Divider */}
       <div className="h-px w-full bg-gradient-to-r from-transparent via-slate-200 to-transparent" aria-hidden="true" />

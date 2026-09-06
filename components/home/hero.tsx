@@ -52,17 +52,19 @@ function HeroHeadline() {
   return (
     <h1
       id="hero-heading"
-      className="font-serif text-3xl sm:text-4xl md:text-[2.65rem] lg:text-[3rem] xl:text-[3.25rem] font-bold tracking-tight text-slate-950 !leading-[1.16]"
+      className="font-serif text-3xl sm:text-4xl md:text-[2.65rem] lg:text-[3.1rem] xl:text-[3.35rem] font-bold tracking-tight text-slate-950 !leading-[1.16]"
     >
-      Catalyzing Enterprise Scale Through{" "}
+      Aapke Business Ki Udaan,{" "}
       <span className="text-teal-700 italic font-serif relative inline-block">
-        Sovereign Capital
+        Humare Saath
         <span
           aria-hidden="true"
-          className="absolute left-0 -bottom-1 w-full h-[3px] bg-gradient-to-r from-teal-600/80 to-teal-400/20 rounded-full"
+          className="absolute left-0 -bottom-1 w-full h-[3px] bg-gradient-to-r from-teal-600/80 via-amber-500/80 to-amber-600/60 rounded-full"
         />
-      </span>{" "}
-      &amp; <span className="text-gold-600 font-serif">Compliance.</span>
+      </span>
+      <span className="block font-sans text-lg sm:text-xl md:text-2xl font-semibold text-slate-700 pt-2 tracking-tight">
+        Funding &bull; Compliance &bull; Technology &bull; Marketing
+      </span>
     </h1>
   );
 }
@@ -150,11 +152,8 @@ export function Hero() {
                       accent
                       className="text-[11px] sm:text-xs font-semibold tracking-wider text-slate-700 font-sans uppercase"
                     >
-                      <span className="hidden sm:inline">
-                        SOVEREIGN DEBT SYNDICATION &bull; CGTMSE &bull; STATUTORY COMPLIANCE
-                      </span>
-                      <span className="sm:hidden">
-                        CGTMSE &bull; SOVEREIGN FUNDING &bull; COMPLIANCE
+                      <span>
+                        ONE-STOP MSME &amp; STARTUP ENGINE &bull; 500+ ENTERPRISES ENABLED
                       </span>
                     </Eyebrow>
                   </div>
@@ -165,10 +164,10 @@ export function Hero() {
 
                 {/* Supporting Copy */}
                 <p className="type-body-lg text-slate-600 max-w-xl leading-relaxed font-sans">
-                  {name} empowers micro, small, and mid-market enterprises across India
-                  with collateral-free debt structuring under central guarantee schemes,
-                  statutory certifications, and modern digital governance—delivered with
-                  institutional rigor from {location.city}, {location.country}.
+                  From collateral-free debt (CGTMSE, PMEGP, MUDRA) and statutory certifications
+                  to custom software engineering, mobile apps, and B2B performance marketing—Agnivridhi
+                  India delivers the turnkey capital and technological infrastructure to accelerate
+                  enterprise scale from {location.city}, {location.country}.
                 </p>
 
                 {/* Dual Rounded-Pill CTA Buttons */}
@@ -216,11 +215,8 @@ export function Hero() {
                       accent
                       className="text-[11px] sm:text-xs font-semibold tracking-wider text-slate-700 font-sans uppercase"
                     >
-                      <span className="hidden sm:inline">
-                        SOVEREIGN DEBT SYNDICATION &bull; CGTMSE &bull; STATUTORY COMPLIANCE
-                      </span>
-                      <span className="sm:hidden">
-                        CGTMSE &bull; SOVEREIGN FUNDING &bull; COMPLIANCE
+                      <span>
+                        ONE-STOP MSME &amp; STARTUP ENGINE &bull; 500+ ENTERPRISES ENABLED
                       </span>
                     </Eyebrow>
                   </div>
@@ -234,10 +230,10 @@ export function Hero() {
                 {/* Supporting Copy */}
                 <motion.div variants={heroFadeInUpItem}>
                   <p className="type-body-lg text-slate-600 max-w-xl leading-relaxed font-sans">
-                    {name} empowers micro, small, and mid-market enterprises across India
-                    with collateral-free debt structuring under central guarantee schemes,
-                    statutory certifications, and modern digital governance—delivered with
-                    institutional rigor from {location.city}, {location.country}.
+                    From collateral-free debt (CGTMSE, PMEGP, MUDRA) and statutory certifications
+                    to custom software engineering, mobile apps, and B2B performance marketing—Agnivridhi
+                    India delivers the turnkey capital and technological infrastructure to accelerate
+                    enterprise scale from {location.city}, {location.country}.
                   </p>
                 </motion.div>
 

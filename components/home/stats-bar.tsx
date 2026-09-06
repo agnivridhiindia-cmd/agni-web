@@ -6,34 +6,38 @@ import {
   ShieldCheck,
   Layers,
   FileCheck2,
-  type LucideIcon,
+  TrendingUp,
+  Building2,
+  Award,
+  Users,
+  BadgeCheck,
   CheckCircle2,
+  Pause,
+  Play,
+  type LucideIcon,
 } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 import type { StatMetric } from "@/lib/site-config";
 import { Container } from "@/components/shared/container";
 import { Eyebrow } from "@/components/ui/badge";
-import { SectionHeading } from "@/components/shared/section-heading";
+import { SpotlightCard } from "@/components/ui/spotlight-card";
 import { useInView } from "framer-motion";
 import {
   FadeIn,
-  StaggerContainer,
-  StaggerItem,
   useReducedMotionPreference,
 } from "@/components/shared/motion";
+import { cn } from "@/lib/utils";
 
 const statIconMap: Record<string, LucideIcon> = {
   "max-guarantee-sanction": Landmark,
   "sovereign-coverage": ShieldCheck,
   "advisory-practices": Layers,
   "programs-covered": FileCheck2,
-};
-
-const statIndexMap: Record<string, string> = {
-  "max-guarantee-sanction": "01",
-  "sovereign-coverage": "02",
-  "advisory-practices": "03",
-  "programs-covered": "04",
+  "funding-facilitated": TrendingUp,
+  "businesses-supported": Building2,
+  "years-experience": Award,
+  "clients-served": Users,
+  "certifications-projects": BadgeCheck,
 };
 
 function StatCountUp({
@@ -89,9 +93,95 @@ function StatCountUp({
   return <span>{count}</span>;
 }
 
+interface StatCardProps {
+  stat: StatMetric;
+  indexNumber: string;
+  isInView: boolean;
+}
+
+function StatCard({ stat, indexNumber, isInView }: StatCardProps) {
+  const Icon = statIconMap[stat.id] || Landmark;
+
+  return (
+    <div className="w-[300px] sm:w-[340px] lg:w-[360px] shrink-0 px-3 h-full">
+      <SpotlightCard
+        glowVariant="amber"
+        className="h-full hover:-translate-y-1.5 transition-all duration-300 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_32px_-8px_rgba(217,119,6,0.12)] border-slate-200/80 bg-white"
+        innerClassName="p-6 sm:p-7 flex flex-col justify-between h-full min-h-[300px]"
+      >
+        <div className="space-y-4">
+          {/* Top Row: Icon Container + Step Number */}
+          <div className="flex items-center justify-between gap-3">
+            <div className="w-11 h-11 rounded-xl bg-slate-50 border border-slate-200/90 text-teal-700 flex items-center justify-center shadow-xs group-hover/spotlight:bg-teal-600 group-hover/spotlight:text-white group-hover/spotlight:scale-105 group-hover/spotlight:border-teal-600 transition-all duration-300">
+              <Icon className="w-5 h-5" />
+            </div>
+
+            <span className="font-mono text-xs font-bold px-2 py-0.5 rounded-md bg-slate-100/80 text-slate-500 group-hover/spotlight:bg-amber-50 group-hover/spotlight:text-amber-800 transition-colors">
+              {indexNumber}
+            </span>
+          </div>
+
+          {/* Large Animated Metric Display */}
+          <div
+            className="pt-1 flex items-baseline flex-wrap"
+            aria-label={`${stat.prefix ?? ""}${stat.value}${
+              stat.suffix ?? ""
+            }: ${stat.label}`}
+          >
+            {stat.prefix && (
+              <span className="font-serif text-2xl sm:text-3xl text-teal-700 font-bold mr-0.5 leading-none">
+                {stat.prefix}
+              </span>
+            )}
+            <span className="font-serif text-3xl sm:text-4xl lg:text-[2.6rem] font-bold text-slate-950 tracking-tight leading-none tabular-nums">
+              {stat.numericValue !== null && stat.numericValue !== undefined ? (
+                <StatCountUp
+                  target={stat.numericValue}
+                  trigger={isInView}
+                  duration={1.4}
+                />
+              ) : (
+                stat.value
+              )}
+            </span>
+            {stat.suffix && (
+              <span className="text-base sm:text-lg font-sans font-medium text-slate-600 ml-1.5 leading-none">
+                {stat.suffix.trim()}
+              </span>
+            )}
+          </div>
+
+          {/* Stat Label */}
+          <h3 className="font-sans text-base sm:text-lg font-bold text-slate-900 leading-snug group-hover/spotlight:text-amber-950 transition-colors line-clamp-1">
+            {stat.label}
+          </h3>
+
+          {/* Short Description */}
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-sans line-clamp-3">
+            {stat.description}
+          </p>
+        </div>
+
+        {/* Bottom Verification Footer */}
+        <div className="mt-5 pt-3.5 border-t border-slate-200/60 flex items-center justify-between text-[11px] font-sans text-slate-500">
+          <span className="inline-flex items-center gap-1.5 font-medium text-emerald-800">
+            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+            Verified
+          </span>
+          <span className="font-mono text-[10px] text-slate-400 uppercase tracking-wider">
+            Mandate Standard
+          </span>
+        </div>
+      </SpotlightCard>
+    </div>
+  );
+}
+
 export function StatsBar() {
   const sectionRef = React.useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-40px" });
+  const prefersReduced = useReducedMotionPreference();
+  const [isPaused, setIsPaused] = React.useState(false);
 
   // Extract strictly verified statistics from authoritative configuration
   const verifiedStats = React.useMemo(() => {
@@ -107,13 +197,16 @@ export function StatsBar() {
     return null;
   }
 
+  // Duplicate stats for seamless 2-track infinite loop
+  const duplicatedSet = [...verifiedStats, ...verifiedStats];
+
   return (
     <section
       ref={sectionRef}
       aria-labelledby="stats-heading"
-      className="relative bg-slate-100/80 py-16 sm:py-20 lg:py-24 border-b border-slate-200/80"
+      className="relative bg-slate-100/80 py-16 sm:py-20 lg:py-24 border-b border-slate-200/80 overflow-hidden"
     >
-      <Container width="wide" className="space-y-12 sm:space-y-16">
+      <Container width="wide" className="space-y-8 sm:space-y-10">
         {/* Section Heading matching Bconsult's "Core Advantages" intro */}
         <FadeIn direction="up" distance={16} delay={0.05}>
           <div className="text-center max-w-3xl mx-auto space-y-3 sm:space-y-4">
@@ -135,99 +228,110 @@ export function StatsBar() {
             </h2>
 
             <p className="type-body text-slate-600 max-w-2xl mx-auto leading-relaxed">
-              Four verified institutional parameters establishing sovereign debt
-              leverage, regulatory certainty, and turnkey compliance execution across
-              Indian industrial hubs.
+              Verified institutional metrics establishing sovereign debt
+              leverage, statutory compliance execution, and scalable technology architectures.
             </p>
+
+            {/* Interaction hint & pause toggle */}
+            <div className="flex items-center justify-center gap-3 pt-2">
+              <span className="inline-flex items-center gap-1.5 text-xs font-mono text-slate-500 bg-white/70 px-3 py-1 rounded-full border border-slate-200/80 shadow-2xs">
+                <span className="w-2 h-2 rounded-full bg-teal-500 animate-pulse" />
+                Hover any card to inspect &amp; pause
+              </span>
+
+              <button
+                type="button"
+                onClick={() => setIsPaused((prev) => !prev)}
+                className="inline-flex items-center gap-1.5 text-xs font-mono text-slate-600 hover:text-slate-950 bg-white/70 hover:bg-white px-2.5 py-1 rounded-full border border-slate-200/80 transition-colors"
+                aria-label={isPaused ? "Resume metric ticker" : "Pause metric ticker"}
+                title={isPaused ? "Resume metric ticker" : "Pause metric ticker"}
+              >
+                {isPaused ? (
+                  <>
+                    <Play className="w-3 h-3 text-teal-600 fill-teal-600" />
+                    <span>Resume</span>
+                  </>
+                ) : (
+                  <>
+                    <Pause className="w-3 h-3 text-slate-500 fill-slate-500" />
+                    <span>Pause</span>
+                  </>
+                )}
+              </button>
+            </div>
           </div>
         </FadeIn>
-
-        {/* ============================================================
-            BCONSULT 4-CARD FEATURE GRID PATTERN (Equal-width, hover lift)
-            ============================================================ */}
-        <StaggerContainer
-          inView={true}
-          staggerDelay={0.08}
-          delayChildren={0.1}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-6 items-stretch"
-        >
-          {verifiedStats.map((stat) => {
-            const Icon = statIconMap[stat.id] || Landmark;
-            const indexNumber = statIndexMap[stat.id] || "01";
-
-            return (
-              <StaggerItem key={stat.id} className="h-full">
-                <div className="group relative h-full flex flex-col justify-between rounded-3xl bg-white p-6 sm:p-7 border border-slate-200/90 hover:border-teal-500/50 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_32px_-8px_rgba(8,145,178,0.12)] hover:-translate-y-2 transition-all duration-300">
-                  <div className="space-y-4">
-                    {/* Top Row: Icon Container + Step Number */}
-                    <div className="flex items-center justify-between gap-3">
-                      <div className="w-12 h-12 rounded-2xl bg-white border border-slate-200/90 text-teal-700 flex items-center justify-center shadow-xs group-hover:bg-teal-600 group-hover:text-white group-hover:scale-105 group-hover:border-teal-600 transition-all duration-300">
-                        <Icon className="w-6 h-6" />
-                      </div>
-
-                      <span className="font-mono text-xs font-bold px-2 py-0.5 rounded-md bg-slate-100/80 text-slate-500 group-hover:bg-teal-50 group-hover:text-teal-700 transition-colors">
-                        {indexNumber}
-                      </span>
-                    </div>
-
-                    {/* Large Animated Metric Display */}
-                    <div
-                      className="pt-2 flex items-baseline flex-wrap"
-                      aria-label={`${stat.prefix ?? ""}${stat.value}${
-                        stat.suffix ?? ""
-                      }: ${stat.label}`}
-                    >
-                      {stat.prefix && (
-                        <span className="font-serif text-2xl sm:text-3xl text-teal-700 font-bold mr-0.5 leading-none">
-                          {stat.prefix}
-                        </span>
-                      )}
-                      <span className="font-serif text-3xl sm:text-4xl lg:text-[2.65rem] font-bold text-slate-950 tracking-tight leading-none tabular-nums">
-                        {stat.numericValue !== null &&
-                        stat.numericValue !== undefined ? (
-                          <StatCountUp
-                            target={stat.numericValue}
-                            trigger={isInView}
-                            duration={1.4}
-                          />
-                        ) : (
-                          stat.value
-                        )}
-                      </span>
-                      {stat.suffix && (
-                        <span className="text-base sm:text-lg font-sans font-medium text-slate-600 ml-1 leading-none">
-                          {stat.suffix.trim()}
-                        </span>
-                      )}
-                    </div>
-
-                    {/* Stat Label */}
-                    <h3 className="font-sans text-base sm:text-lg font-bold text-slate-900 leading-snug group-hover:text-teal-800 transition-colors">
-                      {stat.label}
-                    </h3>
-
-                    {/* Short Description */}
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-sans line-clamp-3">
-                      {stat.description}
-                    </p>
-                  </div>
-
-                  {/* Bottom Verification Footer */}
-                  <div className="mt-6 pt-4 border-t border-slate-200/60 flex items-center justify-between text-[11px] font-sans text-slate-500">
-                    <span className="inline-flex items-center gap-1.5 font-medium text-emerald-800">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                      Verified
-                    </span>
-                    <span className="font-mono text-[10px] text-slate-400 uppercase">
-                      Mandate Standard
-                    </span>
-                  </div>
-                </div>
-              </StaggerItem>
-            );
-          })}
-        </StaggerContainer>
       </Container>
+
+      {/* ============================================================
+          INFINITE HORIZONTAL MARQUEE (Single row, pauses on hover)
+          ============================================================ */}
+      <div className="relative w-full overflow-hidden mt-8 sm:mt-10 group">
+        {/* Soft edge gradient masks */}
+        <div
+          className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-28 lg:w-44 z-20 bg-gradient-to-r from-slate-100 via-slate-100/90 to-transparent"
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-28 lg:w-44 z-20 bg-gradient-to-l from-slate-100 via-slate-100/90 to-transparent"
+          aria-hidden="true"
+        />
+
+        {/* Marquee Track Container */}
+        <div
+          className={cn(
+            "flex w-max items-stretch py-2",
+            prefersReduced && "overflow-x-auto max-w-full px-4 scrollbar-none"
+          )}
+        >
+          {/* Primary Track */}
+          <div
+            className={cn(
+              "flex shrink-0 items-stretch",
+              !prefersReduced &&
+                "animate-marquee-loop group-hover:[animation-play-state:paused] group-focus-within:[animation-play-state:paused]"
+            )}
+            style={{
+              animationPlayState: isPaused ? "paused" : undefined,
+            }}
+          >
+            {duplicatedSet.map((stat, idx) => (
+              <StatCard
+                key={`stat-a-${stat.id}-${idx}`}
+                stat={stat}
+                indexNumber={String((idx % verifiedStats.length) + 1).padStart(
+                  2,
+                  "0"
+                )}
+                isInView={isInView}
+              />
+            ))}
+          </div>
+
+          {/* Secondary Track for perfectly seamless wrapping */}
+          {!prefersReduced && (
+            <div
+              className="flex shrink-0 items-stretch animate-marquee-loop group-hover:[animation-play-state:paused] group-focus-within:[animation-play-state:paused]"
+              style={{
+                animationPlayState: isPaused ? "paused" : undefined,
+              }}
+              aria-hidden="true"
+            >
+              {duplicatedSet.map((stat, idx) => (
+                <StatCard
+                  key={`stat-b-${stat.id}-${idx}`}
+                  stat={stat}
+                  indexNumber={String((idx % verifiedStats.length) + 1).padStart(
+                    2,
+                    "0"
+                  )}
+                  isInView={isInView}
+                />
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
     </section>
   );
 }

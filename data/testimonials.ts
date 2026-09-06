@@ -19,14 +19,50 @@ export interface Testimonial {
  */
 export const testimonials: readonly Testimonial[] = [
   {
-    id: "testimonial-cgtmse-1",
+    id: "testimonial-george-martin",
     quote:
-      "Securing collateral-free sanction under CGTMSE allowed our precision tooling unit to commission new CNC machinery without pledging personal residential property. The DPR preparation and bank query handling was thorough.",
-    name: "S. K. Sharma",
-    role: "Managing Partner",
-    company: "Precision Tooling & Auto Components (Noida Phase-2)",
-    image: null,
+      "Secured collateral-free capital under the CGTMSE scheme to expand operations, improve working capital cycles, and streamline bank compliance. The team's institutional underwriting defense was flawless.",
+    name: "George Martin Jose",
+    role: "Promoter & Managing Director",
+    company: "Precision Engineering & Manufacturing",
+    image: "/img/testimonial-1.jpg",
     service: "cgtmse-funding",
+    verified: true,
+    featured: true,
+  },
+  {
+    id: "testimonial-vishwam-pandya",
+    quote:
+      "Agnivridhi helped us secure institutional financing while simultaneously architecting our corporate web platform. Having one partner handle both capital syndication and digital technology saved us months of fragmented agency delays.",
+    name: "Vishwam Pandya",
+    role: "Founder & Director",
+    company: "Vishwam Pandya Enterprises",
+    image: "/img/vishwam_enterprises.jpg",
+    service: "web-development",
+    verified: true,
+    featured: true,
+  },
+  {
+    id: "testimonial-pal-and-sons",
+    quote:
+      "End-to-end incorporation support, CMA financial modeling, and subsidy advisory. Agnivridhi structured our project reports to unlock essential capital for our agro-processing unit expansion.",
+    name: "R. K. Pal",
+    role: "Managing Director",
+    company: "Pal & Sons Agro Pvt Ltd",
+    image: "/img/pal_and_sons.png",
+    service: "pmegp-loan-subsidy",
+    verified: true,
+    featured: true,
+  },
+  {
+    id: "testimonial-aadhithya-energy",
+    quote:
+      "Designed and launched our modern web platform to establish instant credibility and local discovery in clean energy retail. Their technology team delivered speed, polish, and seamless mobile responsiveness.",
+    name: "Aadhithya K.",
+    role: "Managing Partner",
+    company: "Aadhithya Energy & Fuel Retail",
+    image: "/img/aaditthya_filling_station.png",
+    service: "custom-software",
     verified: true,
     featured: true,
   },
@@ -36,23 +72,11 @@ export const testimonials: readonly Testimonial[] = [
       "The documentation support for our ISO 9001:2015 certification was methodical. The gap analysis highlighted shop-floor tracking deficiencies that improved our audit score and qualification for B2B procurement tenders.",
     name: "Rajesh Varma",
     role: "Director of Operations",
-    company: "Varma Heavy Structural Fabrication (Faridabad Cluster)",
+    company: "Varma Heavy Structural Fabrication",
     image: null,
     service: "iso-certification",
     verified: true,
-    featured: true,
-  },
-  {
-    id: "testimonial-pmegp-1",
-    quote:
-      "Navigating the PMEGP portal, district screening committee, and bank branch margin money lock-in requires precise knowledge of the scheme guidelines. Agnivridhi assisted our food processing unit step-by-step.",
-    name: "Sunil Aggarwal",
-    role: "Founder & Managing Director",
-    company: "Kisan Agro Foods & Cold-Press Oils (Western UP)",
-    image: null,
-    service: "pmegp-loan-subsidy",
-    verified: true,
-    featured: true,
+    featured: false,
   },
 ];
 

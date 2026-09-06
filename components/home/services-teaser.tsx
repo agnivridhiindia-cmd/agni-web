@@ -13,6 +13,7 @@ import { getServiceCategories, getServicesByCategory } from "@/data/services";
 import type { ServiceCategory } from "@/types/service";
 import { Container } from "@/components/shared/container";
 import { Eyebrow } from "@/components/ui/badge";
+import { SpotlightCard } from "@/components/ui/spotlight-card";
 import { LinkButton } from "@/components/ui/link-button";
 import { FadeIn } from "@/components/shared/motion";
 
@@ -75,9 +76,9 @@ export function ServicesTeaser() {
               </h2>
 
               <p className="type-body text-slate-600 leading-relaxed">
-                From institutional debt syndication and statutory certifications to
-                custom enterprise software, our multi-disciplinary desks eliminate
-                friction at every stage of scale.
+                From sovereign debt syndication and statutory certifications to
+                custom software, mobile apps, and performance marketing, our four
+                synchronized desks eliminate friction at every stage of enterprise scale.
               </p>
             </div>
 
@@ -108,21 +109,25 @@ export function ServicesTeaser() {
 
             return (
               <div key={cat.id} className="h-full">
-                <div className="group relative h-full flex flex-col justify-between rounded-3xl bg-gradient-to-b from-white via-white to-slate-50/70 hover:to-teal-50/20 p-6 sm:p-7 border border-slate-200/90 hover:border-teal-500/30 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.04)] hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                <SpotlightCard
+                  glowVariant="teal"
+                  className="h-full hover:-translate-y-1.5 transition-all duration-300 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.04)] hover:shadow-lg"
+                  innerClassName="p-6 sm:p-7 justify-between bg-gradient-to-b from-white via-white to-slate-50/70"
+                >
                   <div className="space-y-4">
                     {/* Top Row: Icon Container + Step Number */}
                     <div className="flex items-center justify-between gap-3">
-                      <div className="w-12 h-12 rounded-2xl bg-teal-50 text-teal-700 border border-teal-200/60 flex items-center justify-center shadow-xs group-hover:bg-teal-600 group-hover:text-white group-hover:border-teal-600 group-hover:scale-105 transition-all duration-300">
+                      <div className="w-12 h-12 rounded-2xl bg-teal-50 text-teal-700 border border-teal-200/60 flex items-center justify-center shadow-xs group-hover/spotlight:bg-teal-600 group-hover/spotlight:text-white group-hover/spotlight:border-teal-600 group-hover/spotlight:scale-105 transition-all duration-300">
                         <Icon className="w-6 h-6" />
                       </div>
 
-                      <span className="font-mono text-[11px] font-bold px-2 py-0.5 rounded-md bg-slate-100/80 text-slate-500 group-hover:bg-teal-50 group-hover:text-teal-700 transition-colors uppercase tracking-wider">
+                      <span className="font-mono text-[11px] font-bold px-2 py-0.5 rounded-md bg-slate-100/80 text-slate-500 group-hover/spotlight:bg-teal-50 group-hover/spotlight:text-teal-700 transition-colors uppercase tracking-wider">
                         DESK {stepNumber}
                       </span>
                     </div>
 
                     {/* Title */}
-                    <h3 className="font-serif text-xl font-bold text-slate-950 leading-snug group-hover:text-teal-800 transition-colors pt-1">
+                    <h3 className="font-serif text-xl font-bold text-slate-950 leading-snug group-hover/spotlight:text-teal-800 transition-colors pt-1">
                       {cat.name}
                     </h3>
 
@@ -149,7 +154,7 @@ export function ServicesTeaser() {
                   <div className="pt-5 mt-5 border-t border-slate-100">
                     <Link
                       href={anchor}
-                      className="inline-flex items-center justify-between w-full text-xs font-semibold text-teal-700 group-hover:text-teal-900 group/link transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 rounded py-1"
+                      className="inline-flex items-center justify-between w-full text-xs font-semibold text-teal-700 group-hover/spotlight:text-teal-900 group/link transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 rounded py-1"
                       aria-label={`Explore ${cat.name} advisory desk`}
                     >
                       <span>{ctaText}</span>
@@ -158,7 +163,7 @@ export function ServicesTeaser() {
                       </span>
                     </Link>
                   </div>
-                </div>
+                </SpotlightCard>
               </div>
             );
           })}
