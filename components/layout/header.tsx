@@ -40,6 +40,7 @@ export function Header() {
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [servicesOpen, setServicesOpen] = React.useState(false);
   const [mobileNavOpen, setMobileNavOpen] = React.useState(false);
+  const [heroHidden, setHeroHidden] = React.useState(false);
   const shouldReduceMotion = useReducedMotion();
 
   const servicesRef = React.useRef<HTMLDivElement>(null);
@@ -52,7 +53,16 @@ export function Header() {
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          setIsScrolled(window.scrollY > 20);
+          const currentY = window.scrollY;
+          setIsScrolled(currentY > 20);
+
+          // On homepage at top of desktop screen (< 80px scroll), hide navbar for 100vh full-screen hero
+          if (pathname === "/" && window.innerWidth >= 1024) {
+            setHeroHidden(currentY < 80);
+          } else {
+            setHeroHidden(false);
+          }
+
           ticking = false;
         });
         ticking = true;
@@ -62,10 +72,12 @@ export function Header() {
 
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
     };
-  }, []);
+  }, [pathname]);
 
   // Close dropdown on outside click
   React.useEffect(() => {
@@ -149,11 +161,19 @@ export function Header() {
       {/* Global Ambient Top Gradient Veil */}
       <div
         aria-hidden="true"
-        className="pointer-events-none fixed top-0 inset-x-0 h-28 z-40 bg-gradient-to-b from-[#080909]/95 via-[#080909]/60 to-transparent backdrop-blur-xs select-none transition-opacity duration-300"
+        className={cn(
+          "pointer-events-none fixed top-0 inset-x-0 h-28 z-40 bg-gradient-to-b from-[#080909]/95 via-[#080909]/60 to-transparent backdrop-blur-xs select-none transition-all duration-500",
+          heroHidden ? "opacity-0 -translate-y-full" : "opacity-100 translate-y-0"
+        )}
       />
 
       {/* Floating Centered Navigation Header */}
-      <header className="fixed top-0 inset-x-0 z-50 flex justify-center px-4 sm:px-6 pt-3 sm:pt-4 pointer-events-none transition-all duration-300">
+      <header
+        className={cn(
+          "fixed top-0 inset-x-0 z-50 flex justify-center px-4 sm:px-6 pt-3 sm:pt-4 pointer-events-none transition-all duration-500 ease-out",
+          heroHidden ? "opacity-0 -translate-y-24" : "opacity-100 translate-y-0"
+        )}
+      >
         <nav
           aria-label="Main Navigation"
           className={cn(

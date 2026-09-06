@@ -12,6 +12,7 @@ import {
 import { siteConfig } from "@/lib/site-config";
 import { Container } from "@/components/shared/container";
 import { useReducedMotionPreference } from "@/components/shared/motion";
+import { cn } from "@/lib/utils";
 
 const heroStaggerContainer: Variants = {
   hidden: { opacity: 0 },
@@ -48,14 +49,18 @@ const headlineLineReveal: Variants = {
   },
 };
 
-export function Hero() {
+export interface HeroProps {
+  isPinned?: boolean;
+}
+
+export function Hero({ isPinned = false }: HeroProps) {
   const prefersReduced = useReducedMotionPreference();
   const { location } = siteConfig.company;
 
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative overflow-hidden bg-[#080909] text-[#F3EFE7] pt-28 pb-16 sm:pt-36 sm:pb-24 lg:pt-40 lg:pb-28 border-b border-white/[0.08]"
+      className={cn("relative overflow-hidden bg-[#080909] text-[#F3EFE7] border-b border-white/[0.08]", isPinned ? "h-full w-full flex flex-col justify-center py-6 sm:py-8 lg:py-0" : "pt-28 pb-16 sm:pt-36 sm:pb-24 lg:pt-40 lg:pb-28")}
     >
       {/* Background Architectural Ambient Lighting */}
       <div

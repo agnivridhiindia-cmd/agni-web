@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site-config";
 import { createPageMetadata } from "@/lib/seo";
-import { Hero } from "@/components/home/hero";
+import { HeroHorizontalFlow } from "@/components/home/hero-horizontal-flow";
 import { StatsBar } from "@/components/home/stats-bar";
 import { BrandStatement } from "@/components/home/brand-statement";
 import { ServicesTeaser } from "@/components/home/services-teaser";
 import { AgniEngineMotif } from "@/components/home/agni-engine-motif";
-import { SyndicationPipeline } from "@/components/home/syndication-pipeline";
 import { FeaturedStories } from "@/components/home/featured-stories";
 import { RecognitionSection } from "@/components/home/recognition-section";
 import { InstitutionalNarrative } from "@/components/home/institutional-narrative";
@@ -22,8 +21,8 @@ export const metadata: Metadata = createPageMetadata({
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-[#080909] text-[#F3EFE7]">
-      {/* Flagship Homepage Hero */}
-      <Hero />
+      {/* Flagship Homepage Hero with Desktop Horizontal Slide to About Section */}
+      <HeroHorizontalFlow />
 
       {/* Hairline Divider */}
       <div className="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" aria-hidden="true" />
@@ -48,12 +47,6 @@ export default function HomePage() {
 
       {/* Proprietary Architecture: The Agni Growth Engine */}
       <AgniEngineMotif />
-
-      {/* Hairline Divider */}
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" aria-hidden="true" />
-
-      {/* Interactive Syndication Pipeline & Milestone Scrubber */}
-      <SyndicationPipeline />
 
       {/* Hairline Divider */}
       <div className="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" aria-hidden="true" />
