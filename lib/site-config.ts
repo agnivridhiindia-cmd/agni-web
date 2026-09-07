@@ -522,6 +522,7 @@ export const siteConfig: MasterSiteConfig = {
       },
       { label: "Success Stories", href: "/success-stories" },
       { label: "Blog", href: "/blog" },
+      { label: "FAQ", href: "/faq" },
       { label: "Contact", href: "/contact" },
     ],
     legalNav: [
