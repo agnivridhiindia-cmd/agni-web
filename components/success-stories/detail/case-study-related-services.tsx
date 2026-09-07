@@ -18,22 +18,22 @@ export function CaseStudyRelatedServices({ serviceSlugs }: CaseStudyRelatedServi
   return (
     <section
       aria-labelledby="related-services-heading"
-      className="border-t border-[#232727] bg-[#080909] py-14 sm:py-16 lg:py-20"
+      className="border-t border-purple-100 bg-[#FFFFFF] py-14 sm:py-16 lg:py-20"
     >
       <Container width="wide">
         <div className="space-y-8">
           <div className="max-w-2xl space-y-2">
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#C79A4A]">
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#581C87]">
               <Layers className="w-4 h-4 text-teal-600 shrink-0" aria-hidden="true" />
               <span>Associated Advisory Practice</span>
             </div>
             <h2
               id="related-services-heading"
-              className="font-serif text-2xl sm:text-3xl font-semibold text-[#F3EFE7] tracking-tight"
+              className="font-serif text-2xl sm:text-3xl font-semibold text-[#0F0A1A] tracking-tight"
             >
               Enterprise Services Utilized in This Engagement
             </h2>
-            <p className="text-[#D1CBC1] text-sm font-sans">
+            <p className="text-[#475569] text-sm font-sans">
               Learn more about the scope, documentation criteria, and execution timelines for these practice desks.
             </p>
           </div>
@@ -42,11 +42,11 @@ export function CaseStudyRelatedServices({ serviceSlugs }: CaseStudyRelatedServi
             {services.map((service) => (
               <div
                 key={service.slug}
-                className="rounded-2xl border border-[#232727] bg-[#111313] p-6 sm:p-7 shadow-xs hover:border-[#C79A4A]/50 transition-all flex flex-col justify-between"
+                className="rounded-2xl border border-purple-100 bg-white p-6 sm:p-7 shadow-xs hover:border-[#581C87]/40 transition-all flex flex-col justify-between"
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-teal-50 text-[#C79A4A] border border-teal-100">
+                    <span className="font-mono text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-teal-50 text-[#581C87] border border-teal-100">
                       {service.category === "funding"
                         ? "Government Funding Desk"
                         : service.category === "compliance"
@@ -63,11 +63,11 @@ export function CaseStudyRelatedServices({ serviceSlugs }: CaseStudyRelatedServi
                     )}
                   </div>
 
-                  <h3 className="font-serif text-xl font-semibold text-[#F3EFE7]">
+                  <h3 className="font-serif text-xl font-semibold text-[#0F0A1A]">
                     {service.name}
                   </h3>
 
-                  <p className="text-[#D1CBC1] text-sm font-sans leading-relaxed">
+                  <p className="text-[#475569] text-sm font-sans leading-relaxed">
                     {service.shortDescription}
                   </p>
 
@@ -86,7 +86,7 @@ export function CaseStudyRelatedServices({ serviceSlugs }: CaseStudyRelatedServi
                 <div className="pt-6 mt-4 border-t border-slate-100">
                   <Link
                     href={`/services/${service.slug}`}
-                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#C79A4A] hover:text-teal-900 transition-colors group"
+                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#581C87] hover:text-teal-900 transition-colors group"
                   >
                     <span>Explore Practice Scope &amp; Deliverables</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

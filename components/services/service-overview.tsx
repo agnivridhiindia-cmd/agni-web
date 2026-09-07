@@ -11,13 +11,13 @@ export function ServiceOverview({ service }: ServiceOverviewProps) {
     <div id="service-overview" className="space-y-12 sm:space-y-16">
       {/* 1. Scope & Overview */}
       <div className="space-y-4">
-        <span className="type-eyebrow text-[#C79A4A] font-mono">
+        <span className="type-eyebrow text-[#581C87] font-mono">
           Advisory Scope &bull; Institutional Blueprint
         </span>
-        <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-[#F3EFE7] tracking-tight">
+        <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-[#0F0A1A] tracking-tight">
           Overview &amp; Deliverables
         </h2>
-        <div className="text-[#D1CBC1] font-sans text-base sm:text-lg leading-relaxed space-y-4 max-w-3xl">
+        <div className="text-[#475569] font-sans text-base sm:text-lg leading-relaxed space-y-4 max-w-3xl">
           <p>{service.description}</p>
         </div>
       </div>
@@ -26,10 +26,10 @@ export function ServiceOverview({ service }: ServiceOverviewProps) {
       {service.benefits && service.benefits.length > 0 && (
         <div className="space-y-6">
           <div>
-            <span className="type-eyebrow text-[#C79A4A] font-mono">
+            <span className="type-eyebrow text-[#581C87] font-mono">
               Enterprise Value &bull; Measurable Impact
             </span>
-            <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-[#F3EFE7] tracking-tight mt-1">
+            <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-[#0F0A1A] tracking-tight mt-1">
               Strategic Advantages
             </h2>
           </div>
@@ -38,12 +38,12 @@ export function ServiceOverview({ service }: ServiceOverviewProps) {
             {service.benefits.map((benefit, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-xl border border-[#232727] bg-[#111313] shadow-xs flex items-start gap-3.5 hover:border-[#C79A4A]/40 transition-colors"
+                className="p-5 rounded-xl border border-purple-100 bg-white shadow-xs flex items-start gap-3.5 hover:border-purple-300 transition-colors"
               >
-                <div className="w-7 h-7 rounded-lg bg-[#181A1A] text-[#2DD4BF] flex items-center justify-center shrink-0 mt-0.5 border border-[#232727]">
+                <div className="w-7 h-7 rounded-lg bg-purple-50 text-[#581C87] flex items-center justify-center shrink-0 mt-0.5 border border-purple-100">
                   <CheckCircle2 className="w-4 h-4" />
                 </div>
-                <p className="text-sm text-[#D1CBC1] font-sans leading-relaxed">
+                <p className="text-sm text-[#475569] font-sans leading-relaxed">
                   {benefit}
                 </p>
               </div>
@@ -56,17 +56,17 @@ export function ServiceOverview({ service }: ServiceOverviewProps) {
       {service.audience && service.audience.length > 0 && (
         <div className="space-y-6">
           <div>
-            <span className="type-eyebrow text-[#C79A4A] font-mono">
+            <span className="type-eyebrow text-[#581C87] font-mono">
               Suitability &bull; Applicability Matrix
             </span>
-            <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-[#F3EFE7] tracking-tight mt-1">
+            <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-[#0F0A1A] tracking-tight mt-1">
               Who Is This Solution Designed For?
             </h2>
           </div>
 
-          <div className="p-6 sm:p-7 rounded-xl bg-[#111313] border border-[#232727] space-y-4">
-            <div className="flex items-center gap-2 text-[#F3EFE7] font-semibold text-sm">
-              <Users className="w-4 h-4 text-[#C79A4A]" />
+          <div className="p-6 sm:p-7 rounded-xl bg-white border border-purple-100 space-y-4">
+            <div className="flex items-center gap-2 text-[#0F0A1A] font-semibold text-sm">
+              <Users className="w-4 h-4 text-[#581C87]" />
               <span>Target Profiles &amp; Enterprise Stages</span>
             </div>
 
@@ -74,9 +74,9 @@ export function ServiceOverview({ service }: ServiceOverviewProps) {
               {service.audience.map((item, idx) => (
                 <li
                   key={idx}
-                  className="flex items-start gap-2.5 text-sm text-[#D1CBC1] font-sans"
+                  className="flex items-start gap-2.5 text-sm text-[#475569] font-sans"
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#C79A4A] shrink-0 mt-2" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#581C87] shrink-0 mt-2" />
                   <span className="leading-relaxed">{item}</span>
                 </li>
               ))}

@@ -199,7 +199,7 @@ export function StoryCard({ study, featured = false, className }: StoryCardProps
           {/* ============================================================
               2. MASSIVE HIGHLIGHT METRIC (Deal Tombstone Centerpiece)
               ============================================================ */}
-          <div className="p-5 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-sm space-y-1 relative overflow-hidden group-hover:border-gold-500/40 transition-colors">
+          <div className="p-5 rounded-2xl bg-white/[0.04] border border-purple-100 backdrop-blur-sm space-y-1 relative overflow-hidden group-hover:border-gold-500/40 transition-colors">
             <div className="flex items-baseline justify-between flex-wrap gap-2">
               <span className="font-serif text-3xl sm:text-4xl lg:text-[2.6rem] font-bold text-white tracking-tight tabular-nums drop-shadow-sm">
                 {tombstone.highlightMetric}

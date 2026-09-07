@@ -12,13 +12,13 @@ export function ContactInfo() {
   return (
     <div className="space-y-6">
       <div className="space-y-2">
-        <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#C79A4A] bg-[#C79A4A]/10 border border-[#C79A4A]/30 px-2.5 py-0.5 rounded">
+        <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#581C87] bg-[#581C87]/10 border border-purple-200 px-2.5 py-0.5 rounded">
           Advisory Desk Profile
         </span>
-        <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-[#F3EFE7] tracking-tight">
+        <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-[#0F0A1A] tracking-tight">
           Agnivridhi Institutional Advisory
         </h2>
-        <p className="text-[#D1CBC1] font-sans text-sm sm:text-base leading-relaxed">
+        <p className="text-[#475569] font-sans text-sm sm:text-base leading-relaxed">
           We operate synchronized advisory pods across debt syndication, statutory quality standards,
           and digital engineering to serve emerging manufacturers, startups, and MSMEs across India.
         </p>
@@ -27,36 +27,36 @@ export function ContactInfo() {
       {/* Grid of Firm Metadata Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {/* Office Location */}
-        <Card variant="standard" className="p-5 flex items-start gap-3.5 border-[#232727] bg-[#111313]">
-          <div className="w-10 h-10 rounded-xl bg-[#181A1A] text-[#2DD4BF] flex items-center justify-center shrink-0 mt-0.5 border border-[#232727]">
+        <Card variant="standard" className="p-5 flex items-start gap-3.5 border-purple-100 bg-white">
+          <div className="w-10 h-10 rounded-xl bg-purple-50 text-[#581C87] flex items-center justify-center shrink-0 mt-0.5 border border-purple-100">
             <MapPin className="w-5 h-5" aria-hidden="true" />
           </div>
           <div>
-            <span className="text-[11px] font-mono font-bold text-[#8E8B82] uppercase tracking-wider block">
+            <span className="text-[11px] font-mono font-bold text-[#64748B] uppercase tracking-wider block">
               Headquarters
             </span>
-            <p className="font-serif font-semibold text-[#F3EFE7] text-base mt-0.5">
+            <p className="font-serif font-semibold text-[#0F0A1A] text-base mt-0.5">
               {city}, {state}
             </p>
-            <p className="text-xs text-[#8E8B82] font-sans mt-0.5">
+            <p className="text-xs text-[#64748B] font-sans mt-0.5">
               {country} &bull; Pan-India Operational Jurisdiction
             </p>
           </div>
         </Card>
 
         {/* Response Guarantee */}
-        <Card variant="standard" className="p-5 flex items-start gap-3.5 border-[#232727] bg-[#111313]">
-          <div className="w-10 h-10 rounded-xl bg-[#181A1A] text-[#C79A4A] flex items-center justify-center shrink-0 mt-0.5 border border-[#232727]">
+        <Card variant="standard" className="p-5 flex items-start gap-3.5 border-purple-100 bg-white">
+          <div className="w-10 h-10 rounded-xl bg-purple-50 text-[#581C87] flex items-center justify-center shrink-0 mt-0.5 border border-purple-100">
             <Clock className="w-5 h-5" aria-hidden="true" />
           </div>
           <div>
-            <span className="text-[11px] font-mono font-bold text-[#8E8B82] uppercase tracking-wider block">
+            <span className="text-[11px] font-mono font-bold text-[#64748B] uppercase tracking-wider block">
               Diagnostic SLA
             </span>
-            <p className="font-serif font-semibold text-[#F3EFE7] text-base mt-0.5">
+            <p className="font-serif font-semibold text-[#0F0A1A] text-base mt-0.5">
               Within 24 Business Hours
             </p>
-            <p className="text-xs text-[#8E8B82] font-sans mt-0.5">
+            <p className="text-xs text-[#64748B] font-sans mt-0.5">
               Direct appraisal by practice lead
             </p>
           </div>
@@ -65,8 +65,8 @@ export function ContactInfo() {
 
       {/* Direct Verified Channels (rendered conditionally if configured in site-config) */}
       {hasDirectChannels && (
-        <div className="p-5 rounded-2xl bg-[#111313] border border-[#232727] space-y-3">
-          <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#8E8B82] block">
+        <div className="p-5 rounded-2xl bg-white border border-purple-100 space-y-3">
+          <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#64748B] block">
             Direct Contact Lines
           </span>
 
@@ -74,9 +74,9 @@ export function ContactInfo() {
             {phone && (
               <a
                 href={`tel:${phone.replace(/[^0-9+]/g, "")}`}
-                className="flex items-center gap-2.5 p-3 rounded-lg bg-[#181A1A] border border-[#232727] text-[#F3EFE7] hover:text-[#C79A4A] hover:border-[#C79A4A]/50 transition-colors"
+                className="flex items-center gap-2.5 p-3 rounded-lg bg-purple-50 border border-purple-100 text-[#0F0A1A] hover:text-[#581C87] hover:border-[#581C87]/40 transition-colors"
               >
-                <Phone className="w-4 h-4 text-[#2DD4BF] shrink-0" aria-hidden="true" />
+                <Phone className="w-4 h-4 text-[#581C87] shrink-0" aria-hidden="true" />
                 <span className="font-semibold">{phone}</span>
               </a>
             )}
@@ -84,9 +84,9 @@ export function ContactInfo() {
             {email && (
               <a
                 href={`mailto:${email}`}
-                className="flex items-center gap-2.5 p-3 rounded-lg bg-[#181A1A] border border-[#232727] text-[#F3EFE7] hover:text-[#C79A4A] hover:border-[#C79A4A]/50 transition-colors"
+                className="flex items-center gap-2.5 p-3 rounded-lg bg-purple-50 border border-purple-100 text-[#0F0A1A] hover:text-[#581C87] hover:border-[#581C87]/40 transition-colors"
               >
-                <Mail className="w-4 h-4 text-[#2DD4BF] shrink-0" aria-hidden="true" />
+                <Mail className="w-4 h-4 text-[#581C87] shrink-0" aria-hidden="true" />
                 <span className="font-semibold truncate">{email}</span>
               </a>
             )}
@@ -107,10 +107,10 @@ export function ContactInfo() {
       )}
 
       {/* Confidentiality Commitment */}
-      <div className="flex items-start gap-3 p-4 rounded-xl bg-[#111313] border border-[#232727] text-xs text-[#D1CBC1] font-sans leading-relaxed">
-        <ShieldCheck className="w-5 h-5 text-[#2DD4BF] shrink-0 mt-0.5" aria-hidden="true" />
+      <div className="flex items-start gap-3 p-4 rounded-xl bg-white border border-purple-100 text-xs text-[#475569] font-sans leading-relaxed">
+        <ShieldCheck className="w-5 h-5 text-[#581C87] shrink-0 mt-0.5" aria-hidden="true" />
         <p>
-          <strong className="text-[#F3EFE7] font-semibold">Strict Confidentiality:</strong> All Detailed
+          <strong className="text-[#0F0A1A] font-semibold">Strict Confidentiality:</strong> All Detailed
           Project Reports (DPRs), banking CMA projections, and proprietary technical blueprints submitted
           via this desk are protected under professional non-disclosure governance.
         </p>

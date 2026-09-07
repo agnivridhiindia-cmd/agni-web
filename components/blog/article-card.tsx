@@ -16,21 +16,21 @@ function getCategoryBadge(category: string) {
   if (normalized.includes("funding")) {
     return {
       label: category,
-      badgeClass: "bg-[#181A1A] text-[#2DD4BF] border-[#232727]",
+      badgeClass: "bg-purple-50 text-[#581C87] border-purple-100",
       icon: <Landmark className="w-3.5 h-3.5 text-teal-700 shrink-0" aria-hidden="true" />,
     };
   }
   if (normalized.includes("compliance")) {
     return {
       label: category,
-      badgeClass: "bg-[#181A1A] text-[#C79A4A] border-[#232727]",
+      badgeClass: "bg-purple-50 text-[#581C87] border-purple-100",
       icon: <ShieldCheck className="w-3.5 h-3.5 text-gold-700 shrink-0" aria-hidden="true" />,
     };
   }
   return {
     label: category,
-    badgeClass: "bg-[#181A1A] text-[#D1CBC1] border-[#232727]",
-    icon: <Bookmark className="w-3.5 h-3.5 text-[#D1CBC1] shrink-0" aria-hidden="true" />,
+    badgeClass: "bg-purple-50 text-[#475569] border-purple-100",
+    icon: <Bookmark className="w-3.5 h-3.5 text-[#475569] shrink-0" aria-hidden="true" />,
   };
 }
 
@@ -47,7 +47,7 @@ export function ArticleCard({ post, featured = false, className }: ArticleCardPr
     return (
       <article
         className={cn(
-          "group relative rounded-2xl border border-[#232727] bg-[#111313] shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-[#C79A4A]/50 overflow-hidden",
+          "group relative rounded-2xl border border-purple-100 bg-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-[#581C87]/40 overflow-hidden",
           className
         )}
       >
@@ -62,7 +62,7 @@ export function ArticleCard({ post, featured = false, className }: ArticleCardPr
           <div className="lg:col-span-7 flex flex-col">
             <Link
               href={`/blog/${post.slug}`}
-              className="block h-full group/banner focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#C79A4A]"
+              className="block h-full group/banner focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#581C87]"
               aria-label={`Read featured guide: ${post.title}`}
             >
               <EditorialBanner
@@ -76,7 +76,7 @@ export function ArticleCard({ post, featured = false, className }: ArticleCardPr
           </div>
 
           {/* Column 2: Editorial Text Pane & Executive Metadata (5 cols on desktop) */}
-          <div className="lg:col-span-5 p-6 sm:p-8 lg:p-10 flex flex-col justify-between space-y-6 bg-[#111313]">
+          <div className="lg:col-span-5 p-6 sm:p-8 lg:p-10 flex flex-col justify-between space-y-6 bg-white">
             <div className="space-y-4">
               {/* Category Pill & Release Stamp */}
               <div className="flex flex-wrap items-center justify-between gap-3">
@@ -90,52 +90,52 @@ export function ArticleCard({ post, featured = false, className }: ArticleCardPr
                   <span>{categoryBadge.label}</span>
                 </span>
 
-                <span className="inline-flex items-center gap-1 text-[11px] font-mono font-bold uppercase tracking-wider text-[#DFC286] bg-[#C79A4A]/15 px-2 py-0.5 rounded border border-[#C79A4A]/30">
-                  <Sparkles className="w-3 h-3 text-[#C79A4A]" />
+                <span className="inline-flex items-center gap-1 text-[11px] font-mono font-bold uppercase tracking-wider text-[#7C3AED] bg-[#581C87]/15 px-2 py-0.5 rounded border border-purple-200">
+                  <Sparkles className="w-3 h-3 text-[#581C87]" />
                   Featured Guide
                 </span>
               </div>
 
               {/* Publication Date & Reading Time */}
-              <div className="flex items-center gap-3 text-xs text-[#8E8B82] font-sans">
+              <div className="flex items-center gap-3 text-xs text-[#64748B] font-sans">
                 <span className="inline-flex items-center gap-1">
-                  <Calendar className="w-3.5 h-3.5 text-[#8E8B82]" aria-hidden="true" />
+                  <Calendar className="w-3.5 h-3.5 text-[#64748B]" aria-hidden="true" />
                   <time dateTime={post.publishedAt}>{formattedDate}</time>
                 </span>
                 <span className="text-[#5A5852]">•</span>
                 <span className="inline-flex items-center gap-1">
-                  <Clock className="w-3.5 h-3.5 text-[#8E8B82]" aria-hidden="true" />
+                  <Clock className="w-3.5 h-3.5 text-[#64748B]" aria-hidden="true" />
                   <span>{post.readingTime} min technical read</span>
                 </span>
               </div>
 
               {/* Primary Fraunces Headline */}
-              <h2 className="font-serif font-bold text-2xl sm:text-3xl text-[#F3EFE7] tracking-tight leading-[1.25] group-hover:text-[#C79A4A] transition-colors">
+              <h2 className="font-serif font-bold text-2xl sm:text-3xl text-[#0F0A1A] tracking-tight leading-[1.25] group-hover:text-[#581C87] transition-colors">
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#C79A4A] rounded"
+                  className="focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#581C87] rounded"
                 >
                   {post.title}
                 </Link>
               </h2>
 
               {/* Comprehensive Excerpt */}
-              <p className="text-[#D1CBC1] font-sans text-sm sm:text-base leading-relaxed">
+              <p className="text-[#475569] font-sans text-sm sm:text-base leading-relaxed">
                 {post.excerpt}
               </p>
             </div>
 
             {/* Author Credential Block & Direct CTA */}
-            <div className="pt-6 border-t border-[#232727] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="pt-6 border-t border-purple-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-full bg-[#181A1A] border border-[#232727] text-[#C79A4A] flex items-center justify-center shrink-0">
+                <div className="w-8 h-8 rounded-full bg-purple-50 border border-purple-100 text-[#581C87] flex items-center justify-center shrink-0">
                   <UserCheck className="w-4 h-4" aria-hidden="true" />
                 </div>
                 <div className="space-y-0.5 text-xs font-sans">
-                  <span className="font-semibold text-[#F3EFE7] block">
+                  <span className="font-semibold text-[#0F0A1A] block">
                     {post.author.name}
                   </span>
-                  <span className="text-[#8E8B82] block text-[11px]">
+                  <span className="text-[#64748B] block text-[11px]">
                     {post.author.role}
                   </span>
                 </div>
@@ -143,7 +143,7 @@ export function ArticleCard({ post, featured = false, className }: ArticleCardPr
 
               <Link
                 href={`/blog/${post.slug}`}
-                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#C79A4A] text-[#080909] font-bold text-xs sm:text-sm hover:bg-[#DFC286] shadow-sm transition-all group/btn"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#581C87] text-white font-bold text-xs sm:text-sm hover:bg-[#4C1D95] shadow-sm transition-all group/btn"
                 aria-label={`Read complete authoritative guide: ${post.title}`}
               >
                 <span>Read Full Guide</span>
@@ -160,14 +160,14 @@ export function ArticleCard({ post, featured = false, className }: ArticleCardPr
   return (
     <article
       className={cn(
-        "group relative flex flex-col justify-between rounded-2xl border border-[#232727] bg-[#111313] shadow-lg hover:shadow-2xl hover:border-[#C79A4A]/50 transition-all duration-300 overflow-hidden",
+        "group relative flex flex-col justify-between rounded-2xl border border-purple-100 bg-white shadow-lg hover:shadow-2xl hover:border-[#581C87]/40 transition-all duration-300 overflow-hidden",
         className
       )}
     >
       {/* Top Editorial Banner Illustration */}
       <Link
         href={`/blog/${post.slug}`}
-        className="block relative overflow-hidden focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#C79A4A]"
+        className="block relative overflow-hidden focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#581C87]"
         aria-label={`Read guide: ${post.title}`}
       >
         <EditorialBanner
@@ -192,49 +192,49 @@ export function ArticleCard({ post, featured = false, className }: ArticleCardPr
               <span>{categoryBadge.label}</span>
             </span>
 
-            <div className="flex items-center gap-2.5 text-xs text-[#8E8B82] font-sans">
+            <div className="flex items-center gap-2.5 text-xs text-[#64748B] font-sans">
               <span className="inline-flex items-center gap-1">
-                <Calendar className="w-3.5 h-3.5 text-[#8E8B82]" aria-hidden="true" />
+                <Calendar className="w-3.5 h-3.5 text-[#64748B]" aria-hidden="true" />
                 <time dateTime={post.publishedAt}>{formattedDate}</time>
               </span>
               <span className="text-[#5A5852]">•</span>
               <span className="inline-flex items-center gap-1">
-                <Clock className="w-3.5 h-3.5 text-[#8E8B82]" aria-hidden="true" />
+                <Clock className="w-3.5 h-3.5 text-[#64748B]" aria-hidden="true" />
                 <span>{post.readingTime} min</span>
               </span>
             </div>
           </div>
 
           {/* Title */}
-          <h3 className="font-serif font-semibold text-xl text-[#F3EFE7] tracking-tight leading-snug group-hover:text-[#C79A4A] transition-colors line-clamp-2">
+          <h3 className="font-serif font-semibold text-xl text-[#0F0A1A] tracking-tight leading-snug group-hover:text-[#581C87] transition-colors line-clamp-2">
             <Link
               href={`/blog/${post.slug}`}
-              className="focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#C79A4A] rounded"
+              className="focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#581C87] rounded"
             >
               {post.title}
             </Link>
           </h3>
 
           {/* Excerpt */}
-          <p className="text-[#D1CBC1] font-sans text-sm leading-relaxed line-clamp-3">
+          <p className="text-[#475569] font-sans text-sm leading-relaxed line-clamp-3">
             {post.excerpt}
           </p>
         </div>
 
         {/* Footer: Author & Read CTA */}
-        <div className="pt-4 border-t border-[#232727] flex items-center justify-between gap-2">
+        <div className="pt-4 border-t border-purple-100 flex items-center justify-between gap-2">
           <div className="space-y-0.5 text-xs font-sans">
-            <span className="font-semibold text-[#F3EFE7] block">
+            <span className="font-semibold text-[#0F0A1A] block">
               {post.author.name}
             </span>
-            <span className="text-[#8E8B82] text-[11px] block">
+            <span className="text-[#64748B] text-[11px] block">
               {post.author.role}
             </span>
           </div>
 
           <Link
             href={`/blog/${post.slug}`}
-            className="inline-flex items-center gap-1 text-xs font-semibold text-[#C79A4A] group-hover:text-[#DFC286] transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#C79A4A] rounded px-1 py-0.5"
+            className="inline-flex items-center gap-1 text-xs font-semibold text-[#581C87] group-hover:text-[#7C3AED] transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#581C87] rounded px-1 py-0.5"
             aria-label={`Read complete guide: ${post.title}`}
           >
             <span>Read Guide</span>

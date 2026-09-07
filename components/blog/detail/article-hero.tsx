@@ -13,21 +13,21 @@ function getCategoryBadge(category: string) {
   if (normalized.includes("funding")) {
     return {
       label: category,
-      badgeClass: "bg-[#181A1A] text-[#2DD4BF] border-[#232727]",
+      badgeClass: "bg-purple-50 text-[#581C87] border-purple-100",
       icon: <Landmark className="w-3.5 h-3.5 text-teal-700 shrink-0" aria-hidden="true" />,
     };
   }
   if (normalized.includes("compliance")) {
     return {
       label: category,
-      badgeClass: "bg-[#181A1A] text-[#C79A4A] border-[#232727]",
+      badgeClass: "bg-purple-50 text-[#581C87] border-purple-100",
       icon: <ShieldCheck className="w-3.5 h-3.5 text-gold-700 shrink-0" aria-hidden="true" />,
     };
   }
   return {
     label: category,
-    badgeClass: "bg-[#181A1A] text-[#D1CBC1] border-[#232727]",
-    icon: <Bookmark className="w-3.5 h-3.5 text-[#D1CBC1] shrink-0" aria-hidden="true" />,
+    badgeClass: "bg-purple-50 text-[#475569] border-purple-100",
+    icon: <Bookmark className="w-3.5 h-3.5 text-[#475569] shrink-0" aria-hidden="true" />,
   };
 }
 
@@ -40,7 +40,7 @@ export function ArticleHero({ post }: ArticleHeroProps) {
   });
 
   return (
-    <header className="border-b border-[#232727] bg-[#080909] py-12 sm:py-16 md:py-20">
+    <header className="border-b border-purple-100 bg-[#FFFFFF] py-12 sm:py-16 md:py-20">
       <Container width="reading">
         <div className="space-y-6">
           {/* Metadata pill row */}
@@ -55,7 +55,7 @@ export function ArticleHero({ post }: ArticleHeroProps) {
               <span>{categoryBadge.label}</span>
             </span>
 
-            <div className="flex items-center gap-3 text-xs text-[#8E8B82] font-sans">
+            <div className="flex items-center gap-3 text-xs text-[#64748B] font-sans">
               <span className="inline-flex items-center gap-1">
                 <Calendar className="w-3.5 h-3.5 text-slate-400" aria-hidden="true" />
                 <time dateTime={post.publishedAt}>{formattedDate}</time>
@@ -68,12 +68,12 @@ export function ArticleHero({ post }: ArticleHeroProps) {
           </div>
 
           {/* Fraunces Headline H1 */}
-          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold text-[#F3EFE7] tracking-tight leading-[1.18]">
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold text-[#0F0A1A] tracking-tight leading-[1.18]">
             {post.title}
           </h1>
 
           {/* Excerpt */}
-          <p className="type-body-lg text-[#D1CBC1] font-sans leading-relaxed">
+          <p className="type-body-lg text-[#475569] font-sans leading-relaxed">
             {post.excerpt}
           </p>
 
@@ -83,10 +83,10 @@ export function ArticleHero({ post }: ArticleHeroProps) {
               <span className="text-xs font-mono uppercase tracking-wider text-slate-400 block">
                 Authored by
               </span>
-              <span className="text-sm font-semibold text-[#F3EFE7] block font-sans">
+              <span className="text-sm font-semibold text-[#0F0A1A] block font-sans">
                 {post.author.name}
               </span>
-              <span className="text-xs text-[#8E8B82] block font-sans">
+              <span className="text-xs text-[#64748B] block font-sans">
                 {post.author.role}
               </span>
             </div>
@@ -96,7 +96,7 @@ export function ArticleHero({ post }: ArticleHeroProps) {
                 {post.tags.slice(0, 3).map((tag) => (
                   <span
                     key={tag}
-                    className="px-2 py-0.5 rounded text-[11px] font-mono text-[#D1CBC1] bg-white border border-slate-200"
+                    className="px-2 py-0.5 rounded text-[11px] font-mono text-[#475569] bg-white border border-slate-200"
                   >
                     #{tag}
                   </span>

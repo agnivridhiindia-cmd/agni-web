@@ -8,24 +8,24 @@ export function FounderTransition() {
   return (
     <section
       aria-labelledby="leadership-transition-heading"
-      className="py-16 sm:py-20 lg:py-24 bg-[#0B0C0C] border-t border-[#232727]"
+      className="py-16 sm:py-20 lg:py-24 bg-white border-t border-purple-100"
     >
       <Container width="wide">
         <FadeIn direction="up" distance={16} delay={0.05}>
           <div className="max-w-3xl mx-auto text-center space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C79A4A]/10 border border-[#C79A4A]/30 text-[#C79A4A] text-xs font-mono tracking-wider uppercase mx-auto">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#581C87]/10 border border-purple-200 text-[#581C87] text-xs font-mono tracking-wider uppercase mx-auto">
               <UserCheck className="w-3.5 h-3.5" />
               <span>Principal-Led Advisory</span>
             </div>
 
             <h2
               id="leadership-transition-heading"
-              className="font-serif text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#F3EFE7] tracking-tight leading-snug"
+              className="font-serif text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#0F0A1A] tracking-tight leading-snug"
             >
               Direct Advisory Accountability at Every Stage of Scale.
             </h2>
 
-            <p className="type-body text-[#D1CBC1] font-sans leading-relaxed">
+            <p className="type-body text-[#475569] font-sans leading-relaxed">
               Unlike broad consulting practices that delegate critical client files to junior teams, Agnivridhi India is built on hands-on principal involvement. Every debt proposal, Detailed Project Report (DPR), and compliance audit strategy is structured and reviewed directly by practice leads who understand the realities of Indian manufacturing and lending frameworks.
             </p>
 

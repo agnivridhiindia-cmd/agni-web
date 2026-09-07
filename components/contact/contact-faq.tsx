@@ -34,24 +34,24 @@ export function ContactFaq() {
   return (
     <section aria-labelledby="faq-heading" className="space-y-4 pt-4">
       <div className="flex items-center gap-2">
-        <HelpCircle className="w-4 h-4 text-[#C79A4A]" aria-hidden="true" />
-        <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#C79A4A] bg-[#C79A4A]/10 border border-[#C79A4A]/30 px-2.5 py-0.5 rounded">
+        <HelpCircle className="w-4 h-4 text-[#581C87]" aria-hidden="true" />
+        <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#581C87] bg-[#581C87]/10 border border-purple-200 px-2.5 py-0.5 rounded">
           Consultation FAQs
         </span>
       </div>
 
-      <h3 id="faq-heading" className="font-serif text-2xl font-semibold text-[#F3EFE7]">
+      <h3 id="faq-heading" className="font-serif text-2xl font-semibold text-[#0F0A1A]">
         Frequently Asked Questions
       </h3>
 
-      <div className="rounded-2xl border border-[#232727] bg-[#111313] p-5 sm:p-6 shadow-xs">
+      <div className="rounded-2xl border border-purple-100 bg-white p-5 sm:p-6 shadow-xs">
         <Accordion type="single" collapsible className="w-full">
           {consultationFaqs.map((faq, idx) => (
             <AccordionItem key={idx} value={`faq-${idx}`}>
-              <AccordionTrigger className="text-sm font-semibold text-[#F3EFE7] hover:text-[#C79A4A]">
+              <AccordionTrigger className="text-sm font-semibold text-[#0F0A1A] hover:text-[#581C87]">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="text-xs sm:text-sm text-[#D1CBC1] font-sans leading-relaxed">
+              <AccordionContent className="text-xs sm:text-sm text-[#475569] font-sans leading-relaxed">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>

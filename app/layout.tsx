@@ -85,7 +85,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark ${inter.variable} ${fraunces.variable} ${cormorant.variable}`}
+      className={`${inter.variable} ${fraunces.variable} ${cormorant.variable}`}
     >
       <head>
         {/* Schema.org Organization Structured Data */}
@@ -94,10 +94,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
       </head>
-      <body className="font-sans antialiased bg-[#080909] text-[#F3EFE7] flex min-h-screen flex-col selection:bg-[#C79A4A]/25 selection:text-[#F3EFE7]">
+      <body className="font-sans antialiased bg-[#FFFFFF] text-[#0F0A1A] flex min-h-screen flex-col selection:bg-purple-100 selection:text-[#581C87]">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-[#C79A4A] focus:px-4 focus:py-2 focus:text-[#080909] focus:shadow-elevated focus:outline-none focus:ring-2 focus:ring-[#C79A4A] focus:ring-offset-2"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-[#581C87] focus:px-4 focus:py-2 focus:text-white focus:shadow-elevated focus:outline-none focus:ring-2 focus:ring-[#581C87] focus:ring-offset-2"
         >
           Skip to main content
         </a>
@@ -108,8 +108,8 @@ export default function RootLayout({
         <Footer />
         <WhatsAppButton />
 
-        {/* Tactile Micro-Grain Paper Texture Overlay (1.8% Opacity) */}
-        <div className="fixed inset-0 pointer-events-none z-50 bg-noise select-none opacity-60" aria-hidden="true" />
+        {/* Tactile Micro-Grain Paper Texture Overlay */}
+        <div className="fixed inset-0 pointer-events-none z-50 bg-noise select-none opacity-25" aria-hidden="true" />
       </body>
     </html>
   );

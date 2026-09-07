@@ -12,7 +12,7 @@ export interface SpotlightCardProps extends React.HTMLAttributes<HTMLDivElement>
    * - "teal": Primary brand teal (#0891B2) for technology and institutional compliance
    * - "slate": Understated neutral platinum (#64748B)
    */
-  glowVariant?: "amber" | "teal" | "slate";
+  glowVariant?: "amber" | "teal" | "slate" | "purple";
   /** Radius of the radial spotlight in pixels */
   spotlightRadius?: number;
   /** Optional animated continuous border-beam sweep */
@@ -22,10 +22,15 @@ export interface SpotlightCardProps extends React.HTMLAttributes<HTMLDivElement>
 }
 
 const variantGlowMap = {
+  purple: {
+    border: "rgba(124, 58, 237, 0.45)",
+    inner: "rgba(124, 58, 237, 0.04)",
+    beam: "from-transparent via-purple-600/50 to-transparent",
+  },
   amber: {
-    border: "rgba(199, 154, 74, 0.45)",
-    inner: "rgba(199, 154, 74, 0.05)",
-    beam: "from-transparent via-[#C79A4A]/50 to-transparent",
+    border: "rgba(124, 58, 237, 0.35)",
+    inner: "rgba(124, 58, 237, 0.03)",
+    beam: "from-transparent via-purple-600/40 to-transparent",
   },
   teal: {
     border: "rgba(8, 145, 178, 0.45)",
@@ -99,7 +104,7 @@ export const SpotlightCard = React.forwardRef<HTMLDivElement, SpotlightCardProps
         onMouseLeave={handleMouseLeave}
         className={cn(
           "group/spotlight relative rounded-3xl p-[1px] overflow-hidden transition-all duration-300",
-          "bg-white/[0.08] border border-white/[0.08] hover:border-[#C79A4A]/40",
+          "bg-white border border-[#EDE9FE] hover:border-purple-300 shadow-xs",
           className
         )}
         style={
@@ -137,7 +142,7 @@ export const SpotlightCard = React.forwardRef<HTMLDivElement, SpotlightCardProps
         {/* Layer 3: Inner Card Canvas */}
         <div
           className={cn(
-            "relative h-full w-full rounded-[calc(1.5rem-1px)] bg-[#111313] text-[#F3EFE7] p-6 sm:p-7 flex flex-col justify-between overflow-hidden transition-all duration-300",
+            "relative h-full w-full rounded-[calc(1.5rem-1px)] bg-white text-[#0F0A1A] p-6 sm:p-7 flex flex-col justify-between overflow-hidden transition-all duration-300",
             innerClassName
           )}
         >

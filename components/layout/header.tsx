@@ -162,7 +162,7 @@ export function Header() {
       <div
         aria-hidden="true"
         className={cn(
-          "pointer-events-none fixed top-0 inset-x-0 h-28 z-40 bg-gradient-to-b from-[#080909]/95 via-[#080909]/60 to-transparent backdrop-blur-xs select-none transition-all duration-500",
+          "pointer-events-none fixed top-0 inset-x-0 h-28 z-40 bg-gradient-to-b from-white/95 via-white/70 to-transparent backdrop-blur-xs select-none transition-all duration-500",
           heroHidden ? "opacity-0 -translate-y-full" : "opacity-100 translate-y-0"
         )}
       />
@@ -180,8 +180,8 @@ export function Header() {
             "pointer-events-auto relative w-full border select-none transition-all duration-300",
             "backdrop-blur-xl",
             isScrolled
-              ? "max-w-5xl rounded-xl px-4 py-2 sm:px-5 sm:py-2.5 bg-[#080909]/90 border-white/10 shadow-[0_16px_36px_-10px_rgba(0,0,0,0.8),_0_0_1px_1px_rgba(255,255,255,0.05)]"
-              : "max-w-6xl rounded-2xl px-5 py-3 sm:px-6 sm:py-3.5 bg-[#080909]/75 border-white/[0.08] shadow-[0_20px_50px_-15px_rgba(0,0,0,0.7)]"
+              ? "max-w-5xl rounded-xl px-4 py-2 sm:px-5 sm:py-2.5 bg-white/90 border-[#EDE9FE] shadow-[0_10px_30px_-5px_rgba(15,10,26,0.06)]"
+              : "max-w-6xl rounded-2xl px-5 py-3 sm:px-6 sm:py-3.5 bg-white/80 border-[#EDE9FE] shadow-[0_12px_36px_-10px_rgba(15,10,26,0.05)]"
           )}
         >
           <div className="flex items-center justify-between gap-4 w-full">
@@ -190,9 +190,9 @@ export function Header() {
               href="/"
               onClick={() => setMobileNavOpen(false)}
               aria-label={`${siteConfig.company.name} - Home`}
-              className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#C79A4A] rounded-md select-none shrink-0"
+              className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#581C87] rounded-md select-none shrink-0"
             >
-              <div className="relative w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center bg-white/[0.04] border border-white/10 group-hover:border-[#C79A4A]/50 transition-colors duration-300">
+              <div className="relative w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center bg-purple-50 border border-purple-100 group-hover:border-[#581C87]/40 transition-colors duration-300">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/logo1.png"
@@ -203,12 +203,12 @@ export function Header() {
 
               <div className="flex flex-col">
                 <div className="flex items-baseline gap-1">
-                  <span className="font-serif font-semibold text-base sm:text-lg text-[#F3EFE7] tracking-tight leading-none group-hover:text-[#C79A4A] transition-colors">
+                  <span className="font-serif font-semibold text-base sm:text-lg text-[#0F0A1A] tracking-tight leading-none group-hover:text-[#581C87] transition-colors">
                     AGNIVRIDHI
                   </span>
-                  <span className="w-1 h-1 rounded-full bg-[#C79A4A]" />
+                  <span className="w-1 h-1 rounded-full bg-[#581C87]" />
                 </div>
-                <span className="text-[9px] uppercase font-mono tracking-[0.2em] text-[#A5A29A] leading-tight mt-0.5">
+                <span className="text-[9px] uppercase font-mono tracking-[0.2em] text-[#64748B] leading-tight mt-0.5">
                   INDIA &bull; ADVISORY
                 </span>
               </div>
@@ -230,21 +230,21 @@ export function Header() {
                   aria-haspopup="true"
                   aria-controls="services-menu"
                   className={cn(
-                    "relative text-xs xl:text-sm font-sans tracking-wide transition-colors px-3 py-1.5 inline-flex items-center gap-1.5 rounded-md focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#C79A4A] cursor-pointer",
+                    "relative text-xs xl:text-sm font-sans tracking-wide transition-colors px-3 py-1.5 inline-flex items-center gap-1.5 rounded-md focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#581C87] cursor-pointer",
                     isServicesActive || servicesOpen
-                      ? "text-[#F3EFE7] font-medium"
-                      : "text-[#A5A29A] hover:text-[#F3EFE7]"
+                      ? "text-[#581C87] font-semibold"
+                      : "text-[#475569] hover:text-[#581C87]"
                   )}
                 >
                   <span>Services</span>
                   <ChevronDown
                     className={cn(
-                      "w-3.5 h-3.5 text-[#A5A29A] transition-transform duration-200",
-                      servicesOpen && "rotate-180 text-[#C79A4A]"
+                      "w-3.5 h-3.5 text-[#64748B] transition-transform duration-200",
+                      servicesOpen && "rotate-180 text-[#581C87]"
                     )}
                   />
                   {isServicesActive && (
-                    <span className="absolute bottom-0 left-3 right-3 h-[1px] bg-[#C79A4A]" />
+                    <span className="absolute bottom-0 left-3 right-3 h-[1px] bg-[#581C87]" />
                   )}
                 </button>
 
@@ -254,7 +254,7 @@ export function Header() {
                     id="services-menu"
                     role="menu"
                     aria-label="Services Submenu"
-                    className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[560px] rounded-xl border border-white/10 bg-[#111313]/95 backdrop-blur-2xl shadow-[0_24px_50px_rgba(0,0,0,0.85)] p-4 animate-in fade-in zoom-in-95 duration-150 z-50"
+                    className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[560px] rounded-xl border border-[#EDE9FE] bg-white/95 backdrop-blur-2xl shadow-[0_20px_50px_rgba(15,10,26,0.1)] p-4 animate-in fade-in zoom-in-95 duration-150 z-50"
                   >
                     <div className="grid grid-cols-2 gap-2">
                       {serviceCategories.map((category) => {
@@ -266,21 +266,21 @@ export function Header() {
                             href={`/services#${category.id}`}
                             role="menuitem"
                             onClick={() => setServicesOpen(false)}
-                            className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/[0.04] border border-transparent hover:border-white/[0.06] transition-all group focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#C79A4A]"
+                            className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#F8F7FD] border border-transparent hover:border-purple-100 transition-all group focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#581C87]"
                           >
-                            <div className="w-8 h-8 rounded-md bg-white/[0.04] border border-white/[0.08] text-[#C79A4A] flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-[#C79A4A] group-hover:text-[#080909] transition-colors">
+                            <div className="w-8 h-8 rounded-md bg-purple-50 border border-purple-100 text-[#581C87] flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-[#581C87] group-hover:text-white transition-colors">
                               <IconComp className="w-4 h-4" />
                             </div>
                             <div className="space-y-0.5">
                               <div className="flex items-center gap-1.5">
-                                <span className="text-[10px] font-mono text-[#C79A4A]">
+                                <span className="text-[10px] font-mono text-[#581C87]">
                                   {num}
                                 </span>
-                                <span className="block font-medium text-xs sm:text-sm text-[#F3EFE7] group-hover:text-[#C79A4A] transition-colors">
+                                <span className="block font-medium text-xs sm:text-sm text-[#0F0A1A] group-hover:text-[#581C87] transition-colors">
                                   {category.name}
                                 </span>
                               </div>
-                              <span className="block text-[11px] text-[#A5A29A] line-clamp-1">
+                              <span className="block text-[11px] text-[#64748B] line-clamp-1">
                                 {category.shortDescription}
                               </span>
                             </div>
@@ -289,15 +289,15 @@ export function Header() {
                       })}
                     </div>
 
-                    <div className="mt-3 pt-3 border-t border-white/[0.08] flex items-center justify-between px-2 text-[11px]">
-                      <span className="text-[#8E8D86] font-mono">
+                    <div className="mt-3 pt-3 border-t border-[#EDE9FE] flex items-center justify-between px-2 text-[11px]">
+                      <span className="text-[#64748B] font-mono">
                         Institutional Advisory &bull; 24+ Frameworks
                       </span>
                       <Link
                         href="/services"
                         role="menuitem"
                         onClick={() => setServicesOpen(false)}
-                        className="inline-flex items-center gap-1 font-semibold text-[#C79A4A] hover:text-[#DFC286] transition-colors"
+                        className="inline-flex items-center gap-1 font-semibold text-[#581C87] hover:text-[#7C3AED] transition-colors"
                       >
                         <span>All Services</span>
                         <ArrowRight className="w-3 h-3" />
@@ -319,7 +319,7 @@ export function Header() {
               >
                 <span>Insights</span>
                 {isRouteActive("/blog") && (
-                  <span className="absolute bottom-0 left-3 right-3 h-[1px] bg-[#C79A4A]" />
+                  <span className="absolute bottom-0 left-3 right-3 h-[1px] bg-[#581C87]" />
                 )}
               </Link>
 
@@ -335,7 +335,7 @@ export function Header() {
               >
                 <span>Case Studies</span>
                 {isRouteActive("/success-stories") && (
-                  <span className="absolute bottom-0 left-3 right-3 h-[1px] bg-[#C79A4A]" />
+                  <span className="absolute bottom-0 left-3 right-3 h-[1px] bg-[#581C87]" />
                 )}
               </Link>
 
@@ -351,7 +351,7 @@ export function Header() {
               >
                 <span>About</span>
                 {isRouteActive("/about") && (
-                  <span className="absolute bottom-0 left-3 right-3 h-[1px] bg-[#C79A4A]" />
+                  <span className="absolute bottom-0 left-3 right-3 h-[1px] bg-[#581C87]" />
                 )}
               </Link>
 
@@ -367,7 +367,7 @@ export function Header() {
               >
                 <span>Contact</span>
                 {isRouteActive("/contact") && (
-                  <span className="absolute bottom-0 left-3 right-3 h-[1px] bg-[#C79A4A]" />
+                  <span className="absolute bottom-0 left-3 right-3 h-[1px] bg-[#581C87]" />
                 )}
               </Link>
             </div>
@@ -377,7 +377,7 @@ export function Header() {
               <div className="hidden sm:block">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#C79A4A] hover:bg-[#DFC286] text-[#080909] font-sans font-semibold text-xs tracking-wider uppercase transition-all shadow-[0_0_20px_-4px_rgba(199,154,74,0.3)] hover:scale-[1.02] active:scale-[0.98]"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#581C87] hover:bg-[#4C1D95] text-white font-sans font-semibold text-xs tracking-wider uppercase transition-all shadow-sm hover:shadow-purple-900/20 hover:scale-[1.02] active:scale-[0.98]"
                 >
                   <span>Speak with an Advisor</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -390,7 +390,7 @@ export function Header() {
                 onClick={() => setMobileNavOpen((prev) => !prev)}
                 aria-expanded={mobileNavOpen}
                 aria-label={mobileNavOpen ? "Close navigation menu" : "Open navigation menu"}
-                className="lg:hidden w-9 h-9 flex items-center justify-center rounded-lg text-[#F3EFE7] hover:bg-white/[0.06] border border-white/10 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#C79A4A]"
+                className="lg:hidden w-9 h-9 flex items-center justify-center rounded-lg text-[#0F0A1A] hover:bg-purple-50 border border-[#EDE9FE] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#581C87]"
               >
                 {mobileNavOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
               </button>
@@ -410,12 +410,12 @@ export function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: shouldReduceMotion ? 0 : 0.2 }}
-            className="fixed inset-0 z-50 bg-[#080909]/98 backdrop-blur-2xl flex flex-col justify-between p-6 sm:p-10 pb-16 sm:pb-10 lg:hidden overflow-y-auto"
+            className="fixed inset-0 z-50 bg-white/98 backdrop-blur-2xl text-[#0F0A1A] flex flex-col justify-between p-6 sm:p-10 pb-16 sm:pb-10 lg:hidden overflow-y-auto"
           >
             {/* Top Bar inside Drawer */}
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-white/[0.04] border border-white/10 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-lg bg-purple-50 border border-purple-200 flex items-center justify-center">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/logo1.png"
@@ -424,10 +424,10 @@ export function Header() {
                   />
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-serif font-semibold text-base text-[#F3EFE7] tracking-tight">
+                  <span className="font-serif font-semibold text-base text-[#0F0A1A] tracking-tight">
                     AGNIVRIDHI
                   </span>
-                  <span className="text-[9px] uppercase font-mono tracking-widest text-[#A5A29A]">
+                  <span className="text-[9px] uppercase font-mono tracking-widest text-[#64748B]">
                     INDIA &bull; ADVISORY
                   </span>
                 </div>
@@ -437,7 +437,7 @@ export function Header() {
                 type="button"
                 onClick={() => setMobileNavOpen(false)}
                 aria-label="Close menu"
-                className="w-10 h-10 flex items-center justify-center rounded-lg border border-white/10 text-[#F3EFE7] hover:bg-white/[0.06]"
+                className="w-10 h-10 flex items-center justify-center rounded-lg border border-purple-200 text-[#0F0A1A] hover:bg-purple-50"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -457,12 +457,12 @@ export function Header() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileNavOpen(false)}
-                  className="flex items-baseline justify-between border-b border-white/[0.06] pb-3 group"
+                  className="flex items-baseline justify-between border-b border-purple-100 pb-3 group"
                 >
-                  <span className="font-serif text-2xl sm:text-3xl text-[#F3EFE7] group-hover:text-[#C79A4A] transition-colors">
+                  <span className="font-serif text-2xl sm:text-3xl text-[#0F0A1A] group-hover:text-[#581C87] transition-colors">
                     {item.label}
                   </span>
-                  <span className="font-mono text-xs text-[#A5A29A] group-hover:text-[#C79A4A] transition-colors">
+                  <span className="font-mono text-xs text-[#64748B] group-hover:text-[#581C87] transition-colors">
                     {item.index}
                   </span>
                 </Link>
@@ -470,33 +470,33 @@ export function Header() {
             </div>
 
             {/* Bottom: Direct Institutional Contact Touchpoints */}
-            <div className="pt-4 border-t border-white/10 space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[#A5A29A]">
+            <div className="pt-4 border-t border-purple-100 space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[#64748B]">
                 <a
                   href={`tel:${siteConfig.contact.phone}`}
-                  className="flex items-center gap-2 hover:text-[#F3EFE7] transition-colors"
+                  className="flex items-center gap-2 hover:text-[#0F0A1A] transition-colors"
                 >
-                  <Phone className="w-3.5 h-3.5 text-[#C79A4A]" />
+                  <Phone className="w-3.5 h-3.5 text-[#581C87]" />
                   <span className="font-mono">{siteConfig.contact.phone}</span>
                 </a>
                 <a
                   href={`mailto:${siteConfig.contact.email}`}
-                  className="flex items-center gap-2 hover:text-[#F3EFE7] transition-colors"
+                  className="flex items-center gap-2 hover:text-[#0F0A1A] transition-colors"
                 >
-                  <Mail className="w-3.5 h-3.5 text-[#C79A4A]" />
+                  <Mail className="w-3.5 h-3.5 text-[#581C87]" />
                   <span className="font-mono">{siteConfig.contact.email}</span>
                 </a>
               </div>
 
-              <div className="flex items-center gap-2 text-[11px] text-[#8E8D86]">
-                <MapPin className="w-3.5 h-3.5 text-[#C79A4A] shrink-0" />
+              <div className="flex items-center gap-2 text-[11px] text-[#64748B]">
+                <MapPin className="w-3.5 h-3.5 text-[#581C87] shrink-0" />
                 <span className="line-clamp-1">{siteConfig.contact.address.street}, Noida</span>
               </div>
 
               <Link
                 href="/contact"
                 onClick={() => setMobileNavOpen(false)}
-                className="w-full flex items-center justify-center gap-2 py-3 rounded-lg bg-[#C79A4A] text-[#080909] font-sans font-semibold text-xs tracking-wider uppercase"
+                className="w-full flex items-center justify-center gap-2 py-3 rounded-lg bg-[#581C87] hover:bg-[#4C1D95] text-white font-sans font-semibold text-xs tracking-wider uppercase shadow-md transition-colors"
               >
                 <span>Book Strategic Advisory Session</span>
                 <ArrowRight className="w-3.5 h-3.5" />

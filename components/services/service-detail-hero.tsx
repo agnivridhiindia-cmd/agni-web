@@ -67,33 +67,33 @@ const categoryTheme: Record<
   funding: {
     numeral: "01",
     label: "Government & Business Funding",
-    badgeBg: "bg-[#181A1A] border-[#232727]",
-    badgeText: "text-[#C79A4A]",
-    iconBg: "bg-[#181A1A] border-[#232727] text-[#C79A4A]",
+    badgeBg: "bg-purple-50 border-purple-100",
+    badgeText: "text-[#581C87]",
+    iconBg: "bg-purple-50 border-purple-100 text-[#581C87]",
     iconText: "text-gold-800",
   },
   compliance: {
     numeral: "02",
     label: "Compliance & Certifications",
-    badgeBg: "bg-[#181A1A] border-[#232727]",
-    badgeText: "text-[#2DD4BF]",
-    iconBg: "bg-[#181A1A] border-[#232727] text-[#2DD4BF]",
+    badgeBg: "bg-purple-50 border-purple-100",
+    badgeText: "text-[#581C87]",
+    iconBg: "bg-purple-50 border-purple-100 text-[#581C87]",
     iconText: "text-teal-800",
   },
   digital: {
     numeral: "03",
     label: "Digital Transformation",
-    badgeBg: "bg-[#181A1A] border-[#232727]",
+    badgeBg: "bg-purple-50 border-purple-100",
     badgeText: "text-[#38BDF8]",
-    iconBg: "bg-[#181A1A] border-[#232727] text-[#38BDF8]",
+    iconBg: "bg-purple-50 border-purple-100 text-[#38BDF8]",
     iconText: "text-cyan-800",
   },
   it: {
     numeral: "04",
     label: "Custom Software & IT Services",
-    badgeBg: "bg-[#181A1A] border-[#232727]",
-    badgeText: "text-[#F3EFE7]",
-    iconBg: "bg-[#181A1A] border-[#232727] text-[#D1CBC1]",
+    badgeBg: "bg-purple-50 border-purple-100",
+    badgeText: "text-[#0F0A1A]",
+    iconBg: "bg-purple-50 border-purple-100 text-[#475569]",
     iconText: "text-slate-800",
   },
 };
@@ -109,7 +109,7 @@ export function ServiceDetailHero({ service }: ServiceDetailHeroProps) {
   return (
     <section
       aria-labelledby="service-detail-heading"
-      className="relative border-b border-[#232727] bg-[#080909] py-12 sm:py-16 lg:py-20 overflow-hidden"
+      className="relative border-b border-purple-100 bg-[#FFFFFF] py-12 sm:py-16 lg:py-20 overflow-hidden"
     >
       <Container width="wide">
         <div className="max-w-4xl space-y-6">
@@ -127,13 +127,13 @@ export function ServiceDetailHero({ service }: ServiceDetailHeroProps) {
               </span>
 
               {service.featured && (
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded text-[11px] font-mono font-medium uppercase tracking-wider bg-[#181A1A] border border-[#232727] text-[#C79A4A] shadow-xs">
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded text-[11px] font-mono font-medium uppercase tracking-wider bg-purple-50 border border-purple-100 text-[#581C87] shadow-xs">
                   Core Scheme
                 </span>
               )}
 
               {service.timeline && (
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-xs font-sans text-[#D1CBC1] bg-[#181A1A] border border-[#232727] shadow-xs">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-xs font-sans text-[#475569] bg-purple-50 border border-purple-100 shadow-xs">
                   <Clock className="w-3.5 h-3.5 text-slate-400 shrink-0" aria-hidden="true" />
                   <span className="line-clamp-1">{service.timeline}</span>
                 </span>
@@ -156,11 +156,11 @@ export function ServiceDetailHero({ service }: ServiceDetailHeroProps) {
               <div className="space-y-3">
                 <h1
                   id="service-detail-heading"
-                  className="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold text-[#F3EFE7] tracking-tight leading-[1.15]"
+                  className="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold text-[#0F0A1A] tracking-tight leading-[1.15]"
                 >
                   {service.name}
                 </h1>
-                <p className="type-body-lg text-[#D1CBC1] font-sans leading-relaxed max-w-3xl">
+                <p className="type-body-lg text-[#475569] font-sans leading-relaxed max-w-3xl">
                   {service.shortDescription}
                 </p>
               </div>
@@ -183,7 +183,7 @@ export function ServiceDetailHero({ service }: ServiceDetailHeroProps) {
               {service.process && service.process.length > 0 && (
                 <a
                   href="#engagement-roadmap"
-                  className="text-sm font-medium text-[#D1CBC1] hover:text-[#F3EFE7] transition-colors underline-offset-4 hover:underline px-2 py-1"
+                  className="text-sm font-medium text-[#475569] hover:text-[#0F0A1A] transition-colors underline-offset-4 hover:underline px-2 py-1"
                 >
                   View Execution Roadmap &darr;
                 </a>

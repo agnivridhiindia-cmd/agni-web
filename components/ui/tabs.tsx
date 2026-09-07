@@ -13,7 +13,7 @@ export const TabsList = React.forwardRef<
   <TabsPrimitive.List
     ref={ref}
     className={cn(
-      "inline-flex h-11 items-center justify-center rounded-xl bg-[#111313] p-1 text-[#8E8B82] font-sans border border-[#232727] select-none",
+      "inline-flex h-11 items-center justify-center rounded-xl bg-purple-50 p-1 text-[#64748B] font-sans border border-purple-200 select-none",
       className
     )}
     {...props}
@@ -28,7 +28,7 @@ export const TabsTrigger = React.forwardRef<
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
-      "inline-flex items-center justify-center whitespace-nowrap rounded-lg px-3.5 py-1.5 text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C79A4A] focus-visible:ring-offset-1 focus-visible:ring-offset-[#080909] disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-[#1A1D1D] data-[state=active]:text-[#DFC286] data-[state=active]:border data-[state=active]:border-[#C79A4A]/30 data-[state=active]:shadow-sm data-[state=active]:font-bold hover:text-[#F3EFE7]",
+      "inline-flex items-center justify-center whitespace-nowrap rounded-lg px-3.5 py-1.5 text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#581C87] focus-visible:ring-offset-1 focus-visible:ring-offset-white disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-white data-[state=active]:text-[#581C87] data-[state=active]:border data-[state=active]:border-purple-200 data-[state=active]:shadow-xs data-[state=active]:font-semibold hover:text-[#0F0A1A]",
       className
     )}
     {...props}
@@ -43,7 +43,7 @@ export const TabsContent = React.forwardRef<
   <TabsPrimitive.Content
     ref={ref}
     className={cn(
-      "mt-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C79A4A] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080909]",
+      "mt-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#581C87] focus-visible:ring-offset-2 focus-visible:ring-offset-white",
       className
     )}
     {...props}

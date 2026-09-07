@@ -28,7 +28,7 @@ function DigitizedSignature({ className }: { className?: string }) {
         viewBox="0 0 360 90"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="w-52 sm:w-64 h-auto text-[#C79A4A] drop-shadow-sm select-none"
+        className="w-52 sm:w-64 h-auto text-[#581C87] drop-shadow-sm select-none"
         aria-label="Digitized Signature of Rahul Kumar Singh"
       >
         {/* 'R' capital flourish with looped ascender */}
@@ -86,8 +86,8 @@ function CredentialChip({
   label: string;
 }) {
   return (
-    <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#181A1A] text-[#D1CBC1] border border-[#232727] shadow-sm text-xs font-mono font-medium tracking-tight hover:border-[#C79A4A]/60 transition-colors">
-      <Icon className="w-3.5 h-3.5 text-[#C79A4A] shrink-0" />
+    <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-purple-50 text-[#475569] border border-purple-100 shadow-sm text-xs font-mono font-medium tracking-tight hover:border-[#581C87]/60 transition-colors">
+      <Icon className="w-3.5 h-3.5 text-[#581C87] shrink-0" />
       <span>{label}</span>
     </div>
   );
@@ -117,7 +117,7 @@ export function FounderSection() {
     <section
       id="founder-story"
       aria-labelledby="founder-heading"
-      className="py-16 sm:py-20 lg:py-28 bg-[#080909] border-b border-[#232727] overflow-hidden"
+      className="py-16 sm:py-20 lg:py-28 bg-[#FFFFFF] border-b border-purple-100 overflow-hidden"
     >
       <Container width="wide">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
@@ -126,7 +126,7 @@ export function FounderSection() {
               ============================================================ */}
           <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-28">
             <FadeIn direction="up" distance={16} delay={0.05}>
-              <div className="rounded-2xl bg-[#111313] border border-[#232727] shadow-2xl overflow-hidden">
+              <div className="rounded-2xl bg-white border border-purple-100 shadow-2xl overflow-hidden">
                 {/* Executive Studio Portrait Container */}
                 <div className="relative aspect-[4/4.4] sm:aspect-[4/4.6] w-full bg-slate-950 overflow-hidden group">
                   {/* High-Resolution Warm-Graded Studio Portrait */}
@@ -147,7 +147,7 @@ export function FounderSection() {
 
                   {/* Top Floating Badge: Executive Mandate */}
                   <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10 pointer-events-none">
-                    <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-slate-950/85 backdrop-blur-md border border-white/10 text-white shadow-lg">
+                    <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-slate-950/85 backdrop-blur-md border border-purple-100 text-white shadow-lg">
                       <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                       <span className="font-mono text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-200">
                         Principal Mandate
@@ -175,15 +175,15 @@ export function FounderSection() {
                       </div>
                     </div>
 
-                    <div className="pt-2 flex items-center gap-2 text-[11px] font-mono text-slate-300 border-t border-white/10">
-                      <Compass className="w-3.5 h-3.5 text-[#C79A4A] shrink-0" />
+                    <div className="pt-2 flex items-center gap-2 text-[11px] font-mono text-slate-300 border-t border-purple-100">
+                      <Compass className="w-3.5 h-3.5 text-[#581C87] shrink-0" />
                       <span>Corporate HQ: Sector 62, Noida &bull; Est. 2011</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Authority Details Below Portrait */}
-                <div className="p-6 sm:p-7 space-y-5 bg-[#111313]">
+                <div className="p-6 sm:p-7 space-y-5 bg-white">
                   {/* Verified LinkedIn Executive Badge */}
                   {founder.linkedin && (
                     <a
@@ -204,21 +204,21 @@ export function FounderSection() {
                             </span>
                             <CheckCircle2 className="w-3.5 h-3.5 text-teal-400 fill-teal-400/20 shrink-0" />
                           </div>
-                          <span className="font-mono text-[11px] text-[#8E8B82] block">
+                          <span className="font-mono text-[11px] text-[#64748B] block">
                             Direct Principal Network
                           </span>
                         </div>
                       </div>
                       <div className="flex items-center gap-1 text-xs font-mono text-slate-300 group-hover:text-white transition-colors">
                         <span>Connect</span>
-                        <ArrowUpRight className="w-4 h-4 text-[#8E8B82] group-hover:text-gold-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                        <ArrowUpRight className="w-4 h-4 text-[#64748B] group-hover:text-gold-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                       </div>
                     </a>
                   )}
 
                   {/* Institutional Credential Tags in Left Column */}
                   <div className="space-y-2.5">
-                    <span className="text-[11px] font-mono uppercase tracking-wider text-[#9E9B93] font-semibold block">
+                    <span className="text-[11px] font-mono uppercase tracking-wider text-[#64748B] font-semibold block">
                       Underwriting &amp; Governance Mandates
                     </span>
                     <div className="flex flex-col gap-2">
@@ -227,10 +227,10 @@ export function FounderSection() {
                         return (
                           <div
                             key={cred}
-                            className="flex items-center gap-2.5 p-2.5 rounded-lg bg-[#181A1A] border border-[#232727] text-xs font-sans text-[#D1CBC1]"
+                            className="flex items-center gap-2.5 p-2.5 rounded-lg bg-purple-50 border border-purple-100 text-xs font-sans text-[#475569]"
                           >
-                            <div className="w-7 h-7 rounded-md bg-[#111313] border border-[#232727] flex items-center justify-center shrink-0 shadow-2xs">
-                              <Icon className="w-3.5 h-3.5 text-[#2DD4BF]" />
+                            <div className="w-7 h-7 rounded-md bg-white border border-purple-100 flex items-center justify-center shrink-0 shadow-2xs">
+                              <Icon className="w-3.5 h-3.5 text-[#581C87]" />
                             </div>
                             <span className="font-medium">{cred}</span>
                           </div>
@@ -241,9 +241,9 @@ export function FounderSection() {
 
                   {/* Recognition Bridge (Verified external citations) */}
                   {verifiedRecognitions.length > 0 && (
-                    <div className="pt-4 border-t border-[#232727] space-y-2.5">
+                    <div className="pt-4 border-t border-purple-100 space-y-2.5">
                       <div className="flex items-center justify-between">
-                        <span className="text-[11px] font-mono uppercase tracking-wider text-[#9E9B93] font-semibold block">
+                        <span className="text-[11px] font-mono uppercase tracking-wider text-[#64748B] font-semibold block">
                           Institutional Citations
                         </span>
                         <span className="text-[10px] font-mono text-emerald-800 flex items-center gap-1 font-semibold">
@@ -256,17 +256,17 @@ export function FounderSection() {
                         {verifiedRecognitions.map((rec) => (
                           <div
                             key={rec.id}
-                            className="p-3 rounded-lg bg-[#181A1A] border border-[#232727] text-xs font-sans space-y-1"
+                            className="p-3 rounded-lg bg-purple-50 border border-purple-100 text-xs font-sans space-y-1"
                           >
                             <div className="flex items-center justify-between">
-                              <span className="font-semibold text-[#F3EFE7]">
+                              <span className="font-semibold text-[#0F0A1A]">
                                 {rec.publicationOrOrg}
                               </span>
-                              <span className="font-mono text-[10px] text-[#9E9B93]">
+                              <span className="font-mono text-[10px] text-[#64748B]">
                                 {rec.year}
                               </span>
                             </div>
-                            <p className="text-[#D1CBC1] text-[11px] leading-snug line-clamp-2">
+                            <p className="text-[#475569] text-[11px] leading-snug line-clamp-2">
                               {rec.title}
                             </p>
                           </div>
@@ -282,25 +282,25 @@ export function FounderSection() {
           {/* ============================================================
               RIGHT COLUMN: Editorial Narrative & Leadership Directives (7 cols)
               ============================================================ */}
-          <div className="lg:col-span-7 space-y-8 font-sans text-[#D1CBC1]">
+          <div className="lg:col-span-7 space-y-8 font-sans text-[#475569]">
             {/* Section Eyebrow, Founder Name & Credentials */}
             <FadeIn direction="up" distance={16} delay={0.08}>
               <div className="space-y-4">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C79A4A]/10 border border-[#C79A4A]/30 text-[#C79A4A] text-xs font-mono tracking-wider uppercase">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#2DD4BF]" />
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#581C87]/10 border border-purple-200 text-[#581C87] text-xs font-mono tracking-wider uppercase">
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#581C87]" />
                   <span>Foundership &amp; Executive Stewardship</span>
                 </div>
 
                 <div className="space-y-2">
                   <h2
                     id="founder-heading"
-                    className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#F3EFE7] tracking-tight leading-[1.12]"
+                    className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#0F0A1A] tracking-tight leading-[1.12]"
                   >
                     {founder.name}
                   </h2>
 
-                  <div className="flex items-center gap-3 font-mono text-xs text-[#9E9B93] flex-wrap">
-                    <span className="text-[#2DD4BF] font-semibold uppercase tracking-wider">
+                  <div className="flex items-center gap-3 font-mono text-xs text-[#64748B] flex-wrap">
+                    <span className="text-[#581C87] font-semibold uppercase tracking-wider">
                       {founder.role}
                     </span>
                     {founder.specialty && (
@@ -329,7 +329,7 @@ export function FounderSection() {
 
             {/* Narrative Biographies */}
             <FadeIn direction="up" distance={16} delay={0.12}>
-              <div className="space-y-4 type-body leading-relaxed text-[#D1CBC1]">
+              <div className="space-y-4 type-body leading-relaxed text-[#475569]">
                 <p>{founder.shortBio}</p>
                 <p>{founder.fullBio}</p>
               </div>
@@ -338,39 +338,39 @@ export function FounderSection() {
             {/* Founding Conviction Quote Card with Digitized Signature */}
             {founder.quote && (
               <FadeIn direction="up" distance={16} delay={0.15}>
-                <div className="p-7 sm:p-9 rounded-2xl bg-[#111313] border border-[#232727] shadow-xl space-y-5 relative overflow-hidden">
+                <div className="p-7 sm:p-9 rounded-2xl bg-white border border-purple-100 shadow-xl space-y-5 relative overflow-hidden">
                   <div
                     className="absolute top-0 right-0 w-40 h-40 bg-gold-500/5 rounded-full blur-2xl pointer-events-none"
                     aria-hidden="true"
                   />
 
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono font-semibold uppercase tracking-wider text-[#C79A4A] block">
+                    <span className="text-xs font-mono font-semibold uppercase tracking-wider text-[#581C87] block">
                       Founding Executive Conviction
                     </span>
-                    <span className="text-[11px] font-mono text-[#8E8B82]">
+                    <span className="text-[11px] font-mono text-[#64748B]">
                       Noida Corporate Mandate
                     </span>
                   </div>
 
-                  <blockquote className="font-serif text-xl sm:text-2xl font-normal text-[#F3EFE7] leading-snug italic relative z-10">
+                  <blockquote className="font-serif text-xl sm:text-2xl font-normal text-[#0F0A1A] leading-snug italic relative z-10">
                     &ldquo;{founder.quote}&rdquo;
                   </blockquote>
 
                   {/* Digitized SVG Signature & Authority Block */}
-                  <div className="pt-4 border-t border-[#232727] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                  <div className="pt-4 border-t border-purple-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                     <div className="space-y-1">
                       <DigitizedSignature />
-                      <div className="flex items-center gap-2 text-xs font-mono text-[#9E9B93]">
+                      <div className="flex items-center gap-2 text-xs font-mono text-[#64748B]">
                         <span className="w-5 h-[1px] bg-slate-300" />
-                        <span className="font-medium text-[#F3EFE7]">
+                        <span className="font-medium text-[#0F0A1A]">
                           Rahul Kumar Singh
                         </span>
-                        <span className="text-[#8E8B82]">&bull; Principal Executive</span>
+                        <span className="text-[#64748B]">&bull; Principal Executive</span>
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-50 border border-slate-200 text-[#D1CBC1] font-mono text-[10px] uppercase tracking-wider font-semibold">
+                    <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-50 border border-slate-200 text-[#475569] font-mono text-[10px] uppercase tracking-wider font-semibold">
                       <CheckCircle2 className="w-3.5 h-3.5 text-teal-600" />
                       <span>Certified Sign-Off</span>
                     </div>
@@ -382,10 +382,10 @@ export function FounderSection() {
             {/* Key Leadership Directives */}
             {founder.directives && founder.directives.length > 0 && (
               <FadeIn direction="up" distance={16} delay={0.18}>
-                <div className="p-6 sm:p-7 rounded-2xl bg-[#111313] border border-[#232727] space-y-4">
+                <div className="p-6 sm:p-7 rounded-2xl bg-white border border-purple-100 space-y-4">
                   <div className="flex items-center gap-2">
-                    <Sparkles className="w-4 h-4 text-[#C79A4A]" />
-                    <h3 className="font-serif text-lg font-bold text-[#F3EFE7] tracking-tight">
+                    <Sparkles className="w-4 h-4 text-[#581C87]" />
+                    <h3 className="font-serif text-lg font-bold text-[#0F0A1A] tracking-tight">
                       Core Executive Directives
                     </h3>
                   </div>
@@ -394,9 +394,9 @@ export function FounderSection() {
                     {founder.directives.map((directive, idx) => (
                       <div
                         key={idx}
-                        className="flex items-start gap-3 text-sm text-[#D1CBC1] font-sans"
+                        className="flex items-start gap-3 text-sm text-[#475569] font-sans"
                       >
-                        <div className="w-5 h-5 rounded bg-[#C79A4A]/10 border border-[#C79A4A]/30 flex items-center justify-center shrink-0 mt-0.5 text-[11px] font-mono font-bold text-[#C79A4A]">
+                        <div className="w-5 h-5 rounded bg-[#581C87]/10 border border-purple-200 flex items-center justify-center shrink-0 mt-0.5 text-[11px] font-mono font-bold text-[#581C87]">
                           0{idx + 1}
                         </div>
                         <span className="leading-snug">{directive}</span>
@@ -415,21 +415,21 @@ export function FounderSection() {
                     href={founder.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#C79A4A] hover:bg-[#D4A85B] text-[#080909] text-xs font-semibold tracking-wide font-sans transition-colors shadow-sm"
+                    className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#581C87] hover:bg-[#4C1D95] text-white text-xs font-semibold tracking-wide font-sans transition-colors shadow-sm"
                     aria-label="Connect with Rahul Kumar Singh on LinkedIn (opens in a new tab)"
                   >
                     <Linkedin className="w-4 h-4 text-[#0A66C2]" />
                     <span>Verified Executive LinkedIn</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 text-[#8E8B82]" />
+                    <ArrowUpRight className="w-3.5 h-3.5 text-[#64748B]" />
                   </a>
                 )}
 
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-slate-300 hover:border-slate-400 bg-white hover:bg-slate-50 text-[#F3EFE7] hover:text-[#F3EFE7] text-xs font-semibold tracking-wide font-sans transition-colors shadow-2xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-slate-300 hover:border-slate-400 bg-white hover:bg-slate-50 text-[#0F0A1A] hover:text-[#0F0A1A] text-xs font-semibold tracking-wide font-sans transition-colors shadow-2xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900"
                 >
                   <span>Engage Executive Advisory Desk</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-[#9E9B93]" />
+                  <ArrowUpRight className="w-3.5 h-3.5 text-[#64748B]" />
                 </Link>
               </div>
             </FadeIn>

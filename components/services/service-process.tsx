@@ -18,18 +18,18 @@ export function ServiceProcess({ process }: ServiceProcessProps) {
       className="scroll-mt-28 space-y-8"
     >
       <div>
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C79A4A]/10 border border-[#C79A4A]/30 text-[#C79A4A] text-xs font-mono tracking-wider uppercase">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#581C87]/10 border border-purple-200 text-[#581C87] text-xs font-mono tracking-wider uppercase">
           <CheckCircle2 className="w-3.5 h-3.5" />
           <span>Underwriting Protocol &bull; Structured Delivery</span>
         </div>
 
         <h2
           id="process-heading"
-          className="font-serif text-2xl sm:text-3xl font-semibold text-[#F3EFE7] tracking-tight mt-2"
+          className="font-serif text-2xl sm:text-3xl font-semibold text-[#0F0A1A] tracking-tight mt-2"
         >
           Four-Stage Underwriting &amp; Execution Lifecycle
         </h2>
-        <p className="text-sm text-[#D1CBC1] font-sans mt-1 max-w-2xl leading-relaxed">
+        <p className="text-sm text-[#475569] font-sans mt-1 max-w-2xl leading-relaxed">
           Every file is systematically advanced through our multi-phase governance protocol to
           ensure zero rejection during bank credit committee and statutory reviews.
         </p>
@@ -55,26 +55,26 @@ export function ServiceProcess({ process }: ServiceProcessProps) {
               <div key={step.step} className="flex flex-col items-start space-y-4 group">
                 {/* Stepped Progress Node */}
                 <div className="flex items-center justify-between w-full">
-                  <div className="w-14 h-14 rounded-2xl bg-[#141616] border border-[#C79A4A] shadow-md ring-4 ring-[#C79A4A]/10 flex items-center justify-center font-mono font-bold text-base text-[#DFC286] group-hover:border-[#DFC286] group-hover:ring-[#C79A4A]/20 transition-all duration-300">
+                  <div className="w-14 h-14 rounded-2xl bg-purple-50/60 border border-[#581C87] shadow-md ring-4 ring-[#C79A4A]/10 flex items-center justify-center font-mono font-bold text-base text-[#7C3AED] group-hover:border-[#DFC286] group-hover:ring-[#C79A4A]/20 transition-all duration-300">
                     <span>{stepNumber}</span>
                   </div>
 
                   {!isLast && (
-                    <ArrowRight className="w-4 h-4 text-[#8E8B82] hidden lg:block mr-2" />
+                    <ArrowRight className="w-4 h-4 text-[#64748B] hidden lg:block mr-2" />
                   )}
                 </div>
 
                 {/* Phase Label */}
-                <span className="font-mono text-[10px] uppercase font-bold tracking-widest text-[#C79A4A] px-2 py-0.5 rounded bg-[#181A1A] border border-[#232727]">
+                <span className="font-mono text-[10px] uppercase font-bold tracking-widest text-[#581C87] px-2 py-0.5 rounded bg-purple-50 border border-purple-100">
                   Phase 0{step.step}
                 </span>
 
                 {/* Content Card */}
-                <div className="p-5 rounded-2xl bg-[#111313] border border-[#232727] shadow-2xs group-hover:border-[#C79A4A]/40 transition-all duration-300 flex-1 w-full space-y-2">
-                  <h3 className="font-serif text-base font-bold text-[#F3EFE7] leading-snug">
+                <div className="p-5 rounded-2xl bg-white border border-purple-100 shadow-2xs group-hover:border-purple-300 transition-all duration-300 flex-1 w-full space-y-2">
+                  <h3 className="font-serif text-base font-bold text-[#0F0A1A] leading-snug">
                     {step.title}
                   </h3>
-                  <p className="text-xs text-[#D1CBC1] font-sans leading-relaxed">
+                  <p className="text-xs text-[#475569] font-sans leading-relaxed">
                     {step.description}
                   </p>
                 </div>
@@ -87,7 +87,7 @@ export function ServiceProcess({ process }: ServiceProcessProps) {
       {/* ============================================================
           MOBILE (< md): Connected Vertical Process Timeline
           ============================================================ */}
-      <div className="md:hidden relative pl-6 border-l-2 border-[#C79A4A]/40 space-y-6 ml-3">
+      <div className="md:hidden relative pl-6 border-l-2 border-purple-300 space-y-6 ml-3">
         {process.map((step) => {
           const stepNumber = String(step.step).padStart(2, "0");
 
@@ -95,7 +95,7 @@ export function ServiceProcess({ process }: ServiceProcessProps) {
             <div key={step.step} className="relative space-y-2">
               {/* Progress Node Bullet */}
               <div
-                className="absolute -left-[35px] top-1 w-9 h-9 rounded-xl bg-[#141616] border border-[#C79A4A] shadow-sm flex items-center justify-center font-mono font-bold text-xs text-[#DFC286]"
+                className="absolute -left-[35px] top-1 w-9 h-9 rounded-xl bg-purple-50/60 border border-[#581C87] shadow-sm flex items-center justify-center font-mono font-bold text-xs text-[#7C3AED]"
                 aria-hidden="true"
               >
                 {stepNumber}
@@ -103,17 +103,17 @@ export function ServiceProcess({ process }: ServiceProcessProps) {
 
               {/* Phase Tag & Title */}
               <div className="space-y-1">
-                <span className="font-mono text-[10px] uppercase font-bold tracking-widest text-[#C79A4A] px-2 py-0.5 rounded bg-[#181A1A] border border-[#232727] inline-block">
+                <span className="font-mono text-[10px] uppercase font-bold tracking-widest text-[#581C87] px-2 py-0.5 rounded bg-purple-50 border border-purple-100 inline-block">
                   Phase 0{step.step}
                 </span>
-                <h3 className="font-serif text-base font-bold text-[#F3EFE7]">
+                <h3 className="font-serif text-base font-bold text-[#0F0A1A]">
                   {step.title}
                 </h3>
               </div>
 
               {/* Card */}
-              <div className="p-4 rounded-xl bg-[#111313] border border-[#232727] shadow-2xs">
-                <p className="text-xs text-[#D1CBC1] font-sans leading-relaxed">
+              <div className="p-4 rounded-xl bg-white border border-purple-100 shadow-2xs">
+                <p className="text-xs text-[#475569] font-sans leading-relaxed">
                   {step.description}
                 </p>
               </div>

@@ -36,8 +36,8 @@ function getRecognitionMeta(type: RecognitionType): {
         icon: Award,
         badgeVariant: "accent",
         label: "Industry Award",
-        iconBg: "bg-[#C79A4A]/10 border-[#C79A4A]/30",
-        iconColor: "text-[#C79A4A]",
+        iconBg: "bg-purple-100/70 border-purple-200",
+        iconColor: "text-[#581C87]",
       };
     case "press":
     case "media":
@@ -45,16 +45,16 @@ function getRecognitionMeta(type: RecognitionType): {
         icon: Newspaper,
         badgeVariant: "primary",
         label: "Press Citation",
-        iconBg: "bg-white/[0.05] border-white/10",
-        iconColor: "text-[#DFC286]",
+        iconBg: "bg-purple-50 border-purple-200/60",
+        iconColor: "text-[#581C87]",
       };
     case "magazine":
       return {
         icon: Bookmark,
         badgeVariant: "default",
         label: "Sector Analysis",
-        iconBg: "bg-white/[0.04] border-white/[0.08]",
-        iconColor: "text-[#A5A29A]",
+        iconBg: "bg-purple-50/50 border-purple-200/40",
+        iconColor: "text-[#475569]",
       };
     case "recognition":
     default:
@@ -62,8 +62,8 @@ function getRecognitionMeta(type: RecognitionType): {
         icon: ShieldCheck,
         badgeVariant: "outline",
         label: "Accreditation",
-        iconBg: "bg-[#C79A4A]/10 border-[#C79A4A]/25",
-        iconColor: "text-[#C79A4A]",
+        iconBg: "bg-purple-100/70 border-purple-200",
+        iconColor: "text-[#581C87]",
       };
   }
 }
@@ -108,7 +108,7 @@ export function RecognitionSection() {
   return (
     <section
       aria-labelledby="recognition-heading"
-      className="relative bg-[#080909] text-[#F3EFE7] py-20 sm:py-28 lg:py-36 border-b border-white/[0.08] overflow-hidden"
+      className="relative bg-[#F8F7FD] text-[#0F0A1A] py-20 sm:py-28 lg:py-36 border-b border-purple-100 overflow-hidden"
     >
       {/* Ambient background decoration */}
       <div
@@ -123,19 +123,19 @@ export function RecognitionSection() {
         {/* Header Row: Title on Left, Carousel Controls on Right */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <FadeIn direction="up" distance={16} delay={0.04} className="max-w-2xl space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-[#C79A4A] text-xs font-mono tracking-widest uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#C79A4A]" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-purple-200 text-[#581C87] text-xs font-mono tracking-widest uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#581C87]" />
               <span>AWARDS &amp; ACHIEVEMENTS &bull; ACCREDITATIONS</span>
             </div>
 
             <h2
               id="recognition-heading"
-              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-[#F3EFE7] !leading-[1.15]"
+              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-[#0F0A1A] !leading-[1.15]"
             >
               Recognized for Catalyzing Enterprise Growth
             </h2>
 
-            <p className="font-sans text-sm sm:text-base text-[#A5A29A] leading-relaxed">
+            <p className="font-sans text-sm sm:text-base text-[#475569] leading-relaxed">
               External citations, industry conclave commendations, and sector
               publications honoring our institutional advisory rigor across sovereign
               guarantees, statutory certifications, and modern enterprise governance.
@@ -148,7 +148,7 @@ export function RecognitionSection() {
               type="button"
               onClick={() => scrollByAmount(-380)}
               disabled={!canScrollLeft}
-              className="w-11 h-11 rounded-full border border-white/10 bg-[#111313] text-[#A5A29A] hover:border-[#C79A4A] hover:text-[#DFC286] disabled:opacity-20 flex items-center justify-center transition-all shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C79A4A]"
+              className="w-11 h-11 rounded-full border border-purple-200 bg-white text-[#475569] hover:border-[#581C87] hover:text-[#581C87] disabled:opacity-20 flex items-center justify-center transition-all shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#581C87]"
               aria-label="Scroll citations left"
             >
               <ChevronLeft className="w-5 h-5" />
@@ -157,7 +157,7 @@ export function RecognitionSection() {
               type="button"
               onClick={() => scrollByAmount(380)}
               disabled={!canScrollRight}
-              className="w-11 h-11 rounded-full border border-white/10 bg-[#111313] text-[#A5A29A] hover:border-[#C79A4A] hover:text-[#DFC286] disabled:opacity-20 flex items-center justify-center transition-all shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C79A4A]"
+              className="w-11 h-11 rounded-full border border-purple-200 bg-white text-[#475569] hover:border-[#581C87] hover:text-[#581C87] disabled:opacity-20 flex items-center justify-center transition-all shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#581C87]"
               aria-label="Scroll citations right"
             >
               <ChevronRight className="w-5 h-5" />
@@ -183,9 +183,9 @@ export function RecognitionSection() {
                 className="w-[320px] sm:w-[380px] lg:w-[420px] shrink-0 snap-start h-full"
               >
                 <SpotlightCard
-                  glowVariant="amber"
-                  className="h-full bg-[#111313] border border-white/[0.08] hover:border-[#C79A4A]/40 transition-all duration-300 shadow-xl"
-                  innerClassName="p-6 sm:p-7 justify-between bg-[#111313]"
+                  glowVariant="purple"
+                  className="h-full bg-white border border-purple-100/90 hover:border-[#581C87]/40 transition-all duration-300 shadow-sm hover:shadow-md"
+                  innerClassName="p-6 sm:p-7 justify-between bg-white"
                 >
                   <div className="space-y-4">
                     {/* Top Row: Icon Container + Category Tag + Year Pill */}
@@ -201,7 +201,7 @@ export function RecognitionSection() {
                         </Badge>
                       </div>
 
-                      <span className="font-mono text-xs font-medium px-2.5 py-1 rounded-full bg-white/[0.04] text-[#8E8D86] border border-white/[0.08]">
+                      <span className="font-mono text-xs font-medium px-2.5 py-1 rounded-full bg-purple-50 text-[#64748B] border border-purple-100">
                         {item.year}
                       </span>
                     </div>
@@ -209,27 +209,27 @@ export function RecognitionSection() {
                     {/* Publication Label */}
                     <div className="pt-2 space-y-2">
                       <div className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#C79A4A]" />
-                        <span className="text-xs font-mono font-medium tracking-widest text-[#DFC286] uppercase">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#581C87]" />
+                        <span className="text-xs font-mono font-medium tracking-widest text-[#581C87] uppercase">
                           {item.publicationOrOrg}
                         </span>
                       </div>
 
-                      <h3 className="font-serif text-xl sm:text-2xl font-normal text-[#F3EFE7] leading-snug group-hover/spotlight:text-[#DFC286] transition-colors pt-1">
+                      <h3 className="font-serif text-xl sm:text-2xl font-normal text-[#0F0A1A] leading-snug group-hover/spotlight:text-[#581C87] transition-colors pt-1">
                         {item.title}
                       </h3>
                     </div>
 
                     {/* Description */}
-                    <p className="text-xs sm:text-sm text-[#A5A29A] leading-relaxed font-sans line-clamp-4">
+                    <p className="text-xs sm:text-sm text-[#475569] leading-relaxed font-sans line-clamp-4">
                       {item.description}
                     </p>
                   </div>
 
                   {/* Bottom Verification Footer */}
-                  <div className="mt-6 pt-4 border-t border-white/[0.08] flex items-center justify-between text-xs text-[#A5A29A]">
-                    <span className="inline-flex items-center gap-1.5 font-medium text-[#DFC286]">
-                      <CheckCircle2 className="w-4 h-4 text-[#C79A4A] shrink-0" />
+                  <div className="mt-6 pt-4 border-t border-purple-100 flex items-center justify-between text-xs text-[#475569]">
+                    <span className="inline-flex items-center gap-1.5 font-medium text-[#581C87]">
+                      <CheckCircle2 className="w-4 h-4 text-[#581C87] shrink-0" />
                       <span>Verified Citation</span>
                     </span>
 
@@ -238,14 +238,14 @@ export function RecognitionSection() {
                         href={item.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-[#C79A4A] hover:text-[#DFC286] font-mono text-xs tracking-wider focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C79A4A] rounded transition-colors"
+                        className="inline-flex items-center gap-1 text-[#581C87] hover:text-[#581C87] font-mono text-xs tracking-wider focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#581C87] rounded transition-colors"
                         aria-label={`Read coverage: ${item.title} (opens in a new tab)`}
                       >
                         <span>Read Coverage</span>
-                        <ArrowUpRight className="w-3.5 h-3.5 text-[#DFC286]" />
+                        <ArrowUpRight className="w-3.5 h-3.5 text-[#581C87]" />
                       </a>
                     ) : (
-                      <span className="text-[11px] text-[#8E8D86] font-mono">
+                      <span className="text-[11px] text-[#64748B] font-mono">
                         Registry Mandate
                       </span>
                     )}

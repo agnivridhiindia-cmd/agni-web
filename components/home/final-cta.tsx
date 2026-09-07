@@ -32,40 +32,40 @@ export function FinalCta() {
   return (
     <section
       aria-labelledby="final-cta-heading"
-      className="relative py-20 sm:py-28 lg:py-36 bg-[#080909] text-[#F3EFE7] border-b border-white/[0.08]"
+      className="relative py-20 sm:py-28 lg:py-36 bg-[#FFFFFF] text-[#0F0A1A] border-b border-purple-100"
     >
       <Container width="wide">
         <FadeIn direction="up" distance={24} delay={0.05}>
           {/* Flagship Conversion Container */}
-          <div className="relative rounded-3xl bg-gradient-to-br from-[#111313] via-[#171918] to-[#0E1010] text-[#F3EFE7] p-8 sm:p-14 lg:p-20 border border-white/[0.1] shadow-2xl overflow-hidden">
+          <div className="relative rounded-3xl bg-gradient-to-br from-[#FAF8FE] via-[#F4F1FB] to-[#EDE8F8] text-[#0F0A1A] p-8 sm:p-14 lg:p-20 border border-[#DDD6FE] shadow-2xl overflow-hidden">
             {/* Soft atmospheric radial glows */}
             <div
-              className="absolute -top-24 -right-24 w-[420px] h-[420px] bg-[radial-gradient(circle,rgba(199,154,74,0.12)_0%,transparent_70%)] blur-[90px] pointer-events-none"
+              className="absolute -top-24 -right-24 w-[420px] h-[420px] bg-[radial-gradient(circle,rgba(124,58,237,0.14)_0%,transparent_70%)] blur-[90px] pointer-events-none"
               aria-hidden="true"
             />
             <div
-              className="absolute -bottom-24 -left-24 w-[420px] h-[420px] bg-[radial-gradient(circle,rgba(140,59,36,0.08)_0%,transparent_70%)] blur-[90px] pointer-events-none"
+              className="absolute -bottom-24 -left-24 w-[420px] h-[420px] bg-[radial-gradient(circle,rgba(168,85,247,0.08)_0%,transparent_70%)] blur-[90px] pointer-events-none"
               aria-hidden="true"
             />
 
             {/* Inner Content Grid */}
             <div className="relative z-10 max-w-4xl space-y-6 sm:space-y-8">
               {/* Eyebrow */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-[#C79A4A] text-xs font-mono tracking-widest uppercase">
-                <Sparkles className="w-3.5 h-3.5 text-[#C79A4A] animate-pulse" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-purple-200 text-[#581C87] text-xs font-mono tracking-widest uppercase">
+                <Sparkles className="w-3.5 h-3.5 text-[#581C87] animate-pulse" />
                 <span>Confidential Preliminary Consultation</span>
               </div>
 
               {/* Headline */}
               <h2
                 id="final-cta-heading"
-                className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-[#F3EFE7] !leading-[1.15]"
+                className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-[#0F0A1A] !leading-[1.15]"
               >
                 Let&apos;s Structure the Exact Capital &amp; Compliance Blueprint Your Enterprise Needs.
               </h2>
 
               {/* Supporting Copy */}
-              <p className="font-sans text-sm sm:text-base lg:text-lg text-[#A5A29A] max-w-2xl leading-relaxed">
+              <p className="font-sans text-sm sm:text-base lg:text-lg text-[#475569] max-w-2xl leading-relaxed">
                 Whether you are syndicating collateral-free debt under CGTMSE, locking in central capital subsidies, or preparing for statutory quality audits, our advisory principals provide clear, bankable roadmaps from Day 1.
               </p>
 
@@ -76,11 +76,11 @@ export function FinalCta() {
                   <LinkButton
                     href="/contact"
                     variant="primary"
-                    className="w-full sm:w-auto rounded-full px-7 py-4 text-sm sm:text-base font-semibold shadow-md bg-[#C79A4A] hover:bg-[#B88B3B] text-[#080909] justify-center transition-all inline-flex items-center gap-2.5 tracking-wide"
+                    className="w-full sm:w-auto rounded-full px-7 py-4 text-sm sm:text-base font-semibold shadow-lg bg-[#581C87] hover:bg-[#4C1D95] text-white justify-center transition-all inline-flex items-center gap-2.5 tracking-wide shadow-[0_4px_16px_rgba(88,28,135,0.25)]"
                     aria-label="Schedule a preliminary consultation with an Agnivridhi advisory principal"
                   >
                     <span>Schedule Preliminary Consultation</span>
-                    <CtaArrow className="w-4 h-4 ml-1 text-[#080909]" />
+                    <CtaArrow className="w-4 h-4 ml-1 text-white" />
                   </LinkButton>
                 </MagneticButton>
 
@@ -88,11 +88,11 @@ export function FinalCta() {
                 <LinkButton
                   href="/services"
                   variant="outline"
-                  className="w-full sm:w-auto rounded-full px-7 py-4 text-sm sm:text-base font-semibold border-white/20 bg-white/[0.04] hover:bg-white/[0.08] text-[#F3EFE7] hover:border-white/30 justify-center backdrop-blur-xs transition-all inline-flex items-center gap-2 tracking-wide"
+                  className="w-full sm:w-auto rounded-full px-7 py-4 text-sm sm:text-base font-semibold border-purple-200/80 bg-white hover:bg-purple-50 text-[#0F0A1A] hover:border-purple-300 justify-center transition-all inline-flex items-center gap-2 tracking-wide shadow-sm"
                   aria-label="Explore all four advisory practices and service catalog"
                 >
                   <span>Explore 4 Advisory Desks</span>
-                  <ArrowRight className="w-4 h-4 ml-1 text-[#A5A29A]" />
+                  <ArrowRight className="w-4 h-4 ml-1 text-[#581C87]" />
                 </LinkButton>
 
                 {/* WhatsApp Integration */}
@@ -103,29 +103,29 @@ export function FinalCta() {
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-5 py-4 rounded-full border border-[#25D366]/30 bg-[#0F1E16] text-[#25D366] hover:bg-[#142A1E] transition-colors text-xs sm:text-sm font-semibold tracking-wide focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366]"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-4 rounded-full border border-emerald-300 bg-white text-[#16A34A] hover:bg-emerald-50 transition-colors text-xs sm:text-sm font-semibold tracking-wide shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
                     aria-label="Chat directly with Agnivridhi team on WhatsApp"
                   >
-                    <WhatsAppIcon className="w-4 h-4 fill-current text-[#25D366]" />
+                    <WhatsAppIcon className="w-4 h-4 fill-current text-[#16A34A]" />
                     <span>Chat on WhatsApp</span>
                   </a>
                 )}
               </div>
 
               {/* Trust Indicators Strip */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-10 mt-10 border-t border-white/[0.08]">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-10 mt-10 border-t border-purple-200/60">
                 {trustIndicators.map((item, idx) => {
                   const Icon = item.icon;
                   return (
-                    <div key={idx} className="flex items-start gap-3.5 p-4 rounded-2xl bg-[#0B0C0C] border border-white/[0.06]">
-                      <div className="w-8 h-8 rounded-lg bg-[#C79A4A]/10 text-[#C79A4A] border border-[#C79A4A]/25 flex items-center justify-center shrink-0 mt-0.5">
+                    <div key={idx} className="flex items-start gap-3.5 p-4 rounded-2xl bg-white border border-purple-100 shadow-sm">
+                      <div className="w-8 h-8 rounded-lg bg-purple-50 text-[#581C87] border border-purple-200/60 flex items-center justify-center shrink-0 mt-0.5">
                         <Icon className="w-4 h-4" />
                       </div>
                       <div className="space-y-1">
-                        <span className="text-xs font-mono font-medium uppercase tracking-wider text-[#F3EFE7] block">
+                        <span className="text-xs font-mono font-medium uppercase tracking-wider text-[#0F0A1A] block">
                           {item.title}
                         </span>
-                        <p className="text-xs text-[#A5A29A] font-sans leading-relaxed">
+                        <p className="text-xs text-[#475569] font-sans leading-relaxed">
                           {item.description}
                         </p>
                       </div>

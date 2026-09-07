@@ -62,57 +62,56 @@
    ========================================================================== */
 
 @layer base {
-  :root,
-  .dark {
-    /* Primary Institutional Dark Palette */
-    --background: 180 6% 3.3%;           /* #080909 (luxury black) */
-    --background-subtle: 180 6% 7.1%;    /* #111313 (charcoal surface) */
-    --background-elevated: 150 4% 9.4%;  /* #171918 (elevated surface) */
+  :root {
+    /* Primary Institutional Light & Soft Lavender Mist Palette */
+    --background: 0 0% 100%;             /* #FFFFFF (pure crisp white) */
+    --background-subtle: 260 40% 98%;    /* #F8F7FD (soft lavender mist surface) */
+    --background-elevated: 0 0% 100%;    /* #FFFFFF (elevated card surface) */
 
-    --surface: 180 6% 7.1%;
-    --surface-hover: 150 4% 11%;
+    --surface: 0 0% 100%;
+    --surface-hover: 260 40% 97%;
 
-    --foreground: 40 33% 93%;            /* #F3EFE7 (warm ivory) */
-    --foreground-muted: 44 6% 63%;       /* #A5A29A (muted stone) */
-    --foreground-subtle: 53 4% 54%;      /* #8E8D86 (calibrated WCAG AA) */
+    --foreground: 265 45% 7%;            /* #0F0A1A (deep slate-violet-black, high contrast) */
+    --foreground-muted: 215 16% 47%;     /* #475569 (refined slate body text) */
+    --foreground-subtle: 215 14% 60%;    /* #64748B (muted metadata) */
 
-    /* Primary Brass Anchor (#C79A4A) */
-    --primary: 38 54% 53.5%;
-    --primary-foreground: 180 6% 3.3%;
-    --primary-hover: 38 54% 60%;
-    --primary-active: 38 54% 45%;
-    --primary-muted: 38 35% 20%;
+    /* Primary Deep Royal Amethyst Anchor (#581C87) */
+    --primary: 272 65% 32%;              /* #581C87 (royal purple) */
+    --primary-foreground: 0 0% 100%;     /* #FFFFFF */
+    --primary-hover: 272 65% 26%;        /* #4C1D95 */
+    --primary-active: 272 70% 20%;       /* #3B0764 */
+    --primary-muted: 265 89% 96%;        /* #F5F3FF */
 
-    /* Accent Anchor: Refined Brass / Warm Gold */
-    --accent: 38 54% 53.5%;
-    --accent-foreground: 180 6% 3.3%;
-    --accent-hover: 38 54% 60%;
-    --accent-muted: 38 35% 20%;
+    /* Accent Anchor: Electric Violet / Iris */
+    --accent: 265 89% 66%;               /* #8B5CF6 */
+    --accent-foreground: 0 0% 100%;
+    --accent-hover: 265 89% 60%;
+    --accent-muted: 265 89% 96%;
 
-    /* Secondary Neutral Controls */
-    --secondary: 180 6% 7.1%;
-    --secondary-foreground: 40 33% 93%;
-    --secondary-hover: 150 4% 11%;
+    /* Secondary Controls */
+    --secondary: 260 40% 98%;            /* #F8F7FD */
+    --secondary-foreground: 265 45% 12%; /* #181126 */
+    --secondary-hover: 260 40% 95%;
 
     /* Functional Muted & Cards */
-    --muted: 180 6% 7.1%;
-    --muted-foreground: 44 6% 63%;
+    --muted: 260 40% 98%;
+    --muted-foreground: 215 16% 47%;
 
-    --card: 180 6% 7.1%;
-    --card-foreground: 40 33% 93%;
+    --card: 0 0% 100%;
+    --card-foreground: 265 45% 7%;
 
-    --popover: 180 6% 7.1%;
-    --popover-foreground: 40 33% 93%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 265 45% 7%;
 
-    --destructive: 13 59% 45%;
-    --destructive-foreground: 40 33% 93%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    /* Restrained Architectural Borders */
-    --border: 40 33% 93% / 0.08;
-    --border-subtle: 40 33% 93% / 0.05;
-    --border-strong: 40 33% 93% / 0.16;
-    --input: 40 33% 93% / 0.10;
-    --ring: 38 54% 53.5%;
+    /* Delicate Lavender Borders */
+    --border: 260 30% 92%;               /* #EDE9FE */
+    --border-subtle: 260 30% 95%;        /* #F5F3FF */
+    --border-strong: 260 30% 86%;        /* #DDD6FE */
+    --input: 260 30% 92%;
+    --ring: 272 65% 32%;
 
     /* Radius Foundation */
     --radius: 0.375rem;                  /* 6px restrained radius */
@@ -154,8 +153,8 @@
   }
 
   ::selection {
-    background-color: #C79A4A;
-    color: #080909;
+    background-color: #EDE9FE;
+    color: #581C87;
   }
 
   :focus-visible {

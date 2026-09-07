@@ -8,11 +8,11 @@ export function ServicesHero() {
   return (
     <section
       aria-labelledby="services-hero-title"
-      className="relative border-b border-[#232727] bg-[#080909] pt-32 pb-14 sm:pt-36 sm:pb-16 lg:pt-40 lg:pb-20 overflow-hidden"
+      className="relative border-b border-purple-100 bg-[#FFFFFF] pt-32 pb-14 sm:pt-36 sm:pb-16 lg:pt-40 lg:pb-20 overflow-hidden"
     >
       {/* Subtle Editorial Ambient Glow */}
       <div
-        className="absolute top-0 inset-x-0 h-96 bg-[radial-gradient(ellipse_70%_60%_at_50%_-10%,rgba(199,154,74,0.08),rgba(8,9,9,0))] pointer-events-none"
+        className="absolute top-0 inset-x-0 h-96 bg-[radial-gradient(ellipse_70%_60%_at_50%_-10%,rgba(124,58,237,0.08),rgba(8,9,9,0))] pointer-events-none"
         aria-hidden="true"
       />
 
@@ -25,14 +25,14 @@ export function ServicesHero() {
           <FadeIn direction="up" distance={16} delay={0.1}>
             <h1
               id="services-hero-title"
-              className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-semibold text-[#F3EFE7] tracking-tight leading-[1.15]"
+              className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-semibold text-[#0F0A1A] tracking-tight leading-[1.15]"
             >
               Four Strategic Desks. Engineered for Enterprise Momentum.
             </h1>
           </FadeIn>
 
           <FadeIn direction="up" distance={16} delay={0.15}>
-            <p className="type-body-lg text-[#D1CBC1] font-sans leading-relaxed">
+            <p className="type-body-lg text-[#475569] font-sans leading-relaxed">
               We eliminate fragmented middleman agencies by organizing our multi-disciplinary
               expertise into four synchronized practices: sovereign debt structuring, statutory
               compliance, high-conversion digital platforms, and custom enterprise software.
@@ -41,17 +41,17 @@ export function ServicesHero() {
 
           {/* Credibility metric pills */}
           <FadeIn direction="up" distance={16} delay={0.2}>
-            <div className="pt-2 flex flex-wrap items-center gap-3 text-xs text-[#D1CBC1] font-medium font-sans">
-              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[#111313] border border-[#232727] shadow-xs">
-                <Landmark className="w-4 h-4 text-[#2DD4BF]" />
+            <div className="pt-2 flex flex-wrap items-center gap-3 text-xs text-[#475569] font-medium font-sans">
+              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white border border-purple-100 shadow-xs">
+                <Landmark className="w-4 h-4 text-[#581C87]" />
                 <span>Up to ₹5 Cr CGTMSE Collateral-Free Cover</span>
               </span>
-              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[#111313] border border-[#232727] shadow-xs">
-                <ShieldCheck className="w-4 h-4 text-[#C79A4A]" />
+              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white border border-purple-100 shadow-xs">
+                <ShieldCheck className="w-4 h-4 text-[#581C87]" />
                 <span>Statutory ISO &amp; Startup India Desks</span>
               </span>
-              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[#111313] border border-[#232727] shadow-xs">
-                <CheckCircle2 className="w-4 h-4 text-[#2DD4BF]" />
+              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white border border-purple-100 shadow-xs">
+                <CheckCircle2 className="w-4 h-4 text-[#581C87]" />
                 <span>Synchronized Execution Across 28 States</span>
               </span>
             </div>

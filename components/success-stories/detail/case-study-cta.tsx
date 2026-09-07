@@ -12,11 +12,11 @@ export function CaseStudyCta({ caseStudyTitle }: CaseStudyCtaProps) {
   return (
     <section
       aria-labelledby="case-study-cta-title"
-      className="py-16 sm:py-20 lg:py-24 bg-[#0B0C0C] text-[#F3EFE7] border-t border-[#232727] relative overflow-hidden"
+      className="py-16 sm:py-20 lg:py-24 bg-white text-[#0F0A1A] border-t border-purple-100 relative overflow-hidden"
     >
       <Container width="wide">
         <div className="relative z-10 max-w-3xl space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C79A4A]/10 border border-[#C79A4A]/30 text-[#C79A4A] text-xs font-semibold">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#581C87]/10 border border-purple-200 text-[#581C87] text-xs font-semibold">
             <Sparkles className="w-3.5 h-3.5" aria-hidden="true" />
             <span>Enterprise Advisory Desk</span>
           </div>
@@ -28,18 +28,18 @@ export function CaseStudyCta({ caseStudyTitle }: CaseStudyCtaProps) {
             Facing a similar operational, funding, or compliance hurdle?
           </h2>
 
-          <p className="text-[#D1CBC1] text-sm sm:text-base md:text-lg leading-relaxed font-sans">
+          <p className="text-[#475569] text-sm sm:text-base md:text-lg leading-relaxed font-sans">
             Connect directly with our senior advisory principals. We evaluate your balance sheet,
             DPR feasibility, and scheme eligibility with zero upfront commitment.
           </p>
 
-          <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-[#D1CBC1]">
+          <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-[#475569]">
             <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-[#2DD4BF] shrink-0" aria-hidden="true" />
+              <CheckCircle2 className="w-4 h-4 text-[#581C87] shrink-0" aria-hidden="true" />
               <span>Strict non-disclosure (NDA) protected</span>
             </div>
             <div className="flex items-center gap-2">
-              <Shield className="w-4 h-4 text-[#2DD4BF] shrink-0" aria-hidden="true" />
+              <Shield className="w-4 h-4 text-[#581C87] shrink-0" aria-hidden="true" />
               <span>Institutional banking &amp; accreditation expertise</span>
             </div>
           </div>
@@ -61,7 +61,7 @@ export function CaseStudyCta({ caseStudyTitle }: CaseStudyCtaProps) {
 
             <Link
               href="/success-stories"
-              className="text-sm font-medium text-[#D1CBC1] hover:text-white transition-colors underline-offset-4 hover:underline px-2 py-1"
+              className="text-sm font-medium text-[#475569] hover:text-white transition-colors underline-offset-4 hover:underline px-2 py-1"
             >
               Explore All Case Studies &rarr;
             </Link>

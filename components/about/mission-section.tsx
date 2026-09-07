@@ -26,7 +26,7 @@ export function MissionSection() {
   return (
     <section
       aria-labelledby="mission-heading"
-      className="relative py-20 sm:py-24 lg:py-28 bg-[#0B0C0C] text-[#F3EFE7] border-b border-[#232727] overflow-hidden"
+      className="relative py-20 sm:py-24 lg:py-28 bg-white text-[#0F0A1A] border-b border-purple-100 overflow-hidden"
     >
       {/* Subtle Ambient Glow */}
       <div
@@ -44,16 +44,16 @@ export function MissionSection() {
           <div className="max-w-4xl space-y-6">
             <span
               id="mission-heading"
-              className="type-eyebrow text-[#C79A4A] font-mono tracking-widest block uppercase"
+              className="type-eyebrow text-[#581C87] font-mono tracking-widest block uppercase"
             >
               Our Central Mission
             </span>
 
-            <blockquote className="font-serif text-2xl sm:text-4xl lg:text-5xl font-normal leading-[1.25] text-[#F3EFE7] tracking-tight">
+            <blockquote className="font-serif text-2xl sm:text-4xl lg:text-5xl font-normal leading-[1.25] text-[#0F0A1A] tracking-tight">
               &ldquo;To transform ambitious Indian enterprises into bankable, accredited, and technologically resilient market leaders by systematically eliminating the barriers between ambition and institutional execution.&rdquo;
             </blockquote>
 
-            <p className="type-body text-[#9E9B93] max-w-2xl font-sans leading-relaxed">
+            <p className="type-body text-[#64748B] max-w-2xl font-sans leading-relaxed">
               We reject the fragmented model of dealing with disconnected loan brokers, compliance agents, and web developers. We unify these four disciplines under one disciplined institutional roof.
             </p>
           </div>
@@ -61,16 +61,16 @@ export function MissionSection() {
 
         {/* Middle: Tripartite Progression Grid */}
         <FadeIn direction="up" distance={20} delay={0.15}>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 border-t border-[#232727]">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 border-t border-purple-100">
             {missionPillars.map((pillar) => (
               <div key={pillar.step} className="space-y-3">
-                <span className="text-xs font-mono font-bold text-[#C79A4A] block tracking-wider">
+                <span className="text-xs font-mono font-bold text-[#581C87] block tracking-wider">
                   PHASE {pillar.step}
                 </span>
                 <h3 className="font-serif text-xl font-semibold text-white tracking-tight">
                   {pillar.label}
                 </h3>
-                <p className="text-xs sm:text-sm text-[#9E9B93] font-sans leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#64748B] font-sans leading-relaxed">
                   {pillar.description}
                 </p>
               </div>
@@ -80,12 +80,12 @@ export function MissionSection() {
 
         {/* Bottom: Contextual Services Transition */}
         <FadeIn direction="up" distance={16} delay={0.2}>
-          <div className="pt-8 border-t border-[#232727] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+          <div className="pt-8 border-t border-purple-100 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
             <div className="space-y-1">
-              <span className="text-xs font-mono text-[#9E9B93] uppercase tracking-wider block">
+              <span className="text-xs font-mono text-[#64748B] uppercase tracking-wider block">
                 Integrated Advisory Model
               </span>
-              <p className="text-sm text-[#D1CBC1] font-sans">
+              <p className="text-sm text-[#475569] font-sans">
                 Explore how our four specialized desks coordinate across your enterprise lifecycle.
               </p>
             </div>
@@ -94,11 +94,11 @@ export function MissionSection() {
               <LinkButton
                 href="/services"
                 variant="outline"
-                className="text-[#F3EFE7] border-slate-700 bg-slate-900/80 hover:bg-slate-800 hover:border-slate-600 hover:text-white"
+                className="text-[#0F0A1A] border-slate-700 bg-slate-900/80 hover:bg-slate-800 hover:border-slate-600 hover:text-white"
                 aria-label="Explore all four advisory desks and services"
               >
                 <span>Explore 4 Advisory Desks</span>
-                <CtaArrow className="w-4 h-4 ml-2 text-[#C79A4A]" />
+                <CtaArrow className="w-4 h-4 ml-2 text-[#581C87]" />
               </LinkButton>
             </div>
           </div>

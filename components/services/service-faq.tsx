@@ -21,23 +21,23 @@ export function ServiceFaq({ faqs, serviceName }: ServiceFaqProps) {
   return (
     <div className="space-y-6">
       <div className="space-y-1">
-        <div className="flex items-center gap-2 text-[#C79A4A]">
+        <div className="flex items-center gap-2 text-[#581C87]">
           <HelpCircle className="w-4 h-4" />
           <span className="type-eyebrow font-mono">Knowledge Base &bull; Scheme Inquiries</span>
         </div>
-        <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-[#F3EFE7] tracking-tight">
+        <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-[#0F0A1A] tracking-tight">
           Frequently Asked Questions regarding {serviceName}
         </h2>
       </div>
 
-      <div className="rounded-xl border border-[#232727] bg-[#111313] p-6 sm:p-7 shadow-xs">
+      <div className="rounded-xl border border-purple-100 bg-white p-6 sm:p-7 shadow-xs">
         <Accordion type="single" collapsible className="w-full">
           {faqs.map((faq, index) => (
             <AccordionItem key={index} value={`faq-${index}`}>
-              <AccordionTrigger className="text-left font-serif text-base sm:text-lg font-medium text-[#F3EFE7] hover:text-[#C79A4A]">
+              <AccordionTrigger className="text-left font-serif text-base sm:text-lg font-medium text-[#0F0A1A] hover:text-[#581C87]">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="text-sm text-[#D1CBC1] font-sans leading-relaxed">
+              <AccordionContent className="text-sm text-[#475569] font-sans leading-relaxed">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>

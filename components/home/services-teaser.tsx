@@ -95,7 +95,7 @@ export function ServicesTeaser() {
   return (
     <section
       aria-labelledby="services-teaser-heading"
-      className="relative bg-[#080909] text-[#F3EFE7] py-20 sm:py-28 lg:py-36 border-b border-white/[0.08] overflow-hidden"
+      className="relative bg-[#FFFFFF] text-[#0F0A1A] py-20 sm:py-28 lg:py-36 border-b border-purple-100 overflow-hidden"
     >
       {/* Ambient background lighting */}
       <div
@@ -109,23 +109,23 @@ export function ServicesTeaser() {
       <Container width="wide" className="relative z-10 space-y-12 sm:space-y-16">
         {/* Section Header */}
         <FadeIn direction="up" distance={16}>
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/[0.08] pb-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-purple-100 pb-8">
             <div className="space-y-3 max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-xs font-mono tracking-widest text-[#C79A4A] uppercase">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#C79A4A]" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-50 border border-purple-200 text-xs font-mono tracking-widest text-[#581C87] uppercase">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#581C87]" />
                 <span>CORE PRACTICES &bull; QUAD-PILLAR ARCHITECTURE</span>
               </div>
 
               <h2
                 id="services-teaser-heading"
-                className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-[#F3EFE7] !leading-[1.12]"
+                className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-[#0F0A1A] !leading-[1.12]"
               >
                 Four Specialized Desks.
                 <br />
-                <span className="text-[#C79A4A] italic font-light">One Institutional Platform.</span>
+                <span className="text-[#581C87] italic font-light">One Institutional Platform.</span>
               </h2>
 
-              <p className="font-sans text-sm sm:text-base text-[#A5A29A] leading-relaxed">
+              <p className="font-sans text-sm sm:text-base text-[#475569] leading-relaxed">
                 Navigating expansion requires more than isolated advice. Our four
                 synchronized advisory desks solve capital, compliance, technology, and
                 growth as a single interconnected mandate.
@@ -135,7 +135,7 @@ export function ServicesTeaser() {
             <div className="shrink-0">
               <Link
                 href="/services"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-white/15 hover:border-[#C79A4A] text-[#F3EFE7] hover:text-[#C79A4A] hover:bg-white/[0.03] text-xs font-mono tracking-wider uppercase transition-all group"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-purple-200 hover:border-[#581C87] text-[#0F0A1A] hover:text-[#581C87] hover:bg-purple-50 text-xs font-mono tracking-wider uppercase transition-all group shadow-xs"
               >
                 <span>Complete Service Catalog</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -149,7 +149,7 @@ export function ServicesTeaser() {
             ============================================================ */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           {/* Left: 4 Interactive Practice Rows (7 cols) */}
-          <div className="lg:col-span-7 divide-y divide-white/[0.08]">
+          <div className="lg:col-span-7 divide-y divide-purple-100">
             {practices.map((practice) => {
               const isActive = activePracticeId === practice.id;
 
@@ -165,8 +165,8 @@ export function ServicesTeaser() {
                     className={cn(
                       "absolute left-0 top-6 bottom-6 w-[2px] transition-all duration-300",
                       isActive
-                        ? "bg-[#C79A4A] opacity-100"
-                        : "bg-transparent opacity-0 group-hover:opacity-60 group-hover:bg-[#DFC286]"
+                        ? "bg-[#581C87] opacity-100"
+                        : "bg-transparent opacity-0 group-hover:opacity-60 group-hover:bg-[#7C3AED]"
                     )}
                   />
 
@@ -177,13 +177,13 @@ export function ServicesTeaser() {
                         <span
                           className={cn(
                             "font-mono text-xs tracking-widest uppercase transition-colors",
-                            isActive ? "text-[#C79A4A] font-semibold" : "text-[#8E8D86]"
+                            isActive ? "text-[#581C87] font-semibold" : "text-[#64748B]"
                           )}
                         >
                           PRACTICE {practice.num} &bull; {practice.discipline}
                         </span>
                       </div>
-                      <span className="font-mono text-xs text-[#8E8D86] hidden sm:inline">
+                      <span className="font-mono text-xs text-[#64748B] hidden sm:inline">
                         [{practice.subhead}]
                       </span>
                     </div>
@@ -194,8 +194,8 @@ export function ServicesTeaser() {
                         className={cn(
                           "font-serif text-2xl sm:text-3xl font-normal transition-all duration-300",
                           isActive
-                            ? "text-[#DFC286] translate-x-1"
-                            : "text-[#F3EFE7] group-hover:text-[#DFC286]"
+                            ? "text-[#581C87] translate-x-1"
+                            : "text-[#0F0A1A] group-hover:text-[#581C87]"
                         )}
                       >
                         {practice.headline}
@@ -205,8 +205,8 @@ export function ServicesTeaser() {
                         className={cn(
                           "w-9 h-9 rounded-full border flex items-center justify-center transition-all duration-300 shrink-0",
                           isActive
-                            ? "bg-[#C79A4A] text-[#080909] border-[#C79A4A] shadow-[0_0_15px_rgba(199,154,74,0.3)]"
-                            : "border-white/10 text-[#A5A29A] group-hover:border-[#C79A4A] group-hover:text-[#C79A4A]"
+                            ? "bg-[#581C87] text-white border-[#581C87] shadow-[0_2px_10px_rgba(88,28,135,0.25)]"
+                            : "border-purple-200 text-[#475569] group-hover:border-[#581C87] group-hover:text-[#581C87]"
                         )}
                       >
                         <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
@@ -214,7 +214,7 @@ export function ServicesTeaser() {
                     </div>
 
                     {/* Short Description */}
-                    <p className="font-sans text-xs sm:text-sm text-[#A5A29A] leading-relaxed max-w-xl">
+                    <p className="font-sans text-xs sm:text-sm text-[#475569] leading-relaxed max-w-xl">
                       {practice.description}
                     </p>
 
@@ -223,7 +223,7 @@ export function ServicesTeaser() {
                       {practice.deliverables.map((item, i) => (
                         <span
                           key={i}
-                          className="inline-flex items-center px-2.5 py-0.5 rounded text-[10px] font-mono text-[#F3EFE7]/80 bg-white/[0.03] border border-white/[0.06]"
+                          className="inline-flex items-center px-2.5 py-0.5 rounded text-[10px] font-mono text-[#475569] bg-purple-50 border border-purple-100"
                         >
                           {item}
                         </span>
@@ -237,12 +237,12 @@ export function ServicesTeaser() {
 
           {/* Right: Dynamic Architectural Photography Frame (5 cols) */}
           <div className="hidden lg:block lg:col-span-5 lg:sticky lg:top-28">
-            <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#111313] shadow-[0_24px_60px_-15px_rgba(0,0,0,0.85)] group aspect-[4/3]">
+            <div className="relative rounded-2xl overflow-hidden border border-purple-100 bg-white shadow-[0_15px_45px_rgba(88,28,135,0.08)] group aspect-[4/3]">
               {/* Corner Blueprint Crosshairs */}
-              <div className="absolute top-2 left-2 font-mono text-xs text-[#C79A4A]/50 z-30 select-none">
+              <div className="absolute top-2 left-2 font-mono text-xs text-[#581C87]/40 z-30 select-none">
                 +
               </div>
-              <div className="absolute bottom-2 right-2 font-mono text-xs text-[#C79A4A]/50 z-30 select-none">
+              <div className="absolute bottom-2 right-2 font-mono text-xs text-[#581C87]/40 z-30 select-none">
                 +
               </div>
 
@@ -278,24 +278,24 @@ export function ServicesTeaser() {
               <div className="relative z-20 h-full p-6 flex flex-col justify-between pointer-events-none">
                 {/* Top Badge */}
                 <div className="flex items-center justify-between">
-                  <span className="px-3 py-1 rounded-md bg-[#080909]/80 backdrop-blur-md border border-white/10 text-[10px] font-mono text-[#F3EFE7] uppercase tracking-wider flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C79A4A] animate-pulse" />
+                  <span className="px-3 py-1 rounded-md bg-white/90 backdrop-blur-md border border-purple-100 text-[10px] font-mono text-[#0F0A1A] uppercase tracking-wider flex items-center gap-1.5 shadow-xs">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#581C87] animate-pulse" />
                     <span>DESK {activePractice.num} &bull; CONTEXT</span>
                   </span>
-                  <span className="px-2.5 py-1 rounded-md bg-[#080909]/80 backdrop-blur-md border border-white/10 text-[10px] font-mono text-[#DFC286]">
+                  <span className="px-2.5 py-1 rounded-md bg-white/90 backdrop-blur-md border border-purple-100 text-[10px] font-mono text-[#581C87] shadow-xs">
                     {activePractice.tag}
                   </span>
                 </div>
 
                 {/* Bottom Caption */}
-                <div className="space-y-1 bg-[#080909]/75 backdrop-blur-md p-4 rounded-xl border border-white/10">
-                  <p className="text-[10px] font-mono uppercase tracking-widest text-[#C79A4A]">
+                <div className="space-y-1 bg-white/95 backdrop-blur-md p-4 rounded-xl border border-purple-100 shadow-md">
+                  <p className="text-[10px] font-mono uppercase tracking-widest text-[#581C87] font-semibold">
                     {activePractice.discipline}
                   </p>
-                  <p className="font-serif text-lg text-[#F3EFE7] font-normal leading-snug">
+                  <p className="font-serif text-lg text-[#0F0A1A] font-normal leading-snug">
                     {activePractice.headline}
                   </p>
-                  <p className="text-xs text-[#A5A29A] font-sans line-clamp-2">
+                  <p className="text-xs text-[#475569] font-sans line-clamp-2">
                     {activePractice.description}
                   </p>
                 </div>

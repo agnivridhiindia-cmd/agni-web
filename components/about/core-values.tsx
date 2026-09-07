@@ -12,7 +12,7 @@ const coreValues = [
     icon: ShieldCheck,
     description:
       "Every financial projection, CMA dossier, and statutory filing is prepared strictly to formal banking and ministerial guidelines. We do not compromise on data integrity or audit compliance.",
-    badgeClass: "text-[#2DD4BF] bg-[#2DD4BF]/10 border-[#2DD4BF]/30",
+    badgeClass: "text-[#581C87] bg-[#2DD4BF]/10 border-[#2DD4BF]/30",
   },
   {
     number: "02",
@@ -21,7 +21,7 @@ const coreValues = [
     icon: Scale,
     description:
       "In an advisory landscape often marred by misleading approval promises, we maintain strict factual honesty. Credit sanctioning authority rests solely with bank committees; our responsibility is institutional-grade presentation.",
-    badgeClass: "text-slate-700 bg-slate-100 border-[#232727]",
+    badgeClass: "text-slate-700 bg-slate-100 border-purple-100",
   },
   {
     number: "03",
@@ -30,7 +30,7 @@ const coreValues = [
     icon: Flame,
     description:
       "Inspired by Agni (fire & focused energy), we bring intensity, relentless follow-through, and administrative velocity to eliminate bottlenecks and compress institutional approval cycles.",
-    badgeClass: "text-[#C79A4A] bg-[#C79A4A]/10 border-[#C79A4A]/30",
+    badgeClass: "text-[#581C87] bg-[#581C87]/10 border-purple-200",
   },
   {
     number: "04",
@@ -39,7 +39,7 @@ const coreValues = [
     icon: Award,
     description:
       "Statutory certifications and ISO 9001/14001 accreditations are not treated as bureaucratic formalities. They are permanent enterprise assets that unlock national procurement tenders and vendor status.",
-    badgeClass: "text-[#C79A4A] bg-[#C79A4A]/10 border-[#C79A4A]/30",
+    badgeClass: "text-[#581C87] bg-[#581C87]/10 border-purple-200",
   },
 ];
 
@@ -47,7 +47,7 @@ export function CoreValues() {
   return (
     <section
       aria-labelledby="values-heading"
-      className="py-16 sm:py-20 lg:py-28 bg-[#080909] border-b border-[#232727]"
+      className="py-16 sm:py-20 lg:py-28 bg-[#FFFFFF] border-b border-purple-100"
     >
       <Container width="wide" className="space-y-12 sm:space-y-16">
         <FadeIn direction="up" distance={16} delay={0.05}>
@@ -73,7 +73,7 @@ export function CoreValues() {
                 distance={16}
                 delay={0.1 + idx * 0.06}
               >
-                <div className="h-full p-7 sm:p-8 rounded-2xl bg-[#181A1A]/70 border border-[#232727]/80 hover:border-slate-300 hover:bg-[#181A1A] transition-all duration-200 flex flex-col justify-between space-y-6">
+                <div className="h-full p-7 sm:p-8 rounded-2xl bg-purple-50/70 border border-purple-100/80 hover:border-slate-300 hover:bg-purple-50 transition-all duration-200 flex flex-col justify-between space-y-6">
                   <div className="space-y-4">
                     {/* Number and Icon Header */}
                     <div className="flex items-center justify-between">
@@ -87,16 +87,16 @@ export function CoreValues() {
 
                     {/* Value Titles */}
                     <div>
-                      <span className="text-xs font-semibold uppercase tracking-wider text-[#9E9B93] font-sans block">
+                      <span className="text-xs font-semibold uppercase tracking-wider text-[#64748B] font-sans block">
                         {val.subtitle}
                       </span>
-                      <h3 className="font-serif text-2xl font-bold text-[#F3EFE7] leading-snug mt-0.5">
+                      <h3 className="font-serif text-2xl font-bold text-[#0F0A1A] leading-snug mt-0.5">
                         {val.title}
                       </h3>
                     </div>
 
                     {/* Value Body */}
-                    <p className="text-sm sm:text-base text-[#D1CBC1] font-sans leading-relaxed">
+                    <p className="text-sm sm:text-base text-[#475569] font-sans leading-relaxed">
                       {val.description}
                     </p>
                   </div>

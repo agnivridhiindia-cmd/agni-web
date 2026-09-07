@@ -24,34 +24,34 @@ const categoryVisuals: Record<
 > = {
   funding: {
     numeralColor: "text-white/[0.04]",
-    badgeBg: "bg-[#181A1A] border-[#232727]",
-    badgeText: "text-[#C79A4A]",
+    badgeBg: "bg-purple-50 border-purple-100",
+    badgeText: "text-[#581C87]",
     borderAccent: "border-l-[#C79A4A]",
-    quoteColor: "text-[#D1CBC1]",
+    quoteColor: "text-[#475569]",
     pov: "Sovereign credit guarantees and capital subsidies structure unencumbered growth runway without relinquishing equity control or encumbering personal residential assets.",
   },
   compliance: {
     numeralColor: "text-white/[0.04]",
-    badgeBg: "bg-[#181A1A] border-[#232727]",
-    badgeText: "text-[#2DD4BF]",
+    badgeBg: "bg-purple-50 border-purple-100",
+    badgeText: "text-[#581C87]",
     borderAccent: "border-l-[#2DD4BF]",
-    quoteColor: "text-[#D1CBC1]",
+    quoteColor: "text-[#475569]",
     pov: "Rigorous statutory registrations and international quality standards transform statutory friction into competitive institutional tender qualifications.",
   },
   digital: {
     numeralColor: "text-white/[0.04]",
-    badgeBg: "bg-[#181A1A] border-[#232727]",
+    badgeBg: "bg-purple-50 border-purple-100",
     badgeText: "text-[#38BDF8]",
     borderAccent: "border-l-[#38BDF8]",
-    quoteColor: "text-[#D1CBC1]",
+    quoteColor: "text-[#475569]",
     pov: "High-performance web platforms and technical search dominance establish commercial authority and high-intent customer acquisition pipelines.",
   },
   it: {
-    numeralColor: "text-[#F3EFE7]/15",
-    badgeBg: "bg-[#181A1A] border-[#232727]",
-    badgeText: "text-[#F3EFE7]",
+    numeralColor: "text-[#0F0A1A]/15",
+    badgeBg: "bg-purple-50 border-purple-100",
+    badgeText: "text-[#0F0A1A]",
     borderAccent: "border-l-[#8E8B82]",
-    quoteColor: "text-[#D1CBC1]",
+    quoteColor: "text-[#475569]",
     pov: "Bespoke internal software portals, ERP automations, and resilient IT infrastructure systematically eliminate operational bottlenecks.",
   },
 };
@@ -72,11 +72,11 @@ export function ServiceCategorySection({
     <section
       id={category.id}
       aria-labelledby={`heading-${category.id}`}
-      className="scroll-mt-32 py-14 sm:py-18 lg:py-20 border-b border-[#232727] last:border-b-0"
+      className="scroll-mt-32 py-14 sm:py-18 lg:py-20 border-b border-purple-100 last:border-b-0"
     >
       <Container width="wide" className="space-y-8 sm:space-y-10">
         {/* Category Header Row */}
-        <div className="relative border-b border-[#232727] pb-8">
+        <div className="relative border-b border-purple-100 pb-8">
           {/* Editorial Numeral Watermark */}
           <span
             aria-hidden="true"
@@ -99,26 +99,26 @@ export function ServiceCategorySection({
               >
                 PRACTICE {sectionNumber} &bull; {category.id.toUpperCase()}
               </span>
-              <span className="text-xs font-mono text-[#8E8B82]">
+              <span className="text-xs font-mono text-[#64748B]">
                 {services.length} {services.length === 1 ? "Program" : "Programs"} Catalogued
               </span>
             </div>
 
             <h2
               id={`heading-${category.id}`}
-              className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-[#F3EFE7] tracking-tight leading-tight"
+              className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-[#0F0A1A] tracking-tight leading-tight"
             >
               {category.name}
             </h2>
 
-            <p className="text-[#D1CBC1] text-sm sm:text-base leading-relaxed font-sans max-w-3xl">
+            <p className="text-[#475569] text-sm sm:text-base leading-relaxed font-sans max-w-3xl">
               {category.shortDescription}
             </p>
 
             {/* Strategic Point of View Callout */}
             <div
               className={cn(
-                "mt-4 pl-4 border-l-2 py-2 text-xs sm:text-sm font-sans italic bg-[#111313] rounded-r-lg pr-4 border-y border-r border-[#232727]",
+                "mt-4 pl-4 border-l-2 py-2 text-xs sm:text-sm font-sans italic bg-white rounded-r-lg pr-4 border-y border-r border-purple-100",
                 visual.borderAccent,
                 visual.quoteColor
               )}

@@ -15,7 +15,7 @@ const legalPages = [
 
 export function LegalNav({ currentPage }: LegalNavProps) {
   return (
-    <div className="border-b border-[#232727] bg-[#080909]/95 backdrop-blur-md sticky top-16 sm:top-20 z-20 shadow-2xs">
+    <div className="border-b border-purple-100 bg-white/95 backdrop-blur-md sticky top-16 sm:top-20 z-20 shadow-2xs">
       <Container width="reading">
         <nav aria-label="Legal document navigation" className="flex items-center gap-2 sm:gap-4 overflow-x-auto py-3 no-scrollbar">
           {legalPages.map((page) => {
@@ -28,8 +28,8 @@ export function LegalNav({ currentPage }: LegalNavProps) {
                 className={cn(
                   "px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-all shrink-0 font-sans",
                   isActive
-                    ? "bg-[#181A1A] text-[#F3EFE7] border border-[#C79A4A]/60 shadow-2xs font-semibold"
-                    : "text-[#8E8B82] hover:text-[#F3EFE7] hover:bg-[#141616]"
+                    ? "bg-purple-50 text-[#0F0A1A] border border-[#581C87]/60 shadow-2xs font-semibold"
+                    : "text-[#64748B] hover:text-[#0F0A1A] hover:bg-purple-50/60"
                 )}
               >
                 {page.label}

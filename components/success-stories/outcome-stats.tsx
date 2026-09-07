@@ -21,20 +21,20 @@ export function OutcomeStats({
   const isLarge = size === "large";
 
   const colorVariants = {
-    teal: "text-[#DFC286]",
-    gold: "text-[#C79A4A]",
-    neutral: "text-[#F3EFE7]",
+    teal: "text-[#7C3AED]",
+    gold: "text-[#581C87]",
+    neutral: "text-[#0F0A1A]",
   };
 
   return (
     <div
       className={cn(
-        "rounded-xl p-4 sm:p-5 border border-[#232727] bg-[#111313] hover:border-[#C79A4A]/40 transition-colors",
+        "rounded-xl p-4 sm:p-5 border border-purple-100 bg-white hover:border-purple-300 transition-colors",
         variant === "gold"
-          ? "border-[#C79A4A]/30 bg-[#161818]"
+          ? "border-purple-200 bg-white"
           : variant === "teal"
-          ? "border-[#C79A4A]/20 bg-[#111313]"
-          : "border-[#232727] bg-[#111313]",
+          ? "border-purple-200 bg-white"
+          : "border-purple-100 bg-white",
         className
       )}
       {...props}
@@ -50,12 +50,12 @@ export function OutcomeStats({
           {value}
         </span>
 
-        <span className="text-xs font-bold tracking-wider uppercase text-[#8E8B82] block font-mono pt-1">
+        <span className="text-xs font-bold tracking-wider uppercase text-[#64748B] block font-mono pt-1">
           {label}
         </span>
 
         {context && (
-          <span className="text-xs text-[#D1CBC1] block font-sans leading-normal">
+          <span className="text-xs text-[#475569] block font-sans leading-normal">
             {context}
           </span>
         )}

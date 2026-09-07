@@ -118,15 +118,15 @@ export function StoriesListing({ initialStudies }: StoriesListingProps) {
           >
             {filteredStudies.length === 0 ? (
               /* Empty Filter State */
-              <div className="py-16 sm:py-20 text-center rounded-2xl border border-dashed border-[#232727] bg-[#111313] max-w-xl mx-auto space-y-4 px-6">
-                <div className="w-12 h-12 rounded-full bg-[#181A1A] border border-[#232727] text-[#C79A4A] flex items-center justify-center mx-auto">
+              <div className="py-16 sm:py-20 text-center rounded-2xl border border-dashed border-purple-100 bg-white max-w-xl mx-auto space-y-4 px-6">
+                <div className="w-12 h-12 rounded-full bg-purple-50 border border-purple-100 text-[#581C87] flex items-center justify-center mx-auto">
                   <FileQuestion className="w-6 h-6" />
                 </div>
                 <div className="space-y-1">
-                  <h3 className="font-serif text-xl font-semibold text-[#F3EFE7]">
+                  <h3 className="font-serif text-xl font-semibold text-[#0F0A1A]">
                     No Case Studies in This Category
                   </h3>
-                  <p className="text-[#D1CBC1] text-sm font-sans">
+                  <p className="text-[#475569] text-sm font-sans">
                     We currently have no verified engagements published under this filter.
                   </p>
                 </div>

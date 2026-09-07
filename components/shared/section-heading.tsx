@@ -64,7 +64,7 @@ export function SectionHeading({
         <h2
           className={cn(
             isLarge ? "type-h1" : "type-h2",
-            "text-[#F3EFE7] tracking-tight font-serif"
+            "text-[#0F0A1A] tracking-tight font-serif"
           )}
         >
           {title}
@@ -73,7 +73,7 @@ export function SectionHeading({
         {description && (
           <p
             className={cn(
-              "type-body text-[#D1CBC1] font-sans leading-relaxed",
+              "type-body text-[#475569] font-sans leading-relaxed",
               isCentered ? "max-w-xl mx-auto" : "max-w-reading"
             )}
           >

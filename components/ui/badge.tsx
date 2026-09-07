@@ -7,14 +7,10 @@ export const badgeVariants = cva(
   {
     variants: {
       variant: {
-        default:
-          "bg-[#181A1A] text-[#D1CBC1] border border-[#232727]",
-        primary:
-          "bg-[#C79A4A]/15 text-[#DFC286] border border-[#C79A4A]/30",
-        accent:
-          "bg-[#C79A4A]/20 text-[#DFC286] border border-[#C79A4A]/40",
-        muted:
-          "bg-[#141616] text-[#8E8B82] border border-[#232727]",
+        default: "bg-[#F5F3FF] text-[#581C87] border border-[#DDD6FE]",
+        primary: "bg-[#EDE9FE] text-[#581C87] border border-[#C4B5FD]",
+        accent: "bg-[#7C3AED]/10 text-[#581C87] border border-[#7C3AED]/20",
+        muted: "bg-[#F8FAFC] text-[#64748B] border border-[#E2E8F0]",
         success:
           "bg-emerald-500/15 text-emerald-300 border border-emerald-500/30",
         warning:

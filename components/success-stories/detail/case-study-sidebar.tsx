@@ -95,7 +95,7 @@ export function CaseStudySidebar({ study }: CaseStudySidebarProps) {
 
           <div className="p-5 sm:p-6 space-y-5">
             {/* Massive Highlight Metric */}
-            <div className="p-4 rounded-xl bg-white/[0.04] border border-white/10 space-y-1">
+            <div className="p-4 rounded-xl bg-white/[0.04] border border-purple-100 space-y-1">
               <span className="text-2xl sm:text-3xl font-serif font-bold text-white tracking-tight tabular-nums block">
                 {tombstone.highlightMetric}
               </span>

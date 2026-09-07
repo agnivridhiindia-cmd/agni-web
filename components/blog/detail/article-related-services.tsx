@@ -35,7 +35,7 @@ export function ArticleRelatedServices({ post }: ArticleRelatedServicesProps) {
           </span>
         </div>
 
-        <h3 id="related-services-heading" className="font-serif text-2xl font-semibold text-[#F3EFE7]">
+        <h3 id="related-services-heading" className="font-serif text-2xl font-semibold text-[#0F0A1A]">
           Related Advisory Solutions
         </h3>
 
@@ -58,16 +58,16 @@ export function ArticleRelatedServices({ post }: ArticleRelatedServicesProps) {
                   )}
                 </div>
 
-                <h4 className="font-serif text-lg font-semibold text-[#F3EFE7] group-hover:text-[#C79A4A] transition-colors">
+                <h4 className="font-serif text-lg font-semibold text-[#0F0A1A] group-hover:text-[#581C87] transition-colors">
                   {service.name}
                 </h4>
 
-                <p className="text-xs text-[#D1CBC1] font-sans line-clamp-2 leading-relaxed">
+                <p className="text-xs text-[#475569] font-sans line-clamp-2 leading-relaxed">
                   {service.shortDescription}
                 </p>
               </div>
 
-              <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-[#C79A4A] group-hover:text-teal-900">
+              <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-[#581C87] group-hover:text-teal-900">
                 <span>Explore Advisory Practice</span>
                 <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
               </div>
