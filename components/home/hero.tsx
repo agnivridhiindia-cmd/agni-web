@@ -60,21 +60,29 @@ export function Hero({ isPinned = false }: HeroProps) {
   return (
     <section
       aria-labelledby="hero-heading"
-      className={cn("relative overflow-hidden bg-[#FFFFFF] text-[#0F0A1A] border-b border-purple-100", isPinned ? "h-full w-full flex flex-col justify-center py-6 sm:py-8 lg:py-0" : "pt-28 pb-16 sm:pt-36 sm:pb-24 lg:pt-40 lg:pb-28")}
+      className={cn(
+        "relative overflow-hidden bg-gradient-to-b from-[#FAF8FE] via-[#F6F2FC] to-[#FAF8FE] text-[#181226] border-b border-purple-100/80",
+        isPinned
+          ? "h-full w-full flex flex-col justify-center pt-16 pb-8 sm:pt-20 sm:pb-10 lg:pt-16 lg:pb-0"
+          : "pt-28 pb-16 sm:pt-36 sm:pb-24 lg:pt-40 lg:pb-28"
+      )}
     >
-      {/* Background Architectural Ambient Lighting */}
+      {/* Background Architectural Ambient Lighting & Delicate Glows */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 z-0 overflow-hidden select-none"
       >
-        {/* Deep ambient brass glow - Top Right */}
-        <div className="absolute -top-32 right-[-10%] h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle,rgba(124,58,237,0.06)_0%,transparent_70%)] blur-3xl" />
+        {/* Soft atmospheric lavender glow - Top Right */}
+        <div className="absolute -top-24 right-[-5%] h-[550px] w-[550px] rounded-full bg-[radial-gradient(circle,rgba(124,58,237,0.08)_0%,rgba(168,85,247,0.03)_50%,transparent_70%)] blur-3xl" />
         
-        {/* Deep terracotta ambient glow - Bottom Left */}
-        <div className="absolute top-1/2 left-[-12%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle,rgba(168,85,247,0.05)_0%,transparent_70%)] blur-3xl" />
+        {/* Soft pearl-amethyst ambient glow - Bottom Left */}
+        <div className="absolute top-1/2 left-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle,rgba(147,51,234,0.06)_0%,rgba(238,242,255,0.5)_60%,transparent_75%)] blur-3xl" />
 
-        {/* Architectural Grid Texture */}
-        <div className="absolute inset-0 opacity-[0.035] [background-image:linear-gradient(to_right,#000000_1px,transparent_1px),linear-gradient(to_bottom,#000000_1px,transparent_1px)] [background-size:4.5rem_4.5rem] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_40%,#000_70%,transparent_100%)]" />
+        {/* Center ambient mist highlight */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 h-[350px] w-[650px] rounded-full bg-[radial-gradient(ellipse,rgba(255,255,255,0.8)_0%,transparent_70%)] blur-2xl" />
+
+        {/* Architectural Grid Texture with soft radial mask */}
+        <div className="absolute inset-0 opacity-[0.035] [background-image:linear-gradient(to_right,#581C87_1px,transparent_1px),linear-gradient(to_bottom,#581C87_1px,transparent_1px)] [background-size:4.5rem_4.5rem] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_40%,#000_70%,transparent_100%)]" />
       </div>
 
       <Container width="wide" className="relative z-10">
@@ -86,25 +94,25 @@ export function Hero({ isPinned = false }: HeroProps) {
             {prefersReduced ? (
               <div className="space-y-6">
                 {/* Eyebrow */}
-                <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-purple-50 border border-purple-200/80 text-xs font-mono tracking-widest text-[#581C87]">
+                <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-purple-200/90 text-xs font-mono tracking-widest text-[#581C87] shadow-xs">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#581C87]" />
                   <span>AGNIVRIDHI &bull; ADVISORY / INDIA</span>
                 </div>
 
-                {/* Massive Headline */}
+                {/* Refined Serif Headline */}
                 <h1
                   id="hero-heading"
-                  className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[5.2rem] xl:text-[5.8rem] font-normal tracking-tight text-[#0F0A1A] !leading-[0.96] uppercase"
+                  className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[4.5rem] xl:text-[5.2rem] font-normal tracking-[-0.025em] text-[#181226] !leading-[1.04]"
                 >
                   Capital.
                   <br />
-                  <span className="text-[#581C87] italic font-light">Compliance.</span>
+                  <span className="text-[#581C87] italic font-normal">Compliance.</span>
                   <br />
                   Growth.
                 </h1>
 
                 {/* Supporting Copy */}
-                <p className="font-sans text-base sm:text-lg text-[#475569] max-w-xl leading-relaxed font-normal">
+                <p className="font-sans text-base sm:text-lg text-[#475569] max-w-xl leading-[1.7] font-normal">
                   Strategic advisory for ambitious Indian enterprises navigating capital,
                   compliance and technological transformation.
                 </p>
@@ -113,7 +121,7 @@ export function Hero({ isPinned = false }: HeroProps) {
                 <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
                   <Link
                     href="/services"
-                    className="group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-lg bg-[#581C87] hover:bg-[#4C1D95] text-white font-sans font-semibold text-xs tracking-wider uppercase transition-all shadow-[0_4px_20px_rgba(88,28,135,0.25)] hover:scale-[1.02] active:scale-[0.98]"
+                    className="group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-[#581C87] hover:bg-[#4C1D95] text-white font-sans font-semibold text-xs tracking-wider uppercase transition-all shadow-[0_4px_20px_rgba(88,28,135,0.22)] hover:shadow-[0_8px_28px_rgba(88,28,135,0.3)] hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
                   >
                     <span>Explore Advisory</span>
                     <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
@@ -121,7 +129,7 @@ export function Hero({ isPinned = false }: HeroProps) {
 
                   <Link
                     href="/contact"
-                    className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-lg border border-purple-200/90 hover:border-[#581C87] text-[#0F0A1A] hover:text-[#581C87] hover:bg-purple-50/70 font-sans font-semibold text-xs tracking-wider uppercase transition-all"
+                    className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl border border-purple-200/90 hover:border-[#581C87] bg-white/90 hover:bg-purple-50/80 text-[#181226] hover:text-[#581C87] font-sans font-semibold text-xs tracking-wider uppercase transition-all shadow-xs hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
                   >
                     <span>Speak with an Advisor</span>
                   </Link>
@@ -136,16 +144,16 @@ export function Hero({ isPinned = false }: HeroProps) {
               >
                 {/* Eyebrow */}
                 <motion.div variants={heroFadeInUpItem}>
-                  <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-purple-50 border border-purple-200/80 text-xs font-mono tracking-widest text-[#581C87]">
+                  <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-purple-200/90 text-xs font-mono tracking-widest text-[#581C87] shadow-xs">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#581C87] animate-pulse" />
                     <span>AGNIVRIDHI &bull; ADVISORY / INDIA</span>
                   </div>
                 </motion.div>
 
-                {/* Massive Headline with Line-by-Line Masked Reveals */}
+                {/* Refined Headline with Line-by-Line Masked Reveals */}
                 <h1
                   id="hero-heading"
-                  className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[5.2rem] xl:text-[5.8rem] font-normal tracking-tight text-[#0F0A1A] !leading-[0.96] uppercase"
+                  className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[4.5rem] xl:text-[5.2rem] font-normal tracking-[-0.025em] text-[#181226] !leading-[1.04]"
                 >
                   <span className="block overflow-hidden py-1">
                     <motion.span variants={headlineLineReveal} className="block">
@@ -155,7 +163,7 @@ export function Hero({ isPinned = false }: HeroProps) {
                   <span className="block overflow-hidden py-1">
                     <motion.span
                       variants={headlineLineReveal}
-                      className="block text-[#581C87] italic font-light"
+                      className="block text-[#581C87] italic font-normal"
                     >
                       Compliance.
                     </motion.span>
@@ -169,7 +177,7 @@ export function Hero({ isPinned = false }: HeroProps) {
 
                 {/* Supporting Copy */}
                 <motion.div variants={heroFadeInUpItem}>
-                  <p className="font-sans text-base sm:text-lg text-[#475569] max-w-xl leading-relaxed font-normal">
+                  <p className="font-sans text-base sm:text-lg text-[#475569] max-w-xl leading-[1.7] font-normal">
                     Strategic advisory for ambitious Indian enterprises navigating capital,
                     compliance and technological transformation.
                   </p>
@@ -180,7 +188,7 @@ export function Hero({ isPinned = false }: HeroProps) {
                   <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
                     <Link
                       href="/services"
-                      className="group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-lg bg-[#581C87] hover:bg-[#4C1D95] text-white font-sans font-semibold text-xs tracking-wider uppercase transition-all shadow-[0_4px_20px_rgba(88,28,135,0.25)] hover:scale-[1.02] active:scale-[0.98]"
+                      className="group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-[#581C87] hover:bg-[#4C1D95] text-white font-sans font-semibold text-xs tracking-wider uppercase transition-all shadow-[0_4px_20px_rgba(88,28,135,0.22)] hover:shadow-[0_8px_28px_rgba(88,28,135,0.3)] hover:-translate-y-0.5 active:translate-y-0"
                     >
                       <span>Explore Advisory</span>
                       <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
@@ -188,7 +196,7 @@ export function Hero({ isPinned = false }: HeroProps) {
 
                     <Link
                       href="/contact"
-                      className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-lg border border-purple-200/90 hover:border-[#581C87] text-[#0F0A1A] hover:text-[#581C87] hover:bg-purple-50/70 font-sans font-semibold text-xs tracking-wider uppercase transition-all"
+                      className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl border border-purple-200/90 hover:border-[#581C87] bg-white/90 hover:bg-purple-50/80 text-[#181226] hover:text-[#581C87] font-sans font-semibold text-xs tracking-wider uppercase transition-all shadow-xs hover:-translate-y-0.5 active:translate-y-0"
                     >
                       <span>Speak with an Advisor</span>
                     </Link>
@@ -197,24 +205,22 @@ export function Hero({ isPinned = false }: HeroProps) {
               </motion.div>
             )}
 
-            {/* Editorial Metadata Strip */}
-            <div className="pt-6 border-t border-purple-100 flex flex-wrap items-center gap-y-2.5 gap-x-6 text-[11px] font-mono text-[#64748B]">
-              <div className="flex items-center gap-1.5">
-                <span className="w-1 h-1 rounded-full bg-[#581C87]" />
+            {/* Editorial Metadata Strip with Soft Raised Badges */}
+            <div className="pt-6 border-t border-purple-200/80 flex flex-wrap items-center gap-y-2.5 gap-x-3 sm:gap-x-4 text-xs font-mono text-[#475569]">
+              <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white/95 border border-purple-200/80 shadow-xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#581C87]" />
                 <span className="text-[#581C87] font-semibold">₹5 CR</span>
-                <span>COLLATERAL-FREE CAP</span>
+                <span className="text-[#475569]">COLLATERAL-FREE CAP</span>
               </div>
-              <span className="w-1 h-1 rounded-full bg-purple-200 hidden sm:block" />
-              <div className="flex items-center gap-1.5">
-                <span className="w-1 h-1 rounded-full bg-[#581C87]" />
+              <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white/95 border border-purple-200/80 shadow-xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#581C87]" />
                 <span className="text-[#581C87] font-semibold">85%</span>
-                <span>SOVEREIGN RISK BACKSTOP</span>
+                <span className="text-[#475569]">SOVEREIGN RISK BACKSTOP</span>
               </div>
-              <span className="w-1 h-1 rounded-full bg-purple-200 hidden sm:block" />
-              <div className="flex items-center gap-1.5">
-                <span className="w-1 h-1 rounded-full bg-[#581C87]" />
+              <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white/95 border border-purple-200/80 shadow-xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#581C87]" />
                 <span className="text-[#581C87] font-semibold">24+</span>
-                <span>REGULATORY SCHEMES</span>
+                <span className="text-[#475569]">REGULATORY SCHEMES</span>
               </div>
             </div>
           </div>
@@ -234,7 +240,7 @@ export function Hero({ isPinned = false }: HeroProps) {
               <div className="absolute -bottom-2.5 -right-2.5 text-[#581C87]/40 font-mono text-xs z-30 select-none hidden sm:block">+</div>
 
               {/* Main Architectural Image Container */}
-              <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden border border-purple-100 shadow-[0_20px_60px_-15px_rgba(88,28,135,0.12)] bg-white group">
+              <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden border border-purple-200/90 shadow-[0_20px_50px_-12px_rgba(88,28,135,0.14),0_2px_8px_rgba(0,0,0,0.04)] bg-white group">
                 <Image
                   src="/img/hero-enterprise.jpg"
                   alt="Agnivridhi Enterprise Infrastructure & Architecture"
@@ -250,13 +256,13 @@ export function Hero({ isPinned = false }: HeroProps) {
 
                 {/* Top Pinned Editorial Labels */}
                 <div className="absolute top-4 left-4 z-20 flex items-center gap-2">
-                  <div className="px-3 py-1 rounded-md bg-white/90 backdrop-blur-md border border-purple-100 text-[10px] font-mono text-[#0F0A1A] uppercase tracking-wider flex items-center gap-1.5">
+                  <div className="px-3 py-1 rounded-md bg-white/95 backdrop-blur-md border border-purple-100/90 text-[10px] font-mono text-[#181226] uppercase tracking-wider flex items-center gap-1.5 shadow-xs">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#581C87]" />
                     <span>AGNIVRIDHI / 01 &bull; {location.city}, NCR</span>
                   </div>
                 </div>
 
-                <div className="absolute top-4 right-4 z-20 hidden sm:flex items-center gap-2 bg-white/90 backdrop-blur-md px-3 py-1 rounded-md border border-purple-100 text-[#0F0A1A] text-[10px] font-mono">
+                <div className="absolute top-4 right-4 z-20 hidden sm:flex items-center gap-2 bg-white/95 backdrop-blur-md px-3 py-1 rounded-md border border-purple-100/90 text-[#181226] text-[10px] font-mono shadow-xs">
                   <Building2 className="w-3.5 h-3.5 text-[#581C87]" />
                   <span className="font-sans text-[11px] font-medium tracking-wide">
                     Industrial Scale &bull; Capital &bull; Engineering
@@ -264,30 +270,30 @@ export function Hero({ isPinned = false }: HeroProps) {
                 </div>
 
                 {/* Bottom Right Sovereign Mandate Tag */}
-                <div className="absolute bottom-4 right-4 z-20 flex items-center gap-1.5 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-md border border-purple-100 text-[#581C87] text-[10px] font-mono">
+                <div className="absolute bottom-4 right-4 z-20 flex items-center gap-1.5 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-md border border-purple-100/90 text-[#581C87] text-[10px] font-mono shadow-xs">
                   <ShieldCheck className="w-3.5 h-3.5" />
-                  <span>SOVEREIGN MANDATE</span>
+                  <span className="font-semibold">SOVEREIGN MANDATE</span>
                 </div>
               </div>
 
-              {/* Floating Leadership Glass Tag */}
-              <div className="absolute -bottom-5 left-2 sm:-bottom-6 sm:-left-5 rounded-xl bg-white/95 backdrop-blur-xl p-3 sm:p-3.5 border border-purple-100 shadow-xl flex items-center gap-3 z-30">
-                <div className="relative w-10 h-10 rounded-lg overflow-hidden border border-white/15 shrink-0 bg-black">
+              {/* Floating Leadership Glass Tag with Soft Depth */}
+              <div className="absolute -bottom-5 left-2 sm:-bottom-6 sm:-left-5 rounded-2xl bg-white/95 backdrop-blur-xl p-3.5 sm:p-4 border border-purple-200/90 shadow-[0_12px_36px_-8px_rgba(88,28,135,0.16),0_2px_8px_rgba(0,0,0,0.04)] flex items-center gap-3.5 z-30">
+                <div className="relative w-11 h-11 rounded-xl overflow-hidden border border-purple-200/60 shrink-0 bg-purple-100">
                   <Image
                     src="/img/rahul-kumar-singh.jpg"
                     alt={siteConfig.founder.name ?? "Managing Director"}
                     fill
-                    sizes="40px"
+                    sizes="44px"
                     className="object-cover object-top"
                   />
                 </div>
                 <div className="space-y-0.5 min-w-0 pr-2">
                   <div className="flex items-center gap-1.5">
-                    <h3 className="font-serif text-xs sm:text-sm font-semibold text-[#0F0A1A] truncate">
+                    <h3 className="font-serif text-sm sm:text-base font-semibold text-[#181226] truncate">
                       {siteConfig.founder.name}
                     </h3>
                   </div>
-                  <p className="text-[10px] text-[#581C87] font-mono uppercase tracking-wider">
+                  <p className="text-[10px] text-[#581C87] font-mono uppercase tracking-wider font-medium">
                     {siteConfig.founder.role}
                   </p>
                 </div>

@@ -108,34 +108,34 @@ export function RecognitionSection() {
   return (
     <section
       aria-labelledby="recognition-heading"
-      className="relative bg-[#F8F7FD] text-[#0F0A1A] py-20 sm:py-28 lg:py-36 border-b border-purple-100 overflow-hidden"
+      className="relative bg-gradient-to-b from-[#FAF8FE] via-[#F5F1FB] to-[#FAF8FE] text-[#181226] py-20 sm:py-28 lg:py-36 border-b border-purple-100/80 overflow-hidden"
     >
       {/* Ambient background decoration */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 z-0 select-none overflow-hidden"
       >
-        <div className="absolute top-1/2 -right-24 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(199,154,74,0.04)_0%,transparent_70%)] blur-3xl" />
-        <div className="absolute bottom-0 -left-24 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(140,59,36,0.04)_0%,transparent_70%)] blur-3xl" />
+        <div className="absolute top-1/2 -right-24 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(124,58,237,0.06)_0%,transparent_70%)] blur-3xl" />
+        <div className="absolute bottom-0 -left-24 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(168,85,247,0.04)_0%,transparent_70%)] blur-3xl" />
       </div>
 
       <Container width="wide" className="relative z-10 space-y-10 sm:space-y-12">
         {/* Header Row: Title on Left, Carousel Controls on Right */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <FadeIn direction="up" distance={16} delay={0.04} className="max-w-2xl space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-purple-200 text-[#581C87] text-xs font-mono tracking-widest uppercase">
+          <FadeIn direction="up" distance={16} delay={0.04} className="max-w-2xl space-y-3.5">
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-purple-200/90 text-[#581C87] text-xs font-mono tracking-widest uppercase shadow-xs">
               <span className="w-1.5 h-1.5 rounded-full bg-[#581C87]" />
               <span>AWARDS &amp; ACHIEVEMENTS &bull; ACCREDITATIONS</span>
             </div>
 
             <h2
               id="recognition-heading"
-              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-[#0F0A1A] !leading-[1.15]"
+              className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] font-normal tracking-[-0.015em] text-[#181226] !leading-[1.15]"
             >
               Recognized for Catalyzing Enterprise Growth
             </h2>
 
-            <p className="font-sans text-sm sm:text-base text-[#475569] leading-relaxed">
+            <p className="font-sans text-sm sm:text-base text-[#475569] leading-[1.7]">
               External citations, industry conclave commendations, and sector
               publications honoring our institutional advisory rigor across sovereign
               guarantees, statutory certifications, and modern enterprise governance.
@@ -148,7 +148,7 @@ export function RecognitionSection() {
               type="button"
               onClick={() => scrollByAmount(-380)}
               disabled={!canScrollLeft}
-              className="w-11 h-11 rounded-full border border-purple-200 bg-white text-[#475569] hover:border-[#581C87] hover:text-[#581C87] disabled:opacity-20 flex items-center justify-center transition-all shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#581C87]"
+              className="w-11 h-11 rounded-full border border-purple-200/90 bg-white text-[#475569] hover:border-[#581C87] hover:text-[#581C87] disabled:opacity-25 flex items-center justify-center transition-all shadow-xs hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#581C87] cursor-pointer"
               aria-label="Scroll citations left"
             >
               <ChevronLeft className="w-5 h-5" />
@@ -157,7 +157,7 @@ export function RecognitionSection() {
               type="button"
               onClick={() => scrollByAmount(380)}
               disabled={!canScrollRight}
-              className="w-11 h-11 rounded-full border border-purple-200 bg-white text-[#475569] hover:border-[#581C87] hover:text-[#581C87] disabled:opacity-20 flex items-center justify-center transition-all shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#581C87]"
+              className="w-11 h-11 rounded-full border border-purple-200/90 bg-white text-[#475569] hover:border-[#581C87] hover:text-[#581C87] disabled:opacity-25 flex items-center justify-center transition-all shadow-xs hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#581C87] cursor-pointer"
               aria-label="Scroll citations right"
             >
               <ChevronRight className="w-5 h-5" />
@@ -184,15 +184,15 @@ export function RecognitionSection() {
               >
                 <SpotlightCard
                   glowVariant="purple"
-                  className="h-full bg-white border border-purple-100/90 hover:border-[#581C87]/40 transition-all duration-300 shadow-sm hover:shadow-md"
-                  innerClassName="p-6 sm:p-7 justify-between bg-white"
+                  className="h-full bg-white border border-purple-200/90 hover:border-[#7C3AED]/50 transition-all duration-300 shadow-[0_8px_24px_-6px_rgba(88,28,135,0.06),0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_36px_-8px_rgba(88,28,135,0.12)]"
+                  innerClassName="p-6 sm:p-7 justify-between bg-white text-[#181226]"
                 >
                   <div className="space-y-4">
                     {/* Top Row: Icon Container + Category Tag + Year Pill */}
                     <div className="flex items-center justify-between gap-3">
                       <div className="flex items-center gap-3">
                         <div
-                          className={`w-11 h-11 rounded-2xl ${meta.iconBg} ${meta.iconColor} border flex items-center justify-center shadow-xs group-hover/spotlight:scale-105 transition-transform duration-300`}
+                          className={`w-11 h-11 rounded-xl ${meta.iconBg} ${meta.iconColor} border flex items-center justify-center shadow-xs group-hover/spotlight:scale-105 transition-transform duration-300`}
                         >
                           <Icon className="w-5 h-5" />
                         </div>
@@ -215,19 +215,19 @@ export function RecognitionSection() {
                         </span>
                       </div>
 
-                      <h3 className="font-serif text-xl sm:text-2xl font-normal text-[#0F0A1A] leading-snug group-hover/spotlight:text-[#581C87] transition-colors pt-1">
+                      <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#181226] leading-snug group-hover/spotlight:text-[#581C87] transition-colors pt-1">
                         {item.title}
                       </h3>
                     </div>
 
                     {/* Description */}
-                    <p className="text-xs sm:text-sm text-[#475569] leading-relaxed font-sans line-clamp-4">
+                    <p className="text-xs sm:text-sm text-[#475569] leading-[1.7] font-sans line-clamp-4">
                       {item.description}
                     </p>
                   </div>
 
                   {/* Bottom Verification Footer */}
-                  <div className="mt-6 pt-4 border-t border-purple-100 flex items-center justify-between text-xs text-[#475569]">
+                  <div className="mt-6 pt-4 border-t border-purple-100/90 flex items-center justify-between text-xs text-[#475569]">
                     <span className="inline-flex items-center gap-1.5 font-medium text-[#581C87]">
                       <CheckCircle2 className="w-4 h-4 text-[#581C87] shrink-0" />
                       <span>Verified Citation</span>
@@ -238,14 +238,14 @@ export function RecognitionSection() {
                         href={item.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-[#581C87] hover:text-[#581C87] font-mono text-xs tracking-wider focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#581C87] rounded transition-colors"
+                        className="inline-flex items-center gap-1 text-[#581C87] hover:text-[#4C1D95] font-mono text-xs tracking-wider focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#581C87] rounded transition-colors"
                         aria-label={`Read coverage: ${item.title} (opens in a new tab)`}
                       >
                         <span>Read Coverage</span>
                         <ArrowUpRight className="w-3.5 h-3.5 text-[#581C87]" />
                       </a>
                     ) : (
-                      <span className="text-[11px] text-[#64748B] font-mono">
+                      <span className="text-xs text-[#556070] font-mono">
                         Registry Mandate
                       </span>
                     )}

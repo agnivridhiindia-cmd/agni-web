@@ -94,7 +94,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
       </head>
-      <body className="font-sans antialiased bg-[#FFFFFF] text-[#0F0A1A] flex min-h-screen flex-col selection:bg-purple-100 selection:text-[#581C87]">
+      <body className="font-sans antialiased bg-[#FAF9FE] text-[#181226] flex min-h-screen flex-col selection:bg-purple-100 selection:text-[#581C87]">
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-[#581C87] focus:px-4 focus:py-2 focus:text-white focus:shadow-elevated focus:outline-none focus:ring-2 focus:ring-[#581C87] focus:ring-offset-2"

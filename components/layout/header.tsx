@@ -55,14 +55,8 @@ export function Header() {
         window.requestAnimationFrame(() => {
           const currentY = window.scrollY;
           setIsScrolled(currentY > 20);
-
-          // On homepage at top of desktop screen (< 80px scroll), hide navbar for 100vh full-screen hero
-          if (pathname === "/" && window.innerWidth >= 1024) {
-            setHeroHidden(currentY < 80);
-          } else {
-            setHeroHidden(false);
-          }
-
+          // Always keep navigation header visible for instant institutional branding
+          setHeroHidden(false);
           ticking = false;
         });
         ticking = true;
@@ -180,8 +174,8 @@ export function Header() {
             "pointer-events-auto relative w-full border select-none transition-all duration-300",
             "backdrop-blur-xl",
             isScrolled
-              ? "max-w-5xl rounded-xl px-4 py-2 sm:px-5 sm:py-2.5 bg-white/90 border-[#EDE9FE] shadow-[0_10px_30px_-5px_rgba(15,10,26,0.06)]"
-              : "max-w-6xl rounded-2xl px-5 py-3 sm:px-6 sm:py-3.5 bg-white/80 border-[#EDE9FE] shadow-[0_12px_36px_-10px_rgba(15,10,26,0.05)]"
+              ? "max-w-5xl rounded-xl px-4 py-2 sm:px-5 sm:py-2.5 bg-white/95 border-purple-200/90 shadow-[0_10px_30px_-5px_rgba(88,28,135,0.08)]"
+              : "max-w-6xl rounded-2xl px-5 py-3 sm:px-6 sm:py-3.5 bg-white/90 border-purple-200/80 shadow-[0_12px_36px_-10px_rgba(88,28,135,0.06)]"
           )}
         >
           <div className="flex items-center justify-between gap-4 w-full">
@@ -192,7 +186,7 @@ export function Header() {
               aria-label={`${siteConfig.company.name} - Home`}
               className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#581C87] rounded-md select-none shrink-0"
             >
-              <div className="relative w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center bg-purple-50 border border-purple-100 group-hover:border-[#581C87]/40 transition-colors duration-300">
+              <div className="relative w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center bg-purple-50 border border-purple-200/80 group-hover:border-[#581C87]/40 transition-colors duration-300">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/logo1.png"
@@ -203,12 +197,12 @@ export function Header() {
 
               <div className="flex flex-col">
                 <div className="flex items-baseline gap-1">
-                  <span className="font-serif font-semibold text-base sm:text-lg text-[#0F0A1A] tracking-tight leading-none group-hover:text-[#581C87] transition-colors">
+                  <span className="font-serif font-semibold text-base sm:text-lg text-[#181226] tracking-tight leading-none group-hover:text-[#581C87] transition-colors">
                     AGNIVRIDHI
                   </span>
                   <span className="w-1 h-1 rounded-full bg-[#581C87]" />
                 </div>
-                <span className="text-[9px] uppercase font-mono tracking-[0.2em] text-[#64748B] leading-tight mt-0.5">
+                <span className="text-[10px] uppercase font-mono tracking-[0.16em] text-[#556070] font-medium leading-tight mt-0.5">
                   INDIA &bull; ADVISORY
                 </span>
               </div>
@@ -254,7 +248,7 @@ export function Header() {
                     id="services-menu"
                     role="menu"
                     aria-label="Services Submenu"
-                    className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[560px] rounded-xl border border-[#EDE9FE] bg-white/95 backdrop-blur-2xl shadow-[0_20px_50px_rgba(15,10,26,0.1)] p-4 animate-in fade-in zoom-in-95 duration-150 z-50"
+                    className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[560px] rounded-xl border border-purple-200/90 bg-white/95 backdrop-blur-2xl shadow-[0_20px_50px_rgba(88,28,135,0.12)] p-4 animate-in fade-in zoom-in-95 duration-150 z-50"
                   >
                     <div className="grid grid-cols-2 gap-2">
                       {serviceCategories.map((category) => {
@@ -266,21 +260,21 @@ export function Header() {
                             href={`/services#${category.id}`}
                             role="menuitem"
                             onClick={() => setServicesOpen(false)}
-                            className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#F8F7FD] border border-transparent hover:border-purple-100 transition-all group focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#581C87]"
+                            className="flex items-start gap-3 p-3 rounded-lg hover:bg-purple-50/70 border border-transparent hover:border-purple-200/70 transition-all group focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#581C87]"
                           >
-                            <div className="w-8 h-8 rounded-md bg-purple-50 border border-purple-100 text-[#581C87] flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-[#581C87] group-hover:text-white transition-colors">
+                            <div className="w-8 h-8 rounded-md bg-purple-50 border border-purple-200/80 text-[#581C87] flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-[#581C87] group-hover:text-white transition-colors">
                               <IconComp className="w-4 h-4" />
                             </div>
                             <div className="space-y-0.5">
                               <div className="flex items-center gap-1.5">
-                                <span className="text-[10px] font-mono text-[#581C87]">
+                                <span className="text-[10px] font-mono text-[#581C87] font-semibold">
                                   {num}
                                 </span>
-                                <span className="block font-medium text-xs sm:text-sm text-[#0F0A1A] group-hover:text-[#581C87] transition-colors">
+                                <span className="block font-medium text-xs sm:text-sm text-[#181226] group-hover:text-[#581C87] transition-colors">
                                   {category.name}
                                 </span>
                               </div>
-                              <span className="block text-[11px] text-[#64748B] line-clamp-1">
+                              <span className="block text-[11px] text-[#475569] line-clamp-1">
                                 {category.shortDescription}
                               </span>
                             </div>
@@ -289,15 +283,15 @@ export function Header() {
                       })}
                     </div>
 
-                    <div className="mt-3 pt-3 border-t border-[#EDE9FE] flex items-center justify-between px-2 text-[11px]">
-                      <span className="text-[#64748B] font-mono">
+                    <div className="mt-3 pt-3 border-t border-purple-100 flex items-center justify-between px-2 text-[11px]">
+                      <span className="text-[#556070] font-mono">
                         Institutional Advisory &bull; 24+ Frameworks
                       </span>
                       <Link
                         href="/services"
                         role="menuitem"
                         onClick={() => setServicesOpen(false)}
-                        className="inline-flex items-center gap-1 font-semibold text-[#581C87] hover:text-[#7C3AED] transition-colors"
+                        className="inline-flex items-center gap-1 font-semibold text-[#581C87] hover:text-[#4C1D95] transition-colors"
                       >
                         <span>All Services</span>
                         <ArrowRight className="w-3 h-3" />
@@ -313,13 +307,13 @@ export function Header() {
                 className={cn(
                   "relative text-xs xl:text-sm font-sans tracking-wide transition-colors px-3 py-1.5 rounded-md",
                   isRouteActive("/blog")
-                    ? "text-[#F3EFE7] font-medium"
-                    : "text-[#A5A29A] hover:text-[#F3EFE7]"
+                    ? "text-[#581C87] font-semibold"
+                    : "text-[#374151] hover:text-[#581C87] font-medium"
                 )}
               >
                 <span>Insights</span>
                 {isRouteActive("/blog") && (
-                  <span className="absolute bottom-0 left-3 right-3 h-[1px] bg-[#581C87]" />
+                  <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-[#581C87] rounded-full" />
                 )}
               </Link>
 
@@ -329,13 +323,13 @@ export function Header() {
                 className={cn(
                   "relative text-xs xl:text-sm font-sans tracking-wide transition-colors px-3 py-1.5 rounded-md",
                   isRouteActive("/success-stories")
-                    ? "text-[#F3EFE7] font-medium"
-                    : "text-[#A5A29A] hover:text-[#F3EFE7]"
+                    ? "text-[#581C87] font-semibold"
+                    : "text-[#374151] hover:text-[#581C87] font-medium"
                 )}
               >
                 <span>Case Studies</span>
                 {isRouteActive("/success-stories") && (
-                  <span className="absolute bottom-0 left-3 right-3 h-[1px] bg-[#581C87]" />
+                  <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-[#581C87] rounded-full" />
                 )}
               </Link>
 
@@ -345,13 +339,13 @@ export function Header() {
                 className={cn(
                   "relative text-xs xl:text-sm font-sans tracking-wide transition-colors px-3 py-1.5 rounded-md",
                   isRouteActive("/about")
-                    ? "text-[#F3EFE7] font-medium"
-                    : "text-[#A5A29A] hover:text-[#F3EFE7]"
+                    ? "text-[#581C87] font-semibold"
+                    : "text-[#374151] hover:text-[#581C87] font-medium"
                 )}
               >
                 <span>About</span>
                 {isRouteActive("/about") && (
-                  <span className="absolute bottom-0 left-3 right-3 h-[1px] bg-[#581C87]" />
+                  <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-[#581C87] rounded-full" />
                 )}
               </Link>
 
@@ -361,13 +355,13 @@ export function Header() {
                 className={cn(
                   "relative text-xs xl:text-sm font-sans tracking-wide transition-colors px-3 py-1.5 rounded-md",
                   isRouteActive("/contact")
-                    ? "text-[#F3EFE7] font-medium"
-                    : "text-[#A5A29A] hover:text-[#F3EFE7]"
+                    ? "text-[#581C87] font-semibold"
+                    : "text-[#374151] hover:text-[#581C87] font-medium"
                 )}
               >
                 <span>Contact</span>
                 {isRouteActive("/contact") && (
-                  <span className="absolute bottom-0 left-3 right-3 h-[1px] bg-[#581C87]" />
+                  <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-[#581C87] rounded-full" />
                 )}
               </Link>
             </div>
@@ -390,7 +384,7 @@ export function Header() {
                 onClick={() => setMobileNavOpen((prev) => !prev)}
                 aria-expanded={mobileNavOpen}
                 aria-label={mobileNavOpen ? "Close navigation menu" : "Open navigation menu"}
-                className="lg:hidden w-9 h-9 flex items-center justify-center rounded-lg text-[#0F0A1A] hover:bg-purple-50 border border-[#EDE9FE] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#581C87]"
+                className="lg:hidden w-9 h-9 flex items-center justify-center rounded-lg text-[#181226] hover:bg-purple-50 border border-purple-200 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#581C87]"
               >
                 {mobileNavOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
               </button>
@@ -410,7 +404,7 @@ export function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: shouldReduceMotion ? 0 : 0.2 }}
-            className="fixed inset-0 z-50 bg-white/98 backdrop-blur-2xl text-[#0F0A1A] flex flex-col justify-between p-6 sm:p-10 pb-16 sm:pb-10 lg:hidden overflow-y-auto"
+            className="fixed inset-0 z-50 bg-white/98 backdrop-blur-2xl text-[#181226] flex flex-col justify-between p-6 sm:p-10 pb-16 sm:pb-10 lg:hidden overflow-y-auto"
           >
             {/* Top Bar inside Drawer */}
             <div className="flex items-center justify-between">
@@ -424,10 +418,10 @@ export function Header() {
                   />
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-serif font-semibold text-base text-[#0F0A1A] tracking-tight">
+                  <span className="font-serif font-semibold text-base text-[#181226] tracking-tight">
                     AGNIVRIDHI
                   </span>
-                  <span className="text-[9px] uppercase font-mono tracking-widest text-[#64748B]">
+                  <span className="text-[10px] uppercase font-mono tracking-widest text-[#556070] font-medium">
                     INDIA &bull; ADVISORY
                   </span>
                 </div>
@@ -437,7 +431,7 @@ export function Header() {
                 type="button"
                 onClick={() => setMobileNavOpen(false)}
                 aria-label="Close menu"
-                className="w-10 h-10 flex items-center justify-center rounded-lg border border-purple-200 text-[#0F0A1A] hover:bg-purple-50"
+                className="w-10 h-10 flex items-center justify-center rounded-lg border border-purple-200 text-[#181226] hover:bg-purple-50 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -459,10 +453,10 @@ export function Header() {
                   onClick={() => setMobileNavOpen(false)}
                   className="flex items-baseline justify-between border-b border-purple-100 pb-3 group"
                 >
-                  <span className="font-serif text-2xl sm:text-3xl text-[#0F0A1A] group-hover:text-[#581C87] transition-colors">
+                  <span className="font-serif text-2xl sm:text-3xl text-[#181226] group-hover:text-[#581C87] transition-colors">
                     {item.label}
                   </span>
-                  <span className="font-mono text-xs text-[#64748B] group-hover:text-[#581C87] transition-colors">
+                  <span className="font-mono text-xs text-[#556070] group-hover:text-[#581C87] transition-colors">
                     {item.index}
                   </span>
                 </Link>
@@ -471,24 +465,24 @@ export function Header() {
 
             {/* Bottom: Direct Institutional Contact Touchpoints */}
             <div className="pt-4 border-t border-purple-100 space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[#64748B]">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[#475569]">
                 <a
                   href={`tel:${siteConfig.contact.phone}`}
-                  className="flex items-center gap-2 hover:text-[#0F0A1A] transition-colors"
+                  className="flex items-center gap-2 hover:text-[#181226] transition-colors"
                 >
                   <Phone className="w-3.5 h-3.5 text-[#581C87]" />
                   <span className="font-mono">{siteConfig.contact.phone}</span>
                 </a>
                 <a
                   href={`mailto:${siteConfig.contact.email}`}
-                  className="flex items-center gap-2 hover:text-[#0F0A1A] transition-colors"
+                  className="flex items-center gap-2 hover:text-[#181226] transition-colors"
                 >
                   <Mail className="w-3.5 h-3.5 text-[#581C87]" />
                   <span className="font-mono">{siteConfig.contact.email}</span>
                 </a>
               </div>
 
-              <div className="flex items-center gap-2 text-[11px] text-[#64748B]">
+              <div className="flex items-center gap-2 text-[11px] text-[#556070]">
                 <MapPin className="w-3.5 h-3.5 text-[#581C87] shrink-0" />
                 <span className="line-clamp-1">{siteConfig.contact.address.street}, Noida</span>
               </div>

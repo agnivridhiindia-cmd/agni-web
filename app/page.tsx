@@ -20,12 +20,12 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-[#FFFFFF] text-[#0F0A1A]">
+    <div className="min-h-screen bg-[#FAF9FE] text-[#181226]">
       {/* Flagship Homepage Hero with Desktop Horizontal Slide to About Section */}
       <HeroHorizontalFlow />
 
       {/* Hairline Divider */}
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-purple-200/60 to-transparent" aria-hidden="true" />
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-purple-200/80 to-transparent" aria-hidden="true" />
 
       {/* Editorial Statistics & Metric Stream */}
       <StatsBar />

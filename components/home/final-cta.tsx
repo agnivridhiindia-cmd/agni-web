@@ -32,15 +32,15 @@ export function FinalCta() {
   return (
     <section
       aria-labelledby="final-cta-heading"
-      className="relative py-20 sm:py-28 lg:py-36 bg-[#FFFFFF] text-[#0F0A1A] border-b border-purple-100"
+      className="relative py-20 sm:py-28 lg:py-36 bg-gradient-to-b from-[#FFFFFF] via-[#FAF8FE] to-[#F5F1FB] text-[#181226] border-b border-purple-100/80"
     >
       <Container width="wide">
         <FadeIn direction="up" distance={24} delay={0.05}>
           {/* Flagship Conversion Container */}
-          <div className="relative rounded-3xl bg-gradient-to-br from-[#FAF8FE] via-[#F4F1FB] to-[#EDE8F8] text-[#0F0A1A] p-8 sm:p-14 lg:p-20 border border-[#DDD6FE] shadow-2xl overflow-hidden">
+          <div className="relative rounded-3xl bg-gradient-to-br from-[#FAF8FE] via-[#F4F0FA] to-[#EBE4F7] text-[#181226] p-8 sm:p-14 lg:p-20 border border-[#DDD6FE] shadow-[0_24px_60px_-15px_rgba(88,28,135,0.12),0_4px_12px_rgba(0,0,0,0.03)] overflow-hidden">
             {/* Soft atmospheric radial glows */}
             <div
-              className="absolute -top-24 -right-24 w-[420px] h-[420px] bg-[radial-gradient(circle,rgba(124,58,237,0.14)_0%,transparent_70%)] blur-[90px] pointer-events-none"
+              className="absolute -top-24 -right-24 w-[420px] h-[420px] bg-[radial-gradient(circle,rgba(124,58,237,0.12)_0%,transparent_70%)] blur-[90px] pointer-events-none"
               aria-hidden="true"
             />
             <div
@@ -51,7 +51,7 @@ export function FinalCta() {
             {/* Inner Content Grid */}
             <div className="relative z-10 max-w-4xl space-y-6 sm:space-y-8">
               {/* Eyebrow */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-purple-200 text-[#581C87] text-xs font-mono tracking-widest uppercase">
+              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-purple-200/90 text-[#581C87] text-xs font-mono tracking-widest uppercase shadow-xs">
                 <Sparkles className="w-3.5 h-3.5 text-[#581C87] animate-pulse" />
                 <span>Confidential Preliminary Consultation</span>
               </div>
@@ -59,13 +59,13 @@ export function FinalCta() {
               {/* Headline */}
               <h2
                 id="final-cta-heading"
-                className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-[#0F0A1A] !leading-[1.15]"
+                className="font-serif text-3xl sm:text-4xl lg:text-[2.85rem] font-medium tracking-[-0.015em] text-[#181226] !leading-[1.18]"
               >
                 Let&apos;s Structure the Exact Capital &amp; Compliance Blueprint Your Enterprise Needs.
               </h2>
 
               {/* Supporting Copy */}
-              <p className="font-sans text-sm sm:text-base lg:text-lg text-[#475569] max-w-2xl leading-relaxed">
+              <p className="font-sans text-sm sm:text-base lg:text-lg text-[#475569] max-w-2xl leading-[1.75]">
                 Whether you are syndicating collateral-free debt under CGTMSE, locking in central capital subsidies, or preparing for statutory quality audits, our advisory principals provide clear, bankable roadmaps from Day 1.
               </p>
 
@@ -76,7 +76,7 @@ export function FinalCta() {
                   <LinkButton
                     href="/contact"
                     variant="primary"
-                    className="w-full sm:w-auto rounded-full px-7 py-4 text-sm sm:text-base font-semibold shadow-lg bg-[#581C87] hover:bg-[#4C1D95] text-white justify-center transition-all inline-flex items-center gap-2.5 tracking-wide shadow-[0_4px_16px_rgba(88,28,135,0.25)]"
+                    className="w-full sm:w-auto rounded-full px-7 py-4 text-sm sm:text-base font-semibold bg-[#581C87] hover:bg-[#4C1D95] text-white justify-center transition-all inline-flex items-center gap-2.5 tracking-wide shadow-[0_4px_20px_rgba(88,28,135,0.25)] hover:shadow-[0_8px_28px_rgba(88,28,135,0.32)] hover:-translate-y-0.5 cursor-pointer"
                     aria-label="Schedule a preliminary consultation with an Agnivridhi advisory principal"
                   >
                     <span>Schedule Preliminary Consultation</span>
@@ -88,7 +88,7 @@ export function FinalCta() {
                 <LinkButton
                   href="/services"
                   variant="outline"
-                  className="w-full sm:w-auto rounded-full px-7 py-4 text-sm sm:text-base font-semibold border-purple-200/80 bg-white hover:bg-purple-50 text-[#0F0A1A] hover:border-purple-300 justify-center transition-all inline-flex items-center gap-2 tracking-wide shadow-sm"
+                  className="w-full sm:w-auto rounded-full px-7 py-4 text-sm sm:text-base font-semibold border-purple-200/90 bg-white/95 hover:bg-purple-50 text-[#181226] hover:text-[#581C87] hover:border-[#581C87]/40 justify-center transition-all inline-flex items-center gap-2 tracking-wide shadow-xs hover:shadow-sm hover:-translate-y-0.5 cursor-pointer"
                   aria-label="Explore all four advisory practices and service catalog"
                 >
                   <span>Explore 4 Advisory Desks</span>
@@ -103,7 +103,7 @@ export function FinalCta() {
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-5 py-4 rounded-full border border-emerald-300 bg-white text-[#16A34A] hover:bg-emerald-50 transition-colors text-xs sm:text-sm font-semibold tracking-wide shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full border border-emerald-300 bg-white text-[#16A34A] hover:bg-emerald-50 transition-colors text-xs sm:text-sm font-semibold tracking-wide shadow-xs hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
                     aria-label="Chat directly with Agnivridhi team on WhatsApp"
                   >
                     <WhatsAppIcon className="w-4 h-4 fill-current text-[#16A34A]" />
@@ -113,16 +113,16 @@ export function FinalCta() {
               </div>
 
               {/* Trust Indicators Strip */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-10 mt-10 border-t border-purple-200/60">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-10 mt-10 border-t border-purple-200/70">
                 {trustIndicators.map((item, idx) => {
                   const Icon = item.icon;
                   return (
-                    <div key={idx} className="flex items-start gap-3.5 p-4 rounded-2xl bg-white border border-purple-100 shadow-sm">
-                      <div className="w-8 h-8 rounded-lg bg-purple-50 text-[#581C87] border border-purple-200/60 flex items-center justify-center shrink-0 mt-0.5">
+                    <div key={idx} className="flex items-start gap-3.5 p-4 rounded-2xl bg-white/95 border border-purple-200/80 shadow-xs">
+                      <div className="w-8 h-8 rounded-lg bg-purple-50 text-[#581C87] border border-purple-200/80 flex items-center justify-center shrink-0 mt-0.5">
                         <Icon className="w-4 h-4" />
                       </div>
                       <div className="space-y-1">
-                        <span className="text-xs font-mono font-medium uppercase tracking-wider text-[#0F0A1A] block">
+                        <span className="text-xs font-mono font-semibold uppercase tracking-wider text-[#181226] block">
                           {item.title}
                         </span>
                         <p className="text-xs text-[#475569] font-sans leading-relaxed">
@@ -135,7 +135,7 @@ export function FinalCta() {
               </div>
 
               {/* Geographical & Headquarters Authority Subtext */}
-              <div className="pt-2 text-xs text-[#8E8D86] font-mono flex items-center gap-2 flex-wrap">
+              <div className="pt-2 text-xs text-[#556070] font-mono flex items-center gap-2 flex-wrap font-medium">
                 <span>HEADQUARTERS: NOIDA, UTTAR PRADESH</span>
                 <span aria-hidden="true">&bull;</span>
                 <span>SERVING PAN-INDIA ENTERPRISES</span>

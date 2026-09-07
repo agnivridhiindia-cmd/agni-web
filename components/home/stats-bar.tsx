@@ -105,18 +105,18 @@ function StatCard({ stat, indexNumber, isInView }: StatCardProps) {
   return (
     <div className="w-[300px] sm:w-[340px] lg:w-[360px] shrink-0 px-3 h-full">
       <SpotlightCard
-        glowVariant="amber"
-        className="h-full hover:-translate-y-1.5 transition-all duration-300 shadow-sm hover:shadow-md border-[#EDE9FE] bg-white hover:border-purple-300"
-        innerClassName="p-6 sm:p-7 flex flex-col justify-between h-full min-h-[300px] bg-white text-[#0F0A1A]"
+        glowVariant="purple"
+        className="h-full hover:-translate-y-1.5 transition-all duration-300 shadow-[0_4px_20px_-4px_rgba(88,28,135,0.06),0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_14px_36px_-6px_rgba(88,28,135,0.12)] border-[#E4DEF4] bg-white hover:border-[#7C3AED]/50"
+        innerClassName="p-6 sm:p-7 flex flex-col justify-between h-full min-h-[300px] bg-white text-[#181226]"
       >
         <div className="space-y-4">
           {/* Top Row: Icon Container + Step Number */}
           <div className="flex items-center justify-between gap-3">
-            <div className="w-11 h-11 rounded-xl bg-purple-50 border border-purple-100 text-[#581C87] flex items-center justify-center shadow-xs group-hover/spotlight:bg-[#581C87] group-hover/spotlight:text-white transition-all duration-300">
+            <div className="w-11 h-11 rounded-xl bg-purple-50 border border-purple-200/70 text-[#581C87] flex items-center justify-center shadow-xs group-hover/spotlight:bg-[#581C87] group-hover/spotlight:text-white transition-all duration-300">
               <Icon className="w-5 h-5" />
             </div>
 
-            <span className="font-mono text-xs font-semibold px-2 py-0.5 rounded-md bg-purple-50/70 border border-purple-100 text-[#64748B] group-hover/spotlight:text-[#581C87] transition-colors">
+            <span className="font-mono text-xs font-semibold px-2.5 py-1 rounded-md bg-purple-50 border border-purple-200/70 text-[#581C87] group-hover/spotlight:bg-[#581C87] group-hover/spotlight:text-white transition-colors">
               {indexNumber}
             </span>
           </div>
@@ -129,11 +129,11 @@ function StatCard({ stat, indexNumber, isInView }: StatCardProps) {
             }: ${stat.label}`}
           >
             {stat.prefix && (
-              <span className="font-serif text-2xl sm:text-3xl text-[#581C87] font-light mr-0.5 leading-none">
+              <span className="font-serif text-2xl sm:text-3xl text-[#581C87] font-normal mr-0.5 leading-none">
                 {stat.prefix}
               </span>
             )}
-            <span className="font-serif text-3xl sm:text-4xl lg:text-[2.6rem] font-normal text-[#0F0A1A] tracking-tight leading-none tabular-nums">
+            <span className="font-serif text-3xl sm:text-4xl lg:text-[2.65rem] font-medium text-[#181226] tracking-tight leading-none tabular-nums">
               {stat.numericValue !== null && stat.numericValue !== undefined ? (
                 <StatCountUp
                   target={stat.numericValue}
@@ -152,7 +152,7 @@ function StatCard({ stat, indexNumber, isInView }: StatCardProps) {
           </div>
 
           {/* Stat Label */}
-          <h3 className="font-sans text-base sm:text-lg font-semibold text-[#0F0A1A] leading-snug group-hover/spotlight:text-[#581C87] transition-colors line-clamp-1">
+          <h3 className="font-sans text-base sm:text-lg font-semibold text-[#181226] leading-snug group-hover/spotlight:text-[#581C87] transition-colors line-clamp-1">
             {stat.label}
           </h3>
 
@@ -163,8 +163,8 @@ function StatCard({ stat, indexNumber, isInView }: StatCardProps) {
         </div>
 
         {/* Bottom Verification Footer */}
-        <div className="mt-5 pt-3.5 border-t border-purple-100 flex items-center justify-between text-[11px] font-mono text-[#64748B]">
-          <span className="inline-flex items-center gap-1.5 text-[#581C87]">
+        <div className="mt-5 pt-3.5 border-t border-purple-100/90 flex items-center justify-between text-[11px] font-mono text-[#64748B]">
+          <span className="inline-flex items-center gap-1.5 text-[#581C87] font-medium">
             <CheckCircle2 className="w-3.5 h-3.5 text-[#581C87] shrink-0" />
             Verified Metric
           </span>
@@ -204,13 +204,13 @@ export function StatsBar() {
     <section
       ref={sectionRef}
       aria-labelledby="stats-heading"
-      className="relative bg-[#FFFFFF] text-[#0F0A1A] py-16 sm:py-20 lg:py-24 border-b border-purple-100 overflow-hidden"
+      className="relative bg-gradient-to-b from-[#FAF8FE] via-[#FFFFFF] to-[#FAF8FE] text-[#181226] py-16 sm:py-20 lg:py-24 border-b border-purple-100/80 overflow-hidden"
     >
       <Container width="wide" className="space-y-8 sm:space-y-10">
         {/* Section Heading */}
         <FadeIn direction="up" distance={16} delay={0.05}>
           <div className="text-center max-w-3xl mx-auto space-y-3 sm:space-y-4">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-50 border border-purple-200 text-[#581C87]">
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-purple-200/90 text-[#581C87] shadow-xs">
               <span className="w-1.5 h-1.5 rounded-full bg-[#581C87]" />
               <Eyebrow
                 accent={false}
@@ -222,19 +222,19 @@ export function StatsBar() {
 
             <h2
               id="stats-heading"
-              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-[#0F0A1A] !leading-[1.15]"
+              className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] font-normal tracking-[-0.015em] text-[#181226] !leading-[1.18]"
             >
               Engineered for Exponential Enterprise Scale
             </h2>
 
-            <p className="font-sans text-sm sm:text-base text-[#475569] max-w-2xl mx-auto leading-relaxed">
+            <p className="font-sans text-sm sm:text-base text-[#475569] max-w-2xl mx-auto leading-[1.7]">
               Verified institutional metrics establishing sovereign debt
               leverage, statutory compliance execution, and scalable technology architectures.
             </p>
 
             {/* Interaction hint & pause toggle */}
             <div className="flex items-center justify-center gap-3 pt-2">
-              <span className="inline-flex items-center gap-1.5 text-xs font-mono text-[#475569] bg-white/[0.03] px-3 py-1 rounded-full border border-white/10">
+              <span className="inline-flex items-center gap-1.5 text-xs font-mono text-[#581C87] bg-purple-50/80 px-3.5 py-1.5 rounded-full border border-purple-200/80 shadow-2xs">
                 <span className="w-2 h-2 rounded-full bg-[#581C87] animate-pulse" />
                 Hover any card to inspect &amp; pause
               </span>
@@ -242,7 +242,7 @@ export function StatsBar() {
               <button
                 type="button"
                 onClick={() => setIsPaused((prev) => !prev)}
-                className="inline-flex items-center gap-1.5 text-xs font-mono text-[#475569] hover:text-[#0F0A1A] bg-purple-50 hover:bg-purple-100 px-2.5 py-1 rounded-full border border-purple-200 transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs font-mono text-[#581C87] hover:text-[#4C1D95] bg-white hover:bg-purple-50/80 px-3 py-1.5 rounded-full border border-purple-200/80 shadow-2xs transition-colors cursor-pointer"
                 aria-label={isPaused ? "Resume metric ticker" : "Pause metric ticker"}
                 title={isPaused ? "Resume metric ticker" : "Pause metric ticker"}
               >
@@ -269,11 +269,11 @@ export function StatsBar() {
       <div className="relative w-full overflow-hidden mt-8 sm:mt-10 group">
         {/* Soft edge gradient masks */}
         <div
-          className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-32 lg:w-48 z-20 bg-gradient-to-r from-white via-white/90 to-transparent"
+          className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-32 lg:w-48 z-20 bg-gradient-to-r from-[#FAF8FE] via-[#FAF8FE]/90 to-transparent"
           aria-hidden="true"
         />
         <div
-          className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-32 lg:w-48 z-20 bg-gradient-to-l from-white via-white/90 to-transparent"
+          className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-32 lg:w-48 z-20 bg-gradient-to-l from-[#FAF8FE] via-[#FAF8FE]/90 to-transparent"
           aria-hidden="true"
         />
 

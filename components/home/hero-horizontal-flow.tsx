@@ -26,7 +26,7 @@ export function HeroHorizontalFlow() {
           ============================================================ */}
       <div
         ref={containerRef}
-        className="hidden lg:block relative h-[230vh] bg-[#FFFFFF]"
+        className="hidden lg:block relative h-[230vh] bg-[#FAF9FE]"
       >
         <div className="sticky top-0 h-screen w-full overflow-hidden">
           <motion.div
@@ -50,10 +50,10 @@ export function HeroHorizontalFlow() {
           MOBILE & TABLET (< 1024px): Standard Vertical Flow
           No horizontal slide-jacking, natural smooth touch scrolling
           ============================================================ */}
-      <div className="block lg:hidden bg-[#FFFFFF]">
+      <div className="block lg:hidden bg-[#FAF9FE]">
         <Hero />
         <div
-          className="h-px w-full bg-gradient-to-r from-transparent via-purple-200/60 to-transparent"
+          className="h-px w-full bg-gradient-to-r from-transparent via-purple-200/80 to-transparent"
           aria-hidden="true"
         />
         <AboutBrief />

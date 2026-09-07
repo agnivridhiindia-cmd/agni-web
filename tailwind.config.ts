@@ -170,8 +170,8 @@ const config: Config = {
         card: "0 1px 3px 0 rgba(15, 23, 42, 0.06), 0 1px 2px -1px rgba(15, 23, 42, 0.04)",
         elevated: "0 4px 6px -1px rgba(15, 23, 42, 0.07), 0 2px 4px -2px rgba(15, 23, 42, 0.04)",
         floating: "0 12px 24px -4px rgba(15, 23, 42, 0.08), 0 4px 8px -2px rgba(15, 23, 42, 0.04)",
-        "glow-teal": "0 0 20px -4px rgba(8, 145, 178, 0.25)",
-        "glow-gold": "0 0 20px -4px rgba(184, 137, 31, 0.25)",
+        "glow-teal": "0 0 20px -4px rgba(88, 28, 135, 0.25)",
+        "glow-purple": "0 0 20px -4px rgba(124, 58, 237, 0.25)",
       },
 
       // --- LAYOUT & SPACING RHYTHM ---

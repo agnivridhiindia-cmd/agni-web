@@ -20,8 +20,8 @@
   pointer-events: none;
   opacity: 0.06;
   background:
-    radial-gradient(circle at 18% 30%, rgb(13 148 136 / 0.8), transparent 34%),
-    radial-gradient(circle at 82% 64%, rgb(202 138 4 / 0.6), transparent 32%);
+    radial-gradient(circle at 18% 30%, rgb(88 28 135 / 0.4), transparent 34%),
+    radial-gradient(circle at 82% 64%, rgb(124 58 237 / 0.3), transparent 32%);
   animation: hero-ambient-drift 75s linear infinite;
   will-change: transform;
 }
@@ -64,16 +64,16 @@
 @layer base {
   :root {
     /* Primary Institutional Light & Soft Lavender Mist Palette */
-    --background: 0 0% 100%;             /* #FFFFFF (pure crisp white) */
-    --background-subtle: 260 40% 98%;    /* #F8F7FD (soft lavender mist surface) */
+    --background: 260 40% 99%;           /* #FAF9FE (warm lavender pearl surface) */
+    --background-subtle: 260 40% 97%;    /* #F5F1FA (soft lavender mist surface) */
     --background-elevated: 0 0% 100%;    /* #FFFFFF (elevated card surface) */
 
     --surface: 0 0% 100%;
     --surface-hover: 260 40% 97%;
 
-    --foreground: 265 45% 7%;            /* #0F0A1A (deep slate-violet-black, high contrast) */
-    --foreground-muted: 215 16% 47%;     /* #475569 (refined slate body text) */
-    --foreground-subtle: 215 14% 60%;    /* #64748B (muted metadata) */
+    --foreground: 265 35% 12%;           /* #181226 (deep refined slate-violet, comfortable contrast) */
+    --foreground-muted: 215 16% 40%;     /* #475569 (refined slate body text) */
+    --foreground-subtle: 215 14% 52%;    /* #556070 (balanced metadata) */
 
     /* Primary Deep Royal Amethyst Anchor (#581C87) */
     --primary: 272 65% 32%;              /* #581C87 (royal purple) */
@@ -89,28 +89,28 @@
     --accent-muted: 265 89% 96%;
 
     /* Secondary Controls */
-    --secondary: 260 40% 98%;            /* #F8F7FD */
-    --secondary-foreground: 265 45% 12%; /* #181126 */
-    --secondary-hover: 260 40% 95%;
+    --secondary: 260 40% 97%;            /* #F5F1FA */
+    --secondary-foreground: 265 35% 12%; /* #181226 */
+    --secondary-hover: 260 40% 94%;
 
     /* Functional Muted & Cards */
-    --muted: 260 40% 98%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 260 40% 97%;
+    --muted-foreground: 215 16% 40%;
 
     --card: 0 0% 100%;
-    --card-foreground: 265 45% 7%;
+    --card-foreground: 265 35% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 265 45% 7%;
+    --popover-foreground: 265 35% 12%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
     /* Delicate Lavender Borders */
-    --border: 260 30% 92%;               /* #EDE9FE */
-    --border-subtle: 260 30% 95%;        /* #F5F3FF */
-    --border-strong: 260 30% 86%;        /* #DDD6FE */
-    --input: 260 30% 92%;
+    --border: 260 30% 90%;               /* #E4DEF4 */
+    --border-subtle: 260 30% 94%;        /* #F0ECFA */
+    --border-strong: 260 30% 84%;        /* #D5CCF5 */
+    --input: 260 30% 90%;
     --ring: 272 65% 32%;
 
     /* Radius Foundation */
@@ -351,24 +351,28 @@
 
   /* Gradients (Calibrated, not rainbow) */
   .gradient-primary {
-    background-image: linear-gradient(135deg, #0891B2 0%, #0E7490 100%);
+    background-image: linear-gradient(135deg, #581C87 0%, #4C1D95 100%);
   }
 
   .gradient-accent {
-    background-image: linear-gradient(135deg, #DCAE32 0%, #B8891F 100%);
+    background-image: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
   }
 
   .gradient-brand {
-    background-image: linear-gradient(135deg, #0891B2 0%, #0E7490 65%, #B8891F 100%);
+    background-image: linear-gradient(135deg, #581C87 0%, #6B21A8 65%, #7C3AED 100%);
   }
 
   .gradient-subtle {
-    background-image: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
+    background-image: linear-gradient(180deg, #FAF8FE 0%, #FFFFFF 100%);
   }
 
   /* Subtle Glows */
   .glow-teal {
-    box-shadow: 0 0 24px -4px rgba(8, 145, 178, 0.25);
+    box-shadow: 0 0 24px -4px rgba(88, 28, 135, 0.25);
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 24px -4px rgba(124, 58, 237, 0.25);
   }
 
   .glow-gold {
