@@ -136,6 +136,21 @@ export function Footer() {
               <div className="flex items-center gap-3 pt-2">
                 {activeSocials.map((social) => {
                   const Icon = social.icon;
+                  const brandIconClasses =
+                    social.name === "LinkedIn" ||
+                    social.name === "Facebook" ||
+                    social.name === "Twitter / X"
+                      ? "group-hover:fill-current"
+                      : "";
+                  const brandHoverClasses =
+                    social.name === "LinkedIn"
+                      ? "hover:text-white hover:border-[#0A66C2] hover:bg-[#0A66C2]"
+                      : social.name === "Facebook"
+                        ? "hover:text-white hover:border-[#1877F2] hover:bg-[#1877F2]"
+                        : social.name === "Twitter / X"
+                          ? "hover:text-white hover:border-[#1DA1F2] hover:bg-[#1DA1F2]"
+                          : "hover:text-[#0891B2] hover:border-cyan-300 hover:bg-cyan-100";
+
                   return (
                     <a
                       key={social.name}
@@ -143,9 +158,20 @@ export function Footer() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`Follow Agnivridhi India on ${social.name}`}
-                      className="w-9 h-9 rounded-lg bg-cyan-50 hover:bg-cyan-100 border border-cyan-100 text-[#64748B] hover:text-[#0891B2] hover:border-cyan-300 flex items-center justify-center transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0891B2]"
+                      className={`group w-9 h-9 rounded-lg bg-cyan-50 border border-cyan-100 text-[#64748B] flex items-center justify-center transition-colors duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0891B2] ${brandHoverClasses}`}
                     >
-                      <Icon className="w-4 h-4" />
+                      {social.name === "Facebook" ? (
+                        <svg
+                          aria-hidden="true"
+                          viewBox="0 0 24 24"
+                          className="w-4 h-4 transition-[color,fill] duration-500"
+                          fill="currentColor"
+                        >
+                          <path d="M24 12.073C24 5.445 18.627.073 12 .073S0 5.445 0 12.073c0 5.99 4.388 10.954 10.125 11.85v-8.385H7.078v-3.465h3.047V9.432c0-3.008 1.792-4.67 4.533-4.67 1.312 0 2.686.234 2.686.234v2.953h-1.514c-1.491 0-1.956.926-1.956 1.876v2.248h3.328l-.532 3.465h-2.796v8.385C19.612 23.027 24 18.063 24 12.073Z" />
+                        </svg>
+                      ) : (
+                        <Icon className={`w-4 h-4 transition-[color,fill] duration-500 ${brandIconClasses}`} />
+                      )}
                     </a>
                   );
                 })}

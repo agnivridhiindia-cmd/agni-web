@@ -3,50 +3,12 @@
 import * as React from "react";
 import Link from "next/link";
 import { 
-  Building2, 
-  Landmark, 
-  ShieldCheck, 
-  Cpu, 
-  ArrowRight, 
-  MapPin, 
-  CheckCircle2, 
-  Users2,
-  Sparkles
+  ArrowRight,
 } from "lucide-react";
 import { Container } from "@/components/shared/container";
 import { FadeIn } from "@/components/shared/motion";
 import { siteConfig } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
-
-const corePillars = [
-  {
-    number: "01",
-    title: "Sovereign Debt & Capital Syndication",
-    subtitle: "CGTMSE, MUDRA, PMEGP & Private Consortiums",
-    description:
-      "Structuring bank-grade DPRs, CMA data, and DSCR models to unlock up to   -  5 Cr collateral-free credit and   -  50 Cr+ structured credit facilities.",
-    icon: Landmark,
-    accent: "#0891B2",
-  },
-  {
-    number: "02",
-    title: "Statutory Compliance & Governance",
-    subtitle: "ISO Certifications, ZED Ratings & Subsidies",
-    description:
-      "Guiding enterprises through zero-defect regulatory frameworks, ISO 9001/14001/45001 accreditations, and central/state subsidy recovery.",
-    icon: ShieldCheck,
-    accent: "#06B6D4",
-  },
-  {
-    number: "03",
-    title: "Digital Systems & Automation",
-    subtitle: "Enterprise Software, Web & ERP Architecture",
-    description:
-      "Modernizing legacy operations with bespoke enterprise platforms, digital workflow automation, and institutional web presence.",
-    icon: Cpu,
-    accent: "#8C3B24",
-  },
-];
 
 export interface AboutBriefProps {
   isPinned?: boolean;
@@ -75,9 +37,9 @@ export function AboutBrief({ isPinned = false }: AboutBriefProps) {
       </div>
 
       <Container width="wide" className="relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 gap-12 items-start">
           {/* Left Column: Who We Are Narrative (7 Cols) */}
-          <div className="lg:col-span-7 space-y-8">
+          <div className="space-y-8">
             {/* Editorial Category Eyebrow */}
             <FadeIn direction="up" distance={14}>
               <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-cyan-200/90 text-[#0891B2] text-xs font-mono tracking-widest uppercase shadow-xs">
@@ -116,53 +78,6 @@ export function AboutBrief({ isPinned = false }: AboutBriefProps) {
               </div>
             </FadeIn>
 
-            {/* Operational Anchor Badges */}
-            <FadeIn direction="up" distance={14} delay={0.15}>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-2">
-                <div className="p-3.5 rounded-2xl bg-white/85 border border-white/60 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_2px_8px_rgba(8,145,178,0.04)] [transform:translateZ(0)] flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-xl bg-cyan-50 border border-cyan-200 flex items-center justify-center shrink-0">
-                    <MapPin className="w-4 h-4 text-[#0891B2]" />
-                  </div>
-                  <div>
-                    <span className="block text-xs font-mono text-[#556070] uppercase tracking-wider">
-                      Headquarters
-                    </span>
-                    <span className="block text-xs sm:text-sm font-semibold text-[#181226]">
-                      Sector 62, Noida (NCR)
-                    </span>
-                  </div>
-                </div>
-
-                <div className="p-3.5 rounded-2xl bg-white/85 border border-white/60 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_2px_8px_rgba(8,145,178,0.04)] [transform:translateZ(0)] flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-xl bg-cyan-50 border border-cyan-200 flex items-center justify-center shrink-0">
-                    <Users2 className="w-4 h-4 text-[#0891B2]" />
-                  </div>
-                  <div>
-                    <span className="block text-xs font-mono text-[#556070] uppercase tracking-wider">
-                      Leadership
-                    </span>
-                    <span className="block text-xs sm:text-sm font-semibold text-[#181226]">
-                      Rahul Kumar Singh, MD
-                    </span>
-                  </div>
-                </div>
-
-                <div className="p-3.5 rounded-2xl bg-white/85 border border-white/60 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_2px_8px_rgba(8,145,178,0.04)] [transform:translateZ(0)] flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-xl bg-cyan-50 border border-cyan-200 flex items-center justify-center shrink-0">
-                    <Sparkles className="w-4 h-4 text-[#0891B2]" />
-                  </div>
-                  <div>
-                    <span className="block text-xs font-mono text-[#556070] uppercase tracking-wider">
-                      Statutory Scope
-                    </span>
-                    <span className="block text-xs sm:text-sm font-semibold text-[#181226]">
-                      Pan-India Mandate
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </FadeIn>
-
             {/* Action Anchors */}
             <FadeIn direction="up" distance={12} delay={0.2}>
               <div className="pt-2 flex flex-wrap items-center gap-4">
@@ -184,75 +99,6 @@ export function AboutBrief({ isPinned = false }: AboutBriefProps) {
             </FadeIn>
           </div>
 
-          {/* Right Column: The 3 Core Pillars Stack (5 Cols) */}
-          <div className="lg:col-span-5 space-y-4">
-            <FadeIn direction="up" distance={16} delay={0.08}>
-              <div className="p-1.5 rounded-3xl bg-gradient-to-b from-cyan-200/60 via-cyan-100/40 to-cyan-200/30 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_16px_40px_-12px_rgba(8,145,178,0.1)] [transform:translateZ(0)]">
-                <div className="rounded-[22px] bg-white/90 p-6 sm:p-7 border border-white/60 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95)] space-y-5">
-                  <div className="flex items-center justify-between border-b border-cyan-100 pb-4">
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 rounded-full bg-[#0891B2]" />
-                      <span className="text-xs font-mono uppercase tracking-widest text-[#0891B2] font-semibold">
-                        CORE ADVISORY MANDATE
-                      </span>
-                    </div>
-                    <span className="text-[11px] font-mono text-[#64748B]">
-                      03 INTEGRATED PILLARS
-                    </span>
-                  </div>
-
-                  <div className="space-y-3.5">
-                    {corePillars.map((pillar) => {
-                      const Icon = pillar.icon;
-                      return (
-                        <div
-                          key={pillar.number}
-                          className="p-4 sm:p-4.5 rounded-xl bg-white/80 border border-white/60 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_2px_8px_rgba(8,145,178,0.04)] hover:border-cyan-300 hover:bg-white/95 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_6px_18px_rgba(8,145,178,0.08)] transition-all duration-300 group relative overflow-hidden [transform:translateZ(0)]"
-                        >
-                          <div className="flex items-start gap-3.5">
-                            <div className="w-10 h-10 rounded-xl bg-cyan-50 border border-cyan-200/80 flex items-center justify-center shrink-0 group-hover:border-[#0891B2]/40 group-hover:bg-[#0891B2] group-hover:text-white transition-all duration-300">
-                              <Icon className="w-4 h-4 text-[#0891B2] group-hover:text-white transition-colors" />
-                            </div>
-                            <div className="space-y-1 min-w-0 flex-1">
-                              <div className="flex items-center justify-between">
-                                <h3 className="text-sm sm:text-base font-semibold text-[#181226] group-hover:text-[#0891B2] transition-colors leading-tight">
-                                  {pillar.title}
-                                </h3>
-                                <span className="text-xs font-mono text-[#0891B2] font-semibold shrink-0 ml-2">
-                                  {pillar.number}
-                                </span>
-                              </div>
-                              <p className="text-xs font-mono text-[#0891B2]/90 font-medium">
-                                {pillar.subtitle}
-                              </p>
-                              <p className="text-xs sm:text-sm text-[#475569] leading-relaxed pt-0.5">
-                                {pillar.description}
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-
-                  {/* Institutional Assurance Footer */}
-                  <div className="pt-3 border-t border-cyan-100 flex items-center justify-between text-xs text-[#475569]">
-                    <div className="flex items-center gap-1.5">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#0891B2]" />
-                      <span>Direct bank &amp; statutory alignment</span>
-                    </div>
-                    <Link
-                      href="/services"
-                      className="font-mono text-[11px] uppercase tracking-wider text-[#0891B2] hover:text-[#0E7490] font-semibold transition-colors inline-flex items-center gap-1"
-                    >
-                      <span>All Services</span>
-                      <ArrowRight className="w-3 h-3" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </FadeIn>
-          </div>
         </div>
       </Container>
     </section>

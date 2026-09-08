@@ -1,28 +1,10 @@
 import * as React from "react";
-import { ArrowRight, Lock, FileCheck2, Clock, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import { Container } from "@/components/shared/container";
 import { MagneticButton } from "@/components/ui/magnetic-button";
 import { LinkButton } from "@/components/ui/link-button";
 import { CtaArrow } from "@/components/ui/cta-arrow";
 import { FadeIn } from "@/components/shared/motion";
-
-const trustIndicators = [
-  {
-    icon: Lock,
-    title: "100% Non-Disclosure Protection",
-    description: "Strict mutual NDA executed before reviewing any proprietary financials or project models.",
-  },
-  {
-    icon: FileCheck2,
-    title: "Audit-Grade DPR Formulations",
-    description: "Credit dossiers strictly calibrated to RBI, SIDBI & central ministry underwriting norms.",
-  },
-  {
-    icon: Clock,
-    title: "24-Hour Diagnostic Response",
-    description: "Preliminary borrowing capacity and scheme alignment appraised within 24 business hours.",
-  },
-];
 
 export function FinalCta() {
   return (
@@ -92,36 +74,6 @@ export function FinalCta() {
                 </LinkButton>
               </div>
 
-              {/* Trust Indicators Strip */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-10 mt-10 border-t border-cyan-200/70">
-                {trustIndicators.map((item, idx) => {
-                  const Icon = item.icon;
-                  return (
-                    <div key={idx} className="flex items-start gap-3.5 p-4 rounded-2xl bg-white/95 border border-cyan-200/80 shadow-xs">
-                      <div className="w-8 h-8 rounded-lg bg-cyan-50 text-[#0891B2] border border-cyan-200/80 flex items-center justify-center shrink-0 mt-0.5">
-                        <Icon className="w-4 h-4" />
-                      </div>
-                      <div className="space-y-1">
-                        <span className="text-xs font-mono font-semibold uppercase tracking-wider text-[#181226] block">
-                          {item.title}
-                        </span>
-                        <p className="text-xs text-[#475569] font-sans leading-relaxed">
-                          {item.description}
-                        </p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* Geographical & Headquarters Authority Subtext */}
-              <div className="pt-2 text-xs text-[#556070] font-mono flex items-center gap-2 flex-wrap font-medium">
-                <span>HEADQUARTERS: NOIDA, UTTAR PRADESH</span>
-                <span aria-hidden="true">&bull;</span>
-                <span>SERVING PAN-INDIA ENTERPRISES</span>
-                <span aria-hidden="true">&bull;</span>
-                <span>ZERO OBLIGATION PRELIMINARY DIAGNOSTIC</span>
-              </div>
             </div>
           </div>
         </FadeIn>
