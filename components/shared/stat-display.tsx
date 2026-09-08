@@ -7,10 +7,10 @@ export const statDisplayVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-white border border-purple-100 shadow-sm hover:border-[#581C87]/40 hover:-translate-y-0.5 transition-all duration-300",
-        subtle: "bg-purple-50/50 border border-purple-100 shadow-none hover:border-purple-200 hover:-translate-y-0.5 transition-all duration-300",
-        accent: "bg-white border border-purple-200 shadow-md hover:border-[#581C87] hover:-translate-y-0.5 transition-all duration-300",
-        glass: "bg-white/80 border border-purple-100 backdrop-blur-md shadow-sm hover:border-[#581C87]/40 hover:-translate-y-0.5 transition-all duration-300",
+        default: "bg-white border border-cyan-100 shadow-sm hover:border-[#0891B2]/40 hover:-translate-y-0.5 transition-all duration-300",
+        subtle: "bg-cyan-50/50 border border-cyan-100 shadow-none hover:border-cyan-200 hover:-translate-y-0.5 transition-all duration-300",
+        accent: "bg-white border border-cyan-200 shadow-md hover:border-[#0891B2] hover:-translate-y-0.5 transition-all duration-300",
+        glass: "bg-white/80 border border-cyan-100 backdrop-blur-md shadow-sm hover:border-[#0891B2]/40 hover:-translate-y-0.5 transition-all duration-300",
         compact: "p-4 bg-transparent border-0 shadow-none",
       },
     },
@@ -53,12 +53,12 @@ export function StatDisplay({
     >
       <div className="flex items-center justify-between gap-2 mb-2">
         <span className="type-eyebrow text-[#64748B] font-sans">{label}</span>
-        {icon && <span className="text-[#581C87] shrink-0">{icon}</span>}
+        {icon && <span className="text-[#0891B2] shrink-0">{icon}</span>}
       </div>
 
       <div className="flex items-baseline gap-0.5">
         {prefix && (
-          <span className="font-serif text-2xl font-semibold text-[#581C87]">
+          <span className="font-serif text-2xl font-semibold text-[#0891B2]">
             {prefix}
           </span>
         )}
@@ -66,7 +66,7 @@ export function StatDisplay({
           {value}
         </span>
         {suffix && (
-          <span className="font-serif text-xl font-semibold text-[#581C87] ml-1">
+          <span className="font-serif text-xl font-semibold text-[#0891B2] ml-1">
             {suffix}
           </span>
         )}

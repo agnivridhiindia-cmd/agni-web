@@ -22,7 +22,7 @@ export function ServiceBreadcrumb({ service }: ServiceBreadcrumbProps) {
   return (
     <nav
       aria-label="Breadcrumb"
-      className="border-b border-purple-100 bg-[#FFFFFF] pt-28 sm:pt-32 pb-4 text-xs text-[#64748B] font-sans"
+      className="border-b border-cyan-100 bg-[#FFFFFF] pt-28 sm:pt-32 pb-4 text-xs text-[#64748B] font-sans"
     >
       <Container width="wide">
         <div className="flex flex-wrap items-center justify-between gap-3">
@@ -30,7 +30,7 @@ export function ServiceBreadcrumb({ service }: ServiceBreadcrumbProps) {
             <li>
               <Link
                 href="/"
-                className="hover:text-[#581C87] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-teal-600 rounded px-1 -mx-1"
+                className="hover:text-[#0891B2] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-teal-600 rounded px-1 -mx-1"
               >
                 Home
               </Link>
@@ -41,7 +41,7 @@ export function ServiceBreadcrumb({ service }: ServiceBreadcrumbProps) {
             <li>
               <Link
                 href="/services"
-                className="hover:text-[#581C87] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-teal-600 rounded px-1 -mx-1"
+                className="hover:text-[#0891B2] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-teal-600 rounded px-1 -mx-1"
               >
                 Services
               </Link>
@@ -52,7 +52,7 @@ export function ServiceBreadcrumb({ service }: ServiceBreadcrumbProps) {
             <li>
               <Link
                 href={`/services#${service.category}`}
-                className="hover:text-[#581C87] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-teal-600 rounded px-1 -mx-1"
+                className="hover:text-[#0891B2] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-teal-600 rounded px-1 -mx-1"
               >
                 {categoryName}
               </Link>

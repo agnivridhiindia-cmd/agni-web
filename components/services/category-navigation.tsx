@@ -88,12 +88,12 @@ export function CategoryNavigation({
   return (
     <nav
       aria-label="Service Practices Navigation Dock"
-      className="sticky top-[68px] sm:top-[76px] z-30 bg-white/90 backdrop-blur-xl border-b border-purple-100 shadow-2xs transition-colors py-3"
+      className="sticky top-[68px] sm:top-[76px] z-30 bg-white/90 backdrop-blur-xl border-b border-cyan-100 shadow-2xs transition-colors py-3"
     >
       <Container width="wide">
         <div className="flex items-center justify-between gap-4 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
           {/* Linear-Style Segmented Dock */}
-          <div className="inline-flex items-center p-1.5 rounded-2xl bg-white border border-purple-100 shadow-inner shrink-0">
+          <div className="inline-flex items-center p-1.5 rounded-2xl bg-white border border-cyan-100 shadow-inner shrink-0">
             {categories.map((cat, idx) => {
               const isActive = activeCategory === cat.id;
               const Icon = categoryIconMap[cat.id] || Landmark;
@@ -109,7 +109,7 @@ export function CategoryNavigation({
                   onClick={(e) => scrollToCategory(cat.id, e)}
                   aria-current={isActive ? "true" : undefined}
                   className={cn(
-                    "group relative inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-colors select-none whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#581C87] focus-visible:ring-offset-1 focus-visible:ring-offset-white"
+                    "group relative inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-colors select-none whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0891B2] focus-visible:ring-offset-1 focus-visible:ring-offset-white"
                   )}
                 >
                   {/* Framer Motion Gliding Pill Indicator */}
@@ -131,7 +131,7 @@ export function CategoryNavigation({
                     <span
                       className={cn(
                         "font-mono text-[11px] font-bold transition-colors",
-                        isActive ? "text-[#581C87]" : "text-[#64748B]"
+                        isActive ? "text-[#0891B2]" : "text-[#64748B]"
                       )}
                     >
                       0{idx + 1}
@@ -142,7 +142,7 @@ export function CategoryNavigation({
                       className={cn(
                         "w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0 transition-colors",
                         isActive
-                          ? "text-[#7C3AED]"
+                          ? "text-[#06B6D4]"
                           : "text-[#64748B] group-hover:text-[#0F0A1A]"
                       )}
                       aria-hidden="true"
@@ -165,7 +165,7 @@ export function CategoryNavigation({
                       className={cn(
                         "font-mono text-[10px] tracking-tight px-1.5 py-0.5 rounded transition-colors hidden md:inline-block",
                         isActive
-                          ? "bg-white/[0.08] text-[#7C3AED] border border-white/[0.12] font-semibold"
+                          ? "bg-white/[0.08] text-[#06B6D4] border border-white/[0.12] font-semibold"
                           : "bg-white/[0.04] text-[#64748B] group-hover:text-[#64748B]"
                       )}
                     >
@@ -179,7 +179,7 @@ export function CategoryNavigation({
 
           {/* Right Institutional Scope Badge */}
           <div className="hidden xl:flex items-center gap-2 text-xs font-mono text-[#64748B] shrink-0 pr-1">
-            <span className="w-2 h-2 rounded-full bg-[#581C87] animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-[#0891B2] animate-pulse" />
             <span>
               {categories.length} Practice Desks &bull; {totalServicesCount} Specialized Programs
             </span>

@@ -12,7 +12,7 @@ export function CaseStudyNarrative({ study }: CaseStudyNarrativeProps) {
     <article className="space-y-12 sm:space-y-16">
       {/* 1. Structural Barrier & Challenge */}
       <section aria-labelledby="section-challenge" className="space-y-4">
-        <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#581C87]">
+        <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0891B2]">
           <AlertCircle className="w-4 h-4 text-amber-600 shrink-0" aria-hidden="true" />
           <span>The Structural Challenge</span>
         </div>
@@ -24,16 +24,14 @@ export function CaseStudyNarrative({ study }: CaseStudyNarrativeProps) {
           Operational &amp; Financial Bottleneck
         </h2>
 
-        <div className="rounded-2xl border border-purple-200 bg-[#161411] p-6 sm:p-7 space-y-4">
-          <p className="type-body-lg text-[#0F0A1A] font-sans leading-relaxed">
-            {study.challenge}
-          </p>
-        </div>
+        <p className="type-body-lg text-[#475569] font-sans leading-relaxed max-w-4xl">
+          {study.challenge}
+        </p>
       </section>
 
       {/* 2. Advisory Intervention & Strategy Delivered */}
       <section aria-labelledby="section-solution" className="space-y-4">
-        <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#581C87]">
+        <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0891B2]">
           <Sparkles className="w-4 h-4 text-teal-600 shrink-0" aria-hidden="true" />
           <span>Agnivridhi Advisory Solution</span>
         </div>
@@ -45,11 +43,9 @@ export function CaseStudyNarrative({ study }: CaseStudyNarrativeProps) {
           Tailored Strategy &amp; Institutional Execution
         </h2>
 
-        <div className="rounded-2xl border border-purple-100 bg-white p-6 sm:p-7 space-y-4 shadow-xl">
-          <p className="type-body-lg text-[#475569] font-sans leading-relaxed">
-            {study.solution}
-          </p>
-        </div>
+        <p className="type-body-lg text-[#475569] font-sans leading-relaxed max-w-4xl">
+          {study.solution}
+        </p>
       </section>
 
       {/* 3. Execution Roadmap (if verified process array exists) */}
@@ -71,9 +67,9 @@ export function CaseStudyNarrative({ study }: CaseStudyNarrativeProps) {
             {study.process.map((step, idx) => (
               <li
                 key={idx}
-                className="flex items-start gap-4 p-4 rounded-xl border border-purple-100 bg-white"
+                className="flex items-start gap-4 p-4 rounded-xl border border-cyan-100 bg-white"
               >
-                <span className="font-mono text-xs font-bold px-2 py-1 rounded bg-purple-50 text-[#581C87] border border-purple-100 shrink-0">
+                <span className="font-mono text-xs font-bold px-2 py-1 rounded bg-cyan-50 text-[#0891B2] border border-cyan-100 shrink-0">
                   {String(idx + 1).padStart(2, "0")}
                 </span>
                 <p className="text-sm text-[#475569] font-sans leading-relaxed pt-0.5">
@@ -88,7 +84,7 @@ export function CaseStudyNarrative({ study }: CaseStudyNarrativeProps) {
       {/* 4. Measurable Deliverables & Business Outcomes */}
       {study.outcomes && study.outcomes.length > 0 && (
         <section aria-labelledby="section-outcomes" className="space-y-6">
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#581C87]">
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0891B2]">
             <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0" aria-hidden="true" />
             <span>Verified Results</span>
           </div>
@@ -100,27 +96,23 @@ export function CaseStudyNarrative({ study }: CaseStudyNarrativeProps) {
             Measurable Deliverables &amp; Enterprise Momentum
           </h2>
 
-          <div className="rounded-2xl border border-[#2DD4BF]/30 bg-[#0F1413] p-6 sm:p-8 space-y-4 shadow-xl">
-            <ul className="space-y-4">
-              {study.outcomes.map((outcome, idx) => (
-                <li key={idx} className="flex items-start gap-3.5">
-                  <div className="w-5 h-5 rounded-full bg-[#2DD4BF]/20 text-[#581C87] flex items-center justify-center shrink-0 mt-0.5">
-                    <CheckCircle2 className="w-3.5 h-3.5" aria-hidden="true" />
-                  </div>
-                  <span className="text-sm sm:text-base font-medium text-[#0F0A1A] font-sans leading-relaxed">
-                    {outcome}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <ul className="space-y-4 max-w-4xl">
+            {study.outcomes.map((outcome, idx) => (
+              <li key={idx} className="flex items-start gap-3.5">
+                <CheckCircle2 className="w-5 h-5 text-[#0891B2] shrink-0 mt-1" aria-hidden="true" />
+                <span className="text-sm sm:text-base font-medium text-[#475569] font-sans leading-relaxed">
+                  {outcome}
+                </span>
+              </li>
+            ))}
+          </ul>
         </section>
       )}
 
       {/* 5. Verified Client Quote (rendered ONLY if quote exists) */}
       {study.quote && study.quote.text && (
         <section aria-label="Client Perspective" className="pt-4">
-          <blockquote className="relative rounded-2xl border border-purple-300 bg-[#14120E] p-6 sm:p-8 space-y-4">
+          <blockquote className="relative rounded-2xl border border-cyan-100 bg-white p-6 sm:p-8 space-y-4 shadow-xl">
             <Quote className="w-8 h-8 text-gold-500/40 absolute top-6 right-6" aria-hidden="true" />
             <p className="font-serif text-lg sm:text-xl italic text-[#0F0A1A] leading-relaxed">
               &ldquo;{study.quote.text}&rdquo;

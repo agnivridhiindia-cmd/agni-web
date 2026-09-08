@@ -15,7 +15,7 @@ export interface CardTiltProps {
 /**
  * Opt-in 3D card tilt micro-interaction.
  * Principles:
- * - Very small rotation range (max ±2–3°)
+ * - Very small rotation range (max Ãƒâ€šÃ‚Â±2ÃƒÂ¢Ã¢â€šÂ¬ - Å“3Ãƒâ€šÃ‚Â°)
  * - Desktop pointer devices only (disabled on touch)
  * - Automatically disabled under prefers-reduced-motion
  * - Zero layout shift or text distortion

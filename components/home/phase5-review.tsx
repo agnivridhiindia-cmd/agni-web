@@ -299,7 +299,7 @@ export function Phase5Review() {
             </Button>
             {showWhatsAppDemo && (
               <p className="text-xs text-emerald-700 font-medium animate-in fade-in">
-                ✓ Check the bottom-right corner of your screen for the floating WhatsApp button with hover tooltip!
+                  -   Check the bottom-right corner of your screen for the floating WhatsApp button with hover tooltip!
               </p>
             )}
           </CardContent>

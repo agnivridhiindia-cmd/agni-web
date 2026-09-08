@@ -32,12 +32,12 @@ export function FinalCta() {
   return (
     <section
       aria-labelledby="final-cta-heading"
-      className="relative py-20 sm:py-28 lg:py-36 bg-gradient-to-b from-[#FFFFFF] via-[#FAF8FE] to-[#F5F1FB] text-[#181226] border-b border-purple-100/80"
+      className="relative border-b border-cyan-100/80 bg-[radial-gradient(circle_at_top_left,_rgba(34,211,238,0.14),transparent_20%),radial-gradient(circle_at_bottom_right,_rgba(45,212,191,0.12),transparent_20%),linear-gradient(180deg,#ffffff_0%,#f4fdff_34%,#f3fbfd_100%)] py-20 text-[#181226] sm:py-28 lg:py-36"
     >
       <Container width="wide">
         <FadeIn direction="up" distance={24} delay={0.05}>
           {/* Flagship Conversion Container */}
-          <div className="relative rounded-3xl bg-gradient-to-br from-[#FAF8FE] via-[#F4F0FA] to-[#EBE4F7] text-[#181226] p-8 sm:p-14 lg:p-20 border border-[#DDD6FE] shadow-[0_24px_60px_-15px_rgba(88,28,135,0.12),0_4px_12px_rgba(0,0,0,0.03)] overflow-hidden">
+          <div className="relative overflow-hidden rounded-[2rem] border border-cyan-200/80 bg-[linear-gradient(135deg,rgba(255,255,255,0.94)_0%,rgba(240,253,250,0.92)_26%,rgba(238,248,255,0.96)_100%)] p-8 text-[#181226] shadow-[0_24px_60px_-18px_rgba(8,145,178,0.18),0_5px_18px_rgba(15,118,110,0.06)] sm:p-14 lg:p-20">
             {/* Soft atmospheric radial glows */}
             <div
               className="absolute -top-24 -right-24 w-[420px] h-[420px] bg-[radial-gradient(circle,rgba(124,58,237,0.12)_0%,transparent_70%)] blur-[90px] pointer-events-none"
@@ -51,9 +51,9 @@ export function FinalCta() {
             {/* Inner Content Grid */}
             <div className="relative z-10 max-w-4xl space-y-6 sm:space-y-8">
               {/* Eyebrow */}
-              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-purple-200/90 text-[#581C87] text-xs font-mono tracking-widest uppercase shadow-xs">
-                <Sparkles className="w-3.5 h-3.5 text-[#581C87] animate-pulse" />
-                <span>Confidential Preliminary Consultation</span>
+              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-cyan-200/90 text-[#0891B2] text-xs font-mono tracking-widest uppercase shadow-xs">
+                <Sparkles className="w-3.5 h-3.5 text-[#0891B2] animate-pulse" />
+                <span>READY TO TRANSFORM YOUR BUSINESS?</span>
               </div>
 
               {/* Headline */}
@@ -61,12 +61,12 @@ export function FinalCta() {
                 id="final-cta-heading"
                 className="font-serif text-3xl sm:text-4xl lg:text-[2.85rem] font-medium tracking-[-0.015em] text-[#181226] !leading-[1.18]"
               >
-                Let&apos;s Structure the Exact Capital &amp; Compliance Blueprint Your Enterprise Needs.
+                Ready to Transform Your Business?
               </h2>
 
               {/* Supporting Copy */}
               <p className="font-sans text-sm sm:text-base lg:text-lg text-[#475569] max-w-2xl leading-[1.75]">
-                Whether you are syndicating collateral-free debt under CGTMSE, locking in central capital subsidies, or preparing for statutory quality audits, our advisory principals provide clear, bankable roadmaps from Day 1.
+                Get expert consultation and take the first step towards securing funding and achieving growth.
               </p>
 
               {/* CTA Action Row */}
@@ -76,10 +76,10 @@ export function FinalCta() {
                   <LinkButton
                     href="/contact"
                     variant="primary"
-                    className="w-full sm:w-auto rounded-full px-7 py-4 text-sm sm:text-base font-semibold bg-[#581C87] hover:bg-[#4C1D95] text-white justify-center transition-all inline-flex items-center gap-2.5 tracking-wide shadow-[0_4px_20px_rgba(88,28,135,0.25)] hover:shadow-[0_8px_28px_rgba(88,28,135,0.32)] hover:-translate-y-0.5 cursor-pointer"
+                    className="w-full sm:w-auto rounded-full px-7 py-4 text-sm sm:text-base font-semibold bg-[#0891B2] hover:bg-[#0E7490] text-white justify-center transition-all inline-flex items-center gap-2.5 tracking-wide shadow-[0_4px_20px_rgba(88,28,135,0.25)] hover:shadow-[0_8px_28px_rgba(88,28,135,0.32)] hover:-translate-y-0.5 cursor-pointer"
                     aria-label="Schedule a preliminary consultation with an Agnivridhi advisory principal"
                   >
-                    <span>Schedule Preliminary Consultation</span>
+                    <span>Schedule Free Consultation</span>
                     <CtaArrow className="w-4 h-4 ml-1 text-white" />
                   </LinkButton>
                 </MagneticButton>
@@ -88,11 +88,11 @@ export function FinalCta() {
                 <LinkButton
                   href="/services"
                   variant="outline"
-                  className="w-full sm:w-auto rounded-full px-7 py-4 text-sm sm:text-base font-semibold border-purple-200/90 bg-white/95 hover:bg-purple-50 text-[#181226] hover:text-[#581C87] hover:border-[#581C87]/40 justify-center transition-all inline-flex items-center gap-2 tracking-wide shadow-xs hover:shadow-sm hover:-translate-y-0.5 cursor-pointer"
+                  className="w-full sm:w-auto rounded-full px-7 py-4 text-sm sm:text-base font-semibold border-cyan-200/90 bg-white/95 hover:bg-cyan-50 text-[#181226] hover:text-[#0891B2] hover:border-[#0891B2]/40 justify-center transition-all inline-flex items-center gap-2 tracking-wide shadow-xs hover:shadow-sm hover:-translate-y-0.5 cursor-pointer"
                   aria-label="Explore all four advisory practices and service catalog"
                 >
-                  <span>Explore 4 Advisory Desks</span>
-                  <ArrowRight className="w-4 h-4 ml-1 text-[#581C87]" />
+                  <span>Explore Our Services</span>
+                  <ArrowRight className="w-4 h-4 ml-1 text-[#0891B2]" />
                 </LinkButton>
 
                 {/* WhatsApp Integration */}
@@ -113,12 +113,12 @@ export function FinalCta() {
               </div>
 
               {/* Trust Indicators Strip */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-10 mt-10 border-t border-purple-200/70">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-10 mt-10 border-t border-cyan-200/70">
                 {trustIndicators.map((item, idx) => {
                   const Icon = item.icon;
                   return (
-                    <div key={idx} className="flex items-start gap-3.5 p-4 rounded-2xl bg-white/95 border border-purple-200/80 shadow-xs">
-                      <div className="w-8 h-8 rounded-lg bg-purple-50 text-[#581C87] border border-purple-200/80 flex items-center justify-center shrink-0 mt-0.5">
+                    <div key={idx} className="flex items-start gap-3.5 p-4 rounded-2xl bg-white/95 border border-cyan-200/80 shadow-xs">
+                      <div className="w-8 h-8 rounded-lg bg-cyan-50 text-[#0891B2] border border-cyan-200/80 flex items-center justify-center shrink-0 mt-0.5">
                         <Icon className="w-4 h-4" />
                       </div>
                       <div className="space-y-1">

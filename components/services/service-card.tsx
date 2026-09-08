@@ -65,44 +65,44 @@ const categoryTheme: Record<
   }
 > = {
   funding: {
-    iconBg: "bg-purple-50 border-purple-100",
-    iconHover: "group-hover:bg-[#202323] group-hover:text-[#581C87] group-hover:border-[#581C87]/40",
-    iconText: "text-[#581C87]",
+    iconBg: "bg-cyan-50 border-cyan-100",
+    iconHover: "group-hover:bg-[#202323] group-hover:text-[#0891B2] group-hover:border-[#0891B2]/40",
+    iconText: "text-[#0891B2]",
     borderHover:
-      "hover:border-[#581C87]/40 hover:shadow-[0_12px_32px_-6px_rgba(124,58,237,0.18)]",
-    ceilingTag: "bg-purple-50 text-[#581C87] border-purple-100",
-    arrowText: "text-[#581C87] group-hover:text-[#0F0A1A]",
-    titleHover: "group-hover:text-[#581C87]",
+      "hover:border-[#0891B2]/40 hover:shadow-[0_12px_32px_-6px_rgba(124,58,237,0.18)]",
+    ceilingTag: "bg-cyan-50 text-[#0891B2] border-cyan-100",
+    arrowText: "text-[#0891B2] group-hover:text-[#0F0A1A]",
+    titleHover: "group-hover:text-[#0891B2]",
   },
   compliance: {
-    iconBg: "bg-purple-50 border-purple-100",
-    iconHover: "group-hover:bg-[#202323] group-hover:text-[#581C87] group-hover:border-[#2DD4BF]/50",
-    iconText: "text-[#581C87]",
+    iconBg: "bg-cyan-50 border-cyan-100",
+    iconHover: "group-hover:bg-[#202323] group-hover:text-[#0891B2] group-hover:border-[#2DD4BF]/50",
+    iconText: "text-[#0891B2]",
     borderHover:
       "hover:border-[#2DD4BF]/50 hover:shadow-[0_12px_32px_-6px_rgba(124,58,237,0.18)]",
-    ceilingTag: "bg-purple-50 text-[#581C87] border-purple-100",
-    arrowText: "text-[#581C87] group-hover:text-[#0F0A1A]",
-    titleHover: "group-hover:text-[#581C87]",
+    ceilingTag: "bg-cyan-50 text-[#0891B2] border-cyan-100",
+    arrowText: "text-[#0891B2] group-hover:text-[#0F0A1A]",
+    titleHover: "group-hover:text-[#0891B2]",
   },
   digital: {
-    iconBg: "bg-purple-50 border-purple-100",
+    iconBg: "bg-cyan-50 border-cyan-100",
     iconHover: "group-hover:bg-[#202323] group-hover:text-[#38BDF8] group-hover:border-[#38BDF8]/50",
     iconText: "text-[#38BDF8]",
     borderHover:
       "hover:border-[#38BDF8]/50 hover:shadow-[0_12px_32px_-6px_rgba(56,189,248,0.18)]",
-    ceilingTag: "bg-purple-50 text-[#38BDF8] border-purple-100",
+    ceilingTag: "bg-cyan-50 text-[#38BDF8] border-cyan-100",
     arrowText: "text-[#38BDF8] group-hover:text-[#0F0A1A]",
-    titleHover: "group-hover:text-[#581C87]",
+    titleHover: "group-hover:text-[#0891B2]",
   },
   it: {
-    iconBg: "bg-purple-50 border-purple-100",
-    iconHover: "group-hover:bg-[#202323] group-hover:text-white group-hover:border-purple-200",
+    iconBg: "bg-cyan-50 border-cyan-100",
+    iconHover: "group-hover:bg-[#202323] group-hover:text-white group-hover:border-cyan-200",
     iconText: "text-[#475569]",
     borderHover:
-      "hover:border-purple-200 hover:shadow-[0_12px_32px_-6px_rgba(0,0,0,0.3)]",
-    ceilingTag: "bg-purple-50 text-[#475569] border-purple-100",
+      "hover:border-cyan-200 hover:shadow-[0_12px_32px_-6px_rgba(0,0,0,0.3)]",
+    ceilingTag: "bg-cyan-50 text-[#475569] border-cyan-100",
     arrowText: "text-[#475569] group-hover:text-white",
-    titleHover: "group-hover:text-[#581C87]",
+    titleHover: "group-hover:text-[#0891B2]",
   },
 };
 
@@ -124,26 +124,26 @@ export function ServiceCard({ service }: ServiceCardProps) {
     <Link
       href={`/services/${service.slug}`}
       className={cn(
-        "group relative flex flex-col justify-between rounded-2xl bg-white p-6 sm:p-7 border border-purple-100 transition-all duration-300 hover:bg-[#151717]",
-        "shadow-lg",
-        "hover:-translate-y-1 motion-reduce:hover:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 focus-visible:ring-offset-2",
+        "group relative flex flex-col justify-between rounded-2xl bg-white p-6 sm:p-7 border border-cyan-100 transition-all duration-300 ease-out",
+        "shadow-md hover:shadow-2xl",
+        "hover:-translate-y-2 motion-reduce:hover:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 focus-visible:ring-offset-2",
         theme.borderHover
       )}
-      aria-label={`${service.name} — view specialized program details`}
+      aria-label={`${service.name} ÃƒÂ¢Ã¢â€šÂ¬ - Â view specialized program details`}
     >
       <div className="space-y-4">
         {/* Top Header Row: Icon & Floating Scheme Ceiling Tag */}
         <div className="flex items-start justify-between gap-3">
           <div
             className={cn(
-              "w-11 h-11 rounded-xl flex items-center justify-center border transition-all duration-300 shrink-0 shadow-2xs",
+              "w-11 h-11 rounded-xl flex items-center justify-center border transition-all duration-300 shrink-0 shadow-2xs group-hover:scale-110 group-hover:rotate-2",
               theme.iconBg,
               theme.iconText,
               theme.iconHover
             )}
             aria-hidden="true"
           >
-            <IconComponent className="w-5 h-5" />
+            <IconComponent className="w-5 h-5 transition-transform duration-300" />
           </div>
 
           {/* Floating Tag indicating Scheme Ceiling */}
@@ -175,7 +175,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
       </div>
 
       {/* Meta Footer Row */}
-      <div className="pt-5 mt-5 border-t border-purple-100 flex items-center justify-between text-xs">
+      <div className="pt-5 mt-5 border-t border-cyan-100 flex items-center justify-between text-xs">
         {service.timeline ? (
           <div className="flex items-center gap-1.5 text-[#64748B] font-sans">
             <Clock className="w-3.5 h-3.5 text-slate-400 shrink-0" aria-hidden="true" />

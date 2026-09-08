@@ -17,7 +17,7 @@ export function CaseStudyBreadcrumb({
   return (
     <nav
       aria-label="Breadcrumb"
-      className="border-b border-purple-100 bg-[#FFFFFF] pt-28 sm:pt-32 pb-4 text-xs font-sans text-[#64748B]"
+      className="border-b border-cyan-100 bg-[#FFFFFF] pt-28 sm:pt-32 pb-4 text-xs font-sans text-[#64748B]"
     >
       <Container width="wide">
         <div className="flex flex-wrap items-center justify-between gap-3">
@@ -25,7 +25,7 @@ export function CaseStudyBreadcrumb({
             <li>
               <Link
                 href="/"
-                className="hover:text-[#581C87] transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-teal-600 rounded px-0.5"
+                className="hover:text-[#0891B2] transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-teal-600 rounded px-0.5"
               >
                 Home
               </Link>
@@ -36,7 +36,7 @@ export function CaseStudyBreadcrumb({
             <li>
               <Link
                 href="/success-stories"
-                className="hover:text-[#581C87] transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-teal-600 rounded px-0.5"
+                className="hover:text-[#0891B2] transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-teal-600 rounded px-0.5"
               >
                 Success Stories
               </Link>
@@ -49,7 +49,7 @@ export function CaseStudyBreadcrumb({
                 <li>
                   <Link
                     href={`/success-stories?category=${categorySlug || ""}`}
-                    className="hover:text-[#581C87] transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-teal-600 rounded px-0.5"
+                    className="hover:text-[#0891B2] transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-teal-600 rounded px-0.5"
                   >
                     {categoryLabel}
                   </Link>

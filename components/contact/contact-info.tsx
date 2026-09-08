@@ -12,7 +12,7 @@ export function ContactInfo() {
   return (
     <div className="space-y-6">
       <div className="space-y-2">
-        <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#581C87] bg-[#581C87]/10 border border-purple-200 px-2.5 py-0.5 rounded">
+        <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#0891B2] bg-[#0891B2]/10 border border-cyan-200 px-2.5 py-0.5 rounded">
           Advisory Desk Profile
         </span>
         <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-[#0F0A1A] tracking-tight">
@@ -27,8 +27,8 @@ export function ContactInfo() {
       {/* Grid of Firm Metadata Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {/* Office Location */}
-        <Card variant="standard" className="p-5 flex items-start gap-3.5 border-purple-100 bg-white">
-          <div className="w-10 h-10 rounded-xl bg-purple-50 text-[#581C87] flex items-center justify-center shrink-0 mt-0.5 border border-purple-100">
+        <Card variant="standard" className="p-5 flex items-start gap-3.5 border-cyan-100 bg-white">
+          <div className="w-10 h-10 rounded-xl bg-cyan-50 text-[#0891B2] flex items-center justify-center shrink-0 mt-0.5 border border-cyan-100">
             <MapPin className="w-5 h-5" aria-hidden="true" />
           </div>
           <div>
@@ -45,8 +45,8 @@ export function ContactInfo() {
         </Card>
 
         {/* Response Guarantee */}
-        <Card variant="standard" className="p-5 flex items-start gap-3.5 border-purple-100 bg-white">
-          <div className="w-10 h-10 rounded-xl bg-purple-50 text-[#581C87] flex items-center justify-center shrink-0 mt-0.5 border border-purple-100">
+        <Card variant="standard" className="p-5 flex items-start gap-3.5 border-cyan-100 bg-white">
+          <div className="w-10 h-10 rounded-xl bg-cyan-50 text-[#0891B2] flex items-center justify-center shrink-0 mt-0.5 border border-cyan-100">
             <Clock className="w-5 h-5" aria-hidden="true" />
           </div>
           <div>
@@ -65,7 +65,7 @@ export function ContactInfo() {
 
       {/* Direct Verified Channels (rendered conditionally if configured in site-config) */}
       {hasDirectChannels && (
-        <div className="p-5 rounded-2xl bg-white border border-purple-100 space-y-3">
+        <div className="p-5 rounded-2xl bg-white border border-cyan-100 space-y-3">
           <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#64748B] block">
             Direct Contact Lines
           </span>
@@ -74,9 +74,9 @@ export function ContactInfo() {
             {phone && (
               <a
                 href={`tel:${phone.replace(/[^0-9+]/g, "")}`}
-                className="flex items-center gap-2.5 p-3 rounded-lg bg-purple-50 border border-purple-100 text-[#0F0A1A] hover:text-[#581C87] hover:border-[#581C87]/40 transition-colors"
+                className="flex items-center gap-2.5 p-3 rounded-lg bg-cyan-50 border border-cyan-100 text-[#0F0A1A] hover:text-[#0891B2] hover:border-[#0891B2]/40 transition-colors"
               >
-                <Phone className="w-4 h-4 text-[#581C87] shrink-0" aria-hidden="true" />
+                <Phone className="w-4 h-4 text-[#0891B2] shrink-0" aria-hidden="true" />
                 <span className="font-semibold">{phone}</span>
               </a>
             )}
@@ -84,9 +84,9 @@ export function ContactInfo() {
             {email && (
               <a
                 href={`mailto:${email}`}
-                className="flex items-center gap-2.5 p-3 rounded-lg bg-purple-50 border border-purple-100 text-[#0F0A1A] hover:text-[#581C87] hover:border-[#581C87]/40 transition-colors"
+                className="flex items-center gap-2.5 p-3 rounded-lg bg-cyan-50 border border-cyan-100 text-[#0F0A1A] hover:text-[#0891B2] hover:border-[#0891B2]/40 transition-colors"
               >
-                <Mail className="w-4 h-4 text-[#581C87] shrink-0" aria-hidden="true" />
+                <Mail className="w-4 h-4 text-[#0891B2] shrink-0" aria-hidden="true" />
                 <span className="font-semibold truncate">{email}</span>
               </a>
             )}
@@ -107,8 +107,8 @@ export function ContactInfo() {
       )}
 
       {/* Confidentiality Commitment */}
-      <div className="flex items-start gap-3 p-4 rounded-xl bg-white border border-purple-100 text-xs text-[#475569] font-sans leading-relaxed">
-        <ShieldCheck className="w-5 h-5 text-[#581C87] shrink-0 mt-0.5" aria-hidden="true" />
+      <div className="flex items-start gap-3 p-4 rounded-xl bg-white border border-cyan-100 text-xs text-[#475569] font-sans leading-relaxed">
+        <ShieldCheck className="w-5 h-5 text-[#0891B2] shrink-0 mt-0.5" aria-hidden="true" />
         <p>
           <strong className="text-[#0F0A1A] font-semibold">Strict Confidentiality:</strong> All Detailed
           Project Reports (DPRs), banking CMA projections, and proprietary technical blueprints submitted

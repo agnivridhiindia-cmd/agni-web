@@ -7,7 +7,7 @@ export function CompanyStory() {
   return (
     <section
       aria-labelledby="company-story-heading"
-      className="py-16 sm:py-20 lg:py-28 bg-[#FFFFFF] border-b border-purple-100"
+      className="py-16 sm:py-20 lg:py-28 bg-[#FFFFFF] border-b border-cyan-100"
     >
       <Container width="wide">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
@@ -22,8 +22,8 @@ export function CompanyStory() {
                 align="left"
               />
 
-              <div className="p-6 rounded-2xl bg-white border border-purple-100 space-y-3 mt-6">
-                <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#581C87] block">
+              <div className="p-6 rounded-2xl bg-white border border-cyan-100 space-y-3 mt-6">
+                <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#0891B2] block">
                   The Core Reality
                 </span>
                 <blockquote className="font-serif text-lg sm:text-xl font-medium text-[#0F0A1A] leading-snug italic">
@@ -53,7 +53,7 @@ export function CompanyStory() {
             </FadeIn>
 
             <FadeIn direction="up" distance={16} delay={0.15}>
-              <div className="space-y-4 pt-4 border-t border-purple-100">
+              <div className="space-y-4 pt-4 border-t border-cyan-100">
                 <h3 className="font-serif text-2xl font-bold text-[#0F0A1A] leading-snug">
                   02. Our Role: The Embedded Strategic Translator
                 </h3>
@@ -67,12 +67,12 @@ export function CompanyStory() {
             </FadeIn>
 
             <FadeIn direction="up" distance={16} delay={0.2}>
-              <div className="space-y-4 pt-4 border-t border-purple-100">
+              <div className="space-y-4 pt-4 border-t border-cyan-100">
                 <h3 className="font-serif text-2xl font-bold text-[#0F0A1A] leading-snug">
                   03. The Result: Measurable Balance Sheet Momentum
                 </h3>
                 <p className="type-body leading-relaxed">
-                  By bringing professional rigor to debt syndication, ISO standardizations, and statutory registrations, we help enterprises lock in sovereign credit guarantee coverage up to ₹5 Crore, realize 15% to 35% non-refundable margin subsidies, and achieve tier-1 corporate vendor eligibility.
+                  By bringing professional rigor to debt syndication, ISO standardizations, and statutory registrations, we help enterprises lock in sovereign credit guarantee coverage up to ÃƒÂ¢ - Å¡Ã‚Â¹5 Crore, realize 15% to 35% non-refundable margin subsidies, and achieve tier-1 corporate vendor eligibility.
                 </p>
                 <p className="type-body leading-relaxed">
                   We treat compliance and funding not as isolated administrative tasks, but as interlocking pillars that build enduring enterprise valuation.

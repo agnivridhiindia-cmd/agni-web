@@ -32,7 +32,7 @@ The 2015 revision of ISO 9001 emphasizes:
 Evaluate existing operating procedures against ISO clauses (Clauses 4 through 10). Document missing calibration logs, supplier evaluation criteria, and process flowcharts.
 
 ### 2. Documentation Standardization
-Draft standardized Standard Operating Procedures (SOPs), Quality Manuals, and internal corrective action request (CAR) registers. Avoid redundant bureaucratic forms—keep procedures lean and practical for shop-floor operators.
+Draft standardized Standard Operating Procedures (SOPs), Quality Manuals, and internal corrective action request (CAR) registers. Avoid redundant bureaucratic forms - â€keep procedures lean and practical for shop-floor operators.
 
 ### 3. Internal Audit & Management Review
 Conduct a full internal audit across all departments. Present findings to enterprise leadership during a formal Management Review Meeting (MRM) and close out identified gaps.

@@ -109,7 +109,7 @@ export default function TermsPage() {
             5. Government Schemes &amp; Regulatory Changes
           </h2>
           <p>
-            Information regarding central schemes (such as the CGTMSE ₹5 Crore collateral waiver ceiling
+            Information regarding central schemes (such as the CGTMSE ÃƒÂ¢ - Å¡Ã‚Â¹5 Crore collateral waiver ceiling
             or PMEGP capital subsidies) is grounded in published guidelines from the Ministry of MSME,
             SIDBI, and KVIC. Central policies and subsidy caps are subject to periodic amendment by
             the Government of India. Agnivridhi is not responsible for policy modifications enacted by

@@ -58,7 +58,7 @@ export function ArticleRelatedServices({ post }: ArticleRelatedServicesProps) {
                   )}
                 </div>
 
-                <h4 className="font-serif text-lg font-semibold text-[#0F0A1A] group-hover:text-[#581C87] transition-colors">
+                <h4 className="font-serif text-lg font-semibold text-[#0F0A1A] group-hover:text-[#0891B2] transition-colors">
                   {service.name}
                 </h4>
 
@@ -67,7 +67,7 @@ export function ArticleRelatedServices({ post }: ArticleRelatedServicesProps) {
                 </p>
               </div>
 
-              <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-[#581C87] group-hover:text-teal-900">
+              <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-[#0891B2] group-hover:text-teal-900">
                 <span>Explore Advisory Practice</span>
                 <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
               </div>

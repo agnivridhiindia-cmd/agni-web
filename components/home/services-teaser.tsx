@@ -31,10 +31,10 @@ const practices: PracticeInfo[] = [
     headline: "Institutional Debt & Sovereign Credit",
     subhead: "TEV & DPR Modeling",
     description:
-      "Direct banking liaison and audit-grade Detailed Project Reports (DPR) to secure collateral-free CGTMSE credit up to ₹5 Cr, 35% PMEGP subsidies, and project term loans.",
+      "Direct banking liaison and audit-grade Detailed Project Reports (DPR) to secure collateral-free CGTMSE credit up to   -  5 Cr, 35% PMEGP subsidies, and project term loans.",
     image: "/img/practice-capital.jpg",
     imageAlt: "Indian automated CNC machining plant financed via sovereign debt",
-    tag: "₹5 Cr Collateral-Free Ceiling",
+    tag: "  -  5 Cr Collateral-Free Ceiling",
     deliverables: ["CGTMSE Guarantee Trust", "PMEGP 35% Capital Subsidies", "Lead Bank Sanctions"],
     anchor: "/services#funding",
     icon: Building2,
@@ -95,47 +95,45 @@ export function ServicesTeaser() {
   return (
     <section
       aria-labelledby="services-teaser-heading"
-      className="relative bg-gradient-to-b from-[#FAF8FE] via-[#FFFFFF] to-[#FAF8FE] text-[#181226] py-20 sm:py-28 lg:py-36 border-b border-purple-100/80 overflow-hidden"
+      className="relative overflow-hidden border-b border-cyan-100/80 bg-[radial-gradient(circle_at_10%_10%,rgba(103,232,249,0.16),transparent_24%),radial-gradient(circle_at_90%_15%,rgba(45,212,191,0.14),transparent_20%),linear-gradient(180deg,#fbfeff_0%,#f3fbfd_24%,#ffffff_100%)] py-20 text-[#181226] sm:py-28 lg:py-36"
     >
       {/* Ambient background lighting */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 z-0 select-none overflow-hidden"
       >
-        <div className="absolute top-1/3 -right-32 h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle,rgba(124,58,237,0.06)_0%,transparent_70%)] blur-3xl" />
-        <div className="absolute bottom-10 -left-32 h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle,rgba(168,85,247,0.04)_0%,transparent_70%)] blur-3xl" />
+        <div className="absolute -right-24 top-1/4 h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle,rgba(8,145,178,0.12)_0%,transparent_70%)] blur-3xl" />
+        <div className="absolute -left-24 bottom-8 h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle,rgba(45,212,191,0.09)_0%,transparent_70%)] blur-3xl" />
       </div>
 
       <Container width="wide" className="relative z-10 space-y-12 sm:space-y-16">
         {/* Section Header */}
         <FadeIn direction="up" distance={16}>
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-purple-100/80 pb-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-cyan-100/80 pb-8">
             <div className="space-y-3.5 max-w-2xl">
-              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-purple-200/90 text-xs font-mono tracking-widest text-[#581C87] uppercase shadow-xs">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#581C87]" />
-                <span>CORE PRACTICES &bull; QUAD-PILLAR ARCHITECTURE</span>
+              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-cyan-200/90 text-xs font-mono tracking-widest text-[#0891B2] uppercase shadow-xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#0891B2]" />
+                <span>OUR SERVICES</span>
               </div>
 
               <h2
                 id="services-teaser-heading"
                 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] font-normal tracking-[-0.015em] text-[#181226] !leading-[1.15]"
               >
-                Four Specialized Desks.
+                Comprehensive Solutions for Your Business
                 <br />
-                <span className="text-[#581C87] italic font-normal font-editorial">One Institutional Platform.</span>
+                <span className="text-[#0891B2] italic font-normal font-editorial">Funding, Compliance, and Growth.</span>
               </h2>
 
               <p className="font-sans text-sm sm:text-base text-[#475569] leading-[1.7]">
-                Navigating expansion requires more than isolated advice. Our four
-                synchronized advisory desks solve capital, compliance, technology, and
-                growth as a single interconnected mandate.
+                From funding to certifications to growth - everything you need under one roof.
               </p>
             </div>
 
             <div className="shrink-0">
               <Link
                 href="/services"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-purple-200/90 hover:border-[#581C87] text-[#181226] hover:text-[#581C87] bg-white hover:bg-purple-50 text-xs font-mono tracking-wider uppercase transition-all group shadow-xs hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-cyan-200/90 hover:border-[#0891B2] text-[#181226] hover:text-[#0891B2] bg-white hover:bg-cyan-50 text-xs font-mono tracking-wider uppercase transition-all group shadow-xs hover:-translate-y-0.5"
               >
                 <span>Complete Service Catalog</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -159,10 +157,10 @@ export function ServicesTeaser() {
                   onMouseEnter={() => setActivePracticeId(practice.id)}
                   onFocus={() => setActivePracticeId(practice.id)}
                   className={cn(
-                    "relative group p-5 sm:p-6 rounded-2xl transition-all duration-300 border cursor-pointer",
+                    "group relative cursor-pointer rounded-2xl border p-5 transition-all duration-300 sm:p-6",
                     isActive
-                      ? "bg-[#FAF7FE] border-purple-200/90 shadow-[0_6px_24px_-6px_rgba(88,28,135,0.08)]"
-                      : "bg-white/60 border-purple-100/60 hover:bg-white hover:border-purple-200/70 hover:shadow-xs"
+                      ? "border-cyan-200/90 bg-[linear-gradient(135deg,rgba(8,145,178,0.08),rgba(255,255,255,0.95)_42%,rgba(240,253,250,0.9))] shadow-[0_12px_30px_-10px_rgba(8,145,178,0.16)]"
+                      : "border-cyan-100/70 bg-white/60 hover:border-cyan-200/80 hover:bg-white hover:shadow-[0_8px_24px_-12px_rgba(8,145,178,0.12)]"
                   )}
                 >
                   {/* Active highlight pill on left edge */}
@@ -170,8 +168,8 @@ export function ServicesTeaser() {
                     className={cn(
                       "absolute left-0 top-5 bottom-5 w-1 rounded-r-full transition-all duration-300",
                       isActive
-                        ? "bg-[#581C87] opacity-100"
-                        : "bg-transparent opacity-0 group-hover:opacity-40 group-hover:bg-[#7C3AED]"
+                        ? "bg-[#0891B2] opacity-100"
+                        : "bg-transparent opacity-0 group-hover:opacity-40 group-hover:bg-[#06B6D4]"
                     )}
                   />
 
@@ -182,13 +180,13 @@ export function ServicesTeaser() {
                         <span
                           className={cn(
                             "font-mono text-xs tracking-wider uppercase transition-colors",
-                            isActive ? "text-[#581C87] font-semibold" : "text-[#556070]"
+                            isActive ? "text-[#0891B2] font-semibold" : "text-[#556070]"
                           )}
                         >
                           PRACTICE {practice.num} &bull; {practice.discipline}
                         </span>
                       </div>
-                      <span className="font-mono text-xs text-[#7C3AED] hidden sm:inline font-medium">
+                      <span className="font-mono text-xs text-[#06B6D4] hidden sm:inline font-medium">
                         [{practice.subhead}]
                       </span>
                     </div>
@@ -199,8 +197,8 @@ export function ServicesTeaser() {
                         className={cn(
                           "font-serif text-xl sm:text-2xl font-medium transition-all duration-300",
                           isActive
-                            ? "text-[#581C87] translate-x-0.5"
-                            : "text-[#181226] group-hover:text-[#581C87]"
+                            ? "text-[#0891B2] translate-x-0.5"
+                            : "text-[#181226] group-hover:text-[#0891B2]"
                         )}
                       >
                         {practice.headline}
@@ -208,10 +206,10 @@ export function ServicesTeaser() {
 
                       <div
                         className={cn(
-                          "w-8 h-8 rounded-full border flex items-center justify-center transition-all duration-300 shrink-0",
+                          "flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-all duration-300",
                           isActive
-                            ? "bg-[#581C87] text-white border-[#581C87] shadow-[0_2px_10px_rgba(88,28,135,0.25)]"
-                            : "border-purple-200 text-[#475569] group-hover:border-[#581C87] group-hover:text-[#581C87]"
+                            ? "border-[#0891B2] bg-gradient-to-br from-[#0891B2] to-[#10B981] text-white shadow-[0_6px_16px_rgba(8,145,178,0.28)]"
+                            : "border-cyan-200 text-[#475569] group-hover:border-[#0891B2] group-hover:text-[#0891B2]"
                         )}
                       >
                         <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
@@ -228,7 +226,7 @@ export function ServicesTeaser() {
                       {practice.deliverables.map((item, i) => (
                         <span
                           key={i}
-                          className="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-mono text-[#581C87] bg-white border border-purple-200/80 shadow-2xs font-medium"
+                          className="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-mono text-[#0891B2] bg-white border border-cyan-200/80 shadow-2xs font-medium"
                         >
                           {item}
                         </span>
@@ -242,12 +240,12 @@ export function ServicesTeaser() {
 
           {/* Right: Dynamic Architectural Photography Frame (5 cols) */}
           <div className="hidden lg:block lg:col-span-5 lg:sticky lg:top-28">
-            <div className="relative rounded-3xl overflow-hidden border border-purple-200/90 bg-white shadow-[0_20px_50px_-12px_rgba(88,28,135,0.12),0_2px_8px_rgba(0,0,0,0.04)] group aspect-[4/3]">
+            <div className="relative rounded-3xl overflow-hidden border border-cyan-200/90 bg-white shadow-[0_20px_50px_-12px_rgba(88,28,135,0.12),0_2px_8px_rgba(0,0,0,0.04)] group aspect-[4/3]">
               {/* Corner Blueprint Crosshairs */}
-              <div className="absolute top-2 left-2 font-mono text-xs text-[#581C87]/40 z-30 select-none">
+              <div className="absolute top-2 left-2 font-mono text-xs text-[#0891B2]/40 z-30 select-none">
                 +
               </div>
-              <div className="absolute bottom-2 right-2 font-mono text-xs text-[#581C87]/40 z-30 select-none">
+              <div className="absolute bottom-2 right-2 font-mono text-xs text-[#0891B2]/40 z-30 select-none">
                 +
               </div>
 
@@ -283,18 +281,18 @@ export function ServicesTeaser() {
               <div className="relative z-20 h-full p-6 flex flex-col justify-between pointer-events-none">
                 {/* Top Badge */}
                 <div className="flex items-center justify-between">
-                  <span className="px-3 py-1 rounded-md bg-white/95 backdrop-blur-md border border-purple-100/90 text-[10px] font-mono text-[#181226] uppercase tracking-wider flex items-center gap-1.5 shadow-xs">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#581C87] animate-pulse" />
+                  <span className="px-3 py-1 rounded-md bg-white/95 backdrop-blur-md border border-cyan-100/90 text-[10px] font-mono text-[#181226] uppercase tracking-wider flex items-center gap-1.5 shadow-xs">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#0891B2] animate-pulse" />
                     <span>DESK {activePractice.num} &bull; CONTEXT</span>
                   </span>
-                  <span className="px-2.5 py-1 rounded-md bg-white/95 backdrop-blur-md border border-purple-100/90 text-[10px] font-mono text-[#581C87] shadow-xs font-semibold">
+                  <span className="px-2.5 py-1 rounded-md bg-white/95 backdrop-blur-md border border-cyan-100/90 text-[10px] font-mono text-[#0891B2] shadow-xs font-semibold">
                     {activePractice.tag}
                   </span>
                 </div>
 
                 {/* Bottom Caption */}
-                <div className="space-y-1 bg-white/95 backdrop-blur-md p-4 rounded-2xl border border-purple-100/90 shadow-md">
-                  <p className="text-[10px] font-mono uppercase tracking-widest text-[#581C87] font-semibold">
+                <div className="space-y-1 bg-white/95 backdrop-blur-md p-4 rounded-2xl border border-cyan-100/90 shadow-md">
+                  <p className="text-[10px] font-mono uppercase tracking-widest text-[#0891B2] font-semibold">
                     {activePractice.discipline}
                   </p>
                   <p className="font-serif text-lg text-[#181226] font-normal leading-snug">

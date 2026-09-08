@@ -10,13 +10,13 @@ export function SuccessStoriesHero({ totalStories }: SuccessStoriesHeroProps) {
   return (
     <section
       aria-labelledby="stories-hero-heading"
-      className="relative border-b border-purple-100 bg-[#FFFFFF] pt-32 pb-14 sm:pt-36 sm:pb-16 lg:pt-40 lg:pb-20 overflow-hidden"
+      className="relative border-b border-cyan-100 bg-[#FFFFFF] pt-32 pb-14 sm:pt-36 sm:pb-16 lg:pt-40 lg:pb-20 overflow-hidden"
     >
       <Container width="wide">
         <div className="max-w-3xl space-y-6">
           {/* Eyebrow & Credibility Badge */}
           <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
-            <span className="font-mono text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded border bg-[#581C87]/10 border-purple-200 text-[#581C87]">
+            <span className="font-mono text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded border bg-[#0891B2]/10 border-cyan-200 text-[#0891B2]">
               PROVEN OUTCOMES &bull; CASE STUDIES
             </span>
 

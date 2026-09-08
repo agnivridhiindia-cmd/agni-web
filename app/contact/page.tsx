@@ -5,8 +5,6 @@ import { createPageMetadata } from "@/lib/seo";
 import { Container } from "@/components/shared/container";
 import { ContactHero } from "@/components/contact/contact-hero";
 import { ContactInfo } from "@/components/contact/contact-info";
-import { EngagementProtocol } from "@/components/contact/engagement-protocol";
-import { ContactFaq } from "@/components/contact/contact-faq";
 import { MapLocation } from "@/components/contact/map-location";
 import { ContactForm } from "@/components/contact/contact-form";
 
@@ -27,11 +25,9 @@ export default function ContactPage() {
       <div className="py-12 sm:py-16 lg:py-20">
         <Container width="wide">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-            {/* Left Column: Firm Profile, Protocol, FAQs & Location (7 cols) */}
+            {/* Left Column: Firm Profile, Protocol & Location (7 cols) */}
             <div className="lg:col-span-7 space-y-12">
               <ContactInfo />
-              <EngagementProtocol />
-              <ContactFaq />
               <MapLocation />
             </div>
 

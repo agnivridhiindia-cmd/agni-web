@@ -41,7 +41,7 @@ export function ArticleBody({ content }: ArticleBodyProps) {
             <h2
               key={idx}
               id={id}
-              className="scroll-mt-28 font-serif text-2xl sm:text-3xl font-semibold text-[#0F0A1A] pt-6 pb-2 tracking-tight border-b border-purple-100"
+              className="scroll-mt-28 font-serif text-2xl sm:text-3xl font-semibold text-[#0F0A1A] pt-6 pb-2 tracking-tight border-b border-cyan-100"
             >
               {parseFormattedText(rawText)}
             </h2>
@@ -79,7 +79,7 @@ export function ArticleBody({ content }: ArticleBodyProps) {
                   <li key={lineIdx} className="flex items-start gap-3 text-[#475569] leading-relaxed">
                     <span
                       aria-hidden="true"
-                      className="w-1.5 h-1.5 rounded-full bg-[#581C87] shrink-0 mt-2.5"
+                      className="w-1.5 h-1.5 rounded-full bg-[#0891B2] shrink-0 mt-2.5"
                     />
                     <span className="flex-1">{parseFormattedText(itemText)}</span>
                   </li>
@@ -102,7 +102,7 @@ export function ArticleBody({ content }: ArticleBodyProps) {
                   <li key={lineIdx} className="flex items-start gap-3.5 text-[#475569] leading-relaxed">
                     <span
                       aria-hidden="true"
-                      className="w-6 h-6 rounded-md bg-[#581C87]/10 text-[#7C3AED] border border-purple-200 font-mono text-xs font-bold flex items-center justify-center shrink-0 mt-0.5"
+                      className="w-6 h-6 rounded-md bg-[#0891B2]/10 text-[#06B6D4] border border-cyan-200 font-mono text-xs font-bold flex items-center justify-center shrink-0 mt-0.5"
                     >
                       {num}
                     </span>
@@ -120,7 +120,7 @@ export function ArticleBody({ content }: ArticleBodyProps) {
           return (
             <blockquote
               key={idx}
-              className="my-6 pl-5 border-l-4 border-[#581C87] bg-white py-4 pr-4 rounded-r-xl italic text-[#0F0A1A] font-serif text-lg leading-relaxed"
+              className="my-6 pl-5 border-l-4 border-[#0891B2] bg-white py-4 pr-4 rounded-r-xl italic text-[#0F0A1A] font-serif text-lg leading-relaxed"
             >
               {parseFormattedText(quoteText)}
             </blockquote>

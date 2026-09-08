@@ -9,12 +9,12 @@ export function ServicesCta() {
   return (
     <section
       aria-labelledby="services-cta-heading"
-      className="py-16 sm:py-20 lg:py-24 bg-white text-[#0F0A1A] border-t border-purple-100 relative overflow-hidden"
+      className="py-16 sm:py-20 lg:py-24 bg-white text-[#0F0A1A] border-t border-cyan-100 relative overflow-hidden"
     >
       <Container width="wide">
         <FadeIn direction="up" distance={18} delay={0.05}>
           <div className="relative z-10 max-w-3xl space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#581C87]/10 border border-purple-200 text-[#581C87] text-xs font-semibold">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0891B2]/10 border border-cyan-200 text-[#0891B2] text-xs font-semibold">
               <Sparkles className="w-3.5 h-3.5" />
               <span>Multi-Disciplinary Diagnostic</span>
             </div>
@@ -35,11 +35,11 @@ export function ServicesCta() {
             {/* Advisory assurances */}
             <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-[#475569]">
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#581C87] shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-[#0891B2] shrink-0" />
                 <span>Zero speculation on unverified funding outcomes</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#581C87] shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-[#0891B2] shrink-0" />
                 <span>Synchronized filing across legal, bank &amp; tech desks</span>
               </div>
             </div>

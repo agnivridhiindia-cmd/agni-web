@@ -60,9 +60,9 @@ function MilestoneCard({
       className={`p-7 rounded-2xl bg-white backdrop-blur-sm border transition-all duration-300 ${
         isActive
           ? isFinalPhase
-            ? "border-[#581C87]/80 shadow-[0_8px_32px_-4px_rgba(124,58,237,0.25)] ring-1 ring-[#C79A4A]/20"
+            ? "border-[#0891B2]/80 shadow-[0_8px_32px_-4px_rgba(124,58,237,0.25)] ring-1 ring-[#C79A4A]/20"
             : "border-[#2DD4BF]/60 shadow-[0_8px_32px_-4px_rgba(124,58,237,0.2)] ring-1 ring-[#2DD4BF]/20"
-          : "border-purple-100 hover:border-purple-200 shadow-sm"
+          : "border-cyan-100 hover:border-cyan-200 shadow-sm"
       }`}
     >
       {/* Badge & Pillar Tag */}
@@ -71,9 +71,9 @@ function MilestoneCard({
           className={`text-[11px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded border transition-colors ${
             isActive
               ? isFinalPhase
-                ? "text-[#581C87] bg-[#581C87]/10 border-purple-200"
-                : "text-[#581C87] bg-[#2DD4BF]/10 border-[#2DD4BF]/30"
-              : "text-[#64748B] bg-purple-50 border-purple-100"
+                ? "text-[#0891B2] bg-[#0891B2]/10 border-cyan-200"
+                : "text-[#0891B2] bg-[#2DD4BF]/10 border-[#2DD4BF]/30"
+              : "text-[#64748B] bg-cyan-50 border-cyan-100"
           }`}
         >
           {milestone.badge}
@@ -85,7 +85,7 @@ function MilestoneCard({
 
       {/* Subtitle & Title */}
       <div>
-        <span className="text-xs font-mono font-semibold text-[#581C87] uppercase tracking-wider block">
+        <span className="text-xs font-mono font-semibold text-[#0891B2] uppercase tracking-wider block">
           {milestone.subtitle}
         </span>
         <h3 className="font-serif text-2xl font-bold text-[#0F0A1A] leading-snug mt-1">
@@ -98,14 +98,14 @@ function MilestoneCard({
         {milestone.description}
       </p>
 
-      {/* Structural Achievement Callout (e.g. ₹100 Cr+ Cumulative Debt Appraised) */}
+      {/* Structural Achievement Callout (e.g. ÃƒÂ¢ - Å¡Ã‚Â¹100 Cr+ Cumulative Debt Appraised) */}
       <div
         className={`mt-5 p-4 rounded-xl border transition-all duration-300 ${
           isActive
             ? isFinalPhase
-              ? "bg-purple-50 border-[#581C87]/40 shadow-2xs"
-              : "bg-purple-50 border-[#2DD4BF]/40 shadow-2xs"
-            : "bg-white border-purple-100"
+              ? "bg-cyan-50 border-[#0891B2]/40 shadow-2xs"
+              : "bg-cyan-50 border-[#2DD4BF]/40 shadow-2xs"
+            : "bg-white border-cyan-100"
         }`}
       >
         <div className="flex items-center justify-between gap-3 flex-wrap">
@@ -128,8 +128,8 @@ function MilestoneCard({
             className={`font-mono text-sm sm:text-base font-bold tabular-nums px-2.5 py-0.5 rounded ${
               isActive
                 ? isFinalPhase
-                  ? "bg-[#581C87]/20 text-[#581C87] border border-[#581C87]/40"
-                  : "bg-[#2DD4BF]/20 text-[#581C87] border border-[#2DD4BF]/50"
+                  ? "bg-[#0891B2]/20 text-[#0891B2] border border-[#0891B2]/40"
+                  : "bg-[#2DD4BF]/20 text-[#0891B2] border border-[#2DD4BF]/50"
                 : "bg-slate-200/70 text-[#475569]"
             }`}
           >
@@ -432,9 +432,9 @@ function MobileMilestoneRow({
             className={`text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded border ${
               isActive
                 ? isFinalPhase
-                  ? "text-[#581C87] bg-[#581C87]/10 border-purple-200"
-                  : "text-[#581C87] bg-[#2DD4BF]/10 border-[#2DD4BF]/30"
-                : "text-[#64748B] bg-purple-50 border-purple-100"
+                  ? "text-[#0891B2] bg-[#0891B2]/10 border-cyan-200"
+                  : "text-[#0891B2] bg-[#2DD4BF]/10 border-[#2DD4BF]/30"
+                : "text-[#64748B] bg-cyan-50 border-cyan-100"
             }`}
           >
             PHASE {milestone.phaseNumber} &bull; {milestone.badge}
@@ -645,7 +645,7 @@ export function CompanyTimeline() {
       ref={sectionRef}
       id="company-timeline"
       aria-labelledby="timeline-heading"
-      className="py-16 sm:py-20 lg:py-28 bg-[#FFFFFF] border-b border-purple-100 overflow-hidden"
+      className="py-16 sm:py-20 lg:py-28 bg-[#FFFFFF] border-b border-cyan-100 overflow-hidden"
     >
       <Container width="wide" className="space-y-12 sm:space-y-16">
         {/* Section Header */}
@@ -662,7 +662,7 @@ export function CompanyTimeline() {
             />
 
             {/* Real-Time Interactive Badge */}
-            <div className="hidden lg:flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white text-white border border-purple-100 shadow-sm self-start lg:self-auto">
+            <div className="hidden lg:flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white text-white border border-cyan-100 shadow-sm self-start lg:self-auto">
               <Sparkles className="w-4 h-4 text-gold-400 animate-pulse" />
               <span className="font-mono text-xs font-medium text-slate-200">
                 Interactive Milestones Spine

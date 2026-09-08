@@ -18,7 +18,7 @@ export function ServiceProcess({ process }: ServiceProcessProps) {
       className="scroll-mt-28 space-y-8"
     >
       <div>
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#581C87]/10 border border-purple-200 text-[#581C87] text-xs font-mono tracking-wider uppercase">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0891B2]/10 border border-cyan-200 text-[#0891B2] text-xs font-mono tracking-wider uppercase">
           <CheckCircle2 className="w-3.5 h-3.5" />
           <span>Underwriting Protocol &bull; Structured Delivery</span>
         </div>
@@ -55,7 +55,7 @@ export function ServiceProcess({ process }: ServiceProcessProps) {
               <div key={step.step} className="flex flex-col items-start space-y-4 group">
                 {/* Stepped Progress Node */}
                 <div className="flex items-center justify-between w-full">
-                  <div className="w-14 h-14 rounded-2xl bg-purple-50/60 border border-[#581C87] shadow-md ring-4 ring-[#C79A4A]/10 flex items-center justify-center font-mono font-bold text-base text-[#7C3AED] group-hover:border-[#DFC286] group-hover:ring-[#C79A4A]/20 transition-all duration-300">
+                  <div className="w-14 h-14 rounded-2xl bg-cyan-50/60 border border-[#0891B2] shadow-md ring-4 ring-[#C79A4A]/10 flex items-center justify-center font-mono font-bold text-base text-[#06B6D4] group-hover:border-[#DFC286] group-hover:ring-[#C79A4A]/20 transition-all duration-300">
                     <span>{stepNumber}</span>
                   </div>
 
@@ -65,12 +65,12 @@ export function ServiceProcess({ process }: ServiceProcessProps) {
                 </div>
 
                 {/* Phase Label */}
-                <span className="font-mono text-[10px] uppercase font-bold tracking-widest text-[#581C87] px-2 py-0.5 rounded bg-purple-50 border border-purple-100">
+                <span className="font-mono text-[10px] uppercase font-bold tracking-widest text-[#0891B2] px-2 py-0.5 rounded bg-cyan-50 border border-cyan-100">
                   Phase 0{step.step}
                 </span>
 
                 {/* Content Card */}
-                <div className="p-5 rounded-2xl bg-white border border-purple-100 shadow-2xs group-hover:border-purple-300 transition-all duration-300 flex-1 w-full space-y-2">
+                <div className="p-5 rounded-2xl bg-white border border-cyan-100 shadow-2xs group-hover:border-cyan-300 transition-all duration-300 flex-1 w-full space-y-2">
                   <h3 className="font-serif text-base font-bold text-[#0F0A1A] leading-snug">
                     {step.title}
                   </h3>
@@ -87,7 +87,7 @@ export function ServiceProcess({ process }: ServiceProcessProps) {
       {/* ============================================================
           MOBILE (< md): Connected Vertical Process Timeline
           ============================================================ */}
-      <div className="md:hidden relative pl-6 border-l-2 border-purple-300 space-y-6 ml-3">
+      <div className="md:hidden relative pl-6 border-l-2 border-cyan-300 space-y-6 ml-3">
         {process.map((step) => {
           const stepNumber = String(step.step).padStart(2, "0");
 
@@ -95,7 +95,7 @@ export function ServiceProcess({ process }: ServiceProcessProps) {
             <div key={step.step} className="relative space-y-2">
               {/* Progress Node Bullet */}
               <div
-                className="absolute -left-[35px] top-1 w-9 h-9 rounded-xl bg-purple-50/60 border border-[#581C87] shadow-sm flex items-center justify-center font-mono font-bold text-xs text-[#7C3AED]"
+                className="absolute -left-[35px] top-1 w-9 h-9 rounded-xl bg-cyan-50/60 border border-[#0891B2] shadow-sm flex items-center justify-center font-mono font-bold text-xs text-[#06B6D4]"
                 aria-hidden="true"
               >
                 {stepNumber}
@@ -103,7 +103,7 @@ export function ServiceProcess({ process }: ServiceProcessProps) {
 
               {/* Phase Tag & Title */}
               <div className="space-y-1">
-                <span className="font-mono text-[10px] uppercase font-bold tracking-widest text-[#581C87] px-2 py-0.5 rounded bg-purple-50 border border-purple-100 inline-block">
+                <span className="font-mono text-[10px] uppercase font-bold tracking-widest text-[#0891B2] px-2 py-0.5 rounded bg-cyan-50 border border-cyan-100 inline-block">
                   Phase 0{step.step}
                 </span>
                 <h3 className="font-serif text-base font-bold text-[#0F0A1A]">
@@ -112,7 +112,7 @@ export function ServiceProcess({ process }: ServiceProcessProps) {
               </div>
 
               {/* Card */}
-              <div className="p-4 rounded-xl bg-white border border-purple-100 shadow-2xs">
+              <div className="p-4 rounded-xl bg-white border border-cyan-100 shadow-2xs">
                 <p className="text-xs text-[#475569] font-sans leading-relaxed">
                   {step.description}
                 </p>

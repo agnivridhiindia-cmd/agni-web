@@ -81,18 +81,6 @@ export function StoriesListing({ initialStudies }: StoriesListingProps) {
     [router, pathname, searchParams]
   );
 
-  // Separate featured story from the remaining grid (no duplicates)
-  const featuredStory = React.useMemo(() => {
-    return filteredStudies.find((s) => s.featured);
-  }, [filteredStudies]);
-
-  const regularStories = React.useMemo(() => {
-    if (!featuredStory) {
-      return filteredStudies;
-    }
-    return filteredStudies.filter((s) => s.slug !== featuredStory.slug);
-  }, [filteredStudies, featuredStory]);
-
   const transitionConfig = prefersReducedMotion
     ? { duration: 0 }
     : { duration: 0.2, ease: "easeOut" as const };
@@ -118,15 +106,15 @@ export function StoriesListing({ initialStudies }: StoriesListingProps) {
           >
             {filteredStudies.length === 0 ? (
               /* Empty Filter State */
-              <div className="py-16 sm:py-20 text-center rounded-2xl border border-dashed border-purple-100 bg-white max-w-xl mx-auto space-y-4 px-6">
-                <div className="w-12 h-12 rounded-full bg-purple-50 border border-purple-100 text-[#581C87] flex items-center justify-center mx-auto">
+              <div className="py-16 sm:py-20 text-center rounded-2xl border border-dashed border-[#232727] bg-[#111313] max-w-xl mx-auto space-y-4 px-6">
+                <div className="w-12 h-12 rounded-full bg-[#181A1A] border border-[#232727] text-[#C79A4A] flex items-center justify-center mx-auto">
                   <FileQuestion className="w-6 h-6" />
                 </div>
                 <div className="space-y-1">
-                  <h3 className="font-serif text-xl font-semibold text-[#0F0A1A]">
+                  <h3 className="font-serif text-xl font-semibold text-[#F3EFE7]">
                     No Case Studies in This Category
                   </h3>
-                  <p className="text-[#475569] text-sm font-sans">
+                  <p className="text-[#D1CBC1] text-sm font-sans">
                     We currently have no verified engagements published under this filter.
                   </p>
                 </div>
@@ -141,23 +129,10 @@ export function StoriesListing({ initialStudies }: StoriesListingProps) {
                 </Button>
               </div>
             ) : (
-              /* Editorial Case Studies Composition */
-              <div className="space-y-8 sm:space-y-10">
-                {/* 1. Featured Prominent Story (if present in current filter) */}
-                {featuredStory && (
-                  <div>
-                    <StoryCard study={featuredStory} featured={true} />
-                  </div>
-                )}
-
-                {/* 2. Structured Secondary Grid */}
-                {regularStories.length > 0 && (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-                    {regularStories.map((study) => (
-                      <StoryCard key={study.slug} study={study} featured={false} />
-                    ))}
-                  </div>
-                )}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+                {filteredStudies.map((study) => (
+                  <StoryCard key={study.slug} study={study} />
+                ))}
               </div>
             )}
           </motion.div>

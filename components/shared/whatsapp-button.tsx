@@ -66,7 +66,7 @@ export function WhatsAppButton({
   return (
     <div
       className={cn(
-        "fixed bottom-6 right-6 z-40 flex items-center group",
+        "fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 flex items-center group",
         className
       )}
     >
@@ -94,12 +94,12 @@ export function WhatsAppButton({
         onFocus={() => setIsHovered(true)}
         onBlur={() => setIsHovered(false)}
         className={cn(
-          "relative flex items-center justify-center w-14 h-14 rounded-full text-white shadow-floating",
+          "relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full text-white shadow-floating",
           "bg-[#25D366] hover:bg-[#20BD5A] active:scale-95 transition-all duration-200",
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2"
         )}
       >
-        <WhatsAppIcon className="w-7 h-7" />
+        <WhatsAppIcon className="w-6 h-6 sm:w-7 sm:h-7" />
         <span className="sr-only">Chat with Agnivridhi India on WhatsApp</span>
       </a>
     </div>

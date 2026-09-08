@@ -60,10 +60,10 @@ export function FaqAccordion({
             onMouseLeave={() => handleMouseLeave(idx)}
             onClick={() => handleClick(idx)}
             className={cn(
-              "group relative rounded-xl border transition-all duration-300 overflow-hidden cursor-pointer select-none",
+              "group relative cursor-pointer select-none overflow-hidden rounded-[1.1rem] border transition-all duration-300",
               isOpen
-                ? "bg-[#141616] border-[#C79A4A]/50 shadow-[0_8px_24px_rgba(0,0,0,0.5)]"
-                : "bg-[#111313]/90 border-[#232727] hover:border-[#C79A4A]/30 hover:bg-[#141616]/60"
+                ? "border-cyan-300 bg-[linear-gradient(135deg,rgba(224,242,254,0.35),rgba(255,255,255,0.96)_30%,rgba(240,253,250,0.92))] shadow-[0_18px_36px_-24px_rgba(8,145,178,0.2)]"
+                : "border-cyan-100 bg-white/90 hover:border-cyan-300 hover:bg-cyan-50/35"
             )}
             role="button"
             tabIndex={0}
@@ -78,8 +78,8 @@ export function FaqAccordion({
             {/* Left Accent indicator when open */}
             <div
               className={cn(
-                "absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#DFC286] to-[#C79A4A] transition-all duration-300 origin-top",
-                isOpen ? "opacity-100 scale-y-100" : "opacity-0 scale-y-0"
+                "absolute bottom-0 left-0 top-0 w-1 origin-top bg-gradient-to-b from-[#22D3EE] to-[#0891B2] transition-all duration-300",
+                isOpen ? "scale-y-100 opacity-100" : "scale-y-0 opacity-0"
               )}
               aria-hidden="true"
             />
@@ -88,10 +88,10 @@ export function FaqAccordion({
             <div className="flex items-center justify-between gap-4 p-4 sm:p-5">
               <span
                 className={cn(
-                  "font-serif text-base sm:text-lg font-medium transition-colors duration-300 pr-2 leading-snug",
+                  "pr-2 font-serif text-base font-medium leading-snug transition-colors duration-300 sm:text-lg",
                   isOpen
-                    ? "text-[#DFC286]"
-                    : "text-[#F3EFE7] group-hover:text-[#C79A4A]"
+                    ? "text-[#0E7490]"
+                    : "text-[#181226] group-hover:text-[#0891B2]"
                 )}
               >
                 {item.question}
@@ -99,17 +99,17 @@ export function FaqAccordion({
 
               <div className="flex items-center gap-2 shrink-0">
                 {isPinned && (
-                  <span className="hidden sm:inline-block text-[10px] font-mono uppercase tracking-wider text-[#C79A4A] bg-[#C79A4A]/10 px-2 py-0.5 rounded border border-[#C79A4A]/30">
+                  <span className="hidden rounded border border-cyan-200 bg-cyan-100 px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider text-[#0891B2] sm:inline-block">
                     Pinned
                   </span>
                 )}
                 <motion.div
                   animate={{
                     rotate: isOpen ? 180 : 0,
-                    color: isOpen ? "#C79A4A" : "#8E8B82",
+                    color: isOpen ? "#0891B2" : "#64748B",
                   }}
                   transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                  className="flex items-center justify-center w-7 h-7 rounded-full bg-white/[0.04] border border-white/[0.06] group-hover:border-[#C79A4A]/40"
+                  className="flex items-center justify-center w-7 h-7 rounded-full bg-white border border-cyan-100 group-hover:border-cyan-300"
                 >
                   <ChevronDown className="w-4 h-4" />
                 </motion.div>
@@ -153,7 +153,7 @@ export function FaqAccordion({
                   }}
                   className="overflow-hidden"
                 >
-                  <div className="px-4 pb-5 sm:px-5 sm:pb-6 text-sm sm:text-base text-[#D1CBC1] font-sans leading-relaxed border-t border-white/[0.06] pt-3">
+                  <div className="px-4 pb-5 sm:px-5 sm:pb-6 text-sm sm:text-base text-[#475569] font-sans leading-relaxed border-t border-cyan-100 pt-3">
                     {item.answer}
                   </div>
                 </motion.div>

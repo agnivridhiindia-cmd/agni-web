@@ -6,30 +6,30 @@ import type { Service, ServiceCategory, ServiceCategoryMeta } from "@/types/serv
 export const serviceCategories: readonly ServiceCategoryMeta[] = [
   {
     id: "funding",
-    name: "Government & Business Funding",
+    name: "Government & Debt Funding",
     shortDescription:
-      "Collateral-free schemes, government subsidies, working capital, and institutional project debt.",
+      "Access capital through government schemes and customized loan products.",
     icon: "Landmark",
   },
   {
     id: "compliance",
     name: "Compliance & Certifications",
     shortDescription:
-      "Statutory registrations, ISO accreditations, GST advisory, and Startup India recognition.",
+      "Legal registrations and quality certifications for business credibility.",
     icon: "ShieldCheck",
   },
   {
     id: "digital",
     name: "Digital Growth & Marketing",
     shortDescription:
-      "High-conversion web platforms, B2B performance marketing, search visibility (SEO), and corporate brand strategy.",
+      "Scale your business with technology and strategic marketing.",
     icon: "Globe",
   },
   {
     id: "it",
     name: "Technology & Software Engineering",
     shortDescription:
-      "Tailored enterprise software, native mobile apps, cloud DevOps, ERP automation, and operational AI workflows.",
+      "Complete technology solutions from software development to cloud infrastructure.",
     icon: "Cpu",
   },
 ];
@@ -43,18 +43,18 @@ export const servicesCatalog: readonly Service[] = [
   {
     id: "cgtmse-funding",
     slug: "cgtmse-funding",
-    name: "CGTMSE Collateral-Free Loans",
+    name: "CGTMSE & MUDRA Loans",
     category: "funding",
     shortDescription:
-      "Credit Guarantee Fund Trust for Micro and Small Enterprises, facilitating collateral-free institutional credit up to ₹5 Crore.",
+      "Get collateral-free business loans up to ₹50 lakh with 80% government guarantee. Fast approval, minimal documentation, and expert guidance.",
     description:
-      "Comprehensive end-to-end assistance for eligible MSMEs seeking collateral-free financial assistance under the Ministry of MSME's CGTMSE scheme. We prepare institutional-grade detailed project reports (DPR), financial projections, and represent clients during banking credit appraisal.",
+      "Collateral-free loans from ₹10 lakh to ₹50 lakh for business growth, with end-to-end documentation, bank submission, and follow-up support.",
     icon: "Coins",
-    schemeCeiling: "Up to ₹5 Crore / Zero Collateral",
+    schemeCeiling: "Up to \u20B95 Crore / Zero Collateral",
     dealSummary: {
-      maxLimit: "₹5.00 Crore",
+      maxLimit: "\u20B95.00 Crore",
       collateral: "0% (Zero Collateral)",
-      turnaround: "30–45 Days",
+      turnaround: "30 - â€œ45 Days",
       checklistDocName: "CGTMSE_DPR_Checklist.pdf",
     },
     audience: [
@@ -77,7 +77,7 @@ export const servicesCatalog: readonly Service[] = [
     faqs: [
       {
         question: "What is the maximum loan limit under CGTMSE?",
-        answer: "The scheme facilitates credit facilities up to ₹500 Lakh (₹5 Crore) per eligible MSME borrower.",
+        answer: "The scheme facilitates credit facilities up to \u20B9500 Lakh (\u20B95 Crore) per eligible MSME borrower.",
       },
       {
         question: "Is collateral completely waived?",
@@ -88,7 +88,7 @@ export const servicesCatalog: readonly Service[] = [
     featured: true,
     metadata: {
       title: "CGTMSE Collateral-Free Loan Consulting | Agnivridhi India",
-      description: "Secure up to ₹5 Crore collateral-free institutional loan under the government CGTMSE scheme with Agnivridhi India.",
+      description: "Secure up to \u20B95 Crore collateral-free institutional loan under the government CGTMSE scheme with Agnivridhi India.",
     },
   },
   {
@@ -97,15 +97,15 @@ export const servicesCatalog: readonly Service[] = [
     name: "PMMY MUDRA Loan Assistance",
     category: "funding",
     shortDescription:
-      "Pradhan Mantri Mudra Yojana funding assistance across Shishu, Kishore, and Tarun tiers up to ₹20 Lakh.",
+      "Pradhan Mantri Mudra Yojana funding assistance across Shishu, Kishore, and Tarun tiers up to \u20B920 Lakh.",
     description:
       "Assistance for micro-enterprises and non-farm small businesses to access structured refinance under the Pradhan Mantri Mudra Yojana. We guide borrowers through correct category selection, business plan preparation, and documentation.",
     icon: "CreditCard",
-    schemeCeiling: "Up to ₹20 Lakh / Zero Collateral",
+    schemeCeiling: "Up to \u20B920 Lakh / Zero Collateral",
     dealSummary: {
-      maxLimit: "₹20 Lakh",
+      maxLimit: "\u20B920 Lakh",
       collateral: "0% Collateral",
-      turnaround: "15–25 Days",
+      turnaround: "15 - â€œ25 Days",
       checklistDocName: "MUDRA_Application_Dossier.pdf",
     },
     audience: [
@@ -119,7 +119,7 @@ export const servicesCatalog: readonly Service[] = [
       "Tiered support matching enterprise development phase",
     ],
     process: [
-      { step: 1, title: "Tier Selection", description: "Determining eligibility across Shishu (up to ₹50k), Kishore (up to ₹5L), and Tarun (up to ₹20L)." },
+      { step: 1, title: "Tier Selection", description: "Determining eligibility across Shishu (up to \u20B950k), Kishore (up to \u20B95L), and Tarun (up to \u20B920L)." },
       { step: 2, title: "Application Preparation", description: "Preparing standard MUDRA application dossiers and proof of enterprise." },
       { step: 3, title: "Bank Submission", description: "Liaison with public sector, private, or regional rural banking partners." },
       { step: 4, title: "Sanction Follow-through", description: "Active coordination with branch credit teams for fund release." },
@@ -131,24 +131,24 @@ export const servicesCatalog: readonly Service[] = [
   {
     id: "pmegp-loan-subsidy",
     slug: "pmegp-loan-subsidy",
-    name: "PMEGP Credit Linked Subsidy",
+    name: "PMEGP Subsidy",
     category: "funding",
     shortDescription:
-      "Prime Minister's Employment Generation Programme advisory with capital subsidies up to 35% on project costs.",
+      "Get 15-35% government subsidy on your business project with complete support from application to subsidy disbursement.",
     description:
-      "Advisory for non-farm employment generation ventures seeking credit-linked government subsidy through KVIC, KVIB, and DIC channels. We support applicants from project inception through EDP training completion and subsidy lock-in.",
+      "Government subsidy on project costs for manufacturing and service businesses, with expert documentation, application filing, bank coordination, and subsidy release support.",
     icon: "Award",
-    schemeCeiling: "Up to ₹50 Lakh / 35% Capital Subsidy",
+    schemeCeiling: "Up to \u20B950 Lakh / 35% Capital Subsidy",
     dealSummary: {
-      maxLimit: "₹50 Lakh (35% Subsidy)",
+      maxLimit: "\u20B950 Lakh (35% Subsidy)",
       collateral: "Govt Subsidized (35%)",
-      turnaround: "45–60 Days",
+      turnaround: "45 - â€œ60 Days",
       checklistDocName: "PMEGP_DPR_Dossier.pdf",
     },
     audience: [
       "First-generation entrepreneurs",
       "Rural and semi-urban enterprise founders",
-      "Manufacturing units with project cost up to ₹50 Lakh",
+      "Manufacturing units with project cost up to \u20B950 Lakh",
     ],
     benefits: [
       "Capital margin money subsidy ranging from 15% to 35%",
@@ -175,11 +175,11 @@ export const servicesCatalog: readonly Service[] = [
     description:
       "End-to-end advisory for medium and large MSMEs requiring cash credit, overdraft, letter of credit, bank guarantees, and capital expenditure term loans through scheduled commercial banks and financial institutions.",
     icon: "TrendingUp",
-    schemeCeiling: "₹50 Cr+ Project Debt Syndicate",
+    schemeCeiling: "\u20B950 Cr+ Project Debt Syndicate",
     dealSummary: {
-      maxLimit: "₹50 Cr+ Project Line",
+      maxLimit: "\u20B950 Cr+ Project Line",
       collateral: "Asset Hypothecation",
-      turnaround: "45–90 Days",
+      turnaround: "45 - â€œ90 Days",
       checklistDocName: "Project_Finance_CMA_Checklist.pdf",
     },
     audience: [
@@ -207,10 +207,10 @@ export const servicesCatalog: readonly Service[] = [
   {
     id: "msme-udyam-registration",
     slug: "msme-udyam-registration",
-    name: "MSME & Udyam Registration",
+    name: "MSME/Udyam Registration",
     category: "compliance",
     shortDescription:
-      "Official government Udyam registration to unlock statutory MSME benefits, subsidies, and priority lending.",
+      "Get an instant Udyam certificate and unlock government benefits, priority loans, subsidies, and tax exemptions with free registration.",
     description:
       "Flawless filing and advisory for official Udyam registration under the Ministry of MSME. We ensure accurate NIC code mapping, turnover classification, and investment verification for maximum statutory protection.",
     icon: "FileCheck",
@@ -218,7 +218,7 @@ export const servicesCatalog: readonly Service[] = [
     dealSummary: {
       maxLimit: "Statutory Protection",
       collateral: "Zero Requirement",
-      turnaround: "2–4 Days",
+      turnaround: "2 - â€œ4 Days",
       checklistDocName: "Udyam_Registration_Checklist.pdf",
     },
     audience: [
@@ -254,7 +254,7 @@ export const servicesCatalog: readonly Service[] = [
     dealSummary: {
       maxLimit: "State & Central GSTIN",
       collateral: "Statutory Filing",
-      turnaround: "5–7 Days",
+      turnaround: "5 - â€œ7 Days",
       checklistDocName: "GST_Compliance_Checklist.pdf",
     },
     audience: [
@@ -290,7 +290,7 @@ export const servicesCatalog: readonly Service[] = [
     dealSummary: {
       maxLimit: "Global Accreditation",
       collateral: "Zero Non-Conformity",
-      turnaround: "20–30 Days",
+      turnaround: "20 - â€œ30 Days",
       checklistDocName: "ISO_Quality_Manual_Framework.pdf",
     },
     audience: [
@@ -325,9 +325,9 @@ export const servicesCatalog: readonly Service[] = [
     icon: "Rocket",
     schemeCeiling: "3-Yr 80-IAC Tax Exemption",
     dealSummary: {
-      maxLimit: "₹50L Seed Fund / 3-Yr Exemption",
+      maxLimit: "\u20B950L Seed Fund / 3-Yr Exemption",
       collateral: "DPIIT Recognized",
-      turnaround: "15–25 Days",
+      turnaround: "15 - â€œ25 Days",
       checklistDocName: "Startup_India_Pitch_Checklist.pdf",
     },
     audience: [
@@ -337,7 +337,7 @@ export const servicesCatalog: readonly Service[] = [
     benefits: [
       "Eligibility for Section 80-IAC three-year income tax exemption",
       "Relaxed norms for public procurement tenders without prior turnover requirements",
-      "Access to Startup India Seed Fund Scheme (SISFS) up to ₹50 Lakh",
+      "Access to Startup India Seed Fund Scheme (SISFS) up to \u20B950 Lakh",
     ],
     process: [
       { step: 1, title: "Innovation Pitch", description: "Documentation of innovation uniqueness and employment generation." },
@@ -365,7 +365,7 @@ export const servicesCatalog: readonly Service[] = [
     dealSummary: {
       maxLimit: "Next.js Architecture",
       collateral: "100% Code Ownership",
-      turnaround: "20–45 Days",
+      turnaround: "20 - â€œ45 Days",
       checklistDocName: "Web_Platform_Spec_Checklist.pdf",
     },
     audience: [
@@ -438,7 +438,7 @@ export const servicesCatalog: readonly Service[] = [
     dealSummary: {
       maxLimit: "Full Corporate Identity System",
       collateral: "100% Vector & Trademark Ready",
-      turnaround: "15–30 Days",
+      turnaround: "15 - â€œ30 Days",
       checklistDocName: "Brand_Identity_Asset_Checklist.pdf",
     },
     audience: [
@@ -477,7 +477,7 @@ export const servicesCatalog: readonly Service[] = [
     dealSummary: {
       maxLimit: "Bespoke Enterprise Systems",
       collateral: "Zero Vendor Lock-in",
-      turnaround: "45–90 Days",
+      turnaround: "45 - â€œ90 Days",
       checklistDocName: "Custom_Software_Scope_Checklist.pdf",
     },
     audience: [
@@ -513,7 +513,7 @@ export const servicesCatalog: readonly Service[] = [
     dealSummary: {
       maxLimit: "Full-Stack Enterprise ERP",
       collateral: "On-Prem / Cloud Dedicated",
-      turnaround: "60–120 Days",
+      turnaround: "60 - â€œ120 Days",
       checklistDocName: "ERP_Implementation_Checklist.pdf",
     },
     audience: [
@@ -549,7 +549,7 @@ export const servicesCatalog: readonly Service[] = [
     dealSummary: {
       maxLimit: "Cross-Platform Mobile Suite",
       collateral: "Full App Store / Play Store IP",
-      turnaround: "45–90 Days",
+      turnaround: "45 - â€œ90 Days",
       checklistDocName: "Mobile_App_Architecture_Checklist.pdf",
     },
     audience: [
@@ -586,7 +586,7 @@ export const servicesCatalog: readonly Service[] = [
     dealSummary: {
       maxLimit: "AWS & Google Cloud Architecture",
       collateral: "SOC2 & ISO 27001 Preparedness",
-      turnaround: "30–60 Days",
+      turnaround: "30 - â€œ60 Days",
       checklistDocName: "Cloud_DevOps_Audit_Checklist.pdf",
     },
     audience: [
@@ -623,7 +623,7 @@ export const servicesCatalog: readonly Service[] = [
     dealSummary: {
       maxLimit: "Custom Enterprise AI Pods",
       collateral: "Proprietary Data Isolation",
-      turnaround: "30–60 Days",
+      turnaround: "30 - â€œ60 Days",
       checklistDocName: "AI_Workflow_Feasibility_Checklist.pdf",
     },
     audience: [

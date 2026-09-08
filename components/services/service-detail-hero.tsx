@@ -66,34 +66,34 @@ const categoryTheme: Record<
 > = {
   funding: {
     numeral: "01",
-    label: "Government & Business Funding",
-    badgeBg: "bg-purple-50 border-purple-100",
-    badgeText: "text-[#581C87]",
-    iconBg: "bg-purple-50 border-purple-100 text-[#581C87]",
+    label: "Government & Debt Funding",
+    badgeBg: "bg-cyan-50 border-cyan-100",
+    badgeText: "text-[#0891B2]",
+    iconBg: "bg-cyan-50 border-cyan-100 text-[#0891B2]",
     iconText: "text-gold-800",
   },
   compliance: {
     numeral: "02",
     label: "Compliance & Certifications",
-    badgeBg: "bg-purple-50 border-purple-100",
-    badgeText: "text-[#581C87]",
-    iconBg: "bg-purple-50 border-purple-100 text-[#581C87]",
+    badgeBg: "bg-cyan-50 border-cyan-100",
+    badgeText: "text-[#0891B2]",
+    iconBg: "bg-cyan-50 border-cyan-100 text-[#0891B2]",
     iconText: "text-teal-800",
   },
   digital: {
     numeral: "03",
     label: "Digital Transformation",
-    badgeBg: "bg-purple-50 border-purple-100",
+    badgeBg: "bg-cyan-50 border-cyan-100",
     badgeText: "text-[#38BDF8]",
-    iconBg: "bg-purple-50 border-purple-100 text-[#38BDF8]",
+    iconBg: "bg-cyan-50 border-cyan-100 text-[#38BDF8]",
     iconText: "text-cyan-800",
   },
   it: {
     numeral: "04",
     label: "Custom Software & IT Services",
-    badgeBg: "bg-purple-50 border-purple-100",
+    badgeBg: "bg-cyan-50 border-cyan-100",
     badgeText: "text-[#0F0A1A]",
-    iconBg: "bg-purple-50 border-purple-100 text-[#475569]",
+    iconBg: "bg-cyan-50 border-cyan-100 text-[#475569]",
     iconText: "text-slate-800",
   },
 };
@@ -109,7 +109,7 @@ export function ServiceDetailHero({ service }: ServiceDetailHeroProps) {
   return (
     <section
       aria-labelledby="service-detail-heading"
-      className="relative border-b border-purple-100 bg-[#FFFFFF] py-12 sm:py-16 lg:py-20 overflow-hidden"
+      className="relative border-b border-cyan-100 bg-[#FFFFFF] py-12 sm:py-16 lg:py-20 overflow-hidden"
     >
       <Container width="wide">
         <div className="max-w-4xl space-y-6">
@@ -127,13 +127,13 @@ export function ServiceDetailHero({ service }: ServiceDetailHeroProps) {
               </span>
 
               {service.featured && (
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded text-[11px] font-mono font-medium uppercase tracking-wider bg-purple-50 border border-purple-100 text-[#581C87] shadow-xs">
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded text-[11px] font-mono font-medium uppercase tracking-wider bg-cyan-50 border border-cyan-100 text-[#0891B2] shadow-xs">
                   Core Scheme
                 </span>
               )}
 
               {service.timeline && (
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-xs font-sans text-[#475569] bg-purple-50 border border-purple-100 shadow-xs">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-xs font-sans text-[#475569] bg-cyan-50 border border-cyan-100 shadow-xs">
                   <Clock className="w-3.5 h-3.5 text-slate-400 shrink-0" aria-hidden="true" />
                   <span className="line-clamp-1">{service.timeline}</span>
                 </span>

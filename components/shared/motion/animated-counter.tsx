@@ -34,7 +34,7 @@ export function AnimatedCounter({
   duration = 1.4,
   decimals = 0,
   locale = "en-IN",
-  fallback = "—",
+  fallback = "ÃƒÂ¢Ã¢â€šÂ¬ - Â",
   className,
 }: AnimatedCounterProps) {
   const ref = React.useRef<HTMLSpanElement>(null);

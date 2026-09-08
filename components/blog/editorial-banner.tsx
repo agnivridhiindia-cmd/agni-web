@@ -63,7 +63,7 @@ export function EditorialBanner({
           </div>
 
           <div className="text-amber-400/90 font-bold tracking-wider px-2 py-0.5 rounded bg-amber-950/40 border border-amber-500/30">
-            ₹5.00 CR CEILING
+            \u20B95.00 CR CEILING
           </div>
         </div>
 
@@ -109,7 +109,7 @@ export function EditorialBanner({
               strokeWidth="1.5"
             />
             {/* Rupee Symbol inside shield */}
-            <text x="270" y="117" textAnchor="middle" fill="#ffffff" fontSize="12" fontWeight="bold" fontFamily="sans-serif">₹</text>
+            <text x="270" y="117" textAnchor="middle" fill="#ffffff" fontSize="12" fontWeight="bold" fontFamily="sans-serif">ÃƒÂ¢ - Å¡Ã‚Â¹</text>
 
             {/* Pipeline Stage Nodes */}
             {/* Node 1: MSME Capex Appraisal */}
@@ -146,9 +146,9 @@ export function EditorialBanner({
         {/* Bottom bar: Institutional Metrics */}
         <div className="relative z-10 pt-2 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-2 text-[10px] sm:text-xs font-mono text-slate-300">
           <div className="flex items-center gap-3">
-            <span className="text-teal-400 font-semibold">COVER: 75%–85%</span>
-            <span className="text-slate-500">•</span>
-            <span className="text-amber-300 font-semibold">MORTGAGE: ₹0.00</span>
+            <span className="text-teal-400 font-semibold">COVER: 75%ÃƒÂ¢Ã¢â€šÂ¬ - Å“85%</span>
+            <span className="text-slate-500">ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢</span>
+            <span className="text-amber-300 font-semibold">MORTGAGE: ÃƒÂ¢ - Å¡Ã‚Â¹0.00</span>
           </div>
           <div className="text-slate-400">
             MINISTRY OF MSME &amp; SIDBI
@@ -256,7 +256,7 @@ export function EditorialBanner({
         <div className="relative z-10 pt-2 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-2 text-[10px] sm:text-xs font-mono text-slate-300">
           <div className="flex items-center gap-3">
             <span className="text-amber-300 font-semibold">ZERO MAJOR NCs</span>
-            <span className="text-slate-500">•</span>
+            <span className="text-slate-500">ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢</span>
             <span className="text-teal-400 font-semibold">STAGE 1 &amp; 2 ROADMAP</span>
           </div>
           <div className="text-slate-400">

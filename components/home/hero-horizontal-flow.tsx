@@ -53,7 +53,7 @@ export function HeroHorizontalFlow() {
       <div className="block lg:hidden bg-[#FAF9FE]">
         <Hero />
         <div
-          className="h-px w-full bg-gradient-to-r from-transparent via-purple-200/80 to-transparent"
+          className="h-px w-full bg-gradient-to-r from-transparent via-cyan-200/80 to-transparent"
           aria-hidden="true"
         />
         <AboutBrief />

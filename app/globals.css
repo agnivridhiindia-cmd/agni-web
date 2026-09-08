@@ -4,13 +4,16 @@
 
 @keyframes hero-ambient-drift {
   0% {
-    transform: translate3d(-2%, -1%, 0) scale(1.04);
+    transform: translate3d(-10%, -6%, 0) scale(1);
+    background-position: 0% 0%;
   }
   50% {
-    transform: translate3d(2%, 1%, 0) scale(1.08);
+    transform: translate3d(10%, 6%, 0) scale(1.15);
+    background-position: 100% 80%;
   }
   100% {
-    transform: translate3d(-2%, -1%, 0) scale(1.04);
+    transform: translate3d(-10%, -6%, 0) scale(1);
+    background-position: 0% 0%;
   }
 }
 
@@ -18,11 +21,13 @@
   position: absolute;
   inset: -8%;
   pointer-events: none;
-  opacity: 0.06;
+  opacity: 0.5;
   background:
-    radial-gradient(circle at 18% 30%, rgb(88 28 135 / 0.4), transparent 34%),
-    radial-gradient(circle at 82% 64%, rgb(124 58 237 / 0.3), transparent 32%);
-  animation: hero-ambient-drift 75s linear infinite;
+    radial-gradient(circle at 18% 30%, rgb(34 211 238 / 0.62), transparent 34%),
+    radial-gradient(circle at 82% 64%, rgb(16 185 129 / 0.48), transparent 32%),
+    radial-gradient(circle at 52% 82%, rgb(14 165 233 / 0.4), transparent 38%);
+  background-size: 180% 180%;
+  animation: hero-ambient-drift 18s ease-in-out infinite;
   will-change: transform;
 }
 
@@ -63,58 +68,52 @@
 
 @layer base {
   :root {
-    /* Primary Institutional Light & Soft Lavender Mist Palette */
-    --background: 260 40% 99%;           /* #FAF9FE (warm lavender pearl surface) */
-    --background-subtle: 260 40% 97%;    /* #F5F1FA (soft lavender mist surface) */
-    --background-elevated: 0 0% 100%;    /* #FFFFFF (elevated card surface) */
+    /* Live-brand light institutional palette */
+    --background: 200 100% 99%;
+    --background-subtle: 195 72% 97%;
+    --background-elevated: 0 0% 100%;
 
     --surface: 0 0% 100%;
-    --surface-hover: 260 40% 97%;
+    --surface-hover: 190 60% 97%;
 
-    --foreground: 265 35% 12%;           /* #181226 (deep refined slate-violet, comfortable contrast) */
-    --foreground-muted: 215 16% 40%;     /* #475569 (refined slate body text) */
-    --foreground-subtle: 215 14% 52%;    /* #556070 (balanced metadata) */
+    --foreground: 200 27% 18%;
+    --foreground-muted: 210 12% 38%;
+    --foreground-subtle: 205 10% 44%;
 
-    /* Primary Deep Royal Amethyst Anchor (#581C87) */
-    --primary: 272 65% 32%;              /* #581C87 (royal purple) */
-    --primary-foreground: 0 0% 100%;     /* #FFFFFF */
-    --primary-hover: 272 65% 26%;        /* #4C1D95 */
-    --primary-active: 272 70% 20%;       /* #3B0764 */
-    --primary-muted: 265 89% 96%;        /* #F5F3FF */
+    --primary: 191 92% 40%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 191 90% 32%;
+    --primary-active: 192 90% 24%;
+    --primary-muted: 190 78% 96%;
 
-    /* Accent Anchor: Electric Violet / Iris */
-    --accent: 265 89% 66%;               /* #8B5CF6 */
+    --accent: 187 82% 52%;
     --accent-foreground: 0 0% 100%;
-    --accent-hover: 265 89% 60%;
-    --accent-muted: 265 89% 96%;
+    --accent-hover: 188 78% 44%;
+    --accent-muted: 190 78% 95%;
 
-    /* Secondary Controls */
-    --secondary: 260 40% 97%;            /* #F5F1FA */
-    --secondary-foreground: 265 35% 12%; /* #181226 */
-    --secondary-hover: 260 40% 94%;
+    --secondary: 190 78% 97%;
+    --secondary-foreground: 210 24% 14%;
+    --secondary-hover: 190 70% 93%;
 
-    /* Functional Muted & Cards */
-    --muted: 260 40% 97%;
-    --muted-foreground: 215 16% 40%;
+    --muted: 195 50% 97%;
+    --muted-foreground: 210 12% 38%;
 
     --card: 0 0% 100%;
-    --card-foreground: 265 35% 12%;
+    --card-foreground: 200 27% 18%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 265 35% 12%;
+    --popover-foreground: 200 27% 18%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    /* Delicate Lavender Borders */
-    --border: 260 30% 90%;               /* #E4DEF4 */
-    --border-subtle: 260 30% 94%;        /* #F0ECFA */
-    --border-strong: 260 30% 84%;        /* #D5CCF5 */
-    --input: 260 30% 90%;
-    --ring: 272 65% 32%;
+    --border: 190 36% 88%;
+    --border-subtle: 190 35% 94%;
+    --border-strong: 190 38% 78%;
+    --input: 190 35% 88%;
+    --ring: 191 92% 40%;
 
-    /* Radius Foundation */
-    --radius: 0.375rem;                  /* 6px restrained radius */
+    --radius: 0.375rem;
   }
 
   *,
@@ -125,7 +124,9 @@
 
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 7rem;
     -webkit-text-size-adjust: 100%;
+    overflow-x: clip;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -143,18 +144,27 @@
   }
 
   body {
-    background-color: hsl(var(--background));
+    background:
+      radial-gradient(circle at top left, rgba(34, 211, 238, 0.14), transparent 24%),
+      radial-gradient(circle at bottom right, rgba(16, 185, 129, 0.12), transparent 22%),
+      linear-gradient(180deg, #f9feff 0%, #f5fbfd 32%, #ffffff 100%);
     color: hsl(var(--foreground));
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     min-height: 100vh;
     text-rendering: optimizeLegibility;
+    overflow-x: clip;
+  }
+
+  img,
+  video {
+    max-width: 100%;
   }
 
   ::selection {
-    background-color: #EDE9FE;
-    color: #581C87;
+    background-color: rgba(8, 145, 178, 0.12);
+    color: #0f766e;
   }
 
   :focus-visible {
@@ -351,15 +361,15 @@
 
   /* Gradients (Calibrated, not rainbow) */
   .gradient-primary {
-    background-image: linear-gradient(135deg, #581C87 0%, #4C1D95 100%);
+    background-image: linear-gradient(135deg, #0891B2 0%, #0E7490 100%);
   }
 
   .gradient-accent {
-    background-image: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
+    background-image: linear-gradient(135deg, #06B6D4 0%, #6D28D9 100%);
   }
 
   .gradient-brand {
-    background-image: linear-gradient(135deg, #581C87 0%, #6B21A8 65%, #7C3AED 100%);
+    background-image: linear-gradient(135deg, #0891B2 0%, #6B21A8 65%, #06B6D4 100%);
   }
 
   .gradient-subtle {

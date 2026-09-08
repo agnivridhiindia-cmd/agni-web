@@ -26,7 +26,7 @@ export function MissionSection() {
   return (
     <section
       aria-labelledby="mission-heading"
-      className="relative py-20 sm:py-24 lg:py-28 bg-white text-[#0F0A1A] border-b border-purple-100 overflow-hidden"
+      className="relative py-20 sm:py-24 lg:py-28 bg-white text-[#0F0A1A] border-b border-cyan-100 overflow-hidden"
     >
       {/* Subtle Ambient Glow */}
       <div
@@ -44,7 +44,7 @@ export function MissionSection() {
           <div className="max-w-4xl space-y-6">
             <span
               id="mission-heading"
-              className="type-eyebrow text-[#581C87] font-mono tracking-widest block uppercase"
+              className="type-eyebrow text-[#0891B2] font-mono tracking-widest block uppercase"
             >
               Our Central Mission
             </span>
@@ -61,10 +61,10 @@ export function MissionSection() {
 
         {/* Middle: Tripartite Progression Grid */}
         <FadeIn direction="up" distance={20} delay={0.15}>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 border-t border-purple-100">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 border-t border-cyan-100">
             {missionPillars.map((pillar) => (
               <div key={pillar.step} className="space-y-3">
-                <span className="text-xs font-mono font-bold text-[#581C87] block tracking-wider">
+                <span className="text-xs font-mono font-bold text-[#0891B2] block tracking-wider">
                   PHASE {pillar.step}
                 </span>
                 <h3 className="font-serif text-xl font-semibold text-white tracking-tight">
@@ -80,7 +80,7 @@ export function MissionSection() {
 
         {/* Bottom: Contextual Services Transition */}
         <FadeIn direction="up" distance={16} delay={0.2}>
-          <div className="pt-8 border-t border-purple-100 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+          <div className="pt-8 border-t border-cyan-100 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
             <div className="space-y-1">
               <span className="text-xs font-mono text-[#64748B] uppercase tracking-wider block">
                 Integrated Advisory Model
@@ -98,7 +98,7 @@ export function MissionSection() {
                 aria-label="Explore all four advisory desks and services"
               >
                 <span>Explore 4 Advisory Desks</span>
-                <CtaArrow className="w-4 h-4 ml-2 text-[#581C87]" />
+                <CtaArrow className="w-4 h-4 ml-2 text-[#0891B2]" />
               </LinkButton>
             </div>
           </div>

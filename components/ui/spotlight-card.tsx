@@ -25,12 +25,12 @@ const variantGlowMap = {
   purple: {
     border: "rgba(124, 58, 237, 0.45)",
     inner: "rgba(124, 58, 237, 0.04)",
-    beam: "from-transparent via-purple-600/50 to-transparent",
+    beam: "from-transparent via-cyan-600/50 to-transparent",
   },
   amber: {
     border: "rgba(124, 58, 237, 0.35)",
     inner: "rgba(124, 58, 237, 0.03)",
-    beam: "from-transparent via-purple-600/40 to-transparent",
+    beam: "from-transparent via-cyan-600/40 to-transparent",
   },
   teal: {
     border: "rgba(8, 145, 178, 0.45)",
@@ -104,7 +104,7 @@ export const SpotlightCard = React.forwardRef<HTMLDivElement, SpotlightCardProps
         onMouseLeave={handleMouseLeave}
         className={cn(
           "group/spotlight relative rounded-3xl p-[1px] overflow-hidden transition-all duration-300",
-          "bg-white border border-[#EDE9FE] hover:border-purple-300 shadow-xs",
+          "bg-white border border-[#DDF7FA] hover:border-cyan-300 shadow-xs",
           className
         )}
         style={

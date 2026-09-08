@@ -21,7 +21,7 @@ export function ServiceFaq({ faqs, serviceName }: ServiceFaqProps) {
   return (
     <div className="space-y-6">
       <div className="space-y-1">
-        <div className="flex items-center gap-2 text-[#581C87]">
+        <div className="flex items-center gap-2 text-[#0891B2]">
           <HelpCircle className="w-4 h-4" />
           <span className="type-eyebrow font-mono">Knowledge Base &bull; Scheme Inquiries</span>
         </div>
@@ -30,11 +30,11 @@ export function ServiceFaq({ faqs, serviceName }: ServiceFaqProps) {
         </h2>
       </div>
 
-      <div className="rounded-xl border border-purple-100 bg-white p-6 sm:p-7 shadow-xs">
+      <div className="rounded-xl border border-cyan-100 bg-white p-6 sm:p-7 shadow-xs">
         <Accordion type="single" collapsible className="w-full">
           {faqs.map((faq, index) => (
             <AccordionItem key={index} value={`faq-${index}`}>
-              <AccordionTrigger className="text-left font-serif text-base sm:text-lg font-medium text-[#0F0A1A] hover:text-[#581C87]">
+              <AccordionTrigger className="text-left font-serif text-base sm:text-lg font-medium text-[#0F0A1A] hover:text-[#0891B2]">
                 {faq.question}
               </AccordionTrigger>
               <AccordionContent className="text-sm text-[#475569] font-sans leading-relaxed">

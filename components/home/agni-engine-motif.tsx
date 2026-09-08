@@ -15,10 +15,10 @@ export function AgniEngineMotif() {
       num: "01",
       name: "CAPITAL",
       title: "Sovereign Debt Syndication",
-      metric: "₹5 Cr Collateral-Free",
+      metric: "  -  5 Cr Collateral-Free",
       detail: "Lead-bank appraisal & CGTMSE/PMEGP trust tagging to finance capex with zero promoter property pledge.",
       icon: Landmark,
-      color: "#581C87",
+      color: "#0891B2",
     },
     {
       id: "compliance",
@@ -28,7 +28,7 @@ export function AgniEngineMotif() {
       metric: "100% Audit Readiness",
       detail: "GST statutory defense, ISO 9001/14001 certification, MSME Udyam, and institutional risk mitigation.",
       icon: ShieldCheck,
-      color: "#7C3AED",
+      color: "#06B6D4",
     },
     {
       id: "technology",
@@ -38,7 +38,7 @@ export function AgniEngineMotif() {
       metric: "Enterprise Cloud & Web",
       detail: "High-throughput Next.js platforms, iOS/Android mobile apps, automated ERP workflows, and cloud DevOps.",
       icon: Cpu,
-      color: "#4C1D95",
+      color: "#0E7490",
     },
     {
       id: "growth",
@@ -48,14 +48,14 @@ export function AgniEngineMotif() {
       metric: "+65% Average Scale",
       detail: "B2B search dominance, high-intent performance funnels, and enterprise brand authority across Indian hubs.",
       icon: TrendingUp,
-      color: "#581C87",
+      color: "#0891B2",
     },
   ];
 
   return (
     <section
       aria-labelledby="growth-engine-heading"
-      className="relative bg-gradient-to-b from-[#F5F1FB] via-[#FAF8FE] to-[#F5F1FB] text-[#181226] py-20 sm:py-28 lg:py-36 border-b border-purple-100/80 overflow-hidden"
+      className="relative bg-gradient-to-b from-[#F5F1FB] via-[#FAF8FE] to-[#F5F1FB] text-[#181226] py-20 sm:py-28 lg:py-36 border-b border-cyan-100/80 overflow-hidden"
     >
       {/* Background Architectural Ambient Lighting */}
       <div
@@ -69,8 +69,8 @@ export function AgniEngineMotif() {
         {/* Section Heading */}
         <FadeIn direction="up" distance={16}>
           <div className="text-center max-w-3xl mx-auto space-y-4">
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-purple-200/90 text-xs font-mono tracking-widest text-[#581C87] uppercase shadow-xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#581C87]" />
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-cyan-200/90 text-xs font-mono tracking-widest text-[#0891B2] uppercase shadow-xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#0891B2]" />
               <span>PROPRIETARY ARCHITECTURE &bull; THE AGNI MATRIX</span>
             </div>
 
@@ -83,7 +83,7 @@ export function AgniEngineMotif() {
 
             <p className="font-sans text-sm sm:text-base text-[#475569] max-w-2xl mx-auto leading-[1.7]">
               Scale is an engineering discipline. Our four interconnected pillars
-              operate as a synchronized kinetic cycle—turning raw ambition into institutional dominance.
+              operate as a synchronized kinetic cycle  -  turning raw ambition into institutional dominance.
             </p>
           </div>
         </FadeIn>
@@ -93,10 +93,10 @@ export function AgniEngineMotif() {
           {/* Central Nexus Core Badge on Desktop */}
           <div
             aria-hidden="true"
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 hidden md:flex flex-col items-center justify-center w-24 h-24 rounded-full bg-white/95 backdrop-blur-md border border-purple-200/90 shadow-[0_12px_36px_-6px_rgba(88,28,135,0.18)] pointer-events-none"
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 hidden md:flex flex-col items-center justify-center w-24 h-24 rounded-full bg-white/95 backdrop-blur-md border border-cyan-200/90 shadow-[0_12px_36px_-6px_rgba(88,28,135,0.18)] pointer-events-none"
           >
-            <div className="w-3 h-3 rounded-full bg-[#581C87] animate-pulse mb-1" />
-            <span className="text-[10px] font-mono uppercase tracking-widest text-[#581C87] font-bold leading-none">
+            <div className="w-3 h-3 rounded-full bg-[#0891B2] animate-pulse mb-1" />
+            <span className="text-[10px] font-mono uppercase tracking-widest text-[#0891B2] font-bold leading-none">
               CORE
             </span>
             <span className="text-[9px] font-mono uppercase tracking-wider text-[#556070] leading-none mt-0.5 font-medium">
@@ -173,15 +173,15 @@ export function AgniEngineMotif() {
                   onMouseEnter={() => setActivePillar(idx)}
                   className={`group relative p-6 sm:p-8 rounded-2xl border transition-all duration-300 cursor-pointer ${
                     isSelected
-                      ? "bg-white border-[#7C3AED]/60 shadow-[0_16px_40px_-8px_rgba(88,28,135,0.14),0_2px_8px_rgba(0,0,0,0.03)] scale-[1.01]"
-                      : "bg-white/85 hover:bg-white border-purple-200/80 hover:border-purple-300 shadow-[0_4px_16px_-4px_rgba(88,28,135,0.05)] hover:shadow-md"
+                      ? "bg-white border-[#06B6D4]/60 shadow-[0_16px_40px_-8px_rgba(88,28,135,0.14),0_2px_8px_rgba(0,0,0,0.03)] scale-[1.01]"
+                      : "bg-white/85 hover:bg-white border-cyan-200/80 hover:border-cyan-300 shadow-[0_4px_16px_-4px_rgba(88,28,135,0.05)] hover:shadow-md"
                   }`}
                 >
                   {/* Active Indicator Line */}
                   <div
                     className={`absolute top-0 left-6 right-6 h-[3px] rounded-full transition-all duration-300 ${
                       isSelected
-                        ? "bg-gradient-to-r from-transparent via-[#581C87] to-transparent opacity-100"
+                        ? "bg-gradient-to-r from-transparent via-[#0891B2] to-transparent opacity-100"
                         : "opacity-0"
                     }`}
                   />
@@ -190,7 +190,7 @@ export function AgniEngineMotif() {
                     {/* Top Meta: Index + Metric */}
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <span className="font-mono text-xs text-[#581C87] font-semibold">
+                        <span className="font-mono text-xs text-[#0891B2] font-semibold">
                           {pillar.num}
                         </span>
                         <span className="text-xs font-mono text-[#556070] uppercase tracking-wider font-semibold">
@@ -198,7 +198,7 @@ export function AgniEngineMotif() {
                         </span>
                       </div>
 
-                      <span className="text-xs font-mono px-3 py-1 rounded-full bg-purple-50 border border-purple-200/80 text-[#581C87] font-semibold shadow-2xs">
+                      <span className="text-xs font-mono px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200/80 text-[#0891B2] font-semibold shadow-2xs">
                         {pillar.metric}
                       </span>
                     </div>
@@ -208,14 +208,14 @@ export function AgniEngineMotif() {
                       <div
                         className={`w-11 h-11 rounded-xl flex items-center justify-center border transition-all duration-300 shrink-0 ${
                           isSelected
-                            ? "bg-[#581C87] text-white border-[#581C87] shadow-sm"
-                            : "bg-purple-50 text-[#581C87] border-purple-200/80 group-hover:border-[#581C87]/40"
+                            ? "bg-[#0891B2] text-white border-[#0891B2] shadow-sm"
+                            : "bg-cyan-50 text-[#0891B2] border-cyan-200/80 group-hover:border-[#0891B2]/40"
                         }`}
                       >
                         <Icon className="w-5 h-5" />
                       </div>
 
-                      <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#181226] group-hover:text-[#581C87] transition-colors">
+                      <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#181226] group-hover:text-[#0891B2] transition-colors">
                         {pillar.title}
                       </h3>
                     </div>

@@ -15,11 +15,11 @@ export function LegalHeader({
   lastUpdated = "August 2024",
 }: LegalHeaderProps) {
   return (
-    <header className="border-b border-purple-100 bg-[#FFFFFF] pt-32 pb-10 sm:pt-36 sm:pb-14 lg:pt-40 lg:pb-16">
+    <header className="border-b border-cyan-100 bg-[#FFFFFF] pt-32 pb-10 sm:pt-36 sm:pb-14 lg:pt-40 lg:pb-16">
       <Container width="reading">
         <div className="space-y-4">
           <div className="flex items-center gap-2">
-            <span className="font-mono text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded border bg-[#581C87]/10 border-purple-200 text-[#581C87]">
+            <span className="font-mono text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded border bg-[#0891B2]/10 border-cyan-200 text-[#0891B2]">
               {eyebrow}
             </span>
           </div>

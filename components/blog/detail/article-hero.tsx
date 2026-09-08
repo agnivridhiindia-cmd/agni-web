@@ -13,20 +13,20 @@ function getCategoryBadge(category: string) {
   if (normalized.includes("funding")) {
     return {
       label: category,
-      badgeClass: "bg-purple-50 text-[#581C87] border-purple-100",
+      badgeClass: "bg-cyan-50 text-[#0891B2] border-cyan-100",
       icon: <Landmark className="w-3.5 h-3.5 text-teal-700 shrink-0" aria-hidden="true" />,
     };
   }
   if (normalized.includes("compliance")) {
     return {
       label: category,
-      badgeClass: "bg-purple-50 text-[#581C87] border-purple-100",
+      badgeClass: "bg-cyan-50 text-[#0891B2] border-cyan-100",
       icon: <ShieldCheck className="w-3.5 h-3.5 text-gold-700 shrink-0" aria-hidden="true" />,
     };
   }
   return {
     label: category,
-    badgeClass: "bg-purple-50 text-[#475569] border-purple-100",
+    badgeClass: "bg-cyan-50 text-[#475569] border-cyan-100",
     icon: <Bookmark className="w-3.5 h-3.5 text-[#475569] shrink-0" aria-hidden="true" />,
   };
 }
@@ -40,7 +40,7 @@ export function ArticleHero({ post }: ArticleHeroProps) {
   });
 
   return (
-    <header className="border-b border-purple-100 bg-[#FFFFFF] py-12 sm:py-16 md:py-20">
+    <header className="border-b border-cyan-100 bg-[#FFFFFF] py-12 sm:py-16 md:py-20">
       <Container width="reading">
         <div className="space-y-6">
           {/* Metadata pill row */}

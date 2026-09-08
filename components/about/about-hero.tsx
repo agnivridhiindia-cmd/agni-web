@@ -9,7 +9,7 @@ export function AboutHero() {
   return (
     <section
       aria-labelledby="about-hero-heading"
-      className="relative border-b border-purple-100 bg-[#FFFFFF] pt-32 pb-14 sm:pt-36 sm:pb-16 lg:pt-40 lg:pb-20 overflow-hidden"
+      className="relative border-b border-cyan-100 bg-[#FFFFFF] pt-32 pb-14 sm:pt-36 sm:pb-16 lg:pt-40 lg:pb-20 overflow-hidden"
     >
       {/* Editorial Luxury Ambient Gradient */}
       <div
@@ -47,16 +47,16 @@ export function AboutHero() {
             </div>
 
             {/* Corporate Metadata Pill Strip */}
-            <div className="pt-4 flex items-center gap-4 sm:gap-6 flex-wrap text-xs text-[#64748B] font-mono border-t border-purple-100">
+            <div className="pt-4 flex items-center gap-4 sm:gap-6 flex-wrap text-xs text-[#64748B] font-mono border-t border-cyan-100">
               <div className="flex items-center gap-2">
-                <MapPin className="w-3.5 h-3.5 text-[#581C87] shrink-0" />
+                <MapPin className="w-3.5 h-3.5 text-[#0891B2] shrink-0" />
                 <span className="text-[#475569]">
                   {siteConfig.company.location.city}, {siteConfig.company.location.state}
                 </span>
               </div>
 
               <div className="flex items-center gap-2">
-                <Building2 className="w-3.5 h-3.5 text-[#581C87] shrink-0" />
+                <Building2 className="w-3.5 h-3.5 text-[#0891B2] shrink-0" />
                 <span className="text-[#475569]">Pan-India MSME &amp; Industrial Scope</span>
               </div>
 

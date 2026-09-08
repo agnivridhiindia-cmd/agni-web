@@ -6,7 +6,6 @@ import { Container } from "@/components/shared/container";
 import { CaseStudyBreadcrumb } from "@/components/success-stories/detail/case-study-breadcrumb";
 import { CaseStudyHero } from "@/components/success-stories/detail/case-study-hero";
 import { CaseStudyNarrative } from "@/components/success-stories/detail/case-study-narrative";
-import { CaseStudySidebar } from "@/components/success-stories/detail/case-study-sidebar";
 import { CaseStudyRelatedServices } from "@/components/success-stories/detail/case-study-related-services";
 import { CaseStudyRelatedStories } from "@/components/success-stories/detail/case-study-related-stories";
 import { CaseStudyCta } from "@/components/success-stories/detail/case-study-cta";
@@ -103,14 +102,9 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
       <div className="grow">
         <Container width="wide">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 py-12 sm:py-16 lg:py-20">
-            {/* Main 8-column narrative */}
-            <div className="lg:col-span-8">
+            {/* Full-width narrative */}
+            <div className="lg:col-span-12">
               <CaseStudyNarrative study={study} />
-            </div>
-
-            {/* Sticky 4-column engagement sidebar */}
-            <div className="lg:col-span-4">
-              <CaseStudySidebar study={study} />
             </div>
           </div>
         </Container>

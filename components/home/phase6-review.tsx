@@ -342,7 +342,7 @@ export function Phase6Review() {
             <div className="flex items-baseline justify-between p-3 bg-slate-50 rounded border border-slate-200">
               <span className="text-xs text-slate-500">Metric 1:</span>
               <span className="font-serif text-2xl font-bold text-teal-700">
-                <AnimatedCounter value={50} prefix="₹" suffix=" Cr+" />
+                <AnimatedCounter value={50} prefix="  -  " suffix=" Cr+" />
               </span>
             </div>
             <div className="flex items-baseline justify-between p-3 bg-slate-50 rounded border border-slate-200">

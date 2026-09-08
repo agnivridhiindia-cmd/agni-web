@@ -12,8 +12,6 @@ import {
   Users,
   BadgeCheck,
   CheckCircle2,
-  Pause,
-  Play,
   type LucideIcon,
 } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
@@ -105,18 +103,18 @@ function StatCard({ stat, indexNumber, isInView }: StatCardProps) {
   return (
     <div className="w-[300px] sm:w-[340px] lg:w-[360px] shrink-0 px-3 h-full">
       <SpotlightCard
-        glowVariant="purple"
-        className="h-full hover:-translate-y-1.5 transition-all duration-300 shadow-[0_4px_20px_-4px_rgba(88,28,135,0.06),0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_14px_36px_-6px_rgba(88,28,135,0.12)] border-[#E4DEF4] bg-white hover:border-[#7C3AED]/50"
+        glowVariant="teal"
+        className="h-full border-cyan-100 bg-white/90 transition-all duration-300 hover:-translate-y-1.5 hover:border-[#06B6D4]/60 hover:shadow-[0_18px_40px_-18px_rgba(8,145,178,0.18)]"
         innerClassName="p-6 sm:p-7 flex flex-col justify-between h-full min-h-[300px] bg-white text-[#181226]"
       >
         <div className="space-y-4">
           {/* Top Row: Icon Container + Step Number */}
           <div className="flex items-center justify-between gap-3">
-            <div className="w-11 h-11 rounded-xl bg-purple-50 border border-purple-200/70 text-[#581C87] flex items-center justify-center shadow-xs group-hover/spotlight:bg-[#581C87] group-hover/spotlight:text-white transition-all duration-300">
+            <div className="w-11 h-11 rounded-xl bg-cyan-50 border border-cyan-200/70 text-[#0891B2] flex items-center justify-center shadow-xs group-hover/spotlight:bg-[#0891B2] group-hover/spotlight:text-white transition-all duration-300">
               <Icon className="w-5 h-5" />
             </div>
 
-            <span className="font-mono text-xs font-semibold px-2.5 py-1 rounded-md bg-purple-50 border border-purple-200/70 text-[#581C87] group-hover/spotlight:bg-[#581C87] group-hover/spotlight:text-white transition-colors">
+            <span className="font-mono text-xs font-semibold px-2.5 py-1 rounded-md bg-cyan-50 border border-cyan-200/70 text-[#0891B2] group-hover/spotlight:bg-[#0891B2] group-hover/spotlight:text-white transition-colors">
               {indexNumber}
             </span>
           </div>
@@ -129,7 +127,7 @@ function StatCard({ stat, indexNumber, isInView }: StatCardProps) {
             }: ${stat.label}`}
           >
             {stat.prefix && (
-              <span className="font-serif text-2xl sm:text-3xl text-[#581C87] font-normal mr-0.5 leading-none">
+              <span className="font-serif text-2xl sm:text-3xl text-[#0891B2] font-normal mr-0.5 leading-none">
                 {stat.prefix}
               </span>
             )}
@@ -152,7 +150,7 @@ function StatCard({ stat, indexNumber, isInView }: StatCardProps) {
           </div>
 
           {/* Stat Label */}
-          <h3 className="font-sans text-base sm:text-lg font-semibold text-[#181226] leading-snug group-hover/spotlight:text-[#581C87] transition-colors line-clamp-1">
+          <h3 className="font-sans text-base sm:text-lg font-semibold text-[#181226] leading-snug group-hover/spotlight:text-[#0891B2] transition-colors line-clamp-1">
             {stat.label}
           </h3>
 
@@ -163,9 +161,9 @@ function StatCard({ stat, indexNumber, isInView }: StatCardProps) {
         </div>
 
         {/* Bottom Verification Footer */}
-        <div className="mt-5 pt-3.5 border-t border-purple-100/90 flex items-center justify-between text-[11px] font-mono text-[#64748B]">
-          <span className="inline-flex items-center gap-1.5 text-[#581C87] font-medium">
-            <CheckCircle2 className="w-3.5 h-3.5 text-[#581C87] shrink-0" />
+        <div className="mt-5 pt-3.5 border-t border-cyan-100/90 flex items-center justify-between text-[11px] font-mono text-[#64748B]">
+          <span className="inline-flex items-center gap-1.5 text-[#0891B2] font-medium">
+            <CheckCircle2 className="w-3.5 h-3.5 text-[#0891B2] shrink-0" />
             Verified Metric
           </span>
           <span className="text-[#64748B] uppercase tracking-wider">
@@ -181,7 +179,6 @@ export function StatsBar() {
   const sectionRef = React.useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-40px" });
   const prefersReduced = useReducedMotionPreference();
-  const [isPaused, setIsPaused] = React.useState(false);
 
   // Extract strictly verified statistics from authoritative configuration
   const verifiedStats = React.useMemo(() => {
@@ -197,24 +194,21 @@ export function StatsBar() {
     return null;
   }
 
-  // Duplicate stats for seamless 2-track infinite loop
-  const duplicatedSet = [...verifiedStats, ...verifiedStats];
-
   return (
     <section
       ref={sectionRef}
       aria-labelledby="stats-heading"
-      className="relative bg-gradient-to-b from-[#FAF8FE] via-[#FFFFFF] to-[#FAF8FE] text-[#181226] py-16 sm:py-20 lg:py-24 border-b border-purple-100/80 overflow-hidden"
+      className="relative overflow-hidden border-b border-cyan-100/80 bg-[radial-gradient(circle_at_top_left,_rgba(34,211,238,0.14),transparent_18%),radial-gradient(circle_at_bottom_right,_rgba(16,185,129,0.12),transparent_18%),linear-gradient(180deg,#f9feff_0%,#ffffff_22%,#f2fafb_100%)] py-16 text-[#181226] sm:py-20 lg:py-24"
     >
       <Container width="wide" className="space-y-8 sm:space-y-10">
         {/* Section Heading */}
         <FadeIn direction="up" distance={16} delay={0.05}>
           <div className="text-center max-w-3xl mx-auto space-y-3 sm:space-y-4">
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-purple-200/90 text-[#581C87] shadow-xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#581C87]" />
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-cyan-200/90 text-[#0891B2] shadow-xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#0891B2]" />
               <Eyebrow
                 accent={false}
-                className="text-[11px] sm:text-xs font-mono tracking-widest uppercase text-[#581C87]"
+                className="text-[11px] sm:text-xs font-mono tracking-widest uppercase text-[#0891B2]"
               >
                 OUR CORE ADVANTAGES &bull; INSTITUTIONAL PARAMETERS
               </Eyebrow>
@@ -232,33 +226,7 @@ export function StatsBar() {
               leverage, statutory compliance execution, and scalable technology architectures.
             </p>
 
-            {/* Interaction hint & pause toggle */}
-            <div className="flex items-center justify-center gap-3 pt-2">
-              <span className="inline-flex items-center gap-1.5 text-xs font-mono text-[#581C87] bg-purple-50/80 px-3.5 py-1.5 rounded-full border border-purple-200/80 shadow-2xs">
-                <span className="w-2 h-2 rounded-full bg-[#581C87] animate-pulse" />
-                Hover any card to inspect &amp; pause
-              </span>
-
-              <button
-                type="button"
-                onClick={() => setIsPaused((prev) => !prev)}
-                className="inline-flex items-center gap-1.5 text-xs font-mono text-[#581C87] hover:text-[#4C1D95] bg-white hover:bg-purple-50/80 px-3 py-1.5 rounded-full border border-purple-200/80 shadow-2xs transition-colors cursor-pointer"
-                aria-label={isPaused ? "Resume metric ticker" : "Pause metric ticker"}
-                title={isPaused ? "Resume metric ticker" : "Pause metric ticker"}
-              >
-                {isPaused ? (
-                  <>
-                    <Play className="w-3 h-3 text-[#581C87] fill-[#581C87]" />
-                    <span>Resume</span>
-                  </>
-                ) : (
-                  <>
-                    <Pause className="w-3 h-3 text-[#475569] fill-[#475569]" />
-                    <span>Pause</span>
-                  </>
-                )}
-              </button>
-            </div>
+            {/* Interaction hint removed from homepage */}
           </div>
         </FadeIn>
       </Container>
@@ -291,11 +259,8 @@ export function StatsBar() {
               !prefersReduced &&
                 "animate-marquee-loop group-hover:[animation-play-state:paused] group-focus-within:[animation-play-state:paused]"
             )}
-            style={{
-              animationPlayState: isPaused ? "paused" : undefined,
-            }}
           >
-            {duplicatedSet.map((stat, idx) => (
+            {verifiedStats.map((stat, idx) => (
               <StatCard
                 key={`stat-a-${stat.id}-${idx}`}
                 stat={stat}
@@ -312,12 +277,9 @@ export function StatsBar() {
           {!prefersReduced && (
             <div
               className="flex shrink-0 items-stretch animate-marquee-loop group-hover:[animation-play-state:paused] group-focus-within:[animation-play-state:paused]"
-              style={{
-                animationPlayState: isPaused ? "paused" : undefined,
-              }}
               aria-hidden="true"
             >
-              {duplicatedSet.map((stat, idx) => (
+              {verifiedStats.map((stat, idx) => (
                 <StatCard
                   key={`stat-b-${stat.id}-${idx}`}
                   stat={stat}

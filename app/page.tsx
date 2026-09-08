@@ -25,49 +25,49 @@ export default function HomePage() {
       <HeroHorizontalFlow />
 
       {/* Hairline Divider */}
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-purple-200/80 to-transparent" aria-hidden="true" />
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-cyan-200/80 to-transparent" aria-hidden="true" />
 
       {/* Editorial Statistics & Metric Stream */}
       <StatsBar />
 
       {/* Hairline Divider */}
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-purple-200/60 to-transparent" aria-hidden="true" />
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-cyan-200/60 to-transparent" aria-hidden="true" />
 
       {/* Large Brand Philosophy & Thesis */}
       <BrandStatement />
 
       {/* Hairline Divider */}
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-purple-200/60 to-transparent" aria-hidden="true" />
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-cyan-200/60 to-transparent" aria-hidden="true" />
 
       {/* Core Advisory Verticals */}
       <ServicesTeaser />
 
       {/* Hairline Divider */}
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-purple-200/60 to-transparent" aria-hidden="true" />
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-cyan-200/60 to-transparent" aria-hidden="true" />
 
       {/* Proprietary Architecture: The Agni Growth Engine */}
       <AgniEngineMotif />
 
       {/* Hairline Divider */}
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-purple-200/60 to-transparent" aria-hidden="true" />
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-cyan-200/60 to-transparent" aria-hidden="true" />
 
       {/* Featured Success Stories Section (Magazine Spreads) */}
       <FeaturedStories />
 
       {/* Hairline Divider */}
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-purple-200/60 to-transparent" aria-hidden="true" />
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-cyan-200/60 to-transparent" aria-hidden="true" />
 
       {/* Recognition & Social Proof Section */}
       <RecognitionSection />
 
       {/* Hairline Divider */}
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-purple-200/60 to-transparent" aria-hidden="true" />
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-cyan-200/60 to-transparent" aria-hidden="true" />
 
       {/* Institutional Leadership & Philosophy Narrative */}
       <InstitutionalNarrative />
 
       {/* Hairline Divider */}
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-purple-200/60 to-transparent" aria-hidden="true" />
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-cyan-200/60 to-transparent" aria-hidden="true" />
 
       {/* Homepage Final CTA & Conversion Section */}
       <FinalCta />

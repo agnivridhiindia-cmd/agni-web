@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
-  CheckCircle2,
   TrendingUp,
   ShieldCheck,
   Layers,
@@ -47,7 +46,7 @@ function CategoryIcon({ category, className }: { category: string; className?: s
   }
 }
 
-function MagazineStorySpread({
+function StoryFlipCard({
   study,
   index,
   total,
@@ -56,150 +55,98 @@ function MagazineStorySpread({
   index: number;
   total: number;
 }) {
-  const isReversed = index % 2 === 1;
   const imageInfo = storyImages[study.slug] || {
     src: "/img/hero-enterprise.jpg",
     alt: study.title,
   };
 
   const metric = study.statValue || study.dealTombstone?.highlightMetric || "Verified Mandate";
-  const metricSub = study.statLabel || study.dealTombstone?.highlightSubtitle || "Institutional Structure";
+  const metricSub = study.statLabel || study.dealTombstone?.highlightSubtitle || "Verified outcome";
   const sector = study.dealTombstone?.industryVertical || study.category.toUpperCase();
 
   return (
     <article
       aria-label={`Case Study: ${study.title}`}
-      className="group relative rounded-3xl bg-white border border-purple-200/90 hover:border-[#7C3AED]/60 transition-all duration-500 overflow-hidden shadow-[0_12px_40px_-10px_rgba(88,28,135,0.08),0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_50px_-12px_rgba(88,28,135,0.14)]"
+      className="group relative min-w-0 [perspective:1200px]"
     >
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center p-6 sm:p-8 lg:p-12">
-        {/* ============================================================
-            PHOTOGRAPHIC FRAME (Alternates Left / Right on Desktop)
-            ============================================================ */}
-        <div
-          className={cn(
-            "lg:col-span-6 relative aspect-[16/10] sm:aspect-[4/3] w-full rounded-2xl overflow-hidden border border-purple-200/80 bg-purple-50",
-            isReversed ? "lg:order-2" : "lg:order-1"
-          )}
-        >
-          {/* Blueprint Corner Crosshairs */}
-          <div className="absolute top-2 left-2 font-mono text-xs text-[#581C87]/40 z-30 select-none">+</div>
-          <div className="absolute bottom-2 right-2 font-mono text-xs text-[#581C87]/40 z-30 select-none">+</div>
-
+      <div className="relative min-h-[430px] transition-transform duration-700 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] group-focus-within:[transform:rotateY(180deg)] rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+        {/* FRONT FACE */}
+        <div className="absolute inset-0 overflow-hidden rounded-2xl border border-white/10 bg-[#111313] [backface-visibility:hidden]">
           <Image
             src={imageInfo.src}
             alt={imageInfo.alt}
             fill
-            sizes="(max-width: 1024px) 100vw, 600px"
-            className="object-cover object-center transform transition-transform duration-1000 group-hover:scale-[1.03]"
+            sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
+            className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
           />
-
-          {/* Cinematic Luminance Mask */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#080909]/85 via-transparent to-[#080909]/20 pointer-events-none" />
-          <div className="absolute inset-0 bg-noise pointer-events-none" />
-
-          {/* Pinned Top Badge */}
-          <div className="absolute top-4 left-4 z-20 flex items-center gap-2">
-            <span className="px-3 py-1.5 rounded-md bg-white/95 backdrop-blur-md border border-purple-100/90 text-[10px] font-mono text-[#181226] uppercase tracking-wider flex items-center gap-1.5 shadow-xs font-medium">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#581C87]" />
-              <span>CASE {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}</span>
-            </span>
-          </div>
-
-          {/* Bottom Mandate Realization Overlay */}
-          <div className="absolute bottom-4 left-4 right-4 z-20 flex items-center justify-between gap-2">
-            <div className="px-3 py-1.5 rounded-md bg-white/95 backdrop-blur-md border border-purple-100/90 text-xs font-mono text-[#581C87] shadow-xs">
-              <span className="font-semibold text-[#181226]">{study.client}</span>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#080909] via-[#080909]/30 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
+            <div className="flex items-center justify-between gap-3 mb-3">
+              <span className="text-[10px] font-mono tracking-widest text-[#22D3EE] uppercase font-bold">
+                {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
+              </span>
+              <CategoryIcon category={study.category} className="w-4 h-4 text-[#67E8F9]" />
             </div>
-            <div className="w-8 h-8 rounded-full bg-white/95 backdrop-blur-md border border-purple-100/90 text-[#581C87] flex items-center justify-center shrink-0 shadow-xs">
-              <CategoryIcon category={study.category} className="w-4 h-4" />
+            <p className="text-[10px] font-mono tracking-widest text-[#67E8F9] uppercase mb-2">{sector}</p>
+            <h3 className="font-serif text-xl sm:text-2xl text-white leading-[1.12] line-clamp-3 font-semibold">
+              {study.title}
+            </h3>
+            <div className="mt-4 flex items-center justify-between border-t border-white/10 pt-3">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-white/70 group-hover:text-[#67E8F9] transition-colors">
+                Hover to flip &bull; 3D view
+              </span>
+              <p className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-[#67E8F9] group-hover:text-white transition-colors">
+                <span>Read memorandum</span>
+                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1" />
+              </p>
             </div>
           </div>
         </div>
 
-        {/* ============================================================
-            EDITORIAL CONTENT COLUMN (Text, 3-tier Breakdown, CTA)
-            ============================================================ */}
-        <div
-          className={cn(
-            "lg:col-span-6 space-y-6 text-left",
-            isReversed ? "lg:order-1" : "lg:order-2"
-          )}
-        >
-          {/* Eyebrow & Index */}
-          <div className="flex items-center justify-between border-b border-purple-100/90 pb-4">
-            <span className="text-[11px] font-mono uppercase tracking-widest text-[#581C87] font-semibold">
-              {sector}
-            </span>
-            <span className="text-xs font-mono text-[#64748B]">
-              ESTABLISHED MANDATE
-            </span>
-          </div>
-
-          {/* Metric Headline */}
-          <div className="space-y-1">
-            <div className="font-serif text-4xl sm:text-5xl lg:text-[3.25rem] font-medium text-[#181226] tracking-tight leading-none">
-              {metric}
-            </div>
-            <p className="text-xs font-mono uppercase tracking-wider text-[#581C87] font-medium">
-              {metricSub}
-            </p>
-          </div>
-
-          {/* Title */}
-          <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#181226] leading-snug group-hover:text-[#581C87] transition-colors">
-            {study.title}
-          </h3>
-
-          {/* 3-Tier Execution Matrix: Challenge -> Structure -> Outcome */}
-          <div className="space-y-3 pt-2">
-            {/* The Challenge */}
-            <div className="p-3.5 sm:p-4 rounded-xl bg-[#FAF7FD] border border-purple-200/70 space-y-1">
-              <span className="text-xs font-mono tracking-wider text-[#64748B] uppercase block font-semibold">
-                THE CHALLENGE
-              </span>
-              <p className="text-xs sm:text-sm text-[#475569] font-sans leading-relaxed line-clamp-3">
-                {study.challenge}
-              </p>
+        {/* BACK FACE (180deg Rotated in 3D) */}
+        <div className="absolute inset-0 flex flex-col justify-between overflow-hidden rounded-2xl border border-cyan-200 bg-white p-5 sm:p-6 text-left [backface-visibility:hidden] [transform:rotateY(180deg)] shadow-xl">
+          <div>
+            <div className="border-b border-cyan-100 pb-3">
+              <div>
+                <p className="text-[10px] font-mono tracking-widest text-[#0891B2] uppercase font-bold">{sector}</p>
+                <h3 className="mt-1 font-serif text-xl sm:text-2xl text-[#181226] leading-[1.12] line-clamp-2 font-semibold">
+                  {study.title}
+                </h3>
+              </div>
+              <p className="mt-1 text-xs font-sans text-[#64748B]">{study.client}</p>
             </div>
 
-            {/* The Structure */}
-            <div className="p-3.5 sm:p-4 rounded-xl bg-[#F5EFFB] border border-purple-200/80 space-y-1">
-              <span className="text-xs font-mono tracking-wider text-[#581C87] uppercase block font-semibold">
-                THE STRUCTURE
-              </span>
-              <p className="text-xs sm:text-sm text-[#374151] font-sans leading-relaxed line-clamp-3">
-                {study.solution}
-              </p>
-            </div>
-
-            {/* The Outcome */}
-            {study.outcomes && study.outcomes.length > 0 && (
-              <div className="p-3.5 sm:p-4 rounded-xl bg-purple-50 border border-purple-200/90 space-y-1">
-                <span className="text-xs font-mono tracking-wider text-[#581C87] uppercase block font-bold">
-                  THE OUTCOME
+            <div className="mt-4 flex items-end justify-between gap-4 p-3 rounded-xl bg-cyan-50/60 border border-cyan-100">
+              <div>
+                <span className="text-[10px] font-mono uppercase tracking-widest text-[#64748B] block">
+                  {metricSub}
                 </span>
-                <p className="text-xs sm:text-sm text-[#181226] font-sans font-medium leading-relaxed">
-                  {study.outcomes[0]}
+                <p className="font-serif text-3xl sm:text-4xl text-[#0891B2] leading-none mt-1 font-bold">
+                  {metric}
                 </p>
               </div>
+              <span className="px-2 py-0.5 rounded bg-cyan-100 text-[#0E7490] text-[10px] font-mono font-bold uppercase tracking-wider border border-cyan-200">
+                Verified
+              </span>
+            </div>
+
+            <p className="mt-4 text-xs sm:text-sm text-[#475569] leading-relaxed line-clamp-4 font-sans">
+              {study.summary}
+            </p>
+            {study.outcomes?.[0] && (
+              <p className="mt-3 border-l-2 border-[#0891B2] pl-3 text-xs text-[#181226] leading-relaxed line-clamp-2">
+                {study.outcomes[0]}
+              </p>
             )}
           </div>
 
-          {/* Bottom Action Row */}
-          <div className="pt-4 border-t border-purple-100/90 flex items-center justify-between">
-            <span className="inline-flex items-center gap-1.5 text-xs text-[#556070] font-mono">
-              <CheckCircle2 className="w-3.5 h-3.5 text-[#581C87]" />
-              <span>Full Audit Documentation Verified</span>
-            </span>
-
-            <Link
-              href={`/success-stories/${study.slug}`}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-[#581C87] text-[#181226] hover:text-white border border-purple-200/90 hover:border-[#581C87] text-xs font-mono tracking-wider uppercase transition-all shadow-xs hover:-translate-y-0.5"
-            >
-              <span>Read Case Study</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
+          <Link
+            href={`/success-stories/${study.slug}`}
+            className="mt-4 inline-flex items-center justify-between gap-3 border-t border-cyan-200 pt-3 text-xs font-mono uppercase tracking-wider text-[#0891B2] hover:text-[#0E7490] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0891B2] transition-colors"
+          >
+            <span className="font-bold">Read Full Memorandum</span>
+            <ArrowRight className="h-4 w-4 transform transition-transform group-hover:translate-x-1" />
+          </Link>
         </div>
       </div>
     </article>
@@ -216,27 +163,27 @@ export async function FeaturedStories() {
   return (
     <section
       aria-labelledby="featured-stories-heading"
-      className="relative bg-gradient-to-b from-[#FFFFFF] via-[#FAF8FE] to-[#FFFFFF] text-[#181226] py-20 sm:py-28 lg:py-36 border-b border-purple-100/80"
+      className="relative bg-gradient-to-b from-[#FFFFFF] via-[#FAFEFE] to-[#F2FCFD] text-[#181226] py-20 sm:py-28 lg:py-36 border-b border-cyan-100"
     >
       <Container width="wide" className="space-y-14 sm:space-y-20">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-purple-100/80 pb-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-cyan-100 pb-8">
           <div className="space-y-3.5 max-w-2xl">
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-purple-200/90 text-[#581C87] text-xs font-mono tracking-widest uppercase shadow-xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#581C87]" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-50 border border-cyan-200 text-[#0891B2] text-xs font-mono tracking-widest uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#0891B2]" />
               <span>PROVEN ENTERPRISE DELIVERABLES &bull; EDITORIAL CASE ARCHIVE</span>
             </div>
 
             <h2
               id="featured-stories-heading"
-              className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] font-normal tracking-[-0.015em] text-[#181226] !leading-[1.15]"
+              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-[#181226] !leading-[1.15]"
             >
               Real Businesses.
               <br />
-              <span className="text-[#581C87] italic font-normal font-editorial">Real Structural Momentum.</span>
+              <span className="text-[#0891B2] italic font-light">Real Structural Momentum.</span>
             </h2>
 
-            <p className="font-sans text-sm sm:text-base text-[#475569] leading-[1.7]">
+            <p className="font-sans text-sm sm:text-base text-[#475569] leading-relaxed">
               Measurable capital sanctions, accredited quality standards, and statutory
               subsidy realizations executed for North Indian manufacturing and
               engineering enterprises.
@@ -247,21 +194,18 @@ export async function FeaturedStories() {
             <LinkButton
               href="/success-stories"
               variant="outline"
-              className="rounded-xl h-11 px-6 border-purple-200/90 bg-white hover:border-[#581C87] hover:text-[#581C87] text-[#181226] group inline-flex items-center gap-2 transition-all text-xs font-mono tracking-wider uppercase shadow-xs hover:-translate-y-0.5"
+              className="rounded-full h-11 px-6 border-cyan-200 bg-white hover:border-[#0891B2] hover:text-[#0E7490] text-[#181226] group inline-flex items-center gap-2 transition-all text-xs font-mono tracking-wider uppercase"
               aria-label="View all enterprise success stories"
             >
               <span>View All Success Stories</span>
-              <ArrowRight className="w-4 h-4 text-[#475569] group-hover:text-[#581C87] transition-transform duration-200 group-hover:translate-x-1" />
+              <ArrowRight className="w-4 h-4 text-[#64748B] group-hover:text-[#0891B2] transition-transform duration-200 group-hover:translate-x-1" />
             </LinkButton>
           </div>
         </div>
 
-        {/* ============================================================
-            IMMERSIVE ALTERNATING MAGAZINE SPREADS
-            ============================================================ */}
-        <div className="space-y-12 sm:space-y-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
           {stories.map((study, idx) => (
-            <MagazineStorySpread
+            <StoryFlipCard
               key={study.slug}
               study={study}
               index={idx}

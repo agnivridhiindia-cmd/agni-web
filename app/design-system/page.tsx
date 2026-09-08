@@ -484,7 +484,7 @@ export default function DesignSystemShowcasePage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               <StatDisplay
                 label="Sample Metric 1"
-                prefix="₹"
+                prefix="ÃƒÂ¢ - Å¡Ã‚Â¹"
                 value="50"
                 suffix=" Cr+"
                 supportingText="Sample parameter passed via props"
@@ -605,7 +605,7 @@ export default function DesignSystemShowcasePage() {
                 <div className="p-4 rounded-md bg-teal-50/50 border border-teal-200/60">
                   <h4 className="type-h4 text-teal-950 mb-1">FadeIn Motion Wrapper</h4>
                   <p className="type-body-sm text-teal-800">
-                    Smooth directional entrance respecting the user’s operating system reduced-motion preference.
+                    Smooth directional entrance respecting the userÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢s operating system reduced-motion preference.
                   </p>
                 </div>
               </FadeIn>

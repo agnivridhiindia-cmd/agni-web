@@ -61,15 +61,15 @@ export function TableOfContents({ items, variant = "all", className }: TableOfCo
     <div className={className}>
       {/* Mobile Collapsible TOC */}
       {showMobile && (
-        <div className={cn("rounded-xl border border-purple-100 bg-white overflow-hidden shadow-xs", variant === "all" ? "lg:hidden my-8" : "")}>
+        <div className={cn("rounded-xl border border-cyan-100 bg-white overflow-hidden shadow-xs", variant === "all" ? "lg:hidden my-8" : "")}>
           <button
             type="button"
             onClick={() => setIsMobileOpen((prev) => !prev)}
-            className="w-full px-4 py-3 flex items-center justify-between text-left font-sans text-sm font-semibold text-[#0F0A1A] focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#581C87]"
+            className="w-full px-4 py-3 flex items-center justify-between text-left font-sans text-sm font-semibold text-[#0F0A1A] focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#0891B2]"
             aria-expanded={isMobileOpen}
           >
             <span className="flex items-center gap-2">
-              <List className="w-4 h-4 text-[#581C87]" aria-hidden="true" />
+              <List className="w-4 h-4 text-[#0891B2]" aria-hidden="true" />
               <span>Table of Contents ({items.length} sections)</span>
             </span>
             <ChevronDown
@@ -79,14 +79,14 @@ export function TableOfContents({ items, variant = "all", className }: TableOfCo
           </button>
 
           {isMobileOpen && (
-            <nav aria-label="Table of Contents (Mobile)" className="px-4 pb-4 pt-1 border-t border-purple-100">
+            <nav aria-label="Table of Contents (Mobile)" className="px-4 pb-4 pt-1 border-t border-cyan-100">
               <ul className="space-y-2 text-xs font-sans">
                 {items.map((item) => {
                   const isActive = activeId === item.id;
                   return (
                     <li
                       key={item.id}
-                      className={cn(item.level === 3 ? "pl-3.5 border-l border-purple-100" : "")}
+                      className={cn(item.level === 3 ? "pl-3.5 border-l border-cyan-100" : "")}
                     >
                       <a
                         href={`#${item.id}`}
@@ -94,7 +94,7 @@ export function TableOfContents({ items, variant = "all", className }: TableOfCo
                         className={cn(
                           "block py-1 transition-colors leading-relaxed",
                           isActive
-                            ? "text-[#7C3AED] font-semibold"
+                            ? "text-[#06B6D4] font-semibold"
                             : "text-[#475569] hover:text-[#0F0A1A]"
                         )}
                       >
@@ -111,13 +111,13 @@ export function TableOfContents({ items, variant = "all", className }: TableOfCo
 
       {/* Desktop Sticky Sidebar TOC (Anchored on the Right Column) */}
       {showDesktop && (
-        <div className={cn("sticky top-28 space-y-3.5 p-5 rounded-2xl border border-purple-100 bg-white/95 backdrop-blur-md shadow-2xl", variant === "all" ? "hidden lg:block w-72 shrink-0" : "")}>
-          <div className="flex items-center justify-between pb-3 border-b border-purple-100 text-xs font-mono font-bold uppercase tracking-wider text-[#0F0A1A]">
+        <div className={cn("sticky top-28 space-y-3.5 p-5 rounded-2xl border border-cyan-100 bg-white/95 backdrop-blur-md shadow-2xl", variant === "all" ? "hidden lg:block w-72 shrink-0" : "")}>
+          <div className="flex items-center justify-between pb-3 border-b border-cyan-100 text-xs font-mono font-bold uppercase tracking-wider text-[#0F0A1A]">
             <div className="flex items-center gap-2">
-              <List className="w-4 h-4 text-[#581C87]" aria-hidden="true" />
+              <List className="w-4 h-4 text-[#0891B2]" aria-hidden="true" />
               <span>Table of Contents</span>
             </div>
-            <span className="text-[11px] px-2 py-0.5 rounded bg-purple-50 border border-purple-100 text-[#7C3AED] font-mono">
+            <span className="text-[11px] px-2 py-0.5 rounded bg-cyan-50 border border-cyan-100 text-[#06B6D4] font-mono">
               {items.length}
             </span>
           </div>
@@ -129,7 +129,7 @@ export function TableOfContents({ items, variant = "all", className }: TableOfCo
                 return (
                   <li
                     key={item.id}
-                    className={cn(item.level === 3 ? "pl-3 border-l border-purple-100 ml-1.5" : "")}
+                    className={cn(item.level === 3 ? "pl-3 border-l border-cyan-100 ml-1.5" : "")}
                   >
                     <a
                       href={`#${item.id}`}
@@ -137,12 +137,12 @@ export function TableOfContents({ items, variant = "all", className }: TableOfCo
                       className={cn(
                         "group flex items-start gap-1.5 py-1.5 px-2 rounded-lg transition-all leading-snug",
                         isActive
-                          ? "bg-[#581C87]/10 text-[#7C3AED] font-semibold border-l-2 border-[#581C87] shadow-2xs"
-                          : "text-[#475569] hover:text-[#0F0A1A] hover:bg-purple-50"
+                          ? "bg-[#0891B2]/10 text-[#06B6D4] font-semibold border-l-2 border-[#0891B2] shadow-2xs"
+                          : "text-[#475569] hover:text-[#0F0A1A] hover:bg-cyan-50"
                       )}
                     >
                       {isActive && (
-                        <BookmarkCheck className="w-3.5 h-3.5 text-[#581C87] shrink-0 mt-0.5" />
+                        <BookmarkCheck className="w-3.5 h-3.5 text-[#0891B2] shrink-0 mt-0.5" />
                       )}
                       <span className="line-clamp-2">{item.text}</span>
                     </a>
@@ -152,9 +152,9 @@ export function TableOfContents({ items, variant = "all", className }: TableOfCo
             </ul>
           </nav>
 
-          <div className="pt-3 border-t border-purple-100 text-[10px] font-mono text-[#64748B] flex items-center justify-between">
+          <div className="pt-3 border-t border-cyan-100 text-[10px] font-mono text-[#64748B] flex items-center justify-between">
             <span>SCROLL SPY ACTIVE</span>
-            <span className="text-[#581C87] font-bold">LIVE NAV</span>
+            <span className="text-[#0891B2] font-bold">LIVE NAV</span>
           </div>
         </div>
       )}

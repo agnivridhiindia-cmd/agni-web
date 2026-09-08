@@ -1,5 +1,5 @@
 /**
- * Company Timeline Dataset — Phase 14
+ * Company Timeline Dataset  - â€ Phase 14
  *
  * Strict Factual Rule:
  * Only includes verified evolutionary milestones of Agnivridhi India.
@@ -43,10 +43,10 @@ export const companyTimeline: readonly TimelineMilestone[] = [
       "Formalized dedicated debt syndication desks focused on unlocking collateral-free bank sanctions under the CGTMSE credit guarantee trust and central PMEGP subsidy mechanisms.",
     badge: "Expansion",
     pillarTag: "Sovereign Debt",
-    metric: "₹100 Cr+",
+    metric: "\u20B9100 Cr+",
     metricLabel: "Cumulative Debt Appraised",
     achievementHighlight:
-      "Pioneered institutional underwriting syndication for CGTMSE collateral-free limits up to ₹5 Cr",
+      "Pioneered institutional underwriting syndication for CGTMSE collateral-free limits up to \u20B95 Cr",
   },
   {
     year: "2020",
@@ -68,7 +68,7 @@ export const companyTimeline: readonly TimelineMilestone[] = [
     title: "Full-Stack Multi-Pillar Convergence",
     subtitle: "Four Unified Practices Under One Institutional Roof",
     description:
-      "Synchronized all practices—Funding, Compliance, Digital, and Custom IT—into multidisciplinary advisory pods operating from corporate headquarters at Sector 62, Noida.",
+      "Synchronized all practices - â€Funding, Compliance, Digital, and Custom IT - â€into multidisciplinary advisory pods operating from corporate headquarters at Sector 62, Noida.",
     badge: "Institutional Scale",
     pillarTag: "Integrated Pods",
     metric: "28 States",

@@ -12,18 +12,18 @@ export function CaseStudyCta({ caseStudyTitle }: CaseStudyCtaProps) {
   return (
     <section
       aria-labelledby="case-study-cta-title"
-      className="py-16 sm:py-20 lg:py-24 bg-white text-[#0F0A1A] border-t border-purple-100 relative overflow-hidden"
+      className="py-16 sm:py-20 lg:py-24 bg-white text-[#0F0A1A] border-t border-cyan-100 relative overflow-hidden"
     >
       <Container width="wide">
         <div className="relative z-10 max-w-3xl space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#581C87]/10 border border-purple-200 text-[#581C87] text-xs font-semibold">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0891B2]/10 border border-cyan-200 text-[#0891B2] text-xs font-semibold">
             <Sparkles className="w-3.5 h-3.5" aria-hidden="true" />
             <span>Enterprise Advisory Desk</span>
           </div>
 
           <h2
             id="case-study-cta-title"
-            className="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold text-white tracking-tight leading-tight"
+            className="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold text-[#0F0A1A] tracking-tight leading-tight"
           >
             Facing a similar operational, funding, or compliance hurdle?
           </h2>
@@ -35,11 +35,11 @@ export function CaseStudyCta({ caseStudyTitle }: CaseStudyCtaProps) {
 
           <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-[#475569]">
             <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-[#581C87] shrink-0" aria-hidden="true" />
+              <CheckCircle2 className="w-4 h-4 text-[#0891B2] shrink-0" aria-hidden="true" />
               <span>Strict non-disclosure (NDA) protected</span>
             </div>
             <div className="flex items-center gap-2">
-              <Shield className="w-4 h-4 text-[#581C87] shrink-0" aria-hidden="true" />
+              <Shield className="w-4 h-4 text-[#0891B2] shrink-0" aria-hidden="true" />
               <span>Institutional banking &amp; accreditation expertise</span>
             </div>
           </div>

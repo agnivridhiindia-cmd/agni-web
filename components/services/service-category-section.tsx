@@ -24,23 +24,23 @@ const categoryVisuals: Record<
 > = {
   funding: {
     numeralColor: "text-white/[0.04]",
-    badgeBg: "bg-purple-50 border-purple-100",
-    badgeText: "text-[#581C87]",
+    badgeBg: "bg-cyan-50 border-cyan-100",
+    badgeText: "text-[#0891B2]",
     borderAccent: "border-l-[#C79A4A]",
     quoteColor: "text-[#475569]",
     pov: "Sovereign credit guarantees and capital subsidies structure unencumbered growth runway without relinquishing equity control or encumbering personal residential assets.",
   },
   compliance: {
     numeralColor: "text-white/[0.04]",
-    badgeBg: "bg-purple-50 border-purple-100",
-    badgeText: "text-[#581C87]",
+    badgeBg: "bg-cyan-50 border-cyan-100",
+    badgeText: "text-[#0891B2]",
     borderAccent: "border-l-[#2DD4BF]",
     quoteColor: "text-[#475569]",
     pov: "Rigorous statutory registrations and international quality standards transform statutory friction into competitive institutional tender qualifications.",
   },
   digital: {
     numeralColor: "text-white/[0.04]",
-    badgeBg: "bg-purple-50 border-purple-100",
+    badgeBg: "bg-cyan-50 border-cyan-100",
     badgeText: "text-[#38BDF8]",
     borderAccent: "border-l-[#38BDF8]",
     quoteColor: "text-[#475569]",
@@ -48,7 +48,7 @@ const categoryVisuals: Record<
   },
   it: {
     numeralColor: "text-[#0F0A1A]/15",
-    badgeBg: "bg-purple-50 border-purple-100",
+    badgeBg: "bg-cyan-50 border-cyan-100",
     badgeText: "text-[#0F0A1A]",
     borderAccent: "border-l-[#8E8B82]",
     quoteColor: "text-[#475569]",
@@ -72,11 +72,11 @@ export function ServiceCategorySection({
     <section
       id={category.id}
       aria-labelledby={`heading-${category.id}`}
-      className="scroll-mt-32 py-14 sm:py-18 lg:py-20 border-b border-purple-100 last:border-b-0"
+      className="scroll-mt-32 py-14 sm:py-18 lg:py-20 border-b border-cyan-100 last:border-b-0"
     >
       <Container width="wide" className="space-y-8 sm:space-y-10">
         {/* Category Header Row */}
-        <div className="relative border-b border-purple-100 pb-8">
+        <div className="relative border-b border-cyan-100 pb-8">
           {/* Editorial Numeral Watermark */}
           <span
             aria-hidden="true"
@@ -118,7 +118,7 @@ export function ServiceCategorySection({
             {/* Strategic Point of View Callout */}
             <div
               className={cn(
-                "mt-4 pl-4 border-l-2 py-2 text-xs sm:text-sm font-sans italic bg-white rounded-r-lg pr-4 border-y border-r border-purple-100",
+                "mt-4 pl-4 border-l-2 py-2 text-xs sm:text-sm font-sans italic bg-white rounded-r-lg pr-4 border-y border-r border-cyan-100",
                 visual.borderAccent,
                 visual.quoteColor
               )}

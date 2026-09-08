@@ -12,27 +12,27 @@ function getCategoryDisplay(category: string) {
   switch (category) {
     case "funding":
       return {
-        label: "Government & Business Funding",
-        badgeClass: "bg-purple-50 border-purple-100 text-[#581C87]",
+        label: "Government & Debt Funding",
+        badgeClass: "bg-cyan-50 border-cyan-100 text-[#0891B2]",
         icon: <Landmark className="w-3.5 h-3.5 text-teal-700 shrink-0" aria-hidden="true" />,
       };
     case "compliance":
       return {
         label: "Compliance & Certifications",
-        badgeClass: "bg-purple-50 border-purple-100 text-[#581C87]",
+        badgeClass: "bg-cyan-50 border-cyan-100 text-[#0891B2]",
         icon: <ShieldCheck className="w-3.5 h-3.5 text-gold-700 shrink-0" aria-hidden="true" />,
       };
     case "digital":
       return {
         label: "Digital Transformation",
-        badgeClass: "bg-purple-50 border-purple-100 text-[#0F0A1A]",
+        badgeClass: "bg-cyan-50 border-cyan-100 text-[#0F0A1A]",
         icon: <Building2 className="w-3.5 h-3.5 text-slate-700 shrink-0" aria-hidden="true" />,
       };
     case "it":
     default:
       return {
         label: "Custom Software & IT Services",
-        badgeClass: "bg-purple-50 border-purple-100 text-[#0F0A1A]",
+        badgeClass: "bg-cyan-50 border-cyan-100 text-[#0F0A1A]",
         icon: <Laptop className="w-3.5 h-3.5 text-slate-700 shrink-0" aria-hidden="true" />,
       };
   }
@@ -48,7 +48,7 @@ export function CaseStudyHero({ study }: CaseStudyHeroProps) {
   return (
     <section
       aria-labelledby="case-study-hero-title"
-      className="relative border-b border-purple-100 bg-[#FFFFFF] py-12 sm:py-16 lg:py-20 overflow-hidden"
+      className="relative border-b border-cyan-100 bg-[#FFFFFF] py-12 sm:py-16 lg:py-20 overflow-hidden"
     >
       <Container width="wide">
         <div className="max-w-4xl space-y-6">
@@ -62,7 +62,7 @@ export function CaseStudyHero({ study }: CaseStudyHeroProps) {
             </span>
 
             {study.client && (
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-medium bg-purple-50 border border-purple-100 text-[#475569] shadow-xs">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-medium bg-cyan-50 border border-cyan-100 text-[#475569] shadow-xs">
                 <span className="w-1.5 h-1.5 rounded-full bg-teal-600" aria-hidden="true" />
                 <span>{study.client}</span>
               </span>

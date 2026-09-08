@@ -81,7 +81,7 @@ export default function DisclaimerPage() {
           </h2>
           <p>
             Statutory scheme ceilings, interest subsidy bands, and guarantee percentages referenced on
-            this website (such as the CGTMSE ₹5 Crore sovereign guarantee ceiling or PMEGP subsidy
+            this website (such as the CGTMSE ÃƒÂ¢ - Å¡Ã‚Â¹5 Crore sovereign guarantee ceiling or PMEGP subsidy
             allocations) reflect publicly available gazette notifications and circulars issued by
             statutory authorities.
           </p>

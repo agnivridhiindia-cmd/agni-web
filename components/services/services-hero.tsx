@@ -8,7 +8,7 @@ export function ServicesHero() {
   return (
     <section
       aria-labelledby="services-hero-title"
-      className="relative border-b border-purple-100 bg-[#FFFFFF] pt-32 pb-14 sm:pt-36 sm:pb-16 lg:pt-40 lg:pb-20 overflow-hidden"
+      className="relative border-b border-cyan-100 bg-[#FFFFFF] pt-32 pb-14 sm:pt-36 sm:pb-16 lg:pt-40 lg:pb-20 overflow-hidden"
     >
       {/* Subtle Editorial Ambient Glow */}
       <div
@@ -42,16 +42,16 @@ export function ServicesHero() {
           {/* Credibility metric pills */}
           <FadeIn direction="up" distance={16} delay={0.2}>
             <div className="pt-2 flex flex-wrap items-center gap-3 text-xs text-[#475569] font-medium font-sans">
-              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white border border-purple-100 shadow-xs">
-                <Landmark className="w-4 h-4 text-[#581C87]" />
-                <span>Up to ₹5 Cr CGTMSE Collateral-Free Cover</span>
+              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white border border-cyan-100 shadow-xs">
+                <Landmark className="w-4 h-4 text-[#0891B2]" />
+                <span>Up to ÃƒÂ¢ - Å¡Ã‚Â¹5 Cr CGTMSE Collateral-Free Cover</span>
               </span>
-              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white border border-purple-100 shadow-xs">
-                <ShieldCheck className="w-4 h-4 text-[#581C87]" />
+              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white border border-cyan-100 shadow-xs">
+                <ShieldCheck className="w-4 h-4 text-[#0891B2]" />
                 <span>Statutory ISO &amp; Startup India Desks</span>
               </span>
-              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white border border-purple-100 shadow-xs">
-                <CheckCircle2 className="w-4 h-4 text-[#581C87]" />
+              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white border border-cyan-100 shadow-xs">
+                <CheckCircle2 className="w-4 h-4 text-[#0891B2]" />
                 <span>Synchronized Execution Across 28 States</span>
               </span>
             </div>

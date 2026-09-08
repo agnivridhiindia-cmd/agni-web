@@ -74,18 +74,18 @@ export function Footer() {
   ].filter(Boolean);
 
   return (
-    <footer className="relative overflow-hidden border-t border-white/[0.08] bg-[#050606] text-[#A5A29A] min-h-[560px] sm:min-h-[640px] lg:min-h-[720px] flex flex-col justify-between">
+    <footer className="relative min-h-[560px] overflow-hidden border-t border-cyan-100 bg-[radial-gradient(circle_at_top_left,_rgba(34,211,238,0.08),transparent_22%),radial-gradient(circle_at_bottom_right,_rgba(45,212,191,0.1),transparent_18%),linear-gradient(180deg,#ffffff_0%,#f5fcfd_40%,#f9ffff_100%)] text-[#475569] sm:min-h-[640px] lg:min-h-[720px] flex flex-col justify-between">
       {/* Institutional Architectural Backdrop */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-0 overflow-hidden select-none bg-[#050606]"
+        className="pointer-events-none absolute inset-0 z-0 overflow-hidden select-none"
       >
         {/* Subtle geometric financial & CAD architectural grid */}
-        <div className="absolute inset-0 opacity-[0.02] [background-image:linear-gradient(to_right,#F3EFE7_1px,transparent_1px),linear-gradient(to_bottom,#F3EFE7_1px,transparent_1px)] [background-size:28px_28px]" />
+        <div className="absolute inset-0 opacity-[0.32] [background-image:linear-gradient(to_right,#D8EEF1_1px,transparent_1px),linear-gradient(to_bottom,#D8EEF1_1px,transparent_1px)] [background-size:28px_28px]" />
 
         {/* Ambient brand glow whispers */}
-        <div className="absolute -bottom-24 -right-16 h-[450px] w-[450px] rounded-full bg-[radial-gradient(circle,rgba(199,154,74,0.06)_0%,transparent_70%)] blur-[120px] will-change-transform" />
-        <div className="absolute -top-24 -left-16 h-[400px] w-[400px] rounded-full bg-[radial-gradient(circle,rgba(140,59,36,0.04)_0%,transparent_70%)] blur-[100px] will-change-transform" />
+        <div className="absolute -bottom-24 -right-16 h-[450px] w-[450px] rounded-full bg-[radial-gradient(circle,rgba(8,145,178,0.08)_0%,transparent_70%)] blur-[120px] will-change-transform" />
+        <div className="absolute -top-24 -left-16 h-[400px] w-[400px] rounded-full bg-[radial-gradient(circle,rgba(34,211,238,0.06)_0%,transparent_70%)] blur-[100px] will-change-transform" />
       </div>
 
       <Container width="wide" className="page-gutters relative z-10 pt-20 pb-16 sm:pt-28 sm:pb-20 lg:pt-32 lg:pb-24 flex flex-col flex-1 justify-between">
@@ -97,9 +97,9 @@ export function Footer() {
             <Link
               href="/"
               aria-label="Agnivridhi India - Home"
-              className="inline-flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C79A4A] rounded-sm"
+              className="inline-flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0891B2] rounded-sm"
             >
-              <div className="relative w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center bg-white/[0.04] border border-white/10 group-hover:scale-105 transition-transform duration-200">
+              <div className="relative w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center bg-cyan-50 border border-cyan-100 group-hover:scale-105 transition-transform duration-200">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/logo1.png"
@@ -108,22 +108,22 @@ export function Footer() {
                 />
               </div>
               <div className="flex flex-col">
-                <span className="font-serif text-xl sm:text-2xl text-[#F3EFE7] tracking-tight leading-none group-hover:text-[#DFC286] transition-colors">
+                <span className="font-serif text-xl sm:text-2xl text-[#181226] tracking-tight leading-none group-hover:text-[#0891B2] transition-colors">
                   {siteConfig.company.name.split(" ")[0]}
                 </span>
-                <span className="text-[11px] uppercase font-mono font-medium tracking-widest text-[#C79A4A] leading-tight mt-1">
+                <span className="text-[11px] uppercase font-mono font-medium tracking-widest text-[#0891B2] leading-tight mt-1">
                   {siteConfig.company.name.split(" ").slice(1).join(" ") || "India"}
                 </span>
               </div>
             </Link>
 
-            <p className="text-sm text-[#A5A29A] font-sans leading-relaxed max-w-sm">
+            <p className="text-sm text-[#475569] font-sans leading-relaxed max-w-sm">
               {siteConfig.company.longDescription}
             </p>
 
             {/* Verified Location Stamp */}
-            <div className="flex items-center gap-2 text-xs font-mono text-[#8E8D86] pt-1">
-              <MapPin className="w-4 h-4 text-[#C79A4A] shrink-0" />
+            <div className="flex items-center gap-2 text-xs font-mono text-[#64748B] pt-1">
+              <MapPin className="w-4 h-4 text-[#0891B2] shrink-0" />
               <span>
                 {siteConfig.company.location.city},{" "}
                 {siteConfig.company.location.state},{" "}
@@ -143,7 +143,7 @@ export function Footer() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`Follow Agnivridhi India on ${social.name}`}
-                      className="w-9 h-9 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] text-[#A5A29A] hover:text-[#DFC286] hover:border-[#C79A4A]/50 flex items-center justify-center transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C79A4A]"
+                      className="w-9 h-9 rounded-lg bg-cyan-50 hover:bg-cyan-100 border border-cyan-100 text-[#64748B] hover:text-[#0891B2] hover:border-cyan-300 flex items-center justify-center transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0891B2]"
                     >
                       <Icon className="w-4 h-4" />
                     </a>
@@ -157,14 +157,14 @@ export function Footer() {
               COLUMN 2: Company Navigation (Span 2)
               ========================================================== */}
           <div className="lg:col-span-2 space-y-4">
-            <h3 className="text-xs uppercase font-mono font-medium tracking-widest text-[#F3EFE7]">
+            <h3 className="text-xs uppercase font-mono font-medium tracking-widest text-[#181226]">
               Company
             </h3>
             <ul className="space-y-3 text-sm font-sans">
               <li>
                 <Link
                   href="/about"
-                  className="text-[#A5A29A] hover:text-[#DFC286] transition-colors inline-block"
+                  className="text-[#475569] hover:text-[#0891B2] transition-colors inline-block"
                 >
                   About Us
                 </Link>
@@ -172,7 +172,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/success-stories"
-                  className="text-[#A5A29A] hover:text-[#DFC286] transition-colors inline-block"
+                  className="text-[#475569] hover:text-[#0891B2] transition-colors inline-block"
                 >
                   Success Stories
                 </Link>
@@ -180,7 +180,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/blog"
-                  className="text-[#A5A29A] hover:text-[#DFC286] transition-colors inline-block"
+                  className="text-[#475569] hover:text-[#0891B2] transition-colors inline-block"
                 >
                   Insights &amp; Blog
                 </Link>
@@ -188,7 +188,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/faq"
-                  className="text-[#A5A29A] hover:text-[#DFC286] transition-colors inline-block"
+                  className="text-[#475569] hover:text-[#0891B2] transition-colors inline-block"
                 >
                   Frequently Asked Questions (FAQ)
                 </Link>
@@ -196,7 +196,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/contact"
-                  className="text-[#A5A29A] hover:text-[#DFC286] transition-colors inline-block"
+                  className="text-[#475569] hover:text-[#0891B2] transition-colors inline-block"
                 >
                   Contact Advisory
                 </Link>
@@ -208,7 +208,7 @@ export function Footer() {
               COLUMN 3: Services Categories (Span 3)
               ========================================================== */}
           <div className="lg:col-span-3 space-y-4">
-            <h3 className="text-xs uppercase font-mono font-medium tracking-widest text-[#F3EFE7]">
+            <h3 className="text-xs uppercase font-mono font-medium tracking-widest text-[#181226]">
               Advisory Services
             </h3>
             <ul className="space-y-3 text-sm font-sans">
@@ -216,17 +216,17 @@ export function Footer() {
                 <li key={category.id}>
                   <Link
                     href={`/services#${category.id}`}
-                    className="text-[#A5A29A] hover:text-[#DFC286] transition-colors flex items-center gap-1 group"
+                    className="text-[#475569] hover:text-[#0891B2] transition-colors flex items-center gap-1 group"
                   >
                     <span>{category.name}</span>
-                    <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-[#C79A4A]" />
+                    <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-[#0891B2]" />
                   </Link>
                 </li>
               ))}
               <li className="pt-2">
                 <Link
                   href="/services"
-                  className="text-xs font-mono font-medium text-[#C79A4A] hover:text-[#DFC286] uppercase tracking-wider transition-colors inline-flex items-center gap-1.5"
+                  className="text-xs font-mono font-medium text-[#0891B2] hover:text-[#0E7490] uppercase tracking-wider transition-colors inline-flex items-center gap-1.5"
                 >
                   <span>View All 24+ Services</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -239,14 +239,14 @@ export function Footer() {
               COLUMN 4: Verified Contact / Advisory Desk (Span 3)
               ========================================================== */}
           <div className="lg:col-span-3 space-y-4">
-            <h3 className="text-xs uppercase font-mono font-medium tracking-widest text-[#F3EFE7]">
+            <h3 className="text-xs uppercase font-mono font-medium tracking-widest text-[#181226]">
               Advisory Desk
             </h3>
-            <div className="space-y-3.5 text-sm font-sans text-[#A5A29A]">
+            <div className="space-y-3.5 text-sm font-sans text-[#475569]">
               {/* Address */}
               {addressParts.length > 0 && (
                 <div className="flex items-start gap-2.5">
-                  <MapPin className="w-4 h-4 text-[#C79A4A] shrink-0 mt-0.5" />
+                  <MapPin className="w-4 h-4 text-[#0891B2] shrink-0 mt-0.5" />
                   <span className="leading-relaxed">
                     {addressParts.join(", ")}
                   </span>
@@ -256,10 +256,10 @@ export function Footer() {
               {/* Phone */}
               {siteConfig.contact.phone && (
                 <div className="flex items-center gap-2.5">
-                  <Phone className="w-4 h-4 text-[#C79A4A] shrink-0" />
+                  <Phone className="w-4 h-4 text-[#0891B2] shrink-0" />
                   <a
                     href={`tel:${siteConfig.contact.phone}`}
-                    className="text-[#F3EFE7] hover:text-[#DFC286] transition-colors font-mono text-xs"
+                    className="text-[#181226] hover:text-[#0891B2] transition-colors font-mono text-xs"
                   >
                     {siteConfig.contact.phone}
                   </a>
@@ -269,10 +269,10 @@ export function Footer() {
               {/* Email */}
               {siteConfig.contact.email && (
                 <div className="flex items-center gap-2.5">
-                  <Mail className="w-4 h-4 text-[#C79A4A] shrink-0" />
+                  <Mail className="w-4 h-4 text-[#0891B2] shrink-0" />
                   <a
                     href={`mailto:${siteConfig.contact.email}`}
-                    className="text-[#F3EFE7] hover:text-[#DFC286] transition-colors font-mono text-xs"
+                    className="text-[#181226] hover:text-[#0891B2] transition-colors font-mono text-xs"
                   >
                     {siteConfig.contact.email}
                   </a>
@@ -290,7 +290,7 @@ export function Footer() {
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#F3EFE7] hover:text-[#25D366] transition-colors font-mono text-xs"
+                    className="text-[#181226] hover:text-[#25D366] transition-colors font-mono text-xs"
                   >
                     WhatsApp Business
                   </a>
@@ -298,7 +298,7 @@ export function Footer() {
               )}
 
               {/* Consultation availability note */}
-              <div className="pt-2.5 border-t border-white/[0.08] text-xs text-[#8E8D86] font-mono leading-relaxed">
+              <div className="pt-2.5 border-t border-cyan-100 text-xs text-[#64748B] font-mono leading-relaxed">
                 Advising MSMEs, manufacturing enterprises, and emerging startups across India.
               </div>
             </div>
@@ -308,7 +308,7 @@ export function Footer() {
         {/* ==========================================================
             BOTTOM BAR: Copyright & Legal Navigation
             ========================================================== */}
-        <div className="mt-20 pt-8 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#8E8D86]">
+        <div className="mt-20 pt-8 border-t border-cyan-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#64748B]">
           <p>
             &copy; {currentYear} {siteConfig.company.name}. All rights reserved.
           </p>
@@ -318,7 +318,7 @@ export function Footer() {
               <Link
                 key={legalItem.href}
                 href={legalItem.href}
-                className="hover:text-[#F3EFE7] transition-colors"
+                className="hover:text-[#0891B2] transition-colors"
               >
                 {legalItem.label}
               </Link>

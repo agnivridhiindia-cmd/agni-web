@@ -7,12 +7,12 @@ export const cardVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-white border border-[#EDE9FE] shadow-sm hover:border-[#C4B5FD]",
-        standard: "bg-white border border-[#EDE9FE] shadow-sm hover:border-[#C4B5FD]",
+        default: "bg-white border border-[#DDF7FA] shadow-sm hover:border-[#B8E0E5]",
+        standard: "bg-white border border-[#DDF7FA] shadow-sm hover:border-[#B8E0E5]",
         static:
           "bg-[#111313] border border-[#232727] shadow-lg",
-        interactive: "bg-white border border-[#EDE9FE] shadow-sm hover:border-[#7C3AED]/40 hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 cursor-pointer",
-        elevated: "bg-[#FBF9FE] border border-[#EDE9FE] shadow-md hover:shadow-lg hover:border-[#7C3AED]/30 hover:-translate-y-0.5",
+        interactive: "bg-white border border-[#DDF7FA] shadow-sm hover:border-[#06B6D4]/40 hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 cursor-pointer",
+        elevated: "bg-[#FBF9FE] border border-[#DDF7FA] shadow-md hover:shadow-lg hover:border-[#06B6D4]/30 hover:-translate-y-0.5",
         subtle:
           "bg-[#0E0F0F] border border-[#232727] shadow-none hover:bg-[#111313] hover:border-[#333737]",
         glass:

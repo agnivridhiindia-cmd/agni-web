@@ -50,7 +50,7 @@ export const pipelineStages: PipelineStage[] = [
     number: "01",
     title: "TEV & DPR Formulation",
     phase: "Phase 1: Financial Architecture",
-    timeline: "Days 1–10",
+    timeline: "Days 1  -  10",
     sla: "10 Working Days SLA",
     icon: FileSpreadsheet,
     description:
@@ -111,7 +111,7 @@ export const pipelineStages: PipelineStage[] = [
     number: "02",
     title: "Lead Bank In-Principle Sanction",
     phase: "Phase 2: Credit Appraisal Defense",
-    timeline: "Days 15–30",
+    timeline: "Days 15  -  30",
     sla: "15 Working Days SLA",
     icon: Building,
     description:
@@ -172,7 +172,7 @@ export const pipelineStages: PipelineStage[] = [
     number: "03",
     title: "Legal Search & Asset Valuation",
     phase: "Phase 3: Asset Due Diligence",
-    timeline: "Days 30–45",
+    timeline: "Days 30  -  45",
     sla: "12 Working Days SLA",
     icon: ShieldCheck,
     description:
@@ -233,7 +233,7 @@ export const pipelineStages: PipelineStage[] = [
     number: "04",
     title: "Disbursal & Subsidy Portal Tagging",
     phase: "Phase 4: Capital Release & Sovereign Lock-in",
-    timeline: "Days 45–60",
+    timeline: "Days 45  -  60",
     sla: "10 Working Days SLA",
     icon: Coins,
     description:
@@ -242,7 +242,7 @@ export const pipelineStages: PipelineStage[] = [
       {
         title: "Promoter Equity Margin Deposit",
         description:
-          "Deposit of required 10%–25% equity margin into the designated bank project escrow account.",
+          "Deposit of required 10%  -  25% equity margin into the designated bank project escrow account.",
       },
       {
         title: "Loan Security Agreement Execution",
@@ -343,7 +343,7 @@ export function SyndicationPipeline() {
                 Average End-to-End Cycle
               </span>
               <div className="font-serif text-2xl font-normal text-[#F3EFE7]">
-                45–60 <span className="text-xs font-sans font-medium text-[#A5A29A]">Business Days</span>
+                45  -  60 <span className="text-xs font-sans font-medium text-[#A5A29A]">Business Days</span>
               </div>
             </div>
             <div className="w-px h-10 bg-white/10" aria-hidden="true" />

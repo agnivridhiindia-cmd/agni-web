@@ -2,24 +2,9 @@ import { z } from "zod";
 
 /**
  * Contact Form & Enterprise Diagnostic Validation Schema
- * Single source of truth for inbound diagnostic inquiry & instant slot booking.
+ * Single source of truth for inbound diagnostic inquiries.
  */
 export const contactFormSchema = z.object({
-  // Stepper Step 1: Enterprise Need
-  enterpriseNeed: z
-    .string()
-    .trim()
-    .optional()
-    .or(z.literal("")),
-
-  // Stepper Step 2: Turnover Scale
-  turnoverScale: z
-    .string()
-    .trim()
-    .optional()
-    .or(z.literal("")),
-
-  // Stepper Step 3: Executive Details
   name: z
     .string()
     .trim()
@@ -58,13 +43,8 @@ export const contactFormSchema = z.object({
     .min(5, { message: "Please enter at least 5 characters outlining your inquiry." })
     .max(2000, { message: "Inquiry message cannot exceed 2000 characters." }),
 
-  // Optional Document Attachment representation
-  documentName: z.string().optional(),
-  documentSize: z.string().optional(),
+  website: z.string().optional(),
 
-  // Instant booking fields
-  bookingDate: z.string().optional(),
-  bookingTime: z.string().optional(),
 });
 
 export type ContactFormData = z.infer<typeof contactFormSchema>;

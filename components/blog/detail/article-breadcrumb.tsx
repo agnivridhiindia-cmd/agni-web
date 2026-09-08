@@ -12,7 +12,7 @@ export function ArticleBreadcrumb({ title, category }: ArticleBreadcrumbProps) {
   const categorySlug = category.toLowerCase();
 
   return (
-    <div className="pt-28 sm:pt-32 pb-4 border-b border-purple-100 bg-[#FFFFFF]">
+    <div className="pt-28 sm:pt-32 pb-4 border-b border-cyan-100 bg-[#FFFFFF]">
       <Container width="wide">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-sans">
           {/* Breadcrumb path */}
@@ -64,7 +64,7 @@ export function ArticleBreadcrumb({ title, category }: ArticleBreadcrumbProps) {
           {/* Quick backlink */}
           <Link
             href="/blog"
-            className="inline-flex items-center gap-1.5 text-[#475569] hover:text-[#581C87] font-medium transition-colors shrink-0"
+            className="inline-flex items-center gap-1.5 text-[#475569] hover:text-[#0891B2] font-medium transition-colors shrink-0"
           >
             <ArrowLeft className="w-3.5 h-3.5" aria-hidden="true" />
             <span>All Articles</span>

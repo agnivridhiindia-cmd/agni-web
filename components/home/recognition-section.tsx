@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import {
   Award,
   Newspaper,
@@ -36,8 +37,8 @@ function getRecognitionMeta(type: RecognitionType): {
         icon: Award,
         badgeVariant: "accent",
         label: "Industry Award",
-        iconBg: "bg-purple-100/70 border-purple-200",
-        iconColor: "text-[#581C87]",
+        iconBg: "bg-cyan-100/70 border-cyan-200",
+        iconColor: "text-[#0891B2]",
       };
     case "press":
     case "media":
@@ -45,15 +46,15 @@ function getRecognitionMeta(type: RecognitionType): {
         icon: Newspaper,
         badgeVariant: "primary",
         label: "Press Citation",
-        iconBg: "bg-purple-50 border-purple-200/60",
-        iconColor: "text-[#581C87]",
+        iconBg: "bg-cyan-50 border-cyan-200/60",
+        iconColor: "text-[#0891B2]",
       };
     case "magazine":
       return {
         icon: Bookmark,
         badgeVariant: "default",
         label: "Sector Analysis",
-        iconBg: "bg-purple-50/50 border-purple-200/40",
+        iconBg: "bg-cyan-50/50 border-cyan-200/40",
         iconColor: "text-[#475569]",
       };
     case "recognition":
@@ -62,8 +63,8 @@ function getRecognitionMeta(type: RecognitionType): {
         icon: ShieldCheck,
         badgeVariant: "outline",
         label: "Accreditation",
-        iconBg: "bg-purple-100/70 border-purple-200",
-        iconColor: "text-[#581C87]",
+        iconBg: "bg-cyan-100/70 border-cyan-200",
+        iconColor: "text-[#0891B2]",
       };
   }
 }
@@ -71,8 +72,9 @@ function getRecognitionMeta(type: RecognitionType): {
 export function RecognitionSection() {
   const prefersReduced = useReducedMotionPreference();
   const carouselRef = React.useRef<HTMLDivElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = React.useState(false);
-  const [canScrollRight, setCanScrollRight] = React.useState(true);
+  const [activeIndex, setActiveIndex] = React.useState(0);
+  const [activeRenderIndex, setActiveRenderIndex] = React.useState(0);
+  const [isPaused, setIsPaused] = React.useState(false);
 
   // Gated: strictly filter out unverified items
   const verifiedItems = React.useMemo(() => {
@@ -81,12 +83,38 @@ export function RecognitionSection() {
     );
   }, []);
 
+  const renderedItems = React.useMemo(
+    () => [...verifiedItems, ...verifiedItems, ...verifiedItems],
+    [verifiedItems]
+  );
+
   const checkScroll = React.useCallback(() => {
     const el = carouselRef.current;
     if (!el) return;
-    setCanScrollLeft(el.scrollLeft > 10);
-    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 10);
-  }, []);
+    const cards = Array.from(el.children) as HTMLElement[];
+    const viewportCenter = el.scrollLeft + el.clientWidth / 2;
+    let nearestIndex = cards.reduce((nearest, card, index) => {
+      const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+      const nearestCenter = cards[nearest].offsetLeft + cards[nearest].offsetWidth / 2;
+      return Math.abs(cardCenter - viewportCenter) < Math.abs(nearestCenter - viewportCenter)
+        ? index
+        : nearest;
+    }, 0);
+
+    const itemCount = verifiedItems.length;
+    if (itemCount > 0 && (nearestIndex < itemCount || nearestIndex >= itemCount * 2)) {
+      const normalizedIndex = (nearestIndex % itemCount) + itemCount;
+      const normalizedCard = cards[normalizedIndex];
+      if (normalizedCard) {
+        const targetLeft = normalizedCard.offsetLeft - (el.clientWidth - normalizedCard.offsetWidth) / 2;
+        el.scrollTo({ left: Math.max(0, targetLeft), behavior: "auto" });
+        nearestIndex = normalizedIndex;
+      }
+    }
+
+    setActiveRenderIndex(nearestIndex);
+    setActiveIndex(itemCount > 0 ? nearestIndex % itemCount : 0);
+  }, [verifiedItems.length]);
 
   React.useEffect(() => {
     checkScroll();
@@ -94,11 +122,60 @@ export function RecognitionSection() {
     return () => window.removeEventListener("resize", checkScroll);
   }, [checkScroll]);
 
-  const scrollByAmount = (distance: number) => {
+  const showCard = React.useCallback((index: number, behavior: ScrollBehavior = "smooth") => {
     const el = carouselRef.current;
-    if (!el) return;
-    el.scrollBy({ left: distance, behavior: prefersReduced ? "auto" : "smooth" });
-    setTimeout(checkScroll, 350);
+    const itemCount = verifiedItems.length;
+    if (!el || itemCount === 0) return;
+
+    let nextIndex = index;
+    if (nextIndex < itemCount) nextIndex += itemCount;
+    if (nextIndex >= itemCount * 2) nextIndex = itemCount * 2;
+
+    const card = el.children[nextIndex] as HTMLElement | undefined;
+    if (!card) return;
+    setActiveRenderIndex(nextIndex);
+    setActiveIndex(nextIndex % itemCount);
+    const targetLeft = card.offsetLeft - (el.clientWidth - card.offsetWidth) / 2;
+    el.scrollTo({
+      left: Math.max(0, targetLeft),
+      behavior: prefersReduced ? "auto" : behavior,
+    });
+
+    if (!prefersReduced && (nextIndex === itemCount * 2 || nextIndex === itemCount - 1)) {
+      window.setTimeout(() => {
+        const resetIndex = nextIndex === itemCount * 2 ? itemCount : itemCount * 2 - 1;
+        const resetCard = el.children[resetIndex] as HTMLElement | undefined;
+        if (!resetCard) return;
+        const resetLeft = resetCard.offsetLeft - (el.clientWidth - resetCard.offsetWidth) / 2;
+        el.scrollTo({ left: Math.max(0, resetLeft), behavior: "auto" });
+        setActiveRenderIndex(resetIndex);
+      }, 700);
+    }
+  }, [prefersReduced, verifiedItems.length]);
+
+  React.useEffect(() => {
+    if (verifiedItems.length > 0) {
+      showCard(verifiedItems.length, "auto");
+    }
+  }, [showCard, verifiedItems.length]);
+
+  React.useEffect(() => {
+    if (prefersReduced || isPaused || verifiedItems.length < 2) return;
+    const timer = window.setInterval(() => {
+      showCard(activeRenderIndex + 1);
+    }, 6500);
+    return () => window.clearInterval(timer);
+  }, [activeRenderIndex, isPaused, prefersReduced, showCard, verifiedItems.length]);
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      showCard(activeRenderIndex - 1);
+    }
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      showCard(activeRenderIndex + 1);
+    }
   };
 
   if (verifiedItems.length === 0) {
@@ -108,7 +185,7 @@ export function RecognitionSection() {
   return (
     <section
       aria-labelledby="recognition-heading"
-      className="relative bg-gradient-to-b from-[#FAF8FE] via-[#F5F1FB] to-[#FAF8FE] text-[#181226] py-20 sm:py-28 lg:py-36 border-b border-purple-100/80 overflow-hidden"
+      className="relative bg-gradient-to-b from-[#FAF8FE] via-[#F5F1FB] to-[#FAF8FE] text-[#181226] py-20 sm:py-28 lg:py-36 border-b border-cyan-100/80 overflow-hidden"
     >
       {/* Ambient background decoration */}
       <div
@@ -123,8 +200,8 @@ export function RecognitionSection() {
         {/* Header Row: Title on Left, Carousel Controls on Right */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <FadeIn direction="up" distance={16} delay={0.04} className="max-w-2xl space-y-3.5">
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-purple-200/90 text-[#581C87] text-xs font-mono tracking-widest uppercase shadow-xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#581C87]" />
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-cyan-200/90 text-[#0891B2] text-xs font-mono tracking-widest uppercase shadow-xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#0891B2]" />
               <span>AWARDS &amp; ACHIEVEMENTS &bull; ACCREDITATIONS</span>
             </div>
 
@@ -146,18 +223,16 @@ export function RecognitionSection() {
           <FadeIn direction="up" distance={16} delay={0.08} className="shrink-0 flex items-center gap-3">
             <button
               type="button"
-              onClick={() => scrollByAmount(-380)}
-              disabled={!canScrollLeft}
-              className="w-11 h-11 rounded-full border border-purple-200/90 bg-white text-[#475569] hover:border-[#581C87] hover:text-[#581C87] disabled:opacity-25 flex items-center justify-center transition-all shadow-xs hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#581C87] cursor-pointer"
+              onClick={() => showCard(activeIndex - 1)}
+              className="w-11 h-11 rounded-full border border-cyan-200/90 bg-white text-[#475569] hover:border-[#0891B2] hover:text-[#0891B2] disabled:opacity-25 flex items-center justify-center transition-all shadow-xs hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0891B2] cursor-pointer"
               aria-label="Scroll citations left"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               type="button"
-              onClick={() => scrollByAmount(380)}
-              disabled={!canScrollRight}
-              className="w-11 h-11 rounded-full border border-purple-200/90 bg-white text-[#475569] hover:border-[#581C87] hover:text-[#581C87] disabled:opacity-25 flex items-center justify-center transition-all shadow-xs hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#581C87] cursor-pointer"
+              onClick={() => showCard(activeIndex + 1)}
+              className="w-11 h-11 rounded-full border border-cyan-200/90 bg-white text-[#475569] hover:border-[#0891B2] hover:text-[#0891B2] disabled:opacity-25 flex items-center justify-center transition-all shadow-xs hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0891B2] cursor-pointer"
               aria-label="Scroll citations right"
             >
               <ChevronRight className="w-5 h-5" />
@@ -171,89 +246,82 @@ export function RecognitionSection() {
         <div
           ref={carouselRef}
           onScroll={checkScroll}
-          className="flex items-stretch gap-6 overflow-x-auto pb-4 pt-2 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 no-scrollbar scroll-smooth snap-x snap-mandatory"
+          onKeyDown={handleKeyDown}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onTouchStart={() => setIsPaused(true)}
+          onTouchEnd={() => setIsPaused(false)}
+          tabIndex={0}
+          role="region"
+          aria-label="Awards and accreditations carousel"
+          className="flex max-w-5xl items-stretch gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 pt-2 -mx-4 px-[calc((100%-320px)/2+1rem)] sm:gap-6 sm:-mx-6 sm:px-[calc((100%-380px)/2+1.5rem)] lg:mx-auto lg:px-[calc((100%-440px)/2)] no-scrollbar focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0891B2] focus-visible:ring-offset-4"
         >
-          {verifiedItems.map((item) => {
+          {renderedItems.map((item, renderedIndex) => {
             const meta = getRecognitionMeta(item.type);
             const Icon = meta.icon;
 
             return (
               <div
-                key={item.id}
-                className="w-[320px] sm:w-[380px] lg:w-[420px] shrink-0 snap-start h-full"
+                key={`${item.id}-${renderedIndex}`}
+                className="w-[calc(100vw-2rem)] max-w-[360px] sm:w-[320px] lg:w-[440px] lg:max-w-[440px] shrink-0 snap-center h-full"
               >
                 <SpotlightCard
                   glowVariant="purple"
-                  className="h-full bg-white border border-purple-200/90 hover:border-[#7C3AED]/50 transition-all duration-300 shadow-[0_8px_24px_-6px_rgba(88,28,135,0.06),0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_36px_-8px_rgba(88,28,135,0.12)]"
-                  innerClassName="p-6 sm:p-7 justify-between bg-white text-[#181226]"
+                  className="h-[360px] sm:h-[400px] p-0 bg-transparent border border-cyan-200/90 hover:border-[#06B6D4]/50 transition-all duration-300 shadow-[0_8px_24px_-6px_rgba(88,28,135,0.06),0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_36px_-8px_rgba(88,28,135,0.12)]"
+                  innerClassName="!p-0 justify-end bg-transparent text-white rounded-3xl"
                 >
-                  <div className="space-y-4">
-                    {/* Top Row: Icon Container + Category Tag + Year Pill */}
-                    <div className="flex items-center justify-between gap-3">
-                      <div className="flex items-center gap-3">
-                        <div
-                          className={`w-11 h-11 rounded-xl ${meta.iconBg} ${meta.iconColor} border flex items-center justify-center shadow-xs group-hover/spotlight:scale-105 transition-transform duration-300`}
-                        >
-                          <Icon className="w-5 h-5" />
-                        </div>
-                        <Badge variant={meta.badgeVariant} className="text-xs font-semibold">
-                          {meta.label}
-                        </Badge>
-                      </div>
-
-                      <span className="font-mono text-xs font-medium px-2.5 py-1 rounded-full bg-purple-50 text-[#64748B] border border-purple-100">
-                        {item.year}
-                      </span>
+                  {item.logoImage ? (
+                    <Image
+                      src={item.logoImage}
+                      alt={`${item.publicationOrOrg} recognition`}
+                      fill
+                      sizes="(max-width: 640px) calc(100vw - 2rem), 360px"
+                      className="object-cover transition-transform duration-700 group-hover/spotlight:scale-105"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-cyan-100 via-white to-emerald-100">
+                      <Icon className="h-16 w-16 text-[#0891B2]" aria-hidden="true" />
                     </div>
+                  )}
 
-                    {/* Publication Label */}
-                    <div className="pt-2 space-y-2">
-                      <div className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#581C87]" />
-                        <span className="text-xs font-mono font-medium tracking-widest text-[#581C87] uppercase">
-                          {item.publicationOrOrg}
-                        </span>
-                      </div>
-
-                      <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#181226] leading-snug group-hover/spotlight:text-[#581C87] transition-colors pt-1">
-                        {item.title}
-                      </h3>
-                    </div>
-
-                    {/* Description */}
-                    <p className="text-xs sm:text-sm text-[#475569] leading-[1.7] font-sans line-clamp-4">
-                      {item.description}
-                    </p>
-                  </div>
-
-                  {/* Bottom Verification Footer */}
-                  <div className="mt-6 pt-4 border-t border-purple-100/90 flex items-center justify-between text-xs text-[#475569]">
-                    <span className="inline-flex items-center gap-1.5 font-medium text-[#581C87]">
-                      <CheckCircle2 className="w-4 h-4 text-[#581C87] shrink-0" />
-                      <span>Verified Citation</span>
+                  <div className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/90 via-black/65 to-transparent px-5 pb-5 pt-24 sm:px-6 sm:pb-6">
+                    <span className="mb-2 block font-mono text-[10px] uppercase tracking-[0.18em] text-cyan-200">
+                      {item.publicationOrOrg} &bull; {item.year}
                     </span>
+                    <h3 className="font-serif text-xl font-medium leading-snug text-white sm:text-2xl">
+                      {item.title}
+                    </h3>
 
-                    {item.url ? (
+                    {item.url && (
                       <a
                         href={item.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-[#581C87] hover:text-[#4C1D95] font-mono text-xs tracking-wider focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#581C87] rounded transition-colors"
+                        className="mt-3 inline-flex items-center gap-1.5 font-mono text-xs tracking-wider text-white underline decoration-cyan-300 underline-offset-4 transition-colors hover:text-cyan-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
                         aria-label={`Read coverage: ${item.title} (opens in a new tab)`}
                       >
                         <span>Read Coverage</span>
-                        <ArrowUpRight className="w-3.5 h-3.5 text-[#581C87]" />
+                        <ArrowUpRight className="h-3.5 w-3.5" />
                       </a>
-                    ) : (
-                      <span className="text-xs text-[#556070] font-mono">
-                        Registry Mandate
-                      </span>
                     )}
                   </div>
                 </SpotlightCard>
               </div>
             );
           })}
+        </div>
+
+        <div className="flex items-center justify-center gap-2" aria-label="Choose recognition card">
+          {verifiedItems.map((item, index) => (
+            <button
+              key={item.id}
+              type="button"
+              onClick={() => showCard(verifiedItems.length + index)}
+              aria-label={`Show ${item.publicationOrOrg} recognition`}
+              aria-current={activeIndex === index ? "true" : undefined}
+              className={`h-2 rounded-full transition-all ${activeIndex === index ? "w-8 bg-[#0891B2]" : "w-2 bg-cyan-200 hover:bg-cyan-400"}`}
+            />
+          ))}
         </div>
       </Container>
     </section>

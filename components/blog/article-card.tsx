@@ -16,20 +16,20 @@ function getCategoryBadge(category: string) {
   if (normalized.includes("funding")) {
     return {
       label: category,
-      badgeClass: "bg-purple-50 text-[#581C87] border-purple-100",
+      badgeClass: "bg-cyan-50 text-[#0891B2] border-cyan-100",
       icon: <Landmark className="w-3.5 h-3.5 text-teal-700 shrink-0" aria-hidden="true" />,
     };
   }
   if (normalized.includes("compliance")) {
     return {
       label: category,
-      badgeClass: "bg-purple-50 text-[#581C87] border-purple-100",
+      badgeClass: "bg-cyan-50 text-[#0891B2] border-cyan-100",
       icon: <ShieldCheck className="w-3.5 h-3.5 text-gold-700 shrink-0" aria-hidden="true" />,
     };
   }
   return {
     label: category,
-    badgeClass: "bg-purple-50 text-[#475569] border-purple-100",
+    badgeClass: "bg-cyan-50 text-[#475569] border-cyan-100",
     icon: <Bookmark className="w-3.5 h-3.5 text-[#475569] shrink-0" aria-hidden="true" />,
   };
 }
@@ -47,7 +47,7 @@ export function ArticleCard({ post, featured = false, className }: ArticleCardPr
     return (
       <article
         className={cn(
-          "group relative rounded-2xl border border-purple-100 bg-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-[#581C87]/40 overflow-hidden",
+          "group relative rounded-2xl border border-cyan-100 bg-white shadow-xl hover:shadow-2xl transition-all duration-300 ease-out hover:-translate-y-1.5 hover:border-[#0891B2]/40 overflow-hidden",
           className
         )}
       >
@@ -62,7 +62,7 @@ export function ArticleCard({ post, featured = false, className }: ArticleCardPr
           <div className="lg:col-span-7 flex flex-col">
             <Link
               href={`/blog/${post.slug}`}
-              className="block h-full group/banner focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#581C87]"
+              className="block h-full group/banner focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#0891B2]"
               aria-label={`Read featured guide: ${post.title}`}
             >
               <EditorialBanner
@@ -90,8 +90,8 @@ export function ArticleCard({ post, featured = false, className }: ArticleCardPr
                   <span>{categoryBadge.label}</span>
                 </span>
 
-                <span className="inline-flex items-center gap-1 text-[11px] font-mono font-bold uppercase tracking-wider text-[#7C3AED] bg-[#581C87]/15 px-2 py-0.5 rounded border border-purple-200">
-                  <Sparkles className="w-3 h-3 text-[#581C87]" />
+                <span className="inline-flex items-center gap-1 text-[11px] font-mono font-bold uppercase tracking-wider text-[#06B6D4] bg-[#0891B2]/15 px-2 py-0.5 rounded border border-cyan-200">
+                  <Sparkles className="w-3 h-3 text-[#0891B2]" />
                   Featured Guide
                 </span>
               </div>
@@ -102,7 +102,7 @@ export function ArticleCard({ post, featured = false, className }: ArticleCardPr
                   <Calendar className="w-3.5 h-3.5 text-[#64748B]" aria-hidden="true" />
                   <time dateTime={post.publishedAt}>{formattedDate}</time>
                 </span>
-                <span className="text-[#5A5852]">•</span>
+                <span className="text-[#5A5852]">Ã¢â‚¬Â¢</span>
                 <span className="inline-flex items-center gap-1">
                   <Clock className="w-3.5 h-3.5 text-[#64748B]" aria-hidden="true" />
                   <span>{post.readingTime} min technical read</span>
@@ -110,10 +110,10 @@ export function ArticleCard({ post, featured = false, className }: ArticleCardPr
               </div>
 
               {/* Primary Fraunces Headline */}
-              <h2 className="font-serif font-bold text-2xl sm:text-3xl text-[#0F0A1A] tracking-tight leading-[1.25] group-hover:text-[#581C87] transition-colors">
+              <h2 className="font-serif font-bold text-2xl sm:text-3xl text-[#0F0A1A] tracking-tight leading-[1.25] group-hover:text-[#0891B2] transition-colors">
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#581C87] rounded"
+                  className="focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#0891B2] rounded"
                 >
                   {post.title}
                 </Link>
@@ -126,9 +126,9 @@ export function ArticleCard({ post, featured = false, className }: ArticleCardPr
             </div>
 
             {/* Author Credential Block & Direct CTA */}
-            <div className="pt-6 border-t border-purple-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="pt-6 border-t border-cyan-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-full bg-purple-50 border border-purple-100 text-[#581C87] flex items-center justify-center shrink-0">
+                <div className="w-8 h-8 rounded-full bg-cyan-50 border border-cyan-100 text-[#0891B2] flex items-center justify-center shrink-0">
                   <UserCheck className="w-4 h-4" aria-hidden="true" />
                 </div>
                 <div className="space-y-0.5 text-xs font-sans">
@@ -143,7 +143,7 @@ export function ArticleCard({ post, featured = false, className }: ArticleCardPr
 
               <Link
                 href={`/blog/${post.slug}`}
-                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#581C87] text-white font-bold text-xs sm:text-sm hover:bg-[#4C1D95] shadow-sm transition-all group/btn"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#0891B2] text-white font-bold text-xs sm:text-sm hover:bg-[#0E7490] shadow-sm transition-all group/btn"
                 aria-label={`Read complete authoritative guide: ${post.title}`}
               >
                 <span>Read Full Guide</span>
@@ -160,14 +160,14 @@ export function ArticleCard({ post, featured = false, className }: ArticleCardPr
   return (
     <article
       className={cn(
-        "group relative flex flex-col justify-between rounded-2xl border border-purple-100 bg-white shadow-lg hover:shadow-2xl hover:border-[#581C87]/40 transition-all duration-300 overflow-hidden",
+        "group relative flex flex-col justify-between rounded-2xl border border-cyan-100 bg-white shadow-lg hover:shadow-2xl hover:border-[#0891B2]/40 hover:-translate-y-2 transition-all duration-300 ease-out overflow-hidden",
         className
       )}
     >
       {/* Top Editorial Banner Illustration */}
       <Link
         href={`/blog/${post.slug}`}
-        className="block relative overflow-hidden focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#581C87]"
+        className="block relative overflow-hidden focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#0891B2]"
         aria-label={`Read guide: ${post.title}`}
       >
         <EditorialBanner
@@ -197,7 +197,7 @@ export function ArticleCard({ post, featured = false, className }: ArticleCardPr
                 <Calendar className="w-3.5 h-3.5 text-[#64748B]" aria-hidden="true" />
                 <time dateTime={post.publishedAt}>{formattedDate}</time>
               </span>
-              <span className="text-[#5A5852]">•</span>
+              <span className="text-[#5A5852]">Ã¢â‚¬Â¢</span>
               <span className="inline-flex items-center gap-1">
                 <Clock className="w-3.5 h-3.5 text-[#64748B]" aria-hidden="true" />
                 <span>{post.readingTime} min</span>
@@ -206,10 +206,10 @@ export function ArticleCard({ post, featured = false, className }: ArticleCardPr
           </div>
 
           {/* Title */}
-          <h3 className="font-serif font-semibold text-xl text-[#0F0A1A] tracking-tight leading-snug group-hover:text-[#581C87] transition-colors line-clamp-2">
+          <h3 className="font-serif font-semibold text-xl text-[#0F0A1A] tracking-tight leading-snug group-hover:text-[#0891B2] transition-colors line-clamp-2">
             <Link
               href={`/blog/${post.slug}`}
-              className="focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#581C87] rounded"
+              className="focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#0891B2] rounded"
             >
               {post.title}
             </Link>
@@ -222,7 +222,7 @@ export function ArticleCard({ post, featured = false, className }: ArticleCardPr
         </div>
 
         {/* Footer: Author & Read CTA */}
-        <div className="pt-4 border-t border-purple-100 flex items-center justify-between gap-2">
+        <div className="pt-4 border-t border-cyan-100 flex items-center justify-between gap-2">
           <div className="space-y-0.5 text-xs font-sans">
             <span className="font-semibold text-[#0F0A1A] block">
               {post.author.name}
@@ -234,7 +234,7 @@ export function ArticleCard({ post, featured = false, className }: ArticleCardPr
 
           <Link
             href={`/blog/${post.slug}`}
-            className="inline-flex items-center gap-1 text-xs font-semibold text-[#581C87] group-hover:text-[#7C3AED] transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#581C87] rounded px-1 py-0.5"
+            className="inline-flex items-center gap-1 text-xs font-semibold text-[#0891B2] group-hover:text-[#06B6D4] transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#0891B2] rounded px-1 py-0.5"
             aria-label={`Read complete guide: ${post.title}`}
           >
             <span>Read Guide</span>

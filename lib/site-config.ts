@@ -2,7 +2,7 @@ import type { ServiceCategory } from "@/types/service";
 
 /**
  * ==============================================================================
- * AGNIVRIDHI INDIA — SINGLE SOURCE OF TRUTH (DATA ARCHITECTURE)
+ * AGNIVRIDHI INDIA   -   SINGLE SOURCE OF TRUTH (DATA ARCHITECTURE)
  * ==============================================================================
  * This configuration is the single authoritative source of truth for company-wide
  * information across the entire website.
@@ -191,7 +191,7 @@ export const siteConfig: MasterSiteConfig = {
     legalName: "Agnivridhi India Business Solutions",
     tagline: "Aapke Business Ki Udaan, Humare Saath",
     shortDescription:
-      "One-stop enterprise growth platform for MSMEs and Startups — Funding, Compliance, Tech & Marketing.",
+      "One-stop enterprise growth platform for MSMEs and Startups   -   Funding, Compliance, Tech & Marketing.",
     longDescription:
       "Agnivridhi India empowers emerging and established enterprises with sovereign debt syndication (CGTMSE, PMEGP, MUDRA), statutory compliance certifications, bespoke software engineering, and high-performance B2B marketing.",
     foundedYear: 2020,
@@ -216,8 +216,8 @@ export const siteConfig: MasterSiteConfig = {
       country: "India",
     },
     businessHours: {
-      days: "Monday – Saturday",
-      hours: "09:30 AM – 06:30 PM IST",
+      days: "Monday   -   Saturday",
+      hours: "09:30 AM   -   06:30 PM IST",
       timezone: "Asia/Kolkata",
     },
   },
@@ -236,7 +236,7 @@ export const siteConfig: MasterSiteConfig = {
       label: "Max Collateral-Free Cover",
       value: "5",
       numericValue: 5,
-      prefix: "₹",
+      prefix: "\u20B9",
       suffix: " Cr",
       description: "Sovereign credit guarantee ceiling per eligible MSME under CGTMSE",
       verified: true,
@@ -275,11 +275,11 @@ export const siteConfig: MasterSiteConfig = {
     fundingFacilitated: {
       id: "funding-facilitated",
       label: "Funding Facilitated",
-      value: "50",
-      numericValue: 50,
-      prefix: "₹",
+      value: "200",
+      numericValue: 200,
+      prefix: "\u20B9",
       suffix: " Cr+",
-      description: "Cumulative debt appraisals & capital subsidies successfully syndicated",
+      description: "Total funding secured for clients through strategic advisory support",
       verified: true,
       featured: false,
     },
@@ -332,7 +332,7 @@ export const siteConfig: MasterSiteConfig = {
     shortBio:
       "Visionary entrepreneur featured in Asia Connect, Success, Brandz, and CEO India. Rahul created Agnivridhi India to bridge the gap between capital access, statutory compliance, and cutting-edge software architecture for Indian enterprises.",
     fullBio:
-      "Recognized across leading national business publications as a young visionary building sustainable growth pathways for MSMEs, Rahul transformed Agnivridhi from a boutique consultancy into a 360-degree enterprise scale engine. Under his leadership, the firm has facilitated ₹50+ Cr in collateral-free credit, structured hundreds of statutory certifications, and deployed modern digital platforms for Indian industry.",
+      "Recognized across leading national business publications as a young visionary building sustainable growth pathways for MSMEs, Rahul transformed Agnivridhi from a boutique consultancy into a 360-degree enterprise scale engine. Under his leadership, the firm has facilitated   -  50+ Cr in collateral-free credit, structured hundreds of statutory certifications, and deployed modern digital platforms for Indian industry.",
     image: "/img/rahul-kumar-singh.jpg",
     linkedin: "https://linkedin.com/company/agnivridhiindia",
     credentials: [
@@ -371,7 +371,7 @@ export const siteConfig: MasterSiteConfig = {
     ],
     milestones: [
       "500+ MSMEs funded and enabled across India",
-      "₹50+ Cr in cumulative project loans and subsidies unlocked",
+      "  -  50+ Cr in cumulative project loans and subsidies unlocked",
       "Quad-desk operational scaling: Funding, Compliance, Tech & Marketing",
     ],
   },
@@ -381,7 +381,7 @@ export const siteConfig: MasterSiteConfig = {
     {
       id: "asia-connect-magazine",
       publicationOrOrg: "Asia Connect Magazine",
-      title: "Rahul Kumar Singh – Building Agnivridhi India as a Platform for Growth and Possibility",
+      title: "Rahul Kumar Singh   -   Building Agnivridhi India as a Platform for Growth and Possibility",
       type: "magazine",
       year: 2024,
       url: "https://asiaconnectmagazine.com/rahul-kumar-singh-building-agnivridhi-india-as-a-platform-for-growth-and-possibility/",
@@ -394,7 +394,7 @@ export const siteConfig: MasterSiteConfig = {
     {
       id: "success-magazine",
       publicationOrOrg: "Success Magazine",
-      title: "Rahul Kumar Singh – Creating Opportunities Through Vision and Responsibility",
+      title: "Rahul Kumar Singh   -   Creating Opportunities Through Vision and Responsibility",
       type: "magazine",
       year: 2024,
       url: "https://successmagazine.in/rahul-kumar-singh-creating-opportunities-through-vision-and-responsibility/",
@@ -420,7 +420,7 @@ export const siteConfig: MasterSiteConfig = {
     {
       id: "ceo-india-magazine",
       publicationOrOrg: "CEO India Magazine",
-      title: "Rahul Kumar Singh – Transforming Ambition into Action Through Agnivridhi India",
+      title: "Rahul Kumar Singh   -   Transforming Ambition into Action Through Agnivridhi India",
       type: "magazine",
       year: 2024,
       url: "https://ceoindiamagazine.com/rahul-kumar-singh-transforming-ambition-into-action-through-agnivridhi-india/",
@@ -433,7 +433,7 @@ export const siteConfig: MasterSiteConfig = {
     {
       id: "business-matters",
       publicationOrOrg: "Business Matters",
-      title: "Rahul Kumar Singh – Building a Future of Confidence, Clarity and Responsible Growth",
+      title: "Rahul Kumar Singh   -   Building a Future of Confidence, Clarity and Responsible Growth",
       type: "press",
       year: 2024,
       url: "https://businessmatters.in/rahul-kumar-singh-building-a-future-of-confidence-clarity-and-responsible-growth/",
@@ -446,7 +446,7 @@ export const siteConfig: MasterSiteConfig = {
     {
       id: "founder-magazine",
       publicationOrOrg: "Founder Magazine",
-      title: "Rahul Kumar Singh – Nurturing Growth Through Purpose-Driven Entrepreneurship",
+      title: "Rahul Kumar Singh   -   Nurturing Growth Through Purpose-Driven Entrepreneurship",
       type: "press",
       year: 2024,
       url: "https://foundermagazine.in/rahul-kumar-singh-nurturing-growth-through-purpose-driven-entrepreneurship/",

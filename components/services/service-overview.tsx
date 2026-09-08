@@ -11,7 +11,7 @@ export function ServiceOverview({ service }: ServiceOverviewProps) {
     <div id="service-overview" className="space-y-12 sm:space-y-16">
       {/* 1. Scope & Overview */}
       <div className="space-y-4">
-        <span className="type-eyebrow text-[#581C87] font-mono">
+        <span className="type-eyebrow text-[#0891B2] font-mono">
           Advisory Scope &bull; Institutional Blueprint
         </span>
         <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-[#0F0A1A] tracking-tight">
@@ -26,7 +26,7 @@ export function ServiceOverview({ service }: ServiceOverviewProps) {
       {service.benefits && service.benefits.length > 0 && (
         <div className="space-y-6">
           <div>
-            <span className="type-eyebrow text-[#581C87] font-mono">
+            <span className="type-eyebrow text-[#0891B2] font-mono">
               Enterprise Value &bull; Measurable Impact
             </span>
             <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-[#0F0A1A] tracking-tight mt-1">
@@ -38,9 +38,9 @@ export function ServiceOverview({ service }: ServiceOverviewProps) {
             {service.benefits.map((benefit, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-xl border border-purple-100 bg-white shadow-xs flex items-start gap-3.5 hover:border-purple-300 transition-colors"
+                className="p-5 rounded-xl border border-cyan-100 bg-white shadow-xs flex items-start gap-3.5 hover:border-cyan-300 transition-colors"
               >
-                <div className="w-7 h-7 rounded-lg bg-purple-50 text-[#581C87] flex items-center justify-center shrink-0 mt-0.5 border border-purple-100">
+                <div className="w-7 h-7 rounded-lg bg-cyan-50 text-[#0891B2] flex items-center justify-center shrink-0 mt-0.5 border border-cyan-100">
                   <CheckCircle2 className="w-4 h-4" />
                 </div>
                 <p className="text-sm text-[#475569] font-sans leading-relaxed">
@@ -56,7 +56,7 @@ export function ServiceOverview({ service }: ServiceOverviewProps) {
       {service.audience && service.audience.length > 0 && (
         <div className="space-y-6">
           <div>
-            <span className="type-eyebrow text-[#581C87] font-mono">
+            <span className="type-eyebrow text-[#0891B2] font-mono">
               Suitability &bull; Applicability Matrix
             </span>
             <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-[#0F0A1A] tracking-tight mt-1">
@@ -64,9 +64,9 @@ export function ServiceOverview({ service }: ServiceOverviewProps) {
             </h2>
           </div>
 
-          <div className="p-6 sm:p-7 rounded-xl bg-white border border-purple-100 space-y-4">
+          <div className="p-6 sm:p-7 rounded-xl bg-white border border-cyan-100 space-y-4">
             <div className="flex items-center gap-2 text-[#0F0A1A] font-semibold text-sm">
-              <Users className="w-4 h-4 text-[#581C87]" />
+              <Users className="w-4 h-4 text-[#0891B2]" />
               <span>Target Profiles &amp; Enterprise Stages</span>
             </div>
 
@@ -76,7 +76,7 @@ export function ServiceOverview({ service }: ServiceOverviewProps) {
                   key={idx}
                   className="flex items-start gap-2.5 text-sm text-[#475569] font-sans"
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#581C87] shrink-0 mt-2" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0891B2] shrink-0 mt-2" />
                   <span className="leading-relaxed">{item}</span>
                 </li>
               ))}
