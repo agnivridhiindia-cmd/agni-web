@@ -104,7 +104,7 @@ export function ContactForm({ initialService = "" }: ContactFormProps) {
   // Submission Confirmed Screen
   if (isSubmitted) {
     return (
-      <div className="p-8 md:p-10 rounded-2xl bg-white border border-cyan-100 shadow-2xl text-center space-y-6 animate-in fade-in zoom-in-95 duration-300">
+      <div className="p-8 md:p-10 rounded-2xl bg-white/90 border border-white/60 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_12px_36px_rgba(8,145,178,0.08)] [transform:translateZ(0)] text-center space-y-6 animate-in fade-in zoom-in-95 duration-300">
         <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto shadow-xs border border-emerald-200">
           <CheckCircle2 className="w-8 h-8" aria-hidden="true" />
         </div>
@@ -142,7 +142,7 @@ export function ContactForm({ initialService = "" }: ContactFormProps) {
   }
 
   return (
-    <div className="relative rounded-2xl bg-white border border-cyan-100 shadow-2xl overflow-hidden">
+    <div className="relative rounded-2xl bg-white/90 border border-white/60 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_16px_48px_rgba(8,145,178,0.1)] [transform:translateZ(0)] overflow-hidden">
       {/* Honeypot field for bot suppression */}
       <div className="absolute -left-[9999px] w-px h-px overflow-hidden" aria-hidden="true">
         <label htmlFor="website">Website</label>
@@ -193,7 +193,7 @@ export function ContactForm({ initialService = "" }: ContactFormProps) {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <FormField>
                     <Label htmlFor="contact-phone" required>
-                      Mobile / WhatsApp Number
+                      Mobile Phone Number
                     </Label>
                     <Input
                       id="contact-phone"

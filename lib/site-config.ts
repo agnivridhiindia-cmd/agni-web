@@ -207,7 +207,7 @@ export const siteConfig: MasterSiteConfig = {
   contact: {
     phone: "+91 92895 55190",
     email: "info@agnivridhiindia.com",
-    whatsapp: "+919289555190",
+    whatsapp: null,
     address: {
       street: "B-750, Tower-B, IThum, Sector 62, Near Noida Electronic City Metro Station",
       city: "Noida",
@@ -520,8 +520,8 @@ export const siteConfig: MasterSiteConfig = {
           },
         ],
       },
-      { label: "Success Stories", href: "/success-stories" },
-      { label: "Blog", href: "/blog" },
+      { label: "Case Studies", href: "/success-stories" },
+      { label: "Insights", href: "/blog" },
       { label: "FAQ", href: "/faq" },
       { label: "Contact", href: "/contact" },
     ],

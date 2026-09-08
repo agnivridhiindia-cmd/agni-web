@@ -224,7 +224,7 @@ export function RecognitionSection() {
             <button
               type="button"
               onClick={() => showCard(activeIndex - 1)}
-              className="w-11 h-11 rounded-full border border-cyan-200/90 bg-white text-[#475569] hover:border-[#0891B2] hover:text-[#0891B2] disabled:opacity-25 flex items-center justify-center transition-all shadow-xs hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0891B2] cursor-pointer"
+              className="w-11 h-11 rounded-full border border-cyan-200/90 bg-white/80 backdrop-blur-md text-[#475569] hover:border-[#0891B2] hover:text-[#0891B2] hover:bg-white/95 disabled:opacity-25 flex items-center justify-center transition-all shadow-[inset_0_1px_1px_rgba(255,255,255,0.85),0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_4px_14px_rgba(8,145,178,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0891B2] cursor-pointer hover:-translate-y-0.5 [transform:translateZ(0)]"
               aria-label="Scroll citations left"
             >
               <ChevronLeft className="w-5 h-5" />
@@ -232,7 +232,7 @@ export function RecognitionSection() {
             <button
               type="button"
               onClick={() => showCard(activeIndex + 1)}
-              className="w-11 h-11 rounded-full border border-cyan-200/90 bg-white text-[#475569] hover:border-[#0891B2] hover:text-[#0891B2] disabled:opacity-25 flex items-center justify-center transition-all shadow-xs hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0891B2] cursor-pointer"
+              className="w-11 h-11 rounded-full border border-cyan-200/90 bg-white/80 backdrop-blur-md text-[#475569] hover:border-[#0891B2] hover:text-[#0891B2] hover:bg-white/95 disabled:opacity-25 flex items-center justify-center transition-all shadow-[inset_0_1px_1px_rgba(255,255,255,0.85),0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_4px_14px_rgba(8,145,178,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0891B2] cursor-pointer hover:-translate-y-0.5 [transform:translateZ(0)]"
               aria-label="Scroll citations right"
             >
               <ChevronRight className="w-5 h-5" />
@@ -267,7 +267,7 @@ export function RecognitionSection() {
               >
                 <SpotlightCard
                   glowVariant="purple"
-                  className="h-[360px] sm:h-[400px] p-0 bg-transparent border border-cyan-200/90 hover:border-[#06B6D4]/50 transition-all duration-300 shadow-[0_8px_24px_-6px_rgba(88,28,135,0.06),0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_36px_-8px_rgba(88,28,135,0.12)]"
+                  className="h-[360px] sm:h-[400px] p-0 bg-transparent border border-white/60 hover:border-cyan-300 transition-all duration-300 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_8px_24px_rgba(8,145,178,0.08)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_16px_36px_rgba(8,145,178,0.16)] [transform:translateZ(0)]"
                   innerClassName="!p-0 justify-end bg-transparent text-white rounded-3xl"
                 >
                   {item.logoImage ? (

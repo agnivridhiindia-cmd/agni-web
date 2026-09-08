@@ -69,8 +69,8 @@ export function AboutBrief({ isPinned = false }: AboutBriefProps) {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 z-0 select-none overflow-hidden"
       >
-        <div className="absolute top-1/3 -left-32 h-[450px] w-[450px] rounded-full bg-[radial-gradient(circle,rgba(124,58,237,0.07)_0%,transparent_70%)] blur-3xl" />
-        <div className="absolute bottom-10 right-0 h-[400px] w-[400px] rounded-full bg-[radial-gradient(circle,rgba(168,85,247,0.04)_0%,transparent_70%)] blur-3xl" />
+        <div className="absolute top-1/3 -left-32 h-[450px] w-[450px] rounded-full bg-[radial-gradient(circle,rgba(8,145,178,0.12)_0%,transparent_70%)]" />
+        <div className="absolute bottom-10 right-0 h-[400px] w-[400px] rounded-full bg-[radial-gradient(circle,rgba(6,182,212,0.08)_0%,transparent_70%)]" />
         <div className="absolute inset-0 [background-image:linear-gradient(to_right,#0891B2_1px,transparent_1px),linear-gradient(to_bottom,#0891B2_1px,transparent_1px)] [background-size:6rem_6rem] opacity-[0.02]" />
       </div>
 
@@ -119,7 +119,7 @@ export function AboutBrief({ isPinned = false }: AboutBriefProps) {
             {/* Operational Anchor Badges */}
             <FadeIn direction="up" distance={14} delay={0.15}>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-2">
-                <div className="p-3.5 rounded-2xl bg-white/95 border border-cyan-200/80 shadow-xs flex items-center gap-3">
+                <div className="p-3.5 rounded-2xl bg-white/85 border border-white/60 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_2px_8px_rgba(8,145,178,0.04)] [transform:translateZ(0)] flex items-center gap-3">
                   <div className="w-9 h-9 rounded-xl bg-cyan-50 border border-cyan-200 flex items-center justify-center shrink-0">
                     <MapPin className="w-4 h-4 text-[#0891B2]" />
                   </div>
@@ -133,7 +133,7 @@ export function AboutBrief({ isPinned = false }: AboutBriefProps) {
                   </div>
                 </div>
 
-                <div className="p-3.5 rounded-2xl bg-white/95 border border-cyan-200/80 shadow-xs flex items-center gap-3">
+                <div className="p-3.5 rounded-2xl bg-white/85 border border-white/60 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_2px_8px_rgba(8,145,178,0.04)] [transform:translateZ(0)] flex items-center gap-3">
                   <div className="w-9 h-9 rounded-xl bg-cyan-50 border border-cyan-200 flex items-center justify-center shrink-0">
                     <Users2 className="w-4 h-4 text-[#0891B2]" />
                   </div>
@@ -147,7 +147,7 @@ export function AboutBrief({ isPinned = false }: AboutBriefProps) {
                   </div>
                 </div>
 
-                <div className="p-3.5 rounded-2xl bg-white/95 border border-cyan-200/80 shadow-xs flex items-center gap-3">
+                <div className="p-3.5 rounded-2xl bg-white/85 border border-white/60 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_2px_8px_rgba(8,145,178,0.04)] [transform:translateZ(0)] flex items-center gap-3">
                   <div className="w-9 h-9 rounded-xl bg-cyan-50 border border-cyan-200 flex items-center justify-center shrink-0">
                     <Sparkles className="w-4 h-4 text-[#0891B2]" />
                   </div>
@@ -168,7 +168,7 @@ export function AboutBrief({ isPinned = false }: AboutBriefProps) {
               <div className="pt-2 flex flex-wrap items-center gap-4">
                 <Link
                   href="/about"
-                  className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-[#0891B2] text-white font-medium text-xs sm:text-sm font-sans tracking-wide hover:bg-[#0E7490] transition-all group shadow-[0_4px_16px_rgba(88,28,135,0.2)] hover:shadow-[0_8px_24px_rgba(88,28,135,0.28)] hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-gradient-to-b from-[#0AA5C7]/90 via-[#0891B2]/95 to-[#0E7490]/95 backdrop-blur-md border border-white/25 text-white font-medium text-xs sm:text-sm font-sans tracking-wide shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_4px_16px_rgba(8,145,178,0.22)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.6),0_8px_24px_rgba(8,145,178,0.32)] transition-all group hover:-translate-y-0.5 [transform:translateZ(0)]"
                 >
                   <span>Explore Institutional Profile</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -176,7 +176,7 @@ export function AboutBrief({ isPinned = false }: AboutBriefProps) {
                 
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white border border-cyan-200/90 text-xs sm:text-sm font-medium text-[#181226] hover:text-[#0891B2] hover:border-[#0891B2]/60 hover:bg-cyan-50/70 shadow-xs transition-all hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/75 backdrop-blur-md border border-cyan-200/90 text-xs sm:text-sm font-medium text-[#181226] hover:text-[#0891B2] hover:border-[#0891B2]/60 hover:bg-white/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.85),0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_4px_14px_rgba(8,145,178,0.12)] transition-all hover:-translate-y-0.5 [transform:translateZ(0)]"
                 >
                   <span>Schedule Consultation</span>
                 </Link>
@@ -187,8 +187,8 @@ export function AboutBrief({ isPinned = false }: AboutBriefProps) {
           {/* Right Column: The 3 Core Pillars Stack (5 Cols) */}
           <div className="lg:col-span-5 space-y-4">
             <FadeIn direction="up" distance={16} delay={0.08}>
-              <div className="p-1.5 rounded-3xl bg-gradient-to-b from-cyan-200/60 via-cyan-100/40 to-cyan-200/30 shadow-[0_16px_40px_-12px_rgba(88,28,135,0.08)]">
-                <div className="rounded-[22px] bg-white/95 p-6 sm:p-7 border border-cyan-100/90 shadow-sm space-y-5">
+              <div className="p-1.5 rounded-3xl bg-gradient-to-b from-cyan-200/60 via-cyan-100/40 to-cyan-200/30 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_16px_40px_-12px_rgba(8,145,178,0.1)] [transform:translateZ(0)]">
+                <div className="rounded-[22px] bg-white/90 p-6 sm:p-7 border border-white/60 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95)] space-y-5">
                   <div className="flex items-center justify-between border-b border-cyan-100 pb-4">
                     <div className="flex items-center gap-2">
                       <div className="w-2 h-2 rounded-full bg-[#0891B2]" />
@@ -207,7 +207,7 @@ export function AboutBrief({ isPinned = false }: AboutBriefProps) {
                       return (
                         <div
                           key={pillar.number}
-                          className="p-4 sm:p-4.5 rounded-xl bg-gradient-to-r from-white to-[#FAF7FE] border border-cyan-200/80 hover:border-[#06B6D4]/50 hover:shadow-md transition-all duration-300 group relative overflow-hidden"
+                          className="p-4 sm:p-4.5 rounded-xl bg-white/80 border border-white/60 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_2px_8px_rgba(8,145,178,0.04)] hover:border-cyan-300 hover:bg-white/95 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_6px_18px_rgba(8,145,178,0.08)] transition-all duration-300 group relative overflow-hidden [transform:translateZ(0)]"
                         >
                           <div className="flex items-start gap-3.5">
                             <div className="w-10 h-10 rounded-xl bg-cyan-50 border border-cyan-200/80 flex items-center justify-center shrink-0 group-hover:border-[#0891B2]/40 group-hover:bg-[#0891B2] group-hover:text-white transition-all duration-300">

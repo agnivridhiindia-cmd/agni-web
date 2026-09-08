@@ -3,26 +3,30 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 export const cardVariants = cva(
-  "rounded-xl transition-all duration-200 text-[#0F0A1A]",
+  "rounded-2xl transition-all duration-300 text-[#0F0A1A] [transform:translateZ(0)]",
   {
     variants: {
       variant: {
-        default: "bg-white border border-[#DDF7FA] shadow-sm hover:border-[#B8E0E5]",
-        standard: "bg-white border border-[#DDF7FA] shadow-sm hover:border-[#B8E0E5]",
+        default:
+          "bg-white/80 border border-cyan-100/90 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_8px_24px_rgba(8,145,178,0.06)] hover:border-cyan-200 hover:bg-white/95 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_12px_32px_rgba(8,145,178,0.1)]",
+        standard:
+          "bg-white/80 border border-cyan-100/90 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_8px_24px_rgba(8,145,178,0.06)] hover:border-cyan-200 hover:bg-white/95 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_12px_32px_rgba(8,145,178,0.1)]",
         static:
-          "bg-[#111313] border border-[#232727] shadow-lg",
-        interactive: "bg-white border border-[#DDF7FA] shadow-sm hover:border-[#06B6D4]/40 hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 cursor-pointer",
-        elevated: "bg-[#FBF9FE] border border-[#DDF7FA] shadow-md hover:shadow-lg hover:border-[#06B6D4]/30 hover:-translate-y-0.5",
+          "bg-[#111313]/90 border border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.08),0_8px_24px_rgba(0,0,0,0.4)]",
+        interactive:
+          "bg-white/80 border border-cyan-100/90 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_8px_24px_rgba(8,145,178,0.06)] hover:border-cyan-300 hover:bg-white/95 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_12px_32px_rgba(8,145,178,0.12)] hover:-translate-y-1 active:translate-y-0 cursor-pointer",
+        elevated:
+          "bg-white/90 border border-cyan-200/90 shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_12px_36px_rgba(8,145,178,0.08)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_16px_44px_rgba(8,145,178,0.12)] hover:-translate-y-1",
         subtle:
-          "bg-[#0E0F0F] border border-[#232727] shadow-none hover:bg-[#111313] hover:border-[#333737]",
+          "bg-white/60 border border-cyan-100/70 shadow-[inset_0_1px_1px_rgba(255,255,255,0.85)] hover:bg-white/85 hover:border-cyan-200",
         glass:
-          "bg-[#111313]/80 backdrop-blur-md border border-[#232727] shadow-lg hover:border-[#C79A4A]/40 hover:-translate-y-0.5 transition-all duration-300",
+          "bg-white/80 backdrop-blur-xs border border-white/60 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_8px_24px_rgba(8,145,178,0.06)] hover:bg-white/90 hover:border-cyan-200 hover:-translate-y-1",
         "glass-dark":
-          "glass-surface-dark text-white hover:border-[#C79A4A]/50 hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-300",
+          "bg-[#111313]/85 backdrop-blur-xs border border-white/15 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_8px_24px_rgba(0,0,0,0.3)] hover:border-[#0891B2]/50 hover:-translate-y-1",
         featured:
-          "bg-[#111313] border border-[#232727] shadow-xl relative overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1 before:bg-gradient-to-r before:from-[#2DD4BF] before:to-[#C79A4A] hover:border-[#C79A4A]/50",
+          "bg-white/85 border border-cyan-200/90 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_12px_32px_rgba(8,145,178,0.1)] relative overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1 before:bg-gradient-to-r before:from-[#0891B2] before:to-[#10B981]",
         glow:
-          "bg-[#111313] border border-[#232727] shadow-lg hover:border-[#C79A4A]/50 hover:shadow-[0_0_25px_rgba(199,154,74,0.15)] hover:-translate-y-0.5 transition-all duration-200",
+          "bg-white/85 border border-cyan-200/90 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_8px_24px_rgba(8,145,178,0.08)] hover:border-[#0891B2]/50 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_12px_32px_rgba(8,145,178,0.18)] hover:-translate-y-1",
       },
     },
     defaultVariants: {

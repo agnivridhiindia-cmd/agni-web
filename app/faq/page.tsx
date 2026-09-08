@@ -7,7 +7,6 @@ import {
   ShieldCheck,
   Cpu,
   ArrowRight,
-  MessageSquare,
   Clock,
   Lock,
 } from "lucide-react";
@@ -223,7 +222,7 @@ export default function FaqPage() {
             {ENGAGEMENT_STEPS.map((step) => (
               <div
                 key={step.number}
-                className="group relative space-y-3 rounded-[1.5rem] border border-cyan-100 bg-white/90 p-6 shadow-[0_18px_40px_-24px_rgba(8,145,178,0.18)] transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-300 hover:shadow-[0_22px_48px_-24px_rgba(8,145,178,0.22)]"
+                className="group relative space-y-3 rounded-[1.5rem] border border-white/60 bg-white/85 p-6 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_18px_40px_-24px_rgba(8,145,178,0.18)] transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-300 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_22px_48px_-24px_rgba(8,145,178,0.22)] [transform:translateZ(0)]"
               >
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-cyan-200 bg-gradient-to-br from-cyan-50 to-white font-mono text-sm font-bold text-[#0891B2]">
                   {step.number}
@@ -276,7 +275,7 @@ export default function FaqPage() {
                 </div>
 
                 {/* Category Accordion */}
-                <div className="rounded-[1.75rem] border border-cyan-100 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(240,253,250,0.82))] p-4 shadow-[0_20px_50px_-30px_rgba(8,145,178,0.18)] sm:p-6 lg:col-span-8 lg:p-8">
+                <div className="rounded-[1.75rem] border border-white/60 bg-white/85 p-4 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_20px_50px_-30px_rgba(8,145,178,0.18)] [transform:translateZ(0)] sm:p-6 lg:col-span-8 lg:p-8">
                   <FaqAccordion items={category.faqs} />
                 </div>
               </div>
@@ -288,7 +287,7 @@ export default function FaqPage() {
       {/* 4. Bottom Support CTA Strip */}
       <section className="border-t border-cyan-100 bg-[radial-gradient(circle_at_top_left,_rgba(34,211,238,0.08),transparent_18%),linear-gradient(180deg,#f7feff_0%,#effcf8_100%)] py-14 sm:py-18">
         <Container width="wide">
-          <div className="mx-auto max-w-4xl space-y-6 rounded-[2rem] border border-cyan-200/80 bg-[linear-gradient(135deg,rgba(255,255,255,0.95),rgba(240,253,250,0.96))] p-8 text-center shadow-[0_24px_64px_-30px_rgba(8,145,178,0.22)] sm:p-12">
+          <div className="mx-auto max-w-4xl space-y-6 rounded-[2rem] border border-white/60 bg-white/85 p-8 text-center shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_24px_64px_-30px_rgba(8,145,178,0.22)] [transform:translateZ(0)] sm:p-12">
             <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-200 bg-gradient-to-br from-cyan-50 to-white text-[#0891B2] shadow-sm">
               <HelpCircle className="h-6 w-6" />
             </div>
@@ -306,23 +305,11 @@ export default function FaqPage() {
             <div className="flex flex-col items-center justify-center gap-4 pt-2 sm:flex-row">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#0891B2] via-[#0EA5C9] to-[#10B981] px-6 py-3 text-xs font-sans font-bold uppercase tracking-wider text-white shadow-[0_10px_24px_rgba(8,145,178,0.24)] transition-all hover:-translate-y-0.5 hover:shadow-[0_14px_30px_rgba(14,165,233,0.28)]"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#0891B2]/90 via-[#0EA5C9]/90 to-[#10B981]/90 backdrop-blur-md border border-white/25 px-6 py-3 text-xs font-sans font-bold uppercase tracking-wider text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.45),0_10px_24px_rgba(8,145,178,0.24)] transition-all hover:-translate-y-0.5 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.65),0_14px_30px_rgba(14,165,233,0.28)] [transform:translateZ(0)]"
               >
                 <span>Submit Your Inquiry</span>
                 <ArrowRight className="h-3.5 w-3.5" />
               </Link>
-
-              {siteConfig.contact.whatsapp && (
-                <a
-                  href={`https://wa.me/${siteConfig.contact.whatsapp.replace(/[^0-9]/g, "")}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-emerald-500/30 bg-emerald-950/40 px-6 py-3 text-xs font-sans font-semibold uppercase tracking-wider text-emerald-300 transition-all hover:bg-emerald-950/60"
-                >
-                  <MessageSquare className="h-3.5 w-3.5 text-emerald-400" />
-                  <span>WhatsApp Advisor</span>
-                </a>
-              )}
             </div>
           </div>
         </Container>

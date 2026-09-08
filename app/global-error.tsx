@@ -41,7 +41,7 @@ export default function GlobalError({
             <button
               type="button"
               onClick={() => reset()}
-              className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-teal-700 hover:bg-teal-800 text-white text-sm font-semibold transition-colors"
+              className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-gradient-to-r from-[#0AA5C7]/90 via-[#0891B2]/95 to-[#0E7490]/95 backdrop-blur-md border border-white/25 text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_4px_16px_rgba(8,145,178,0.22)] text-sm font-semibold transition-all hover:from-[#0891B2] hover:to-[#155E75] [transform:translateZ(0)]"
             >
               <RotateCcw className="w-4 h-4" />
               <span>Reload Application</span>
@@ -49,7 +49,7 @@ export default function GlobalError({
 
             <Link
               href="/"
-              className="w-full inline-flex items-center justify-center px-5 py-3 rounded-lg border border-slate-200 hover:bg-slate-50 text-slate-700 text-sm font-medium transition-colors"
+              className="w-full inline-flex items-center justify-center px-5 py-3 rounded-lg bg-white/70 backdrop-blur-md border border-cyan-200/90 hover:bg-white/90 text-[#0891B2] shadow-[inset_0_1px_1px_rgba(255,255,255,0.85),0_2px_8px_rgba(0,0,0,0.03)] text-sm font-medium transition-all [transform:translateZ(0)]"
             >
               Return to Home
             </Link>

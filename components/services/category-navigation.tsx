@@ -92,8 +92,8 @@ export function CategoryNavigation({
     >
       <Container width="wide">
         <div className="flex items-center justify-between gap-4 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-          {/* Linear-Style Segmented Dock */}
-          <div className="inline-flex items-center p-1.5 rounded-2xl bg-white border border-cyan-100 shadow-inner shrink-0">
+          {/* Linear-Style Segmented Dock with Frosted Glassmorphic Styling */}
+          <div className="inline-flex items-center p-1.5 rounded-2xl bg-white/80 backdrop-blur-md border border-cyan-200/80 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_4px_16px_rgba(8,145,178,0.06)] [transform:translateZ(0)] shrink-0">
             {categories.map((cat, idx) => {
               const isActive = activeCategory === cat.id;
               const Icon = categoryIconMap[cat.id] || Landmark;
@@ -116,7 +116,7 @@ export function CategoryNavigation({
                   {isActive && (
                     <motion.div
                       layoutId="activeTab"
-                      className="absolute inset-0 rounded-xl bg-white shadow-md ring-1 ring-[#C79A4A]/30"
+                      className="absolute inset-0 rounded-xl bg-white/95 backdrop-blur-sm shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_2px_8px_rgba(8,145,178,0.12)] border border-cyan-200/90 [transform:translateZ(0)]"
                       transition={{
                         type: "spring",
                         stiffness: 380,

@@ -210,6 +210,25 @@ export function Header() {
 
             {/* Desktop Navigation Links */}
             <div className="hidden lg:flex items-center gap-1 xl:gap-2">
+              {/* About */}
+              <Link
+                href="/about"
+                className={cn(
+                  "group relative text-xs xl:text-sm font-sans tracking-wide transition-colors px-3 py-1.5 rounded-md",
+                  isRouteActive("/about")
+                    ? "text-[#0891B2] font-semibold"
+                    : "text-[#374151] hover:text-[#0891B2] font-medium"
+                )}
+              >
+                <span>About</span>
+                <span
+                  className={cn(
+                    "absolute bottom-0 left-3 h-[2px] rounded-full bg-[#0891B2] transition-[width] duration-300 ease-out",
+                    isRouteActive("/about") ? "w-[calc(100%-1.5rem)]" : "w-0 group-hover:w-[calc(100%-1.5rem)]"
+                  )}
+                />
+              </Link>
+
               {/* Services with Dropdown */}
               <div
                 ref={servicesRef}
@@ -304,25 +323,6 @@ export function Header() {
                 )}
               </div>
 
-              {/* Insights */}
-              <Link
-                href="/blog"
-                className={cn(
-                  "group relative text-xs xl:text-sm font-sans tracking-wide transition-colors px-3 py-1.5 rounded-md",
-                  isRouteActive("/blog")
-                    ? "text-[#0891B2] font-semibold"
-                    : "text-[#374151] hover:text-[#0891B2] font-medium"
-                )}
-              >
-                <span>Insights</span>
-                <span
-                  className={cn(
-                    "absolute bottom-0 left-3 h-[2px] rounded-full bg-[#0891B2] transition-[width] duration-300 ease-out",
-                    isRouteActive("/blog") ? "w-[calc(100%-1.5rem)]" : "w-0 group-hover:w-[calc(100%-1.5rem)]"
-                  )}
-                />
-              </Link>
-
               {/* Case Studies */}
               <Link
                 href="/success-stories"
@@ -342,6 +342,25 @@ export function Header() {
                 />
               </Link>
 
+              {/* Insights */}
+              <Link
+                href="/blog"
+                className={cn(
+                  "group relative text-xs xl:text-sm font-sans tracking-wide transition-colors px-3 py-1.5 rounded-md",
+                  isRouteActive("/blog")
+                    ? "text-[#0891B2] font-semibold"
+                    : "text-[#374151] hover:text-[#0891B2] font-medium"
+                )}
+              >
+                <span>Insights</span>
+                <span
+                  className={cn(
+                    "absolute bottom-0 left-3 h-[2px] rounded-full bg-[#0891B2] transition-[width] duration-300 ease-out",
+                    isRouteActive("/blog") ? "w-[calc(100%-1.5rem)]" : "w-0 group-hover:w-[calc(100%-1.5rem)]"
+                  )}
+                />
+              </Link>
+
               {/* FAQ */}
               <Link
                 href="/faq"
@@ -357,25 +376,6 @@ export function Header() {
                   className={cn(
                     "absolute bottom-0 left-3 h-[2px] rounded-full bg-[#0891B2] transition-[width] duration-300 ease-out",
                     isRouteActive("/faq") ? "w-[calc(100%-1.5rem)]" : "w-0 group-hover:w-[calc(100%-1.5rem)]"
-                  )}
-                />
-              </Link>
-
-              {/* About */}
-              <Link
-                href="/about"
-                className={cn(
-                  "group relative text-xs xl:text-sm font-sans tracking-wide transition-colors px-3 py-1.5 rounded-md",
-                  isRouteActive("/about")
-                    ? "text-[#0891B2] font-semibold"
-                    : "text-[#374151] hover:text-[#0891B2] font-medium"
-                )}
-              >
-                <span>About</span>
-                <span
-                  className={cn(
-                    "absolute bottom-0 left-3 h-[2px] rounded-full bg-[#0891B2] transition-[width] duration-300 ease-out",
-                    isRouteActive("/about") ? "w-[calc(100%-1.5rem)]" : "w-0 group-hover:w-[calc(100%-1.5rem)]"
                   )}
                 />
               </Link>
@@ -405,7 +405,7 @@ export function Header() {
               <div className="hidden sm:block">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-[#0891B2] via-[#0EA5C9] to-[#10B981] px-4 py-2 text-xs font-sans font-semibold uppercase tracking-wider text-white shadow-[0_10px_22px_rgba(8,145,178,0.24)] transition-all hover:-translate-y-0.5 hover:shadow-[0_14px_30px_rgba(14,165,233,0.28)] active:scale-[0.98]"
+                  className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-[#0891B2]/90 via-[#0EA5C9]/90 to-[#10B981]/90 backdrop-blur-md border border-white/30 px-4 py-2 text-xs font-sans font-semibold uppercase tracking-wider text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.45),0_10px_22px_rgba(8,145,178,0.24)] transition-all hover:-translate-y-0.5 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.65),0_14px_30px_rgba(14,165,233,0.28)] active:scale-[0.98] [transform:translateZ(0)]"
                 >
                   <span>Speak with an Advisor</span>
                   <ArrowRight className="h-3.5 w-3.5" />

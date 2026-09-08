@@ -126,7 +126,7 @@ export function FounderSection() {
               ============================================================ */}
           <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-28">
             <FadeIn direction="up" distance={16} delay={0.05}>
-              <div className="rounded-2xl bg-white border border-cyan-100 shadow-2xl overflow-hidden">
+              <div className="rounded-2xl bg-white/85 border border-white/60 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_12px_36px_rgba(8,145,178,0.08)] [transform:translateZ(0)] overflow-hidden">
                 {/* Executive Studio Portrait Container */}
                 <div className="relative aspect-[4/4.4] sm:aspect-[4/4.6] w-full bg-slate-950 overflow-hidden group">
                   {/* High-Resolution Warm-Graded Studio Portrait */}
@@ -382,7 +382,7 @@ export function FounderSection() {
             {/* Key Leadership Directives */}
             {founder.directives && founder.directives.length > 0 && (
               <FadeIn direction="up" distance={16} delay={0.18}>
-                <div className="p-6 sm:p-7 rounded-2xl bg-white border border-cyan-100 space-y-4">
+                <div className="p-6 sm:p-7 rounded-2xl bg-white/85 border border-white/60 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_8px_24px_rgba(8,145,178,0.06)] [transform:translateZ(0)] space-y-4">
                   <div className="flex items-center gap-2">
                     <Sparkles className="w-4 h-4 text-[#0891B2]" />
                     <h3 className="font-serif text-lg font-bold text-[#0F0A1A] tracking-tight">
@@ -415,21 +415,21 @@ export function FounderSection() {
                     href={founder.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#0891B2] hover:bg-[#0E7490] text-white text-xs font-semibold tracking-wide font-sans transition-colors shadow-sm"
+                    className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-b from-[#0AA5C7]/90 via-[#0891B2]/95 to-[#0E7490]/95 backdrop-blur-md border border-white/25 text-white text-xs font-semibold tracking-wide font-sans shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_4px_16px_rgba(8,145,178,0.22)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.6),0_8px_24px_rgba(8,145,178,0.32)] transition-all hover:-translate-y-0.5 [transform:translateZ(0)]"
                     aria-label="Connect with Rahul Kumar Singh on LinkedIn (opens in a new tab)"
                   >
                     <Linkedin className="w-4 h-4 text-[#0A66C2]" />
                     <span>Verified Executive LinkedIn</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 text-[#64748B]" />
+                    <ArrowUpRight className="w-3.5 h-3.5 text-white/80" />
                   </a>
                 )}
 
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-slate-300 hover:border-slate-400 bg-white hover:bg-slate-50 text-[#0F0A1A] hover:text-[#0F0A1A] text-xs font-semibold tracking-wide font-sans transition-colors shadow-2xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-cyan-200/90 hover:border-[#0891B2]/60 bg-white/75 backdrop-blur-md hover:bg-white/95 text-[#0F0A1A] hover:text-[#0891B2] text-xs font-semibold tracking-wide font-sans shadow-[inset_0_1px_1px_rgba(255,255,255,0.85),0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_4px_14px_rgba(8,145,178,0.12)] transition-all hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0891B2] [transform:translateZ(0)]"
                 >
                   <span>Engage Executive Advisory Desk</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-[#64748B]" />
+                  <ArrowUpRight className="w-3.5 h-3.5 text-[#0891B2]" />
                 </Link>
               </div>
             </FadeIn>

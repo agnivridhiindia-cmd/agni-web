@@ -4,26 +4,26 @@ import { cn } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
 
 export const iconButtonVariants = cva(
-  "inline-flex items-center justify-center rounded-md transition-all duration-200 select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 active:scale-95 shrink-0",
+  "inline-flex items-center justify-center rounded-md transition-all duration-200 select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0891B2] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 active:scale-95 shrink-0 [transform:translateZ(0)] will-change-transform",
   {
     variants: {
       variant: {
         primary:
-          "bg-teal-600 text-white hover:bg-teal-700 active:bg-teal-800 shadow-subtle hover:-translate-y-0.5 active:translate-y-0",
+          "bg-gradient-to-r from-[#0AA5C7]/90 via-[#0891B2]/95 to-[#0E7490]/95 backdrop-blur-md border border-white/25 text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_4px_16px_rgba(8,145,178,0.22)] hover:from-[#0891B2] hover:to-[#155E75] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.6),0_6px_20px_rgba(8,145,178,0.32)] active:scale-95",
         accent:
-          "bg-gold-600 text-white hover:bg-gold-700 active:bg-gold-800 shadow-subtle hover:-translate-y-0.5 active:translate-y-0",
+          "bg-gradient-to-r from-[#0AA5C7]/90 via-[#0891B2]/95 to-[#0E7490]/95 backdrop-blur-md border border-white/25 text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_4px_16px_rgba(8,145,178,0.22)] hover:from-[#0891B2] hover:to-[#155E75] active:scale-95",
         secondary:
-          "bg-slate-100 text-slate-800 hover:bg-slate-200 active:bg-slate-300 hover:-translate-y-0.5 active:translate-y-0",
+          "bg-white/80 backdrop-blur-md border border-cyan-200/90 text-[#0F0A1A] shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_2px_8px_rgba(8,145,178,0.06)] hover:bg-white/95 hover:border-cyan-300 active:scale-95",
         outline:
-          "border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 hover:border-slate-300 hover:-translate-y-0.5 active:translate-y-0",
+          "border border-cyan-200/90 bg-white/70 backdrop-blur-md text-[#0891B2] shadow-[inset_0_1px_1px_rgba(255,255,255,0.85),0_2px_8px_rgba(0,0,0,0.03)] hover:bg-white/90 hover:border-cyan-300 hover:text-[#0E7490] active:scale-95",
         ghost:
-          "text-slate-600 hover:bg-slate-100 hover:text-slate-900",
+          "text-slate-600 hover:bg-cyan-50/70 hover:backdrop-blur-sm hover:text-slate-900 active:scale-95",
         glass:
-          "btn-glass text-slate-900 hover:-translate-y-0.5 active:translate-y-0",
+          "bg-white/70 backdrop-blur-md border border-white/50 text-[#0F0A1A] shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_4px_16px_rgba(0,0,0,0.06)] hover:bg-white/85 hover:border-white/70 active:scale-95",
         "glass-teal":
-          "btn-glass-teal text-white hover:-translate-y-0.5 active:translate-y-0",
+          "bg-gradient-to-r from-[#0AA5C7]/85 to-[#0891B2]/90 backdrop-blur-md border border-white/30 text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.5),0_4px_16px_rgba(8,145,178,0.25)] hover:from-[#0891B2] hover:to-[#0E7490] active:scale-95",
         "glass-dark":
-          "btn-glass-dark text-white hover:-translate-y-0.5 active:translate-y-0",
+          "bg-[#0F0A1A]/80 backdrop-blur-md border border-white/15 text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_4px_16px_rgba(0,0,0,0.3)] hover:bg-[#0F0A1A]/95 hover:border-white/25 active:scale-95",
       },
       size: {
         sm: "h-8 w-8 rounded-sm",

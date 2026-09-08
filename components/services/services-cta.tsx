@@ -21,7 +21,7 @@ export function ServicesCta() {
 
             <h2
               id="services-cta-heading"
-              className="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold text-white tracking-tight leading-tight"
+              className="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold text-[#181226] tracking-tight leading-tight"
             >
               Not sure which advisory pathway fits your business?
             </h2>
@@ -51,7 +51,7 @@ export function ServicesCta() {
               </LinkButton>
               <Link
                 href="/success-stories"
-                className="text-sm font-medium text-[#475569] hover:text-white transition-colors underline-offset-4 hover:underline px-2 py-1"
+                className="text-sm font-medium text-[#475569] hover:text-[#0891B2] transition-colors underline-offset-4 hover:underline px-2 py-1"
               >
                 Review Client Impact Stories &rarr;
               </Link>

@@ -387,12 +387,12 @@ export function SyndicationPipeline() {
                   <button
                     key={stage.id}
                     onClick={() => setActiveStageIndex(idx)}
-                    className={`group relative text-left p-4 sm:p-5 rounded-2xl border transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C79A4A] ${
+                    className={`group relative text-left p-4 sm:p-5 rounded-2xl border transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0891B2] [transform:translateZ(0)] ${
                       isActive
-                        ? "bg-[#171918] border-[#C79A4A]/60 shadow-[0_8px_24px_-6px_rgba(199,154,74,0.18)] ring-1 ring-[#C79A4A]/25 -translate-y-1"
+                        ? "bg-[#171918]/95 backdrop-blur-md border-[#0891B2]/60 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15),0_8px_24px_-6px_rgba(8,145,178,0.25)] ring-1 ring-[#0891B2]/25 -translate-y-1"
                         : isPast
-                        ? "bg-[#111313]/90 border-white/10 hover:border-white/20 hover:bg-[#141615] text-[#A5A29A]"
-                        : "bg-[#0E1010]/90 border-white/[0.06] hover:border-white/15 hover:bg-[#111313] text-[#8E8D86]"
+                        ? "bg-[#111313]/80 backdrop-blur-md border-white/10 hover:border-white/20 hover:bg-[#141615]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)] text-[#A5A29A]"
+                        : "bg-[#0E1010]/75 backdrop-blur-md border-white/[0.06] hover:border-white/15 hover:bg-[#111313]/90 text-[#8E8D86]"
                     }`}
                     aria-selected={isActive}
                     role="tab"
@@ -467,8 +467,8 @@ export function SyndicationPipeline() {
           >
             <SpotlightCard
               glowVariant="amber"
-              className="w-full bg-[#111313] border border-white/[0.08] shadow-2xl"
-              innerClassName="p-6 sm:p-8 lg:p-10 space-y-8 bg-[#111313]"
+              className="w-full bg-[#111313]/90 backdrop-blur-xs border border-white/15 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_24px_64px_rgba(0,0,0,0.5)] [transform:translateZ(0)]"
+              innerClassName="p-6 sm:p-8 lg:p-10 space-y-8 bg-[#111313]/95"
             >
               {/* Header inside Card: Stage Name, SLA & Overview */}
               <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-white/[0.08]">
@@ -512,7 +512,7 @@ export function SyndicationPipeline() {
                   ======================================================== */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
                 {/* Column A: Promoter Handover (What You Provide) */}
-                <div className="space-y-4 rounded-2xl bg-[#141615] p-5 sm:p-6 border border-white/[0.08]">
+                <div className="space-y-4 rounded-2xl bg-[#141615]/90 border border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.06)] p-5 sm:p-6 [transform:translateZ(0)]">
                   <div className="flex items-center justify-between gap-3 pb-3 border-b border-white/[0.08]">
                     <div className="flex items-center gap-2">
                       <FileText className="w-5 h-5 text-[#A5A29A]" />
@@ -548,7 +548,7 @@ export function SyndicationPipeline() {
                 </div>
 
                 {/* Column B: Agnivridhi Mandate Execution (What We Deliver) */}
-                <div className="space-y-4 rounded-2xl bg-[#171918]/90 p-5 sm:p-6 border border-[#C79A4A]/25">
+                <div className="space-y-4 rounded-2xl bg-[#171918]/90 border border-[#C79A4A]/30 shadow-[inset_0_1px_1px_rgba(255,255,255,0.08)] p-5 sm:p-6 [transform:translateZ(0)]">
                   <div className="flex items-center justify-between gap-3 pb-3 border-b border-[#C79A4A]/25">
                     <div className="flex items-center gap-2">
                       <CheckCircle2 className="w-5 h-5 text-[#C79A4A]" />
@@ -601,18 +601,18 @@ export function SyndicationPipeline() {
                 <div className="shrink-0 flex items-center gap-3">
                   <Link
                     href="/contact?service=cgtmse-funding"
-                    className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#C79A4A] hover:bg-[#B88B3B] text-[#080909] font-sans text-xs sm:text-sm font-semibold shadow-sm transition-all hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C79A4A]"
+                    className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-[#0AA5C7]/90 via-[#0891B2]/95 to-[#0E7490]/95 backdrop-blur-md border border-white/25 text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_4px_16px_rgba(8,145,178,0.22)] font-sans text-xs sm:text-sm font-semibold transition-all hover:scale-[1.02] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.6),0_6px_20px_rgba(8,145,178,0.32)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0891B2] [transform:translateZ(0)]"
                   >
                     <span>Initiate Stage 01 Audit</span>
-                    <ArrowRight className="w-4 h-4 text-[#080909]" />
+                    <ArrowRight className="w-4 h-4 text-white" />
                   </Link>
 
                   <Link
                     href="/services/cgtmse-funding"
-                    className="hidden sm:inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-white/[0.04] border border-white/15 hover:border-white/30 text-[#F3EFE7] font-sans text-xs font-semibold transition-colors"
+                    className="hidden sm:inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 hover:border-white/40 hover:bg-white/15 text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)] font-sans text-xs font-semibold transition-all [transform:translateZ(0)]"
                   >
                     <span>Scheme Specs</span>
-                    <ExternalLink className="w-3.5 h-3.5 text-[#A5A29A]" />
+                    <ExternalLink className="w-3.5 h-3.5 text-slate-300" />
                   </Link>
                 </div>
               </div>

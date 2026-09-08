@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { Hero } from "@/components/home/hero";
 import { AboutBrief } from "@/components/home/about-brief";
 import { useReducedMotionPreference } from "@/components/shared/motion";
@@ -15,23 +15,31 @@ export function HeroHorizontalFlow() {
     offset: ["start start", "end end"],
   });
 
-  // Slide horizontally from 0% to -50% (across the 200vw track)
-  const x = useTransform(scrollYProgress, [0, 0.95], ["0%", "-50%"]);
+  // Snappy physics spring interpolation eliminates discrete scroll ticks and wheel lag
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 280,
+    damping: 32,
+    mass: 0.1,
+    restDelta: 0.0001,
+  });
+
+  // Slide horizontally across the 2-panel track smoothly
+  const x = useTransform(smoothProgress, [0, 1], ["0%", "-50%"]);
 
   return (
     <>
       {/* ============================================================
-          DESKTOP (>= 1024px): Pinned Horizontal Slide Transition
-          Tech Flex: Hero -> About slides horizontally on vertical wheel
+          DESKTOP (>= 1024px): Fast, Silky-Smooth Pinned Slide Flow
+          Optimized height (150vh) + GPU hardware-composited translation
           ============================================================ */}
       <div
         ref={containerRef}
-        className="hidden lg:block relative h-[230vh] bg-[#FAF9FE]"
+        className="hidden lg:block relative h-[150vh] bg-[#FAF9FE]"
       >
         <div className="sticky top-0 h-screen w-full overflow-hidden">
           <motion.div
             style={prefersReduced ? undefined : { x }}
-            className="flex h-full w-[200vw] flex-row will-change-transform"
+            className="flex h-full w-[200vw] flex-row [transform:translateZ(0)]"
           >
             {/* Panel 1: Hero Section (100vw x 100vh) */}
             <div className="w-screen h-screen shrink-0 overflow-hidden flex flex-col justify-center">

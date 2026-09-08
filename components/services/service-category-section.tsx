@@ -23,7 +23,7 @@ const categoryVisuals: Record<
   }
 > = {
   funding: {
-    numeralColor: "text-white/[0.04]",
+    numeralColor: "text-[#0F0A1A]/15",
     badgeBg: "bg-cyan-50 border-cyan-100",
     badgeText: "text-[#0891B2]",
     borderAccent: "border-l-[#C79A4A]",
@@ -31,7 +31,7 @@ const categoryVisuals: Record<
     pov: "Sovereign credit guarantees and capital subsidies structure unencumbered growth runway without relinquishing equity control or encumbering personal residential assets.",
   },
   compliance: {
-    numeralColor: "text-white/[0.04]",
+    numeralColor: "text-[#0F0A1A]/15",
     badgeBg: "bg-cyan-50 border-cyan-100",
     badgeText: "text-[#0891B2]",
     borderAccent: "border-l-[#2DD4BF]",
@@ -39,9 +39,9 @@ const categoryVisuals: Record<
     pov: "Rigorous statutory registrations and international quality standards transform statutory friction into competitive institutional tender qualifications.",
   },
   digital: {
-    numeralColor: "text-white/[0.04]",
+    numeralColor: "text-[#0F0A1A]/15",
     badgeBg: "bg-cyan-50 border-cyan-100",
-    badgeText: "text-[#38BDF8]",
+    badgeText: "text-[#0891B2]",
     borderAccent: "border-l-[#38BDF8]",
     quoteColor: "text-[#475569]",
     pov: "High-performance web platforms and technical search dominance establish commercial authority and high-intent customer acquisition pipelines.",
@@ -49,7 +49,7 @@ const categoryVisuals: Record<
   it: {
     numeralColor: "text-[#0F0A1A]/15",
     badgeBg: "bg-cyan-50 border-cyan-100",
-    badgeText: "text-[#0F0A1A]",
+    badgeText: "text-[#0891B2]",
     borderAccent: "border-l-[#8E8B82]",
     quoteColor: "text-[#475569]",
     pov: "Bespoke internal software portals, ERP automations, and resilient IT infrastructure systematically eliminate operational bottlenecks.",

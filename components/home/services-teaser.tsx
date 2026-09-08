@@ -133,7 +133,7 @@ export function ServicesTeaser() {
             <div className="shrink-0">
               <Link
                 href="/services"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-cyan-200/90 hover:border-[#0891B2] text-[#181226] hover:text-[#0891B2] bg-white hover:bg-cyan-50 text-xs font-mono tracking-wider uppercase transition-all group shadow-xs hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-cyan-200/90 hover:border-[#0891B2]/60 text-[#181226] hover:text-[#0891B2] bg-white/75 backdrop-blur-md hover:bg-white/95 text-xs font-mono tracking-wider uppercase transition-all group shadow-[inset_0_1px_1px_rgba(255,255,255,0.85),0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_4px_14px_rgba(8,145,178,0.12)] hover:-translate-y-0.5 [transform:translateZ(0)]"
               >
                 <span>Complete Service Catalog</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -157,10 +157,10 @@ export function ServicesTeaser() {
                   onMouseEnter={() => setActivePracticeId(practice.id)}
                   onFocus={() => setActivePracticeId(practice.id)}
                   className={cn(
-                    "group relative cursor-pointer rounded-2xl border p-5 transition-all duration-300 sm:p-6",
+                    "group relative cursor-pointer rounded-2xl border p-5 transition-all duration-300 sm:p-6 [transform:translateZ(0)]",
                     isActive
-                      ? "border-cyan-200/90 bg-[linear-gradient(135deg,rgba(8,145,178,0.08),rgba(255,255,255,0.95)_42%,rgba(240,253,250,0.9))] shadow-[0_12px_30px_-10px_rgba(8,145,178,0.16)]"
-                      : "border-cyan-100/70 bg-white/60 hover:border-cyan-200/80 hover:bg-white hover:shadow-[0_8px_24px_-12px_rgba(8,145,178,0.12)]"
+                      ? "border-white/70 bg-white/90 shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_12px_32px_rgba(8,145,178,0.14)]"
+                      : "border-white/50 bg-white/70 hover:border-white/80 hover:bg-white/90 shadow-[inset_0_1px_1px_rgba(255,255,255,0.85),0_4px_16px_rgba(8,145,178,0.05)]"
                   )}
                 >
                   {/* Active highlight pill on left edge */}
@@ -240,7 +240,7 @@ export function ServicesTeaser() {
 
           {/* Right: Dynamic Architectural Photography Frame (5 cols) */}
           <div className="hidden lg:block lg:col-span-5 lg:sticky lg:top-28">
-            <div className="relative rounded-3xl overflow-hidden border border-cyan-200/90 bg-white shadow-[0_20px_50px_-12px_rgba(88,28,135,0.12),0_2px_8px_rgba(0,0,0,0.04)] group aspect-[4/3]">
+            <div className="relative rounded-3xl overflow-hidden border border-white/60 bg-white/80 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_20px_50px_rgba(8,145,178,0.12)] group aspect-[4/3] [transform:translateZ(0)]">
               {/* Corner Blueprint Crosshairs */}
               <div className="absolute top-2 left-2 font-mono text-xs text-[#0891B2]/40 z-30 select-none">
                 +
@@ -291,7 +291,7 @@ export function ServicesTeaser() {
                 </div>
 
                 {/* Bottom Caption */}
-                <div className="space-y-1 bg-white/95 backdrop-blur-md p-4 rounded-2xl border border-cyan-100/90 shadow-md">
+                <div className="space-y-1 bg-white/90 backdrop-blur-xs p-4 rounded-2xl border border-white/60 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_4px_16px_rgba(0,0,0,0.05)] [transform:translateZ(0)]">
                   <p className="text-[10px] font-mono uppercase tracking-widest text-[#0891B2] font-semibold">
                     {activePractice.discipline}
                   </p>

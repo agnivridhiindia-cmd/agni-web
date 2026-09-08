@@ -279,24 +279,6 @@ export function Footer() {
                 </div>
               )}
 
-              {/* WhatsApp */}
-              {siteConfig.contact.whatsapp && (
-                <div className="flex items-center gap-2.5">
-                  <MessageSquare className="w-4 h-4 text-[#25D366] shrink-0" />
-                  <a
-                    href={`https://wa.me/${siteConfig.contact.whatsapp.replace(
-                      /[^0-9]/g,
-                      ""
-                    )}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#181226] hover:text-[#25D366] transition-colors font-mono text-xs"
-                  >
-                    WhatsApp Business
-                  </a>
-                </div>
-              )}
-
               {/* Consultation availability note */}
               <div className="pt-2.5 border-t border-cyan-100 text-xs text-[#64748B] font-mono leading-relaxed">
                 Advising MSMEs, manufacturing enterprises, and emerging startups across India.

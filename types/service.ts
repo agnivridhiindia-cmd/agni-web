@@ -27,6 +27,7 @@ export interface ServiceDealSummary {
   readonly collateral: string;
   readonly turnaround: string;
   readonly checklistDocName?: string;
+  readonly eligibility?: string;
 }
 
 export interface Service {

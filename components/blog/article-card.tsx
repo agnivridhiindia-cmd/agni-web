@@ -47,7 +47,7 @@ export function ArticleCard({ post, featured = false, className }: ArticleCardPr
     return (
       <article
         className={cn(
-          "group relative rounded-2xl border border-cyan-100 bg-white shadow-xl hover:shadow-2xl transition-all duration-300 ease-out hover:-translate-y-1.5 hover:border-[#0891B2]/40 overflow-hidden",
+          "group relative rounded-2xl border border-white/60 bg-white/85 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_10px_30px_rgba(8,145,178,0.12)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_16px_36px_rgba(8,145,178,0.18)] transition-all duration-300 ease-out hover:-translate-y-1.5 hover:border-cyan-300 overflow-hidden [transform:translateZ(0)]",
           className
         )}
       >
@@ -160,7 +160,7 @@ export function ArticleCard({ post, featured = false, className }: ArticleCardPr
   return (
     <article
       className={cn(
-        "group relative flex flex-col justify-between rounded-2xl border border-cyan-100 bg-white shadow-lg hover:shadow-2xl hover:border-[#0891B2]/40 hover:-translate-y-2 transition-all duration-300 ease-out overflow-hidden",
+        "group relative flex flex-col justify-between rounded-2xl border border-white/60 bg-white/85 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_8px_24px_rgba(8,145,178,0.06)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_16px_36px_rgba(8,145,178,0.12)] hover:border-cyan-300 hover:bg-white/95 hover:-translate-y-1.5 transition-all duration-300 ease-out overflow-hidden [transform:translateZ(0)]",
         className
       )}
     >

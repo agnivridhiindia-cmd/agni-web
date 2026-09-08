@@ -1,13 +1,13 @@
 import * as React from "react";
-import { MapPin, Clock, ShieldCheck, Phone, Mail, MessageSquare } from "lucide-react";
+import { MapPin, Clock, ShieldCheck, Phone, Mail } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 import { Card } from "@/components/ui/card";
 
 export function ContactInfo() {
-  const { phone, email, whatsapp } = siteConfig.contact;
+  const { phone, email } = siteConfig.contact;
   const { city, state, country } = siteConfig.company.location;
 
-  const hasDirectChannels = Boolean(phone || email || whatsapp);
+  const hasDirectChannels = Boolean(phone || email);
 
   return (
     <div className="space-y-6">
@@ -88,18 +88,6 @@ export function ContactInfo() {
               >
                 <Mail className="w-4 h-4 text-[#0891B2] shrink-0" aria-hidden="true" />
                 <span className="font-semibold truncate">{email}</span>
-              </a>
-            )}
-
-            {whatsapp && (
-              <a
-                href={`https://wa.me/${whatsapp.replace(/[^0-9]/g, "")}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2.5 p-3 rounded-lg bg-[#11261F] border border-[#2DD4BF]/40 text-[#34D399] hover:bg-[#163027] transition-colors sm:col-span-2"
-              >
-                <MessageSquare className="w-4 h-4 text-[#34D399] shrink-0" aria-hidden="true" />
-                <span className="font-semibold">Chat with an Advisor on WhatsApp</span>
               </a>
             )}
           </div>

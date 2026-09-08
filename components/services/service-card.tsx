@@ -124,12 +124,12 @@ export function ServiceCard({ service }: ServiceCardProps) {
     <Link
       href={`/services/${service.slug}`}
       className={cn(
-        "group relative flex flex-col justify-between rounded-2xl bg-white p-6 sm:p-7 border border-cyan-100 transition-all duration-300 ease-out",
-        "shadow-md hover:shadow-2xl",
-        "hover:-translate-y-2 motion-reduce:hover:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 focus-visible:ring-offset-2",
+        "group relative flex flex-col justify-between rounded-2xl bg-white/85 backdrop-blur-xs p-6 sm:p-7 border border-white/60 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_8px_24px_rgba(8,145,178,0.06)] transition-all duration-300 ease-out [transform:translateZ(0)]",
+        "hover:bg-white/95 hover:border-cyan-300 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_16px_36px_rgba(8,145,178,0.12)]",
+        "hover:-translate-y-1.5 motion-reduce:hover:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0891B2] focus-visible:ring-offset-2",
         theme.borderHover
       )}
-      aria-label={`${service.name} ÃƒÂ¢Ã¢â€šÂ¬ - Â view specialized program details`}
+      aria-label={`${service.name} - view specialized program details`}
     >
       <div className="space-y-4">
         {/* Top Header Row: Icon & Floating Scheme Ceiling Tag */}

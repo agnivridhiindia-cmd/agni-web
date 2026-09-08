@@ -67,7 +67,7 @@ export function MissionSection() {
                 <span className="text-xs font-mono font-bold text-[#0891B2] block tracking-wider">
                   PHASE {pillar.step}
                 </span>
-                <h3 className="font-serif text-xl font-semibold text-white tracking-tight">
+                <h3 className="font-serif text-xl font-semibold text-[#181226] tracking-tight">
                   {pillar.label}
                 </h3>
                 <p className="text-xs sm:text-sm text-[#64748B] font-sans leading-relaxed">
@@ -94,7 +94,7 @@ export function MissionSection() {
               <LinkButton
                 href="/services"
                 variant="outline"
-                className="text-[#0F0A1A] border-slate-700 bg-slate-900/80 hover:bg-slate-800 hover:border-slate-600 hover:text-white"
+                className="px-6 py-3 border-cyan-200/90 text-[#181226] hover:text-[#0891B2]"
                 aria-label="Explore all four advisory desks and services"
               >
                 <span>Explore 4 Advisory Desks</span>

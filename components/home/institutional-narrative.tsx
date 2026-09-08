@@ -11,7 +11,7 @@ export function InstitutionalNarrative() {
   return (
     <section
       aria-labelledby="institutional-narrative-heading"
-      className="relative bg-gradient-to-b from-[#FFFFFF] via-[#FAF8FE] to-[#FFFFFF] text-[#181226] py-20 sm:py-28 lg:py-36 border-b border-cyan-100/80 overflow-hidden"
+      className="relative bg-gradient-to-b from-[#FFFFFF] via-[#FAF8FE] to-[#FFFFFF] text-[#181226] pt-14 pb-16 sm:pt-18 sm:pb-20 lg:pt-20 lg:pb-24 border-b border-cyan-100/80 overflow-hidden"
     >
       {/* Ambient background lighting */}
       <div
@@ -22,9 +22,9 @@ export function InstitutionalNarrative() {
         <div className="absolute bottom-1/4 -right-32 h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle,rgba(168,85,247,0.04)_0%,transparent_70%)] blur-3xl" />
       </div>
 
-      <Container width="wide" className="relative z-10 space-y-16 sm:space-y-20">
+      <Container width="wide" className="relative z-10 space-y-8 sm:space-y-10">
         {/* Section Eyebrow & Main Statement */}
-        <div className="space-y-4 max-w-3xl">
+        <div className="space-y-3.5 max-w-3xl">
           <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-cyan-200/90 text-[#0891B2] text-xs font-mono tracking-widest uppercase shadow-xs">
             <span className="w-1.5 h-1.5 rounded-full bg-[#0891B2]" />
             <span>ABOUT AGNIVRIDHI &bull; INSTITUTIONAL LEADERSHIP</span>
@@ -42,16 +42,16 @@ export function InstitutionalNarrative() {
           </h2>
         </div>
 
-        {/* 2-Column Split: Authentic Leadership Frame vs Methodology */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+        {/* 2-Column Split: Centered Vertically in the Middle */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Left Column: Authentic Founder / Award Staging (5 cols) */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="relative rounded-3xl overflow-hidden border border-cyan-200/90 bg-white shadow-[0_20px_50px_-12px_rgba(88,28,135,0.12),0_2px_8px_rgba(0,0,0,0.04)] group">
+          <div className="lg:col-span-5 space-y-4 max-w-md mx-auto lg:max-w-none w-full">
+            <div className="relative rounded-3xl overflow-hidden border border-white/60 bg-white/85 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_20px_50px_rgba(8,145,178,0.1)] [transform:translateZ(0)] group">
               {/* Corner Blueprint Crosshairs */}
               <div className="absolute top-2 left-2 font-mono text-xs text-[#0891B2]/60 z-30 select-none">+</div>
               <div className="absolute bottom-2 right-2 font-mono text-xs text-[#0891B2]/60 z-30 select-none">+</div>
 
-              <div className="relative aspect-[4/5] w-full">
+              <div className="relative aspect-[4/4.5] w-full">
                 <Image
                   src="/img/award-team-1.jpeg"
                   alt={`${founder.name} receiving India Business Awards 2025`}
@@ -66,7 +66,7 @@ export function InstitutionalNarrative() {
               </div>
 
               {/* Bottom Attribution Bar */}
-              <div className="p-5 bg-[#FAF8FE] border-t border-cyan-100/90 space-y-2">
+              <div className="p-5 bg-white/90 border-t border-cyan-100/90 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9)] space-y-2">
                 <div className="flex items-center justify-between">
                   <div>
                     <h3 className="font-serif text-base sm:text-lg font-medium text-[#181226]">
@@ -90,7 +90,7 @@ export function InstitutionalNarrative() {
             </div>
 
             {/* Leadership Verification Pill */}
-            <div className="p-4 rounded-2xl bg-white border border-cyan-200/80 shadow-xs flex items-center justify-between text-xs font-mono text-[#475569]">
+            <div className="p-4 rounded-2xl bg-white/85 border border-white/60 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_4px_16px_rgba(8,145,178,0.05)] [transform:translateZ(0)] flex items-center justify-between text-xs font-mono text-[#475569]">
               <div className="flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 text-[#0891B2]" />
                 <span>Executive Member</span>
@@ -99,49 +99,44 @@ export function InstitutionalNarrative() {
             </div>
           </div>
 
-          {/* Right Column: In-Depth Institutional Narrative & 3 Principles (7 cols) */}
-          <div className="lg:col-span-7 space-y-8 text-left">
-            <div className="space-y-4 font-sans text-sm sm:text-base text-[#475569] leading-[1.75]">
-              <p>
-                In an advisory ecosystem frequently clouded by unverified brokers and predatory commissions, Agnivridhi India was founded with a clear institutional doctrine: Indian MSMEs do not fail because of insufficient ambition or poor technical grit  -  they stall in the documentation and regulatory friction between commercial banking credit committees and statutory departments.
-              </p>
-              <p>
-                Headquartered in Noida Sector 62, our multidisciplinary desk brings audit-grade financial modeling, regulatory certification rigor, enterprise software engineering, and high-performance digital marketing under one unified execution platform.
-              </p>
-            </div>
+          {/* Right Column: Balanced Institutional Narrative & Principles (7 cols) */}
+          <div className="lg:col-span-7 space-y-6 sm:space-y-7 text-left">
+            <p className="font-sans text-sm sm:text-base lg:text-[1.05rem] text-[#334155] leading-[1.8]">
+              Agnivridhi India bridges the critical gap between ambitious MSMEs and commercial banking committees. We replace informal middlemen with audit-grade financial modeling, statutory compliance, and enterprise technology under one roof.
+            </p>
 
             {/* The Three Operating Principles */}
-            <div className="space-y-4 pt-2">
+            <div className="space-y-4 pt-1">
               <h3 className="font-mono text-xs uppercase tracking-widest text-[#0891B2] font-semibold">
                 OUR OPERATING PRINCIPLES
               </h3>
 
               <div className="divide-y divide-cyan-100/90 border-y border-cyan-100/90">
-                <div className="py-4 space-y-1.5">
+                <div className="py-4 sm:py-4.5 space-y-1.5">
                   <div className="flex items-center gap-2.5">
                     <span className="font-mono text-xs text-[#0891B2] font-semibold">01</span>
                     <h4 className="font-serif text-lg sm:text-xl text-[#181226] font-medium">
-                      Zero Unregulated Intermediation
+                      Direct Institutional Syndication
                     </h4>
                   </div>
                   <p className="font-sans text-xs sm:text-sm text-[#475569] leading-[1.7] pl-6">
-                    Every credit dossier, TEV report, and subsidy claim is formulated for direct submission to scheduled commercial bank committees and central statutory portals, eliminating informal middlemen.
+                    Zero middlemen—audit-grade credit dossiers and TEV reports formulated for direct submission to scheduled commercial bank committees.
                   </p>
                 </div>
 
-                <div className="py-4 space-y-1.5">
+                <div className="py-4 sm:py-4.5 space-y-1.5">
                   <div className="flex items-center gap-2.5">
                     <span className="font-mono text-xs text-[#0891B2] font-semibold">02</span>
                     <h4 className="font-serif text-lg sm:text-xl text-[#181226] font-medium">
-                      Sovereign Leverage Before Promoter Property
+                      Sovereign Collateral-Free Credit
                     </h4>
                   </div>
                   <p className="font-sans text-xs sm:text-sm text-[#475569] leading-[1.7] pl-6">
-                    We prioritize government credit guarantee trust backstops (CGTMSE up to   -  5 Cr, PMEGP 35% subsidies) to unlock project capex without pledging personal residential or commercial real estate.
+                    Prioritizing sovereign guarantee backstops (CGTMSE up to ₹5 Cr, PMEGP 35% subsidies) to unlock capex without pledging promoter property.
                   </p>
                 </div>
 
-                <div className="py-4 space-y-1.5">
+                <div className="py-4 sm:py-4.5 space-y-1.5">
                   <div className="flex items-center gap-2.5">
                     <span className="font-mono text-xs text-[#0891B2] font-semibold">03</span>
                     <h4 className="font-serif text-lg sm:text-xl text-[#181226] font-medium">
@@ -149,25 +144,25 @@ export function InstitutionalNarrative() {
                     </h4>
                   </div>
                   <p className="font-sans text-xs sm:text-sm text-[#475569] leading-[1.7] pl-6">
-                    Funding without statutory compliance creates tax liability; digital expansion without software robustness creates churn. Our four desks deliver synchronized enterprise momentum.
+                    Synchronized project finance, regulatory compliance, custom software, and digital marketing operating under one unified desk.
                   </p>
                 </div>
               </div>
             </div>
 
             {/* Link to Full About Page */}
-            <div className="pt-2 flex items-center gap-4">
+            <div className="pt-3 flex flex-wrap items-center gap-4">
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#0891B2] hover:bg-[#0E7490] text-white font-sans font-semibold text-xs tracking-wider uppercase transition-all shadow-[0_4px_16px_rgba(88,28,135,0.22)] hover:shadow-[0_8px_24px_rgba(88,28,135,0.3)] hover:-translate-y-0.5 group"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-b from-[#0AA5C7]/90 via-[#0891B2]/95 to-[#0E7490]/95 backdrop-blur-md border border-white/25 text-white font-sans font-semibold text-xs tracking-wider uppercase transition-all shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_4px_16px_rgba(8,145,178,0.22)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.6),0_8px_24px_rgba(8,145,178,0.32)] hover:-translate-y-0.5 group [transform:translateZ(0)]"
               >
-                <span>Read Full Institutional Story</span>
+                <span>Read Full Story</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </Link>
 
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-cyan-200/90 hover:border-[#0891B2] text-[#181226] hover:text-[#0891B2] bg-white hover:bg-cyan-50 text-xs font-mono tracking-wider uppercase transition-all shadow-xs hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-cyan-200/90 hover:border-[#0891B2] text-[#181226] hover:text-[#0891B2] bg-white/80 backdrop-blur-md hover:bg-white/95 text-xs font-mono tracking-wider uppercase transition-all shadow-[inset_0_1px_1px_rgba(255,255,255,0.85),0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_4px_14px_rgba(8,145,178,0.12)] hover:-translate-y-0.5 [transform:translateZ(0)]"
               >
                 <span>Consult Leadership</span>
               </Link>

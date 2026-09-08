@@ -9,7 +9,6 @@ import {
   Cpu,
   ArrowRight,
   CheckCircle2,
-  PhoneCall,
   FileDown,
   Lock,
   Building,
@@ -41,7 +40,6 @@ interface ServiceSidebarProps {
 export function ServiceSidebar({ service }: ServiceSidebarProps) {
   const categoryLabel = categoryLabels[service.category] || service.category;
   const CategoryIcon = iconMap[service.category] || Landmark;
-  const whatsappNumber = siteConfig.contact.whatsapp;
 
   // Derive deal summary metrics
   const maxLimit = service.dealSummary?.maxLimit || "ÃƒÂ¢ - Å¡Ã‚Â¹5.00 Crore";
@@ -101,10 +99,6 @@ Phone: +91 98188 16654 | Web: https://agnivridhi.com/contact
     URL.revokeObjectURL(url);
   };
 
-  const whatsappMessage = encodeURIComponent(
-    `Hello Agnivridhi India, I am reviewing the ${service.name} program and would like to schedule an underwriting eligibility review.`
-  );
-
   return (
     <aside
       aria-label="Sticky Deal Summary Dock"
@@ -113,7 +107,7 @@ Phone: +91 98188 16654 | Web: https://agnivridhi.com/contact
       {/* Sticky Deal Summary Dock */}
       <div className="sticky top-28 space-y-6">
         {/* Deal Summary Card */}
-        <div className="rounded-2xl bg-white border border-cyan-100 shadow-2xl overflow-hidden">
+        <div className="rounded-2xl bg-white/85 border border-white/60 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_12px_36px_rgba(8,145,178,0.08)] [transform:translateZ(0)] overflow-hidden">
           {/* Header Bar */}
           <div className="p-6 bg-[#FFFFFF] text-[#0F0A1A] border-b border-cyan-100 space-y-2 relative overflow-hidden">
             <div
@@ -157,32 +151,40 @@ Phone: +91 98188 16654 | Web: https://agnivridhi.com/contact
               </div>
             </div>
 
-            {/* Metric 2: Collateral Requirement */}
-            <div className="flex items-center justify-between pt-3.5">
+            {/* Metric 2: Security Structure */}
+            <div className="flex items-start justify-between gap-3 pb-3 border-b border-cyan-100/60 text-xs">
               <div className="space-y-0.5">
-                <span className="text-[11px] font-mono font-semibold uppercase tracking-wider text-[#64748B] block">
-                  Collateral Pledged
-                </span>
-                <span className="text-[#475569]">Third-Party Guarantee</span>
+                <span className="block text-[#64748B] font-medium">Collateral Obligation</span>
+                <span className="block font-mono text-[10px] text-[#556070]">Primary Property Pledge</span>
               </div>
-              <div className="font-mono text-sm font-bold text-[#06B6D4] bg-[#0891B2]/10 px-2.5 py-1 rounded-md border border-cyan-200 text-right">
+              <span className="font-semibold text-right text-[#0F0A1A]">
                 {collateral}
-              </div>
+              </span>
             </div>
 
-            {/* Metric 3: Underwriting Turnaround */}
-            <div className="flex items-center justify-between pt-3.5">
+            {/* Metric 3: Underwriting SLA */}
+            <div className="flex items-start justify-between gap-3 pb-3 border-b border-cyan-100/60 text-xs">
               <div className="space-y-0.5">
-                <span className="text-[11px] font-mono font-semibold uppercase tracking-wider text-[#64748B] block">
-                  Underwriting Turnaround
-                </span>
-                <span className="text-[#475569]">DPR to Sanction SLA</span>
+                <span className="block text-[#64748B] font-medium">Processing SLA</span>
+                <span className="block font-mono text-[10px] text-[#556070]">Sanction / Filing Timeline</span>
               </div>
-              <div className="font-mono text-sm font-bold text-[#0F0A1A] text-right flex items-center gap-1">
-                <Clock className="w-3.5 h-3.5 text-[#0891B2]" />
-                <span>{turnaround}</span>
-              </div>
+              <span className="font-semibold text-right text-[#0F0A1A]">
+                {turnaround}
+              </span>
             </div>
+
+            {/* Target Enterprise Tier */}
+            {(service.dealSummary?.eligibility || (service.audience && service.audience.length > 0)) && (
+              <div className="flex items-start justify-between gap-3 text-xs">
+                <div className="space-y-0.5">
+                  <span className="block text-[#64748B] font-medium">Target Eligibility</span>
+                  <span className="block font-mono text-[10px] text-[#556070]">Enterprise Entity Tier</span>
+                </div>
+                <span className="font-semibold text-right text-[#0F0A1A] max-w-[55%]">
+                  {service.dealSummary?.eligibility || service.audience?.[0]}
+                </span>
+              </div>
+            )}
           </div>
 
           {/* Quick Action Buttons */}
@@ -191,32 +193,19 @@ Phone: +91 98188 16654 | Web: https://agnivridhi.com/contact
             <button
               type="button"
               onClick={handleDownloadDprChecklist}
-              className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-cyan-50/60 hover:bg-[#1C1F1F] text-[#0F0A1A] font-sans text-xs font-semibold tracking-wide border border-cyan-100 hover:border-cyan-300 shadow-2xs transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0891B2]"
+              className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white/80 backdrop-blur-md hover:bg-white/95 text-[#0F0A1A] font-sans text-xs font-semibold tracking-wide border border-cyan-200/90 hover:border-[#0891B2]/60 shadow-[inset_0_1px_1px_rgba(255,255,255,0.85),0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_4px_14px_rgba(8,145,178,0.12)] transition-all hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0891B2] [transform:translateZ(0)]"
             >
               <FileDown className="w-4 h-4 text-[#0891B2] shrink-0" />
               <span>Download DPR Checklist (PDF)</span>
             </button>
 
-            {/* Quick Button 2: Inquire on WhatsApp */}
-            {whatsappNumber && whatsappNumber.trim() !== "" && (
-              <a
-                href={`https://wa.me/${whatsappNumber.replace(/[^0-9]/g, "")}?text=${whatsappMessage}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-sans text-xs font-semibold tracking-wide transition-all shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366]"
-              >
-                <PhoneCall className="w-4 h-4 fill-white shrink-0" />
-                <span>Inquire on WhatsApp</span>
-              </a>
-            )}
-
             {/* Primary Advisory Desk Link */}
             <Link
               href={`/contact?service=${encodeURIComponent(service.slug)}`}
-              className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#0891B2] hover:bg-[#0E7490] text-white font-sans text-xs font-bold tracking-wide transition-all shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0891B2]"
+              className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-gradient-to-b from-[#0AA5C7]/90 via-[#0891B2]/95 to-[#0E7490]/95 backdrop-blur-md border border-white/25 text-white font-sans text-xs font-bold tracking-wide shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_4px_16px_rgba(8,145,178,0.22)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.6),0_8px_24px_rgba(8,145,178,0.32)] transition-all hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0891B2] [transform:translateZ(0)]"
             >
               <span>Schedule Principal Diagnostic</span>
-              <ArrowRight className="w-3.5 h-3.5 text-[#080909]" />
+              <ArrowRight className="w-3.5 h-3.5 text-white" />
             </Link>
           </div>
 
@@ -234,7 +223,7 @@ Phone: +91 98188 16654 | Web: https://agnivridhi.com/contact
         </div>
 
         {/* Practice Desk Navigation Anchor */}
-        <div className="p-5 rounded-2xl border border-cyan-100 bg-white text-xs space-y-2.5 shadow-xs">
+        <div className="p-5 rounded-2xl border border-white/60 bg-white/80 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_6px_20px_rgba(8,145,178,0.06)] [transform:translateZ(0)] text-xs space-y-2.5">
           <span className="font-mono text-[11px] font-bold text-[#64748B] uppercase tracking-wider block">
             Dedicated Practice Desk
           </span>

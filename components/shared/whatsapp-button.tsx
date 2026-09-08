@@ -1,8 +1,4 @@
-"use client";
-
 import * as React from "react";
-import { siteConfig } from "@/lib/site-config";
-import { cn } from "@/lib/utils";
 
 export interface WhatsAppButtonProps {
   /**
@@ -41,67 +37,6 @@ export function WhatsAppIcon({ className }: { className?: string }) {
  * Floating WhatsApp action component.
  * Respects Single Source of Truth: if WhatsApp is null/empty, safely renders nothing.
  */
-export function WhatsAppButton({
-  phoneNumber = siteConfig.contact.whatsapp,
-  defaultMessage = "Hello Agnivridhi India, I would like to inquire about your advisory services.",
-  className,
-}: WhatsAppButtonProps) {
-  const [isHovered, setIsHovered] = React.useState(false);
-
-  // If WhatsApp is unverified / null, do NOT render the button
-  if (!phoneNumber || phoneNumber.trim() === "") {
-    return null;
-  }
-
-  // Strip all non-numeric characters except leading '+'
-  const cleanNumber = phoneNumber.replace(/[^0-9]/g, "");
-  if (!cleanNumber) {
-    return null;
-  }
-
-  const whatsappUrl = `https://wa.me/${cleanNumber}?text=${encodeURIComponent(
-    defaultMessage
-  )}`;
-
-  return (
-    <div
-      className={cn(
-        "fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 flex items-center group",
-        className
-      )}
-    >
-      {/* Supporting tooltip badge */}
-      <div
-        className={cn(
-          "mr-3 px-3 py-1.5 rounded-md bg-slate-900 text-white text-xs font-medium tracking-wide shadow-floating transition-all duration-200 pointer-events-none hidden sm:block whitespace-nowrap border border-slate-800",
-          isHovered
-            ? "opacity-100 translate-x-0"
-            : "opacity-0 translate-x-2"
-        )}
-        role="tooltip"
-      >
-        Chat with an Advisor
-      </div>
-
-      {/* Floating Action Button */}
-      <a
-        href={whatsappUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Chat with Agnivridhi India on WhatsApp"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        onFocus={() => setIsHovered(true)}
-        onBlur={() => setIsHovered(false)}
-        className={cn(
-          "relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full text-white shadow-floating",
-          "bg-[#25D366] hover:bg-[#20BD5A] active:scale-95 transition-all duration-200",
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2"
-        )}
-      >
-        <WhatsAppIcon className="w-6 h-6 sm:w-7 sm:h-7" />
-        <span className="sr-only">Chat with Agnivridhi India on WhatsApp</span>
-      </a>
-    </div>
-  );
+export function WhatsAppButton(_props: WhatsAppButtonProps = {}) {
+  return null;
 }

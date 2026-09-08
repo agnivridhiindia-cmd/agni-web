@@ -71,7 +71,7 @@ function StoryFlipCard({
     >
       <div className="relative min-h-[430px] transition-transform duration-700 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] group-focus-within:[transform:rotateY(180deg)] rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
         {/* FRONT FACE */}
-        <div className="absolute inset-0 overflow-hidden rounded-2xl border border-white/10 bg-[#111313] [backface-visibility:hidden]">
+        <div className="absolute inset-0 overflow-hidden rounded-2xl border border-white/20 bg-[#111313] shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] [backface-visibility:hidden]">
           <Image
             src={imageInfo.src}
             alt={imageInfo.alt}
@@ -104,7 +104,7 @@ function StoryFlipCard({
         </div>
 
         {/* BACK FACE (180deg Rotated in 3D) */}
-        <div className="absolute inset-0 flex flex-col justify-between overflow-hidden rounded-2xl border border-cyan-200 bg-white p-5 sm:p-6 text-left [backface-visibility:hidden] [transform:rotateY(180deg)] shadow-xl">
+        <div className="absolute inset-0 flex flex-col justify-between overflow-hidden rounded-2xl border border-white/70 bg-white/90 p-5 sm:p-6 text-left [backface-visibility:hidden] [transform:rotateY(180deg)] shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_10px_30px_rgba(8,145,178,0.12)]">
           <div>
             <div className="border-b border-cyan-100 pb-3">
               <div>
@@ -116,7 +116,7 @@ function StoryFlipCard({
               <p className="mt-1 text-xs font-sans text-[#64748B]">{study.client}</p>
             </div>
 
-            <div className="mt-4 flex items-end justify-between gap-4 p-3 rounded-xl bg-cyan-50/60 border border-cyan-100">
+            <div className="mt-4 flex items-end justify-between gap-4 p-3 rounded-xl bg-white/70 border border-cyan-100 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9)]">
               <div>
                 <span className="text-[10px] font-mono uppercase tracking-widest text-[#64748B] block">
                   {metricSub}
@@ -194,7 +194,7 @@ export async function FeaturedStories() {
             <LinkButton
               href="/success-stories"
               variant="outline"
-              className="rounded-full h-11 px-6 border-cyan-200 bg-white hover:border-[#0891B2] hover:text-[#0E7490] text-[#181226] group inline-flex items-center gap-2 transition-all text-xs font-mono tracking-wider uppercase"
+              className="rounded-full h-11 px-6 border-cyan-200/90 text-[#181226] hover:text-[#0891B2] group inline-flex items-center gap-2 transition-all text-xs font-mono tracking-wider uppercase"
               aria-label="View all enterprise success stories"
             >
               <span>View All Success Stories</span>

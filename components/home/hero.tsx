@@ -19,32 +19,32 @@ const heroStaggerContainer: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.14,
-      delayChildren: 0.05,
+      staggerChildren: 0.06,
+      delayChildren: 0.02,
     },
   },
 };
 
 const heroFadeInUpItem: Variants = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 16 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.85,
-      ease: [0.16, 1, 0.3, 1] as const,
+      duration: 0.42,
+      ease: [0.22, 1, 0.36, 1] as const,
     },
   },
 };
 
 const headlineLineReveal: Variants = {
-  hidden: { y: "115%", opacity: 0 },
+  hidden: { y: "100%", opacity: 0 },
   visible: {
     y: "0%",
     opacity: 1,
     transition: {
-      duration: 0.95,
-      ease: [0.16, 1, 0.3, 1] as const,
+      duration: 0.45,
+      ease: [0.22, 1, 0.36, 1] as const,
     },
   },
 };
@@ -68,19 +68,19 @@ export function Hero({ isPinned = false }: HeroProps) {
           : "pt-28 pb-16 sm:pt-36 sm:pb-24 lg:pt-40 lg:pb-28"
       )}
     >
-      {/* Background Architectural Ambient Lighting & Delicate Glows */}
+      {/* Background Architectural Ambient Lighting - High performance hardware composited */}
       <div
         aria-hidden="true"
         className="hero-ambient-drift pointer-events-none absolute inset-0 z-0 overflow-hidden select-none"
       >
         {/* Primary cyan/teal atmospheric glow */}
-        <div className="absolute -top-20 right-[-5%] h-[620px] w-[620px] rounded-full bg-[radial-gradient(circle,rgba(34,211,238,0.18)_0%,rgba(45,212,191,0.09)_38%,transparent_70%)] blur-3xl" />
+        <div className="absolute -top-20 right-[-5%] h-[620px] w-[620px] rounded-full bg-[radial-gradient(circle,rgba(34,211,238,0.22)_0%,rgba(45,212,191,0.08)_42%,transparent_70%)]" />
 
-        {/* Secondary mint glow to balance composition */}
-        <div className="absolute top-[38%] left-[-12%] h-[560px] w-[560px] rounded-full bg-[radial-gradient(circle,rgba(45,212,191,0.12)_0%,rgba(103,232,249,0.06)_45%,transparent_72%)] blur-3xl" />
+        {/* Secondary mint glow */}
+        <div className="absolute top-[38%] left-[-12%] h-[560px] w-[560px] rounded-full bg-[radial-gradient(circle,rgba(45,212,191,0.15)_0%,rgba(103,232,249,0.06)_45%,transparent_72%)]" />
 
         {/* Center luminous highlight */}
-        <div className="absolute top-[18%] left-1/2 h-[420px] w-[780px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(255,255,255,0.92)_0%,rgba(255,255,255,0.28)_32%,transparent_72%)] blur-2xl" />
+        <div className="absolute top-[18%] left-1/2 h-[420px] w-[780px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(255,255,255,0.85)_0%,rgba(255,255,255,0.2)_32%,transparent_72%)]" />
 
         {/* Architectural Grid Texture with soft radial mask */}
         <div className="absolute inset-0 opacity-[0.045] [background-image:linear-gradient(to_right,#0891B2_1px,transparent_1px),linear-gradient(to_bottom,#0891B2_1px,transparent_1px)] [background-size:4.5rem_4.5rem] [mask-image:radial-gradient(ellipse_82%_70%_at_50%_42%,#000_68%,transparent_100%)]" />
@@ -122,7 +122,7 @@ export function Hero({ isPinned = false }: HeroProps) {
                 <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
                   <Link
                     href="/services"
-                    className="group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#0891B2] via-[#0EA5C9] to-[#10B981] text-white font-sans font-semibold text-xs tracking-wider uppercase transition-all shadow-[0_10px_24px_rgba(8,145,178,0.28)] hover:shadow-[0_14px_32px_rgba(14,165,233,0.32)] hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+                    className="group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#0891B2]/90 via-[#0EA5C9]/90 to-[#10B981]/90 backdrop-blur-md border border-white/25 text-white font-sans font-semibold text-xs tracking-wider uppercase transition-all shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_10px_24px_rgba(8,145,178,0.28)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.65),0_14px_32px_rgba(14,165,233,0.32)] hover:-translate-y-0.5 active:translate-y-0 cursor-pointer [transform:translateZ(0)]"
                   >
                     <span>Get Started</span>
                     <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
@@ -130,7 +130,7 @@ export function Hero({ isPinned = false }: HeroProps) {
 
                   <Link
                     href="/contact"
-                    className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl border border-cyan-200/90 bg-white/80 hover:border-[#0891B2] hover:bg-cyan-50/80 text-[#181226] hover:text-[#0891B2] font-sans font-semibold text-xs tracking-wider uppercase transition-all shadow-[0_8px_20px_rgba(8,145,178,0.08)] hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+                    className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl border border-cyan-200/90 bg-white/75 backdrop-blur-md hover:border-[#0891B2]/60 hover:bg-white/95 text-[#181226] hover:text-[#0891B2] font-sans font-semibold text-xs tracking-wider uppercase transition-all shadow-[inset_0_1px_1px_rgba(255,255,255,0.85),0_8px_20px_rgba(8,145,178,0.06)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_10px_24px_rgba(8,145,178,0.12)] hover:-translate-y-0.5 active:translate-y-0 cursor-pointer [transform:translateZ(0)]"
                   >
                     <span>Explore Our Services</span>
                   </Link>
@@ -189,7 +189,7 @@ export function Hero({ isPinned = false }: HeroProps) {
                   <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
                     <Link
                       href="/services"
-                      className="group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#0891B2] via-[#0EA5C9] to-[#10B981] text-white font-sans font-semibold text-xs tracking-wider uppercase transition-all shadow-[0_10px_24px_rgba(8,145,178,0.28)] hover:shadow-[0_14px_32px_rgba(14,165,233,0.32)] hover:-translate-y-0.5 active:translate-y-0"
+                      className="group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#0891B2]/90 via-[#0EA5C9]/90 to-[#10B981]/90 backdrop-blur-md border border-white/25 text-white font-sans font-semibold text-xs tracking-wider uppercase transition-all shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_10px_24px_rgba(8,145,178,0.28)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.65),0_14px_32px_rgba(14,165,233,0.32)] hover:-translate-y-0.5 active:translate-y-0 [transform:translateZ(0)]"
                     >
                       <span>Get Started</span>
                       <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
@@ -197,7 +197,7 @@ export function Hero({ isPinned = false }: HeroProps) {
 
                     <Link
                       href="/contact"
-                      className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl border border-cyan-200/90 bg-white/80 hover:border-[#0891B2] hover:bg-cyan-50/80 text-[#181226] hover:text-[#0891B2] font-sans font-semibold text-xs tracking-wider uppercase transition-all shadow-[0_8px_20px_rgba(8,145,178,0.08)] hover:-translate-y-0.5 active:translate-y-0"
+                      className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl border border-cyan-200/90 bg-white/75 backdrop-blur-md hover:border-[#0891B2]/60 hover:bg-white/95 text-[#181226] hover:text-[#0891B2] font-sans font-semibold text-xs tracking-wider uppercase transition-all shadow-[inset_0_1px_1px_rgba(255,255,255,0.85),0_8px_20px_rgba(8,145,178,0.06)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_10px_24px_rgba(8,145,178,0.12)] hover:-translate-y-0.5 active:translate-y-0 [transform:translateZ(0)]"
                     >
                       <span>Explore Our Services</span>
                     </Link>
@@ -233,7 +233,7 @@ export function Hero({ isPinned = false }: HeroProps) {
             <motion.div
               initial={prefersReduced ? { opacity: 1 } : { opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
               className="relative mx-auto max-w-lg lg:max-w-none"
             >
               {/* Architectural Crosshair Corner Accents */}

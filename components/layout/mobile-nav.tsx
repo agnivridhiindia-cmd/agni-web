@@ -273,7 +273,7 @@ export function MobileNav({ isOpen, onClose, triggerRef }: MobileNavProps) {
               )}
             </div>
 
-            {/* Success Stories */}
+            {/* Case Studies */}
             <Link
               href="/success-stories"
               onClick={onClose}
@@ -284,13 +284,13 @@ export function MobileNav({ isOpen, onClose, triggerRef }: MobileNavProps) {
                   : "text-[#475569] hover:bg-cyan-50 hover:text-[#0F0A1A]"
               )}
             >
-              <span>Success Stories</span>
+              <span>Case Studies</span>
               {isRouteActive("/success-stories") && (
                 <span className="w-1.5 h-1.5 rounded-full bg-[#0891B2]" />
               )}
             </Link>
 
-            {/* Blog */}
+            {/* Insights */}
             <Link
               href="/blog"
               onClick={onClose}
@@ -301,7 +301,7 @@ export function MobileNav({ isOpen, onClose, triggerRef }: MobileNavProps) {
                   : "text-[#475569] hover:bg-cyan-50 hover:text-[#0F0A1A]"
               )}
             >
-              <span>Blog</span>
+              <span>Insights</span>
               {isRouteActive("/blog") && (
                 <span className="w-1.5 h-1.5 rounded-full bg-[#0891B2]" />
               )}
@@ -320,6 +320,23 @@ export function MobileNav({ isOpen, onClose, triggerRef }: MobileNavProps) {
             >
               <span>FAQ</span>
               {isRouteActive("/faq") && (
+                <span className="w-1.5 h-1.5 rounded-full bg-[#0891B2]" />
+              )}
+            </Link>
+
+            {/* Contact */}
+            <Link
+              href="/contact"
+              onClick={onClose}
+              className={cn(
+                "min-h-[48px] px-3.5 flex items-center justify-between rounded-md text-base font-medium transition-colors",
+                isRouteActive("/contact")
+                  ? "bg-cyan-50 text-[#0891B2] font-semibold border border-cyan-200"
+                  : "text-[#475569] hover:bg-cyan-50 hover:text-[#0F0A1A]"
+              )}
+            >
+              <span>Contact</span>
+              {isRouteActive("/contact") && (
                 <span className="w-1.5 h-1.5 rounded-full bg-[#0891B2]" />
               )}
             </Link>

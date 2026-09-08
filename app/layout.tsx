@@ -4,7 +4,6 @@ import { siteConfig } from "@/lib/site-config";
 import { getOrganizationJsonLd } from "@/lib/seo";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
-import { WhatsAppButton } from "@/components/shared/whatsapp-button";
 import "./globals.css";
 
 const inter = Inter({
@@ -85,6 +84,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={`${inter.variable} ${fraunces.variable} ${cormorant.variable}`}
     >
       <head>
@@ -106,7 +106,6 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <WhatsAppButton />
 
         {/* Tactile Micro-Grain Paper Texture Overlay */}
         <div className="fixed inset-0 pointer-events-none z-50 bg-noise select-none opacity-25" aria-hidden="true" />

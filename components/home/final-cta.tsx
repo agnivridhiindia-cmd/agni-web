@@ -1,11 +1,9 @@
 import * as React from "react";
 import { ArrowRight, Lock, FileCheck2, Clock, Sparkles } from "lucide-react";
-import { siteConfig } from "@/lib/site-config";
 import { Container } from "@/components/shared/container";
 import { MagneticButton } from "@/components/ui/magnetic-button";
 import { LinkButton } from "@/components/ui/link-button";
 import { CtaArrow } from "@/components/ui/cta-arrow";
-import { WhatsAppIcon } from "@/components/shared/whatsapp-button";
 import { FadeIn } from "@/components/shared/motion";
 
 const trustIndicators = [
@@ -27,12 +25,10 @@ const trustIndicators = [
 ];
 
 export function FinalCta() {
-  const cleanWhatsApp = siteConfig.contact.whatsapp?.replace(/[^0-9]/g, "");
-
   return (
     <section
       aria-labelledby="final-cta-heading"
-      className="relative border-b border-cyan-100/80 bg-[radial-gradient(circle_at_top_left,_rgba(34,211,238,0.14),transparent_20%),radial-gradient(circle_at_bottom_right,_rgba(45,212,191,0.12),transparent_20%),linear-gradient(180deg,#ffffff_0%,#f4fdff_34%,#f3fbfd_100%)] py-20 text-[#181226] sm:py-28 lg:py-36"
+      className="relative border-b border-cyan-100/80 bg-[radial-gradient(circle_at_top_left,_rgba(34,211,238,0.14),transparent_20%),radial-gradient(circle_at_bottom_right,_rgba(45,212,191,0.12),transparent_20%),linear-gradient(180deg,#ffffff_0%,#f4fdff_34%,#f3fbfd_100%)] pt-14 pb-16 text-[#181226] sm:pt-18 sm:pb-22 lg:pt-20 lg:pb-28"
     >
       <Container width="wide">
         <FadeIn direction="up" distance={24} delay={0.05}>
@@ -76,7 +72,7 @@ export function FinalCta() {
                   <LinkButton
                     href="/contact"
                     variant="primary"
-                    className="w-full sm:w-auto rounded-full px-7 py-4 text-sm sm:text-base font-semibold bg-[#0891B2] hover:bg-[#0E7490] text-white justify-center transition-all inline-flex items-center gap-2.5 tracking-wide shadow-[0_4px_20px_rgba(88,28,135,0.25)] hover:shadow-[0_8px_28px_rgba(88,28,135,0.32)] hover:-translate-y-0.5 cursor-pointer"
+                    className="w-full sm:w-auto rounded-full px-7 py-4 text-sm sm:text-base font-semibold justify-center transition-all inline-flex items-center gap-2.5 tracking-wide shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_6px_22px_rgba(8,145,178,0.28)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.6),0_10px_28px_rgba(8,145,178,0.36)] hover:-translate-y-0.5 cursor-pointer [transform:translateZ(0)]"
                     aria-label="Schedule a preliminary consultation with an Agnivridhi advisory principal"
                   >
                     <span>Schedule Free Consultation</span>
@@ -88,28 +84,12 @@ export function FinalCta() {
                 <LinkButton
                   href="/services"
                   variant="outline"
-                  className="w-full sm:w-auto rounded-full px-7 py-4 text-sm sm:text-base font-semibold border-cyan-200/90 bg-white/95 hover:bg-cyan-50 text-[#181226] hover:text-[#0891B2] hover:border-[#0891B2]/40 justify-center transition-all inline-flex items-center gap-2 tracking-wide shadow-xs hover:shadow-sm hover:-translate-y-0.5 cursor-pointer"
+                  className="w-full sm:w-auto rounded-full px-7 py-4 text-sm sm:text-base font-semibold border-cyan-200/90 bg-white/75 backdrop-blur-md hover:bg-white/95 text-[#181226] hover:text-[#0891B2] hover:border-[#0891B2]/40 justify-center transition-all inline-flex items-center gap-2 tracking-wide shadow-[inset_0_1px_1px_rgba(255,255,255,0.85),0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_4px_14px_rgba(8,145,178,0.12)] hover:-translate-y-0.5 cursor-pointer [transform:translateZ(0)]"
                   aria-label="Explore all four advisory practices and service catalog"
                 >
                   <span>Explore Our Services</span>
                   <ArrowRight className="w-4 h-4 ml-1 text-[#0891B2]" />
                 </LinkButton>
-
-                {/* WhatsApp Integration */}
-                {cleanWhatsApp && (
-                  <a
-                    href={`https://wa.me/${cleanWhatsApp}?text=${encodeURIComponent(
-                      "Hello Agnivridhi team, I would like to schedule an enterprise consultation."
-                    )}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full border border-emerald-300 bg-white text-[#16A34A] hover:bg-emerald-50 transition-colors text-xs sm:text-sm font-semibold tracking-wide shadow-xs hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
-                    aria-label="Chat directly with Agnivridhi team on WhatsApp"
-                  >
-                    <WhatsAppIcon className="w-4 h-4 fill-current text-[#16A34A]" />
-                    <span>Chat on WhatsApp</span>
-                  </a>
-                )}
               </div>
 
               {/* Trust Indicators Strip */}

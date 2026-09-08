@@ -4,31 +4,30 @@
 
 @keyframes hero-ambient-drift {
   0% {
-    transform: translate3d(-10%, -6%, 0) scale(1);
-    background-position: 0% 0%;
+    transform: translate3d(-3%, -2%, 0);
+    opacity: 0.45;
   }
   50% {
-    transform: translate3d(10%, 6%, 0) scale(1.15);
-    background-position: 100% 80%;
+    transform: translate3d(3%, 2%, 0);
+    opacity: 0.6;
   }
   100% {
-    transform: translate3d(-10%, -6%, 0) scale(1);
-    background-position: 0% 0%;
+    transform: translate3d(-3%, -2%, 0);
+    opacity: 0.45;
   }
 }
 
 .hero-ambient-drift {
   position: absolute;
-  inset: -8%;
+  inset: -4%;
   pointer-events: none;
-  opacity: 0.5;
   background:
-    radial-gradient(circle at 18% 30%, rgb(34 211 238 / 0.62), transparent 34%),
-    radial-gradient(circle at 82% 64%, rgb(16 185 129 / 0.48), transparent 32%),
-    radial-gradient(circle at 52% 82%, rgb(14 165 233 / 0.4), transparent 38%);
-  background-size: 180% 180%;
-  animation: hero-ambient-drift 18s ease-in-out infinite;
-  will-change: transform;
+    radial-gradient(circle at 18% 30%, rgb(34 211 238 / 0.55), transparent 34%),
+    radial-gradient(circle at 82% 64%, rgb(16 185 129 / 0.4), transparent 32%),
+    radial-gradient(circle at 52% 82%, rgb(14 165 233 / 0.35), transparent 38%);
+  animation: hero-ambient-drift 12s ease-in-out infinite;
+  will-change: transform, opacity;
+  contain: strict;
 }
 
 @keyframes marquee-loop {
