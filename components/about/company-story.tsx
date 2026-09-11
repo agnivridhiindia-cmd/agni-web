@@ -7,7 +7,7 @@ export function CompanyStory() {
   return (
     <section
       aria-labelledby="company-story-heading"
-      className="relative py-16 sm:py-20 lg:py-28 bg-tech-obsidian text-white border-b border-slate-800/80 overflow-hidden"
+      className="relative py-16 sm:py-20 lg:py-28 bg-tech-obsidian text-white border-b border-slate-800/80"
     >
       {/* Ambient Warm & Cyan Texture */}
       <div
@@ -22,7 +22,7 @@ export function CompanyStory() {
       <Container width="wide" className="relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Column: Problem Diagnosis & Editorial Highlight (5 cols) */}
-          <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-28">
+          <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-28 h-fit">
             <FadeIn direction="up" distance={16} delay={0.05}>
               <div className="space-y-4">
                 <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-amber-950/80 backdrop-blur-md border border-amber-500/40 text-xs font-mono tracking-widest text-amber-300 uppercase shadow-xs">

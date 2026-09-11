@@ -35,27 +35,16 @@ export function AmbientBackground({
   showSpotlight = true,
   showGrid = true,
 }: AmbientBackgroundProps) {
-  const [mousePos, setMousePos] = React.useState({ x: -1000, y: -1000 });
   const isPointerFine = useMediaQuery("(pointer: fine)", false);
   const prefersReducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)", false);
   const targetPos = React.useRef({ x: -1000, y: -1000 });
   const currentPos = React.useRef({ x: -1000, y: -1000 });
   const rafRef = React.useRef<number | null>(null);
+  const spotlightRef = React.useRef<HTMLDivElement>(null);
 
   // Smooth lerp mouse tracking for desktop spotlight
   React.useEffect(() => {
-    if (!showSpotlight || !isPointerFine) return;
-
-    const handleMouseMove = (e: MouseEvent) => {
-      targetPos.current = { x: e.clientX, y: e.clientY };
-    };
-
-    const handleMouseLeave = () => {
-      targetPos.current = { x: -1000, y: -1000 };
-    };
-
-    window.addEventListener("mousemove", handleMouseMove, { passive: true });
-    document.addEventListener("mouseleave", handleMouseLeave);
+    if (!showSpotlight || !isPointerFine || prefersReducedMotion) return;
 
     const lerp = (start: number, end: number, factor: number) =>
       start + (end - start) * factor;
@@ -64,22 +53,42 @@ export function AmbientBackground({
       currentPos.current.x = lerp(currentPos.current.x, targetPos.current.x, 0.09);
       currentPos.current.y = lerp(currentPos.current.y, targetPos.current.y, 0.09);
 
-      setMousePos({
-        x: Math.round(currentPos.current.x),
-        y: Math.round(currentPos.current.y),
-      });
+      const spotlight = spotlightRef.current;
+      if (spotlight) {
+        spotlight.style.transform = `translate3d(${currentPos.current.x - 300}px, ${currentPos.current.y - 300}px, 0)`;
+        spotlight.style.opacity = currentPos.current.x > -500 ? "1" : "0";
+      }
 
-      rafRef.current = requestAnimationFrame(animate);
+      const distance = Math.hypot(
+        targetPos.current.x - currentPos.current.x,
+        targetPos.current.y - currentPos.current.y
+      );
+      rafRef.current = distance > 0.5 ? requestAnimationFrame(animate) : null;
     };
 
-    rafRef.current = requestAnimationFrame(animate);
+    const handleMouseMove = (e: MouseEvent) => {
+      targetPos.current = { x: e.clientX, y: e.clientY };
+      if (rafRef.current === null) {
+        rafRef.current = requestAnimationFrame(animate);
+      }
+    };
+
+    const handleMouseLeave = () => {
+      targetPos.current = { x: -1000, y: -1000 };
+      if (rafRef.current === null) {
+        rafRef.current = requestAnimationFrame(animate);
+      }
+    };
+
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    document.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseleave", handleMouseLeave);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
-  }, [showSpotlight, isPointerFine]);
+  }, [showSpotlight, isPointerFine, prefersReducedMotion]);
 
   return (
     <div
@@ -138,15 +147,16 @@ export function AmbientBackground({
       {showSpotlight && isPointerFine && (
         <div
           className="absolute pointer-events-none will-change-transform"
+          ref={spotlightRef}
           style={{
-            transform: `translate3d(${mousePos.x - 300}px, ${mousePos.y - 300}px, 0)`,
+            transform: "translate3d(-1300px, -1300px, 0)",
             width: "600px",
             height: "600px",
             background:
               "radial-gradient(circle at center, rgba(245, 158, 11, 0.1) 0%, rgba(6, 182, 212, 0.08) 35%, transparent 70%)",
             borderRadius: "50%",
             filter: "blur(20px)",
-            opacity: mousePos.x > -500 ? 1 : 0,
+            opacity: 0,
             transition: "opacity 0.4s ease",
           }}
         />

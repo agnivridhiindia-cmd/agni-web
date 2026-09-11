@@ -57,11 +57,11 @@ export function Header() {
           setIsScrolled(currentY > 20);
           // Always keep navigation header visible for instant institutional branding
           setHeroHidden(false);
+          setServicesOpen(false);
           ticking = false;
         });
         ticking = true;
       }
-      setServicesOpen(false);
     };
 
     handleScroll();

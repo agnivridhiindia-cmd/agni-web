@@ -117,7 +117,7 @@ export function FounderSection() {
     <section
       id="founder-story"
       aria-labelledby="founder-heading"
-      className="relative py-16 sm:py-20 lg:py-28 bg-tech-obsidian text-white border-b border-slate-800/80 overflow-hidden"
+      className="relative py-16 sm:py-20 lg:py-28 bg-tech-obsidian text-white border-b border-slate-800/80"
     >
       {/* Ambient Warm Heritage Texture */}
       <div
@@ -136,7 +136,7 @@ export function FounderSection() {
           {/* ============================================================
               LEFT COLUMN: Executive Studio Portrait & Authority Card (5 cols)
               ============================================================ */}
-          <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-28">
+          <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-28 h-fit">
             <FadeIn direction="up" distance={16} delay={0.05}>
               <div className="rounded-3xl bg-gradient-to-b from-teal-900/80 via-[#043331]/95 to-teal-950/95 border border-teal-500/30 shadow-[0_24px_70px_-16px_rgba(0,0,0,0.8),0_0_40px_rgba(20,184,166,0.15)] [transform:translateZ(0)] overflow-hidden">
                 {/* Executive Studio Portrait Container */}

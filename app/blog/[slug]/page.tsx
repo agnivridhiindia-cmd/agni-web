@@ -77,7 +77,7 @@ export default async function BlogPostDetailPage({ params }: BlogPostPageProps) 
   ]);
 
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden">
+    <div className="min-h-screen bg-background">
       {/* Schema.org Structured Data */}
       <script
         type="application/ld+json"
@@ -134,7 +134,7 @@ export default async function BlogPostDetailPage({ params }: BlogPostPageProps) 
             </article>
 
             {/* Sticky Table of Contents on the RIGHT Column (Desktop) */}
-            <aside className="hidden lg:block w-72 shrink-0">
+            <aside className="hidden lg:block w-72 shrink-0 self-stretch">
               <TableOfContents items={tocItems} variant="desktop" />
             </aside>
           </div>

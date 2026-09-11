@@ -30,12 +30,6 @@ export const defaultViewport = {
   amount: 0.02,
 } as const;
 
-function isAutomatedEnvironment(): boolean {
-  if (typeof window === "undefined") return false;
-  if (typeof navigator !== "undefined" && Boolean(navigator.webdriver)) return true;
-  return false;
-}
-
 function subscribeReducedMotion(callback: () => void) {
   if (typeof window === "undefined" || !window.matchMedia) return () => {};
   const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -45,7 +39,6 @@ function subscribeReducedMotion(callback: () => void) {
 
 function getReducedMotionSnapshot(): boolean {
   if (typeof window === "undefined") return false;
-  if (isAutomatedEnvironment()) return true;
   if (!window.matchMedia) return false;
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
@@ -55,7 +48,7 @@ function getServerSnapshotFalse(): boolean {
 }
 
 /**
- * Hook to detect if user has requested reduced motion or if automated test runner is active.
+ * Hook to detect if the user has requested reduced motion.
  * Safe for SSR (defaults to false until mounted).
  */
 export function useReducedMotionPreference(): boolean {

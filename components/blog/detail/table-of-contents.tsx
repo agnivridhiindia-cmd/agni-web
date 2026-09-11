@@ -58,7 +58,7 @@ export function TableOfContents({ items, variant = "all", className }: TableOfCo
   const showDesktop = variant === "all" || variant === "desktop";
 
   return (
-    <div className={className}>
+    <div className={cn(className, variant === "desktop" && "h-full")}>
       {/* Mobile Collapsible TOC */}
       {showMobile && (
         <div className={cn("rounded-xl border border-cyan-100 bg-white overflow-hidden shadow-xs", variant === "all" ? "lg:hidden my-8" : "")}>

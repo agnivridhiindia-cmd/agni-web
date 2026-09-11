@@ -194,7 +194,7 @@ export function ServicesTeaser() {
   return (
     <section
       aria-labelledby="services-teaser-heading"
-      className="relative overflow-hidden border-b border-[#D8E6F0] py-20 sm:py-28 lg:py-36 bg-gradient-to-b from-[#F8FAFC] via-[#F2F7FB] to-[#EBF3F9]"
+      className="relative border-b border-[#D8E6F0] py-20 sm:py-28 lg:py-36 bg-gradient-to-b from-[#F8FAFC] via-[#F2F7FB] to-[#EBF3F9]"
     >
       {/* Precision architectural ambient background */}
       <div
@@ -373,7 +373,7 @@ export function ServicesTeaser() {
           </div>
 
           {/* Right: Dynamic Architectural Photography Frame (5 cols) */}
-          <div className="hidden lg:block lg:col-span-5 lg:sticky lg:top-28 self-start">
+          <div className="hidden lg:block lg:col-span-5 lg:sticky lg:top-28 h-fit">
             <div className="relative rounded-3xl overflow-hidden border border-slate-700/60 bg-slate-950 shadow-[0_20px_50px_rgba(15,23,42,0.3)] group aspect-[4/3] [transform:translateZ(0)]">
               {/* Corner Blueprint Crosshairs */}
               <div className="absolute top-2 left-2 font-mono text-xs text-sky-400/50 z-30 select-none">
