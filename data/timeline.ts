@@ -68,7 +68,7 @@ export const companyTimeline: readonly TimelineMilestone[] = [
     title: "Full-Stack Multi-Pillar Convergence",
     subtitle: "Four Unified Practices Under One Institutional Roof",
     description:
-      "Synchronized all practices - â€Funding, Compliance, Digital, and Custom IT - â€into multidisciplinary advisory pods operating from corporate headquarters at Sector 62, Noida.",
+      "Synchronized all practices—Funding, Compliance, Digital, and Custom IT—into multidisciplinary advisory pods operating from corporate headquarters at Sector 62, Noida.",
     badge: "Institutional Scale",
     pillarTag: "Integrated Pods",
     metric: "28 States",

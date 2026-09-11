@@ -17,20 +17,24 @@ export default async function SuccessStoriesPage() {
   const caseStudies = await getAllCaseStudies();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-slate-950 text-slate-100 selection:bg-amber-500/20 selection:text-amber-200">
       {/* Editorial Hero Header */}
       <SuccessStoriesHero totalStories={caseStudies.length} />
+
+      <div className="hairline-rule-brass" />
 
       {/* Interactive Case Studies Directory with Category Filtering */}
       <React.Suspense
         fallback={
-          <div className="py-20 text-center text-slate-500 text-sm font-sans">
+          <div className="py-20 text-center text-amber-300/80 text-sm font-sans">
             Loading verified case studies...
           </div>
         }
       >
         <StoriesListing initialStudies={caseStudies} />
       </React.Suspense>
+
+      <div className="hairline-rule-cyan" />
 
       {/* Closing Conversion CTA */}
       <SuccessStoriesCta />

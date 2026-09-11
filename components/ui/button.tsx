@@ -8,36 +8,38 @@ export const buttonVariants = cva(
   {
     variants: {
       variant: {
-        // Primary: Frosted Glass Brand Action with specular highlight
+        // Primary: Apple Liquid Glass Cyan Action with high-refraction specular highlight
         primary:
-          "bg-gradient-to-b from-[#0AA5C7]/90 via-[#0891B2]/95 to-[#0E7490]/95 backdrop-blur-md text-white font-semibold border border-white/25 shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_4px_16px_rgba(8,145,178,0.22)] hover:from-[#0891B2] hover:to-[#0E7490] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.6),0_8px_24px_rgba(8,145,178,0.32)] active:from-[#0E7490] active:to-[#155E75] hover:-translate-y-0.5 active:translate-y-0",
+          "bg-gradient-to-b from-[#06B6D4]/90 via-[#0891B2]/95 to-[#0E7490]/95 backdrop-blur-xl text-white font-semibold border border-white/30 shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.65),0_8px_24px_rgba(8,145,178,0.28)] hover:from-[#0891B2] hover:to-[#0E7490] hover:border-white/50 hover:shadow-[inset_0_1px_2px_rgba(255,255,255,0.85),0_12px_32px_rgba(8,145,178,0.38)] active:from-[#0E7490] active:to-[#155E75] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]",
         default:
-          "bg-gradient-to-b from-[#0AA5C7]/90 via-[#0891B2]/95 to-[#0E7490]/95 backdrop-blur-md text-white font-semibold border border-white/25 shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_4px_16px_rgba(8,145,178,0.22)] hover:from-[#0891B2] hover:to-[#0E7490] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.6),0_8px_24px_rgba(8,145,178,0.32)] active:from-[#0E7490] active:to-[#155E75] hover:-translate-y-0.5 active:translate-y-0",
-        // Accent: Warm Cyan Glass Conversions
+          "bg-gradient-to-b from-[#06B6D4]/90 via-[#0891B2]/95 to-[#0E7490]/95 backdrop-blur-xl text-white font-semibold border border-white/30 shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.65),0_8px_24px_rgba(8,145,178,0.28)] hover:from-[#0891B2] hover:to-[#0E7490] hover:border-white/50 hover:shadow-[inset_0_1px_2px_rgba(255,255,255,0.85),0_12px_32px_rgba(8,145,178,0.38)] active:from-[#0E7490] active:to-[#155E75] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]",
+        // Accent: Apple Liquid Cyan Conversion
         accent:
-          "bg-gradient-to-b from-[#22D3EE]/90 via-[#06B6D4]/95 to-[#0891B2]/95 backdrop-blur-md text-white font-semibold border border-white/25 shadow-[inset_0_1px_1px_rgba(255,255,255,0.45),0_4px_16px_rgba(6,182,212,0.25)] hover:from-[#06B6D4] hover:to-[#0891B2] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.65),0_8px_24px_rgba(6,182,212,0.35)] hover:-translate-y-0.5 active:translate-y-0",
-        // Secondary: Frosted Pearl Surface
+          "bg-gradient-to-b from-[#22D3EE]/90 via-[#06B6D4]/95 to-[#0891B2]/95 backdrop-blur-xl text-white font-semibold border border-white/35 shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.7),0_8px_24px_rgba(6,182,212,0.3)] hover:from-[#06B6D4] hover:to-[#0891B2] hover:border-white/55 hover:shadow-[inset_0_1px_2px_rgba(255,255,255,0.9),0_14px_36px_rgba(6,182,212,0.4)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]",
+        // Secondary: Apple Translucent Dark Glass Surface
         secondary:
-          "bg-white/80 backdrop-blur-md text-[#0F0A1A] border border-cyan-200/90 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_2px_8px_rgba(8,145,178,0.06)] hover:bg-white/95 hover:border-cyan-300 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_4px_16px_rgba(8,145,178,0.12)] active:bg-cyan-50/80 hover:-translate-y-0.5 active:translate-y-0",
-        // Outline: Frosted Glass with Structural Border
+          "bg-white/[0.08] hover:bg-white/[0.14] text-white backdrop-blur-xl border border-white/15 hover:border-white/30 shadow-[inset_0_1px_1px_rgba(255,255,255,0.25),0_8px_20px_rgba(0,0,0,0.35)] active:bg-white/[0.06] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]",
+        // Outline: Frosted Glass with Structural Hairline Border
         outline:
-          "bg-white/70 backdrop-blur-md text-[#0F0A1A] border border-cyan-200/90 shadow-[inset_0_1px_1px_rgba(255,255,255,0.85),0_2px_8px_rgba(0,0,0,0.03)] hover:bg-white/95 hover:border-[#0891B2]/60 hover:text-[#0891B2] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_4px_14px_rgba(8,145,178,0.12)] active:bg-cyan-50/80 hover:-translate-y-0.5 active:translate-y-0",
+          "bg-white/[0.05] hover:bg-white/[0.10] text-slate-100 backdrop-blur-xl border border-white/15 hover:border-amber-400/50 hover:text-amber-300 shadow-[inset_0_1px_1px_rgba(255,255,255,0.18),0_4px_16px_rgba(0,0,0,0.25)] active:bg-white/[0.04] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]",
         // Ghost: Subtle Surface
-        ghost: "text-[#475569] hover:bg-white/75 hover:backdrop-blur-sm hover:text-[#0F0A1A] active:bg-white/90",
+        ghost: "text-slate-300 hover:bg-white/[0.08] hover:backdrop-blur-md hover:text-white active:bg-white/[0.04]",
         // Destructive
         destructive:
-          "bg-red-900/85 backdrop-blur-md text-white border border-red-700/50 shadow-[inset_0_1px_1px_rgba(255,255,255,0.35),0_4px_14px_rgba(220,38,38,0.25)] hover:bg-red-800 active:bg-red-900 hover:-translate-y-0.5 active:translate-y-0",
+          "bg-red-900/80 backdrop-blur-xl text-white border border-red-500/40 shadow-[inset_0_1px_1px_rgba(255,255,255,0.35),0_6px_20px_rgba(220,38,38,0.25)] hover:bg-red-800 active:bg-red-900 hover:-translate-y-0.5 active:translate-y-0",
         // Link
-        link: "text-[#0891B2] underline-offset-4 hover:underline hover:text-[#06B6D4] active:text-[#0E7490] p-0 h-auto",
-        // Glassmorphic Variants
+        link: "text-[#22D3EE] underline-offset-4 hover:underline hover:text-cyan-300 active:text-cyan-400 p-0 h-auto",
+        // Apple Liquid Glass Variants
         glass:
-          "bg-white/75 border border-white/60 text-[#0F0A1A] backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_4px_14px_rgba(8,145,178,0.08)] hover:bg-white/90 hover:border-cyan-200 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_6px_20px_rgba(8,145,178,0.15)] hover:-translate-y-0.5 active:translate-y-0",
-        "glass-teal":
-          "bg-cyan-50/80 border border-cyan-200/80 text-[#0891B2] backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.7),0_4px_14px_rgba(8,145,178,0.12)] hover:bg-cyan-100/90 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_6px_20px_rgba(8,145,178,0.18)] hover:-translate-y-0.5 active:translate-y-0",
+          "bg-white/[0.08] backdrop-blur-2xl border border-white/20 text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.3),0_10px_25px_-5px_rgba(0,0,0,0.4)] hover:bg-white/[0.15] hover:border-white/40 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]",
         "glass-gold":
-          "bg-cyan-100/80 border border-cyan-300/80 text-[#0891B2] backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.7),0_4px_14px_rgba(8,145,178,0.15)] hover:bg-cyan-200/80 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_6px_20px_rgba(8,145,178,0.22)] hover:-translate-y-0.5 active:translate-y-0",
+          "bg-gradient-to-b from-amber-400/90 via-amber-500/95 to-amber-600/95 text-slate-950 font-bold backdrop-blur-xl border border-white/50 shadow-[inset_0_1px_2px_rgba(255,255,255,0.8),0_10px_28px_-4px_rgba(245,158,11,0.45)] hover:shadow-[inset_0_1px_2px_rgba(255,255,255,1),0_14px_36px_-4px_rgba(245,158,11,0.6)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]",
+        "glass-teal":
+          "bg-cyan-950/60 border border-cyan-400/40 text-cyan-300 backdrop-blur-xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.25),0_6px_20px_rgba(6,182,212,0.2)] hover:bg-cyan-900/80 hover:border-cyan-300 hover:shadow-[0_8px_24px_rgba(6,182,212,0.3)] hover:-translate-y-0.5 active:translate-y-0",
+        "glass-light":
+          "bg-white/70 hover:bg-white/90 text-slate-800 backdrop-blur-xl border border-white shadow-[inset_0_1px_2px_rgba(255,255,255,1),0_8px_20px_rgba(15,23,42,0.06)] hover:border-white hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]",
         "glass-dark":
-          "bg-white/90 border border-cyan-200/90 text-[#0F0A1A] backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_4px_14px_rgba(8,145,178,0.08)] hover:bg-white hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_6px_20px_rgba(8,145,178,0.15)] hover:-translate-y-0.5 active:translate-y-0",
+          "bg-slate-900/80 border border-white/15 text-slate-100 backdrop-blur-xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_8px_24px_rgba(0,0,0,0.5)] hover:border-cyan-400/50 hover:shadow-[0_10px_30px_rgba(0,0,0,0.6)] hover:-translate-y-0.5 active:translate-y-0",
       },
       size: {
         default: "h-10 px-4 py-2 text-sm",

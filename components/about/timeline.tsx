@@ -57,96 +57,62 @@ function MilestoneCard({
 }: MilestoneCardProps) {
   return (
     <div
-      className={`p-7 rounded-2xl bg-white backdrop-blur-sm border transition-all duration-300 ${
+      className={`p-7 rounded-3xl bg-gradient-to-b from-teal-900/80 via-[#043331]/95 to-teal-950/95 backdrop-blur-md border transition-all duration-300 ${
         isActive
           ? isFinalPhase
-            ? "border-[#0891B2]/80 shadow-[0_8px_32px_-4px_rgba(124,58,237,0.25)] ring-1 ring-[#C79A4A]/20"
-            : "border-[#2DD4BF]/60 shadow-[0_8px_32px_-4px_rgba(124,58,237,0.2)] ring-1 ring-[#2DD4BF]/20"
-          : "border-cyan-100 hover:border-cyan-200 shadow-sm"
+            ? "border-teal-400/80 shadow-[0_16px_40px_rgba(0,0,0,0.6),0_0_25px_rgba(20,184,166,0.25)] ring-1 ring-amber-400/40"
+            : "border-teal-400/80 shadow-[0_16px_40px_rgba(0,0,0,0.6),0_0_20px_rgba(20,184,166,0.2)] ring-1 ring-amber-400/30"
+          : "border-teal-500/30 hover:border-teal-400/60 shadow-md"
       }`}
     >
       {/* Badge & Pillar Tag */}
       <div className="flex items-center justify-between gap-2 mb-3">
-        <span
-          className={`text-[11px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded border transition-colors ${
-            isActive
-              ? isFinalPhase
-                ? "text-[#0891B2] bg-[#0891B2]/10 border-cyan-200"
-                : "text-[#0891B2] bg-[#2DD4BF]/10 border-[#2DD4BF]/30"
-              : "text-[#64748B] bg-cyan-50 border-cyan-100"
-          }`}
-        >
+        <span className="text-[11px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded border text-amber-300 bg-amber-950/80 border-amber-500/40 shadow-xs">
           {milestone.badge}
         </span>
-        <span className="text-[11px] font-mono text-[#64748B] font-medium">
+        <span className="text-[11px] font-mono text-teal-200/70 font-medium">
           {milestone.pillarTag}
         </span>
       </div>
 
       {/* Subtitle & Title */}
       <div>
-        <span className="text-xs font-mono font-semibold text-[#0891B2] uppercase tracking-wider block">
+        <span className="text-xs font-mono font-semibold text-amber-400 uppercase tracking-wider block">
           {milestone.subtitle}
         </span>
-        <h3 className="font-serif text-2xl font-bold text-[#0F0A1A] leading-snug mt-1">
+        <h3 className="font-serif text-2xl font-medium text-amber-300 leading-snug mt-1">
           {milestone.title}
         </h3>
       </div>
 
       {/* Narrative Description */}
-      <p className="type-body-sm text-[#475569] font-sans leading-relaxed mt-3">
+      <p className="text-xs sm:text-sm text-teal-100/85 font-sans leading-relaxed mt-3">
         {milestone.description}
       </p>
 
-      {/* Structural Achievement Callout (e.g. ÃƒÂ¢ - Å¡Ã‚Â¹100 Cr+ Cumulative Debt Appraised) */}
-      <div
-        className={`mt-5 p-4 rounded-xl border transition-all duration-300 ${
-          isActive
-            ? isFinalPhase
-              ? "bg-cyan-50 border-[#0891B2]/40 shadow-2xs"
-              : "bg-cyan-50 border-[#2DD4BF]/40 shadow-2xs"
-            : "bg-white border-cyan-100"
-        }`}
-      >
+      {/* Structural Achievement Callout */}
+      <div className="mt-5 p-4 rounded-2xl border bg-teal-950/90 border-teal-500/30 shadow-xs">
         <div className="flex items-center justify-between gap-3 flex-wrap">
           <div className="flex items-center gap-2">
             <span
               className={`w-2 h-2 rounded-full ${
                 isActive
-                  ? isFinalPhase
-                    ? "bg-gold-500 animate-pulse"
-                    : "bg-teal-500 animate-pulse"
-                  : "bg-slate-400"
+                  ? "bg-amber-400 animate-pulse"
+                  : "bg-slate-600"
               }`}
             />
-            <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider font-bold text-[#475569]">
+            <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider font-bold text-teal-200/80">
               {milestone.metricLabel}
             </span>
           </div>
 
-          <div
-            className={`font-mono text-sm sm:text-base font-bold tabular-nums px-2.5 py-0.5 rounded ${
-              isActive
-                ? isFinalPhase
-                  ? "bg-[#0891B2]/20 text-[#0891B2] border border-[#0891B2]/40"
-                  : "bg-[#2DD4BF]/20 text-[#0891B2] border border-[#2DD4BF]/50"
-                : "bg-slate-200/70 text-[#475569]"
-            }`}
-          >
+          <div className="font-mono text-sm sm:text-base font-bold tabular-nums px-2.5 py-0.5 rounded bg-amber-950/80 text-amber-300 border border-amber-500/40">
             {milestone.metric}
           </div>
         </div>
 
-        <div className="pt-2 flex items-start gap-1.5 text-xs font-sans text-[#475569] font-medium leading-snug">
-          <CheckCircle2
-            className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${
-              isActive
-                ? isFinalPhase
-                  ? "text-gold-600"
-                  : "text-teal-600"
-                : "text-[#64748B]"
-            }`}
-          />
+        <div className="pt-2 flex items-start gap-1.5 text-xs font-sans text-teal-100/85 font-medium leading-snug">
+          <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
           <span>{milestone.achievementHighlight}</span>
         </div>
       </div>
@@ -240,13 +206,13 @@ function DesktopMilestoneRow({
             }
             className="space-y-1 select-none"
           >
-            <span className="text-5xl lg:text-6xl font-serif font-bold text-[#0F0A1A] block tracking-tight">
+            <span className="text-5xl lg:text-6xl font-serif font-medium text-white block tracking-tight">
               {milestone.year}
             </span>
-            <span className="font-mono text-xs font-bold uppercase tracking-widest text-gold-700 block">
+            <span className="font-mono text-xs font-bold uppercase tracking-widest text-amber-400 block">
               PHASE {milestone.phaseNumber} &bull; {milestone.badge}
             </span>
-            <span className="font-mono text-[11px] text-[#64748B] block">
+            <span className="font-mono text-[11px] text-slate-400 block">
               {milestone.pillarTag}
             </span>
           </motion.div>
@@ -263,20 +229,16 @@ function DesktopMilestoneRow({
         >
           <motion.div
             style={prefersReduced ? undefined : { scale: nodeScale }}
-            className={`w-12 h-12 rounded-full bg-white flex items-center justify-center transition-all duration-300 border-2 ${
+            className={`w-12 h-12 rounded-full bg-slate-900 flex items-center justify-center transition-all duration-300 border-2 ${
               isActive
-                ? isFinalPhase
-                  ? "border-gold-600 shadow-[0_0_24px_rgba(184,137,31,0.5)] ring-4 ring-gold-400/20"
-                  : "border-teal-600 shadow-[0_0_24px_rgba(8,145,178,0.45)] ring-4 ring-teal-400/20"
-                : "border-slate-300 shadow-sm"
+                ? "border-amber-400 shadow-[0_0_24px_rgba(245,158,11,0.6)] ring-4 ring-amber-400/20"
+                : "border-slate-800 shadow-sm"
             }`}
           >
             {/* Active Radiant Pulse Ring */}
             {isActive && !prefersReduced && (
               <span
-                className={`absolute inset-0 rounded-full animate-ping opacity-45 ${
-                  isFinalPhase ? "bg-gold-400" : "bg-teal-400"
-                }`}
+                className="absolute inset-0 rounded-full animate-ping opacity-45 bg-amber-400"
                 style={{ animationDuration: "2.5s" }}
                 aria-hidden="true"
               />
@@ -286,10 +248,8 @@ function DesktopMilestoneRow({
             <Icon
               className={`w-5 h-5 relative z-10 transition-colors duration-300 ${
                 isActive
-                  ? isFinalPhase
-                    ? "text-gold-700"
-                    : "text-teal-700"
-                  : "text-[#64748B]"
+                  ? "text-amber-400"
+                  : "text-slate-500"
               }`}
             />
           </motion.div>
@@ -329,13 +289,13 @@ function DesktopMilestoneRow({
             }
             className="space-y-1 select-none"
           >
-            <span className="text-5xl lg:text-6xl font-serif font-bold text-[#0F0A1A] block tracking-tight">
+            <span className="text-5xl lg:text-6xl font-serif font-medium text-white block tracking-tight">
               {milestone.year}
             </span>
-            <span className="font-mono text-xs font-bold uppercase tracking-widest text-gold-700 block">
+            <span className="font-mono text-xs font-bold uppercase tracking-widest text-amber-400 block">
               PHASE {milestone.phaseNumber} &bull; {milestone.badge}
             </span>
-            <span className="font-mono text-[11px] text-[#64748B] block">
+            <span className="font-mono text-[11px] text-slate-400 block">
               {milestone.pillarTag}
             </span>
           </motion.div>
@@ -389,19 +349,15 @@ function MobileMilestoneRow({
         className="relative z-10 flex-shrink-0 pt-1"
       >
         <div
-          className={`w-10 h-10 rounded-full bg-white flex items-center justify-center transition-all duration-300 border-2 ${
+          className={`w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center transition-all duration-300 border-2 ${
             isActive
-              ? isFinalPhase
-                ? "border-gold-600 shadow-[0_0_20px_rgba(184,137,31,0.4)] ring-2 ring-gold-400/20"
-                : "border-teal-600 shadow-[0_0_20px_rgba(8,145,178,0.4)] ring-2 ring-teal-400/20"
-              : "border-slate-300 shadow-sm"
+              ? "border-amber-400 shadow-[0_0_20px_rgba(245,158,11,0.5)] ring-2 ring-amber-400/20"
+              : "border-slate-800 shadow-sm"
           }`}
         >
           {isActive && !prefersReduced && (
             <span
-              className={`absolute inset-0 rounded-full animate-ping opacity-35 ${
-                isFinalPhase ? "bg-gold-400" : "bg-teal-400"
-              }`}
+              className="absolute inset-0 rounded-full animate-ping opacity-35 bg-amber-400"
               style={{ animationDuration: "2.5s" }}
               aria-hidden="true"
             />
@@ -409,10 +365,8 @@ function MobileMilestoneRow({
           <Icon
             className={`w-4 h-4 transition-colors duration-300 ${
               isActive
-                ? isFinalPhase
-                  ? "text-gold-700"
-                  : "text-teal-700"
-                : "text-[#64748B]"
+                ? "text-amber-400"
+                : "text-slate-500"
             }`}
           />
         </div>
@@ -425,16 +379,14 @@ function MobileMilestoneRow({
       >
         {/* Year Header */}
         <div className="flex flex-wrap items-center gap-2.5">
-          <span className="text-2xl font-serif font-bold text-[#0F0A1A]">
+          <span className="text-2xl font-serif font-medium text-white">
             {milestone.year}
           </span>
           <span
             className={`text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded border ${
               isActive
-                ? isFinalPhase
-                  ? "text-[#0891B2] bg-[#0891B2]/10 border-cyan-200"
-                  : "text-[#0891B2] bg-[#2DD4BF]/10 border-[#2DD4BF]/30"
-                : "text-[#64748B] bg-cyan-50 border-cyan-100"
+                ? "text-amber-300 bg-amber-950/60 border-amber-500/40"
+                : "text-slate-400 bg-slate-900 border-slate-800"
             }`}
           >
             PHASE {milestone.phaseNumber} &bull; {milestone.badge}
@@ -645,26 +597,41 @@ export function CompanyTimeline() {
       ref={sectionRef}
       id="company-timeline"
       aria-labelledby="timeline-heading"
-      className="py-16 sm:py-20 lg:py-28 bg-[#FFFFFF] border-b border-cyan-100 overflow-hidden"
+      className="relative py-16 sm:py-20 lg:py-28 bg-slate-950 text-slate-100 border-b border-slate-800/80 overflow-hidden"
     >
-      <Container width="wide" className="space-y-12 sm:space-y-16">
+      {/* Ambient Blueprint Grid */}
+      <div
+        className="pointer-events-none absolute inset-0 z-0 select-none overflow-hidden"
+        aria-hidden="true"
+      >
+        <div className="absolute inset-0 bg-blueprint-grid-dark opacity-25 [mask-image:radial-gradient(ellipse_85%_70%_at_50%_50%,#000_65%,transparent_100%)]" />
+        <div className="absolute top-1/3 -right-28 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.12)_0%,transparent_70%)] blur-3xl" />
+        <div className="absolute bottom-10 -left-28 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(6,182,212,0.10)_0%,transparent_70%)] blur-3xl" />
+        <div className="absolute top-8 left-8 font-mono text-xs text-amber-500/30 select-none">+</div>
+        <div className="absolute top-8 right-8 font-mono text-xs text-cyan-400/30 select-none">+</div>
+      </div>
+
+      <Container width="wide" className="relative z-10 space-y-12 sm:space-y-16">
         {/* Section Header */}
         <FadeIn direction="up" distance={16} delay={0.05}>
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
-            <SectionHeading
-              id="timeline-heading"
-              eyebrow="EVOLUTION &amp; MILESTONES"
-              eyebrowAccent
-              title="A Chronology of Institutional Elevation."
-              description="From our origins in capital restructuring to multi-pillar advisory convergence across 28 Indian states, our trajectory reflects an uncompromising standard of regulatory rigor and technical execution."
-              align="left"
-              className="max-w-3xl"
-            />
+            <div className="max-w-3xl space-y-4">
+              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-amber-950/80 backdrop-blur-md border border-amber-500/40 text-xs font-mono tracking-widest text-amber-300 uppercase shadow-xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                EVOLUTION &amp; MILESTONES • INSTITUTIONAL ELEVATION
+              </div>
+              <h2 id="timeline-heading" className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white tracking-tight leading-tight">
+                A Chronology of <span className="italic bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 bg-clip-text text-transparent">Institutional Elevation</span>.
+              </h2>
+              <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
+                From our origins in capital restructuring to multi-pillar advisory convergence across 28 Indian states, our trajectory reflects an uncompromising standard of regulatory rigor and technical execution.
+              </p>
+            </div>
 
             {/* Real-Time Interactive Badge */}
-            <div className="hidden lg:flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white text-white border border-cyan-100 shadow-sm self-start lg:self-auto">
-              <Sparkles className="w-4 h-4 text-gold-400 animate-pulse" />
-              <span className="font-mono text-xs font-medium text-slate-200">
+            <div className="hidden lg:flex items-center gap-2 px-3.5 py-2 rounded-xl bg-amber-950/60 text-amber-300 border border-amber-500/30 shadow-xs self-start lg:self-auto">
+              <Sparkles className="w-4 h-4 text-amber-400 animate-pulse" />
+              <span className="font-mono text-xs font-semibold text-amber-300">
                 Interactive Milestones Spine
               </span>
             </div>
@@ -684,7 +651,7 @@ export function CompanyTimeline() {
             aria-hidden="true"
           >
             <defs>
-              {/* Teal into Gold Brand Gradient */}
+              {/* Cyan into Gold Brand Gradient */}
               <linearGradient
                 id="timeline-gradient-desktop"
                 x1="0%"
@@ -692,10 +659,10 @@ export function CompanyTimeline() {
                 x2="0%"
                 y2="100%"
               >
-                <stop offset="0%" stopColor="#0891B2" />
-                <stop offset="35%" stopColor="#0E7490" />
-                <stop offset="70%" stopColor="#DCAE32" />
-                <stop offset="100%" stopColor="#B8891F" />
+                <stop offset="0%" stopColor="#06B6D4" />
+                <stop offset="35%" stopColor="#38BDF8" />
+                <stop offset="70%" stopColor="#F59E0B" />
+                <stop offset="100%" stopColor="#D97706" />
               </linearGradient>
 
               {/* Spine Radiant Light Halo Filter */}
@@ -718,7 +685,7 @@ export function CompanyTimeline() {
             {desktopPathData.pathD && (
               <path
                 d={desktopPathData.pathD}
-                stroke="#232727"
+                stroke="#334155"
                 strokeWidth="2.5"
                 strokeDasharray="6 6"
                 fill="none"
@@ -762,7 +729,7 @@ export function CompanyTimeline() {
                 cx={desktopPathData.startX}
                 cy={0}
                 r="5"
-                fill="#0891B2"
+                fill="#06B6D4"
                 className="transition-opacity"
               />
             )}
@@ -773,7 +740,7 @@ export function CompanyTimeline() {
                 cx={desktopPathData.endX}
                 cy={desktopPathData.endY}
                 r="5"
-                fill="#B8891F"
+                fill="#F59E0B"
                 className="transition-opacity"
               />
             )}
@@ -823,10 +790,10 @@ export function CompanyTimeline() {
                 x2="0%"
                 y2="100%"
               >
-                <stop offset="0%" stopColor="#0891B2" />
-                <stop offset="40%" stopColor="#0E7490" />
-                <stop offset="75%" stopColor="#DCAE32" />
-                <stop offset="100%" stopColor="#B8891F" />
+                <stop offset="0%" stopColor="#06B6D4" />
+                <stop offset="40%" stopColor="#38BDF8" />
+                <stop offset="75%" stopColor="#F59E0B" />
+                <stop offset="100%" stopColor="#D97706" />
               </linearGradient>
 
               <filter
@@ -848,7 +815,7 @@ export function CompanyTimeline() {
             {mobilePathData.pathD && (
               <path
                 d={mobilePathData.pathD}
-                stroke="#232727"
+                stroke="#334155"
                 strokeWidth="2"
                 strokeDasharray="5 5"
                 fill="none"

@@ -71,9 +71,7 @@ function getRecognitionMeta(type: RecognitionType): {
 
 export function RecognitionSection() {
   const prefersReduced = useReducedMotionPreference();
-  const carouselRef = React.useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = React.useState(0);
-  const [activeRenderIndex, setActiveRenderIndex] = React.useState(0);
   const [isPaused, setIsPaused] = React.useState(false);
 
   // Gated: strictly filter out unverified items
@@ -83,98 +81,29 @@ export function RecognitionSection() {
     );
   }, []);
 
-  const renderedItems = React.useMemo(
-    () => [...verifiedItems, ...verifiedItems, ...verifiedItems],
-    [verifiedItems]
-  );
-
-  const checkScroll = React.useCallback(() => {
-    const el = carouselRef.current;
-    if (!el) return;
-    const cards = Array.from(el.children) as HTMLElement[];
-    const viewportCenter = el.scrollLeft + el.clientWidth / 2;
-    let nearestIndex = cards.reduce((nearest, card, index) => {
-      const cardCenter = card.offsetLeft + card.offsetWidth / 2;
-      const nearestCenter = cards[nearest].offsetLeft + cards[nearest].offsetWidth / 2;
-      return Math.abs(cardCenter - viewportCenter) < Math.abs(nearestCenter - viewportCenter)
-        ? index
-        : nearest;
-    }, 0);
-
+  const showCard = React.useCallback((index: number) => {
     const itemCount = verifiedItems.length;
-    if (itemCount > 0 && (nearestIndex < itemCount || nearestIndex >= itemCount * 2)) {
-      const normalizedIndex = (nearestIndex % itemCount) + itemCount;
-      const normalizedCard = cards[normalizedIndex];
-      if (normalizedCard) {
-        const targetLeft = normalizedCard.offsetLeft - (el.clientWidth - normalizedCard.offsetWidth) / 2;
-        el.scrollTo({ left: Math.max(0, targetLeft), behavior: "auto" });
-        nearestIndex = normalizedIndex;
-      }
-    }
-
-    setActiveRenderIndex(nearestIndex);
-    setActiveIndex(itemCount > 0 ? nearestIndex % itemCount : 0);
+    if (itemCount === 0) return;
+    const nextIndex = ((index % itemCount) + itemCount) % itemCount;
+    setActiveIndex(nextIndex);
   }, [verifiedItems.length]);
-
-  React.useEffect(() => {
-    checkScroll();
-    window.addEventListener("resize", checkScroll);
-    return () => window.removeEventListener("resize", checkScroll);
-  }, [checkScroll]);
-
-  const showCard = React.useCallback((index: number, behavior: ScrollBehavior = "smooth") => {
-    const el = carouselRef.current;
-    const itemCount = verifiedItems.length;
-    if (!el || itemCount === 0) return;
-
-    let nextIndex = index;
-    if (nextIndex < itemCount) nextIndex += itemCount;
-    if (nextIndex >= itemCount * 2) nextIndex = itemCount * 2;
-
-    const card = el.children[nextIndex] as HTMLElement | undefined;
-    if (!card) return;
-    setActiveRenderIndex(nextIndex);
-    setActiveIndex(nextIndex % itemCount);
-    const targetLeft = card.offsetLeft - (el.clientWidth - card.offsetWidth) / 2;
-    el.scrollTo({
-      left: Math.max(0, targetLeft),
-      behavior: prefersReduced ? "auto" : behavior,
-    });
-
-    if (!prefersReduced && (nextIndex === itemCount * 2 || nextIndex === itemCount - 1)) {
-      window.setTimeout(() => {
-        const resetIndex = nextIndex === itemCount * 2 ? itemCount : itemCount * 2 - 1;
-        const resetCard = el.children[resetIndex] as HTMLElement | undefined;
-        if (!resetCard) return;
-        const resetLeft = resetCard.offsetLeft - (el.clientWidth - resetCard.offsetWidth) / 2;
-        el.scrollTo({ left: Math.max(0, resetLeft), behavior: "auto" });
-        setActiveRenderIndex(resetIndex);
-      }, 700);
-    }
-  }, [prefersReduced, verifiedItems.length]);
-
-  React.useEffect(() => {
-    if (verifiedItems.length > 0) {
-      showCard(verifiedItems.length, "auto");
-    }
-  }, [showCard, verifiedItems.length]);
 
   React.useEffect(() => {
     if (prefersReduced || isPaused || verifiedItems.length < 2) return;
     const timer = window.setInterval(() => {
-      showCard(activeRenderIndex + 1);
-    }, 6500);
+      showCard(activeIndex + 1);
+    }, 5000);
     return () => window.clearInterval(timer);
-  }, [activeRenderIndex, isPaused, prefersReduced, showCard, verifiedItems.length]);
+  }, [activeIndex, isPaused, prefersReduced, showCard, verifiedItems.length]);
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
     if (event.key === "ArrowLeft") {
       event.preventDefault();
-      showCard(activeRenderIndex - 1);
+      showCard(activeIndex - 1);
     }
     if (event.key === "ArrowRight") {
       event.preventDefault();
-      showCard(activeRenderIndex + 1);
+      showCard(activeIndex + 1);
     }
   };
 
@@ -182,49 +111,59 @@ export function RecognitionSection() {
     return null;
   }
 
+  const visibleItems = [-1, 0, 1].map((offset) => ({
+    item: verifiedItems[(activeIndex + offset + verifiedItems.length) % verifiedItems.length],
+    offset,
+  }));
+
   return (
     <section
       aria-labelledby="recognition-heading"
-      className="relative bg-gradient-to-b from-[#FAF8FE] via-[#F5F1FB] to-[#FAF8FE] text-[#181226] py-20 sm:py-28 lg:py-36 border-b border-cyan-100/80 overflow-hidden"
+      className="relative bg-nocturnal-jewel text-white py-20 sm:py-26 lg:py-32 border-b border-slate-800/80 overflow-hidden"
     >
-      {/* Ambient background decoration */}
+      {/* Ambient background decoration with royal purple, gold, and cyan spotlights */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 z-0 select-none overflow-hidden"
       >
-        <div className="absolute top-1/2 -right-24 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(124,58,237,0.06)_0%,transparent_70%)] blur-3xl" />
-        <div className="absolute bottom-0 -left-24 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(168,85,247,0.04)_0%,transparent_70%)] blur-3xl" />
+        <div className="absolute top-1/3 -right-24 h-[560px] w-[560px] rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.15)_0%,transparent_70%)] blur-3xl" />
+        <div className="absolute bottom-0 -left-24 h-[540px] w-[540px] rounded-full bg-[radial-gradient(circle,rgba(6,182,212,0.12)_0%,transparent_70%)] blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[360px] bg-[radial-gradient(ellipse_at_center,rgba(245,158,11,0.08)_0%,transparent_70%)] blur-3xl pointer-events-none" />
+        <div className="absolute inset-0 bg-dot-matrix-dark opacity-25 [mask-image:radial-gradient(ellipse_85%_75%_at_50%_50%,#000_65%,transparent_100%)]" />
+        {/* Subtle corner crosshairs */}
+        <div className="absolute top-8 left-8 font-mono text-xs text-amber-400/30 select-none">+</div>
+        <div className="absolute top-8 right-8 font-mono text-xs text-cyan-400/30 select-none">+</div>
       </div>
 
       <Container width="wide" className="relative z-10 space-y-10 sm:space-y-12">
         {/* Header Row: Title on Left, Carousel Controls on Right */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <FadeIn direction="up" distance={16} delay={0.04} className="max-w-2xl space-y-3.5">
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-cyan-200/90 text-[#0891B2] text-xs font-mono tracking-widest uppercase shadow-xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#0891B2]" />
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-amber-950/80 backdrop-blur-md border border-amber-500/40 text-amber-300 text-xs font-mono tracking-widest uppercase shadow-xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
               <span>AWARDS &amp; ACHIEVEMENTS &bull; ACCREDITATIONS</span>
             </div>
 
             <h2
               id="recognition-heading"
-              className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] font-normal tracking-[-0.015em] text-[#181226] !leading-[1.15]"
+              className="font-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-bold tracking-[-0.03em] text-white !leading-[1.14]"
             >
               Recognized for Catalyzing Enterprise Growth
             </h2>
 
-            <p className="font-sans text-sm sm:text-base text-[#475569] leading-[1.7]">
+            <p className="font-sans text-sm sm:text-base text-slate-300 leading-[1.7]">
               External citations, industry conclave commendations, and sector
               publications honoring our institutional advisory rigor across sovereign
               guarantees, statutory certifications, and modern enterprise governance.
             </p>
           </FadeIn>
 
-          {/* Carousel Arrows */}
+          {/* Apple Liquid Glass Carousel Arrows */}
           <FadeIn direction="up" distance={16} delay={0.08} className="shrink-0 flex items-center gap-3">
             <button
               type="button"
               onClick={() => showCard(activeIndex - 1)}
-              className="w-11 h-11 rounded-full border border-cyan-200/90 bg-white/80 backdrop-blur-md text-[#475569] hover:border-[#0891B2] hover:text-[#0891B2] hover:bg-white/95 disabled:opacity-25 flex items-center justify-center transition-all shadow-[inset_0_1px_1px_rgba(255,255,255,0.85),0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_4px_14px_rgba(8,145,178,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0891B2] cursor-pointer hover:-translate-y-0.5 [transform:translateZ(0)]"
+              className="w-12 h-12 rounded-full border border-white/20 bg-white/[0.08] hover:bg-white/[0.18] backdrop-blur-2xl text-white hover:text-amber-300 hover:border-amber-400/60 disabled:opacity-25 flex items-center justify-center transition-all shadow-[inset_0_1px_1px_rgba(255,255,255,0.3),0_10px_25px_rgba(0,0,0,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 cursor-pointer hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.95] [transform:translateZ(0)]"
               aria-label="Scroll citations left"
             >
               <ChevronLeft className="w-5 h-5" />
@@ -232,7 +171,7 @@ export function RecognitionSection() {
             <button
               type="button"
               onClick={() => showCard(activeIndex + 1)}
-              className="w-11 h-11 rounded-full border border-cyan-200/90 bg-white/80 backdrop-blur-md text-[#475569] hover:border-[#0891B2] hover:text-[#0891B2] hover:bg-white/95 disabled:opacity-25 flex items-center justify-center transition-all shadow-[inset_0_1px_1px_rgba(255,255,255,0.85),0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_4px_14px_rgba(8,145,178,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0891B2] cursor-pointer hover:-translate-y-0.5 [transform:translateZ(0)]"
+              className="w-12 h-12 rounded-full border border-white/20 bg-white/[0.08] hover:bg-white/[0.18] backdrop-blur-2xl text-white hover:text-amber-300 hover:border-amber-400/60 disabled:opacity-25 flex items-center justify-center transition-all shadow-[inset_0_1px_1px_rgba(255,255,255,0.3),0_10px_25px_rgba(0,0,0,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 cursor-pointer hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.95] [transform:translateZ(0)]"
               aria-label="Scroll citations right"
             >
               <ChevronRight className="w-5 h-5" />
@@ -244,8 +183,6 @@ export function RecognitionSection() {
             EDITORIAL HORIZONTAL CARD DECK (Scroll & Drag Responsive Carousel)
             ============================================================ */}
         <div
-          ref={carouselRef}
-          onScroll={checkScroll}
           onKeyDown={handleKeyDown}
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
@@ -254,21 +191,21 @@ export function RecognitionSection() {
           tabIndex={0}
           role="region"
           aria-label="Awards and accreditations carousel"
-          className="flex max-w-5xl items-stretch gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 pt-2 -mx-4 px-[calc((100%-320px)/2+1rem)] sm:gap-6 sm:-mx-6 sm:px-[calc((100%-380px)/2+1.5rem)] lg:mx-auto lg:px-[calc((100%-440px)/2)] no-scrollbar focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0891B2] focus-visible:ring-offset-4"
+          className="flex max-w-5xl items-stretch justify-center gap-4 overflow-hidden pb-4 pt-2 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-auto lg:px-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-4"
         >
-          {renderedItems.map((item, renderedIndex) => {
+          {visibleItems.map(({ item, offset }) => {
             const meta = getRecognitionMeta(item.type);
             const Icon = meta.icon;
 
             return (
               <div
-                key={`${item.id}-${renderedIndex}`}
-                className="w-[calc(100vw-2rem)] max-w-[360px] sm:w-[320px] lg:w-[440px] lg:max-w-[440px] shrink-0 snap-center h-full"
+                key={`${item.id}-${offset}`}
+                className={`w-full max-w-[360px] shrink-0 h-full ${offset !== 0 ? "hidden lg:block lg:opacity-60 lg:scale-[0.94]" : ""}`}
               >
                 <SpotlightCard
-                  glowVariant="purple"
-                  className="h-[360px] sm:h-[400px] p-0 bg-transparent border border-white/60 hover:border-cyan-300 transition-all duration-300 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_8px_24px_rgba(8,145,178,0.08)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_16px_36px_rgba(8,145,178,0.16)] [transform:translateZ(0)]"
-                  innerClassName="!p-0 justify-end bg-transparent text-white rounded-3xl"
+                  glowVariant="teal"
+                  className="h-[360px] sm:h-[400px] p-0 bg-transparent border border-slate-700/60 hover:border-sky-400/60 transition-all duration-300 shadow-[0_12px_32px_rgba(0,0,0,0.6)] hover:shadow-[0_16px_36px_rgba(0,0,0,0.8),0_0_20px_rgba(14,165,233,0.2)] [transform:translateZ(0)]"
+                  innerClassName="!p-0 justify-end bg-gradient-to-b from-[#111D3A]/90 via-[#0D162D]/95 to-[#0B1329]/98 text-white rounded-3xl overflow-hidden border border-slate-700/50"
                 >
                   {item.logoImage ? (
                     <Image
@@ -279,16 +216,16 @@ export function RecognitionSection() {
                       className="object-cover transition-transform duration-700 group-hover/spotlight:scale-105"
                     />
                   ) : (
-                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-cyan-100 via-white to-emerald-100">
-                      <Icon className="h-16 w-16 text-[#0891B2]" aria-hidden="true" />
+                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#132042] via-[#0E1833] to-[#0B1329]">
+                      <Icon className="h-16 w-16 text-amber-400" aria-hidden="true" />
                     </div>
                   )}
 
-                  <div className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/90 via-black/65 to-transparent px-5 pb-5 pt-24 sm:px-6 sm:pb-6">
-                    <span className="mb-2 block font-mono text-[10px] uppercase tracking-[0.18em] text-cyan-200">
+                  <div className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-[#0B1329] via-[#0B1329]/90 to-transparent px-5 pb-5 pt-28 sm:px-6 sm:pb-6">
+                    <span className="mb-2 block font-mono text-[10px] uppercase tracking-[0.18em] text-amber-400 font-semibold">
                       {item.publicationOrOrg} &bull; {item.year}
                     </span>
-                    <h3 className="font-serif text-xl font-medium leading-snug text-white sm:text-2xl">
+                    <h3 className="font-heading text-xl font-semibold leading-snug text-white sm:text-2xl line-clamp-2">
                       {item.title}
                     </h3>
 
@@ -297,7 +234,7 @@ export function RecognitionSection() {
                         href={item.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="mt-3 inline-flex items-center gap-1.5 font-mono text-xs tracking-wider text-white underline decoration-cyan-300 underline-offset-4 transition-colors hover:text-cyan-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                        className="mt-3 inline-flex items-center gap-1.5 font-mono text-xs tracking-wider text-sky-400 underline decoration-sky-400/50 underline-offset-4 transition-colors hover:text-sky-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
                         aria-label={`Read coverage: ${item.title} (opens in a new tab)`}
                       >
                         <span>Read Coverage</span>
@@ -319,7 +256,7 @@ export function RecognitionSection() {
               onClick={() => showCard(verifiedItems.length + index)}
               aria-label={`Show ${item.publicationOrOrg} recognition`}
               aria-current={activeIndex === index ? "true" : undefined}
-              className={`h-2 rounded-full transition-all ${activeIndex === index ? "w-8 bg-[#0891B2]" : "w-2 bg-cyan-200 hover:bg-cyan-400"}`}
+              className={`h-2 rounded-full transition-all cursor-pointer ${activeIndex === index ? "w-8 bg-amber-400 shadow-[0_0_12px_rgba(245,158,11,0.6)]" : "w-2 bg-slate-700 hover:bg-slate-500"}`}
             />
           ))}
         </div>

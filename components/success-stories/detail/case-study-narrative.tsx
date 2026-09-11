@@ -9,41 +9,41 @@ interface CaseStudyNarrativeProps {
 
 export function CaseStudyNarrative({ study }: CaseStudyNarrativeProps) {
   return (
-    <article className="space-y-12 sm:space-y-16">
+    <article className="space-y-12 sm:space-y-16 text-slate-100">
       {/* 1. Structural Barrier & Challenge */}
       <section aria-labelledby="section-challenge" className="space-y-4">
-        <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0891B2]">
-          <AlertCircle className="w-4 h-4 text-amber-600 shrink-0" aria-hidden="true" />
+        <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-amber-400">
+          <AlertCircle className="w-4 h-4 text-amber-400 shrink-0" aria-hidden="true" />
           <span>The Structural Challenge</span>
         </div>
 
         <h2
           id="section-challenge"
-          className="font-serif text-2xl sm:text-3xl font-semibold text-[#0F0A1A] tracking-tight leading-snug"
+          className="font-serif text-2xl sm:text-3xl font-semibold text-white tracking-tight leading-snug"
         >
           Operational &amp; Financial Bottleneck
         </h2>
 
-        <p className="type-body-lg text-[#475569] font-sans leading-relaxed max-w-4xl">
+        <p className="text-base sm:text-lg text-slate-300 font-sans leading-relaxed max-w-4xl">
           {study.challenge}
         </p>
       </section>
 
       {/* 2. Advisory Intervention & Strategy Delivered */}
       <section aria-labelledby="section-solution" className="space-y-4">
-        <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0891B2]">
-          <Sparkles className="w-4 h-4 text-teal-600 shrink-0" aria-hidden="true" />
+        <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-amber-400">
+          <Sparkles className="w-4 h-4 text-amber-400 shrink-0" aria-hidden="true" />
           <span>Agnivridhi Advisory Solution</span>
         </div>
 
         <h2
           id="section-solution"
-          className="font-serif text-2xl sm:text-3xl font-semibold text-[#0F0A1A] tracking-tight leading-snug"
+          className="font-serif text-2xl sm:text-3xl font-semibold text-white tracking-tight leading-snug"
         >
           Tailored Strategy &amp; Institutional Execution
         </h2>
 
-        <p className="type-body-lg text-[#475569] font-sans leading-relaxed max-w-4xl">
+        <p className="text-base sm:text-lg text-slate-300 font-sans leading-relaxed max-w-4xl">
           {study.solution}
         </p>
       </section>
@@ -51,14 +51,14 @@ export function CaseStudyNarrative({ study }: CaseStudyNarrativeProps) {
       {/* 3. Execution Roadmap (if verified process array exists) */}
       {study.process && study.process.length > 0 && (
         <section aria-labelledby="section-process" className="space-y-6">
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#475569]">
-            <Milestone className="w-4 h-4 text-[#64748B] shrink-0" aria-hidden="true" />
+          <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-amber-400">
+            <Milestone className="w-4 h-4 text-amber-400 shrink-0" aria-hidden="true" />
             <span>Execution Roadmap</span>
           </div>
 
           <h2
             id="section-process"
-            className="font-serif text-2xl sm:text-3xl font-semibold text-[#0F0A1A] tracking-tight leading-snug"
+            className="font-serif text-2xl sm:text-3xl font-semibold text-white tracking-tight leading-snug"
           >
             Engagement Milestones
           </h2>
@@ -67,12 +67,12 @@ export function CaseStudyNarrative({ study }: CaseStudyNarrativeProps) {
             {study.process.map((step, idx) => (
               <li
                 key={idx}
-                className="flex items-start gap-4 p-4 rounded-xl border border-cyan-100 bg-white"
+                className="flex items-start gap-4 p-4 sm:p-5 rounded-xl border border-teal-500/30 bg-gradient-to-b from-teal-900/80 via-[#043331]/95 to-teal-950/95 shadow-md"
               >
-                <span className="font-mono text-xs font-bold px-2 py-1 rounded bg-cyan-50 text-[#0891B2] border border-cyan-100 shrink-0">
+                <span className="font-mono text-xs font-bold px-2.5 py-1 rounded bg-amber-950/60 text-amber-400 border border-amber-500/40 shrink-0">
                   {String(idx + 1).padStart(2, "0")}
                 </span>
-                <p className="text-sm text-[#475569] font-sans leading-relaxed pt-0.5">
+                <p className="text-sm sm:text-base text-teal-100/90 font-sans leading-relaxed pt-0.5">
                   {step}
                 </p>
               </li>
@@ -84,14 +84,14 @@ export function CaseStudyNarrative({ study }: CaseStudyNarrativeProps) {
       {/* 4. Measurable Deliverables & Business Outcomes */}
       {study.outcomes && study.outcomes.length > 0 && (
         <section aria-labelledby="section-outcomes" className="space-y-6">
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0891B2]">
-            <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0" aria-hidden="true" />
+          <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-amber-400">
+            <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" aria-hidden="true" />
             <span>Verified Results</span>
           </div>
 
           <h2
             id="section-outcomes"
-            className="font-serif text-2xl sm:text-3xl font-semibold text-[#0F0A1A] tracking-tight leading-snug"
+            className="font-serif text-2xl sm:text-3xl font-semibold text-white tracking-tight leading-snug"
           >
             Measurable Deliverables &amp; Enterprise Momentum
           </h2>
@@ -99,8 +99,8 @@ export function CaseStudyNarrative({ study }: CaseStudyNarrativeProps) {
           <ul className="space-y-4 max-w-4xl">
             {study.outcomes.map((outcome, idx) => (
               <li key={idx} className="flex items-start gap-3.5">
-                <CheckCircle2 className="w-5 h-5 text-[#0891B2] shrink-0 mt-1" aria-hidden="true" />
-                <span className="text-sm sm:text-base font-medium text-[#475569] font-sans leading-relaxed">
+                <CheckCircle2 className="w-5 h-5 text-amber-400 shrink-0 mt-1" aria-hidden="true" />
+                <span className="text-sm sm:text-base font-medium text-slate-200 font-sans leading-relaxed">
                   {outcome}
                 </span>
               </li>
@@ -112,14 +112,14 @@ export function CaseStudyNarrative({ study }: CaseStudyNarrativeProps) {
       {/* 5. Verified Client Quote (rendered ONLY if quote exists) */}
       {study.quote && study.quote.text && (
         <section aria-label="Client Perspective" className="pt-4">
-          <blockquote className="relative rounded-2xl border border-cyan-100 bg-white p-6 sm:p-8 space-y-4 shadow-xl">
-            <Quote className="w-8 h-8 text-gold-500/40 absolute top-6 right-6" aria-hidden="true" />
-            <p className="font-serif text-lg sm:text-xl italic text-[#0F0A1A] leading-relaxed">
+          <blockquote className="relative rounded-2xl border border-teal-500/30 bg-gradient-to-b from-teal-900/80 via-[#043331]/95 to-teal-950/95 p-6 sm:p-8 space-y-4 shadow-xl">
+            <Quote className="w-8 h-8 text-amber-400/30 absolute top-6 right-6" aria-hidden="true" />
+            <p className="font-serif text-lg sm:text-xl italic text-amber-300 leading-relaxed">
               &ldquo;{study.quote.text}&rdquo;
             </p>
             {(study.quote.author || study.quote.role) && (
-              <footer className="text-xs font-sans text-[#64748B] font-medium">
-                {study.quote.author && <strong className="text-[#0F0A1A]">{study.quote.author}</strong>}
+              <footer className="text-xs font-sans text-teal-200/80 font-medium">
+                {study.quote.author && <strong className="text-white">{study.quote.author}</strong>}
                 {study.quote.author && study.quote.role && <span> &bull; </span>}
                 {study.quote.role && <span>{study.quote.role}</span>}
               </footer>

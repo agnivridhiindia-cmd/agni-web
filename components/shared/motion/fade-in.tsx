@@ -47,10 +47,12 @@ export function FadeIn({
     );
   }
 
+  const initialProp = props.initial !== undefined ? props.initial : false;
+
   if (inView) {
     return (
       <motion.div
-        initial="hidden"
+        initial={initialProp}
         whileInView="visible"
         viewport={{ ...defaultViewport, once: viewportOnce }}
         variants={variants}
@@ -65,7 +67,7 @@ export function FadeIn({
 
   return (
     <motion.div
-      initial="hidden"
+      initial={initialProp}
       animate="visible"
       variants={variants}
       custom={{ delay, duration }}

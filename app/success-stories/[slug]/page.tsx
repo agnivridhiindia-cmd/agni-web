@@ -81,7 +81,7 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
   ]);
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-screen bg-slate-950 text-slate-100 selection:bg-amber-500/20 selection:text-amber-200 flex flex-col">
       {/* Schema.org Breadcrumbs */}
       <script
         type="application/ld+json"
@@ -98,6 +98,8 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
       {/* 2. Editorial Case Study Hero */}
       <CaseStudyHero study={study} />
 
+      <div className="hairline-rule-brass" />
+
       {/* 3. Main Narrative & Sticky Sidebar Grid */}
       <div className="grow">
         <Container width="wide">
@@ -109,11 +111,17 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
           </div>
         </Container>
 
+        <div className="hairline-rule-cyan" />
+
         {/* 4. Associated Advisory Services */}
         <CaseStudyRelatedServices serviceSlugs={study.services} />
 
+        <div className="hairline-rule-brass" />
+
         {/* 5. Curated Complementary Case Studies */}
         <CaseStudyRelatedStories relatedStudies={relatedStudies} />
+
+        <div className="hairline-rule-multi" />
 
         {/* 6. Contextual Final Consultation CTA */}
         <CaseStudyCta caseStudyTitle={study.title} />

@@ -15,30 +15,31 @@ export function CaseStudyRelatedStories({ relatedStudies }: CaseStudyRelatedStor
   return (
     <section
       aria-labelledby="related-stories-heading"
-      className="border-t border-cyan-100 bg-white py-14 sm:py-16 lg:py-20"
+      className="border-t border-slate-800/80 bg-slate-950 text-slate-100 py-14 sm:py-16 lg:py-20"
     >
       <Container width="wide">
         <div className="space-y-8 sm:space-y-10">
           <div className="flex flex-wrap items-end justify-between gap-4">
-            <div className="max-w-xl space-y-2">
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0891B2]">
-                <BookOpen className="w-4 h-4 text-teal-600 shrink-0" aria-hidden="true" />
-                <span>Verified Case Collection</span>
+            <div className="max-w-xl space-y-3">
+              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-amber-950/80 backdrop-blur-md border border-amber-500/40 text-xs font-mono tracking-widest text-amber-300 uppercase shadow-xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                <BookOpen className="w-3.5 h-3.5 text-amber-400" />
+                <span>VERIFIED CASE COLLECTION</span>
               </div>
               <h2
                 id="related-stories-heading"
-                className="font-serif text-2xl sm:text-3xl font-semibold text-[#0F0A1A] tracking-tight"
+                className="font-serif text-2xl sm:text-3xl font-semibold text-white tracking-tight"
               >
                 Complementary Enterprise Outcomes
               </h2>
-              <p className="text-[#475569] text-sm font-sans">
+              <p className="text-slate-300 text-sm sm:text-base font-sans">
                 Explore how other Indian manufacturing and enterprise clients secured debt financing and statutory accreditation.
               </p>
             </div>
 
             <Link
               href="/success-stories"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#0891B2] hover:text-[#0F0A1A] transition-colors"
+              className="inline-flex items-center gap-1.5 text-sm font-mono font-semibold text-amber-400 hover:text-amber-300 transition-colors"
             >
               <span>View All Success Stories</span>
               <ArrowRight className="w-4 h-4" />

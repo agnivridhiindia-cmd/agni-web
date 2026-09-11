@@ -176,26 +176,36 @@ const ENGAGEMENT_STEPS = [
 
 export default function FaqPage() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-slate-950 text-slate-100 selection:bg-amber-500/20 selection:text-amber-200">
       {/* 1. Editorial Hero */}
-      <section className="relative overflow-hidden border-b border-cyan-100 bg-[radial-gradient(circle_at_top,_rgba(34,211,238,0.14),transparent_18%),radial-gradient(circle_at_80%_20%,rgba(45,212,191,0.12),transparent_20%),linear-gradient(180deg,#ffffff_0%,#f4fdff_42%,#f7fbfd_100%)] pb-14 pt-32 sm:pb-16 sm:pt-36 lg:pb-20 lg:pt-40">
+      <section className="relative overflow-hidden border-b border-slate-800/80 bg-slate-950 pb-14 pt-32 sm:pb-16 sm:pt-36 lg:pb-20 lg:pt-40">
+        {/* Ambient Blueprint Grid & Glowing Orbs */}
         <div
-          className="pointer-events-none absolute inset-x-0 top-0 h-96 bg-[radial-gradient(ellipse_70%_60%_at_50%_-10%,rgba(8,145,178,0.12),rgba(255,255,255,0))]"
+          className="pointer-events-none absolute inset-0 z-0 select-none overflow-hidden"
           aria-hidden="true"
-        />
+        >
+          <div className="absolute inset-0 bg-blueprint-grid-dark opacity-25 [mask-image:radial-gradient(ellipse_80%_60%_at_50%_40%,#000_60%,transparent_100%)]" />
+          <div className="absolute top-1/4 -right-28 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.12)_0%,transparent_70%)] blur-3xl" />
+          <div className="absolute bottom-10 -left-28 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(6,182,212,0.10)_0%,transparent_70%)] blur-3xl" />
+          <div className="absolute top-8 left-8 font-mono text-xs text-amber-500/30 select-none">+</div>
+          <div className="absolute top-8 right-8 font-mono text-xs text-cyan-400/30 select-none">+</div>
+        </div>
 
         <Container width="wide" className="relative z-10">
-          <div className="max-w-3xl space-y-5 rounded-[2rem] border border-cyan-200/80 bg-white/70 p-6 shadow-[0_22px_60px_-30px_rgba(8,145,178,0.22)] backdrop-blur-sm sm:p-8 lg:p-10">
-            <div className="inline-flex items-center gap-2 rounded-full border border-cyan-200 bg-cyan-50/80 px-3 py-1 text-xs font-mono tracking-widest text-[#0891B2]">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#0891B2]" />
+          <div className="max-w-3xl space-y-6">
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-amber-950/80 backdrop-blur-md border border-amber-500/40 text-xs font-mono tracking-widest text-amber-300 uppercase shadow-xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
               <span>KNOWLEDGE BASE &bull; FREQUENTLY ASKED QUESTIONS</span>
             </div>
 
-            <h1 className="font-serif text-3xl font-semibold leading-[1.12] tracking-tight text-[#181226] sm:text-4xl md:text-5xl lg:text-6xl">
-              Frequently Asked Questions
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.12] tracking-tight text-white">
+              Frequently Asked{" "}
+              <span className="italic bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 bg-clip-text text-transparent">
+                Questions
+              </span>
             </h1>
 
-            <p className="max-w-2xl font-sans text-base leading-relaxed text-[#475569] sm:text-lg">
+            <p className="max-w-2xl font-sans text-base sm:text-lg leading-relaxed text-slate-300">
               Clear, practical answers about collateral-free funding, statutory accreditations,
               technology implementations, and how our advisory practice works.
             </p>
@@ -203,17 +213,20 @@ export default function FaqPage() {
         </Container>
       </section>
 
+      <div className="hairline-rule-brass" />
+
       {/* 2. Engagement Lifecycle Protocol Section */}
-      <section className="border-b border-cyan-100 bg-[radial-gradient(circle_at_top_left,_rgba(34,211,238,0.08),transparent_18%),linear-gradient(180deg,#f0fbfd_0%,#f8feff_100%)] py-12 sm:py-16">
+      <section className="border-b border-slate-800/80 bg-slate-950/60 py-12 sm:py-16">
         <Container width="wide" className="space-y-8">
-          <div className="max-w-2xl space-y-2">
-            <div className="inline-flex items-center gap-2 rounded-full border border-cyan-200 bg-white/80 px-3 py-1 text-xs font-mono font-semibold text-[#0891B2] shadow-sm">
-              <span>Consultation Lifecycle</span>
+          <div className="max-w-2xl space-y-3">
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-amber-950/80 backdrop-blur-md border border-amber-500/40 text-xs font-mono tracking-widest text-amber-300 uppercase shadow-xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+              <span>CONSULTATION LIFECYCLE &bull; 3-STAGE PROTOCOL</span>
             </div>
-            <h2 className="font-serif text-2xl font-semibold tracking-tight text-[#181226] sm:text-3xl">
+            <h2 className="font-serif text-2xl font-semibold tracking-tight text-white sm:text-3xl">
               What Happens After You Inquire?
             </h2>
-            <p className="font-sans text-sm text-[#475569]">
+            <p className="font-sans text-sm sm:text-base text-slate-300">
               Our 3-step structured advisory roadmap ensures rapid turnaround and zero guesswork.
             </p>
           </div>
@@ -222,33 +235,35 @@ export default function FaqPage() {
             {ENGAGEMENT_STEPS.map((step) => (
               <div
                 key={step.number}
-                className="group relative space-y-3 rounded-[1.5rem] border border-white/60 bg-white/85 p-6 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_18px_40px_-24px_rgba(8,145,178,0.18)] transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-300 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_22px_48px_-24px_rgba(8,145,178,0.22)] [transform:translateZ(0)]"
+                className="group relative space-y-3 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-teal-900/80 via-[#043331]/95 to-teal-950/95 p-6 shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:border-amber-400/50 hover:shadow-[0_16px_40px_rgba(245,158,11,0.15)] [transform:translateZ(0)]"
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-cyan-200 bg-gradient-to-br from-cyan-50 to-white font-mono text-sm font-bold text-[#0891B2]">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-amber-500/40 bg-amber-950/60 font-mono text-sm font-bold text-amber-400 shadow-sm">
                   {step.number}
                 </div>
-                <h3 className="font-serif text-lg font-semibold leading-snug text-[#181226]">
+                <h3 className="font-serif text-lg font-semibold leading-snug text-amber-300 group-hover:text-amber-200 transition-colors">
                   {step.title}
                 </h3>
-                <p className="text-xs leading-relaxed text-[#475569] sm:text-sm">
+                <p className="text-xs leading-relaxed text-teal-100/85 sm:text-sm">
                   {step.description}
                 </p>
               </div>
             ))}
           </div>
 
-          <div className="flex flex-wrap items-center gap-6 border-t border-cyan-100 pt-2 text-xs font-mono text-[#64748B]">
+          <div className="flex flex-wrap items-center gap-6 border-t border-slate-800/80 pt-4 text-xs font-mono text-slate-400">
             <div className="flex items-center gap-2">
-              <Clock className="h-4 w-4 text-[#0891B2]" />
+              <Clock className="h-4 w-4 text-amber-400" />
               <span>24-Hour SLA Response Time</span>
             </div>
             <div className="flex items-center gap-2">
-              <Lock className="h-4 w-4 text-[#0891B2]" />
+              <Lock className="h-4 w-4 text-amber-400" />
               <span>Bilateral NDA Protected</span>
             </div>
           </div>
         </Container>
       </section>
+
+      <div className="hairline-rule-cyan" />
 
       {/* 3. Categorized FAQ Sections */}
       <section className="py-14 sm:py-20 lg:py-24">
@@ -259,23 +274,23 @@ export default function FaqPage() {
               <div
                 key={category.id}
                 id={category.id}
-                className="grid grid-cols-1 items-start gap-8 border-t border-cyan-100 pt-8 first:border-t-0 first:pt-0 lg:grid-cols-12 lg:gap-12"
+                className="grid grid-cols-1 items-start gap-8 border-t border-slate-800/80 pt-8 first:border-t-0 first:pt-0 lg:grid-cols-12 lg:gap-12"
               >
                 {/* Category Header */}
                 <div className="space-y-3 lg:sticky lg:top-28 lg:col-span-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-cyan-200 bg-gradient-to-br from-cyan-50 to-white text-[#0891B2] shadow-sm">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-amber-500/40 bg-amber-950/60 text-amber-400 shadow-sm">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h2 className="font-serif text-2xl font-semibold tracking-tight text-[#181226] sm:text-3xl">
+                  <h2 className="font-serif text-2xl font-semibold tracking-tight text-white sm:text-3xl">
                     {category.title}
                   </h2>
-                  <p className="font-sans text-sm leading-relaxed text-[#475569]">
+                  <p className="font-sans text-sm leading-relaxed text-slate-300">
                     {category.description}
                   </p>
                 </div>
 
                 {/* Category Accordion */}
-                <div className="rounded-[1.75rem] border border-white/60 bg-white/85 p-4 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_20px_50px_-30px_rgba(8,145,178,0.18)] [transform:translateZ(0)] sm:p-6 lg:col-span-8 lg:p-8">
+                <div className="rounded-2xl border border-teal-500/30 bg-gradient-to-b from-teal-900/40 via-[#043331]/60 to-teal-950/70 p-4 shadow-xl backdrop-blur-md [transform:translateZ(0)] sm:p-6 lg:col-span-8 lg:p-8">
                   <FaqAccordion items={category.faqs} />
                 </div>
               </div>
@@ -284,19 +299,21 @@ export default function FaqPage() {
         </Container>
       </section>
 
+      <div className="hairline-rule-brass" />
+
       {/* 4. Bottom Support CTA Strip */}
-      <section className="border-t border-cyan-100 bg-[radial-gradient(circle_at_top_left,_rgba(34,211,238,0.08),transparent_18%),linear-gradient(180deg,#f7feff_0%,#effcf8_100%)] py-14 sm:py-18">
+      <section className="border-t border-slate-800/80 bg-slate-950 py-14 sm:py-18">
         <Container width="wide">
-          <div className="mx-auto max-w-4xl space-y-6 rounded-[2rem] border border-white/60 bg-white/85 p-8 text-center shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_24px_64px_-30px_rgba(8,145,178,0.22)] [transform:translateZ(0)] sm:p-12">
-            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-200 bg-gradient-to-br from-cyan-50 to-white text-[#0891B2] shadow-sm">
+          <div className="mx-auto max-w-4xl space-y-6 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-teal-900/80 via-[#043331]/95 to-teal-950/95 p-8 text-center shadow-2xl sm:p-12">
+            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl border border-amber-500/40 bg-amber-950/60 text-amber-400 shadow-sm">
               <HelpCircle className="h-6 w-6" />
             </div>
 
             <div className="mx-auto max-w-xl space-y-2">
-              <h3 className="font-serif text-2xl font-semibold tracking-tight text-[#181226] sm:text-3xl">
+              <h3 className="font-serif text-2xl font-semibold tracking-tight text-amber-300 sm:text-3xl">
                 Have a Question Not Listed Here?
               </h3>
-              <p className="font-sans text-sm leading-relaxed text-[#475569] sm:text-base">
+              <p className="font-sans text-sm leading-relaxed text-teal-100/85 sm:text-base">
                 Connect directly with our practice leads. We provide preliminary project feasibility
                 assessments at zero obligation.
               </p>
@@ -305,7 +322,7 @@ export default function FaqPage() {
             <div className="flex flex-col items-center justify-center gap-4 pt-2 sm:flex-row">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#0891B2]/90 via-[#0EA5C9]/90 to-[#10B981]/90 backdrop-blur-md border border-white/25 px-6 py-3 text-xs font-sans font-bold uppercase tracking-wider text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.45),0_10px_24px_rgba(8,145,178,0.24)] transition-all hover:-translate-y-0.5 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.65),0_14px_30px_rgba(14,165,233,0.28)] [transform:translateZ(0)]"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 px-7 py-3.5 text-xs font-sans font-bold uppercase tracking-wider text-slate-950 border border-amber-300/40 shadow-[0_8px_24px_rgba(245,158,11,0.35)] hover:from-amber-300 hover:to-amber-500 hover:shadow-[0_12px_32px_rgba(245,158,11,0.5)] transition-all [transform:translateZ(0)]"
               >
                 <span>Submit Your Inquiry</span>
                 <ArrowRight className="h-3.5 w-3.5" />

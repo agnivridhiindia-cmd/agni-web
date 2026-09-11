@@ -29,6 +29,8 @@ export interface SectionHeadingProps
   description?: string;
   action?: React.ReactNode;
   eyebrowAccent?: boolean;
+  titleClassName?: string;
+  descriptionClassName?: string;
 }
 
 export function SectionHeading({
@@ -39,6 +41,8 @@ export function SectionHeading({
   align = "left",
   size = "default",
   eyebrowAccent = false,
+  titleClassName,
+  descriptionClassName,
   className,
   ...props
 }: SectionHeadingProps) {
@@ -64,7 +68,8 @@ export function SectionHeading({
         <h2
           className={cn(
             isLarge ? "type-h1" : "type-h2",
-            "text-[#0F0A1A] tracking-tight font-serif"
+            "text-white tracking-tight font-heading font-bold",
+            titleClassName
           )}
         >
           {title}
@@ -73,8 +78,9 @@ export function SectionHeading({
         {description && (
           <p
             className={cn(
-              "type-body text-[#475569] font-sans leading-relaxed",
-              isCentered ? "max-w-xl mx-auto" : "max-w-reading"
+              "type-body text-slate-300 font-sans leading-relaxed",
+              isCentered ? "max-w-xl mx-auto" : "max-w-reading",
+              descriptionClassName
             )}
           >
             {description}

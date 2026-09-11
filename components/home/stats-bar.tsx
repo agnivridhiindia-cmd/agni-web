@@ -17,7 +17,6 @@ import {
 import { siteConfig } from "@/lib/site-config";
 import type { StatMetric } from "@/lib/site-config";
 import { Container } from "@/components/shared/container";
-import { Eyebrow } from "@/components/ui/badge";
 import { SpotlightCard } from "@/components/ui/spotlight-card";
 import { useInView } from "framer-motion";
 import {
@@ -104,17 +103,17 @@ function StatCard({ stat, indexNumber, isInView }: StatCardProps) {
     <div className="w-[300px] sm:w-[340px] lg:w-[360px] shrink-0 px-3 h-full">
       <SpotlightCard
         glowVariant="teal"
-        className="h-full border-cyan-100 bg-white/90 transition-all duration-300 hover:-translate-y-1.5 hover:border-[#06B6D4]/60 hover:shadow-[0_18px_40px_-18px_rgba(8,145,178,0.18)]"
-        innerClassName="p-6 sm:p-7 flex flex-col justify-between h-full min-h-[300px] bg-white text-[#181226]"
+        className="h-full border-slate-700/60 bg-gradient-to-b from-[#111D3A] to-[#0D162D] transition-all duration-300 hover:-translate-y-1.5 hover:border-sky-400/60 hover:shadow-[0_20px_45px_-12px_rgba(14,165,233,0.25)]"
+        innerClassName="p-6 sm:p-7 flex flex-col justify-between h-full min-h-[300px] bg-gradient-to-b from-[#132042]/90 via-[#0E1833]/95 to-[#0B1329]/98 text-white backdrop-blur-md rounded-2xl border border-slate-700/50"
       >
         <div className="space-y-4">
           {/* Top Row: Icon Container + Step Number */}
           <div className="flex items-center justify-between gap-3">
-            <div className="w-11 h-11 rounded-xl bg-cyan-50 border border-cyan-200/70 text-[#0891B2] flex items-center justify-center shadow-xs group-hover/spotlight:bg-[#0891B2] group-hover/spotlight:text-white transition-all duration-300">
+            <div className="w-11 h-11 rounded-xl bg-slate-800/80 border border-slate-700 text-sky-400 flex items-center justify-center shadow-xs group-hover/spotlight:bg-amber-500 group-hover/spotlight:text-slate-950 transition-all duration-300">
               <Icon className="w-5 h-5" />
             </div>
 
-            <span className="font-mono text-xs font-semibold px-2.5 py-1 rounded-md bg-cyan-50 border border-cyan-200/70 text-[#0891B2] group-hover/spotlight:bg-[#0891B2] group-hover/spotlight:text-white transition-colors">
+            <span className="font-mono text-xs font-semibold px-2.5 py-1 rounded-md bg-slate-800/80 border border-slate-700 text-slate-300 group-hover/spotlight:bg-amber-500 group-hover/spotlight:text-slate-950 transition-colors">
               {indexNumber}
             </span>
           </div>
@@ -127,11 +126,11 @@ function StatCard({ stat, indexNumber, isInView }: StatCardProps) {
             }: ${stat.label}`}
           >
             {stat.prefix && (
-              <span className="font-serif text-2xl sm:text-3xl text-[#0891B2] font-normal mr-0.5 leading-none">
+              <span className="font-heading text-2xl sm:text-3xl text-amber-400 font-bold mr-0.5 leading-none">
                 {stat.prefix}
               </span>
             )}
-            <span className="font-serif text-3xl sm:text-4xl lg:text-[2.65rem] font-medium text-[#181226] tracking-tight leading-none tabular-nums">
+            <span className="font-heading text-3xl sm:text-4xl lg:text-[2.65rem] font-bold text-white tracking-tight leading-none tabular-nums">
               {stat.numericValue !== null && stat.numericValue !== undefined ? (
                 <StatCountUp
                   target={stat.numericValue}
@@ -143,30 +142,30 @@ function StatCard({ stat, indexNumber, isInView }: StatCardProps) {
               )}
             </span>
             {stat.suffix && (
-              <span className="text-base sm:text-lg font-sans font-normal text-[#475569] ml-1.5 leading-none">
+              <span className="text-base sm:text-lg font-sans font-normal text-slate-300 ml-1.5 leading-none">
                 {stat.suffix.trim()}
               </span>
             )}
           </div>
 
           {/* Stat Label */}
-          <h3 className="font-sans text-base sm:text-lg font-semibold text-[#181226] leading-snug group-hover/spotlight:text-[#0891B2] transition-colors line-clamp-1">
+          <h3 className="font-heading text-base sm:text-lg font-semibold text-white leading-snug group-hover/spotlight:text-amber-300 transition-colors line-clamp-1">
             {stat.label}
           </h3>
 
           {/* Short Description */}
-          <p className="text-xs sm:text-sm text-[#475569] leading-relaxed font-sans line-clamp-3">
+          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans line-clamp-3">
             {stat.description}
           </p>
         </div>
 
         {/* Bottom Verification Footer */}
-        <div className="mt-5 pt-3.5 border-t border-cyan-100/90 flex items-center justify-between text-[11px] font-mono text-[#64748B]">
-          <span className="inline-flex items-center gap-1.5 text-[#0891B2] font-medium">
-            <CheckCircle2 className="w-3.5 h-3.5 text-[#0891B2] shrink-0" />
+        <div className="mt-5 pt-3.5 border-t border-slate-700/50 flex items-center justify-between text-[11px] font-mono text-slate-400">
+          <span className="inline-flex items-center gap-1.5 text-amber-400 font-medium">
+            <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 shrink-0" />
             Verified Metric
           </span>
-          <span className="text-[#64748B] uppercase tracking-wider">
+          <span className="text-slate-400 uppercase tracking-wider">
             Mandate Standard
           </span>
         </div>
@@ -177,7 +176,7 @@ function StatCard({ stat, indexNumber, isInView }: StatCardProps) {
 
 export function StatsBar() {
   const sectionRef = React.useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-40px" });
+  const isInView = useInView(sectionRef, { once: true, margin: "150px 0px" });
   const prefersReduced = useReducedMotionPreference();
 
   // Extract strictly verified statistics from authoritative configuration
@@ -198,102 +197,115 @@ export function StatsBar() {
     <section
       ref={sectionRef}
       aria-labelledby="stats-heading"
-      className="relative overflow-hidden border-b border-cyan-100/80 bg-[radial-gradient(circle_at_top_left,_rgba(34,211,238,0.14),transparent_18%),radial-gradient(circle_at_bottom_right,_rgba(16,185,129,0.12),transparent_18%),linear-gradient(180deg,#f9feff_0%,#ffffff_22%,#f2fafb_100%)] py-16 text-[#181226] sm:py-20 lg:py-24"
+      className="relative py-14 sm:py-20 lg:py-24 overflow-hidden bg-gradient-to-b from-[#091020] via-[#0B1329] to-[#0A1122] border-b border-slate-800/80"
     >
-      <Container width="wide" className="space-y-8 sm:space-y-10">
-        {/* Section Heading */}
-        <FadeIn direction="up" distance={16} delay={0.05}>
-          <div className="text-center max-w-3xl mx-auto space-y-3 sm:space-y-4">
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-cyan-200/90 text-[#0891B2] shadow-xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#0891B2]" />
-              <Eyebrow
-                accent={false}
-                className="text-[11px] sm:text-xs font-mono tracking-widest uppercase text-[#0891B2]"
-              >
-                OUR CORE ADVANTAGES &bull; INSTITUTIONAL PARAMETERS
-              </Eyebrow>
-            </div>
-
-            <h2
-              id="stats-heading"
-              className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] font-normal tracking-[-0.015em] text-[#181226] !leading-[1.18]"
-            >
-              Engineered for Exponential Enterprise Scale
-            </h2>
-
-            <p className="font-sans text-sm sm:text-base text-[#475569] max-w-2xl mx-auto leading-[1.7]">
-              Verified institutional metrics establishing sovereign debt
-              leverage, statutory compliance execution, and scalable technology architectures.
-            </p>
-
-            {/* Interaction hint removed from homepage */}
-          </div>
-        </FadeIn>
-      </Container>
-
-      {/* ============================================================
-          INFINITE HORIZONTAL MARQUEE (Single row, pauses on hover)
-          ============================================================ */}
-      <div className="relative w-full overflow-hidden mt-8 sm:mt-10 group">
-        {/* Soft edge gradient masks */}
-        <div
-          className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-32 lg:w-48 z-20 bg-gradient-to-r from-[#FAF8FE] via-[#FAF8FE]/90 to-transparent"
-          aria-hidden="true"
-        />
-        <div
-          className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-32 lg:w-48 z-20 bg-gradient-to-l from-[#FAF8FE] via-[#FAF8FE]/90 to-transparent"
-          aria-hidden="true"
-        />
-
-        {/* Marquee Track Container */}
-        <div
-          className={cn(
-            "flex w-max items-stretch py-2",
-            prefersReduced && "overflow-x-auto max-w-full px-4 scrollbar-none"
-          )}
-        >
-          {/* Primary Track */}
+      <Container width="wide">
+        {/* Precision Sovereign Data Console Chassis - Apple Specular Hardware Enclosure */}
+        <div className="relative overflow-hidden rounded-[3rem] border border-white/15 border-t-white/35 bg-[#10172B]/90 backdrop-blur-2xl p-6 sm:p-10 lg:p-12 text-white shadow-[0_32px_80px_-20px_rgba(0,0,0,0.8),inset_0_1px_2px_rgba(255,255,255,0.25)] ring-1 ring-white/10">
+          {/* Ambient Technical Blueprint Grid & Atmospheric Orbs */}
           <div
-            className={cn(
-              "flex shrink-0 items-stretch",
-              !prefersReduced &&
-                "animate-marquee-loop group-hover:[animation-play-state:paused] group-focus-within:[animation-play-state:paused]"
-            )}
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 z-0 select-none overflow-hidden"
           >
-            {verifiedStats.map((stat, idx) => (
-              <StatCard
-                key={`stat-a-${stat.id}-${idx}`}
-                stat={stat}
-                indexNumber={String((idx % verifiedStats.length) + 1).padStart(
-                  2,
-                  "0"
-                )}
-                isInView={isInView}
-              />
-            ))}
+            <div className="absolute inset-0 bg-blueprint-grid-dark opacity-25 [mask-image:radial-gradient(ellipse_80%_70%_at_50%_50%,#000_65%,transparent_100%)]" />
+            <div className="absolute -top-32 -left-32 w-[520px] h-[520px] bg-sky-500/10 rounded-full blur-[110px]" />
+            <div className="absolute -bottom-32 -right-32 w-[520px] h-[520px] bg-amber-500/10 rounded-full blur-[110px]" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[680px] h-[360px] bg-[radial-gradient(ellipse_at_center,rgba(14,165,233,0.08)_0%,transparent_70%)] blur-[90px]" />
+            {/* Architectural coordinates */}
+            <div className="absolute top-6 left-6 font-mono text-xs text-sky-400/40 select-none">+</div>
+            <div className="absolute top-6 right-6 font-mono text-xs text-amber-400/40 select-none">+</div>
           </div>
 
-          {/* Secondary Track for perfectly seamless wrapping */}
-          {!prefersReduced && (
-            <div
-              className="flex shrink-0 items-stretch animate-marquee-loop group-hover:[animation-play-state:paused] group-focus-within:[animation-play-state:paused]"
-              aria-hidden="true"
-            >
-              {verifiedStats.map((stat, idx) => (
-                <StatCard
-                  key={`stat-b-${stat.id}-${idx}`}
-                  stat={stat}
-                  indexNumber={String((idx % verifiedStats.length) + 1).padStart(
-                    2,
-                    "0"
+          <div className="relative z-10 space-y-8 sm:space-y-10">
+            {/* Section Heading */}
+            <FadeIn direction="up" distance={16} delay={0.05}>
+              <div className="text-center max-w-3xl mx-auto space-y-3 sm:space-y-4">
+                <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/[0.08] backdrop-blur-xl border border-white/15 text-xs font-mono tracking-widest text-sky-300 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                  <span>OUR CORE ADVANTAGES &bull; INSTITUTIONAL PARAMETERS</span>
+                </div>
+
+                <h2
+                  id="stats-heading"
+                  className="font-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-bold tracking-[-0.03em] text-white !leading-[1.14]"
+                >
+                  Engineered for{" "}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 font-bold">
+                    Exponential Enterprise Scale.
+                  </span>
+                </h2>
+
+                <p className="font-sans text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-[1.7]">
+                  Verified institutional metrics establishing sovereign debt
+                  leverage, statutory compliance execution, and scalable technology architectures.
+                </p>
+              </div>
+            </FadeIn>
+
+            {/* INFINITE HORIZONTAL MARQUEE */}
+            <div className="relative w-full overflow-hidden mt-6 sm:mt-8 group">
+              {/* Soft edge gradient masks matched to chassis interior */}
+              <div
+                className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-24 lg:w-36 z-20 bg-gradient-to-r from-[#0B1329] via-[#0B1329]/90 to-transparent"
+                aria-hidden="true"
+              />
+              <div
+                className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-24 lg:w-36 z-20 bg-gradient-to-l from-[#0B1329] via-[#0B1329]/90 to-transparent"
+                aria-hidden="true"
+              />
+
+              {/* Marquee Track Container */}
+              <div
+                className={cn(
+                  "flex w-max items-stretch py-2",
+                  prefersReduced && "overflow-x-auto max-w-full px-4 scrollbar-none"
+                )}
+              >
+                {/* Primary Track */}
+                <div
+                  className={cn(
+                    "flex shrink-0 items-stretch",
+                    !prefersReduced &&
+                      "animate-marquee-loop group-hover:[animation-play-state:paused] group-focus-within:[animation-play-state:paused]"
                   )}
-                  isInView={isInView}
-                />
-              ))}
+                >
+                  {verifiedStats.map((stat, idx) => (
+                    <StatCard
+                      key={`stat-a-${stat.id}-${idx}`}
+                      stat={stat}
+                      indexNumber={String((idx % verifiedStats.length) + 1).padStart(
+                        2,
+                        "0"
+                      )}
+                      isInView={isInView}
+                    />
+                  ))}
+                </div>
+
+                {/* Secondary Track for perfectly seamless wrapping */}
+                {!prefersReduced && (
+                  <div
+                    className="flex shrink-0 items-stretch animate-marquee-loop group-hover:[animation-play-state:paused] group-focus-within:[animation-play-state:paused]"
+                    aria-hidden="true"
+                  >
+                    {verifiedStats.map((stat, idx) => (
+                      <StatCard
+                        key={`stat-b-${stat.id}-${idx}`}
+                        stat={stat}
+                        indexNumber={String((idx % verifiedStats.length) + 1).padStart(
+                          2,
+                          "0"
+                        )}
+                        isInView={isInView}
+                      />
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
-          )}
+          </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

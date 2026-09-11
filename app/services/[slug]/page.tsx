@@ -72,7 +72,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   });
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-slate-950 text-slate-100">
       {/* Schema.org Structured Data */}
       <script
         type="application/ld+json"
@@ -88,6 +88,9 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
       {/* Editorial Service Header */}
       <ServiceDetailHero service={service} />
+
+      {/* Luminous Hairline Divider */}
+      <div className="hairline-rule-brass w-full" aria-hidden="true" />
 
       {/* Core Content Layout with Sticky Consultation Desk Sidebar */}
       <section className="py-14 sm:py-18 lg:py-20">
@@ -110,8 +113,14 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
       {/* Related Advisory Practices */}
       {relatedServices.length > 0 && (
-        <RelatedServices services={relatedServices} />
+        <>
+          <div className="hairline-rule-cyan w-full" aria-hidden="true" />
+          <RelatedServices services={relatedServices} />
+        </>
       )}
+
+      {/* Luminous Multi-Tone Hairline Divider */}
+      <div className="hairline-rule-multi w-full" aria-hidden="true" />
 
       {/* Closing Conversion CTA */}
       <ServiceDetailCta service={service} />

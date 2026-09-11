@@ -104,7 +104,7 @@ export const SpotlightCard = React.forwardRef<HTMLDivElement, SpotlightCardProps
         onMouseLeave={handleMouseLeave}
         className={cn(
           "group/spotlight relative rounded-3xl p-[1px] overflow-hidden transition-all duration-300 [transform:translateZ(0)]",
-          "bg-white/80 border border-white/60 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_8px_24px_rgba(8,145,178,0.06)] hover:border-cyan-300 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_14px_36px_rgba(8,145,178,0.12)]",
+          "bg-slate-900/80 border border-slate-800/80 shadow-[0_8px_24px_rgba(0,0,0,0.5)] hover:border-amber-400/60 hover:shadow-[0_14px_36px_rgba(0,0,0,0.7),0_0_20px_rgba(245,158,11,0.12)]",
           className
         )}
         style={
@@ -142,7 +142,7 @@ export const SpotlightCard = React.forwardRef<HTMLDivElement, SpotlightCardProps
         {/* Layer 3: Inner Card Canvas with Smart Pseudo-Glass Inset */}
         <div
           className={cn(
-            "relative h-full w-full rounded-[calc(1.5rem-1px)] bg-white/90 backdrop-blur-xs text-[#0F0A1A] p-6 sm:p-7 flex flex-col justify-between overflow-hidden transition-all duration-300 shadow-[inset_0_1px_1px_rgba(255,255,255,0.85)]",
+            "relative h-full w-full rounded-[calc(1.5rem-1px)] bg-slate-950/85 backdrop-blur-xs text-slate-100 p-6 sm:p-7 flex flex-col justify-between overflow-hidden transition-all duration-300 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]",
             innerClassName
           )}
         >

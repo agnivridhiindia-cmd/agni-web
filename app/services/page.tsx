@@ -1,3 +1,4 @@
+import * as React from "react";
 import type { Metadata } from "next";
 import { createPageMetadata } from "@/lib/seo";
 import { getAllServices, getServiceCategories } from "@/data/services";
@@ -18,7 +19,7 @@ export default function ServicesPage() {
   const categories = getServiceCategories();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-slate-950 text-slate-100">
       {/* Services Architecture:
           1. Services Hero: Strategic positioning & credibility parameters
           2. Category Navigation: Sticky accessible anchor rail with dynamic counts & scroll-spy
@@ -26,24 +27,37 @@ export default function ServicesPage() {
           4. Closing Advisory Diagnostic CTA */}
       <ServicesHero />
 
+      {/* Luminous Hairline Divider */}
+      <div className="hairline-rule-brass w-full" aria-hidden="true" />
+
       <CategoryNavigation
         categories={categories}
         totalServicesCount={services.length}
       />
 
-      <div className="divide-y divide-slate-100">
+      <div>
         {categories.map((cat, idx) => {
           const catServices = services.filter((s) => s.category === cat.id);
           return (
-            <ServiceCategorySection
-              key={cat.id}
-              category={cat}
-              services={catServices}
-              index={idx}
-            />
+            <React.Fragment key={cat.id}>
+              <ServiceCategorySection
+                category={cat}
+                services={catServices}
+                index={idx}
+              />
+              {idx < categories.length - 1 && (
+                <div
+                  className={idx % 2 === 0 ? "hairline-rule-cyan w-full" : "hairline-rule-brass w-full"}
+                  aria-hidden="true"
+                />
+              )}
+            </React.Fragment>
           );
         })}
       </div>
+
+      {/* Luminous Multi-Tone Hairline Divider */}
+      <div className="hairline-rule-multi w-full" aria-hidden="true" />
 
       <ServicesCta />
     </div>

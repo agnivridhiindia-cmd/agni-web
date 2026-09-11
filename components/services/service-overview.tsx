@@ -11,13 +11,14 @@ export function ServiceOverview({ service }: ServiceOverviewProps) {
     <div id="service-overview" className="space-y-12 sm:space-y-16">
       {/* 1. Scope & Overview */}
       <div className="space-y-4">
-        <span className="type-eyebrow text-[#0891B2] font-mono">
-          Advisory Scope &bull; Institutional Blueprint
-        </span>
-        <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-[#0F0A1A] tracking-tight">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-950/80 backdrop-blur-md border border-amber-500/40 text-xs font-mono tracking-widest text-amber-300 shadow-xs">
+          <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+          <span>ADVISORY SCOPE &bull; INSTITUTIONAL BLUEPRINT</span>
+        </div>
+        <h2 className="font-serif text-2xl sm:text-3xl font-medium text-white tracking-tight">
           Overview &amp; Deliverables
         </h2>
-        <div className="text-[#475569] font-sans text-base sm:text-lg leading-relaxed space-y-4 max-w-3xl">
+        <div className="text-slate-300 font-sans text-base sm:text-lg leading-relaxed space-y-4 max-w-3xl">
           <p>{service.description}</p>
         </div>
       </div>
@@ -26,10 +27,11 @@ export function ServiceOverview({ service }: ServiceOverviewProps) {
       {service.benefits && service.benefits.length > 0 && (
         <div className="space-y-6">
           <div>
-            <span className="type-eyebrow text-[#0891B2] font-mono">
-              Enterprise Value &bull; Measurable Impact
-            </span>
-            <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-[#0F0A1A] tracking-tight mt-1">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-950/80 backdrop-blur-md border border-amber-500/40 text-xs font-mono tracking-widest text-amber-300 shadow-xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+              <span>ENTERPRISE VALUE &bull; MEASURABLE IMPACT</span>
+            </div>
+            <h2 className="font-serif text-2xl sm:text-3xl font-medium text-white tracking-tight mt-3">
               Strategic Advantages
             </h2>
           </div>
@@ -38,12 +40,12 @@ export function ServiceOverview({ service }: ServiceOverviewProps) {
             {service.benefits.map((benefit, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-xl border border-cyan-100 bg-white shadow-xs flex items-start gap-3.5 hover:border-cyan-300 transition-colors"
+                className="p-5 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-teal-900/80 via-[#043331]/95 to-teal-950/95 shadow-[0_8px_24px_rgba(0,0,0,0.5),0_0_15px_rgba(20,184,166,0.1)] flex items-start gap-3.5 hover:border-teal-400/80 transition-all"
               >
-                <div className="w-7 h-7 rounded-lg bg-cyan-50 text-[#0891B2] flex items-center justify-center shrink-0 mt-0.5 border border-cyan-100">
+                <div className="w-7 h-7 rounded-lg bg-amber-950/60 text-amber-400 flex items-center justify-center shrink-0 mt-0.5 border border-amber-500/40 shadow-2xs">
                   <CheckCircle2 className="w-4 h-4" />
                 </div>
-                <p className="text-sm text-[#475569] font-sans leading-relaxed">
+                <p className="text-sm text-teal-100/90 font-sans leading-relaxed">
                   {benefit}
                 </p>
               </div>
@@ -56,17 +58,18 @@ export function ServiceOverview({ service }: ServiceOverviewProps) {
       {service.audience && service.audience.length > 0 && (
         <div className="space-y-6">
           <div>
-            <span className="type-eyebrow text-[#0891B2] font-mono">
-              Suitability &bull; Applicability Matrix
-            </span>
-            <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-[#0F0A1A] tracking-tight mt-1">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-950/80 backdrop-blur-md border border-amber-500/40 text-xs font-mono tracking-widest text-amber-300 shadow-xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+              <span>SUITABILITY &bull; APPLICABILITY MATRIX</span>
+            </div>
+            <h2 className="font-serif text-2xl sm:text-3xl font-medium text-white tracking-tight mt-3">
               Who Is This Solution Designed For?
             </h2>
           </div>
 
-          <div className="p-6 sm:p-7 rounded-xl bg-white border border-cyan-100 space-y-4">
-            <div className="flex items-center gap-2 text-[#0F0A1A] font-semibold text-sm">
-              <Users className="w-4 h-4 text-[#0891B2]" />
+          <div className="p-6 sm:p-7 rounded-2xl bg-gradient-to-b from-teal-900/80 via-[#043331]/95 to-teal-950/95 border border-teal-500/30 space-y-4 shadow-[0_8px_24px_rgba(0,0,0,0.5)]">
+            <div className="flex items-center gap-2 text-amber-300 font-semibold text-sm">
+              <Users className="w-4 h-4 text-amber-400" />
               <span>Target Profiles &amp; Enterprise Stages</span>
             </div>
 
@@ -74,9 +77,9 @@ export function ServiceOverview({ service }: ServiceOverviewProps) {
               {service.audience.map((item, idx) => (
                 <li
                   key={idx}
-                  className="flex items-start gap-2.5 text-sm text-[#475569] font-sans"
+                  className="flex items-start gap-2.5 text-sm text-teal-100/85 font-sans"
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#0891B2] shrink-0 mt-2" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0 mt-2" />
                   <span className="leading-relaxed">{item}</span>
                 </li>
               ))}

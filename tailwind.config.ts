@@ -148,9 +148,10 @@ const config: Config = {
 
       fontFamily: {
         sans: ["var(--font-inter)", ...fontFamily.sans],
-        serif: ["var(--font-cormorant)", "var(--font-fraunces)", ...fontFamily.serif],
-        display: ["var(--font-cormorant)", "var(--font-fraunces)", ...fontFamily.serif],
-        editorial: ["var(--font-cormorant)", ...fontFamily.serif],
+        heading: ["var(--font-heading)", "var(--font-inter)", ...fontFamily.sans],
+        display: ["var(--font-heading)", "var(--font-inter)", ...fontFamily.sans],
+        serif: ["var(--font-fraunces)", ...fontFamily.serif],
+        editorial: ["var(--font-heading)", ...fontFamily.sans],
       },
 
       // --- RESTRAINED RADIUS SYSTEM ---

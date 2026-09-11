@@ -17,9 +17,11 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-slate-950 text-slate-100 selection:bg-amber-500/20 selection:text-amber-200">
       {/* 1. Editorial Hero */}
       <ContactHero />
+
+      <div className="hairline-rule-brass" />
 
       {/* 2. Main Consultation & Engagement Layout */}
       <div className="py-12 sm:py-16 lg:py-20">

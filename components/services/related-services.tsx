@@ -17,17 +17,18 @@ export function RelatedServices({ services }: RelatedServicesProps) {
   return (
     <section
       aria-labelledby="related-services-heading"
-      className="border-t border-cyan-100 bg-[#FFFFFF] py-14 sm:py-18 lg:py-20"
+      className="border-t border-slate-800/80 bg-slate-950 text-white py-14 sm:py-18 lg:py-20"
     >
       <Container width="wide">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-10 gap-4 border-b border-cyan-100 pb-5">
-          <div className="space-y-1">
-            <span className="type-eyebrow text-[#0891B2] font-mono">
-              Complementary Capabilities
-            </span>
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-10 gap-4 border-b border-slate-800/80 pb-5">
+          <div className="space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-950/80 backdrop-blur-md border border-amber-500/40 text-xs font-mono tracking-widest text-amber-300 shadow-xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+              <span>COMPLEMENTARY CAPABILITIES &bull; PRACTICE ECOSYSTEM</span>
+            </div>
             <h2
               id="related-services-heading"
-              className="font-serif text-2xl sm:text-3xl font-semibold text-[#0F0A1A] tracking-tight"
+              className="font-serif text-2xl sm:text-3xl font-medium text-white tracking-tight"
             >
               Related Advisory Practices
             </h2>
@@ -35,7 +36,7 @@ export function RelatedServices({ services }: RelatedServicesProps) {
 
           <Link
             href="/services"
-            className="text-xs sm:text-sm font-semibold text-[#0891B2] hover:text-[#0F0A1A] transition-colors inline-flex items-center gap-1.5 shrink-0"
+            className="text-xs sm:text-sm font-mono font-semibold text-amber-400 hover:text-amber-300 transition-colors uppercase tracking-wider inline-flex items-center gap-1.5 shrink-0"
           >
             <span>Browse Full Directory</span>
             <ArrowRight className="w-3.5 h-3.5" />

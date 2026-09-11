@@ -48,7 +48,7 @@ export function StaggerContainer({
   if (inView) {
     return (
       <motion.div
-        initial="hidden"
+        initial={false}
         whileInView="visible"
         viewport={{ ...defaultViewport, once }}
         variants={containerVariants}
@@ -62,7 +62,7 @@ export function StaggerContainer({
 
   return (
     <motion.div
-      initial="hidden"
+      initial={false}
       animate="visible"
       variants={containerVariants}
       className={className}
@@ -100,6 +100,7 @@ export function StaggerItem({
 
   return (
     <motion.div
+      initial={false}
       variants={{
         hidden: {
           opacity: 0,

@@ -17,7 +17,7 @@ export function CaseStudyBreadcrumb({
   return (
     <nav
       aria-label="Breadcrumb"
-      className="border-b border-cyan-100 bg-[#FFFFFF] pt-28 sm:pt-32 pb-4 text-xs font-sans text-[#64748B]"
+      className="border-b border-slate-800/80 bg-slate-950 pt-28 sm:pt-32 pb-4 text-xs font-sans text-slate-400"
     >
       <Container width="wide">
         <div className="flex flex-wrap items-center justify-between gap-3">
@@ -25,18 +25,18 @@ export function CaseStudyBreadcrumb({
             <li>
               <Link
                 href="/"
-                className="hover:text-[#0891B2] transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-teal-600 rounded px-0.5"
+                className="hover:text-amber-300 transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-amber-400 rounded px-0.5"
               >
                 Home
               </Link>
             </li>
             <li>
-              <ChevronRight className="w-3.5 h-3.5 text-[#64748B] shrink-0" aria-hidden="true" />
+              <ChevronRight className="w-3.5 h-3.5 text-slate-600 shrink-0" aria-hidden="true" />
             </li>
             <li>
               <Link
                 href="/success-stories"
-                className="hover:text-[#0891B2] transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-teal-600 rounded px-0.5"
+                className="hover:text-amber-300 transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-amber-400 rounded px-0.5"
               >
                 Success Stories
               </Link>
@@ -44,12 +44,12 @@ export function CaseStudyBreadcrumb({
             {categoryLabel && (
               <>
                 <li>
-                  <ChevronRight className="w-3.5 h-3.5 text-[#64748B] shrink-0" aria-hidden="true" />
+                  <ChevronRight className="w-3.5 h-3.5 text-slate-600 shrink-0" aria-hidden="true" />
                 </li>
                 <li>
                   <Link
                     href={`/success-stories?category=${categorySlug || ""}`}
-                    className="hover:text-[#0891B2] transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-teal-600 rounded px-0.5"
+                    className="hover:text-amber-300 transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-amber-400 rounded px-0.5"
                   >
                     {categoryLabel}
                   </Link>
@@ -57,10 +57,10 @@ export function CaseStudyBreadcrumb({
               </>
             )}
             <li>
-              <ChevronRight className="w-3.5 h-3.5 text-[#64748B] shrink-0" aria-hidden="true" />
+              <ChevronRight className="w-3.5 h-3.5 text-slate-600 shrink-0" aria-hidden="true" />
             </li>
             <li
-              className="font-medium text-[#0F0A1A] truncate max-w-[200px] sm:max-w-[320px] md:max-w-[420px]"
+              className="font-medium text-amber-300 truncate max-w-[200px] sm:max-w-[320px] md:max-w-[420px]"
               aria-current="page"
               title={title}
             >
@@ -70,7 +70,7 @@ export function CaseStudyBreadcrumb({
 
           <Link
             href="/success-stories"
-            className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-600 hover:text-teal-700 transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-teal-600 rounded px-1"
+            className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-amber-400 hover:text-amber-300 transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-amber-400 rounded px-1"
           >
             <ArrowLeft className="w-3.5 h-3.5" aria-hidden="true" />
             <span>All Success Stories</span>

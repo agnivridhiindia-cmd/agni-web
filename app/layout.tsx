@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Inter, Fraunces, Cormorant_Garamond } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans, Fraunces, Cormorant_Garamond } from "next/font/google";
 import { siteConfig } from "@/lib/site-config";
 import { getOrganizationJsonLd } from "@/lib/seo";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { AmbientBackground } from "@/components/shared/ambient-background";
 import "./globals.css";
 
 const inter = Inter({
@@ -11,6 +12,13 @@ const inter = Inter({
   variable: "--font-inter",
   display: "swap",
   weight: ["400", "500", "600", "700"],
+});
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-heading",
+  display: "swap",
+  weight: ["500", "600", "700", "800"],
 });
 
 const fraunces = Fraunces({
@@ -85,7 +93,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${inter.variable} ${fraunces.variable} ${cormorant.variable}`}
+      className={`${inter.variable} ${plusJakartaSans.variable} ${fraunces.variable} ${cormorant.variable}`}
     >
       <head>
         {/* Schema.org Organization Structured Data */}
@@ -94,7 +102,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
       </head>
-      <body className="font-sans antialiased bg-[#FAF9FE] text-[#181226] flex min-h-screen flex-col selection:bg-cyan-100 selection:text-[#0891B2]">
+      <body className="font-sans antialiased text-[#181226] flex min-h-screen flex-col selection:bg-cyan-100 selection:text-[#0891B2] relative">
+        {/* Living Architectural Ambient Aura & Interactive Spotlight */}
+        <AmbientBackground />
+
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-[#0891B2] focus:px-4 focus:py-2 focus:text-white focus:shadow-elevated focus:outline-none focus:ring-2 focus:ring-[#0891B2] focus:ring-offset-2"
@@ -102,13 +113,13 @@ export default function RootLayout({
           Skip to main content
         </a>
         <Header />
-        <main id="main-content" className="flex-1">
+        <main id="main-content" className="flex-1 relative z-10">
           {children}
         </main>
         <Footer />
 
-        {/* Tactile Micro-Grain Paper Texture Overlay */}
-        <div className="fixed inset-0 pointer-events-none z-50 bg-noise select-none opacity-25" aria-hidden="true" />
+        {/* Tactile Micro-Grain Archival Texture Overlay */}
+        <div className="fixed inset-0 pointer-events-none z-40 bg-noise select-none opacity-20 mix-blend-overlay" aria-hidden="true" />
       </body>
     </html>
   );

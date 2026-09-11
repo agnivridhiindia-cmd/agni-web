@@ -28,7 +28,7 @@ function DigitizedSignature({ className }: { className?: string }) {
         viewBox="0 0 360 90"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="w-52 sm:w-64 h-auto text-[#0891B2] drop-shadow-sm select-none"
+        className="w-52 sm:w-64 h-auto text-[#D4AF37] drop-shadow-sm select-none"
         aria-label="Digitized Signature of Rahul Kumar Singh"
       >
         {/* 'R' capital flourish with looped ascender */}
@@ -86,8 +86,8 @@ function CredentialChip({
   label: string;
 }) {
   return (
-    <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-50 text-[#475569] border border-cyan-100 shadow-sm text-xs font-mono font-medium tracking-tight hover:border-[#0891B2]/60 transition-colors">
-      <Icon className="w-3.5 h-3.5 text-[#0891B2] shrink-0" />
+    <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900/90 text-slate-300 border border-slate-800 shadow-sm text-xs font-mono font-medium tracking-tight hover:border-amber-400/50 hover:text-amber-300 transition-colors">
+      <Icon className="w-3.5 h-3.5 text-amber-400 shrink-0" />
       <span>{label}</span>
     </div>
   );
@@ -117,16 +117,28 @@ export function FounderSection() {
     <section
       id="founder-story"
       aria-labelledby="founder-heading"
-      className="py-16 sm:py-20 lg:py-28 bg-[#FFFFFF] border-b border-cyan-100 overflow-hidden"
+      className="relative py-16 sm:py-20 lg:py-28 bg-tech-obsidian text-white border-b border-slate-800/80 overflow-hidden"
     >
-      <Container width="wide">
+      {/* Ambient Warm Heritage Texture */}
+      <div
+        className="pointer-events-none absolute inset-0 z-0 select-none overflow-hidden"
+        aria-hidden="true"
+      >
+        <div className="absolute inset-0 bg-blueprint-grid-dark opacity-25 [mask-image:radial-gradient(ellipse_85%_70%_at_50%_50%,#000_65%,transparent_100%)]" />
+        <div className="absolute top-1/3 -right-32 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.12)_0%,transparent_70%)] blur-3xl" />
+        <div className="absolute bottom-10 -left-32 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(6,182,212,0.10)_0%,transparent_70%)] blur-3xl" />
+        <div className="absolute top-8 left-8 font-mono text-xs text-amber-500/30 select-none">+</div>
+        <div className="absolute top-8 right-8 font-mono text-xs text-cyan-400/30 select-none">+</div>
+      </div>
+
+      <Container width="wide" className="relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
           {/* ============================================================
               LEFT COLUMN: Executive Studio Portrait & Authority Card (5 cols)
               ============================================================ */}
           <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-28">
             <FadeIn direction="up" distance={16} delay={0.05}>
-              <div className="rounded-2xl bg-white/85 border border-white/60 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_12px_36px_rgba(8,145,178,0.08)] [transform:translateZ(0)] overflow-hidden">
+              <div className="rounded-3xl bg-gradient-to-b from-teal-900/80 via-[#043331]/95 to-teal-950/95 border border-teal-500/30 shadow-[0_24px_70px_-16px_rgba(0,0,0,0.8),0_0_40px_rgba(20,184,166,0.15)] [transform:translateZ(0)] overflow-hidden">
                 {/* Executive Studio Portrait Container */}
                 <div className="relative aspect-[4/4.4] sm:aspect-[4/4.6] w-full bg-slate-950 overflow-hidden group">
                   {/* High-Resolution Warm-Graded Studio Portrait */}
@@ -147,15 +159,15 @@ export function FounderSection() {
 
                   {/* Top Floating Badge: Executive Mandate */}
                   <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10 pointer-events-none">
-                    <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-slate-950/85 backdrop-blur-md border border-cyan-100 text-white shadow-lg">
+                    <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-slate-950/90 backdrop-blur-md border border-slate-800 text-white shadow-lg">
                       <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                       <span className="font-mono text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-200">
                         Principal Mandate
                       </span>
                     </div>
 
-                    <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-950/85 backdrop-blur-md border border-gold-500/30 text-gold-300 shadow-lg">
-                      <Award className="w-3.5 h-3.5 text-gold-400" />
+                    <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-950/90 backdrop-blur-md border border-amber-500/40 text-amber-300 shadow-lg">
+                      <Award className="w-3.5 h-3.5 text-amber-400" />
                       <span className="font-mono text-[10px] sm:text-[11px] font-bold uppercase tracking-wider">
                         Executive Desk
                       </span>
@@ -169,28 +181,28 @@ export function FounderSection() {
                         <h3 className="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-white">
                           {founder.name}
                         </h3>
-                        <p className="font-mono text-xs text-teal-300 tracking-wide mt-0.5">
+                        <p className="font-mono text-xs text-amber-400 tracking-wide mt-0.5 font-semibold">
                           {founder.role}
                         </p>
                       </div>
                     </div>
 
-                    <div className="pt-2 flex items-center gap-2 text-[11px] font-mono text-slate-300 border-t border-cyan-100">
-                      <Compass className="w-3.5 h-3.5 text-[#0891B2] shrink-0" />
+                    <div className="pt-2 flex items-center gap-2 text-[11px] font-mono text-slate-400 border-t border-slate-800">
+                      <Compass className="w-3.5 h-3.5 text-amber-400 shrink-0" />
                       <span>Corporate HQ: Sector 62, Noida &bull; Est. 2011</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Authority Details Below Portrait */}
-                <div className="p-6 sm:p-7 space-y-5 bg-white">
+                <div className="p-6 sm:p-7 space-y-5 bg-teal-950/90 border-t border-teal-500/30">
                   {/* Verified LinkedIn Executive Badge */}
                   {founder.linkedin && (
                     <a
                       href={founder.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex items-center justify-between p-3.5 rounded-xl bg-slate-900 hover:bg-slate-850 text-white border border-slate-800 transition-all shadow-sm hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900"
+                      className="group flex items-center justify-between p-3.5 rounded-xl bg-teal-900/80 hover:bg-teal-900 text-white border border-teal-500/30 hover:border-amber-400/50 transition-all shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
                       aria-label="Connect with Rahul Kumar Singh on LinkedIn (opens in a new tab)"
                     >
                       <div className="flex items-center gap-3">
@@ -199,26 +211,26 @@ export function FounderSection() {
                         </div>
                         <div>
                           <div className="flex items-center gap-1.5">
-                            <span className="font-sans text-xs font-bold tracking-tight text-white group-hover:text-gold-300 transition-colors">
+                            <span className="font-sans text-xs font-bold tracking-tight text-white group-hover:text-amber-300 transition-colors">
                               Verified Executive Profile
                             </span>
-                            <CheckCircle2 className="w-3.5 h-3.5 text-teal-400 fill-teal-400/20 shrink-0" />
+                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 fill-emerald-400/20 shrink-0" />
                           </div>
-                          <span className="font-mono text-[11px] text-[#64748B] block">
+                          <span className="font-mono text-[11px] text-teal-200/70 block">
                             Direct Principal Network
                           </span>
                         </div>
                       </div>
-                      <div className="flex items-center gap-1 text-xs font-mono text-slate-300 group-hover:text-white transition-colors">
+                      <div className="flex items-center gap-1 text-xs font-mono text-amber-400 group-hover:text-amber-300 transition-colors">
                         <span>Connect</span>
-                        <ArrowUpRight className="w-4 h-4 text-[#64748B] group-hover:text-gold-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                        <ArrowUpRight className="w-4 h-4 text-amber-400 group-hover:text-amber-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                       </div>
                     </a>
                   )}
 
                   {/* Institutional Credential Tags in Left Column */}
                   <div className="space-y-2.5">
-                    <span className="text-[11px] font-mono uppercase tracking-wider text-[#64748B] font-semibold block">
+                    <span className="text-[11px] font-mono uppercase tracking-wider text-teal-200/70 font-semibold block">
                       Underwriting &amp; Governance Mandates
                     </span>
                     <div className="flex flex-col gap-2">
@@ -227,10 +239,10 @@ export function FounderSection() {
                         return (
                           <div
                             key={cred}
-                            className="flex items-center gap-2.5 p-2.5 rounded-lg bg-cyan-50 border border-cyan-100 text-xs font-sans text-[#475569]"
+                            className="flex items-center gap-2.5 p-2.5 rounded-xl bg-teal-900/60 border border-teal-500/30 text-xs font-sans text-teal-100 hover:border-teal-400/60 transition-colors"
                           >
-                            <div className="w-7 h-7 rounded-md bg-white border border-cyan-100 flex items-center justify-center shrink-0 shadow-2xs">
-                              <Icon className="w-3.5 h-3.5 text-[#0891B2]" />
+                            <div className="w-7 h-7 rounded-md bg-amber-950/60 border border-amber-500/40 flex items-center justify-center shrink-0 shadow-2xs">
+                              <Icon className="w-3.5 h-3.5 text-amber-400" />
                             </div>
                             <span className="font-medium">{cred}</span>
                           </div>
@@ -241,13 +253,13 @@ export function FounderSection() {
 
                   {/* Recognition Bridge (Verified external citations) */}
                   {verifiedRecognitions.length > 0 && (
-                    <div className="pt-4 border-t border-cyan-100 space-y-2.5">
+                    <div className="pt-4 border-t border-teal-500/30 space-y-2.5">
                       <div className="flex items-center justify-between">
-                        <span className="text-[11px] font-mono uppercase tracking-wider text-[#64748B] font-semibold block">
+                        <span className="text-[11px] font-mono uppercase tracking-wider text-teal-200/70 font-semibold block">
                           Institutional Citations
                         </span>
-                        <span className="text-[10px] font-mono text-emerald-800 flex items-center gap-1 font-semibold">
-                          <CheckCircle2 className="w-3 h-3 text-emerald-600" />
+                        <span className="text-[10px] font-mono text-amber-400 flex items-center gap-1 font-semibold">
+                          <CheckCircle2 className="w-3 h-3 text-amber-400" />
                           Verified
                         </span>
                       </div>
@@ -256,17 +268,17 @@ export function FounderSection() {
                         {verifiedRecognitions.map((rec) => (
                           <div
                             key={rec.id}
-                            className="p-3 rounded-lg bg-cyan-50 border border-cyan-100 text-xs font-sans space-y-1"
+                            className="p-3 rounded-xl bg-teal-900/60 border border-teal-500/30 text-xs font-sans space-y-1"
                           >
                             <div className="flex items-center justify-between">
-                              <span className="font-semibold text-[#0F0A1A]">
+                              <span className="font-semibold text-amber-300">
                                 {rec.publicationOrOrg}
                               </span>
-                              <span className="font-mono text-[10px] text-[#64748B]">
+                              <span className="font-mono text-[10px] text-amber-400 font-medium">
                                 {rec.year}
                               </span>
                             </div>
-                            <p className="text-[#475569] text-[11px] leading-snug line-clamp-2">
+                            <p className="text-teal-100/85 text-[11px] leading-snug line-clamp-2">
                               {rec.title}
                             </p>
                           </div>
@@ -282,33 +294,34 @@ export function FounderSection() {
           {/* ============================================================
               RIGHT COLUMN: Editorial Narrative & Leadership Directives (7 cols)
               ============================================================ */}
-          <div className="lg:col-span-7 space-y-8 font-sans text-[#475569]">
+          <div className="lg:col-span-7 space-y-8 font-sans text-slate-300">
             {/* Section Eyebrow, Founder Name & Credentials */}
             <FadeIn direction="up" distance={16} delay={0.08}>
               <div className="space-y-4">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0891B2]/10 border border-cyan-200 text-[#0891B2] text-xs font-mono tracking-wider uppercase">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#0891B2]" />
-                  <span>Foundership &amp; Executive Stewardship</span>
+                <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-amber-950/80 backdrop-blur-md border border-amber-500/40 text-xs font-mono tracking-widest text-amber-300 uppercase shadow-xs">
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                  <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
+                  <span>FOUNDERSHIP &bull; EXECUTIVE STEWARDSHIP</span>
                 </div>
 
                 <div className="space-y-2">
                   <h2
                     id="founder-heading"
-                    className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#0F0A1A] tracking-tight leading-[1.12]"
+                    className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium text-white tracking-tight leading-[1.12]"
                   >
                     {founder.name}
                   </h2>
 
-                  <div className="flex items-center gap-3 font-mono text-xs text-[#64748B] flex-wrap">
-                    <span className="text-[#0891B2] font-semibold uppercase tracking-wider">
+                  <div className="flex items-center gap-3 font-mono text-xs text-slate-400 flex-wrap">
+                    <span className="text-amber-400 font-semibold uppercase tracking-wider">
                       {founder.role}
                     </span>
                     {founder.specialty && (
                       <>
-                        <span className="text-slate-300" aria-hidden="true">
+                        <span className="text-slate-600" aria-hidden="true">
                           &bull;
                         </span>
-                        <span>{founder.specialty}</span>
+                        <span className="text-slate-300">{founder.specialty}</span>
                       </>
                     )}
                   </div>
@@ -329,7 +342,7 @@ export function FounderSection() {
 
             {/* Narrative Biographies */}
             <FadeIn direction="up" distance={16} delay={0.12}>
-              <div className="space-y-4 type-body leading-relaxed text-[#475569]">
+              <div className="space-y-4 type-body leading-relaxed text-slate-300">
                 <p>{founder.shortBio}</p>
                 <p>{founder.fullBio}</p>
               </div>
@@ -338,40 +351,40 @@ export function FounderSection() {
             {/* Founding Conviction Quote Card with Digitized Signature */}
             {founder.quote && (
               <FadeIn direction="up" distance={16} delay={0.15}>
-                <div className="p-7 sm:p-9 rounded-2xl bg-white border border-cyan-100 shadow-xl space-y-5 relative overflow-hidden">
+                <div className="p-7 sm:p-9 rounded-2xl bg-slate-900/80 border border-amber-500/30 shadow-[0_16px_40px_rgba(0,0,0,0.5)] backdrop-blur-md space-y-5 relative overflow-hidden">
                   <div
-                    className="absolute top-0 right-0 w-40 h-40 bg-gold-500/5 rounded-full blur-2xl pointer-events-none"
+                    className="absolute top-0 right-0 w-40 h-40 bg-amber-500/10 rounded-full blur-2xl pointer-events-none"
                     aria-hidden="true"
                   />
 
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono font-semibold uppercase tracking-wider text-[#0891B2] block">
+                    <span className="text-xs font-mono font-semibold uppercase tracking-wider text-amber-400 block">
                       Founding Executive Conviction
                     </span>
-                    <span className="text-[11px] font-mono text-[#64748B]">
+                    <span className="text-[11px] font-mono text-slate-400">
                       Noida Corporate Mandate
                     </span>
                   </div>
 
-                  <blockquote className="font-serif text-xl sm:text-2xl font-normal text-[#0F0A1A] leading-snug italic relative z-10">
+                  <blockquote className="font-serif text-xl sm:text-2xl font-normal text-white leading-snug italic relative z-10">
                     &ldquo;{founder.quote}&rdquo;
                   </blockquote>
 
                   {/* Digitized SVG Signature & Authority Block */}
-                  <div className="pt-4 border-t border-cyan-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                  <div className="pt-4 border-t border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                     <div className="space-y-1">
                       <DigitizedSignature />
-                      <div className="flex items-center gap-2 text-xs font-mono text-[#64748B]">
-                        <span className="w-5 h-[1px] bg-slate-300" />
-                        <span className="font-medium text-[#0F0A1A]">
+                      <div className="flex items-center gap-2 text-xs font-mono text-slate-400">
+                        <span className="w-5 h-[1px] bg-amber-500/40" />
+                        <span className="font-medium text-white">
                           Rahul Kumar Singh
                         </span>
-                        <span className="text-[#64748B]">&bull; Principal Executive</span>
+                        <span className="text-slate-400">&bull; Principal Executive</span>
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-50 border border-slate-200 text-[#475569] font-mono text-[10px] uppercase tracking-wider font-semibold">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-teal-600" />
+                    <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-950/80 border border-amber-500/30 text-amber-300 font-mono text-[10px] uppercase tracking-wider font-semibold">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-amber-400" />
                       <span>Certified Sign-Off</span>
                     </div>
                   </div>
@@ -382,10 +395,10 @@ export function FounderSection() {
             {/* Key Leadership Directives */}
             {founder.directives && founder.directives.length > 0 && (
               <FadeIn direction="up" distance={16} delay={0.18}>
-                <div className="p-6 sm:p-7 rounded-2xl bg-white/85 border border-white/60 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_8px_24px_rgba(8,145,178,0.06)] [transform:translateZ(0)] space-y-4">
+                <div className="p-6 sm:p-7 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-lg space-y-4">
                   <div className="flex items-center gap-2">
-                    <Sparkles className="w-4 h-4 text-[#0891B2]" />
-                    <h3 className="font-serif text-lg font-bold text-[#0F0A1A] tracking-tight">
+                    <Sparkles className="w-4 h-4 text-amber-400" />
+                    <h3 className="font-serif text-lg font-bold text-white tracking-tight">
                       Core Executive Directives
                     </h3>
                   </div>
@@ -394,9 +407,9 @@ export function FounderSection() {
                     {founder.directives.map((directive, idx) => (
                       <div
                         key={idx}
-                        className="flex items-start gap-3 text-sm text-[#475569] font-sans"
+                        className="flex items-start gap-3 text-sm text-slate-300 font-sans"
                       >
-                        <div className="w-5 h-5 rounded bg-[#0891B2]/10 border border-cyan-200 flex items-center justify-center shrink-0 mt-0.5 text-[11px] font-mono font-bold text-[#0891B2]">
+                        <div className="w-5 h-5 rounded bg-amber-950/60 border border-amber-500/30 flex items-center justify-center shrink-0 mt-0.5 text-[11px] font-mono font-bold text-amber-400">
                           0{idx + 1}
                         </div>
                         <span className="leading-snug">{directive}</span>
@@ -415,21 +428,21 @@ export function FounderSection() {
                     href={founder.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-b from-[#0AA5C7]/90 via-[#0891B2]/95 to-[#0E7490]/95 backdrop-blur-md border border-white/25 text-white text-xs font-semibold tracking-wide font-sans shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_4px_16px_rgba(8,145,178,0.22)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.6),0_8px_24px_rgba(8,145,178,0.32)] transition-all hover:-translate-y-0.5 [transform:translateZ(0)]"
+                    className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-900/90 hover:bg-slate-850 border border-slate-700 hover:border-amber-400/60 text-slate-200 hover:text-amber-300 text-xs font-semibold tracking-wide font-sans shadow-md transition-all hover:-translate-y-0.5"
                     aria-label="Connect with Rahul Kumar Singh on LinkedIn (opens in a new tab)"
                   >
                     <Linkedin className="w-4 h-4 text-[#0A66C2]" />
                     <span>Verified Executive LinkedIn</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 text-white/80" />
+                    <ArrowUpRight className="w-3.5 h-3.5 text-slate-400" />
                   </a>
                 )}
 
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-cyan-200/90 hover:border-[#0891B2]/60 bg-white/75 backdrop-blur-md hover:bg-white/95 text-[#0F0A1A] hover:text-[#0891B2] text-xs font-semibold tracking-wide font-sans shadow-[inset_0_1px_1px_rgba(255,255,255,0.85),0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_4px_14px_rgba(8,145,178,0.12)] transition-all hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0891B2] [transform:translateZ(0)]"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 text-slate-950 font-bold border border-amber-300/40 shadow-[0_8px_24px_rgba(245,158,11,0.35)] hover:from-amber-300 hover:to-amber-500 hover:shadow-[0_12px_32px_rgba(245,158,11,0.5)] transition-all hover:-translate-y-0.5 text-xs tracking-wide font-sans"
                 >
                   <span>Engage Executive Advisory Desk</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-[#0891B2]" />
+                  <ArrowUpRight className="w-3.5 h-3.5 text-slate-950" />
                 </Link>
               </div>
             </FadeIn>

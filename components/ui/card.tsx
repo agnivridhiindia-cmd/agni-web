@@ -3,30 +3,30 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 export const cardVariants = cva(
-  "rounded-2xl transition-all duration-300 text-[#0F0A1A] [transform:translateZ(0)]",
+  "rounded-2xl transition-all duration-300 text-slate-100 [transform:translateZ(0)]",
   {
     variants: {
       variant: {
         default:
-          "bg-white/80 border border-cyan-100/90 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_8px_24px_rgba(8,145,178,0.06)] hover:border-cyan-200 hover:bg-white/95 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_12px_32px_rgba(8,145,178,0.1)]",
+          "bg-slate-900/80 border border-slate-800/90 text-slate-100 shadow-[0_8px_24px_rgba(0,0,0,0.4)] hover:border-amber-500/40 hover:bg-slate-900/95 hover:shadow-[0_12px_32px_rgba(0,0,0,0.5)]",
         standard:
-          "bg-white/80 border border-cyan-100/90 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_8px_24px_rgba(8,145,178,0.06)] hover:border-cyan-200 hover:bg-white/95 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_12px_32px_rgba(8,145,178,0.1)]",
+          "bg-slate-900/80 border border-slate-800/90 text-slate-100 shadow-[0_8px_24px_rgba(0,0,0,0.4)] hover:border-amber-500/40 hover:bg-slate-900/95 hover:shadow-[0_12px_32px_rgba(0,0,0,0.5)]",
         static:
-          "bg-[#111313]/90 border border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.08),0_8px_24px_rgba(0,0,0,0.4)]",
+          "bg-slate-950/90 border border-slate-800/80 shadow-[0_8px_24px_rgba(0,0,0,0.5)]",
         interactive:
-          "bg-white/80 border border-cyan-100/90 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_8px_24px_rgba(8,145,178,0.06)] hover:border-cyan-300 hover:bg-white/95 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_12px_32px_rgba(8,145,178,0.12)] hover:-translate-y-1 active:translate-y-0 cursor-pointer",
+          "bg-slate-900/80 border border-slate-800/90 text-slate-100 shadow-[0_8px_24px_rgba(0,0,0,0.4)] hover:border-amber-400/50 hover:bg-slate-900/95 hover:shadow-[0_12px_32px_rgba(0,0,0,0.6),0_0_20px_rgba(245,158,11,0.1)] hover:-translate-y-1 active:translate-y-0 cursor-pointer",
         elevated:
-          "bg-white/90 border border-cyan-200/90 shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_12px_36px_rgba(8,145,178,0.08)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_16px_44px_rgba(8,145,178,0.12)] hover:-translate-y-1",
+          "bg-slate-900/90 border border-slate-800/90 text-slate-100 shadow-[0_12px_36px_rgba(0,0,0,0.6)] hover:border-amber-500/40 hover:shadow-[0_16px_44px_rgba(0,0,0,0.7)] hover:-translate-y-1",
         subtle:
-          "bg-white/60 border border-cyan-100/70 shadow-[inset_0_1px_1px_rgba(255,255,255,0.85)] hover:bg-white/85 hover:border-cyan-200",
+          "bg-slate-900/50 border border-slate-800/60 shadow-[0_4px_16px_rgba(0,0,0,0.3)] hover:bg-slate-900/75 hover:border-slate-700",
         glass:
-          "bg-white/80 backdrop-blur-xs border border-white/60 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_8px_24px_rgba(8,145,178,0.06)] hover:bg-white/90 hover:border-cyan-200 hover:-translate-y-1",
+          "bg-slate-900/70 backdrop-blur-md border border-slate-800/80 text-slate-100 shadow-[0_8px_24px_rgba(0,0,0,0.4)] hover:bg-slate-900/85 hover:border-amber-500/40 hover:-translate-y-1",
         "glass-dark":
-          "bg-[#111313]/85 backdrop-blur-xs border border-white/15 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_8px_24px_rgba(0,0,0,0.3)] hover:border-[#0891B2]/50 hover:-translate-y-1",
+          "bg-slate-950/85 backdrop-blur-md border border-slate-800/90 shadow-[0_8px_24px_rgba(0,0,0,0.5)] hover:border-cyan-500/40 hover:-translate-y-1",
         featured:
-          "bg-white/85 border border-cyan-200/90 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_12px_32px_rgba(8,145,178,0.1)] relative overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1 before:bg-gradient-to-r before:from-[#0891B2] before:to-[#10B981]",
+          "bg-slate-900/90 border border-amber-500/30 text-white shadow-[0_12px_32px_rgba(0,0,0,0.5)] relative overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1 before:bg-gradient-to-r before:from-amber-400 before:via-amber-500 before:to-cyan-400",
         glow:
-          "bg-white/85 border border-cyan-200/90 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_8px_24px_rgba(8,145,178,0.08)] hover:border-[#0891B2]/50 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_12px_32px_rgba(8,145,178,0.18)] hover:-translate-y-1",
+          "bg-slate-900/90 border border-amber-500/30 text-white shadow-[0_8px_24px_rgba(0,0,0,0.5),0_0_20px_rgba(245,158,11,0.15)] hover:border-amber-400/60 hover:shadow-[0_12px_32px_rgba(0,0,0,0.6),0_0_30px_rgba(245,158,11,0.25)] hover:-translate-y-1",
       },
     },
     defaultVariants: {
