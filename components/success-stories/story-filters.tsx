@@ -25,7 +25,7 @@ export function StoryFilters({
       aria-label="Filter case studies by practice category"
       className="border-b border-[#A6CCEA]/80 pb-4 mb-8 sm:mb-12"
     >
-      <div className="flex items-center gap-2 overflow-x-auto pb-1 -mb-1 scrollbar-none touch-pan-x">
+      <div className="flex flex-wrap items-center gap-2 pb-1 -mb-1">
         {categories.map((cat) => {
           const isActive = activeCategory === cat.id;
 
@@ -36,7 +36,7 @@ export function StoryFilters({
               onClick={() => onSelectCategory(cat.id)}
               aria-pressed={isActive}
               className={cn(
-                "relative inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 whitespace-nowrap cursor-pointer select-none [transform:translateZ(0)]",
+                "relative inline-flex min-w-[calc(50%-0.25rem)] flex-1 items-center justify-center gap-2 rounded-xl px-2 py-2 text-center text-xs leading-tight sm:min-w-0 sm:flex-none sm:px-3.5 sm:text-sm sm:whitespace-nowrap font-medium transition-all duration-200 cursor-pointer select-none [transform:translateZ(0)]",
                 "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2",
                 isActive
                   ? "bg-amber-500 text-slate-950 border border-amber-400 shadow-[0_2px_12px_rgba(245,158,11,0.35)] font-bold backdrop-blur-md"

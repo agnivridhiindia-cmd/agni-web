@@ -72,7 +72,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
     >
       <div className="space-y-4">
         {/* Top Header Row: Golden Icon Container & Floating Scheme Ceiling Tag */}
-        <div className="flex items-start justify-between gap-3">
+        <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-start sm:justify-between">
           <div
             className="w-11 h-11 rounded-xl flex items-center justify-center border border-amber-300 bg-amber-50 text-amber-700 shadow-2xs transition-all duration-300 shrink-0 group-hover:bg-amber-500 group-hover:text-white group-hover:scale-105"
             aria-hidden="true"
@@ -81,9 +81,9 @@ export function ServiceCard({ service }: ServiceCardProps) {
           </div>
 
           {/* Floating Tag indicating Scheme Ceiling */}
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider bg-amber-50 text-amber-800 border border-amber-300 shadow-2xs transition-transform duration-300 group-hover:scale-[1.02]">
+          <span className="inline-flex max-w-full items-center gap-1.5 rounded-full bg-amber-50 px-3 py-1 text-center text-[10px] font-mono font-bold uppercase tracking-wider text-amber-800 border border-amber-300 shadow-2xs transition-transform duration-300 group-hover:scale-[1.02] sm:text-left">
             <Sparkles className="w-3 h-3 text-amber-600 shrink-0" />
-            <span className="truncate max-w-[190px] sm:max-w-[220px]">{schemeCeiling}</span>
+            <span className="min-w-0 max-w-full whitespace-normal break-words sm:max-w-[220px] sm:truncate">{schemeCeiling}</span>
           </span>
         </div>
 

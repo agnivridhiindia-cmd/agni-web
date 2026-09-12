@@ -91,9 +91,9 @@ export function CategoryNavigation({
       className="sticky top-[68px] sm:top-[76px] z-30 bg-white/80 backdrop-blur-xl border-b border-[#A6CCEA] shadow-[0_4px_20px_rgba(15,23,42,0.06)] transition-colors py-3"
     >
       <Container width="wide">
-        <div className="flex items-center justify-between gap-4 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+        <div className="flex items-center justify-between gap-4">
           {/* Linear-Style Segmented Dock with Frosted Glassmorphic Styling */}
-          <div className="inline-flex items-center p-1.5 rounded-2xl bg-white/90 backdrop-blur-md border border-[#A6CCEA] shadow-[0_4px_16px_rgba(15,23,42,0.08)] [transform:translateZ(0)] shrink-0">
+          <div className="grid w-full grid-cols-2 items-center gap-1.5 rounded-2xl bg-white/90 p-1.5 backdrop-blur-md border border-[#A6CCEA] shadow-[0_4px_16px_rgba(15,23,42,0.08)] [transform:translateZ(0)] lg:inline-flex lg:w-auto lg:gap-0">
             {categories.map((cat, idx) => {
               const isActive = activeCategory === cat.id;
               const Icon = categoryIconMap[cat.id] || Landmark;
@@ -109,7 +109,7 @@ export function CategoryNavigation({
                   onClick={(e) => scrollToCategory(cat.id, e)}
                   aria-current={isActive ? "true" : undefined}
                   className={cn(
-                    "group relative inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-colors select-none whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-1 focus-visible:ring-offset-white"
+                    "group relative inline-flex min-w-0 items-center justify-center gap-2 rounded-xl px-2 py-2 text-center text-xs sm:px-4 sm:text-sm font-medium transition-colors select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-1 focus-visible:ring-offset-white lg:whitespace-nowrap"
                   )}
                 >
                   {/* Framer Motion Gliding Pill Indicator */}

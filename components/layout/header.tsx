@@ -162,29 +162,34 @@ export function Header() {
       <div
         aria-hidden="true"
         className={cn(
-          "pointer-events-none fixed top-0 inset-x-0 h-28 z-40 bg-gradient-to-b from-slate-900/15 via-slate-900/5 to-transparent backdrop-blur-[2px] select-none transition-all duration-500",
+          "pointer-events-none fixed top-0 inset-x-0 h-28 z-40 bg-gradient-to-b from-slate-900/15 via-slate-900/5 to-transparent backdrop-blur-[2px] select-none transition-[opacity,transform] duration-200",
           heroHidden ? "opacity-0 -translate-y-full" : "opacity-100 translate-y-0"
         )}
       />
 
       {/* Floating Centered Navigation Header */}
       <header
+        aria-hidden={mobileNavOpen || undefined}
         className={cn(
-          "fixed top-0 inset-x-0 z-50 flex justify-center px-4 sm:px-6 pt-3 sm:pt-4 pointer-events-none transition-all duration-500 ease-out",
-          heroHidden ? "opacity-0 -translate-y-24" : "opacity-100 translate-y-0"
+          "fixed top-0 inset-x-0 z-50 flex justify-center px-4 sm:px-6 pt-3 sm:pt-4 pointer-events-none transition-[opacity,transform] duration-200 ease-out",
+          mobileNavOpen
+            ? "pointer-events-none opacity-0"
+            : heroHidden
+              ? "opacity-0 -translate-y-24"
+              : "opacity-100 translate-y-0"
         )}
       >
         <nav
           aria-label="Main Navigation"
           className={cn(
-            "pointer-events-auto relative w-full border select-none transition-all duration-300",
+            "pointer-events-auto relative w-full border select-none transition-all duration-300 before:pointer-events-none before:absolute before:-inset-3 before:-z-10 before:rounded-[inherit] before:bg-slate-950/35 before:blur-xl before:content-['']",
             "backdrop-blur-2xl",
             isScrolled
               ? "max-w-5xl rounded-xl border-slate-800/90 bg-slate-950/85 px-4 py-2 shadow-[0_18px_44px_-24px_rgba(0,0,0,0.8)] sm:px-5 sm:py-2.5"
               : "max-w-6xl rounded-2xl border-slate-800/80 bg-slate-950/80 px-5 py-3 shadow-[0_20px_50px_-24px_rgba(0,0,0,0.7)] sm:px-6 sm:py-3.5"
           )}
         >
-          <div className="flex items-center justify-between gap-4 w-full">
+          <div className="flex min-w-0 w-full items-center justify-between gap-4">
             {/* Brand Mark */}
             <Link
               href="/"
@@ -201,7 +206,7 @@ export function Header() {
                 />
               </div>
 
-              <div className="flex flex-col">
+              <div className="flex min-w-0 flex-col">
                 <div className="flex items-baseline gap-1">
                   <span className="font-serif font-semibold text-base sm:text-lg text-white tracking-tight leading-none group-hover:text-amber-400 transition-colors">
                     AGNIVRIDHI
@@ -424,7 +429,7 @@ export function Header() {
                 onClick={() => setMobileNavOpen((prev) => !prev)}
                 aria-expanded={mobileNavOpen}
                 aria-label={mobileNavOpen ? "Close navigation menu" : "Open navigation menu"}
-                className="lg:hidden w-9 h-9 flex items-center justify-center rounded-lg text-white hover:bg-slate-900 border border-slate-800 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-amber-400"
+                className="lg:hidden flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-white hover:bg-slate-900 border border-slate-800 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-amber-400"
               >
                 {mobileNavOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
               </button>
@@ -444,7 +449,12 @@ export function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: shouldReduceMotion ? 0 : 0.2 }}
-            className="fixed inset-0 z-50 bg-slate-950/98 backdrop-blur-2xl text-white flex flex-col justify-between p-6 sm:p-10 pb-16 sm:pb-10 lg:hidden overflow-y-auto"
+            className="fixed inset-0 z-50 flex flex-col justify-between overflow-x-hidden overflow-y-auto bg-slate-950/90 p-6 pb-16 text-white backdrop-blur-3xl supports-[backdrop-filter]:bg-slate-950/78 sm:p-10 sm:pb-10 lg:hidden"
+            style={{
+              backgroundColor: "rgba(7, 24, 58, 0.9)",
+              backdropFilter: "blur(64px) saturate(140%)",
+              WebkitBackdropFilter: "blur(64px) saturate(140%)",
+            }}
           >
             {/* Top Bar inside Drawer */}
             <div className="flex items-center justify-between">
@@ -471,7 +481,7 @@ export function Header() {
                 type="button"
                 onClick={() => setMobileNavOpen(false)}
                 aria-label="Close menu"
-                className="w-10 h-10 flex items-center justify-center rounded-lg border border-slate-800 text-white hover:bg-slate-900 cursor-pointer"
+                className="flex h-11 w-11 items-center justify-center rounded-lg border border-slate-800 text-white hover:bg-slate-900 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>

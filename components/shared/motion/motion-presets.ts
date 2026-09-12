@@ -142,21 +142,12 @@ export function getDirectionalVariants(
     return reducedMotionVariants;
   }
 
-  const offset = {
-    x: direction === "left" ? distance : direction === "right" ? -distance : 0,
-    y: direction === "up" ? distance : direction === "down" ? -distance : 0,
-  };
-
   return {
     hidden: {
       opacity: 0,
-      x: offset.x,
-      y: offset.y,
     },
     visible: (custom?: { delay?: number; duration?: number }) => ({
       opacity: 1,
-      x: 0,
-      y: 0,
       transition: {
         duration: custom?.duration ?? motionDuration.normal,
         delay: custom?.delay ?? 0,

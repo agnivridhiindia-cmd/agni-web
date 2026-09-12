@@ -92,11 +92,11 @@ export function FlagshipCta({
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4 flex-wrap">
                 {/* Primary Conversion CTA */}
                 {primaryButtonText && (
-                  <MagneticButton strength={0.18} maxOffset={6}>
+                  <MagneticButton strength={0.18} maxOffset={6} className="w-full sm:w-auto max-w-full">
                     <LinkButton
                       href={primaryButtonHref}
                       variant="primary"
-                      className="w-full sm:w-auto rounded-full px-9 py-4 text-sm sm:text-base font-bold justify-center transition-all inline-flex items-center gap-2.5 tracking-wide bg-gradient-to-b from-amber-400 via-amber-500 to-amber-600 text-slate-950 border border-white/60 shadow-[inset_0_1px_2px_rgba(255,255,255,0.85),0_14px_35px_-6px_rgba(245,158,11,0.5)] hover:shadow-[inset_0_1px_2.5px_rgba(255,255,255,1),0_18px_45px_-6px_rgba(245,158,11,0.65)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] cursor-pointer [transform:translateZ(0)]"
+                      className="w-full sm:w-auto max-w-full whitespace-normal text-center leading-snug rounded-full px-9 py-4 text-sm sm:text-base font-bold justify-center transition-all inline-flex items-center gap-2.5 tracking-wide bg-gradient-to-b from-amber-400 via-amber-500 to-amber-600 text-slate-950 border border-white/60 shadow-[inset_0_1px_2px_rgba(255,255,255,0.85),0_14px_35px_-6px_rgba(245,158,11,0.5)] hover:shadow-[inset_0_1px_2.5px_rgba(255,255,255,1),0_18px_45px_-6px_rgba(245,158,11,0.65)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] cursor-pointer [transform:translateZ(0)]"
                       aria-label={typeof primaryButtonText === "string" ? primaryButtonText : "Primary Call to Action"}
                     >
                       <span>{primaryButtonText}</span>
