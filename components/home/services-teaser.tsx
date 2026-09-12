@@ -106,7 +106,9 @@ export function ServicesTeaser() {
         if (visible.length > 0) {
           const id = visible[0].target.getAttribute("data-practice-id");
           if (id) {
-            setActivePracticeId((prev) => (prev !== id ? id : prev));
+            React.startTransition(() => {
+              setActivePracticeId((prev) => (prev !== id ? id : prev));
+            });
           }
         }
       },
@@ -155,7 +157,7 @@ export function ServicesTeaser() {
                 id="services-teaser-heading"
                 className="font-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-bold tracking-[-0.03em] text-slate-900 !leading-[1.14]"
               >
-                Comprehensive Solutions for Your Business
+                Comprehensive Solutions for Your Business{" "}
                 <br />
                 <span className="text-amber-600 font-bold font-heading">
                   Funding, Compliance, and Growth.
@@ -198,7 +200,7 @@ export function ServicesTeaser() {
                   onMouseEnter={() => setActivePracticeId(practice.id)}
                   onFocus={() => setActivePracticeId(practice.id)}
                   className={cn(
-                    "group relative cursor-pointer rounded-2xl border p-5 transition-all duration-300 sm:p-6 [transform:translateZ(0)]",
+                    "group relative cursor-pointer rounded-2xl border p-5 transition-[background-color,border-color,box-shadow] duration-300 sm:p-6 [transform:translateZ(0)]",
                     isActive
                       ? "border-white/80 bg-white shadow-[0_20px_45px_-12px_rgba(14,165,233,0.1),inset_0_1px_2px_rgba(255,255,255,1)] ring-1 ring-slate-900/5"
                       : "border-white/60 bg-white/90 hover:border-white/90 hover:bg-white shadow-[0_4px_16px_rgba(15,23,42,0.03)]"
@@ -207,7 +209,7 @@ export function ServicesTeaser() {
                   {/* Active highlight pill on left edge */}
                   <div
                     className={cn(
-                      "absolute left-0 top-5 bottom-5 w-1 rounded-r-full transition-all duration-300",
+                      "absolute left-0 top-5 bottom-5 w-1 rounded-r-full transition-[background-color,opacity] duration-300",
                       isActive
                         ? "bg-gradient-to-b from-amber-400 to-amber-600 opacity-100"
                         : "bg-transparent opacity-0 group-hover:opacity-40 group-hover:bg-slate-300"
@@ -241,7 +243,7 @@ export function ServicesTeaser() {
                     <div className="flex items-center justify-between gap-4">
                       <h3
                         className={cn(
-                          "font-heading text-xl sm:text-2xl font-semibold transition-all duration-300",
+                          "font-heading text-xl sm:text-2xl font-semibold transition-[color,transform] duration-300",
                           isActive
                             ? "text-slate-900 translate-x-0.5"
                             : "text-slate-800 group-hover:text-slate-950"
@@ -252,7 +254,7 @@ export function ServicesTeaser() {
 
                       <div
                         className={cn(
-                          "flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-all duration-300",
+                          "flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-[background-color,border-color,color,box-shadow] duration-300",
                           isActive
                             ? "border-amber-400 bg-amber-500 text-slate-950 shadow-sm"
                             : "border-slate-200 text-slate-400 group-hover:border-slate-300 group-hover:text-slate-700"

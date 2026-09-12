@@ -99,7 +99,6 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      data-scroll-behavior="smooth"
       className={`${inter.variable} ${plusJakartaSans.variable} ${fraunces.variable} ${cormorant.variable} ${slabo13px.variable}`}
     >
       <head>

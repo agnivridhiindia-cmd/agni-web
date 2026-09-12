@@ -42,6 +42,25 @@ export function AmbientBackground({
   const rafRef = React.useRef<number | null>(null);
   const spotlightRef = React.useRef<HTMLDivElement>(null);
 
+  React.useEffect(() => {
+    let scrollTimeout: number | undefined;
+
+    const handleScroll = () => {
+      document.documentElement.dataset.scrolling = "true";
+      window.clearTimeout(scrollTimeout);
+      scrollTimeout = window.setTimeout(() => {
+        delete document.documentElement.dataset.scrolling;
+      }, 140);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.clearTimeout(scrollTimeout);
+      delete document.documentElement.dataset.scrolling;
+    };
+  }, []);
+
   // Smooth lerp mouse tracking for desktop spotlight
   React.useEffect(() => {
     if (!showSpotlight || !isPointerFine || prefersReducedMotion) return;

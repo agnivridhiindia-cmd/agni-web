@@ -137,6 +137,7 @@ export function Footer() {
               <div className="relative w-full h-60 sm:h-64 rounded-xl overflow-hidden border border-slate-700/80 shadow-lg group">
                 <iframe
                   title="Agnivridhi India Office - The IThum, Sector 62, Noida"
+                  aria-hidden="true"
                   src="https://www.openstreetmap.org/export/embed.html?bbox=77.3680%2C28.6240%2C77.3770%2C28.6310&layer=mapnik&marker=28.6276%2C77.3725"
                   width="100%"
                   height="100%"

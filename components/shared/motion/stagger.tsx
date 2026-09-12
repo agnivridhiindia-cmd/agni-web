@@ -21,7 +21,7 @@ export interface StaggerContainerProps extends Omit<HTMLMotionProps<"div">, "chi
  */
 export function StaggerContainer({
   children,
-  staggerDelay = 0.08,
+  staggerDelay = 0.05,
   delayChildren = 0,
   inView = true,
   once = true,

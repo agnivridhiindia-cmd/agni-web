@@ -26,7 +26,7 @@ export {
  */
 export const defaultViewport = {
   once: true,
-  margin: "150px 0px",
+  margin: "80px 0px",
   amount: 0.02,
 } as const;
 

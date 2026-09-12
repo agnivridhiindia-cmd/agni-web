@@ -204,7 +204,7 @@ export async function FeaturedStories() {
               id="featured-stories-heading"
               className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-[-0.03em] text-slate-900 !leading-[1.14]"
             >
-              Real Businesses.
+              Real Businesses.{' '}
               <br />
               <span className="text-amber-600 font-bold font-heading">
                 Real Structural Momentum.

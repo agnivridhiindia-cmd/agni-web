@@ -45,19 +45,25 @@ export function Header() {
 
   const servicesRef = React.useRef<HTMLDivElement>(null);
   const hoverTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
+  const previousScrollYRef = React.useRef(0);
 
   // Scroll detection with RAF throttling
   React.useEffect(() => {
     let ticking = false;
+    previousScrollYRef.current = window.scrollY;
 
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
           const currentY = window.scrollY;
           const isNowScrolled = currentY > 20;
+          const isScrollingDown = currentY > previousScrollYRef.current;
           setIsScrolled((prev) => (prev !== isNowScrolled ? isNowScrolled : prev));
-          setHeroHidden(false);
+          setHeroHidden(
+            currentY > 120 && isScrollingDown && !mobileNavOpen
+          );
           setServicesOpen((prev) => (prev ? false : prev));
+          previousScrollYRef.current = currentY;
           ticking = false;
         });
         ticking = true;
@@ -71,7 +77,7 @@ export function Header() {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
     };
-  }, [pathname]);
+  }, [mobileNavOpen, pathname]);
 
   // Close dropdown on outside click
   React.useEffect(() => {

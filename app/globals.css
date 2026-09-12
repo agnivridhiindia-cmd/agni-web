@@ -74,6 +74,13 @@
   will-change: transform, opacity;
 }
 
+html[data-scrolling="true"] .animate-ambient-drift-primary,
+html[data-scrolling="true"] .animate-ambient-drift-secondary,
+html[data-scrolling="true"] .animate-ambient-drift-tertiary,
+html[data-scrolling="true"] .animate-marquee-loop {
+  animation-play-state: paused;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee-loop {
     animation: none !important;

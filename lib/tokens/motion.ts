@@ -13,8 +13,8 @@ import type { Transition } from "framer-motion";
 export const motionDuration = {
   instant: 0.1, // 100ms: micro-states, button presses, focus
   fast: 0.2, // 200ms: dropdowns, tooltips, hover transitions
-  normal: 0.35, // 350ms: modal open, tab switch, card reveal
-  slow: 0.6, // 600ms: hero text staggered reveals, page transitions
+  normal: 0.28, // 280ms: modal open, tab switch, card reveal
+  slow: 0.5, // 500ms: hero text staggered reveals, page transitions
 } as const;
 
 export type MotionDuration = keyof typeof motionDuration;
