@@ -197,7 +197,7 @@ export function StatsBar() {
     <section
       ref={sectionRef}
       aria-labelledby="stats-heading"
-      className="relative py-14 sm:py-20 lg:py-24 overflow-hidden bg-gradient-to-b from-[#091020] via-[#0B1329] to-[#0A1122] border-b border-slate-800/80"
+      className="relative py-14 sm:py-20 lg:py-24 overflow-hidden bg-gradient-to-b from-[#F8FAFC] via-[#F2F7FB] to-[#EBF3F9] border-b border-[#CBDDEB]"
     >
       <Container width="wide">
         {/* Precision Sovereign Data Console Chassis - Apple Specular Hardware Enclosure */}
