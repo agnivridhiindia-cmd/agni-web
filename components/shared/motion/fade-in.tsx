@@ -57,7 +57,7 @@ export function FadeIn({
         viewport={{ ...defaultViewport, once: viewportOnce }}
         variants={variants}
         custom={{ delay, duration }}
-        className={cn("will-change-[opacity,transform]", className)}
+        className={className}
         {...props}
       >
         {children}
@@ -71,7 +71,7 @@ export function FadeIn({
       animate="visible"
       variants={variants}
       custom={{ delay, duration }}
-      className={cn("will-change-[opacity,transform]", className)}
+      className={className}
       {...props}
     >
       {children}

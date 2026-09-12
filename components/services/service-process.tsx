@@ -70,11 +70,11 @@ export function ServiceProcess({ process }: ServiceProcessProps) {
                 </span>
 
                 {/* Content Card */}
-                <div className="p-5 rounded-2xl bg-gradient-to-b from-teal-900/80 via-[#043331]/95 to-teal-950/95 border border-teal-500/30 shadow-[0_8px_24px_rgba(0,0,0,0.5)] group-hover:border-teal-400/80 transition-all duration-300 flex-1 w-full space-y-2">
-                  <h3 className="font-serif text-base font-medium text-amber-300 leading-snug">
+                <div className="p-5 rounded-2xl bg-gradient-to-b from-[#131D38]/90 via-[#0E162B]/95 to-[#0A1020]/95 border border-slate-700/60 shadow-[0_16px_40px_rgba(0,0,0,0.4)] backdrop-blur-xl group-hover:border-amber-500/40 transition-all duration-300 flex-1 w-full space-y-2">
+                  <h3 className="font-serif text-base font-semibold text-white group-hover:text-amber-300 transition-colors leading-snug">
                     {step.title}
                   </h3>
-                  <p className="text-xs text-teal-100/85 font-sans leading-relaxed">
+                  <p className="text-xs text-slate-300 font-sans leading-relaxed">
                     {step.description}
                   </p>
                 </div>
@@ -87,7 +87,7 @@ export function ServiceProcess({ process }: ServiceProcessProps) {
       {/* ============================================================
           MOBILE (< md): Connected Vertical Process Timeline
           ============================================================ */}
-      <div className="md:hidden relative pl-6 border-l-2 border-teal-500/40 space-y-6 ml-3">
+      <div className="md:hidden relative pl-6 border-l-2 border-amber-500/30 space-y-6 ml-3">
         {process.map((step) => {
           const stepNumber = String(step.step).padStart(2, "0");
 
@@ -106,14 +106,14 @@ export function ServiceProcess({ process }: ServiceProcessProps) {
                 <span className="font-mono text-[10px] uppercase font-bold tracking-widest text-amber-300 px-2 py-0.5 rounded bg-amber-950/80 border border-amber-500/40 inline-block">
                   Phase 0{step.step}
                 </span>
-                <h3 className="font-serif text-base font-medium text-amber-300">
+                <h3 className="font-serif text-base font-semibold text-white">
                   {step.title}
                 </h3>
               </div>
 
               {/* Card */}
-              <div className="p-4 rounded-xl bg-gradient-to-b from-teal-900/80 via-[#043331]/95 to-teal-950/95 border border-teal-500/30 shadow-[0_4px_16px_rgba(0,0,0,0.4)]">
-                <p className="text-xs text-teal-100/85 font-sans leading-relaxed">
+              <div className="p-4 rounded-xl bg-gradient-to-b from-[#131D38]/90 via-[#0E162B]/95 to-[#0A1020]/95 border border-slate-700/60 shadow-[0_8px_24px_rgba(0,0,0,0.4)] backdrop-blur-xl">
+                <p className="text-xs text-slate-300 font-sans leading-relaxed">
                   {step.description}
                 </p>
               </div>

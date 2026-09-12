@@ -43,12 +43,8 @@ const nextConfig: NextConfig = {
       "lucide-react",
       "framer-motion",
       "@radix-ui/react-accordion",
-      "@radix-ui/react-checkbox",
-      "@radix-ui/react-dialog",
       "@radix-ui/react-label",
       "@radix-ui/react-select",
-      "@radix-ui/react-tabs",
-      "@radix-ui/react-tooltip",
     ],
   },
   async headers() {

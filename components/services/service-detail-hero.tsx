@@ -99,7 +99,7 @@ export function ServiceDetailHero({ service }: ServiceDetailHeroProps) {
               )}
 
               {service.timeline && (
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-xs font-mono text-teal-200 bg-teal-950/80 border border-teal-500/30 shadow-xs">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-xs font-mono text-slate-300 bg-slate-900/80 border border-slate-700/60 shadow-xs">
                   <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0" aria-hidden="true" />
                   <span className="line-clamp-1">{service.timeline}</span>
                 </span>

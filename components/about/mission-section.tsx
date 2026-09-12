@@ -63,21 +63,21 @@ export function MissionSection() {
           </div>
         </FadeIn>
 
-        {/* Middle: Tripartite Progression Grid in Jewel-Teal Cards */}
+        {/* Middle: Tripartite Progression Grid in Midnight Luxury Cards */}
         <FadeIn direction="up" distance={20} delay={0.15}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t border-slate-800/80">
             {missionPillars.map((pillar) => (
               <div
                 key={pillar.step}
-                className="space-y-3 p-6 rounded-2xl bg-gradient-to-b from-teal-900/80 via-[#043331]/95 to-teal-950/95 border border-teal-500/30 shadow-[0_8px_24px_rgba(0,0,0,0.5)] hover:border-teal-400/80 transition-all"
+                className="space-y-3 p-6 rounded-2xl bg-gradient-to-b from-[#131D38]/90 via-[#0E162B]/95 to-[#0A1020]/95 border border-slate-700/60 shadow-[0_16px_40px_rgba(0,0,0,0.4)] backdrop-blur-xl hover:border-amber-500/50 transition-all group"
               >
                 <span className="text-xs font-mono font-bold text-amber-400 block tracking-widest">
                   PHASE {pillar.step}
                 </span>
-                <h3 className="font-serif text-xl font-medium text-amber-300 tracking-tight">
+                <h3 className="font-serif text-xl font-semibold text-white tracking-tight group-hover:text-amber-300 transition-colors">
                   {pillar.label}
                 </h3>
-                <p className="text-xs sm:text-sm text-teal-100/85 font-sans leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-300 font-sans leading-relaxed">
                   {pillar.description}
                 </p>
               </div>

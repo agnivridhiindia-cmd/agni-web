@@ -1,35 +1,35 @@
 import * as React from "react";
 import type { Metadata } from "next";
-import { getAllPosts } from "@/lib/mdx";
 import { createPageMetadata } from "@/lib/seo";
 import { BlogHero } from "@/components/blog/blog-hero";
-import { BlogListing } from "@/components/blog/blog-listing";
+import { LiveServiceCards } from "@/components/blog/live-service-cards";
+import { BlogCta } from "@/components/blog/blog-cta";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Insights & Advisory Knowledge Hub",
+  title: "Services & Strategic Insights | Agnivridhi India",
   description:
-    "Explore authoritative regulatory breakdowns, scheme blueprints, and compliance roadmaps curated for Indian MSMEs, manufacturers, and startup founders.",
+    "Comprehensive solutions for business growth, government funding schemes (CGTMSE, MUDRA, PMEGP), statutory compliance, and technology engineering.",
   path: "/blog",
 });
 
-export default async function BlogPage() {
-  const posts = await getAllPosts();
-
+export default function BlogPage() {
   return (
-    <div className="min-h-screen bg-background">
-      {/* Editorial Header */}
-      <BlogHero totalArticles={posts.length} />
+    <div className="min-h-screen text-slate-100 flex flex-col selection:bg-amber-500/20 selection:text-amber-200">
+      {/* 1. TOP SECTION (Dark Mode): Signature Luxury Hero */}
+      <BlogHero />
 
-      {/* Client filter directory wrapped in Suspense for search params */}
-      <React.Suspense
-        fallback={
-          <div className="py-20 text-center text-slate-500 text-sm">
-            Loading knowledge hub...
-          </div>
-        }
-      >
-        <BlogListing initialPosts={posts} />
-      </React.Suspense>
+      {/* Luminous Brass Hairline Transition */}
+      <div className="hairline-rule-brass w-full" aria-hidden="true" />
+
+      {/* 2. MIDDLE SECTION (White Mode): Live Service Cards */}
+      <LiveServiceCards />
+
+      {/* Luminous Multi-Tone Hairline Divider */}
+      <div className="hairline-rule-multi w-full" aria-hidden="true" />
+
+      {/* 3. LAST SECTION (Dark Mode): Signature Closing Advisory CTA */}
+      <BlogCta />
     </div>
   );
 }
+

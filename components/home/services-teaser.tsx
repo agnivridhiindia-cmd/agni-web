@@ -92,102 +92,36 @@ export function ServicesTeaser() {
   const cardRefs = React.useRef<(HTMLDivElement | null)[]>([]);
 
   // Deterministic scroll-spy: uses getBoundingClientRect() on scroll and resize,
-  // combined with IntersectionObserver, so it responds instantly even during
-  // programmatic automated testing (Selenium/Puppeteer/Playwright) and fast scrolls.
-  const updateActivePractice = React.useCallback(() => {
-    if (typeof window === "undefined") return;
-
-    const cards = cardRefs.current.filter(Boolean) as HTMLDivElement[];
-    if (cards.length === 0) return;
-
-    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-    // Reading focus band: 38% from top of viewport
-    const focusLine = viewportHeight * 0.38;
-
-    let bestId: string = cards[0].getAttribute("data-practice-id") || "funding";
-    let minDistance = Infinity;
-
-    for (let i = 0; i < cards.length; i++) {
-      const card = cards[i];
-      const rect = card.getBoundingClientRect();
-      const id = card.getAttribute("data-practice-id");
-      if (!id) continue;
-
-      // Direct hit: focus line is inside this card
-      if (rect.top <= focusLine && rect.bottom >= focusLine) {
-        bestId = id;
-        break;
-      }
-
-      // Check distance from center of card to focusLine
-      const cardCenter = (rect.top + rect.bottom) / 2;
-      const dist = Math.abs(cardCenter - focusLine);
-      if (dist < minDistance) {
-        minDistance = dist;
-        bestId = id;
-      }
-    }
-
-    // Special check: if user or automated test scrolled to Card 04 (bottom of practices)
-    const lastCard = cards[cards.length - 1];
-    if (lastCard) {
-      const lastRect = lastCard.getBoundingClientRect();
-      if (lastRect.top <= viewportHeight * 0.65 && lastRect.bottom > 0) {
-        const lastId = lastCard.getAttribute("data-practice-id");
-        if (lastId) {
-          bestId = lastId;
-        }
-      }
-    }
-
-    setActivePracticeId((prev) => (prev !== bestId ? bestId : prev));
-  }, []);
-
+  // Pure off-main-thread IntersectionObserver for smooth scroll detection
+  // with zero forced reflows or getBoundingClientRect layout thrashing
   React.useEffect(() => {
-    if (typeof window === "undefined") return;
+    if (typeof window === "undefined" || !("IntersectionObserver" in window)) return;
 
-    // Run immediately on mount so initial scroll position is matched
-    updateActivePractice();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
 
-    let ticking = false;
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          updateActivePractice();
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleScroll, { passive: true });
-
-    // IntersectionObserver for additional notification
-    let observer: IntersectionObserver | null = null;
-    if ("IntersectionObserver" in window) {
-      observer = new IntersectionObserver(
-        () => {
-          updateActivePractice();
-        },
-        {
-          root: null,
-          rootMargin: "50px 0px",
-          threshold: [0, 0.25, 0.5, 0.75, 1],
+        if (visible.length > 0) {
+          const id = visible[0].target.getAttribute("data-practice-id");
+          if (id) {
+            setActivePracticeId((prev) => (prev !== id ? id : prev));
+          }
         }
-      );
+      },
+      {
+        rootMargin: "-15% 0px -25% 0px",
+        threshold: [0.1, 0.4, 0.8],
+      }
+    );
 
-      cardRefs.current.forEach((el) => {
-        if (el) observer?.observe(el);
-      });
-    }
+    cardRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
-      if (observer) observer.disconnect();
-    };
-  }, [updateActivePractice]);
+    return () => observer.disconnect();
+  }, []);
 
   const activePractice = practices.find((p) => p.id === activePracticeId) ?? practices[0];
 
@@ -236,7 +170,7 @@ export function ServicesTeaser() {
             <div className="shrink-0">
               <Link
                 href="/services"
-                className="inline-flex items-center gap-2 px-7 py-3 rounded-full border border-white bg-white/75 hover:bg-white/95 backdrop-blur-xl text-slate-800 hover:text-slate-950 text-xs font-mono tracking-wider uppercase transition-all group shadow-[inset_0_1px_2px_rgba(255,255,255,1),0_8px_20px_rgba(15,23,42,0.06)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] [transform:translateZ(0)]"
+                className="inline-flex items-center gap-2 px-7 py-3 rounded-full border border-white bg-white/95 hover:bg-white text-slate-800 hover:text-slate-950 text-xs font-mono tracking-wider uppercase transition-all group shadow-[inset_0_1px_2px_rgba(255,255,255,1),0_8px_20px_rgba(15,23,42,0.06)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] [transform:translateZ(0)]"
               >
                 <span>Complete Service Catalog</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -250,7 +184,7 @@ export function ServicesTeaser() {
             ============================================================ */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           {/* Left: 4 Interactive Practice Rows (7 cols) */}
-          <div className="lg:col-span-7 space-y-3 pb-8 lg:pb-36">
+          <div className="lg:col-span-7 space-y-3">
             {practices.map((practice, index) => {
               const isActive = activePracticeId === practice.id;
 
@@ -266,8 +200,8 @@ export function ServicesTeaser() {
                   className={cn(
                     "group relative cursor-pointer rounded-2xl border p-5 transition-all duration-300 sm:p-6 [transform:translateZ(0)]",
                     isActive
-                      ? "border-white/80 bg-white/90 backdrop-blur-xl shadow-[0_20px_45px_-12px_rgba(14,165,233,0.1),inset_0_1px_2px_rgba(255,255,255,1)] ring-1 ring-slate-900/5"
-                      : "border-white/60 bg-white/60 backdrop-blur-md hover:border-white/90 hover:bg-white/80 shadow-[0_4px_16px_rgba(15,23,42,0.03)]"
+                      ? "border-white/80 bg-white shadow-[0_20px_45px_-12px_rgba(14,165,233,0.1),inset_0_1px_2px_rgba(255,255,255,1)] ring-1 ring-slate-900/5"
+                      : "border-white/60 bg-white/90 hover:border-white/90 hover:bg-white shadow-[0_4px_16px_rgba(15,23,42,0.03)]"
                   )}
                 >
                   {/* Active highlight pill on left edge */}
@@ -350,7 +284,7 @@ export function ServicesTeaser() {
             })}
 
             {/* Integrated Practice Reassurance Strip */}
-            <div className="rounded-2xl border border-dashed border-slate-300/90 bg-white/70 backdrop-blur-md p-5 sm:p-6 text-slate-700 shadow-2xs mt-4">
+            <div className="rounded-2xl border border-dashed border-slate-300/90 bg-white/95 p-5 sm:p-6 text-slate-700 shadow-2xs mt-4">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div className="space-y-1">
                   <div className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-amber-600">
@@ -373,7 +307,7 @@ export function ServicesTeaser() {
           </div>
 
           {/* Right: Dynamic Architectural Photography Frame (5 cols) */}
-          <div className="hidden lg:block lg:col-span-5 lg:sticky lg:top-28 h-fit">
+          <div className="hidden lg:block lg:col-span-5 sticky top-28 space-y-4">
             <div className="relative rounded-3xl overflow-hidden border border-slate-700/60 bg-slate-950 shadow-[0_20px_50px_rgba(15,23,42,0.3)] group aspect-[4/3] [transform:translateZ(0)]">
               {/* Corner Blueprint Crosshairs */}
               <div className="absolute top-2 left-2 font-mono text-xs text-sky-400/50 z-30 select-none">
@@ -416,24 +350,24 @@ export function ServicesTeaser() {
               <div className="relative z-20 h-full p-6 flex flex-col justify-between pointer-events-none">
                 {/* Top Badge */}
                 <div className="flex items-center justify-between">
-                  <span className="px-3 py-1 rounded-md bg-slate-900/90 backdrop-blur-md border border-slate-700/60 text-[10px] font-mono text-sky-300 uppercase tracking-wider flex items-center gap-1.5 shadow-xs">
+                  <span className="px-3 py-1 rounded-md bg-slate-900 border border-slate-700/60 text-[10px] font-mono text-sky-300 uppercase tracking-wider flex items-center gap-1.5 shadow-xs">
                     <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
                     <span>DESK {activePractice.num} &bull; CONTEXT</span>
                   </span>
-                  <span className="px-2.5 py-1 rounded-md bg-slate-900/90 backdrop-blur-md border border-slate-700/60 text-[10px] font-mono text-amber-400 shadow-xs font-semibold">
+                  <span className="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700/60 text-[10px] font-mono text-amber-400 shadow-xs font-semibold">
                     {activePractice.tag}
                   </span>
                 </div>
 
                 {/* Bottom Caption */}
-                <div className="space-y-1 bg-gradient-to-b from-teal-900/90 via-[#043331]/95 to-teal-950/98 backdrop-blur-md p-4 rounded-2xl border border-teal-500/30 shadow-[0_8px_24px_rgba(0,0,0,0.6)] [transform:translateZ(0)]">
+                <div className="space-y-1 bg-gradient-to-b from-[#131D38]/95 via-[#0E162B]/98 to-[#0A1020]/98 p-4 rounded-2xl border border-slate-700/60 shadow-[0_8px_24px_rgba(0,0,0,0.6)] [transform:translateZ(0)] backdrop-blur-xl">
                   <p className="text-[10px] font-mono uppercase tracking-widest text-amber-400 font-semibold">
                     {activePractice.discipline}
                   </p>
                   <p className="font-heading text-base sm:text-lg text-amber-300 font-semibold leading-snug">
                     {activePractice.headline}
                   </p>
-                  <p className="text-xs text-teal-100/85 font-sans line-clamp-2 leading-relaxed">
+                  <p className="text-xs text-slate-300 font-sans line-clamp-2 leading-relaxed">
                     {activePractice.description}
                   </p>
                 </div>

@@ -2,33 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@keyframes hero-ambient-drift {
-  0% {
-    transform: translate3d(-3%, -2%, 0);
-    opacity: 0.45;
-  }
-  50% {
-    transform: translate3d(3%, 2%, 0);
-    opacity: 0.6;
-  }
-  100% {
-    transform: translate3d(-3%, -2%, 0);
-    opacity: 0.45;
-  }
-}
-
-.hero-ambient-drift {
-  position: absolute;
-  inset: -4%;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 18% 30%, rgb(34 211 238 / 0.55), transparent 34%),
-    radial-gradient(circle at 82% 64%, rgb(16 185 129 / 0.4), transparent 32%),
-    radial-gradient(circle at 52% 82%, rgb(14 165 233 / 0.35), transparent 38%);
-  animation: hero-ambient-drift 12s ease-in-out infinite;
-  will-change: transform, opacity;
-  contain: strict;
-}
 
 @keyframes marquee-loop {
   0% {
@@ -102,11 +75,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-ambient-drift {
-    animation: none;
-    transform: translate3d(-2%, -1%, 0) scale(1.04);
-  }
-
   .animate-marquee-loop {
     animation: none !important;
   }
@@ -189,6 +157,7 @@
       radial-gradient(circle at 20% 85%, rgba(245, 158, 11, 0.05), transparent 35%),
       linear-gradient(180deg, #131B30 0%, #1A243F 30%, #162038 65%, #131B30 100%);
     color: #F8FAFC;
+    font-family: var(--font-slabo), var(--font-inter), serif;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -214,7 +183,12 @@
 
   /* Editorial Typography & Anti-Orphan Rules */
   h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-slabo), serif;
     text-wrap: balance;
+  }
+
+  p, span, a, label, input, textarea, select, button {
+    font-family: inherit;
   }
 
   p {
@@ -242,7 +216,7 @@
 @layer utilities {
   /* Hero / Editorial Statement */
   .type-display {
-    font-family: var(--font-heading), var(--font-inter), sans-serif;
+    font-family: var(--font-slabo), serif;
     font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem);
     line-height: 1.06;
     letter-spacing: -0.03em;
@@ -251,7 +225,7 @@
 
   /* Main Page / Hero Headline */
   .type-h1 {
-    font-family: var(--font-heading), var(--font-inter), sans-serif;
+    font-family: var(--font-slabo), serif;
     font-size: clamp(2rem, 3.5vw + 0.5rem, 3.25rem);
     line-height: 1.12;
     letter-spacing: -0.025em;
@@ -260,7 +234,7 @@
 
   /* Section Title */
   .type-h2 {
-    font-family: var(--font-heading), var(--font-inter), sans-serif;
+    font-family: var(--font-slabo), serif;
     font-size: clamp(1.625rem, 2.5vw + 0.25rem, 2.375rem);
     line-height: 1.18;
     letter-spacing: -0.02em;
@@ -269,7 +243,7 @@
 
   /* Subsection / Feature Headline */
   .type-h3 {
-    font-family: var(--font-heading), var(--font-inter), sans-serif;
+    font-family: var(--font-slabo), serif;
     font-size: clamp(1.25rem, 1.5vw + 0.25rem, 1.625rem);
     line-height: 1.25;
     letter-spacing: -0.015em;
@@ -278,7 +252,7 @@
 
   /* Card / Module Title */
   .type-h4 {
-    font-family: var(--font-inter), sans-serif;
+    font-family: var(--font-slabo), var(--font-inter), serif;
     font-size: 1.125rem;
     line-height: 1.4;
     letter-spacing: -0.005em;
@@ -287,7 +261,7 @@
 
   /* Lead / Introductory Paragraph */
   .type-body-lg {
-    font-family: var(--font-inter), sans-serif;
+    font-family: var(--font-slabo), var(--font-inter), serif;
     font-size: 1.125rem;
     line-height: 1.7;
     font-weight: 400;
@@ -295,7 +269,7 @@
 
   /* Standard Body Text */
   .type-body {
-    font-family: var(--font-inter), sans-serif;
+    font-family: var(--font-slabo), var(--font-inter), serif;
     font-size: 1rem;
     line-height: 1.65;
     font-weight: 400;
@@ -303,7 +277,7 @@
 
   /* Secondary / Meta Body */
   .type-body-sm {
-    font-family: var(--font-inter), sans-serif;
+    font-family: var(--font-slabo), var(--font-inter), serif;
     font-size: 0.875rem;
     line-height: 1.55;
     font-weight: 400;
@@ -311,7 +285,7 @@
 
   /* Fine Print / Badge / Caption */
   .type-caption {
-    font-family: var(--font-inter), sans-serif;
+    font-family: var(--font-slabo), var(--font-inter), serif;
     font-size: 0.75rem;
     line-height: 1.4;
     font-weight: 500;
@@ -319,7 +293,7 @@
 
   /* Category Eyebrow / Overline */
   .type-eyebrow {
-    font-family: var(--font-inter), sans-serif;
+    font-family: var(--font-slabo), var(--font-inter), serif;
     font-size: 0.75rem;
     line-height: 1;
     letter-spacing: 0.12em;
@@ -329,7 +303,7 @@
 
   /* UI Button Label */
   .type-button {
-    font-family: var(--font-inter), sans-serif;
+    font-family: var(--font-slabo), var(--font-inter), serif;
     font-size: 0.875rem;
     line-height: 1;
     font-weight: 500;
@@ -338,7 +312,7 @@
 
   /* Navigation Link */
   .type-nav {
-    font-family: var(--font-inter), sans-serif;
+    font-family: var(--font-slabo), var(--font-inter), serif;
     font-size: 0.9375rem;
     line-height: 1.25;
     font-weight: 500;
@@ -607,7 +581,7 @@
   }
 
   .editorial-tag {
-    font-family: var(--font-inter), sans-serif;
+    font-family: var(--font-slabo), var(--font-inter), serif;
     font-size: 0.6875rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
@@ -687,4 +661,10 @@
       padding-right: 2.5rem;
     }
   }
+}
+
+/* Keep translucent surfaces cheap to composite during fast scrolling. */
+[class*="backdrop-blur"] {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
 }

@@ -109,7 +109,7 @@ export function CaseStudyHero({ study }: CaseStudyHeroProps) {
               <ArrowRight className="w-4 h-4 ml-1" />
             </Link>
 
-            <span className="text-xs text-teal-200/80 font-mono">
+            <span className="text-xs text-slate-400 font-mono">
               100% Confidential &bull; Non-Disclosure Protected
             </span>
           </div>

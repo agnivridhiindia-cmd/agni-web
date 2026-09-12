@@ -12,7 +12,7 @@ const CASE_STUDIES_DIR = path.join(CONTENT_DIR, "case-studies");
  * Extracts standard YAML key-value pairs, nested objects, and arrays from MDX/Markdown files without bloated dependencies.
  */
 function parseFrontmatter<T>(rawContent: string): { frontmatter: Partial<T>; content: string } {
-  const normalized = rawContent.replace(/\r\n/g, "\n");
+  const normalized = rawContent.replace(/^\uFEFF/, "").replace(/\r\n/g, "\n");
   const match = normalized.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
 
   if (!match) {
@@ -196,12 +196,23 @@ export async function getCaseStudySlugs(): Promise<string[]> {
     .map((entry) => entry.name.replace(/\.mdx?$/, ""));
 }
 
+const CASE_STUDY_ALIASES: Record<string, string> = {
+  "cgtmse-cnc-expansion": "cgtmse-george-martin-jose",
+  "heavy-fabrication-iso-compliance": "cgtmse-goldi-kirana",
+  "george-martin-jose": "cgtmse-george-martin-jose",
+  "pal-and-sons": "pmegp-agro-food-processing",
+  "pal-and-sons-agro": "pmegp-agro-food-processing",
+  "goldi-kirana": "cgtmse-goldi-kirana",
+  "goldi-kirana-store": "cgtmse-goldi-kirana",
+};
+
 export async function getCaseStudyBySlug(
   slug: string
 ): Promise<{ frontmatter: CaseStudyFrontmatter; content: string } | null> {
+  const resolvedSlug = CASE_STUDY_ALIASES[slug] || slug;
   const candidates = [
-    path.join(CASE_STUDIES_DIR, `${slug}.mdx`),
-    path.join(CASE_STUDIES_DIR, `${slug}.md`),
+    path.join(CASE_STUDIES_DIR, `${resolvedSlug}.mdx`),
+    path.join(CASE_STUDIES_DIR, `${resolvedSlug}.md`),
   ];
 
   let filePath: string | null = null;

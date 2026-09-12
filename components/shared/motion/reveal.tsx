@@ -46,7 +46,7 @@ export function Reveal({
         delay,
         ease: motionEase.entrance,
       }}
-      className={cn("will-change-[opacity,transform]", className)}
+      className={className}
       {...props}
     >
       {children}

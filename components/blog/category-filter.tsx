@@ -19,11 +19,11 @@ export function CategoryFilter({
   onSelectCategory,
 }: CategoryFilterProps) {
   return (
-    <div className="border-b border-cyan-100 pb-4 mb-10 sm:mb-12">
-      <nav
-        aria-label="Filter articles by topic"
-        className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 -my-1 touch-pan-x"
-      >
+    <nav
+      aria-label="Filter articles by topic"
+      className="border-b border-[#A6CCEA]/80 pb-4 mb-10 sm:mb-12"
+    >
+      <div className="flex items-center gap-2 overflow-x-auto pb-1 -mb-1 scrollbar-none touch-pan-x">
         {categories.map((cat) => {
           const isActive = activeCategory === cat.id;
 
@@ -34,27 +34,36 @@ export function CategoryFilter({
               onClick={() => onSelectCategory(cat.id)}
               aria-pressed={isActive}
               className={cn(
-                "relative inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all shrink-0 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#0891B2] cursor-pointer [transform:translateZ(0)]",
+                "relative inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 whitespace-nowrap cursor-pointer select-none [transform:translateZ(0)]",
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2",
                 isActive
-                  ? "bg-white/90 text-[#0891B2] border border-[#0891B2]/60 font-semibold backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_2px_8px_rgba(8,145,178,0.12)]"
-                  : "bg-white/70 text-[#475569] hover:text-[#0F0A1A] hover:bg-white/95 border border-cyan-100/90 backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.8),0_2px_6px_rgba(0,0,0,0.02)] hover:-translate-y-0.5"
+                  ? "bg-amber-500 text-slate-950 border border-amber-400 shadow-[0_2px_12px_rgba(245,158,11,0.35)] font-bold backdrop-blur-md"
+                  : "bg-white/80 text-slate-700 border border-[#A6CCEA] hover:bg-white hover:text-slate-950 hover:border-amber-500/40 backdrop-blur-md shadow-2xs hover:-translate-y-0.5"
               )}
             >
               <span>{cat.label}</span>
               <span
                 className={cn(
-                  "px-1.5 py-0.2 rounded-full text-[11px] font-mono leading-none",
+                  "px-1.5 py-0.5 rounded text-[11px] font-mono leading-none font-semibold",
                   isActive
-                    ? "bg-[#0891B2]/20 text-[#0891B2] font-bold"
-                    : "bg-cyan-50 text-[#64748B]"
+                    ? "bg-black/15 text-slate-950 border border-black/10"
+                    : "bg-slate-100 text-slate-600 border border-slate-200"
                 )}
               >
                 {cat.count}
               </span>
+
+              {/* Active gold underline indicator */}
+              {isActive && (
+                <span
+                  aria-hidden="true"
+                  className="absolute -bottom-4 inset-x-2 h-0.5 bg-gradient-to-r from-amber-500 to-amber-600 rounded-full"
+                />
+              )}
             </button>
           );
         })}
-      </nav>
-    </div>
+      </div>
+    </nav>
   );
 }

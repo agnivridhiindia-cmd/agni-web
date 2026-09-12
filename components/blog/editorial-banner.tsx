@@ -25,7 +25,7 @@ export function EditorialBanner({
     return (
       <div
         className={cn(
-          "relative w-full overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-teal-950 flex flex-col justify-between select-none border border-slate-800",
+          "relative w-full overflow-hidden bg-gradient-to-br from-[#0B1329] via-[#0E162B] to-[#0A1020] flex flex-col justify-between select-none border border-slate-800",
           isHero ? "min-h-[340px] sm:min-h-[420px] lg:h-full p-6 sm:p-8" : "h-48 sm:h-52 p-4 sm:p-5",
           className
         )}
@@ -35,7 +35,7 @@ export function EditorialBanner({
           aria-hidden="true"
           className="absolute inset-0 opacity-[0.14]"
           style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(20,184,166,0.6) 1px, transparent 0)`,
+            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(245,158,11,0.25) 1px, transparent 0)`,
             backgroundSize: "24px 24px",
           }}
         />
@@ -43,7 +43,7 @@ export function EditorialBanner({
         {/* Diagonal sovereign glow accent */}
         <div
           aria-hidden="true"
-          className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-teal-500/15 blur-3xl pointer-events-none"
+          className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-sky-500/10 blur-3xl pointer-events-none"
         />
         <div
           aria-hidden="true"
@@ -53,8 +53,8 @@ export function EditorialBanner({
         {/* Top bar: Scheme ceiling & technical coordinate stamp */}
         <div className="relative z-10 flex items-center justify-between gap-2 text-[10px] sm:text-xs font-mono">
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-teal-950/80 text-teal-300 border border-teal-500/30 font-semibold tracking-wide">
-              <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse" />
+            <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-slate-900/80 text-sky-300 border border-slate-700/60 font-semibold tracking-wide">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
               SOVEREIGN BLUEPRINT
             </span>
             <span className="hidden sm:inline-block text-slate-400">
@@ -63,7 +63,7 @@ export function EditorialBanner({
           </div>
 
           <div className="text-amber-400/90 font-bold tracking-wider px-2 py-0.5 rounded bg-amber-950/40 border border-amber-500/30">
-            \u20B95.00 CR CEILING
+            ₹5.00 CR CEILING
           </div>
         </div>
 
@@ -109,7 +109,7 @@ export function EditorialBanner({
               strokeWidth="1.5"
             />
             {/* Rupee Symbol inside shield */}
-            <text x="270" y="117" textAnchor="middle" fill="#ffffff" fontSize="12" fontWeight="bold" fontFamily="sans-serif">ÃƒÂ¢ - Å¡Ã‚Â¹</text>
+            <text x="270" y="117" textAnchor="middle" fill="#ffffff" fontSize="12" fontWeight="bold" fontFamily="sans-serif">₹</text>
 
             {/* Pipeline Stage Nodes */}
             {/* Node 1: MSME Capex Appraisal */}
@@ -146,9 +146,9 @@ export function EditorialBanner({
         {/* Bottom bar: Institutional Metrics */}
         <div className="relative z-10 pt-2 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-2 text-[10px] sm:text-xs font-mono text-slate-300">
           <div className="flex items-center gap-3">
-            <span className="text-teal-400 font-semibold">COVER: 75%ÃƒÂ¢Ã¢â€šÂ¬ - Å“85%</span>
-            <span className="text-slate-500">ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢</span>
-            <span className="text-amber-300 font-semibold">MORTGAGE: ÃƒÂ¢ - Å¡Ã‚Â¹0.00</span>
+            <span className="text-amber-400 font-semibold">COVER: 75% - 85%</span>
+            <span className="text-slate-500">&bull;</span>
+            <span className="text-amber-300 font-semibold">MORTGAGE: ₹0.00</span>
           </div>
           <div className="text-slate-400">
             MINISTRY OF MSME &amp; SIDBI
@@ -184,7 +184,7 @@ export function EditorialBanner({
         />
         <div
           aria-hidden="true"
-          className="absolute -bottom-20 -right-20 w-64 h-64 rounded-full bg-teal-500/10 blur-3xl pointer-events-none"
+          className="absolute -bottom-20 -right-20 w-64 h-64 rounded-full bg-sky-500/10 blur-3xl pointer-events-none"
         />
 
         {/* Top bar: Standard version & stamp */}
@@ -199,7 +199,7 @@ export function EditorialBanner({
             </span>
           </div>
 
-          <div className="text-teal-300 font-bold tracking-wider px-2 py-0.5 rounded bg-teal-950/40 border border-teal-500/30">
+          <div className="text-amber-300 font-bold tracking-wider px-2 py-0.5 rounded bg-amber-950/40 border border-amber-500/30">
             ISO 9001:2015
           </div>
         </div>
@@ -256,8 +256,8 @@ export function EditorialBanner({
         <div className="relative z-10 pt-2 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-2 text-[10px] sm:text-xs font-mono text-slate-300">
           <div className="flex items-center gap-3">
             <span className="text-amber-300 font-semibold">ZERO MAJOR NCs</span>
-            <span className="text-slate-500">ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢</span>
-            <span className="text-teal-400 font-semibold">STAGE 1 &amp; 2 ROADMAP</span>
+            <span className="text-slate-500">&bull;</span>
+            <span className="text-amber-300 font-semibold">STAGE 1 &amp; 2 ROADMAP</span>
           </div>
           <div className="text-slate-400">
             NABCB / IAF ALIGNED
@@ -271,7 +271,7 @@ export function EditorialBanner({
   return (
     <div
       className={cn(
-        "relative w-full overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-teal-950 flex flex-col justify-between select-none border border-slate-800",
+        "relative w-full overflow-hidden bg-gradient-to-br from-[#0B1329] via-[#0E162B] to-[#0A1020] flex flex-col justify-between select-none border border-slate-800",
         isHero ? "min-h-[340px] sm:min-h-[420px] lg:h-full p-6 sm:p-8" : "h-48 sm:h-52 p-4 sm:p-5",
         className
       )}
@@ -280,18 +280,18 @@ export function EditorialBanner({
         aria-hidden="true"
         className="absolute inset-0 opacity-[0.12]"
         style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(20,184,166,0.6) 1px, transparent 0)`,
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(245,158,11,0.3) 1px, transparent 0)`,
           backgroundSize: "20px 20px",
         }}
       />
       <div className="relative z-10 flex items-center justify-between text-[10px] sm:text-xs font-mono">
-        <span className="px-2 py-0.5 rounded bg-teal-950/80 text-teal-300 border border-teal-500/30 font-semibold">
+        <span className="px-2 py-0.5 rounded bg-slate-900/80 text-amber-300 border border-slate-700/60 font-semibold">
           ADVISORY BRIEF
         </span>
         <span className="text-slate-400">{category.toUpperCase()}</span>
       </div>
       <div className="relative z-10 my-auto text-center py-4">
-        <div className="w-16 h-16 rounded-full mx-auto bg-slate-800/80 border border-teal-500/40 flex items-center justify-center text-teal-300 font-serif text-2xl font-bold">
+        <div className="w-16 h-16 rounded-full mx-auto bg-slate-900/80 border border-amber-500/40 flex items-center justify-center text-amber-300 font-serif text-2xl font-bold">
           {category[0]}
         </div>
       </div>

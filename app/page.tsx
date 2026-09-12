@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { siteConfig } from "@/lib/site-config";
 import { createPageMetadata } from "@/lib/seo";
-import { HeroHorizontalFlow } from "@/components/home/hero-horizontal-flow";
+import { Hero } from "@/components/home/hero";
 import { StatsBar } from "@/components/home/stats-bar";
-
+import { AboutBrief } from "@/components/home/about-brief";
 import { ServicesTeaser } from "@/components/home/services-teaser";
 import { AgniEngineMotif } from "@/components/home/agni-engine-motif";
 import { FeaturedStories } from "@/components/home/featured-stories";
@@ -22,16 +22,19 @@ export const metadata: Metadata = createPageMetadata({
 export default function HomePage() {
   return (
     <div className="min-h-screen text-slate-100">
-      {/* Flagship Homepage Hero with Desktop Horizontal Slide to About Section */}
-      <HeroHorizontalFlow />
+      {/* Flagship Homepage Hero - Top Dark Section Part 1 */}
+      <Hero />
 
-      {/* Luminous Multi-Tone Hairline Divider */}
-      <div className="hairline-rule-multi w-full" aria-hidden="true" />
-
-      {/* Editorial Statistics & Metric Stream */}
+      {/* Editorial Statistics & Metric Stream - Top Dark Section Part 2 */}
       <StatsBar />
 
-      {/* Luminous Brass/Cyan Transition */}
+      {/* Luminous Multi-Tone Hairline Divider Transition to Light Canvas */}
+      <div className="hairline-rule-multi w-full" aria-hidden="true" />
+
+      {/* About Section - Opening of Middle Light Section */}
+      <AboutBrief />
+
+      {/* Luminous Brass Transition */}
       <div className="hairline-rule-brass w-full" aria-hidden="true" />
 
       {/* Core Advisory Verticals */}
@@ -49,7 +52,7 @@ export default function HomePage() {
       {/* Featured Success Stories Section (Magazine Spreads) */}
       <FeaturedStories />
 
-      {/* Luminous Brass/Cyan Transition */}
+      {/* Luminous Brass Transition */}
       <div className="hairline-rule-brass w-full" aria-hidden="true" />
 
       {/* Recognition & Social Proof Section */}

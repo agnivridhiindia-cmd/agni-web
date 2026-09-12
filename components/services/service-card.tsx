@@ -67,54 +67,54 @@ export function ServiceCard({ service }: ServiceCardProps) {
   return (
     <Link
       href={`/services/${service.slug}`}
-      className="group relative flex flex-col justify-between rounded-2xl bg-gradient-to-b from-teal-900/80 via-[#043331]/95 to-teal-950/95 p-6 sm:p-7 border border-teal-500/30 shadow-[0_12px_32px_rgba(0,0,0,0.5),0_0_20px_rgba(20,184,166,0.15)] transition-all duration-300 ease-out hover:-translate-y-1.5 hover:border-teal-400/80 hover:shadow-[0_20px_45px_-12px_rgba(20,184,166,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 [transform:translateZ(0)]"
+      className="group relative flex flex-col justify-between rounded-2xl bg-white/85 p-6 sm:p-7 border border-white/90 shadow-[0_16px_40px_rgba(15,23,42,0.08)] backdrop-blur-xl transition-all duration-300 ease-out hover:-translate-y-1.5 hover:border-amber-400/60 hover:shadow-[0_24px_50px_rgba(14,165,233,0.15)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 [transform:translateZ(0)]"
       aria-label={`${service.name} - view specialized program details`}
     >
       <div className="space-y-4">
         {/* Top Header Row: Golden Icon Container & Floating Scheme Ceiling Tag */}
         <div className="flex items-start justify-between gap-3">
           <div
-            className="w-11 h-11 rounded-xl flex items-center justify-center border border-amber-500/40 bg-amber-950/60 text-amber-400 shadow-xs transition-all duration-300 shrink-0 group-hover:bg-amber-500 group-hover:text-slate-950 group-hover:scale-105"
+            className="w-11 h-11 rounded-xl flex items-center justify-center border border-amber-300 bg-amber-50 text-amber-700 shadow-2xs transition-all duration-300 shrink-0 group-hover:bg-amber-500 group-hover:text-white group-hover:scale-105"
             aria-hidden="true"
           >
             <IconComponent className="w-5 h-5 transition-transform duration-300" />
           </div>
 
           {/* Floating Tag indicating Scheme Ceiling */}
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider bg-amber-950/80 text-amber-300 border border-amber-500/40 shadow-2xs transition-transform duration-300 group-hover:scale-[1.02]">
-            <Sparkles className="w-3 h-3 text-amber-400 shrink-0" />
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider bg-amber-50 text-amber-800 border border-amber-300 shadow-2xs transition-transform duration-300 group-hover:scale-[1.02]">
+            <Sparkles className="w-3 h-3 text-amber-600 shrink-0" />
             <span className="truncate max-w-[190px] sm:max-w-[220px]">{schemeCeiling}</span>
           </span>
         </div>
 
         {/* Title */}
-        <h3 className="font-serif text-lg sm:text-xl font-medium text-amber-300 group-hover:text-amber-200 transition-colors leading-snug pt-1">
+        <h3 className="font-serif text-lg sm:text-xl font-bold text-slate-900 group-hover:text-amber-700 transition-colors leading-snug pt-1">
           {service.name}
         </h3>
 
         {/* Short Description */}
-        <p className="text-teal-100/85 text-xs sm:text-sm leading-relaxed font-sans line-clamp-3">
+        <p className="text-slate-700 text-xs sm:text-sm leading-relaxed font-sans line-clamp-3">
           {service.shortDescription}
         </p>
       </div>
 
       {/* Meta Footer Row */}
-      <div className="pt-4 mt-5 border-t border-teal-500/30 flex items-center justify-between text-xs font-mono">
+      <div className="pt-4 mt-5 border-t border-slate-200/80 flex items-center justify-between text-xs font-mono">
         {service.timeline ? (
-          <div className="flex items-center gap-1.5 text-teal-200/70">
-            <Clock className="w-3.5 h-3.5 text-amber-400/80 shrink-0" aria-hidden="true" />
+          <div className="flex items-center gap-1.5 text-slate-600 font-medium">
+            <Clock className="w-3.5 h-3.5 text-amber-600 shrink-0" aria-hidden="true" />
             <span className="line-clamp-1 max-w-[150px] sm:max-w-[190px] text-[11px]">
               {service.timeline}
             </span>
           </div>
         ) : (
-          <span className="text-teal-200/60 text-[11px]">Advisory Track</span>
+          <span className="text-slate-500 text-[11px] font-medium">Advisory Track</span>
         )}
 
-        <div className="inline-flex items-center gap-1.5 font-bold transition-colors ml-auto pl-2 text-xs text-amber-400 group-hover:text-amber-300 uppercase tracking-wider">
+        <div className="inline-flex items-center gap-1.5 font-bold transition-colors ml-auto pl-2 text-xs text-amber-700 group-hover:text-amber-800 uppercase tracking-wider">
           <span>Explore Program</span>
           <ArrowRight
-            className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1"
+            className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1 text-amber-700 group-hover:text-amber-800"
             aria-hidden="true"
           />
         </div>

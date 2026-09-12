@@ -54,10 +54,10 @@ export function Header() {
       if (!ticking) {
         window.requestAnimationFrame(() => {
           const currentY = window.scrollY;
-          setIsScrolled(currentY > 20);
-          // Always keep navigation header visible for instant institutional branding
+          const isNowScrolled = currentY > 20;
+          setIsScrolled((prev) => (prev !== isNowScrolled ? isNowScrolled : prev));
           setHeroHidden(false);
-          setServicesOpen(false);
+          setServicesOpen((prev) => (prev ? false : prev));
           ticking = false;
         });
         ticking = true;

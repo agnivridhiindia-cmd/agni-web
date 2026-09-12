@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getAllServices, getServiceBySlug, getRelatedServices } from "@/data/services";
+import { getAllServices, getAllServiceSlugs, getServiceBySlug, getRelatedServices } from "@/data/services";
 import { createPageMetadata, getBreadcrumbJsonLd, getServiceJsonLd } from "@/lib/seo";
 import { Container } from "@/components/shared/container";
 import { ServiceBreadcrumb } from "@/components/services/service-breadcrumb";
@@ -19,9 +19,9 @@ interface ServicePageProps {
 }
 
 export async function generateStaticParams() {
-  const services = getAllServices();
-  return services.map((service) => ({
-    slug: service.slug,
+  const slugs = getAllServiceSlugs();
+  return slugs.map((slug) => ({
+    slug,
   }));
 }
 

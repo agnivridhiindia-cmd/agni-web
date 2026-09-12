@@ -24,17 +24,17 @@ import { FadeIn } from "@/components/shared/motion";
 import { useReducedMotionPreference } from "@/components/shared/motion/motion-config";
 
 /**
- * Lucide icon mapping aligned with institutional phase narratives:
- * - 2011 (Origin): Rocket
- * - 2016 (Expansion): TrendingUp
- * - 2020 (Modernization): Cpu
- * - 2024 (Institutional Scale): Building2
+ * Lucide icon mapping aligned with institutional phase steps:
+ * - 01 (Assessment & Planning): Rocket
+ * - 02 (Loans & Subsidies): TrendingUp
+ * - 03 (Licenses & Quality): Cpu
+ * - 04 (Software & Scaling): Building2
  */
 const milestoneIcons: Record<string, LucideIcon> = {
-  "2011": Rocket,
-  "2016": TrendingUp,
-  "2020": Cpu,
-  "2024": Building2,
+  "01": Rocket,
+  "02": TrendingUp,
+  "03": Cpu,
+  "04": Building2,
 };
 
 // Normalized baseline scroll activation thresholds
@@ -57,62 +57,70 @@ function MilestoneCard({
 }: MilestoneCardProps) {
   return (
     <div
-      className={`p-7 rounded-3xl bg-gradient-to-b from-teal-900/80 via-[#043331]/95 to-teal-950/95 backdrop-blur-md border transition-all duration-300 ${
+      className={`p-7 sm:p-8 rounded-3xl backdrop-blur-xl border transition-all duration-500 shadow-[0_16px_40px_rgba(15,23,42,0.08)] ${
         isActive
           ? isFinalPhase
-            ? "border-teal-400/80 shadow-[0_16px_40px_rgba(0,0,0,0.6),0_0_25px_rgba(20,184,166,0.25)] ring-1 ring-amber-400/40"
-            : "border-teal-400/80 shadow-[0_16px_40px_rgba(0,0,0,0.6),0_0_20px_rgba(20,184,166,0.2)] ring-1 ring-amber-400/30"
-          : "border-teal-500/30 hover:border-teal-400/60 shadow-md"
+            ? "bg-white/95 border-amber-500/80 shadow-[0_20px_50px_rgba(245,158,11,0.2)] ring-2 ring-amber-400/40"
+            : "bg-white/95 border-amber-500/60 shadow-[0_20px_45px_rgba(14,165,233,0.16)] ring-2 ring-amber-400/30"
+          : "bg-white/75 border-white/90 hover:border-amber-400/50"
       }`}
     >
       {/* Badge & Pillar Tag */}
       <div className="flex items-center justify-between gap-2 mb-3">
-        <span className="text-[11px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded border text-amber-300 bg-amber-950/80 border-amber-500/40 shadow-xs">
-          {milestone.badge}
+        <span className="text-[11px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded border text-amber-800 bg-amber-50 border-amber-300 shadow-2xs">
+          Stage {milestone.phaseNumber} &bull; {milestone.badge}
         </span>
-        <span className="text-[11px] font-mono text-teal-200/70 font-medium">
+        <span className="text-[11px] font-mono text-slate-600 font-medium">
           {milestone.pillarTag}
         </span>
       </div>
 
+      {/* Workflow Step Identifier */}
+      {milestone.workflowStep && (
+        <div className="text-[11px] font-mono font-bold text-amber-700 uppercase tracking-wide mb-1 flex items-center gap-1.5">
+          <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+          <span>{milestone.workflowStep}</span>
+        </div>
+      )}
+
       {/* Subtitle & Title */}
       <div>
-        <span className="text-xs font-mono font-semibold text-amber-400 uppercase tracking-wider block">
+        <span className="text-xs font-mono font-semibold text-slate-500 uppercase tracking-wider block">
           {milestone.subtitle}
         </span>
-        <h3 className="font-serif text-2xl font-medium text-amber-300 leading-snug mt-1">
+        <h3 className="font-serif text-2xl font-bold text-slate-900 leading-snug mt-1">
           {milestone.title}
         </h3>
       </div>
 
       {/* Narrative Description */}
-      <p className="text-xs sm:text-sm text-teal-100/85 font-sans leading-relaxed mt-3">
+      <p className="text-xs sm:text-sm text-slate-700 font-sans leading-relaxed mt-3">
         {milestone.description}
       </p>
 
       {/* Structural Achievement Callout */}
-      <div className="mt-5 p-4 rounded-2xl border bg-teal-950/90 border-teal-500/30 shadow-xs">
+      <div className="mt-5 p-4 rounded-2xl border bg-white/95 border-[#A6CCEA]/70 shadow-2xs">
         <div className="flex items-center justify-between gap-3 flex-wrap">
           <div className="flex items-center gap-2">
             <span
               className={`w-2 h-2 rounded-full ${
                 isActive
-                  ? "bg-amber-400 animate-pulse"
-                  : "bg-slate-600"
+                  ? "bg-amber-500 animate-pulse"
+                  : "bg-slate-400"
               }`}
             />
-            <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider font-bold text-teal-200/80">
+            <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider font-bold text-slate-700">
               {milestone.metricLabel}
             </span>
           </div>
 
-          <div className="font-mono text-sm sm:text-base font-bold tabular-nums px-2.5 py-0.5 rounded bg-amber-950/80 text-amber-300 border border-amber-500/40">
+          <div className="font-mono text-sm sm:text-base font-bold tabular-nums px-2.5 py-0.5 rounded bg-amber-50 text-amber-800 border border-amber-300">
             {milestone.metric}
           </div>
         </div>
 
-        <div className="pt-2 flex items-start gap-1.5 text-xs font-sans text-teal-100/85 font-medium leading-snug">
-          <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
+        <div className="pt-2 flex items-start gap-1.5 text-xs font-sans text-slate-800 font-medium leading-snug">
+          <CheckCircle2 className="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" />
           <span>{milestone.achievementHighlight}</span>
         </div>
       </div>
@@ -141,24 +149,13 @@ function DesktopMilestoneRow({
   prefersReduced,
   nodeRef,
 }: DesktopMilestoneRowProps) {
-  const Icon = milestoneIcons[milestone.year] || Building2;
-  const isFinalPhase = milestone.year === "2024";
+  const Icon = milestoneIcons[milestone.phaseNumber] || Building2;
+  const isFinalPhase = milestone.phaseNumber === "04";
 
-  // Calibrate reveal window (start reveal ~10% before reaching node)
-  const revealStart = Math.max(0, threshold - 0.1);
-  const opacity = useTransform(progress, [revealStart, threshold], [0, 1]);
-  const cardX = useTransform(
-    progress,
-    [revealStart, threshold],
-    [isEven ? -28 : 28, 0]
-  );
-  const cardScale = useTransform(progress, [revealStart, threshold], [0.95, 1]);
-  const yearX = useTransform(
-    progress,
-    [revealStart, threshold],
-    [isEven ? 20 : -20, 0]
-  );
-  const nodeScale = useTransform(progress, [revealStart, threshold], [0.75, 1]);
+  // Smooth progressive reveal as scroll line arrives at this threshold
+  const revealStart = Math.max(0, threshold - 0.12);
+  const opacity = useTransform(progress, [revealStart, threshold], [0.35, 1]);
+  const nodeScale = useTransform(progress, [revealStart, threshold], [0.85, 1]);
 
   // Reactive node activation state
   const [isActive, setIsActive] = React.useState(prefersReduced);
@@ -166,7 +163,8 @@ function DesktopMilestoneRow({
   React.useEffect(() => {
     if (prefersReduced) return;
     const unsubscribe = progress.on("change", (latest) => {
-      setIsActive(latest >= threshold - 0.02);
+      const nextActive = latest >= threshold - 0.02;
+      setIsActive((prev) => (prev !== nextActive ? nextActive : prev));
     });
     return () => unsubscribe();
   }, [progress, threshold, prefersReduced]);
@@ -174,7 +172,7 @@ function DesktopMilestoneRow({
   return (
     <div className="relative grid grid-cols-12 items-center gap-6 lg:gap-8 py-8 lg:py-12">
       {/* Left Column (5 cols) */}
-      <div className={`col-span-5 ${isEven ? "text-right" : "text-right pr-6"}`}>
+      <div className={`col-span-5 relative ${isEven ? "text-right" : "text-right pr-6"}`}>
         {isEven ? (
           <motion.div
             style={
@@ -182,11 +180,9 @@ function DesktopMilestoneRow({
                 ? undefined
                 : {
                     opacity,
-                    x: cardX,
-                    scale: cardScale,
                   }
             }
-            className="w-full text-left"
+            className="w-full text-left relative"
           >
             <MilestoneCard
               milestone={milestone}
@@ -201,44 +197,55 @@ function DesktopMilestoneRow({
                 ? undefined
                 : {
                     opacity,
-                    x: yearX,
                   }
             }
             className="space-y-1 select-none"
           >
-            <span className="text-5xl lg:text-6xl font-serif font-medium text-white block tracking-tight">
-              {milestone.year}
+            <span className="text-5xl lg:text-6xl font-serif font-bold text-slate-900 block tracking-tight">
+              Step {milestone.phaseNumber}
             </span>
-            <span className="font-mono text-xs font-bold uppercase tracking-widest text-amber-400 block">
-              PHASE {milestone.phaseNumber} &bull; {milestone.badge}
+            <span className="font-mono text-xs font-bold uppercase tracking-widest text-amber-700 block">
+              {milestone.badge}
             </span>
-            <span className="font-mono text-[11px] text-slate-400 block">
+            <span className="font-mono text-xs text-slate-600 font-medium block">
               {milestone.pillarTag}
             </span>
           </motion.div>
         )}
       </div>
 
-      {/* Center Node Column (2 cols) */}
+      {/* Center Node Column (2 cols) — Aligned Dead Center on the Straight Line */}
       <div className="col-span-2 flex items-center justify-center relative">
+        {/* Horizontal Connector Hairline to Card */}
+        <div
+          aria-hidden="true"
+          className={`hidden lg:block absolute top-1/2 -translate-y-1/2 h-[2px] transition-all duration-500 pointer-events-none ${
+            isEven
+              ? "right-1/2 mr-6 w-12 sm:w-16 bg-gradient-to-l"
+              : "left-1/2 ml-6 w-12 sm:w-16 bg-gradient-to-r"
+          } ${
+            isActive
+              ? "from-amber-500/80 to-amber-400/20 shadow-[0_0_8px_rgba(245,158,11,0.5)]"
+              : "from-slate-300/60 to-transparent"
+          }`}
+        />
+
         <div
           ref={nodeRef}
-          className={`relative z-10 flex items-center justify-center ${
-            isEven ? "-translate-x-10 lg:-translate-x-12" : "translate-x-10 lg:translate-x-12"
-          }`}
+          className="relative z-10 flex items-center justify-center"
         >
           <motion.div
             style={prefersReduced ? undefined : { scale: nodeScale }}
-            className={`w-12 h-12 rounded-full bg-slate-900 flex items-center justify-center transition-all duration-300 border-2 ${
+            className={`w-12 h-12 rounded-full bg-white flex items-center justify-center transition-all duration-300 border-2 ${
               isActive
-                ? "border-amber-400 shadow-[0_0_24px_rgba(245,158,11,0.6)] ring-4 ring-amber-400/20"
-                : "border-slate-800 shadow-sm"
+                ? "border-amber-500 shadow-[0_0_24px_rgba(245,158,11,0.45)] ring-4 ring-amber-400/25"
+                : "border-slate-300 shadow-sm"
             }`}
           >
             {/* Active Radiant Pulse Ring */}
             {isActive && !prefersReduced && (
               <span
-                className="absolute inset-0 rounded-full animate-ping opacity-45 bg-amber-400"
+                className="absolute inset-0 rounded-full animate-ping opacity-40 bg-amber-400"
                 style={{ animationDuration: "2.5s" }}
                 aria-hidden="true"
               />
@@ -248,8 +255,8 @@ function DesktopMilestoneRow({
             <Icon
               className={`w-5 h-5 relative z-10 transition-colors duration-300 ${
                 isActive
-                  ? "text-amber-400"
-                  : "text-slate-500"
+                  ? "text-amber-600"
+                  : "text-slate-400"
               }`}
             />
           </motion.div>
@@ -257,7 +264,7 @@ function DesktopMilestoneRow({
       </div>
 
       {/* Right Column (5 cols) */}
-      <div className={`col-span-5 ${!isEven ? "text-left" : "text-left pl-6"}`}>
+      <div className={`col-span-5 relative ${!isEven ? "text-left" : "text-left pl-6"}`}>
         {!isEven ? (
           <motion.div
             style={
@@ -265,11 +272,9 @@ function DesktopMilestoneRow({
                 ? undefined
                 : {
                     opacity,
-                    x: cardX,
-                    scale: cardScale,
                   }
             }
-            className="w-full text-left"
+            className="w-full text-left relative"
           >
             <MilestoneCard
               milestone={milestone}
@@ -284,18 +289,17 @@ function DesktopMilestoneRow({
                 ? undefined
                 : {
                     opacity,
-                    x: yearX,
                   }
             }
             className="space-y-1 select-none"
           >
-            <span className="text-5xl lg:text-6xl font-serif font-medium text-white block tracking-tight">
-              {milestone.year}
+            <span className="text-5xl lg:text-6xl font-serif font-bold text-slate-900 block tracking-tight">
+              Step {milestone.phaseNumber}
             </span>
-            <span className="font-mono text-xs font-bold uppercase tracking-widest text-amber-400 block">
-              PHASE {milestone.phaseNumber} &bull; {milestone.badge}
+            <span className="font-mono text-xs font-bold uppercase tracking-widest text-amber-700 block">
+              {milestone.badge}
             </span>
-            <span className="font-mono text-[11px] text-slate-400 block">
+            <span className="font-mono text-xs text-slate-600 font-medium block">
               {milestone.pillarTag}
             </span>
           </motion.div>
@@ -324,19 +328,19 @@ function MobileMilestoneRow({
   prefersReduced,
   nodeRef,
 }: MobileMilestoneRowProps) {
-  const Icon = milestoneIcons[milestone.year] || Building2;
-  const isFinalPhase = milestone.year === "2024";
+  const Icon = milestoneIcons[milestone.phaseNumber] || Building2;
+  const isFinalPhase = milestone.phaseNumber === "04";
 
   const revealStart = Math.max(0, threshold - 0.08);
-  const opacity = useTransform(progress, [revealStart, threshold], [0, 1]);
-  const y = useTransform(progress, [revealStart, threshold], [20, 0]);
+  const opacity = useTransform(progress, [revealStart, threshold], [0.35, 1]);
 
   const [isActive, setIsActive] = React.useState(prefersReduced);
 
   React.useEffect(() => {
     if (prefersReduced) return;
     const unsubscribe = progress.on("change", (latest) => {
-      setIsActive(latest >= threshold - 0.02);
+      const nextActive = latest >= threshold - 0.02;
+      setIsActive((prev) => (prev !== nextActive ? nextActive : prev));
     });
     return () => unsubscribe();
   }, [progress, threshold, prefersReduced]);
@@ -349,10 +353,10 @@ function MobileMilestoneRow({
         className="relative z-10 flex-shrink-0 pt-1"
       >
         <div
-          className={`w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center transition-all duration-300 border-2 ${
+          className={`w-10 h-10 rounded-full bg-white flex items-center justify-center transition-all duration-300 border-2 ${
             isActive
-              ? "border-amber-400 shadow-[0_0_20px_rgba(245,158,11,0.5)] ring-2 ring-amber-400/20"
-              : "border-slate-800 shadow-sm"
+              ? "border-amber-500 shadow-[0_0_20px_rgba(245,158,11,0.4)] ring-2 ring-amber-400/20"
+              : "border-slate-300 shadow-sm"
           }`}
         >
           {isActive && !prefersReduced && (
@@ -365,8 +369,8 @@ function MobileMilestoneRow({
           <Icon
             className={`w-4 h-4 transition-colors duration-300 ${
               isActive
-                ? "text-amber-400"
-                : "text-slate-500"
+                ? "text-amber-600"
+                : "text-slate-400"
             }`}
           />
         </div>
@@ -374,22 +378,22 @@ function MobileMilestoneRow({
 
       {/* Content */}
       <motion.div
-        style={prefersReduced ? undefined : { opacity, y }}
+        style={prefersReduced ? undefined : { opacity }}
         className="flex-1 space-y-3 pb-4"
       >
-        {/* Year Header */}
+        {/* Step Header */}
         <div className="flex flex-wrap items-center gap-2.5">
-          <span className="text-2xl font-serif font-medium text-white">
-            {milestone.year}
+          <span className="text-2xl font-serif font-bold text-slate-900">
+            Step {milestone.phaseNumber}
           </span>
           <span
-            className={`text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded border ${
+            className={`text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded border ${
               isActive
-                ? "text-amber-300 bg-amber-950/60 border-amber-500/40"
-                : "text-slate-400 bg-slate-900 border-slate-800"
+                ? "text-amber-800 bg-amber-50 border-amber-300 shadow-2xs"
+                : "text-slate-600 bg-white border-slate-300 shadow-2xs"
             }`}
           >
-            PHASE {milestone.phaseNumber} &bull; {milestone.badge}
+            {milestone.badge}
           </span>
         </div>
 
@@ -410,6 +414,7 @@ function MobileMilestoneRow({
 
 export function CompanyTimeline() {
   const sectionRef = React.useRef<HTMLElement>(null);
+  const timelineContainerRef = React.useRef<HTMLDivElement>(null);
   const desktopTimelineRef = React.useRef<HTMLDivElement>(null);
   const mobileTimelineRef = React.useRef<HTMLDivElement>(null);
 
@@ -418,20 +423,20 @@ export function CompanyTimeline() {
 
   const prefersReduced = useReducedMotionPreference();
 
-  // Scroll Progress Tracking for the Timeline Section
+  // Scroll Progress Tracking directly on the Timeline Container for pixel precision
   const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start 75%", "end 65%"],
+    target: timelineContainerRef,
+    offset: ["start 65%", "end 65%"],
   });
 
-  // Smooth spring-interpolated progress
+  // Fast, instant responsive progress for lag-free straight line tracking
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 90,
-    damping: 25,
+    stiffness: 350,
+    damping: 35,
     restDelta: 0.001,
   });
 
-  // State for Desktop Snaking Path Coordinates
+  // State for Desktop Straight Line Coordinates
   const [desktopPathData, setDesktopPathData] = React.useState<{
     pathD: string;
     startX: number;
@@ -446,7 +451,7 @@ export function CompanyTimeline() {
     thresholds: DEFAULT_THRESHOLDS,
   });
 
-  // State for Mobile Rail Coordinates
+  // State for Mobile Left Rail Coordinates
   const [mobilePathData, setMobilePathData] = React.useState<{
     pathD: string;
     thresholds: number[];
@@ -455,7 +460,7 @@ export function CompanyTimeline() {
     thresholds: DEFAULT_THRESHOLDS,
   });
 
-  // Calculate Responsive Desktop Snaking Path
+  // Calculate Responsive Desktop Straight Line Path
   const calculateDesktopPath = React.useCallback(() => {
     const container = desktopTimelineRef.current;
     if (!container) return;
@@ -478,36 +483,22 @@ export function CompanyTimeline() {
 
     if (coords.length < 2) return;
 
+    // Pure straight vertical line down the exact center
     const startX = width / 2;
-    const c0 = coords[0];
-    let d = `M ${startX} 0`;
-
-    // Smooth Bezier from Top Center to Node 0
-    d += ` C ${startX} ${c0.y * 0.4}, ${c0.x} ${c0.y * 0.6}, ${c0.x} ${c0.y}`;
-
-    // Smooth Cubic Bezier Curves between alternating nodes
-    for (let i = 0; i < coords.length - 1; i++) {
-      const curr = coords[i];
-      const next = coords[i + 1];
-      const dy = next.y - curr.y;
-      d += ` C ${curr.x} ${curr.y + dy * 0.5}, ${next.x} ${next.y - dy * 0.5}, ${next.x} ${next.y}`;
-    }
-
-    // Terminal curve past last node
     const last = coords[coords.length - 1];
-    const endX = width / 2;
-    const endY = last.y + 70;
-    d += ` C ${last.x} ${last.y + 35}, ${endX} ${last.y + 50}, ${endX} ${endY}`;
+    const endY = last.y + 60;
+
+    const d = `M ${startX} 0 L ${startX} ${endY}`;
 
     // Compute precise scroll arrival thresholds based on relative Y positions
     const thresholds = coords.map((c) =>
-      Math.min(0.92, Math.max(0.08, c.y / height))
+      Math.min(0.95, Math.max(0.05, c.y / height))
     );
 
     setDesktopPathData({
       pathD: d,
       startX,
-      endX,
+      endX: startX,
       endY,
       thresholds,
     });
@@ -536,15 +527,13 @@ export function CompanyTimeline() {
     if (coords.length === 0) return;
 
     const startX = coords[0].x;
-    let d = `M ${startX} 0`;
-    for (let i = 0; i < coords.length; i++) {
-      d += ` L ${startX} ${coords[i].y}`;
-    }
     const last = coords[coords.length - 1];
-    d += ` L ${startX} ${last.y + 40}`;
+    const endY = last.y + 40;
+
+    const d = `M ${startX} 0 L ${startX} ${endY}`;
 
     const thresholds = coords.map((c) =>
-      Math.min(0.92, Math.max(0.08, c.y / height))
+      Math.min(0.95, Math.max(0.05, c.y / height))
     );
 
     setMobilePathData({
@@ -552,6 +541,18 @@ export function CompanyTimeline() {
       thresholds,
     });
   }, []);
+
+  // Traveling Glowing Tip Y-coordinate for Desktop
+  const tipY = useTransform(
+    smoothProgress,
+    [0, 1],
+    [0, desktopPathData.endY || 1000]
+  );
+  const tipOpacity = useTransform(
+    smoothProgress,
+    [0, 0.02, 0.98, 1],
+    [0, 1, 1, 0.8]
+  );
 
   // Attach Resize Observers and recalculate coordinates
   React.useEffect(() => {
@@ -597,18 +598,17 @@ export function CompanyTimeline() {
       ref={sectionRef}
       id="company-timeline"
       aria-labelledby="timeline-heading"
-      className="relative py-16 sm:py-20 lg:py-28 bg-slate-950 text-slate-100 border-b border-slate-800/80 overflow-hidden"
+      className="relative py-16 sm:py-20 lg:py-28 bg-gradient-to-b from-[#D5E7F4] via-[#C6E0F2] to-[#B8D7EE] text-slate-900 border-b border-[#A6CCEA] overflow-hidden"
     >
-      {/* Ambient Blueprint Grid */}
+      {/* Precision architectural ambient background matching home page institutional narrative */}
       <div
         className="pointer-events-none absolute inset-0 z-0 select-none overflow-hidden"
         aria-hidden="true"
       >
-        <div className="absolute inset-0 bg-blueprint-grid-dark opacity-25 [mask-image:radial-gradient(ellipse_85%_70%_at_50%_50%,#000_65%,transparent_100%)]" />
-        <div className="absolute top-1/3 -right-28 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.12)_0%,transparent_70%)] blur-3xl" />
-        <div className="absolute bottom-10 -left-28 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(6,182,212,0.10)_0%,transparent_70%)] blur-3xl" />
-        <div className="absolute top-8 left-8 font-mono text-xs text-amber-500/30 select-none">+</div>
-        <div className="absolute top-8 right-8 font-mono text-xs text-cyan-400/30 select-none">+</div>
+        <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-sky-300/80 to-transparent" />
+        <div className="absolute inset-0 [background-image:radial-gradient(#94A3B8_1px,transparent_1px)] [background-size:32px_32px] opacity-35 [mask-image:radial-gradient(ellipse_75%_65%_at_50%_40%,#000_50%,transparent_100%)]" />
+        <div className="absolute top-1/4 -left-32 h-[480px] w-[480px] rounded-full bg-[radial-gradient(circle,rgba(14,165,233,0.1)_0%,transparent_70%)] blur-3xl" />
+        <div className="absolute bottom-1/4 -right-32 h-[480px] w-[480px] rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.06)_0%,transparent_70%)] blur-3xl" />
       </div>
 
       <Container width="wide" className="relative z-10 space-y-12 sm:space-y-16">
@@ -616,263 +616,252 @@ export function CompanyTimeline() {
         <FadeIn direction="up" distance={16} delay={0.05}>
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
             <div className="max-w-3xl space-y-4">
-              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-amber-950/80 backdrop-blur-md border border-amber-500/40 text-xs font-mono tracking-widest text-amber-300 uppercase shadow-xs">
-                <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white border border-[#A6CCEA] text-xs font-mono tracking-widest text-slate-800 uppercase shadow-2xs font-semibold">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
                 EVOLUTION &amp; MILESTONES • INSTITUTIONAL ELEVATION
               </div>
-              <h2 id="timeline-heading" className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white tracking-tight leading-tight">
-                A Chronology of <span className="italic bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 bg-clip-text text-transparent">Institutional Elevation</span>.
+              <h2 id="timeline-heading" className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-slate-900 tracking-tight leading-tight">
+                A Simple, 4-Step <span className="italic text-amber-600 font-serif">Company Workflow</span>.
               </h2>
-              <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
-                From our origins in capital restructuring to multi-pillar advisory convergence across 28 Indian states, our trajectory reflects an uncompromising standard of regulatory rigor and technical execution.
+              <p className="text-base sm:text-lg text-slate-800 max-w-2xl leading-relaxed font-medium">
+                Here is exactly how we work with your business: from initial financial planning and collateral-free bank loans to legal compliance and digital sales growth.
               </p>
             </div>
 
             {/* Real-Time Interactive Badge */}
-            <div className="hidden lg:flex items-center gap-2 px-3.5 py-2 rounded-xl bg-amber-950/60 text-amber-300 border border-amber-500/30 shadow-xs self-start lg:self-auto">
-              <Sparkles className="w-4 h-4 text-amber-400 animate-pulse" />
-              <span className="font-mono text-xs font-semibold text-amber-300">
-                Interactive Milestones Spine
+            <div className="hidden lg:flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/90 text-amber-700 border border-[#A6CCEA] shadow-2xs self-start lg:self-auto">
+              <Sparkles className="w-4 h-4 text-amber-600 animate-pulse" />
+              <span className="font-mono text-xs font-bold text-amber-700">
+                Straight-Line Workflow Spine
               </span>
             </div>
           </div>
         </FadeIn>
 
         {/* ============================================================
-            DESKTOP / TABLET (>= lg): Interactive Illuminated Milestones Spine
+            CONTAINER WRAPPER: Unified scroll-tracking anchor
             ============================================================ */}
-        <div
-          ref={desktopTimelineRef}
-          className="hidden lg:block relative pt-4 pb-12"
-        >
-          {/* SVG Connector Layer: Illuminated Gold/Teal Light Spine */}
-          <svg
-            className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-visible"
-            aria-hidden="true"
+        <div ref={timelineContainerRef} className="relative">
+          {/* ============================================================
+              DESKTOP / TABLET (>= lg): Straight-Line Illuminated Workflow Spine
+              ============================================================ */}
+          <div
+            ref={desktopTimelineRef}
+            className="hidden lg:block relative pt-4 pb-12"
           >
-            <defs>
-              {/* Cyan into Gold Brand Gradient */}
-              <linearGradient
-                id="timeline-gradient-desktop"
-                x1="0%"
-                y1="0%"
-                x2="0%"
-                y2="100%"
-              >
-                <stop offset="0%" stopColor="#06B6D4" />
-                <stop offset="35%" stopColor="#38BDF8" />
-                <stop offset="70%" stopColor="#F59E0B" />
-                <stop offset="100%" stopColor="#D97706" />
-              </linearGradient>
+            {/* SVG Connector Layer: Illuminated Straight Vertical Light Spine */}
+            <svg
+              className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-visible"
+              aria-hidden="true"
+            >
+              <defs>
+                {/* Cyan into Gold Brand Gradient */}
+                <linearGradient
+                  id="timeline-gradient-desktop"
+                  x1="0%"
+                  y1="0%"
+                  x2="0%"
+                  y2="100%"
+                >
+                  <stop offset="0%" stopColor="#0284C7" />
+                  <stop offset="35%" stopColor="#0EA5E9" />
+                  <stop offset="70%" stopColor="#D97706" />
+                  <stop offset="100%" stopColor="#B45309" />
+                </linearGradient>
+              </defs>
 
-              {/* Spine Radiant Light Halo Filter */}
-              <filter
-                id="spine-glow-desktop"
-                x="-30%"
-                y="-30%"
-                width="160%"
-                height="160%"
-              >
-                <feGaussianBlur stdDeviation="4.5" result="blur" />
-                <feMerge>
-                  <feMergeNode in="blur" />
-                  <feMergeNode in="SourceGraphic" />
-                </feMerge>
-              </filter>
-            </defs>
+              {/* Background Faint Dashed Straight Line Track */}
+              {desktopPathData.pathD && (
+                <path
+                  d={desktopPathData.pathD}
+                  stroke="#94A3B8"
+                  strokeWidth="2.5"
+                  strokeDasharray="6 6"
+                  fill="none"
+                  strokeLinecap="round"
+                />
+              )}
 
-            {/* Background Faint Dashed Path */}
-            {desktopPathData.pathD && (
-              <path
-                d={desktopPathData.pathD}
-                stroke="#334155"
-                strokeWidth="2.5"
-                strokeDasharray="6 6"
-                fill="none"
-                strokeLinecap="round"
-              />
-            )}
-
-            {/* Outer Radiant Light Halo (fills with glowing light as user scrolls) */}
-            {desktopPathData.pathD && (
-              <motion.path
-                d={desktopPathData.pathD}
-                stroke="url(#timeline-gradient-desktop)"
-                strokeWidth="10"
-                strokeOpacity="0.4"
-                fill="none"
-                strokeLinecap="round"
-                filter="url(#spine-glow-desktop)"
-                style={{
-                  pathLength: prefersReduced ? 1 : smoothProgress,
-                }}
-              />
-            )}
-
-            {/* Core Intense Laser Light Stroke */}
-            {desktopPathData.pathD && (
-              <motion.path
-                d={desktopPathData.pathD}
-                stroke="url(#timeline-gradient-desktop)"
-                strokeWidth="3.5"
-                fill="none"
-                strokeLinecap="round"
-                style={{
-                  pathLength: prefersReduced ? 1 : smoothProgress,
-                }}
-              />
-            )}
-
-            {/* Top Anchor Dot */}
-            {desktopPathData.startX > 0 && (
-              <circle
-                cx={desktopPathData.startX}
-                cy={0}
-                r="5"
-                fill="#06B6D4"
-                className="transition-opacity"
-              />
-            )}
-
-            {/* Bottom Terminal Cap */}
-            {desktopPathData.endX > 0 && (
-              <circle
-                cx={desktopPathData.endX}
-                cy={desktopPathData.endY}
-                r="5"
-                fill="#F59E0B"
-                className="transition-opacity"
-              />
-            )}
-          </svg>
-
-          {/* Milestone Rows */}
-          <div className="relative z-10 space-y-4">
-            {companyTimeline.map((milestone, idx) => {
-              const isEven = idx % 2 === 0;
-              const threshold =
-                desktopPathData.thresholds[idx] ?? DEFAULT_THRESHOLDS[idx];
-
-              return (
-                <DesktopMilestoneRow
-                  key={milestone.year}
-                  milestone={milestone}
-                  isEven={isEven}
-                  progress={smoothProgress}
-                  threshold={threshold}
-                  prefersReduced={prefersReduced}
-                  nodeRef={(el) => {
-                    desktopNodeRefs.current[idx] = el;
+              {/* Outer Radiant Light Halo (fills with glowing light as user scrolls down) */}
+              {desktopPathData.pathD && (
+                <motion.path
+                  d={desktopPathData.pathD}
+                  stroke="url(#timeline-gradient-desktop)"
+                  strokeWidth="9"
+                  strokeOpacity="0.22"
+                  fill="none"
+                  strokeLinecap="round"
+                  style={{
+                    pathLength: prefersReduced ? 1 : smoothProgress,
                   }}
                 />
-              );
-            })}
+              )}
+
+              {/* Core Intense Straight Laser Light Stroke */}
+              {desktopPathData.pathD && (
+                <motion.path
+                  d={desktopPathData.pathD}
+                  stroke="url(#timeline-gradient-desktop)"
+                  strokeWidth="3.5"
+                  fill="none"
+                  strokeLinecap="round"
+                  style={{
+                    pathLength: prefersReduced ? 1 : smoothProgress,
+                  }}
+                />
+              )}
+
+              {/* Traveling Glowing Beacon that moves straight down along the line */}
+              {!prefersReduced && desktopPathData.endY > 0 && (
+                <motion.circle
+                  cx={desktopPathData.startX}
+                  cy={tipY}
+                  r="6"
+                  fill="#D97706"
+                  className="drop-shadow-[0_0_8px_rgba(217,119,6,0.7)]"
+                  style={{
+                    opacity: tipOpacity,
+                  }}
+                />
+              )}
+
+              {/* Top Anchor Dot */}
+              {desktopPathData.startX > 0 && (
+                <circle
+                  cx={desktopPathData.startX}
+                  cy={0}
+                  r="5"
+                  fill="#0284C7"
+                  className="transition-opacity"
+                />
+              )}
+
+              {/* Bottom Terminal Cap */}
+              {desktopPathData.endX > 0 && (
+                <circle
+                  cx={desktopPathData.endX}
+                  cy={desktopPathData.endY}
+                  r="5"
+                  fill="#D97706"
+                  className="transition-opacity"
+                />
+              )}
+            </svg>
+
+            {/* Milestone Rows */}
+            <div className="relative z-10 space-y-4">
+              {companyTimeline.map((milestone, idx) => {
+                const isEven = idx % 2 === 0;
+                const threshold =
+                  desktopPathData.thresholds[idx] ?? DEFAULT_THRESHOLDS[idx];
+
+                return (
+                  <DesktopMilestoneRow
+                    key={milestone.phaseNumber}
+                    milestone={milestone}
+                    isEven={isEven}
+                    progress={smoothProgress}
+                    threshold={threshold}
+                    prefersReduced={prefersReduced}
+                    nodeRef={(el) => {
+                      desktopNodeRefs.current[idx] = el;
+                    }}
+                  />
+                );
+              })}
+            </div>
           </div>
-        </div>
 
-        {/* ============================================================
-            MOBILE ONLY (< lg): Scroll-Driven Illuminated Vertical Rail
-            ============================================================ */}
-        <div
-          ref={mobileTimelineRef}
-          className="lg:hidden relative pt-2 pb-6"
-        >
-          {/* SVG Mobile Rail Layer */}
-          <svg
-            className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-visible"
-            aria-hidden="true"
+          {/* ============================================================
+              MOBILE ONLY (< lg): Straight-Line Left Rail Workflow
+              ============================================================ */}
+          <div
+            ref={mobileTimelineRef}
+            className="lg:hidden relative pt-2 pb-6"
           >
-            <defs>
-              <linearGradient
-                id="timeline-gradient-mobile"
-                x1="0%"
-                y1="0%"
-                x2="0%"
-                y2="100%"
-              >
-                <stop offset="0%" stopColor="#06B6D4" />
-                <stop offset="40%" stopColor="#38BDF8" />
-                <stop offset="75%" stopColor="#F59E0B" />
-                <stop offset="100%" stopColor="#D97706" />
-              </linearGradient>
+            {/* SVG Mobile Rail Layer */}
+            <svg
+              className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-visible"
+              aria-hidden="true"
+            >
+              <defs>
+                <linearGradient
+                  id="timeline-gradient-mobile"
+                  x1="0%"
+                  y1="0%"
+                  x2="0%"
+                  y2="100%"
+                >
+                  <stop offset="0%" stopColor="#0284C7" />
+                  <stop offset="40%" stopColor="#0EA5E9" />
+                  <stop offset="75%" stopColor="#D97706" />
+                  <stop offset="100%" stopColor="#B45309" />
+                </linearGradient>
 
-              <filter
-                id="spine-glow-mobile"
-                x="-30%"
-                y="-30%"
-                width="160%"
-                height="160%"
-              >
-                <feGaussianBlur stdDeviation="3.5" result="blur" />
-                <feMerge>
-                  <feMergeNode in="blur" />
-                  <feMergeNode in="SourceGraphic" />
-                </feMerge>
-              </filter>
-            </defs>
+              </defs>
 
-            {/* Background Faint Dashed Rail */}
-            {mobilePathData.pathD && (
-              <path
-                d={mobilePathData.pathD}
-                stroke="#334155"
-                strokeWidth="2"
-                strokeDasharray="5 5"
-                fill="none"
-                strokeLinecap="round"
-              />
-            )}
+              {/* Background Faint Dashed Rail */}
+              {mobilePathData.pathD && (
+                <path
+                  d={mobilePathData.pathD}
+                  stroke="#94A3B8"
+                  strokeWidth="2"
+                  strokeDasharray="5 5"
+                  fill="none"
+                  strokeLinecap="round"
+                />
+              )}
 
-            {/* Radiant Mobile Glow Halo */}
-            {mobilePathData.pathD && (
-              <motion.path
-                d={mobilePathData.pathD}
-                stroke="url(#timeline-gradient-mobile)"
-                strokeWidth="8"
-                strokeOpacity="0.4"
-                fill="none"
-                strokeLinecap="round"
-                filter="url(#spine-glow-mobile)"
-                style={{
-                  pathLength: prefersReduced ? 1 : smoothProgress,
-                }}
-              />
-            )}
-
-            {/* Core Scroll-Driven Mobile Rail */}
-            {mobilePathData.pathD && (
-              <motion.path
-                d={mobilePathData.pathD}
-                stroke="url(#timeline-gradient-mobile)"
-                strokeWidth="3"
-                fill="none"
-                strokeLinecap="round"
-                style={{
-                  pathLength: prefersReduced ? 1 : smoothProgress,
-                }}
-              />
-            )}
-          </svg>
-
-          {/* Milestone List */}
-          <div className="relative z-10 space-y-4">
-            {companyTimeline.map((milestone, idx) => {
-              const threshold =
-                mobilePathData.thresholds[idx] ?? DEFAULT_THRESHOLDS[idx];
-
-              return (
-                <MobileMilestoneRow
-                  key={milestone.year}
-                  milestone={milestone}
-                  progress={smoothProgress}
-                  threshold={threshold}
-                  prefersReduced={prefersReduced}
-                  nodeRef={(el) => {
-                    mobileNodeRefs.current[idx] = el;
+              {/* Radiant Mobile Glow Halo */}
+              {mobilePathData.pathD && (
+                <motion.path
+                  d={mobilePathData.pathD}
+                  stroke="url(#timeline-gradient-mobile)"
+                  strokeWidth="7"
+                  strokeOpacity="0.22"
+                  fill="none"
+                  strokeLinecap="round"
+                  style={{
+                    pathLength: prefersReduced ? 1 : smoothProgress,
                   }}
                 />
-              );
-            })}
+              )}
+
+              {/* Core Scroll-Driven Mobile Straight Rail */}
+              {mobilePathData.pathD && (
+                <motion.path
+                  d={mobilePathData.pathD}
+                  stroke="url(#timeline-gradient-mobile)"
+                  strokeWidth="3"
+                  fill="none"
+                  strokeLinecap="round"
+                  style={{
+                    pathLength: prefersReduced ? 1 : smoothProgress,
+                  }}
+                />
+              )}
+            </svg>
+
+            {/* Milestone List */}
+            <div className="relative z-10 space-y-4">
+              {companyTimeline.map((milestone, idx) => {
+                const threshold =
+                  mobilePathData.thresholds[idx] ?? DEFAULT_THRESHOLDS[idx];
+
+                return (
+                  <MobileMilestoneRow
+                    key={milestone.phaseNumber}
+                    milestone={milestone}
+                    progress={smoothProgress}
+                    threshold={threshold}
+                    prefersReduced={prefersReduced}
+                    nodeRef={(el) => {
+                      mobileNodeRefs.current[idx] = el;
+                    }}
+                  />
+                );
+              })}
+            </div>
           </div>
         </div>
       </Container>

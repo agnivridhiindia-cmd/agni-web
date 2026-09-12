@@ -1,5 +1,5 @@
 ---
-title: "A Comprehensive Guide to CGTMSE: Unlocking \u20B95 Crore Collateral-Free Loans"
+title: "A Comprehensive Guide to CGTMSE: Unlocking ₹5 Crore Collateral-Free Loans"
 excerpt: "How emerging manufacturers and service enterprises can leverage the Ministry of MSME's sovereign guarantee trust to secure institutional debt without pledging personal assets."
 category: "Funding"
 author:
@@ -17,7 +17,7 @@ featured: true
 
 The Credit Guarantee Fund Trust for Micro and Small Enterprises (CGTMSE) represents one of the most transformative financial interventions initiated by the Ministry of MSME and SIDBI. For decades, the single largest barrier preventing small Indian manufacturers from modernizing their facilities was the requirement for real estate or liquid collateral.
 
-Under CGTMSE, commercial banks and NBFCs are underwritten by a sovereign guarantee mechanism, enabling eligible units to access term loans and working capital up to \u20B9500 Lakh (\u20B95 Crore) without third-party guarantees or mortgage security.
+Under CGTMSE, commercial banks and NBFCs are underwritten by a sovereign guarantee mechanism, enabling eligible units to access term loans and working capital up to ₹500 Lakh (₹5 Crore) without third-party guarantees or mortgage security.
 
 ## Eligibility & Scheme Scope
 
@@ -29,9 +29,9 @@ Eligible enterprises include:
 ## Sovereign Guarantee Coverage Structure
 
 The guarantee coverage underwritten by CGTMSE scales based on borrowing size and promoter category:
-- **Up to \u20B95 Lakh:** Up to 85% sovereign risk coverage for micro enterprises.
-- **\u20B95 Lakh to \u20B950 Lakh:** Up to 75% standard coverage (extended to 85% for women entrepreneurs and units located in NER).
-- **Above \u20B950 Lakh up to \u20B95 Crore:** Up to 75% institutional risk coverage.
+- **Up to ₹5 Lakh:** Up to 85% sovereign risk coverage for micro enterprises.
+- **₹5 Lakh to ₹50 Lakh:** Up to 75% standard coverage (extended to 85% for women entrepreneurs and units located in NER).
+- **Above ₹50 Lakh up to ₹5 Crore:** Up to 75% institutional risk coverage.
 
 The balance risk is retained by the lending institution, significantly lowering the bank's credit risk and facilitating sanction without physical property pledges.
 

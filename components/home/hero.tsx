@@ -123,7 +123,7 @@ export function Hero({ isPinned = false }: HeroProps) {
             {prefersReduced ? (
               <div className="space-y-6">
                 {/* Eyebrow */}
-                <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-amber-950/80 backdrop-blur-md border border-amber-500/40 text-xs font-mono tracking-widest text-amber-300 shadow-xs">
+                <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-amber-950/90 border border-amber-500/40 text-xs font-mono tracking-widest text-amber-300 shadow-xs">
                   <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
                   <span>AGNIVRIDHI &bull; ADVISORY / INDIA</span>
                 </div>
@@ -160,7 +160,7 @@ export function Hero({ isPinned = false }: HeroProps) {
 
                   <Link
                     href="/contact"
-                    className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl border border-slate-700/80 bg-slate-900/80 backdrop-blur-md hover:border-amber-400/60 hover:bg-slate-900 hover:text-amber-300 text-white font-sans font-semibold text-xs tracking-wider uppercase transition-all shadow-[0_8px_20px_rgba(0,0,0,0.4)] hover:-translate-y-0.5 active:translate-y-0 cursor-pointer [transform:translateZ(0)]"
+                    className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl border border-slate-700/80 bg-slate-900/90 hover:border-amber-400/60 hover:bg-slate-900 hover:text-amber-300 text-white font-sans font-semibold text-xs tracking-wider uppercase transition-all shadow-[0_8px_20px_rgba(0,0,0,0.4)] hover:-translate-y-0.5 active:translate-y-0 cursor-pointer [transform:translateZ(0)]"
                   >
                     <span>Explore Our Services</span>
                   </Link>
@@ -175,7 +175,7 @@ export function Hero({ isPinned = false }: HeroProps) {
               >
                 {/* Eyebrow */}
                 <motion.div variants={heroFadeInUpItem}>
-                  <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-amber-950/80 backdrop-blur-md border border-amber-500/40 text-xs font-mono tracking-widest text-amber-300 shadow-xs">
+                  <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-amber-950/90 border border-amber-500/40 text-xs font-mono tracking-widest text-amber-300 shadow-xs">
                     <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
                     <span>AGNIVRIDHI &bull; ADVISORY / INDIA</span>
                   </div>
@@ -219,7 +219,7 @@ export function Hero({ isPinned = false }: HeroProps) {
                   <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
                     <Link
                       href="/services"
-                      className="group inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-b from-amber-400/95 via-amber-500/95 to-amber-600/95 text-slate-950 font-sans font-bold text-xs tracking-wider uppercase transition-all backdrop-blur-xl border border-white/50 shadow-[inset_0_1px_2px_rgba(255,255,255,0.8),0_12px_28px_-4px_rgba(245,158,11,0.45)] hover:shadow-[inset_0_1px_2px_rgba(255,255,255,1),0_16px_36px_-4px_rgba(245,158,11,0.6)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] [transform:translateZ(0)]"
+                      className="group inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-b from-amber-400/95 via-amber-500/95 to-amber-600/95 text-slate-950 font-sans font-bold text-xs tracking-wider uppercase transition-all border border-white/50 shadow-[inset_0_1px_2px_rgba(255,255,255,0.8),0_12px_28px_-4px_rgba(245,158,11,0.45)] hover:shadow-[inset_0_1px_2px_rgba(255,255,255,1),0_16px_36px_-4px_rgba(245,158,11,0.6)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] [transform:translateZ(0)]"
                     >
                       <span>Get Started</span>
                       <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
@@ -227,7 +227,7 @@ export function Hero({ isPinned = false }: HeroProps) {
 
                     <Link
                       href="/contact"
-                      className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-white/[0.08] hover:bg-white/[0.14] backdrop-blur-2xl border border-white/20 hover:border-white/40 text-white font-sans font-semibold text-xs tracking-wider uppercase transition-all shadow-[inset_0_1px_1px_rgba(255,255,255,0.3),0_8px_24px_rgba(0,0,0,0.35)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] [transform:translateZ(0)]"
+                      className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-white/15 hover:bg-white/20 border border-white/20 hover:border-white/40 text-white font-sans font-semibold text-xs tracking-wider uppercase transition-all shadow-[inset_0_1px_1px_rgba(255,255,255,0.3),0_8px_24px_rgba(0,0,0,0.35)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] [transform:translateZ(0)]"
                     >
                       <span>Explore Our Services</span>
                     </Link>
@@ -238,17 +238,17 @@ export function Hero({ isPinned = false }: HeroProps) {
 
             {/* Editorial Metadata Strip with Apple Frosted Glass Capsules */}
             <div className="pt-6 border-t border-slate-800/80 flex flex-wrap items-center gap-y-2.5 gap-x-3 sm:gap-x-4 text-xs font-mono text-slate-400">
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.05] backdrop-blur-xl border border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)]">
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)]">
                 <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
                 <span className="text-amber-400 font-semibold">&#8377;5 CR</span>
                 <span className="text-slate-300">COLLATERAL-FREE CAP</span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.05] backdrop-blur-xl border border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)]">
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)]">
                 <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
                 <span className="text-cyan-300 font-semibold">85%</span>
                 <span className="text-slate-300">SOVEREIGN RISK BACKSTOP</span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.05] backdrop-blur-xl border border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)]">
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)]">
                 <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
                 <span className="text-amber-400 font-semibold">24+</span>
                 <span className="text-slate-300">REGULATORY SCHEMES</span>
@@ -288,13 +288,13 @@ export function Hero({ isPinned = false }: HeroProps) {
 
                 {/* Top Pinned Editorial Labels */}
                 <div className="absolute top-4 left-4 z-20 flex items-center gap-2">
-                  <div className="px-3 py-1 rounded-md bg-slate-950/90 backdrop-blur-md border border-slate-800 text-[10px] font-mono text-white uppercase tracking-wider flex items-center gap-1.5 shadow-xs">
+                  <div className="px-3 py-1 rounded-md bg-slate-950 border border-slate-800 text-[10px] font-mono text-white uppercase tracking-wider flex items-center gap-1.5 shadow-xs">
                     <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
                     <span>AGNIVRIDHI / 01 &bull; {location.city}, NCR</span>
                   </div>
                 </div>
 
-                <div className="absolute top-4 right-4 z-20 hidden sm:flex items-center gap-2 bg-slate-950/90 backdrop-blur-md px-3 py-1 rounded-md border border-slate-800 text-slate-300 text-[10px] font-mono shadow-xs">
+                <div className="absolute top-4 right-4 z-20 hidden sm:flex items-center gap-2 bg-slate-950 px-3 py-1 rounded-md border border-slate-800 text-slate-300 text-[10px] font-mono shadow-xs">
                   <Building2 className="w-3.5 h-3.5 text-amber-400" />
                   <span className="font-sans text-[11px] font-medium tracking-wide">
                     Industrial Scale &bull; Capital &bull; Engineering
@@ -302,15 +302,15 @@ export function Hero({ isPinned = false }: HeroProps) {
                 </div>
 
                 {/* Bottom Right Sovereign Mandate Tag */}
-                <div className="absolute bottom-4 right-4 z-20 flex items-center gap-1.5 bg-slate-950/90 backdrop-blur-md px-3 py-1.5 rounded-md border border-amber-500/30 text-amber-300 text-[10px] font-mono shadow-xs">
+                <div className="absolute bottom-4 right-4 z-20 flex items-center gap-1.5 bg-slate-950 px-3 py-1.5 rounded-md border border-amber-500/30 text-amber-300 text-[10px] font-mono shadow-xs">
                   <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
                   <span className="font-semibold">SOVEREIGN MANDATE</span>
                 </div>
               </div>
 
               {/* Floating Leadership Glass Tag with Soft Depth */}
-              <div className="absolute -bottom-5 left-2 sm:-bottom-6 sm:-left-5 rounded-2xl bg-gradient-to-b from-teal-900/90 via-[#043331]/95 to-teal-950/95 backdrop-blur-xl p-3.5 sm:p-4 border border-teal-500/30 shadow-[0_16px_40px_rgba(0,0,0,0.7),0_0_20px_rgba(20,184,166,0.2)] flex items-center gap-3.5 z-30">
-                <div className="relative w-11 h-11 rounded-xl overflow-hidden border border-amber-500/40 shrink-0 bg-teal-950">
+              <div className="absolute -bottom-5 left-2 sm:-bottom-6 sm:-left-5 rounded-2xl bg-gradient-to-b from-[#131D38]/95 via-[#0E162B]/98 to-[#0A1020]/98 p-3.5 sm:p-4 border border-slate-700/60 shadow-[0_16px_40px_rgba(0,0,0,0.7),0_0_20px_rgba(245,158,11,0.15)] flex items-center gap-3.5 z-30 backdrop-blur-xl">
+                <div className="relative w-11 h-11 rounded-xl overflow-hidden border border-amber-500/40 shrink-0 bg-slate-900">
                   <Image
                     src="/img/rahul-kumar-singh.jpg"
                     alt={siteConfig.founder.name ?? "Managing Director"}

@@ -15,21 +15,37 @@ import { LinkButton } from "@/components/ui/link-button";
 import { cn } from "@/lib/utils";
 
 const storyImages: Record<string, { src: string; alt: string }> = {
+  "cgtmse-george-martin-jose": {
+    src: "/img/practice-capital.jpg",
+    alt: "George Martin Jose enterprise facility",
+  },
   "cgtmse-cnc-expansion": {
     src: "/img/practice-capital.jpg",
-    alt: "Indian automated CNC machining plant financed via sovereign debt",
+    alt: "George Martin Jose enterprise facility",
   },
   "aadhithya-energy-digital-launch": {
-    src: "/img/practice-growth.jpg",
-    alt: "Clean energy commercial retailer executive boardroom strategy",
+    src: "/img/aaditthya_filling_station.png",
+    alt: "Aadhithya filling station and clean energy retail outlet",
   },
   "heavy-fabrication-iso-compliance": {
     src: "/img/practice-compliance.jpg",
-    alt: "Indian industrial fabrication quality testing and ISO certification inspection",
+    alt: "Industrial quality testing and ISO certification inspection",
   },
   "pmegp-agro-food-processing": {
-    src: "/img/practice-capital.jpg",
-    alt: "Agro food processing facility modern production line",
+    src: "/img/pal_and_sons.png",
+    alt: "Pal and Sons Agro food processing facility",
+  },
+  "vedanta-cosmetics-pmegp": {
+    src: "/img/vedanta_cosmetic.jpg",
+    alt: "Vedanta cosmetics manufacturing plant",
+  },
+  "vishwam-pandya-enterprises": {
+    src: "/img/vishwam_enterprises.jpg",
+    alt: "Vishwam Pandya enterprise facility",
+  },
+  "cgtmse-goldi-kirana": {
+    src: "/img/practice-growth.jpg",
+    alt: "Goldi Kirana Store retail facility",
   },
 };
 

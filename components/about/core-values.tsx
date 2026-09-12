@@ -96,7 +96,7 @@ export function CoreValues() {
                 distance={16}
                 delay={0.1 + idx * 0.06}
               >
-                <div className="h-full p-7 sm:p-8 rounded-2xl bg-gradient-to-b from-teal-900/80 via-[#043331]/95 to-teal-950/95 border border-teal-500/30 backdrop-blur-md shadow-[0_16px_40px_rgba(0,0,0,0.4)] hover:border-amber-400/60 hover:shadow-[0_20px_50px_rgba(245,158,11,0.15)] transition-all duration-300 flex flex-col justify-between space-y-6 group">
+                <div className="h-full p-7 sm:p-8 rounded-2xl bg-gradient-to-b from-[#131D38]/90 via-[#0E162B]/95 to-[#0A1020]/95 border border-slate-700/60 backdrop-blur-xl shadow-[0_16px_40px_rgba(0,0,0,0.4)] hover:border-amber-500/50 hover:shadow-[0_20px_50px_rgba(0,0,0,0.6)] transition-all duration-300 flex flex-col justify-between space-y-6 group">
                   <div className="space-y-4">
                     {/* Number and Icon Header */}
                     <div className="flex items-center justify-between">
@@ -110,16 +110,16 @@ export function CoreValues() {
 
                     {/* Value Titles */}
                     <div>
-                      <span className="text-xs font-mono font-semibold uppercase tracking-wider text-teal-200/80 block">
+                      <span className="text-xs font-mono font-semibold uppercase tracking-wider text-slate-400 block">
                         {val.subtitle}
                       </span>
-                      <h3 className="font-serif text-2xl font-medium text-amber-300 group-hover:text-amber-200 transition-colors leading-snug mt-1">
+                      <h3 className="font-serif text-2xl font-semibold text-white group-hover:text-amber-300 transition-colors leading-snug mt-1">
                         {val.title}
                       </h3>
                     </div>
 
                     {/* Value Body */}
-                    <p className="text-sm sm:text-base text-teal-100/85 font-sans leading-relaxed">
+                    <p className="text-sm sm:text-base text-slate-300 font-sans leading-relaxed">
                       {val.description}
                     </p>
                   </div>

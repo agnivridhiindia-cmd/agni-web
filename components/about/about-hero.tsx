@@ -9,17 +9,16 @@ export function AboutHero() {
   return (
     <section
       aria-labelledby="about-hero-heading"
-      className="relative border-b border-slate-800/80 bg-slate-950 text-white pt-32 pb-16 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden"
+      className="relative border-b border-slate-700/60 text-white pt-32 pb-16 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden bg-[radial-gradient(circle_at_15%_25%,_rgba(245,158,11,0.12),transparent_38%),radial-gradient(circle_at_85%_20%,_rgba(14,165,233,0.16),transparent_32%),radial-gradient(circle_at_50%_90%,_rgba(14,116,144,0.12),transparent_42%),linear-gradient(180deg,#0B1329_0%,#0F1A34_45%,#0B1329_100%)]"
     >
       {/* Editorial Luxury Ambient Gradient & Blueprint Vector Grid */}
       <div
         className="pointer-events-none absolute inset-0 z-0 select-none overflow-hidden"
         aria-hidden="true"
       >
-        <div className="absolute inset-0 bg-blueprint-grid-dark opacity-30 [mask-image:radial-gradient(ellipse_85%_70%_at_50%_50%,#000_65%,transparent_100%)]" />
-        <div className="absolute top-0 inset-x-0 h-96 bg-[radial-gradient(ellipse_70%_60%_at_50%_-10%,rgba(245,158,11,0.12),transparent)]" />
-        <div className="absolute top-1/3 -right-28 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(6,182,212,0.12)_0%,transparent_70%)] blur-3xl" />
-        <div className="absolute bottom-0 -left-28 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.08)_0%,transparent_70%)] blur-3xl" />
+        <div className="absolute inset-0 opacity-[0.07] [background-image:linear-gradient(to_right,#06B6D4_1px,transparent_1px),linear-gradient(to_bottom,#06B6D4_1px,transparent_1px)] [background-size:4rem_4rem] [mask-image:radial-gradient(ellipse_85%_70%_at_50%_50%,#000_65%,transparent_100%)]" />
+        <div className="absolute -top-20 right-[-5%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle,rgba(6,182,212,0.18)_0%,rgba(14,116,144,0.08)_45%,transparent_70%)] blur-2xl" />
+        <div className="absolute top-[38%] left-[-12%] h-[480px] w-[480px] rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.15)_0%,rgba(217,119,6,0.06)_45%,transparent_72%)] blur-2xl" />
         <div className="absolute top-8 left-8 font-mono text-xs text-amber-500/30 select-none">+</div>
         <div className="absolute top-8 right-8 font-mono text-xs text-cyan-400/30 select-none">+</div>
       </div>
@@ -28,7 +27,7 @@ export function AboutHero() {
         <FadeIn direction="up" distance={20} delay={0.05}>
           <div className="max-w-4xl space-y-6 sm:space-y-8">
             {/* Section Eyebrow */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-amber-950/80 backdrop-blur-md border border-amber-500/40 text-xs font-mono tracking-widest text-amber-300 uppercase shadow-xs">
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-amber-950/90 backdrop-blur-md border border-amber-500/40 text-xs font-mono tracking-widest text-amber-300 uppercase shadow-xs">
               <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
               <span>ABOUT AGNIVRIDHI INDIA &bull; INSTITUTIONAL ADVISORY</span>
             </div>
@@ -36,10 +35,10 @@ export function AboutHero() {
             {/* Main Editorial Headline */}
             <h1
               id="about-hero-heading"
-              className="font-serif text-3xl sm:text-5xl lg:text-6xl font-medium text-white tracking-tight leading-[1.15]"
+              className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.12]"
             >
               A Strategic Advisory Desk Built for{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-yellow-500 italic font-normal font-editorial">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 font-bold font-heading">
                 Indian Enterprise Momentum.
               </span>
             </h1>

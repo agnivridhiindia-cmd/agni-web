@@ -19,7 +19,7 @@ export default function ServicesPage() {
   const categories = getServiceCategories();
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100">
+    <div className="min-h-screen text-slate-100">
       {/* Services Architecture:
           1. Services Hero: Strategic positioning & credibility parameters
           2. Category Navigation: Sticky accessible anchor rail with dynamic counts & scroll-spy

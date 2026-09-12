@@ -94,7 +94,7 @@ export function AmbientBackground({
     <div
       aria-hidden="true"
       className={cn(
-        "pointer-events-none fixed inset-0 z-0 select-none overflow-hidden",
+        "pointer-events-none fixed inset-0 z-0 select-none overflow-hidden [transform:translateZ(0)] contain-strict",
         className
       )}
     >

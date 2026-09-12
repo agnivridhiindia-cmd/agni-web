@@ -77,7 +77,7 @@ export default async function BlogPostDetailPage({ params }: BlogPostPageProps) 
   ]);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-slate-950 text-slate-100 selection:bg-amber-500/20 selection:text-amber-200 flex flex-col">
       {/* Schema.org Structured Data */}
       <script
         type="application/ld+json"
@@ -91,58 +91,80 @@ export default async function BlogPostDetailPage({ params }: BlogPostPageProps) 
       {/* 1. Scroll Reading Progress */}
       <ReadingProgress />
 
-      {/* 2. Semantic Breadcrumbs */}
+      {/* 2. Semantic Breadcrumbs (Dark) */}
       <ArticleBreadcrumb title={frontmatter.title} category={frontmatter.category} />
 
-      {/* 3. Article Editorial Hero */}
+      {/* 3. Article Editorial Hero (Dark) */}
       <ArticleHero post={frontmatter} />
 
-      {/* 4. Reading Canvas with TOC on Right Column & Article Body */}
-      <div className="py-12 sm:py-16 lg:py-20">
-        <Container width="wide">
-          <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
-            {/* Article Main Body Column */}
-            <article className="w-full flex-1 min-w-0 max-w-3xl mx-auto lg:mx-0">
-              {/* Mobile Table of Contents (shown on small viewports) */}
-              <TableOfContents items={tocItems} variant="mobile" className="lg:hidden mb-8" />
+      <div className="hairline-rule-brass" />
 
-              {/* MDX / Markdown Formatted Content */}
-              <ArticleBody content={content} />
+      {/* 4. Middle Sections: Reading Canvas, Related Services & Further Reading in Home Page Light Mode */}
+      <div className="grow bg-gradient-to-b from-[#D5E7F4] via-[#C6E0F2] to-[#B8D7EE] text-slate-900 border-b border-[#A6CCEA] relative overflow-hidden">
+        {/* Precision architectural ambient background matching home page institutional narrative */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 z-0 select-none overflow-hidden"
+        >
+          <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-sky-300/80 to-transparent" />
+          <div className="absolute inset-0 [background-image:radial-gradient(#94A3B8_1px,transparent_1px)] [background-size:32px_32px] opacity-35 [mask-image:radial-gradient(ellipse_80%_70%_at_50%_40%,#000_65%,transparent_100%)]" />
+          <div className="absolute top-1/4 -left-32 h-[480px] w-[480px] rounded-full bg-[radial-gradient(circle,rgba(14,165,233,0.1)_0%,transparent_70%)] blur-3xl" />
+          <div className="absolute bottom-1/4 -right-32 h-[480px] w-[480px] rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.06)_0%,transparent_70%)] blur-3xl" />
+        </div>
 
-              {/* Topics / Tags */}
-              {frontmatter.tags && frontmatter.tags.length > 0 && (
-                <div className="mt-10 pt-6 border-t border-slate-200 flex flex-wrap items-center gap-2">
-                  <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 mr-1">
-                    Tagged:
-                  </span>
-                  {frontmatter.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-mono border border-slate-200/60"
-                    >
-                      #{tag}
-                    </span>
-                  ))}
-                </div>
-              )}
+        <div className="relative z-10">
+          {/* Reading Canvas with TOC on Right Column & Article Body */}
+          <div className="py-12 sm:py-16 lg:py-20">
+            <Container width="wide">
+              <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
+                {/* Article Main Body Column */}
+                <article className="w-full flex-1 min-w-0 max-w-3xl mx-auto lg:mx-0">
+                  {/* Mobile Table of Contents (shown on small viewports) */}
+                  <TableOfContents items={tocItems} variant="mobile" className="lg:hidden mb-8" />
 
-              {/* Related Advisory Practice Services */}
-              <ArticleRelatedServices post={frontmatter} />
+                  {/* MDX / Markdown Formatted Content */}
+                  <ArticleBody content={content} />
 
-              {/* Closing Contextual Advisory Consultation Banner */}
-              <ArticleCta category={frontmatter.category} title={frontmatter.title} />
-            </article>
+                  {/* Topics / Tags */}
+                  {frontmatter.tags && frontmatter.tags.length > 0 && (
+                    <div className="mt-10 pt-6 border-t border-[#A6CCEA]/70 flex flex-wrap items-center gap-2">
+                      <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-500 mr-1">
+                        Tagged:
+                      </span>
+                      {frontmatter.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-2.5 py-1 rounded-md bg-white/80 text-slate-800 text-xs font-mono border border-slate-300/80 shadow-2xs"
+                        >
+                          #{tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
 
-            {/* Sticky Table of Contents on the RIGHT Column (Desktop) */}
-            <aside className="hidden lg:block w-72 shrink-0 self-stretch">
-              <TableOfContents items={tocItems} variant="desktop" />
-            </aside>
+                  {/* Related Advisory Practice Services */}
+                  <ArticleRelatedServices post={frontmatter} />
+                </article>
+
+                {/* Sticky Table of Contents on the RIGHT Column (Desktop) */}
+                <aside className="hidden lg:block w-72 shrink-0 self-stretch">
+                  <TableOfContents items={tocItems} variant="desktop" />
+                </aside>
+              </div>
+            </Container>
           </div>
-        </Container>
+
+          <div className="hairline-rule-brass" />
+
+          {/* Complementary Advisory Guides */}
+          <ArticleRelatedPosts relatedPosts={relatedPosts} />
+        </div>
       </div>
 
-      {/* 5. Complementary Advisory Guides */}
-      <ArticleRelatedPosts relatedPosts={relatedPosts} />
+      <div className="hairline-rule-multi" />
+
+      {/* 5. Closing Contextual Advisory Consultation Banner (Dark) */}
+      <ArticleCta category={frontmatter.category} title={frontmatter.title} />
     </div>
   );
 }

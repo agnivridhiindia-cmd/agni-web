@@ -54,7 +54,7 @@ export const servicesCatalog: readonly Service[] = [
     dealSummary: {
       maxLimit: "\u20B95.00 Crore",
       collateral: "0% (Zero Collateral)",
-      turnaround: "30 - â€œ45 Days",
+      turnaround: "30 to 45 Days",
       checklistDocName: "CGTMSE_DPR_Checklist.pdf",
     },
     audience: [
@@ -105,7 +105,7 @@ export const servicesCatalog: readonly Service[] = [
     dealSummary: {
       maxLimit: "\u20B920 Lakh",
       collateral: "0% Collateral",
-      turnaround: "15 - â€œ25 Days",
+      turnaround: "15 to 25 Days",
       checklistDocName: "MUDRA_Application_Dossier.pdf",
     },
     audience: [
@@ -142,7 +142,7 @@ export const servicesCatalog: readonly Service[] = [
     dealSummary: {
       maxLimit: "\u20B950 Lakh (35% Subsidy)",
       collateral: "Govt Subsidized (35%)",
-      turnaround: "45 - â€œ60 Days",
+      turnaround: "45 to 60 Days",
       checklistDocName: "PMEGP_DPR_Dossier.pdf",
     },
     audience: [
@@ -179,7 +179,7 @@ export const servicesCatalog: readonly Service[] = [
     dealSummary: {
       maxLimit: "\u20B950 Cr+ Project Line",
       collateral: "Asset Hypothecation",
-      turnaround: "45 - â€œ90 Days",
+      turnaround: "45 to 90 Days",
       checklistDocName: "Project_Finance_CMA_Checklist.pdf",
     },
     audience: [
@@ -218,7 +218,7 @@ export const servicesCatalog: readonly Service[] = [
     dealSummary: {
       maxLimit: "Statutory Protection",
       collateral: "Zero Requirement",
-      turnaround: "2 - â€œ4 Days",
+      turnaround: "2 to 4 Days",
       checklistDocName: "Udyam_Registration_Checklist.pdf",
     },
     audience: [
@@ -254,7 +254,7 @@ export const servicesCatalog: readonly Service[] = [
     dealSummary: {
       maxLimit: "State & Central GSTIN",
       collateral: "Statutory Filing",
-      turnaround: "5 - â€œ7 Days",
+      turnaround: "5 to 7 Days",
       checklistDocName: "GST_Compliance_Checklist.pdf",
     },
     audience: [
@@ -290,7 +290,7 @@ export const servicesCatalog: readonly Service[] = [
     dealSummary: {
       maxLimit: "Global Accreditation",
       collateral: "Zero Non-Conformity",
-      turnaround: "20 - â€œ30 Days",
+      turnaround: "20 to 30 Days",
       checklistDocName: "ISO_Quality_Manual_Framework.pdf",
     },
     audience: [
@@ -327,7 +327,7 @@ export const servicesCatalog: readonly Service[] = [
     dealSummary: {
       maxLimit: "\u20B950L Seed Fund / 3-Yr Exemption",
       collateral: "DPIIT Recognized",
-      turnaround: "15 - â€œ25 Days",
+      turnaround: "15 to 25 Days",
       checklistDocName: "Startup_India_Pitch_Checklist.pdf",
     },
     audience: [
@@ -365,7 +365,7 @@ export const servicesCatalog: readonly Service[] = [
     dealSummary: {
       maxLimit: "Next.js Architecture",
       collateral: "100% Code Ownership",
-      turnaround: "20 - â€œ45 Days",
+      turnaround: "20 to 45 Days",
       checklistDocName: "Web_Platform_Spec_Checklist.pdf",
     },
     audience: [
@@ -438,7 +438,7 @@ export const servicesCatalog: readonly Service[] = [
     dealSummary: {
       maxLimit: "Full Corporate Identity System",
       collateral: "100% Vector & Trademark Ready",
-      turnaround: "15 - â€œ30 Days",
+      turnaround: "15 to 30 Days",
       checklistDocName: "Brand_Identity_Asset_Checklist.pdf",
     },
     audience: [
@@ -477,7 +477,7 @@ export const servicesCatalog: readonly Service[] = [
     dealSummary: {
       maxLimit: "Bespoke Enterprise Systems",
       collateral: "Zero Vendor Lock-in",
-      turnaround: "45 - â€œ90 Days",
+      turnaround: "45 to 90 Days",
       checklistDocName: "Custom_Software_Scope_Checklist.pdf",
     },
     audience: [
@@ -513,7 +513,7 @@ export const servicesCatalog: readonly Service[] = [
     dealSummary: {
       maxLimit: "Full-Stack Enterprise ERP",
       collateral: "On-Prem / Cloud Dedicated",
-      turnaround: "60 - â€œ120 Days",
+      turnaround: "60 to 120 Days",
       checklistDocName: "ERP_Implementation_Checklist.pdf",
     },
     audience: [
@@ -549,7 +549,7 @@ export const servicesCatalog: readonly Service[] = [
     dealSummary: {
       maxLimit: "Cross-Platform Mobile Suite",
       collateral: "Full App Store / Play Store IP",
-      turnaround: "45 - â€œ90 Days",
+      turnaround: "45 to 90 Days",
       checklistDocName: "Mobile_App_Architecture_Checklist.pdf",
     },
     audience: [
@@ -586,7 +586,7 @@ export const servicesCatalog: readonly Service[] = [
     dealSummary: {
       maxLimit: "AWS & Google Cloud Architecture",
       collateral: "SOC2 & ISO 27001 Preparedness",
-      turnaround: "30 - â€œ60 Days",
+      turnaround: "30 to 60 Days",
       checklistDocName: "Cloud_DevOps_Audit_Checklist.pdf",
     },
     audience: [
@@ -623,7 +623,7 @@ export const servicesCatalog: readonly Service[] = [
     dealSummary: {
       maxLimit: "Custom Enterprise AI Pods",
       collateral: "Proprietary Data Isolation",
-      turnaround: "30 - â€œ60 Days",
+      turnaround: "30 to 60 Days",
       checklistDocName: "AI_Workflow_Feasibility_Checklist.pdf",
     },
     audience: [
@@ -649,14 +649,36 @@ export const servicesCatalog: readonly Service[] = [
 ];
 
 /**
+ * Canonical and live-site slug aliases mapping.
+ * Allows URLs like /services/cgtmse-mudra, /services/pmegp, etc. to seamlessly resolve.
+ */
+export const SERVICE_SLUG_ALIASES: Record<string, string> = {
+  "cgtmse-mudra": "cgtmse-funding",
+  "mudra-loans": "mudra-scheme",
+  "pmegp": "pmegp-loan-subsidy",
+  "business-loans": "cgtmse-funding",
+  "gst-registration": "gst-advisory",
+  "msme-udyam": "msme-udyam-registration",
+  "digital-marketing": "digital-marketing-seo",
+  "strategy-consulting": "b2b-brand-strategy",
+};
+
+/**
  * Service Accessor Helpers
  */
 export function getAllServices(): readonly Service[] {
   return servicesCatalog;
 }
 
+export function getAllServiceSlugs(): string[] {
+  const canonical = servicesCatalog.map((s) => s.slug);
+  const aliases = Object.keys(SERVICE_SLUG_ALIASES);
+  return Array.from(new Set([...canonical, ...aliases]));
+}
+
 export function getServiceBySlug(slug: string): Service | undefined {
-  return servicesCatalog.find((service) => service.slug === slug);
+  const resolvedSlug = SERVICE_SLUG_ALIASES[slug] || slug;
+  return servicesCatalog.find((service) => service.slug === resolvedSlug);
 }
 
 export function getServicesByCategory(category: ServiceCategory): readonly Service[] {

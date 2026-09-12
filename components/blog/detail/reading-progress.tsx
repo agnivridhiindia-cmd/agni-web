@@ -25,7 +25,7 @@ export function ReadingProgress() {
     >
       <motion.div
         style={{ scaleX }}
-        className="h-full bg-gradient-to-r from-teal-700 via-teal-400 to-amber-400 origin-left shadow-[0_0_10px_rgba(20,184,166,0.7)]"
+        className="h-full bg-gradient-to-r from-amber-600 via-amber-400 to-amber-300 origin-left shadow-[0_0_10px_rgba(245,158,11,0.7)]"
       />
     </div>
   );

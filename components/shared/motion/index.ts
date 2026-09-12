@@ -3,8 +3,4 @@ export * from "./motion-presets";
 export * from "./fade-in";
 export * from "./reveal";
 export * from "./stagger";
-export * from "./card-tilt";
-export * from "./parallax";
-export * from "./animated-counter";
-export * from "./page-transition";
-export * from "./image-hover";
+

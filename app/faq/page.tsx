@@ -14,6 +14,7 @@ import { createPageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 import { Container } from "@/components/shared/container";
 import { FaqAccordion } from "@/components/faq/faq-accordion";
+import { FlagshipCta } from "@/components/shared/flagship-cta";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Frequently Asked Questions (FAQ) | Agnivridhi India",
@@ -86,12 +87,12 @@ const FAQ_CATEGORIES: FaqCategory[] = [
       {
         question: "What capital subsidy is available under the PMEGP scheme?",
         answer:
-          "Under the Prime Minister's Employment Generation Programme (PMEGP), eligible manufacturing units (up to ÃƒÂ¢ - Å¡Ã‚Â¹50 Lakh project cost) and service units (up to ÃƒÂ¢ - Å¡Ã‚Â¹20 Lakh) can access government capital margin subsidies ranging from 15% to 35% depending on urban/rural location and promoter category.",
+          "Under the Prime Minister's Employment Generation Programme (PMEGP), eligible manufacturing units (up to ₹50 Lakh project cost) and service units (up to ₹20 Lakh) can access government capital margin subsidies ranging from 15% to 35% depending on urban/rural location and promoter category.",
       },
       {
         question: "What is the difference between MUDRA and CGTMSE loans?",
         answer:
-          "MUDRA (PMMY) caters primarily to micro-enterprises with funding tiers up to ÃƒÂ¢ - Å¡Ã‚Â¹20 Lakh (Shishu, Kishore, Tarun). CGTMSE caters to larger micro and small businesses requiring up to ÃƒÂ¢ - Å¡Ã‚Â¹5 Crore in working capital or machinery term loans.",
+          "MUDRA (PMMY) caters primarily to micro-enterprises with funding tiers up to ₹20 Lakh (Shishu, Kishore, Tarun). CGTMSE caters to larger micro and small businesses requiring up to ₹5 Crore in working capital or machinery term loans.",
       },
       {
         question: "What documents are required to initiate project finance syndication?",
@@ -119,7 +120,7 @@ const FAQ_CATEGORIES: FaqCategory[] = [
       {
         question: "What advantages does Startup India (DPIIT) recognition offer?",
         answer:
-          "DPIIT-recognized startups gain access to Section 80-IAC three-year income tax holidays, Angel Tax exemptions under Section 56(2)(viib), relaxed public procurement criteria, and eligibility for the Startup India Seed Fund Scheme (up to ÃƒÂ¢ - Å¡Ã‚Â¹50 Lakh).",
+          "DPIIT-recognized startups gain access to Section 80-IAC three-year income tax holidays, Angel Tax exemptions under Section 56(2)(viib), relaxed public procurement criteria, and eligibility for the Startup India Seed Fund Scheme (up to ₹50 Lakh).",
       },
       {
         question: "How long does it take to obtain an ISO certification?",
@@ -176,31 +177,31 @@ const ENGAGEMENT_STEPS = [
 
 export default function FaqPage() {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 selection:bg-amber-500/20 selection:text-amber-200">
+    <div className="min-h-screen text-slate-100 selection:bg-amber-500/20 selection:text-amber-200">
       {/* 1. Editorial Hero */}
-      <section className="relative overflow-hidden border-b border-slate-800/80 bg-slate-950 pb-14 pt-32 sm:pb-16 sm:pt-36 lg:pb-20 lg:pt-40">
+      <section className="relative border-b border-slate-700/60 text-white pb-14 pt-32 sm:pb-16 sm:pt-36 lg:pb-20 lg:pt-40 overflow-hidden bg-[radial-gradient(circle_at_15%_25%,_rgba(245,158,11,0.12),transparent_38%),radial-gradient(circle_at_85%_20%,_rgba(14,165,233,0.16),transparent_32%),radial-gradient(circle_at_50%_90%,_rgba(14,116,144,0.12),transparent_42%),linear-gradient(180deg,#0B1329_0%,#0F1A34_45%,#0B1329_100%)]">
         {/* Ambient Blueprint Grid & Glowing Orbs */}
         <div
           className="pointer-events-none absolute inset-0 z-0 select-none overflow-hidden"
           aria-hidden="true"
         >
-          <div className="absolute inset-0 bg-blueprint-grid-dark opacity-25 [mask-image:radial-gradient(ellipse_80%_60%_at_50%_40%,#000_60%,transparent_100%)]" />
-          <div className="absolute top-1/4 -right-28 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.12)_0%,transparent_70%)] blur-3xl" />
-          <div className="absolute bottom-10 -left-28 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(6,182,212,0.10)_0%,transparent_70%)] blur-3xl" />
+          <div className="absolute inset-0 opacity-[0.07] [background-image:linear-gradient(to_right,#06B6D4_1px,transparent_1px),linear-gradient(to_bottom,#06B6D4_1px,transparent_1px)] [background-size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_40%,#000_60%,transparent_100%)]" />
+          <div className="absolute -top-20 right-[-5%] h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(6,182,212,0.18)_0%,rgba(14,116,144,0.08)_45%,transparent_70%)] blur-2xl" />
+          <div className="absolute top-[38%] left-[-12%] h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.15)_0%,rgba(217,119,6,0.06)_45%,transparent_72%)] blur-2xl" />
           <div className="absolute top-8 left-8 font-mono text-xs text-amber-500/30 select-none">+</div>
           <div className="absolute top-8 right-8 font-mono text-xs text-cyan-400/30 select-none">+</div>
         </div>
 
         <Container width="wide" className="relative z-10">
           <div className="max-w-3xl space-y-6">
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-amber-950/80 backdrop-blur-md border border-amber-500/40 text-xs font-mono tracking-widest text-amber-300 uppercase shadow-xs">
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-amber-950/90 backdrop-blur-md border border-amber-500/40 text-xs font-mono tracking-widest text-amber-300 uppercase shadow-xs">
               <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
               <span>KNOWLEDGE BASE &bull; FREQUENTLY ASKED QUESTIONS</span>
             </div>
 
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.12] tracking-tight text-white">
+            <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.12] tracking-tight text-white">
               Frequently Asked{" "}
-              <span className="italic bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 bg-clip-text text-transparent">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 font-bold">
                 Questions
               </span>
             </h1>
@@ -215,122 +216,126 @@ export default function FaqPage() {
 
       <div className="hairline-rule-brass" />
 
-      {/* 2. Engagement Lifecycle Protocol Section */}
-      <section className="border-b border-slate-800/80 bg-slate-950/60 py-12 sm:py-16">
-        <Container width="wide" className="space-y-8">
-          <div className="max-w-2xl space-y-3">
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-amber-950/80 backdrop-blur-md border border-amber-500/40 text-xs font-mono tracking-widest text-amber-300 uppercase shadow-xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-              <span>CONSULTATION LIFECYCLE &bull; 3-STAGE PROTOCOL</span>
-            </div>
-            <h2 className="font-serif text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-              What Happens After You Inquire?
-            </h2>
-            <p className="font-sans text-sm sm:text-base text-slate-300">
-              Our 3-step structured advisory roadmap ensures rapid turnaround and zero guesswork.
-            </p>
-          </div>
+      {/* 2. Middle Sections: Engagement Lifecycle & Categorized FAQs in Home Page Light Mode */}
+      <div className="grow bg-gradient-to-b from-[#D5E7F4] via-[#C6E0F2] to-[#B8D7EE] text-slate-900 border-b border-[#A6CCEA] relative overflow-hidden">
+        {/* Precision architectural ambient background matching home page institutional narrative */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 z-0 select-none overflow-hidden"
+        >
+          <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-sky-300/80 to-transparent" />
+          <div className="absolute inset-0 [background-image:radial-gradient(#94A3B8_1px,transparent_1px)] [background-size:32px_32px] opacity-35 [mask-image:radial-gradient(ellipse_80%_70%_at_50%_40%,#000_65%,transparent_100%)]" />
+          <div className="absolute top-1/4 -left-32 h-[480px] w-[480px] rounded-full bg-[radial-gradient(circle,rgba(14,165,233,0.1)_0%,transparent_70%)] blur-3xl" />
+          <div className="absolute bottom-1/4 -right-32 h-[480px] w-[480px] rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.06)_0%,transparent_70%)] blur-3xl" />
+        </div>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            {ENGAGEMENT_STEPS.map((step) => (
-              <div
-                key={step.number}
-                className="group relative space-y-3 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-teal-900/80 via-[#043331]/95 to-teal-950/95 p-6 shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:border-amber-400/50 hover:shadow-[0_16px_40px_rgba(245,158,11,0.15)] [transform:translateZ(0)]"
-              >
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-amber-500/40 bg-amber-950/60 font-mono text-sm font-bold text-amber-400 shadow-sm">
-                  {step.number}
+        <div className="relative z-10">
+          {/* Engagement Lifecycle Protocol Section */}
+          <section className="py-12 sm:py-16">
+            <Container width="wide" className="space-y-8">
+              <div className="max-w-2xl space-y-3">
+                <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/85 backdrop-blur-md border border-amber-400/50 text-xs font-mono tracking-widest text-amber-900 uppercase shadow-xs">
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+                  <span>CONSULTATION LIFECYCLE &bull; 3-STAGE PROTOCOL</span>
                 </div>
-                <h3 className="font-serif text-lg font-semibold leading-snug text-amber-300 group-hover:text-amber-200 transition-colors">
-                  {step.title}
-                </h3>
-                <p className="text-xs leading-relaxed text-teal-100/85 sm:text-sm">
-                  {step.description}
+                <h2 className="font-serif text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+                  What Happens After You Inquire?
+                </h2>
+                <p className="font-sans text-sm sm:text-base text-slate-700">
+                  Our 3-step structured advisory roadmap ensures rapid turnaround and zero guesswork.
                 </p>
               </div>
-            ))}
-          </div>
 
-          <div className="flex flex-wrap items-center gap-6 border-t border-slate-800/80 pt-4 text-xs font-mono text-slate-400">
-            <div className="flex items-center gap-2">
-              <Clock className="h-4 w-4 text-amber-400" />
-              <span>24-Hour SLA Response Time</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Lock className="h-4 w-4 text-amber-400" />
-              <span>Bilateral NDA Protected</span>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      <div className="hairline-rule-cyan" />
-
-      {/* 3. Categorized FAQ Sections */}
-      <section className="py-14 sm:py-20 lg:py-24">
-        <Container width="wide" className="space-y-16">
-          {FAQ_CATEGORIES.map((category) => {
-            const Icon = category.icon;
-            return (
-              <div
-                key={category.id}
-                id={category.id}
-                className="grid grid-cols-1 items-start gap-8 border-t border-slate-800/80 pt-8 first:border-t-0 first:pt-0 lg:grid-cols-12 lg:gap-12"
-              >
-                {/* Category Header */}
-                <div className="space-y-3 lg:sticky lg:top-28 lg:col-span-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-amber-500/40 bg-amber-950/60 text-amber-400 shadow-sm">
-                    <Icon className="h-5 w-5" />
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+                {ENGAGEMENT_STEPS.map((step) => (
+                  <div
+                    key={step.number}
+                    className="group relative space-y-3 rounded-3xl border border-white/90 bg-white/85 p-6 shadow-[0_16px_40px_rgba(15,23,42,0.08)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:border-amber-400/60 hover:shadow-[0_24px_50px_rgba(14,165,233,0.18)] [transform:translateZ(0)]"
+                  >
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-amber-300 bg-amber-100 font-mono text-sm font-bold text-amber-900 shadow-2xs">
+                      {step.number}
+                    </div>
+                    <h3 className="font-serif text-lg font-bold leading-snug text-slate-900 group-hover:text-amber-700 transition-colors">
+                      {step.title}
+                    </h3>
+                    <p className="text-xs leading-relaxed text-slate-600 sm:text-sm font-sans">
+                      {step.description}
+                    </p>
                   </div>
-                  <h2 className="font-serif text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-                    {category.title}
-                  </h2>
-                  <p className="font-sans text-sm leading-relaxed text-slate-300">
-                    {category.description}
-                  </p>
-                </div>
+                ))}
+              </div>
 
-                {/* Category Accordion */}
-                <div className="rounded-2xl border border-teal-500/30 bg-gradient-to-b from-teal-900/40 via-[#043331]/60 to-teal-950/70 p-4 shadow-xl backdrop-blur-md [transform:translateZ(0)] sm:p-6 lg:col-span-8 lg:p-8">
-                  <FaqAccordion items={category.faqs} />
+              <div className="flex flex-wrap items-center gap-6 border-t border-[#A6CCEA]/80 pt-4 text-xs font-mono text-slate-600">
+                <div className="flex items-center gap-2">
+                  <Clock className="h-4 w-4 text-amber-600" />
+                  <span>24-Hour SLA Response Time</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Lock className="h-4 w-4 text-amber-600" />
+                  <span>Bilateral NDA Protected</span>
                 </div>
               </div>
-            );
-          })}
-        </Container>
-      </section>
+            </Container>
+          </section>
+
+          <div className="hairline-rule-cyan" />
+
+          {/* Categorized FAQ Sections */}
+          <section className="py-14 sm:py-20 lg:py-24">
+            <Container width="wide" className="space-y-16">
+              {FAQ_CATEGORIES.map((category) => {
+                const Icon = category.icon;
+                return (
+                  <div
+                    key={category.id}
+                    id={category.id}
+                    className="grid grid-cols-1 items-start gap-8 border-t border-[#A6CCEA]/80 pt-8 first:border-t-0 first:pt-0 lg:grid-cols-12 lg:gap-12"
+                  >
+                    {/* Category Header */}
+                    <div className="space-y-3 lg:col-span-4">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-amber-300 bg-amber-100 text-amber-800 shadow-2xs">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <h2 className="font-serif text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+                        {category.title}
+                      </h2>
+                      <p className="font-sans text-sm leading-relaxed text-slate-700">
+                        {category.description}
+                      </p>
+                    </div>
+
+                    {/* Category Accordion */}
+                    <div className="rounded-3xl border border-white/90 bg-white/80 p-4 shadow-[0_20px_50px_rgba(15,23,42,0.08)] backdrop-blur-xl [transform:translateZ(0)] sm:p-6 lg:col-span-8 lg:p-8">
+                      <FaqAccordion items={category.faqs} />
+                    </div>
+                  </div>
+                );
+              })}
+            </Container>
+          </section>
+        </div>
+      </div>
 
       <div className="hairline-rule-brass" />
 
-      {/* 4. Bottom Support CTA Strip */}
-      <section className="border-t border-slate-800/80 bg-slate-950 py-14 sm:py-18">
-        <Container width="wide">
-          <div className="mx-auto max-w-4xl space-y-6 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-teal-900/80 via-[#043331]/95 to-teal-950/95 p-8 text-center shadow-2xl sm:p-12">
-            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl border border-amber-500/40 bg-amber-950/60 text-amber-400 shadow-sm">
-              <HelpCircle className="h-6 w-6" />
-            </div>
-
-            <div className="mx-auto max-w-xl space-y-2">
-              <h3 className="font-serif text-2xl font-semibold tracking-tight text-amber-300 sm:text-3xl">
-                Have a Question Not Listed Here?
-              </h3>
-              <p className="font-sans text-sm leading-relaxed text-teal-100/85 sm:text-base">
-                Connect directly with our practice leads. We provide preliminary project feasibility
-                assessments at zero obligation.
-              </p>
-            </div>
-
-            <div className="flex flex-col items-center justify-center gap-4 pt-2 sm:flex-row">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 px-7 py-3.5 text-xs font-sans font-bold uppercase tracking-wider text-slate-950 border border-amber-300/40 shadow-[0_8px_24px_rgba(245,158,11,0.35)] hover:from-amber-300 hover:to-amber-500 hover:shadow-[0_12px_32px_rgba(245,158,11,0.5)] transition-all [transform:translateZ(0)]"
-              >
-                <span>Submit Your Inquiry</span>
-                <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
-            </div>
-          </div>
-        </Container>
-      </section>
+      {/* 4. Flagship Bottom Conversion CTA */}
+      <FlagshipCta
+        id="faq-bottom-cta-heading"
+        eyebrow="ADVISORY SUPPORT • INQUIRY TRIAGE"
+        title={
+          <>
+            Have a question{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 font-bold">
+              not listed here?
+            </span>
+          </>
+        }
+        description="Connect directly with our practice leads. We provide preliminary project feasibility assessments and scheme eligibility diagnostics at zero obligation."
+        primaryButtonText="Submit Your Inquiry"
+        primaryButtonHref="/contact"
+        secondaryButtonText="Explore All Practices"
+        secondaryButtonHref="/services"
+      />
     </div>
   );
 }

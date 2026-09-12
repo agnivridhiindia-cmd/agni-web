@@ -119,51 +119,54 @@ export function RecognitionSection() {
   return (
     <section
       aria-labelledby="recognition-heading"
-      className="relative bg-nocturnal-jewel text-white py-20 sm:py-26 lg:py-32 border-b border-slate-800/80 overflow-hidden"
+      className="relative py-20 sm:py-26 lg:py-32 border-b border-[#CBDDEB] overflow-hidden bg-gradient-to-b from-[#D5E7F4] via-[#CEE3F3] to-[#D5E7F4] text-slate-900"
     >
-      {/* Ambient background decoration with royal purple, gold, and cyan spotlights */}
+      {/* Precision architectural ambient background */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 z-0 select-none overflow-hidden"
       >
-        <div className="absolute top-1/3 -right-24 h-[560px] w-[560px] rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.15)_0%,transparent_70%)] blur-3xl" />
-        <div className="absolute bottom-0 -left-24 h-[540px] w-[540px] rounded-full bg-[radial-gradient(circle,rgba(6,182,212,0.12)_0%,transparent_70%)] blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[360px] bg-[radial-gradient(ellipse_at_center,rgba(245,158,11,0.08)_0%,transparent_70%)] blur-3xl pointer-events-none" />
-        <div className="absolute inset-0 bg-dot-matrix-dark opacity-25 [mask-image:radial-gradient(ellipse_85%_75%_at_50%_50%,#000_65%,transparent_100%)]" />
+        <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-sky-300/80 to-transparent" />
+        <div className="absolute inset-0 [background-image:radial-gradient(#94A3B8_1px,transparent_1px)] [background-size:32px_32px] opacity-35 [mask-image:radial-gradient(ellipse_75%_65%_at_50%_40%,#000_50%,transparent_100%)]" />
+        <div className="absolute top-1/4 -right-28 h-[480px] w-[480px] rounded-full bg-[radial-gradient(circle,rgba(14,165,233,0.08)_0%,transparent_70%)] blur-3xl" />
+        <div className="absolute bottom-10 -left-28 h-[460px] w-[460px] rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.06)_0%,transparent_70%)] blur-3xl" />
         {/* Subtle corner crosshairs */}
-        <div className="absolute top-8 left-8 font-mono text-xs text-amber-400/30 select-none">+</div>
-        <div className="absolute top-8 right-8 font-mono text-xs text-cyan-400/30 select-none">+</div>
+        <div className="absolute top-8 left-8 font-mono text-xs text-slate-400/40 select-none">+</div>
+        <div className="absolute top-8 right-8 font-mono text-xs text-slate-400/40 select-none">+</div>
       </div>
 
       <Container width="wide" className="relative z-10 space-y-10 sm:space-y-12">
         {/* Header Row: Title on Left, Carousel Controls on Right */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[#CBDDEB] pb-8">
           <FadeIn direction="up" distance={16} delay={0.04} className="max-w-2xl space-y-3.5">
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-amber-950/80 backdrop-blur-md border border-amber-500/40 text-amber-300 text-xs font-mono tracking-widest uppercase shadow-xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/90 text-xs font-mono tracking-widest text-slate-800 shadow-2xs font-semibold">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
               <span>AWARDS &amp; ACHIEVEMENTS &bull; ACCREDITATIONS</span>
             </div>
 
             <h2
               id="recognition-heading"
-              className="font-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-bold tracking-[-0.03em] text-white !leading-[1.14]"
+              className="font-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-bold tracking-[-0.03em] text-slate-900 !leading-[1.14]"
             >
-              Recognized for Catalyzing Enterprise Growth
+              Recognized for{" "}
+              <span className="text-amber-600 font-bold font-heading">
+                Catalyzing Enterprise Growth.
+              </span>
             </h2>
 
-            <p className="font-sans text-sm sm:text-base text-slate-300 leading-[1.7]">
+            <p className="font-sans text-sm sm:text-base text-slate-600 leading-[1.7]">
               External citations, industry conclave commendations, and sector
               publications honoring our institutional advisory rigor across sovereign
               guarantees, statutory certifications, and modern enterprise governance.
             </p>
           </FadeIn>
 
-          {/* Apple Liquid Glass Carousel Arrows */}
+          {/* Carousel Arrows in Clean Light Style */}
           <FadeIn direction="up" distance={16} delay={0.08} className="shrink-0 flex items-center gap-3">
             <button
               type="button"
               onClick={() => showCard(activeIndex - 1)}
-              className="w-12 h-12 rounded-full border border-white/20 bg-white/[0.08] hover:bg-white/[0.18] backdrop-blur-2xl text-white hover:text-amber-300 hover:border-amber-400/60 disabled:opacity-25 flex items-center justify-center transition-all shadow-[inset_0_1px_1px_rgba(255,255,255,0.3),0_10px_25px_rgba(0,0,0,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 cursor-pointer hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.95] [transform:translateZ(0)]"
+              className="w-12 h-12 rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-slate-800 hover:text-amber-600 hover:border-amber-400 disabled:opacity-25 flex items-center justify-center transition-all shadow-[0_4px_12px_rgba(15,23,42,0.06)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 cursor-pointer hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.95] [transform:translateZ(0)]"
               aria-label="Scroll citations left"
             >
               <ChevronLeft className="w-5 h-5" />
@@ -171,7 +174,7 @@ export function RecognitionSection() {
             <button
               type="button"
               onClick={() => showCard(activeIndex + 1)}
-              className="w-12 h-12 rounded-full border border-white/20 bg-white/[0.08] hover:bg-white/[0.18] backdrop-blur-2xl text-white hover:text-amber-300 hover:border-amber-400/60 disabled:opacity-25 flex items-center justify-center transition-all shadow-[inset_0_1px_1px_rgba(255,255,255,0.3),0_10px_25px_rgba(0,0,0,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 cursor-pointer hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.95] [transform:translateZ(0)]"
+              className="w-12 h-12 rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-slate-800 hover:text-amber-600 hover:border-amber-400 disabled:opacity-25 flex items-center justify-center transition-all shadow-[0_4px_12px_rgba(15,23,42,0.06)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 cursor-pointer hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.95] [transform:translateZ(0)]"
               aria-label="Scroll citations right"
             >
               <ChevronRight className="w-5 h-5" />
@@ -204,7 +207,7 @@ export function RecognitionSection() {
               >
                 <SpotlightCard
                   glowVariant="teal"
-                  className="h-[360px] sm:h-[400px] p-0 bg-transparent border border-slate-700/60 hover:border-sky-400/60 transition-all duration-300 shadow-[0_12px_32px_rgba(0,0,0,0.6)] hover:shadow-[0_16px_36px_rgba(0,0,0,0.8),0_0_20px_rgba(14,165,233,0.2)] [transform:translateZ(0)]"
+                  className="h-[360px] sm:h-[400px] p-0 bg-slate-950 border border-slate-700/60 hover:border-sky-400/60 transition-all duration-300 shadow-[0_12px_32px_rgba(15,23,42,0.15)] hover:shadow-[0_16px_36px_rgba(15,23,42,0.22)] [transform:translateZ(0)] rounded-3xl"
                   innerClassName="!p-0 justify-end bg-gradient-to-b from-[#111D3A]/90 via-[#0D162D]/95 to-[#0B1329]/98 text-white rounded-3xl overflow-hidden border border-slate-700/50"
                 >
                   {item.logoImage ? (
@@ -256,7 +259,7 @@ export function RecognitionSection() {
               onClick={() => showCard(verifiedItems.length + index)}
               aria-label={`Show ${item.publicationOrOrg} recognition`}
               aria-current={activeIndex === index ? "true" : undefined}
-              className={`h-2 rounded-full transition-all cursor-pointer ${activeIndex === index ? "w-8 bg-amber-400 shadow-[0_0_12px_rgba(245,158,11,0.6)]" : "w-2 bg-slate-700 hover:bg-slate-500"}`}
+              className={`h-2 rounded-full transition-all cursor-pointer ${activeIndex === index ? "w-8 bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.5)]" : "w-2 bg-slate-300 hover:bg-slate-400"}`}
             />
           ))}
         </div>

@@ -97,15 +97,15 @@ Phone: +91 98188 16654 | Web: https://agnivridhi.com/contact
 
   return (
     <aside
-      aria-label="Sticky Deal Summary Dock"
+      aria-label="Deal Summary Dock"
       className="lg:col-span-4"
     >
-      {/* Sticky Deal Summary Dock */}
-      <div className="sticky top-28 space-y-6">
+      {/* Deal Summary Dock */}
+      <div className="space-y-6">
         {/* Deal Summary Card */}
-        <div className="rounded-3xl bg-gradient-to-b from-teal-900/80 via-[#043331]/95 to-teal-950/95 border border-teal-500/30 shadow-[0_16px_40px_rgba(0,0,0,0.6),0_0_20px_rgba(20,184,166,0.15)] [transform:translateZ(0)] overflow-hidden">
+        <div className="rounded-3xl bg-gradient-to-b from-[#131D38]/95 via-[#0E162B]/98 to-[#0A1020]/98 border border-slate-700/70 shadow-[0_20px_50px_rgba(0,0,0,0.6)] backdrop-blur-2xl [transform:translateZ(0)] overflow-hidden">
           {/* Header Bar */}
-          <div className="p-6 bg-teal-950/70 border-b border-teal-500/30 space-y-2 relative overflow-hidden">
+          <div className="p-6 bg-slate-900/80 border-b border-slate-700/60 space-y-2 relative overflow-hidden">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-lg bg-amber-950/60 border border-amber-500/40 flex items-center justify-center text-amber-400">
@@ -122,7 +122,7 @@ Phone: +91 98188 16654 | Web: https://agnivridhi.com/contact
               </div>
             </div>
 
-            <h3 className="font-serif text-lg font-medium text-amber-300 tracking-tight leading-snug pt-1">
+            <h3 className="font-serif text-lg font-semibold text-white tracking-tight leading-snug pt-1">
               {service.name}
             </h3>
           </div>
@@ -130,12 +130,12 @@ Phone: +91 98188 16654 | Web: https://agnivridhi.com/contact
           {/* Structured Deal Metric Rows */}
           <div className="p-6 space-y-3.5 text-xs font-sans">
             {/* Metric 1: Max Limit */}
-            <div className="flex items-center justify-between pb-3 border-b border-teal-500/20">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-800">
               <div className="space-y-0.5">
-                <span className="text-[11px] font-mono font-semibold uppercase tracking-wider text-teal-200/70 block">
+                <span className="text-[11px] font-mono font-semibold uppercase tracking-wider text-slate-400 block">
                   Max Limit / Scale
                 </span>
-                <span className="text-teal-100/60 text-xs">Statutory Scheme Cap</span>
+                <span className="text-slate-500 text-xs">Statutory Scheme Cap</span>
               </div>
               <div className="font-mono text-base font-bold text-amber-400 tabular-nums text-right">
                 {maxLimit}
@@ -143,27 +143,27 @@ Phone: +91 98188 16654 | Web: https://agnivridhi.com/contact
             </div>
 
             {/* Metric 2: Security Structure */}
-            <div className="flex items-start justify-between gap-3 pb-3 border-b border-teal-500/20 text-xs">
+            <div className="flex items-start justify-between gap-3 pb-3 border-b border-slate-800 text-xs">
               <div className="space-y-0.5">
-                <span className="block text-teal-200/70 font-mono text-[11px] font-semibold uppercase tracking-wider">
+                <span className="block text-slate-400 font-mono text-[11px] font-semibold uppercase tracking-wider">
                   Collateral Obligation
                 </span>
-                <span className="block text-teal-100/60 text-xs">Primary Property Pledge</span>
+                <span className="block text-slate-500 text-xs">Primary Property Pledge</span>
               </div>
-              <span className="font-semibold text-right text-teal-100">
+              <span className="font-semibold text-right text-slate-200">
                 {collateral}
               </span>
             </div>
 
             {/* Metric 3: Underwriting SLA */}
-            <div className="flex items-start justify-between gap-3 pb-3 border-b border-teal-500/20 text-xs">
+            <div className="flex items-start justify-between gap-3 pb-3 border-b border-slate-800 text-xs">
               <div className="space-y-0.5">
-                <span className="block text-teal-200/70 font-mono text-[11px] font-semibold uppercase tracking-wider">
+                <span className="block text-slate-400 font-mono text-[11px] font-semibold uppercase tracking-wider">
                   Processing SLA
                 </span>
-                <span className="block text-teal-100/60 text-xs">Sanction / Filing Timeline</span>
+                <span className="block text-slate-500 text-xs">Sanction / Filing Timeline</span>
               </div>
-              <span className="font-semibold text-right text-teal-100">
+              <span className="font-semibold text-right text-slate-200">
                 {turnaround}
               </span>
             </div>
@@ -172,12 +172,12 @@ Phone: +91 98188 16654 | Web: https://agnivridhi.com/contact
             {(service.dealSummary?.eligibility || (service.audience && service.audience.length > 0)) && (
               <div className="flex items-start justify-between gap-3 text-xs pt-1">
                 <div className="space-y-0.5">
-                  <span className="block text-teal-200/70 font-mono text-[11px] font-semibold uppercase tracking-wider">
+                  <span className="block text-slate-400 font-mono text-[11px] font-semibold uppercase tracking-wider">
                     Target Eligibility
                   </span>
-                  <span className="block text-teal-100/60 text-xs">Enterprise Entity Tier</span>
+                  <span className="block text-slate-500 text-xs">Enterprise Entity Tier</span>
                 </div>
-                <span className="font-semibold text-right text-teal-100 max-w-[55%]">
+                <span className="font-semibold text-right text-slate-200 max-w-[55%]">
                   {service.dealSummary?.eligibility || service.audience?.[0]}
                 </span>
               </div>
@@ -185,12 +185,12 @@ Phone: +91 98188 16654 | Web: https://agnivridhi.com/contact
           </div>
 
           {/* Quick Action Buttons */}
-          <div className="p-6 pt-3 bg-teal-950/80 border-t border-teal-500/30 space-y-3">
+          <div className="p-6 pt-3 bg-slate-900/80 border-t border-slate-800 space-y-3">
             {/* Quick Button 1: Download DPR Checklist */}
             <button
               type="button"
               onClick={handleDownloadDprChecklist}
-              className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-teal-900/60 hover:bg-teal-900/90 text-amber-300 font-mono text-xs font-semibold tracking-wide border border-amber-500/30 hover:border-amber-400/60 shadow-xs transition-all hover:-translate-y-0.5 cursor-pointer [transform:translateZ(0)]"
+              className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-slate-200 hover:text-amber-300 font-mono text-xs font-semibold tracking-wide border border-slate-700 hover:border-amber-400/60 shadow-xs transition-all hover:-translate-y-0.5 cursor-pointer [transform:translateZ(0)]"
             >
               <FileDown className="w-4 h-4 text-amber-400 shrink-0" />
               <span>Download DPR Checklist (TXT)</span>
@@ -207,7 +207,7 @@ Phone: +91 98188 16654 | Web: https://agnivridhi.com/contact
           </div>
 
           {/* Institutional Assurances */}
-          <div className="px-6 py-4 bg-teal-950/90 border-t border-teal-500/30 space-y-2 text-[11px] text-teal-200/80 font-sans">
+          <div className="px-6 py-4 bg-slate-900/90 border-t border-slate-800 space-y-2 text-[11px] text-slate-400 font-sans">
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 shrink-0" />
               <span>Direct review by accredited banking underwriters</span>
@@ -220,12 +220,12 @@ Phone: +91 98188 16654 | Web: https://agnivridhi.com/contact
         </div>
 
         {/* Practice Desk Navigation Anchor */}
-        <div className="p-5 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-teal-900/70 to-teal-950/90 shadow-[0_4px_16px_rgba(0,0,0,0.4)] [transform:translateZ(0)] text-xs space-y-2.5">
-          <span className="font-mono text-[11px] font-bold text-amber-300 uppercase tracking-wider block">
+        <div className="p-5 rounded-2xl border border-slate-700/60 bg-gradient-to-b from-[#131D38]/90 via-[#0E162B]/95 to-[#0A1020]/95 shadow-[0_16px_40px_rgba(0,0,0,0.4)] backdrop-blur-xl [transform:translateZ(0)] text-xs space-y-2.5">
+          <span className="font-mono text-[11px] font-bold text-amber-400 uppercase tracking-wider block">
             Dedicated Practice Desk
           </span>
-          <p className="text-teal-100/85 leading-relaxed font-sans">
-            Delivered under Agnivridhi&apos;s <strong className="text-amber-300">{categoryLabel}</strong> practice desk.
+          <p className="text-slate-300 leading-relaxed font-sans">
+            Delivered under Agnivridhi&apos;s <strong className="text-white">{categoryLabel}</strong> practice desk.
           </p>
           <Link
             href={`/services#${service.category}`}

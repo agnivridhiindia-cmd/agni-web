@@ -18,7 +18,7 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100">
+    <div className="min-h-screen text-slate-100">
       {/* Narrative Architecture:
           About Hero -> Company Story -> Mission -> Founder Story -> Timeline -> Core Values -> Advisory CTA */}
       <AboutHero />

@@ -6,10 +6,30 @@ import { LinkButton } from "@/components/ui/link-button";
 import { CtaArrow } from "@/components/ui/cta-arrow";
 import { FadeIn } from "@/components/shared/motion";
 
-export function FinalCta() {
+export interface FlagshipCtaProps {
+  id?: string;
+  eyebrow?: string;
+  title?: string | React.ReactNode;
+  description?: string;
+  primaryButtonText?: string;
+  primaryButtonHref?: string;
+  secondaryButtonText?: string;
+  secondaryButtonHref?: string;
+}
+
+export function FlagshipCta({
+  id = "flagship-cta-heading",
+  eyebrow = "READY TO TRANSFORM YOUR BUSINESS?",
+  title = "Ready to Transform Your Business?",
+  description = "Get expert consultation and take the first step towards securing funding, achieving statutory compliance, and engineering scalable growth.",
+  primaryButtonText = "Schedule Free Consultation",
+  primaryButtonHref = "/contact",
+  secondaryButtonText = "Explore Our Services",
+  secondaryButtonHref = "/services",
+}: FlagshipCtaProps) {
   return (
     <section
-      aria-labelledby="final-cta-heading"
+      aria-labelledby={id}
       className="relative border-b border-[#A6CCEA] overflow-hidden bg-gradient-to-b from-[#D5E7F4] via-[#C6E0F2] to-[#B8D7EE] pt-20 pb-24 sm:pt-24 sm:pb-30 lg:pt-32 lg:pb-36"
     >
       {/* Precision architectural ambient background matching institutional narrative */}
@@ -46,51 +66,58 @@ export function FinalCta() {
             {/* Inner Content Grid */}
             <div className="relative z-10 max-w-4xl space-y-6 sm:space-y-8">
               {/* Eyebrow */}
-              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/[0.08] backdrop-blur-xl border border-white/15 text-xs font-mono tracking-widest text-sky-300 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)]">
-                <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-                <span>READY TO TRANSFORM YOUR BUSINESS?</span>
-              </div>
+              {eyebrow && (
+                <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/[0.08] backdrop-blur-xl border border-white/15 text-xs font-mono tracking-widest text-sky-300 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                  <span>{eyebrow}</span>
+                </div>
+              )}
 
               {/* Headline */}
               <h2
-                id="final-cta-heading"
+                id={id}
                 className="font-heading text-3xl sm:text-4xl lg:text-[2.85rem] font-bold tracking-[-0.03em] text-white !leading-[1.14]"
               >
-                Ready to Transform Your Business?
+                {title}
               </h2>
 
               {/* Supporting Copy */}
-              <p className="font-sans text-sm sm:text-base lg:text-lg text-slate-300 max-w-2xl leading-[1.75]">
-                Get expert consultation and take the first step towards securing funding, achieving statutory compliance, and engineering scalable growth.
-              </p>
+              {description && (
+                <p className="font-sans text-sm sm:text-base lg:text-lg text-slate-300 max-w-2xl leading-[1.75]">
+                  {description}
+                </p>
+              )}
 
               {/* CTA Action Row */}
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4 flex-wrap">
                 {/* Primary Conversion CTA */}
-                <MagneticButton strength={0.18} maxOffset={6}>
+                {primaryButtonText && (
+                  <MagneticButton strength={0.18} maxOffset={6}>
+                    <LinkButton
+                      href={primaryButtonHref}
+                      variant="primary"
+                      className="w-full sm:w-auto rounded-full px-9 py-4 text-sm sm:text-base font-bold justify-center transition-all inline-flex items-center gap-2.5 tracking-wide bg-gradient-to-b from-amber-400 via-amber-500 to-amber-600 text-slate-950 border border-white/60 shadow-[inset_0_1px_2px_rgba(255,255,255,0.85),0_14px_35px_-6px_rgba(245,158,11,0.5)] hover:shadow-[inset_0_1px_2.5px_rgba(255,255,255,1),0_18px_45px_-6px_rgba(245,158,11,0.65)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] cursor-pointer [transform:translateZ(0)]"
+                      aria-label={typeof primaryButtonText === "string" ? primaryButtonText : "Primary Call to Action"}
+                    >
+                      <span>{primaryButtonText}</span>
+                      <CtaArrow className="w-4 h-4 ml-1 text-slate-950" />
+                    </LinkButton>
+                  </MagneticButton>
+                )}
+
+                {/* Secondary CTA */}
+                {secondaryButtonText && (
                   <LinkButton
-                    href="/contact"
-                    variant="primary"
-                    className="w-full sm:w-auto rounded-full px-9 py-4 text-sm sm:text-base font-bold justify-center transition-all inline-flex items-center gap-2.5 tracking-wide bg-gradient-to-b from-amber-400 via-amber-500 to-amber-600 text-slate-950 border border-white/60 shadow-[inset_0_1px_2px_rgba(255,255,255,0.85),0_14px_35px_-6px_rgba(245,158,11,0.5)] hover:shadow-[inset_0_1px_2.5px_rgba(255,255,255,1),0_18px_45px_-6px_rgba(245,158,11,0.65)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] cursor-pointer [transform:translateZ(0)]"
-                    aria-label="Schedule a preliminary consultation with an Agnivridhi advisory principal"
+                    href={secondaryButtonHref}
+                    variant="outline"
+                    className="w-full sm:w-auto rounded-full px-9 py-4 text-sm sm:text-base font-semibold border border-white/20 bg-white/[0.08] hover:bg-white/[0.15] backdrop-blur-xl hover:border-white/40 text-white hover:text-amber-300 justify-center transition-all inline-flex items-center gap-2 tracking-wide shadow-[inset_0_1px_1px_rgba(255,255,255,0.3),0_8px_24px_rgba(0,0,0,0.3)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] cursor-pointer [transform:translateZ(0)]"
+                    aria-label={typeof secondaryButtonText === "string" ? secondaryButtonText : "Secondary Call to Action"}
                   >
-                    <span>Schedule Free Consultation</span>
-                    <CtaArrow className="w-4 h-4 ml-1 text-slate-950" />
+                    <span>{secondaryButtonText}</span>
+                    <ArrowRight className="w-4 h-4 ml-1 text-amber-400" />
                   </LinkButton>
-                </MagneticButton>
-
-                {/* Secondary CTA: Catalog Discovery */}
-                <LinkButton
-                  href="/services"
-                  variant="outline"
-                  className="w-full sm:w-auto rounded-full px-9 py-4 text-sm sm:text-base font-semibold border border-white/20 bg-white/[0.08] hover:bg-white/[0.15] backdrop-blur-xl hover:border-white/40 text-white hover:text-amber-300 justify-center transition-all inline-flex items-center gap-2 tracking-wide shadow-[inset_0_1px_1px_rgba(255,255,255,0.3),0_8px_24px_rgba(0,0,0,0.3)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] cursor-pointer [transform:translateZ(0)]"
-                  aria-label="Explore all four advisory practices and service catalog"
-                >
-                  <span>Explore Our Services</span>
-                  <ArrowRight className="w-4 h-4 ml-1 text-amber-400" />
-                </LinkButton>
+                )}
               </div>
-
             </div>
           </div>
         </FadeIn>

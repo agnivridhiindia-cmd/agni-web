@@ -60,10 +60,10 @@ export function FaqAccordion({
             onMouseLeave={() => handleMouseLeave(idx)}
             onClick={() => handleClick(idx)}
             className={cn(
-              "group relative cursor-pointer select-none overflow-hidden rounded-xl border transition-all duration-300",
+              "group relative cursor-pointer select-none overflow-hidden rounded-2xl border transition-all duration-300",
               isOpen
-                ? "border-amber-400/60 bg-gradient-to-b from-teal-900/90 via-[#043331]/95 to-teal-950/95 shadow-[0_8px_24px_rgba(0,0,0,0.4)]"
-                : "border-teal-500/30 bg-gradient-to-b from-teal-950/60 via-[#043331]/70 to-teal-950/80 hover:border-amber-500/40 hover:bg-teal-900/50"
+                ? "border-amber-400/80 bg-white shadow-[0_8px_24px_rgba(15,23,42,0.08)]"
+                : "border-white/90 bg-white/70 hover:border-amber-400/50 hover:bg-white/90 shadow-2xs"
             )}
             role="button"
             tabIndex={0}
@@ -78,7 +78,7 @@ export function FaqAccordion({
             {/* Left Accent indicator when open */}
             <div
               className={cn(
-                "absolute bottom-0 left-0 top-0 w-1 origin-top bg-gradient-to-b from-amber-400 to-amber-500 transition-all duration-300",
+                "absolute bottom-0 left-0 top-0 w-1 origin-top bg-gradient-to-b from-amber-500 to-amber-600 transition-all duration-300",
                 isOpen ? "scale-y-100 opacity-100" : "scale-y-0 opacity-0"
               )}
               aria-hidden="true"
@@ -90,8 +90,8 @@ export function FaqAccordion({
                 className={cn(
                   "pr-2 font-serif text-base leading-snug transition-colors duration-300 sm:text-lg",
                   isOpen
-                    ? "font-semibold text-amber-300"
-                    : "font-medium text-white group-hover:text-amber-200"
+                    ? "font-bold text-amber-900"
+                    : "font-semibold text-slate-900 group-hover:text-amber-800"
                 )}
               >
                 {item.question}
@@ -99,17 +99,17 @@ export function FaqAccordion({
 
               <div className="flex items-center gap-2 shrink-0">
                 {isPinned && (
-                  <span className="hidden rounded border border-amber-500/40 bg-amber-950/60 px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider text-amber-400 sm:inline-block">
+                  <span className="hidden rounded-md border border-amber-300 bg-amber-100 px-2 py-0.5 text-[10px] font-mono font-bold uppercase tracking-wider text-amber-900 sm:inline-block shadow-2xs">
                     Pinned
                   </span>
                 )}
                 <motion.div
                   animate={{
                     rotate: isOpen ? 180 : 0,
-                    color: isOpen ? "#F59E0B" : "#94A3B8",
+                    color: isOpen ? "#B45309" : "#475569",
                   }}
                   transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                  className="flex items-center justify-center w-7 h-7 rounded-full bg-slate-900/80 border border-amber-500/40 group-hover:border-amber-400"
+                  className="flex items-center justify-center w-7 h-7 rounded-full bg-slate-100 border border-slate-300 group-hover:border-amber-400 shadow-2xs"
                 >
                   <ChevronDown className="w-4 h-4" />
                 </motion.div>
@@ -153,7 +153,7 @@ export function FaqAccordion({
                   }}
                   className="overflow-hidden"
                 >
-                  <div className="px-4 pb-5 sm:px-5 sm:pb-6 text-sm sm:text-base text-teal-100/90 font-sans leading-relaxed border-t border-teal-500/30 pt-3">
+                  <div className="px-4 pb-5 sm:px-5 sm:pb-6 text-sm sm:text-base text-slate-700 font-sans leading-relaxed border-t border-slate-200/80 pt-3">
                     {item.answer}
                   </div>
                 </motion.div>

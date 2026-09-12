@@ -82,7 +82,7 @@ export function AgniEngineMotif() {
         {/* Section Heading */}
         <FadeIn direction="up" distance={16}>
           <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-xl border border-white text-xs font-mono tracking-widest text-amber-700 shadow-2xs font-semibold">
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/95 border border-white text-xs font-mono tracking-widest text-amber-700 shadow-2xs font-semibold">
               <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
               <span>PROPRIETARY ARCHITECTURE &bull; THE AGNI MATRIX</span>
             </div>
@@ -110,7 +110,7 @@ export function AgniEngineMotif() {
             return (
               <div
                 key={pillar.id}
-                className="space-y-4 text-left p-7 sm:p-9 rounded-[2.5rem] border border-white/80 bg-white/75 hover:bg-white/95 backdrop-blur-xl shadow-[0_20px_45px_-12px_rgba(14,165,233,0.08),inset_0_1px_2px_rgba(255,255,255,0.95)] ring-1 ring-slate-900/5 hover:border-amber-400/50 hover:shadow-[0_24px_50px_-10px_rgba(245,158,11,0.12)] transition-all duration-300 hover:-translate-y-1 group [transform:translateZ(0)]"
+                className="space-y-4 text-left p-7 sm:p-9 rounded-[2.5rem] border border-white/80 bg-white/95 hover:bg-white shadow-[0_20px_45px_-12px_rgba(14,165,233,0.08),inset_0_1px_2px_rgba(255,255,255,0.95)] ring-1 ring-slate-900/5 hover:border-amber-400/50 hover:shadow-[0_24px_50px_-10px_rgba(245,158,11,0.12)] transition-all duration-300 hover:-translate-y-1 group [transform:translateZ(0)]"
               >
                 {/* Meta row: Index + Category + Metric */}
                 <div className="flex items-center justify-between gap-4 pb-3 border-b border-slate-100">
@@ -148,7 +148,7 @@ export function AgniEngineMotif() {
                 <div className="pl-0 sm:pl-14 pt-2">
                   <Link
                     href={pillar.href}
-                    className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white/80 hover:bg-slate-900 hover:text-white backdrop-blur-xl border border-slate-200/90 hover:border-slate-900 text-xs font-mono tracking-wider uppercase text-slate-800 transition-all shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.9),0_4px_12px_rgba(15,23,42,0.04)] group/link hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
+                    className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white border border-slate-200/90 hover:bg-slate-900 hover:text-white hover:border-slate-900 text-xs font-mono tracking-wider uppercase text-slate-800 transition-all shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.9),0_4px_12px_rgba(15,23,42,0.04)] group/link hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
                   >
                     <span>{pillar.linkText}</span>
                     <ArrowRight className="w-3.5 h-3.5 text-amber-600 group-hover/link:text-amber-300 transition-transform group-hover/link:translate-x-1" />

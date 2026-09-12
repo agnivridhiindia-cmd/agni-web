@@ -117,7 +117,7 @@ export function StaggerItem({
           },
         },
       }}
-      className={cn("will-change-[opacity,transform]", className)}
+      className={className}
       {...props}
     >
       {children}

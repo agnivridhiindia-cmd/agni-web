@@ -147,11 +147,12 @@ const config: Config = {
       },
 
       fontFamily: {
-        sans: ["var(--font-inter)", ...fontFamily.sans],
-        heading: ["var(--font-heading)", "var(--font-inter)", ...fontFamily.sans],
-        display: ["var(--font-heading)", "var(--font-inter)", ...fontFamily.sans],
-        serif: ["var(--font-fraunces)", ...fontFamily.serif],
-        editorial: ["var(--font-heading)", ...fontFamily.sans],
+        sans: ["var(--font-slabo)", "var(--font-inter)", ...fontFamily.sans],
+        slabo: ["var(--font-slabo)", ...fontFamily.serif],
+        heading: ["var(--font-slabo)", "var(--font-heading)", ...fontFamily.sans],
+        display: ["var(--font-slabo)", "var(--font-heading)", ...fontFamily.sans],
+        serif: ["var(--font-slabo)", "var(--font-fraunces)", ...fontFamily.serif],
+        editorial: ["var(--font-slabo)", "var(--font-heading)", ...fontFamily.sans],
       },
 
       // --- RESTRAINED RADIUS SYSTEM ---

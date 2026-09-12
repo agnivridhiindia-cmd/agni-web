@@ -40,12 +40,12 @@ export function ServiceOverview({ service }: ServiceOverviewProps) {
             {service.benefits.map((benefit, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-teal-900/80 via-[#043331]/95 to-teal-950/95 shadow-[0_8px_24px_rgba(0,0,0,0.5),0_0_15px_rgba(20,184,166,0.1)] flex items-start gap-3.5 hover:border-teal-400/80 transition-all"
+                className="p-5 rounded-2xl border border-slate-700/60 bg-gradient-to-b from-[#131D38]/90 via-[#0E162B]/95 to-[#0A1020]/95 shadow-[0_16px_40px_rgba(0,0,0,0.4)] backdrop-blur-xl flex items-start gap-3.5 hover:border-amber-500/40 transition-all"
               >
                 <div className="w-7 h-7 rounded-lg bg-amber-950/60 text-amber-400 flex items-center justify-center shrink-0 mt-0.5 border border-amber-500/40 shadow-2xs">
                   <CheckCircle2 className="w-4 h-4" />
                 </div>
-                <p className="text-sm text-teal-100/90 font-sans leading-relaxed">
+                <p className="text-sm text-slate-300 font-sans leading-relaxed">
                   {benefit}
                 </p>
               </div>
@@ -67,17 +67,17 @@ export function ServiceOverview({ service }: ServiceOverviewProps) {
             </h2>
           </div>
 
-          <div className="p-6 sm:p-7 rounded-2xl bg-gradient-to-b from-teal-900/80 via-[#043331]/95 to-teal-950/95 border border-teal-500/30 space-y-4 shadow-[0_8px_24px_rgba(0,0,0,0.5)]">
-            <div className="flex items-center gap-2 text-amber-300 font-semibold text-sm">
+          <div className="p-6 sm:p-7 rounded-2xl bg-gradient-to-b from-[#131D38]/90 via-[#0E162B]/95 to-[#0A1020]/95 border border-slate-700/60 space-y-4 shadow-[0_16px_40px_rgba(0,0,0,0.4)] backdrop-blur-xl">
+            <div className="flex items-center gap-2 text-amber-400 font-semibold text-sm">
               <Users className="w-4 h-4 text-amber-400" />
-              <span>Target Profiles &amp; Enterprise Stages</span>
+              <span className="text-white font-medium">Target Profiles &amp; Enterprise Stages</span>
             </div>
 
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
               {service.audience.map((item, idx) => (
                 <li
                   key={idx}
-                  className="flex items-start gap-2.5 text-sm text-teal-100/85 font-sans"
+                  className="flex items-start gap-2.5 text-sm text-slate-300 font-sans"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0 mt-2" />
                   <span className="leading-relaxed">{item}</span>

@@ -10,7 +10,7 @@ function parseFormattedText(text: string): React.ReactNode[] {
   return parts.map((part, index) => {
     if (part.startsWith("**") && part.endsWith("**")) {
       return (
-        <strong key={index} className="font-semibold text-[#0F0A1A]">
+        <strong key={index} className="font-semibold text-slate-950">
           {part.slice(2, -2)}
         </strong>
       );
@@ -23,7 +23,7 @@ export function ArticleBody({ content }: ArticleBodyProps) {
   const blocks = content.split(/\n\n+/);
 
   return (
-    <div className="article-body font-sans text-[#475569] text-base sm:text-lg leading-relaxed space-y-6">
+    <div className="article-body font-sans text-slate-700 text-base sm:text-lg leading-relaxed space-y-6">
       {blocks.map((block, idx) => {
         const trimmed = block.trim();
         if (!trimmed) return null;
@@ -41,7 +41,7 @@ export function ArticleBody({ content }: ArticleBodyProps) {
             <h2
               key={idx}
               id={id}
-              className="scroll-mt-28 font-serif text-2xl sm:text-3xl font-semibold text-[#0F0A1A] pt-6 pb-2 tracking-tight border-b border-cyan-100"
+              className="scroll-mt-28 font-serif text-2xl sm:text-3xl font-bold text-slate-900 pt-8 pb-3 tracking-tight border-b border-[#A6CCEA]/70"
             >
               {parseFormattedText(rawText)}
             </h2>
@@ -61,7 +61,7 @@ export function ArticleBody({ content }: ArticleBodyProps) {
             <h3
               key={idx}
               id={id}
-              className="scroll-mt-28 font-serif text-xl sm:text-2xl font-semibold text-[#0F0A1A] pt-4 pb-1 tracking-tight"
+              className="scroll-mt-28 font-serif text-xl sm:text-2xl font-bold text-slate-900 pt-6 pb-2 tracking-tight"
             >
               {parseFormattedText(rawText)}
             </h3>
@@ -76,10 +76,10 @@ export function ArticleBody({ content }: ArticleBodyProps) {
               {lines.map((line, lineIdx) => {
                 const itemText = line.replace(/^[-*]\s+/, "").trim();
                 return (
-                  <li key={lineIdx} className="flex items-start gap-3 text-[#475569] leading-relaxed">
+                  <li key={lineIdx} className="flex items-start gap-3 text-slate-700 leading-relaxed">
                     <span
                       aria-hidden="true"
-                      className="w-1.5 h-1.5 rounded-full bg-[#0891B2] shrink-0 mt-2.5"
+                      className="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0 mt-2.5"
                     />
                     <span className="flex-1">{parseFormattedText(itemText)}</span>
                   </li>
@@ -99,10 +99,10 @@ export function ArticleBody({ content }: ArticleBodyProps) {
                 const num = match ? match[1] : `${lineIdx + 1}`;
                 const itemText = match ? match[2] : line;
                 return (
-                  <li key={lineIdx} className="flex items-start gap-3.5 text-[#475569] leading-relaxed">
+                  <li key={lineIdx} className="flex items-start gap-3.5 text-slate-700 leading-relaxed">
                     <span
                       aria-hidden="true"
-                      className="w-6 h-6 rounded-md bg-[#0891B2]/10 text-[#06B6D4] border border-cyan-200 font-mono text-xs font-bold flex items-center justify-center shrink-0 mt-0.5"
+                      className="w-6 h-6 rounded-md bg-amber-100 text-amber-900 border border-amber-300 font-mono text-xs font-bold flex items-center justify-center shrink-0 mt-0.5 shadow-2xs"
                     >
                       {num}
                     </span>
@@ -120,7 +120,7 @@ export function ArticleBody({ content }: ArticleBodyProps) {
           return (
             <blockquote
               key={idx}
-              className="my-6 pl-5 border-l-4 border-[#0891B2] bg-white py-4 pr-4 rounded-r-xl italic text-[#0F0A1A] font-serif text-lg leading-relaxed"
+              className="my-6 pl-5 border-l-4 border-amber-500 bg-white/80 py-4 pr-4 rounded-r-2xl border-y border-r border-white/90 italic text-slate-900 font-serif text-lg leading-relaxed shadow-sm backdrop-blur-md"
             >
               {parseFormattedText(quoteText)}
             </blockquote>
@@ -129,7 +129,7 @@ export function ArticleBody({ content }: ArticleBodyProps) {
 
         // Standard Paragraph
         return (
-          <p key={idx} className="my-4 leading-relaxed text-[#475569]">
+          <p key={idx} className="my-4 leading-relaxed text-slate-700">
             {parseFormattedText(trimmed)}
           </p>
         );

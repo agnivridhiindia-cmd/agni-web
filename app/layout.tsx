@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Plus_Jakarta_Sans, Fraunces, Cormorant_Garamond } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans, Fraunces, Cormorant_Garamond, Slabo_13px } from "next/font/google";
 import { siteConfig } from "@/lib/site-config";
 import { getOrganizationJsonLd } from "@/lib/seo";
 import { Header } from "@/components/layout/header";
@@ -33,6 +33,13 @@ const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
   display: "swap",
   weight: ["300", "400", "500", "600", "700"],
+});
+
+const slabo13px = Slabo_13px({
+  subsets: ["latin"],
+  variable: "--font-slabo",
+  display: "swap",
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -93,7 +100,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${inter.variable} ${plusJakartaSans.variable} ${fraunces.variable} ${cormorant.variable}`}
+      className={`${inter.variable} ${plusJakartaSans.variable} ${fraunces.variable} ${cormorant.variable} ${slabo13px.variable}`}
     >
       <head>
         {/* Schema.org Organization Structured Data */}
@@ -102,7 +109,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
       </head>
-      <body className="font-sans antialiased text-[#181226] flex min-h-screen flex-col selection:bg-cyan-100 selection:text-[#0891B2] relative">
+      <body className={`${slabo13px.className} font-sans antialiased text-[#181226] flex min-h-screen flex-col selection:bg-cyan-100 selection:text-[#0891B2] relative`}>
         {/* Living Architectural Ambient Aura & Interactive Spotlight */}
         <AmbientBackground />
 
@@ -117,9 +124,6 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-
-        {/* Tactile Micro-Grain Archival Texture Overlay */}
-        <div className="fixed inset-0 pointer-events-none z-40 bg-noise select-none opacity-20 mix-blend-overlay" aria-hidden="true" />
       </body>
     </html>
   );
