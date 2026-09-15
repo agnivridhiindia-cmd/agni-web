@@ -162,7 +162,7 @@ export async function FeaturedStories() {
   return (
     <section
       aria-labelledby="featured-stories-heading"
-      className="relative py-20 sm:py-28 lg:py-36 border-b border-[#BDD8EB] overflow-hidden bg-gradient-to-b from-[#EBF3F9] via-[#E0EEF7] to-[#D5E7F4]"
+      className="relative py-14 sm:py-20 lg:py-26 border-b border-[#CBDDEB] overflow-hidden bg-gradient-to-b from-[#F1F5F9] via-[#EBF3F9] to-[#F1F5F9]"
     >
       {/* Precision architectural ambient background */}
       <div
@@ -176,7 +176,7 @@ export async function FeaturedStories() {
       </div>
       <Container width="wide" className="space-y-14 sm:space-y-20 relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[#BDD8EB] pb-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[#CBDDEB] pb-8">
           <div className="space-y-3.5 max-w-2xl">
             <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/90 text-xs font-mono tracking-widest text-slate-800 shadow-2xs font-semibold">
               <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />

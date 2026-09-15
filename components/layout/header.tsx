@@ -48,25 +48,26 @@ export function Header() {
   const previousScrollYRef = React.useRef(0);
   const accumulatedDeltaRef = React.useRef(0);
 
-  // Smooth, jitter-free scroll detection with accumulated hysteresis
+  // Smooth, jitter-free scroll detection with accumulated hysteresis & RAF throttling
   React.useEffect(() => {
     previousScrollYRef.current = window.scrollY;
+    let ticking = false;
 
-    const handleScroll = () => {
+    const updateScroll = () => {
       const currentY = window.scrollY;
       const prevY = previousScrollYRef.current;
       const delta = currentY - prevY;
 
       // Hysteresis deadband for isScrolled to avoid bounce at top threshold
       if (currentY > 60) {
-        setIsScrolled(true);
+        setIsScrolled((prev) => (!prev ? true : prev));
       } else if (currentY < 15) {
-        setIsScrolled(false);
+        setIsScrolled((prev) => (prev ? false : prev));
       }
 
       // Always show header near the top of the page
       if (currentY <= 100) {
-        setHeroHidden(false);
+        setHeroHidden((prev) => (prev ? false : prev));
         accumulatedDeltaRef.current = 0;
       } else if (!mobileNavOpen) {
         // Reset accumulation if scroll direction reverses
@@ -82,19 +83,27 @@ export function Header() {
         // Hysteresis threshold: user must decisively scroll down or up
         // To hide: scrolled down by at least 25px accumulated past 150px
         if (accumulatedDeltaRef.current > 25 && currentY > 150) {
-          setHeroHidden(true);
-          setServicesOpen(false);
+          setHeroHidden((prev) => (!prev ? true : prev));
+          setServicesOpen((prev) => (prev ? false : prev));
         }
         // To show: scrolled up by at least 15px accumulated
         else if (accumulatedDeltaRef.current < -15) {
-          setHeroHidden(false);
+          setHeroHidden((prev) => (prev ? false : prev));
         }
       }
 
       previousScrollYRef.current = currentY;
+      ticking = false;
     };
 
-    handleScroll();
+    const handleScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(updateScroll);
+      }
+    };
+
+    updateScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("resize", handleScroll, { passive: true });
     return () => {

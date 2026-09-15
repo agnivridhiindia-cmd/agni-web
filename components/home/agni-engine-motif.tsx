@@ -61,7 +61,7 @@ export function AgniEngineMotif() {
   return (
     <section
       aria-labelledby="growth-engine-heading"
-      className="relative bg-gradient-to-b from-[#EBF3F9] via-[#E2EDF6] to-[#D5E7F4] py-14 sm:py-20 lg:py-24 border-b border-[#CBDDEB] overflow-hidden"
+      className="relative bg-gradient-to-b from-[#F2F7FB] via-[#EBF3F9] to-[#F1F5F9] py-14 sm:py-20 lg:py-24 border-b border-[#CBDDEB] overflow-hidden"
     >
       <Container width="wide">
         {/* Sovereign Architecture Enclosure Chassis */}

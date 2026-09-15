@@ -10,7 +10,7 @@ export function FinalCta() {
   return (
     <section
       aria-labelledby="final-cta-heading"
-      className="relative border-b border-[#A6CCEA] overflow-hidden bg-gradient-to-b from-[#D5E7F4] via-[#C6E0F2] to-[#B8D7EE] pt-20 pb-24 sm:pt-24 sm:pb-30 lg:pt-32 lg:pb-36"
+      className="relative border-b border-slate-800/80 overflow-hidden bg-gradient-to-b from-[#F1F5F9] via-[#E2EDF6] to-[#0B1329] py-14 sm:py-18 lg:py-22"
     >
       {/* Precision architectural ambient background matching institutional narrative */}
       <div
@@ -19,8 +19,8 @@ export function FinalCta() {
       >
         <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-sky-300/80 to-transparent" />
         <div className="absolute inset-0 [background-image:radial-gradient(#94A3B8_1px,transparent_1px)] [background-size:32px_32px] opacity-35 [mask-image:radial-gradient(ellipse_75%_65%_at_50%_40%,#000_50%,transparent_100%)]" />
-        <div className="absolute top-1/4 -left-32 h-[480px] w-[480px] rounded-full bg-[radial-gradient(circle,rgba(14,165,233,0.1)_0%,rgba(14,165,233,0.01)_45%,transparent_70%)]" />
-        <div className="absolute bottom-1/4 -right-32 h-[480px] w-[480px] rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.05)_0%,rgba(245,158,11,0.01)_45%,transparent_70%)]" />
+        <div className="absolute top-1/4 -left-32 h-[480px] w-[480px] rounded-full bg-[radial-gradient(circle,rgba(14,165,233,0.08)_0%,rgba(14,165,233,0.01)_45%,transparent_70%)]" />
+        <div className="absolute bottom-1/4 -right-32 h-[480px] w-[480px] rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.06)_0%,rgba(245,158,11,0.01)_45%,transparent_70%)]" />
       </div>
 
       <Container width="wide" className="relative z-10">

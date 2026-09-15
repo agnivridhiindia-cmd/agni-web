@@ -11,7 +11,7 @@ export function InstitutionalNarrative() {
   return (
     <section
       aria-labelledby="institutional-narrative-heading"
-      className="relative py-20 sm:py-26 lg:py-36 border-b border-[#A6CCEA] overflow-hidden bg-gradient-to-b from-[#D5E7F4] via-[#C6E0F2] to-[#B8D7EE]"
+      className="relative py-14 sm:py-18 lg:py-22 border-b border-[#CBDDEB] overflow-hidden bg-gradient-to-b from-[#F1F5F9] via-[#E8F1F8] to-[#F1F5F9]"
     >
       {/* Precision architectural ambient background */}
       <div
@@ -20,14 +20,14 @@ export function InstitutionalNarrative() {
       >
         <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-sky-300/80 to-transparent" />
         <div className="absolute inset-0 [background-image:radial-gradient(#94A3B8_1px,transparent_1px)] [background-size:32px_32px] opacity-35 [mask-image:radial-gradient(ellipse_75%_65%_at_50%_40%,#000_50%,transparent_100%)]" />
-        <div className="absolute top-1/4 -left-32 h-[480px] w-[480px] rounded-full bg-[radial-gradient(circle,rgba(14,165,233,0.1)_0%,rgba(14,165,233,0.01)_45%,transparent_70%)]" />
-        <div className="absolute bottom-1/4 -right-32 h-[480px] w-[480px] rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.05)_0%,rgba(245,158,11,0.01)_45%,transparent_70%)]" />
+        <div className="absolute top-1/4 -left-32 h-[480px] w-[480px] rounded-full bg-[radial-gradient(circle,rgba(14,165,233,0.06)_0%,rgba(14,165,233,0.01)_45%,transparent_70%)]" />
+        <div className="absolute bottom-1/4 -right-32 h-[480px] w-[480px] rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.04)_0%,rgba(245,158,11,0.01)_45%,transparent_70%)]" />
       </div>
 
       <Container width="wide" className="relative z-10 space-y-8 sm:space-y-10">
         {/* Section Eyebrow & Main Statement */}
         <div className="space-y-3.5 max-w-3xl">
-          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white border border-[#A6CCEA] text-xs font-mono tracking-widest text-slate-800 shadow-2xs font-semibold">
+          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white border border-[#CBDDEB] text-xs font-mono tracking-widest text-slate-800 shadow-2xs font-semibold">
             <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
             <span>ABOUT AGNIVRIDHI &bull; INSTITUTIONAL LEADERSHIP</span>
           </div>
@@ -105,7 +105,7 @@ export function InstitutionalNarrative() {
             </div>
 
             {/* Leadership Verification Pill */}
-            <div className="p-4 rounded-2xl bg-white/95 border border-[#A6CCEA] shadow-[0_4px_16px_rgba(15,23,42,0.04)] [transform:translateZ(0)] flex items-center justify-between text-xs font-mono text-slate-700">
+            <div className="p-4 rounded-2xl bg-white/95 border border-[#CBDDEB] shadow-[0_4px_16px_rgba(15,23,42,0.04)] [transform:translateZ(0)] flex items-center justify-between text-xs font-mono text-slate-700">
               <div className="flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 text-amber-500" />
                 <span>Executive Member</span>

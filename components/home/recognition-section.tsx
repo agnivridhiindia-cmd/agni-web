@@ -119,7 +119,7 @@ export function RecognitionSection() {
   return (
     <section
       aria-labelledby="recognition-heading"
-      className="relative py-20 sm:py-26 lg:py-32 border-b border-[#CBDDEB] overflow-hidden bg-gradient-to-b from-[#D5E7F4] via-[#CEE3F3] to-[#D5E7F4] text-slate-900"
+      className="relative py-14 sm:py-18 lg:py-22 border-b border-[#CBDDEB] overflow-hidden bg-gradient-to-b from-[#EBF3F9] via-[#F2F7FB] to-[#EBF3F9] text-slate-900"
     >
       {/* Precision architectural ambient background */}
       <div

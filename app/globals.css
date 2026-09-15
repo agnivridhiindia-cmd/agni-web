@@ -142,13 +142,8 @@
   }
 
   body {
-    background:
-      radial-gradient(circle at 14% 12%, rgba(245, 158, 11, 0.07), transparent 35%),
-      radial-gradient(circle at 86% 25%, rgba(14, 165, 233, 0.10), transparent 38%),
-      radial-gradient(circle at 50% 65%, rgba(56, 189, 248, 0.05), transparent 45%),
-      radial-gradient(circle at 20% 85%, rgba(245, 158, 11, 0.05), transparent 35%),
-      linear-gradient(180deg, #131B30 0%, #1A243F 30%, #162038 65%, #131B30 100%);
-    color: #F8FAFC;
+    background-color: #F8FAFC;
+    color: #181226;
     font-family: var(--font-slabo), var(--font-inter), serif;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     -webkit-font-smoothing: antialiased;

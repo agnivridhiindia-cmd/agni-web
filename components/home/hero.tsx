@@ -81,11 +81,18 @@ export function Hero({ isPinned = false }: HeroProps) {
       }
     };
 
+    let ticking = false;
     const handleScroll = () => {
-      if (window.scrollY > 1200) {
-        if (!video.paused) video.pause();
-      } else {
-        if (video.paused) video.play().catch(() => {});
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(() => {
+          if (window.scrollY > 1200) {
+            if (!video.paused) video.pause();
+          } else {
+            if (video.paused) video.play().catch(() => {});
+          }
+          ticking = false;
+        });
       }
     };
 
