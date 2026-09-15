@@ -46,28 +46,52 @@ export function Header() {
   const servicesRef = React.useRef<HTMLDivElement>(null);
   const hoverTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
   const previousScrollYRef = React.useRef(0);
+  const accumulatedDeltaRef = React.useRef(0);
 
-  // Scroll detection with RAF throttling
+  // Smooth, jitter-free scroll detection with accumulated hysteresis
   React.useEffect(() => {
-    let ticking = false;
     previousScrollYRef.current = window.scrollY;
 
     const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const currentY = window.scrollY;
-          const isNowScrolled = currentY > 20;
-          const isScrollingDown = currentY > previousScrollYRef.current;
-          setIsScrolled((prev) => (prev !== isNowScrolled ? isNowScrolled : prev));
-          setHeroHidden(
-            currentY > 120 && isScrollingDown && !mobileNavOpen
-          );
-          setServicesOpen((prev) => (prev ? false : prev));
-          previousScrollYRef.current = currentY;
-          ticking = false;
-        });
-        ticking = true;
+      const currentY = window.scrollY;
+      const prevY = previousScrollYRef.current;
+      const delta = currentY - prevY;
+
+      // Hysteresis deadband for isScrolled to avoid bounce at top threshold
+      if (currentY > 60) {
+        setIsScrolled(true);
+      } else if (currentY < 15) {
+        setIsScrolled(false);
       }
+
+      // Always show header near the top of the page
+      if (currentY <= 100) {
+        setHeroHidden(false);
+        accumulatedDeltaRef.current = 0;
+      } else if (!mobileNavOpen) {
+        // Reset accumulation if scroll direction reverses
+        if (
+          (delta > 0 && accumulatedDeltaRef.current < 0) ||
+          (delta < 0 && accumulatedDeltaRef.current > 0)
+        ) {
+          accumulatedDeltaRef.current = delta;
+        } else {
+          accumulatedDeltaRef.current += delta;
+        }
+
+        // Hysteresis threshold: user must decisively scroll down or up
+        // To hide: scrolled down by at least 25px accumulated past 150px
+        if (accumulatedDeltaRef.current > 25 && currentY > 150) {
+          setHeroHidden(true);
+          setServicesOpen(false);
+        }
+        // To show: scrolled up by at least 15px accumulated
+        else if (accumulatedDeltaRef.current < -15) {
+          setHeroHidden(false);
+        }
+      }
+
+      previousScrollYRef.current = currentY;
     };
 
     handleScroll();
@@ -77,7 +101,7 @@ export function Header() {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
     };
-  }, [mobileNavOpen, pathname]);
+  }, [mobileNavOpen]);
 
   // Close dropdown on outside click
   React.useEffect(() => {
@@ -131,6 +155,7 @@ export function Header() {
     setPrevPathname(pathname);
     setServicesOpen(false);
     setMobileNavOpen(false);
+    setHeroHidden(false);
   }
 
   const handleMouseEnterServices = () => {
@@ -162,7 +187,7 @@ export function Header() {
       <div
         aria-hidden="true"
         className={cn(
-          "pointer-events-none fixed top-0 inset-x-0 h-28 z-40 bg-gradient-to-b from-slate-900/15 via-slate-900/5 to-transparent backdrop-blur-[2px] select-none transition-[opacity,transform] duration-200",
+          "pointer-events-none fixed top-0 inset-x-0 h-28 z-40 bg-gradient-to-b from-slate-900/15 via-slate-900/5 to-transparent backdrop-blur-[2px] select-none transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] [transform:translateZ(0)]",
           heroHidden ? "opacity-0 -translate-y-full" : "opacity-100 translate-y-0"
         )}
       />
@@ -171,22 +196,22 @@ export function Header() {
       <header
         aria-hidden={mobileNavOpen || undefined}
         className={cn(
-          "fixed top-0 inset-x-0 z-50 flex justify-center px-4 sm:px-6 pt-3 sm:pt-4 pointer-events-none transition-[opacity,transform] duration-200 ease-out",
+          "fixed top-0 inset-x-0 z-50 flex justify-center px-4 sm:px-6 pt-3 sm:pt-4 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform [transform:translateZ(0)]",
           mobileNavOpen
             ? "pointer-events-none opacity-0"
             : heroHidden
-              ? "opacity-0 -translate-y-24"
-              : "opacity-100 translate-y-0"
+              ? "pointer-events-none opacity-0 -translate-y-28"
+              : "pointer-events-none opacity-100 translate-y-0"
         )}
       >
         <nav
           aria-label="Main Navigation"
           className={cn(
-            "pointer-events-auto relative w-full border select-none transition-all duration-300 before:pointer-events-none before:absolute before:-inset-3 before:-z-10 before:rounded-[inherit] before:bg-slate-950/35 before:blur-xl before:content-['']",
+            "pointer-events-auto relative w-full max-w-6xl border select-none transition-[background-color,border-color,box-shadow,padding,border-radius] duration-200 before:pointer-events-none before:absolute before:-inset-3 before:-z-10 before:rounded-[inherit] before:bg-slate-950/35 before:blur-xl before:content-['']",
             "backdrop-blur-2xl",
             isScrolled
-              ? "max-w-5xl rounded-xl border-slate-800/90 bg-slate-950/85 px-4 py-2 shadow-[0_18px_44px_-24px_rgba(0,0,0,0.8)] sm:px-5 sm:py-2.5"
-              : "max-w-6xl rounded-2xl border-slate-800/80 bg-slate-950/80 px-5 py-3 shadow-[0_20px_50px_-24px_rgba(0,0,0,0.7)] sm:px-6 sm:py-3.5"
+              ? "rounded-xl border-slate-800/90 bg-slate-950/90 px-4 py-2 shadow-[0_18px_44px_-24px_rgba(0,0,0,0.8)] sm:px-5 sm:py-2.5"
+              : "rounded-2xl border-slate-800/80 bg-slate-950/80 px-5 py-2.5 shadow-[0_20px_50px_-24px_rgba(0,0,0,0.7)] sm:px-6 sm:py-3"
           )}
         >
           <div className="flex min-w-0 w-full items-center justify-between gap-4">

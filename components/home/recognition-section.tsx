@@ -128,8 +128,8 @@ export function RecognitionSection() {
       >
         <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-sky-300/80 to-transparent" />
         <div className="absolute inset-0 [background-image:radial-gradient(#94A3B8_1px,transparent_1px)] [background-size:32px_32px] opacity-35 [mask-image:radial-gradient(ellipse_75%_65%_at_50%_40%,#000_50%,transparent_100%)]" />
-        <div className="absolute top-1/4 -right-28 h-[480px] w-[480px] rounded-full bg-[radial-gradient(circle,rgba(14,165,233,0.08)_0%,transparent_70%)] blur-3xl" />
-        <div className="absolute bottom-10 -left-28 h-[460px] w-[460px] rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.06)_0%,transparent_70%)] blur-3xl" />
+        <div className="absolute top-1/4 -right-28 h-[480px] w-[480px] rounded-full bg-[radial-gradient(circle,rgba(14,165,233,0.08)_0%,rgba(14,165,233,0.01)_45%,transparent_70%)]" />
+        <div className="absolute bottom-10 -left-28 h-[460px] w-[460px] rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.06)_0%,rgba(245,158,11,0.01)_45%,transparent_70%)]" />
         {/* Subtle corner crosshairs */}
         <div className="absolute top-8 left-8 font-mono text-xs text-slate-400/40 select-none">+</div>
         <div className="absolute top-8 right-8 font-mono text-xs text-slate-400/40 select-none">+</div>

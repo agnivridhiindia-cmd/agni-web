@@ -85,8 +85,8 @@ export function Footer() {
         <div className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(to_right,#38BDF8_1px,transparent_1px),linear-gradient(to_bottom,#38BDF8_1px,transparent_1px)] [background-size:28px_28px]" />
 
         {/* Ambient brand glow whispers */}
-        <div className="absolute -bottom-24 -right-16 h-[450px] w-[450px] rounded-full bg-[radial-gradient(circle,rgba(8,145,178,0.16)_0%,transparent_70%)] blur-[120px]" />
-        <div className="absolute -top-24 -left-16 h-[400px] w-[400px] rounded-full bg-[radial-gradient(circle,rgba(34,211,238,0.08)_0%,transparent_70%)] blur-[100px]" />
+        <div className="absolute -bottom-24 -right-16 h-[450px] w-[450px] rounded-full bg-[radial-gradient(circle,rgba(8,145,178,0.16)_0%,rgba(8,145,178,0.02)_45%,transparent_70%)]" />
+        <div className="absolute -top-24 -left-16 h-[400px] w-[400px] rounded-full bg-[radial-gradient(circle,rgba(34,211,238,0.08)_0%,rgba(34,211,238,0.01)_45%,transparent_70%)]" />
       </div>
 
       <Container width="wide" className="page-gutters relative z-10 pt-16 pb-12 sm:pt-20 sm:pb-14 lg:pt-24 lg:pb-16 flex flex-col flex-1 justify-between">

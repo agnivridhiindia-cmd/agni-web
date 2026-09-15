@@ -62,7 +62,7 @@ function CategoryIcon({ category, className }: { category: string; className?: s
   }
 }
 
-function StoryFlipCard({
+function StoryCard({
   study,
   index,
   total,
@@ -83,88 +83,71 @@ function StoryFlipCard({
   return (
     <article
       aria-label={`Case Study: ${study.title}`}
-      className="group relative min-w-0 [perspective:1200px]"
+      className="group relative min-w-0 flex flex-col"
     >
-      <div className="relative min-h-[430px] transition-transform duration-700 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] group-focus-within:[transform:rotateY(180deg)] rounded-2xl shadow-[0_12px_32px_rgba(0,0,0,0.6)]">
-        {/* FRONT FACE */}
-        <div className="absolute inset-0 overflow-hidden rounded-2xl border border-slate-700/60 bg-slate-950 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] [backface-visibility:hidden]">
+      <Link
+        href={`/success-stories/${study.slug}`}
+        className="relative flex flex-col justify-between h-full min-h-[440px] rounded-2xl border border-slate-700/60 bg-gradient-to-b from-[#111D3A] via-[#0D162D] to-[#0B1329] overflow-hidden shadow-[0_12px_32px_rgba(0,0,0,0.5)] transition-all duration-300 hover:-translate-y-1.5 hover:border-sky-400/60 hover:shadow-[0_20px_45px_-12px_rgba(14,165,233,0.25)] [transform:translateZ(0)]"
+      >
+        {/* Top Half: Cinematic Architectural Photography with Edge Gradient */}
+        <div className="relative h-52 w-full overflow-hidden shrink-0">
           <Image
             src={imageInfo.src}
             alt={imageInfo.alt}
             fill
             sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
-            className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+            className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0B1329] via-[#0B1329]/65 to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
-            <div className="flex items-center justify-between gap-3 mb-3">
-              <span className="text-[10px] font-mono tracking-widest text-amber-400 uppercase font-bold">
-                {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
-              </span>
-              <CategoryIcon category={study.category} className="w-4 h-4 text-sky-400" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0D162D] via-[#0D162D]/40 to-transparent" />
+          <div className="absolute inset-0 bg-noise pointer-events-none opacity-20" />
+
+          {/* Floating Badges */}
+          <div className="absolute top-4 inset-x-4 flex items-center justify-between z-10">
+            <span className="px-2.5 py-1 rounded-md bg-slate-950/90 border border-slate-800 text-[10px] font-mono tracking-widest text-amber-400 uppercase font-bold shadow-xs">
+              {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
+            </span>
+            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-950/90 border border-slate-800 text-[10px] font-mono text-sky-300 shadow-xs font-semibold">
+              <CategoryIcon category={study.category} className="w-3.5 h-3.5 text-sky-400" />
+              <span>{sector}</span>
             </div>
-            <p className="text-[10px] font-mono tracking-widest text-sky-300 uppercase mb-2 font-semibold">{sector}</p>
-            <h3 className="font-heading text-xl sm:text-2xl text-white leading-[1.14] line-clamp-3 font-semibold group-hover:text-amber-300 transition-colors">
+          </div>
+        </div>
+
+        {/* Bottom Half: Editorial Typography, Metric, & Action */}
+        <div className="p-5 sm:p-6 flex flex-col justify-between flex-1 gap-4">
+          <div className="space-y-2">
+            <div className="flex items-center justify-between text-[11px] font-mono text-slate-400">
+              <span className="text-amber-400/90 font-medium">{study.client}</span>
+              <span className="text-[10px] uppercase tracking-wider text-slate-500">Case Study</span>
+            </div>
+
+            <h3 className="font-heading text-xl font-semibold text-white leading-snug group-hover:text-amber-300 transition-colors line-clamp-2">
               {study.title}
             </h3>
-            <div className="mt-4 flex items-center justify-between border-t border-slate-700/60 pt-3">
-              <span className="text-[10px] font-mono uppercase tracking-widest text-slate-300 group-hover:text-white transition-colors">
-                Hover to flip &bull; 3D view
-              </span>
-              <p className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-sky-400 group-hover:text-sky-300 transition-colors font-medium">
-                <span>Read memorandum</span>
-                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1" strokeWidth={1.5} />
-              </p>
-            </div>
-          </div>
-        </div>
 
-        {/* BACK FACE (180deg Rotated in 3D) */}
-        <div className="absolute inset-0 flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-700/60 bg-gradient-to-b from-[#111D3A] via-[#0D162D] to-[#0B1329] p-5 sm:p-6 text-left [backface-visibility:hidden] [transform:rotateY(180deg)] shadow-[0_12px_32px_rgba(15,23,42,0.4)]">
-          <div>
-            <div className="border-b border-slate-700/60 pb-3">
-              <div>
-                <p className="text-[10px] font-mono tracking-widest text-sky-300 uppercase font-bold">{sector}</p>
-                <h3 className="mt-1 font-heading text-xl sm:text-2xl text-white leading-[1.14] line-clamp-2 font-semibold">
-                  {study.title}
-                </h3>
-              </div>
-              <p className="mt-1 text-xs font-sans text-slate-300">{study.client}</p>
-            </div>
-
-            <div className="mt-4 flex items-end justify-between gap-4 p-3 rounded-xl bg-[#0B1329]/95 border border-slate-700/60 shadow-xs">
-              <div>
-                <span className="text-[10px] font-mono uppercase tracking-widest text-sky-300/80 block">
-                  {metricSub}
-                </span>
-                <p className="font-heading text-3xl sm:text-4xl text-amber-400 leading-none mt-1 font-bold tabular-nums">
-                  {metric}
-                </p>
-              </div>
-              <span className="px-2 py-0.5 rounded bg-amber-950/80 text-amber-300 text-[10px] font-mono font-bold uppercase tracking-wider border border-amber-500/40">
-                Verified
-              </span>
-            </div>
-
-            <p className="mt-4 text-xs sm:text-sm text-slate-300 leading-relaxed line-clamp-4 font-sans">
+            <p className="text-xs text-slate-300 line-clamp-2 font-sans leading-relaxed">
               {study.summary}
             </p>
-            {study.outcomes?.[0] && (
-              <p className="mt-3 border-l-2 border-amber-400 pl-3 text-xs text-slate-200 leading-relaxed line-clamp-2">
-                {study.outcomes[0]}
-              </p>
-            )}
           </div>
 
-          <Link
-            href={`/success-stories/${study.slug}`}
-            className="mt-auto inline-flex items-center justify-between gap-3 border-t border-slate-700/60 pt-3 text-xs font-mono uppercase tracking-wider text-sky-400 hover:text-sky-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 transition-colors"
-          >
-            <span className="font-bold">Read Full Memorandum</span>
-            <ArrowRight className="h-4 w-4 transform transition-transform group-hover:translate-x-1" strokeWidth={1.5} />
-          </Link>
+          {/* Metric Highlight Box */}
+          <div className="pt-3 border-t border-slate-700/60 flex items-end justify-between gap-3">
+            <div>
+              <span className="text-[10px] font-mono uppercase tracking-widest text-sky-300/80 block">
+                {metricSub}
+              </span>
+              <p className="font-heading text-2xl sm:text-3xl text-amber-400 leading-none mt-1 font-bold tabular-nums">
+                {metric}
+              </p>
+            </div>
+
+            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800/80 border border-slate-700 text-sky-400 group-hover:bg-amber-500 group-hover:text-slate-950 group-hover:border-amber-400 transition-all text-xs font-mono font-medium shrink-0">
+              <span className="text-[11px]">Read Case</span>
+              <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />
+            </div>
+          </div>
         </div>
-      </div>
+      </Link>
     </article>
   );
 }
@@ -188,8 +171,8 @@ export async function FeaturedStories() {
       >
         <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-slate-300/70 to-transparent" />
         <div className="absolute inset-0 [background-image:radial-gradient(#CBD5E1_1px,transparent_1px)] [background-size:32px_32px] opacity-40 [mask-image:radial-gradient(ellipse_75%_65%_at_50%_40%,#000_50%,transparent_100%)]" />
-        <div className="absolute top-1/4 -right-28 h-[480px] w-[480px] rounded-full bg-[radial-gradient(circle,rgba(14,165,233,0.06)_0%,transparent_70%)] blur-3xl" />
-        <div className="absolute bottom-10 -left-28 h-[460px] w-[460px] rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.04)_0%,transparent_70%)] blur-3xl" />
+        <div className="absolute top-1/4 -right-28 h-[480px] w-[480px] rounded-full bg-[radial-gradient(circle,rgba(14,165,233,0.06)_0%,rgba(14,165,233,0.01)_45%,transparent_70%)]" />
+        <div className="absolute bottom-10 -left-28 h-[460px] w-[460px] rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.04)_0%,rgba(245,158,11,0.01)_45%,transparent_70%)]" />
       </div>
       <Container width="wide" className="space-y-14 sm:space-y-20 relative z-10">
         {/* Section Header */}
@@ -233,7 +216,7 @@ export async function FeaturedStories() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
           {stories.map((study, idx) => (
-            <StoryFlipCard
+            <StoryCard
               key={study.slug}
               study={study}
               index={idx}

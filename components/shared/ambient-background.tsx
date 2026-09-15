@@ -99,13 +99,12 @@ export function AmbientBackground({
       )}
     >
       {/* 1. High-Performance Fluid Aurora Drift Orbs */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Primary Electric Cyan & Sapphire Aurora Orb (Top Right) */}
         <div
           className={cn(
             "absolute -top-[12%] -right-[10%] h-[800px] w-[800px] rounded-full",
-            "bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.18)_0%,rgba(14,116,144,0.1)_45%,transparent_70%)]",
-            "blur-[90px]",
+            "bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.18)_0%,rgba(14,116,144,0.1)_35%,rgba(14,116,144,0.02)_55%,transparent_70%)]",
             !prefersReducedMotion && "animate-ambient-drift-primary"
           )}
         />
@@ -114,8 +113,7 @@ export function AmbientBackground({
         <div
           className={cn(
             "absolute top-[30%] -left-[12%] h-[750px] w-[750px] rounded-full",
-            "bg-[radial-gradient(circle_at_center,rgba(245,158,11,0.16)_0%,rgba(217,119,6,0.08)_50%,transparent_72%)]",
-            "blur-[100px]",
+            "bg-[radial-gradient(circle_at_center,rgba(245,158,11,0.16)_0%,rgba(217,119,6,0.08)_40%,rgba(217,119,6,0.02)_60%,transparent_72%)]",
             !prefersReducedMotion && "animate-ambient-drift-secondary"
           )}
         />
@@ -124,15 +122,14 @@ export function AmbientBackground({
         <div
           className={cn(
             "absolute -bottom-[15%] left-[25%] h-[850px] w-[850px] rounded-full",
-            "bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.13)_0%,rgba(6,182,212,0.08)_48%,transparent_70%)]",
-            "blur-[110px]",
+            "bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.13)_0%,rgba(6,182,212,0.08)_38%,rgba(6,182,212,0.02)_58%,transparent_70%)]",
             !prefersReducedMotion && "animate-ambient-drift-tertiary"
           )}
         />
 
         {/* Deep Royal Midnight Blue Atmospheric Wash */}
         <div
-          className="absolute top-[15%] left-1/2 h-[600px] w-[1000px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(14,116,144,0.12)_0%,transparent_70%)] blur-[80px]"
+          className="absolute top-[15%] left-1/2 h-[600px] w-[1000px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(14,116,144,0.12)_0%,rgba(14,116,144,0.03)_50%,transparent_70%)]"
         />
       </div>
 
@@ -153,9 +150,8 @@ export function AmbientBackground({
             width: "600px",
             height: "600px",
             background:
-              "radial-gradient(circle at center, rgba(245, 158, 11, 0.1) 0%, rgba(6, 182, 212, 0.08) 35%, transparent 70%)",
+              "radial-gradient(circle at center, rgba(245, 158, 11, 0.12) 0%, rgba(6, 182, 212, 0.08) 35%, rgba(6, 182, 212, 0.02) 55%, transparent 70%)",
             borderRadius: "50%",
-            filter: "blur(20px)",
             opacity: 0,
             transition: "opacity 0.4s ease",
           }}

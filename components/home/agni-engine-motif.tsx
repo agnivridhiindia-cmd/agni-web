@@ -61,47 +61,48 @@ export function AgniEngineMotif() {
   return (
     <section
       aria-labelledby="growth-engine-heading"
-      className="relative bg-gradient-to-b from-[#091020] via-[#0B1329] to-[#0A1122] text-white py-20 sm:py-26 lg:py-36 border-b border-slate-800/80 overflow-hidden"
+      className="relative bg-gradient-to-b from-[#EBF3F9] via-[#E2EDF6] to-[#D5E7F4] py-14 sm:py-20 lg:py-24 border-b border-[#CBDDEB] overflow-hidden"
     >
-      {/* Precision architectural ambient background */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-0 select-none overflow-hidden"
-      >
-        <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-sky-300/80 to-transparent" />
-        <div className="absolute inset-0 [background-image:radial-gradient(rgba(6,182,212,0.12)_1px,transparent_1px)] [background-size:32px_32px] opacity-60 [mask-image:radial-gradient(ellipse_75%_65%_at_50%_40%,#000_50%,transparent_100%)]" />
-        <div className="absolute top-1/4 -right-32 w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.1)_0%,transparent_70%)] blur-3xl" />
-        <div className="absolute bottom-10 -left-32 w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,rgba(14,165,233,0.12)_0%,transparent_70%)] blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[400px] bg-[radial-gradient(ellipse_at_center,rgba(14,165,233,0.08)_0%,transparent_70%)] blur-3xl pointer-events-none" />
-        {/* Subtle corner crosshairs */}
-        <div className="absolute top-8 left-8 font-mono text-xs text-cyan-400/40 select-none">+</div>
-        <div className="absolute top-8 right-8 font-mono text-xs text-amber-400/40 select-none">+</div>
-      </div>
-
-      <Container width="wide" className="relative z-10 space-y-12 sm:space-y-16">
-        {/* Section Heading */}
-        <FadeIn direction="up" distance={16}>
-          <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-amber-950/80 border border-amber-500/40 text-xs font-mono tracking-widest text-amber-300 shadow-xs font-semibold">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
-              <span>PROPRIETARY ARCHITECTURE &bull; THE AGNI MATRIX</span>
-            </div>
-
-            <h2
-              id="growth-engine-heading"
-              className="font-heading text-3xl sm:text-4xl lg:text-[2.6rem] font-bold tracking-[-0.03em] text-white !leading-[1.14]"
-            >
-              The Agni{" "}
-              <span className="text-amber-600 font-bold">
-                Growth Engine Architecture.
-              </span>
-            </h2>
-
-            <p className="font-sans text-sm sm:text-base text-slate-300 max-w-2xl leading-[1.7]">
-              Scale is an engineering discipline. Our four interconnected pillars operate as a synchronized kinetic cycle—turning raw ambition into institutional dominance.
-            </p>
+      <Container width="wide">
+        {/* Sovereign Architecture Enclosure Chassis */}
+        <div className="relative overflow-hidden rounded-[3rem] border border-white/15 border-t-white/35 bg-[#10172B]/95 p-6 sm:p-10 lg:p-14 text-white shadow-[0_32px_80px_-20px_rgba(0,0,0,0.8),inset_0_1px_2px_rgba(255,255,255,0.25)] ring-1 ring-white/10">
+          {/* Ambient Blueprint Grid */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 z-0 select-none overflow-hidden"
+          >
+            <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-sky-300/80 to-transparent" />
+            <div className="absolute inset-0 [background-image:radial-gradient(rgba(6,182,212,0.12)_1px,transparent_1px)] [background-size:32px_32px] opacity-60 [mask-image:radial-gradient(ellipse_75%_65%_at_50%_40%,#000_50%,transparent_100%)]" />
+            <div className="absolute top-1/4 -right-32 w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.1)_0%,rgba(245,158,11,0.02)_45%,transparent_70%)]" />
+            <div className="absolute bottom-10 -left-32 w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,rgba(14,165,233,0.12)_0%,rgba(14,165,233,0.02)_45%,transparent_70%)]" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[400px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(14,165,233,0.08)_0%,rgba(14,165,233,0.02)_45%,transparent_70%)] pointer-events-none" />
+            {/* Subtle corner crosshairs */}
+            <div className="absolute top-8 left-8 font-mono text-xs text-cyan-400/40 select-none">+</div>
+            <div className="absolute top-8 right-8 font-mono text-xs text-amber-400/40 select-none">+</div>
           </div>
-        </FadeIn>
+
+          <div className="relative z-10 space-y-10 sm:space-y-12">
+            {/* Section Heading */}
+            <div className="max-w-3xl space-y-4">
+              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-amber-950/80 border border-amber-500/40 text-xs font-mono tracking-widest text-amber-300 shadow-xs font-semibold">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+                <span>PROPRIETARY ARCHITECTURE &bull; THE AGNI MATRIX</span>
+              </div>
+
+              <h2
+                id="growth-engine-heading"
+                className="font-heading text-3xl sm:text-4xl lg:text-[2.6rem] font-bold tracking-[-0.03em] text-white !leading-[1.14]"
+              >
+                The Agni{" "}
+                <span className="text-amber-600 font-bold">
+                  Growth Engine Architecture.
+                </span>
+              </h2>
+
+              <p className="font-sans text-sm sm:text-base text-slate-300 max-w-2xl leading-[1.7]">
+                Scale is an engineering discipline. Our four interconnected pillars operate as a synchronized kinetic cycle—turning raw ambition into institutional dominance.
+              </p>
+            </div>
 
         {/* Apple Bento Grid with Frosted Glass Panels in Light Mode */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 pt-6">
@@ -158,7 +159,9 @@ export function AgniEngineMotif() {
             );
           })}
         </div>
-      </Container>
-    </section>
+      </div>
+    </div>
+  </Container>
+</section>
   );
 }

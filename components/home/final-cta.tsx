@@ -19,8 +19,8 @@ export function FinalCta() {
       >
         <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-sky-300/80 to-transparent" />
         <div className="absolute inset-0 [background-image:radial-gradient(#94A3B8_1px,transparent_1px)] [background-size:32px_32px] opacity-35 [mask-image:radial-gradient(ellipse_75%_65%_at_50%_40%,#000_50%,transparent_100%)]" />
-        <div className="absolute top-1/4 -left-32 h-[480px] w-[480px] rounded-full bg-[radial-gradient(circle,rgba(14,165,233,0.1)_0%,transparent_70%)] blur-3xl" />
-        <div className="absolute bottom-1/4 -right-32 h-[480px] w-[480px] rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.05)_0%,transparent_70%)] blur-3xl" />
+        <div className="absolute top-1/4 -left-32 h-[480px] w-[480px] rounded-full bg-[radial-gradient(circle,rgba(14,165,233,0.1)_0%,rgba(14,165,233,0.01)_45%,transparent_70%)]" />
+        <div className="absolute bottom-1/4 -right-32 h-[480px] w-[480px] rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.05)_0%,rgba(245,158,11,0.01)_45%,transparent_70%)]" />
       </div>
 
       <Container width="wide" className="relative z-10">
@@ -35,11 +35,11 @@ export function FinalCta() {
 
             {/* Soft atmospheric radial glows */}
             <div
-              className="absolute -top-24 -right-24 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(14,165,233,0.22)_0%,transparent_70%)] blur-[90px] pointer-events-none"
+              className="absolute -top-24 -right-24 w-[500px] h-[500px] rounded-full bg-[radial-gradient(circle,rgba(14,165,233,0.22)_0%,rgba(14,165,233,0.02)_45%,transparent_70%)] pointer-events-none"
               aria-hidden="true"
             />
             <div
-              className="absolute -bottom-24 -left-24 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(245,158,11,0.14)_0%,transparent_70%)] blur-[90px] pointer-events-none"
+              className="absolute -bottom-24 -left-24 w-[500px] h-[500px] rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.14)_0%,rgba(245,158,11,0.02)_45%,transparent_70%)] pointer-events-none"
               aria-hidden="true"
             />
 

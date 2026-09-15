@@ -34,9 +34,9 @@ export function AboutBrief({ isPinned = false }: AboutBriefProps) {
         {/* Subtle grid pattern */}
         <div className="absolute inset-0 [background-image:radial-gradient(#CBD5E1_1px,transparent_1px)] [background-size:32px_32px] opacity-40 [mask-image:radial-gradient(ellipse_75%_65%_at_50%_40%,#000_50%,transparent_100%)]" />
         {/* Soft ambient light spheres */}
-        <div className="absolute top-1/4 -left-28 h-[480px] w-[480px] rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.04)_0%,transparent_70%)] blur-3xl" />
-        <div className="absolute -bottom-10 -right-20 h-[560px] w-[560px] rounded-full bg-[radial-gradient(circle,rgba(14,165,233,0.10)_0%,transparent_70%)] blur-3xl" />
-        <div className="absolute -bottom-16 left-1/4 h-[450px] w-[650px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.07)_0%,transparent_70%)] blur-3xl pointer-events-none" />
+        <div className="absolute top-1/4 -left-28 h-[480px] w-[480px] rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.04)_0%,rgba(245,158,11,0.01)_45%,transparent_70%)]" />
+        <div className="absolute -bottom-10 -right-20 h-[560px] w-[560px] rounded-full bg-[radial-gradient(circle,rgba(14,165,233,0.08)_0%,rgba(14,165,233,0.01)_45%,transparent_70%)]" />
+        <div className="absolute -bottom-16 left-1/4 h-[450px] w-[650px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.05)_0%,rgba(56,189,248,0.01)_45%,transparent_70%)] pointer-events-none" />
       </div>
 
       <Container width="wide" className="relative z-10">

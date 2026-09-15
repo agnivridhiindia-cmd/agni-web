@@ -58,10 +58,44 @@ export function Hero({ isPinned = false }: HeroProps) {
   const { location } = siteConfig.company;
   const videoRef = React.useRef<HTMLVideoElement>(null);
 
+  // Bulletproof autoplay and off-screen pause
   React.useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.playbackRate = prefersReduced ? 0.25 : 0.45;
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Explicitly enforce muted on DOM element to pass browser autoplay policies
+    video.defaultMuted = true;
+    video.muted = true;
+    video.play().catch(() => {});
+
+    if (prefersReduced) {
+      video.pause();
+      return;
     }
+
+    const handleVisibility = () => {
+      if (document.hidden) {
+        video.pause();
+      } else if (window.scrollY < 1200) {
+        video.play().catch(() => {});
+      }
+    };
+
+    const handleScroll = () => {
+      if (window.scrollY > 1200) {
+        if (!video.paused) video.pause();
+      } else {
+        if (video.paused) video.play().catch(() => {});
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    document.addEventListener("visibilitychange", handleVisibility);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("visibilitychange", handleVisibility);
+    };
   }, [prefersReduced]);
 
   return (
@@ -87,11 +121,8 @@ export function Hero({ isPinned = false }: HeroProps) {
           loop
           muted
           playsInline
-          preload="none"
+          preload="auto"
           poster="/video/hero-poster.jpg"
-          onLoadedMetadata={(e) => {
-            e.currentTarget.playbackRate = prefersReduced ? 0.25 : 0.45;
-          }}
           className="absolute inset-0 w-full h-full object-cover object-center opacity-40 transition-opacity duration-700"
         >
           <source src="/video/hero-bg.mp4" type="video/mp4" />
@@ -102,13 +133,13 @@ export function Hero({ isPinned = false }: HeroProps) {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0B1329]/50 to-[#0B1329]" />
 
         {/* Primary cyan/teal atmospheric glow */}
-        <div className="absolute -top-20 right-[-5%] h-[640px] w-[640px] rounded-full bg-[radial-gradient(circle,rgba(6,182,212,0.18)_0%,rgba(14,116,144,0.08)_45%,transparent_70%)] blur-2xl" />
+        <div className="absolute -top-20 right-[-5%] h-[640px] w-[640px] rounded-full bg-[radial-gradient(circle,rgba(6,182,212,0.18)_0%,rgba(14,116,144,0.08)_35%,rgba(14,116,144,0.02)_55%,transparent_70%)]" />
 
         {/* Secondary burnished gold glow */}
-        <div className="absolute top-[38%] left-[-12%] h-[580px] w-[580px] rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.15)_0%,rgba(217,119,6,0.06)_45%,transparent_72%)] blur-2xl" />
+        <div className="absolute top-[38%] left-[-12%] h-[580px] w-[580px] rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.15)_0%,rgba(217,119,6,0.06)_38%,rgba(217,119,6,0.02)_58%,transparent_72%)]" />
 
         {/* Center luminous highlight */}
-        <div className="absolute top-[18%] left-1/2 h-[420px] w-[780px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(14,116,144,0.12)_0%,transparent_70%)]" />
+        <div className="absolute top-[18%] left-1/2 h-[420px] w-[780px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(14,116,144,0.12)_0%,rgba(14,116,144,0.02)_50%,transparent_70%)]" />
 
         {/* Architectural Grid Texture with soft radial mask */}
         <div className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(to_right,#06B6D4_1px,transparent_1px),linear-gradient(to_bottom,#06B6D4_1px,transparent_1px)] [background-size:4rem_4rem] [mask-image:radial-gradient(ellipse_82%_70%_at_50%_42%,#000_70%,transparent_100%)]" />

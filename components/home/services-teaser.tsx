@@ -91,30 +91,43 @@ export function ServicesTeaser() {
   const prefersReduced = useReducedMotionPreference();
   const cardRefs = React.useRef<(HTMLDivElement | null)[]>([]);
 
-  // Deterministic scroll-spy: uses getBoundingClientRect() on scroll and resize,
-  // Pure off-main-thread IntersectionObserver for smooth scroll detection
-  // with zero forced reflows or getBoundingClientRect layout thrashing
+  // Stable, deterministic scroll-spy focused on the viewport active reading zone
   React.useEffect(() => {
     if (typeof window === "undefined" || !("IntersectionObserver" in window)) return;
 
+    let debounceTimer: NodeJS.Timeout | null = null;
+
     const observer = new IntersectionObserver(
       (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        const intersecting = entries.filter((e) => e.isIntersecting);
+        if (intersecting.length > 0) {
+          // Focus target: 38% from top of viewport (natural eye level)
+          const targetY = window.innerHeight * 0.38;
+          let bestEntry = intersecting[0];
+          let minDistance = Infinity;
 
-        if (visible.length > 0) {
-          const id = visible[0].target.getAttribute("data-practice-id");
+          for (const entry of intersecting) {
+            const rect = entry.boundingClientRect;
+            const cardCenter = rect.top + rect.height / 2;
+            const distance = Math.abs(cardCenter - targetY);
+            if (distance < minDistance) {
+              minDistance = distance;
+              bestEntry = entry;
+            }
+          }
+
+          const id = bestEntry.target.getAttribute("data-practice-id");
           if (id) {
-            React.startTransition(() => {
+            if (debounceTimer) clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => {
               setActivePracticeId((prev) => (prev !== id ? id : prev));
-            });
+            }, 30);
           }
         }
       },
       {
-        rootMargin: "-15% 0px -25% 0px",
-        threshold: [0.1, 0.4, 0.8],
+        rootMargin: "-18% 0px -40% 0px",
+        threshold: [0, 0.2],
       }
     );
 
@@ -122,7 +135,10 @@ export function ServicesTeaser() {
       if (el) observer.observe(el);
     });
 
-    return () => observer.disconnect();
+    return () => {
+      if (debounceTimer) clearTimeout(debounceTimer);
+      observer.disconnect();
+    };
   }, []);
 
   const activePractice = practices.find((p) => p.id === activePracticeId) ?? practices[0];
@@ -139,8 +155,8 @@ export function ServicesTeaser() {
       >
         <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-slate-300/70 to-transparent" />
         <div className="absolute inset-0 [background-image:radial-gradient(#CBD5E1_1px,transparent_1px)] [background-size:32px_32px] opacity-40 [mask-image:radial-gradient(ellipse_75%_65%_at_50%_40%,#000_50%,transparent_100%)]" />
-        <div className="absolute -right-24 top-1/4 h-[480px] w-[480px] rounded-full bg-[radial-gradient(circle,rgba(14,165,233,0.04)_0%,transparent_70%)] blur-3xl" />
-        <div className="absolute -left-24 bottom-8 h-[460px] w-[460px] rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.04)_0%,transparent_70%)] blur-3xl" />
+        <div className="absolute -right-24 top-1/4 h-[480px] w-[480px] rounded-full bg-[radial-gradient(circle,rgba(14,165,233,0.04)_0%,rgba(14,165,233,0.01)_45%,transparent_70%)]" />
+        <div className="absolute -left-24 bottom-8 h-[460px] w-[460px] rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.04)_0%,rgba(245,158,11,0.01)_45%,transparent_70%)]" />
       </div>
 
       <Container width="wide" className="relative z-10 space-y-12 sm:space-y-16">
@@ -320,14 +336,14 @@ export function ServicesTeaser() {
               </div>
 
               {/* Crossfading Photography */}
-              {practices.map((practice) => {
+              {practices.map((practice, idx) => {
                 const isCurrent = practice.id === activePractice.id;
                 return (
                   <div
                     key={practice.id}
                     className={cn(
                       "absolute inset-0 transition-opacity",
-                      prefersReduced ? "duration-0" : "duration-500 ease-in-out",
+                      prefersReduced ? "duration-0" : "duration-300 ease-out",
                       isCurrent ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
                     )}
                   >
@@ -335,15 +351,13 @@ export function ServicesTeaser() {
                       src={practice.image}
                       alt={practice.imageAlt}
                       fill
+                      priority={idx === 0}
                       sizes="(max-width: 1200px) 40vw, 500px"
-                      className={cn(
-                        "object-cover object-center transform transition-transform duration-1000",
-                        isCurrent && "scale-105"
-                      )}
+                      className="object-cover object-center"
                     />
                     {/* Dark gradient & micrograin */}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0B1329]/95 via-[#0B1329]/40 to-transparent" />
-                    <div className="absolute inset-0 bg-noise pointer-events-none" />
+                    <div className="absolute inset-0 bg-noise pointer-events-none opacity-20" />
                   </div>
                 );
               })}

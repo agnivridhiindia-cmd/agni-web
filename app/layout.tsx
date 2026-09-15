@@ -4,7 +4,6 @@ import { siteConfig } from "@/lib/site-config";
 import { getOrganizationJsonLd } from "@/lib/seo";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
-import { AmbientBackground } from "@/components/shared/ambient-background";
 import "./globals.css";
 
 const inter = Inter({
@@ -108,9 +107,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
       </head>
-      <body className={`${slabo13px.className} font-sans antialiased text-[#181226] flex min-h-screen flex-col selection:bg-cyan-100 selection:text-[#0891B2] relative`}>
-        {/* Living Architectural Ambient Aura & Interactive Spotlight */}
-        <AmbientBackground />
+      <body className={`${slabo13px.className} font-sans antialiased text-[#181226] bg-[#0B1329] flex min-h-screen flex-col selection:bg-cyan-100 selection:text-[#0891B2] relative`}>
 
         <a
           href="#main-content"

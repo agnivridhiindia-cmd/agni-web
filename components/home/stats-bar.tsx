@@ -47,11 +47,18 @@ function StatCountUp({
   duration?: number;
 }) {
   const prefersReduced = useReducedMotionPreference();
-  const [count, setCount] = React.useState(0);
+  const spanRef = React.useRef<HTMLSpanElement>(null);
   const hasAnimated = React.useRef(false);
 
   React.useEffect(() => {
-    if (!trigger || hasAnimated.current || prefersReduced) return;
+    if (prefersReduced) {
+      if (spanRef.current) {
+        spanRef.current.textContent = target.toLocaleString("en-IN");
+      }
+      return;
+    }
+
+    if (!trigger || hasAnimated.current) return;
     hasAnimated.current = true;
 
     let startTime: number | null = null;
@@ -65,12 +72,16 @@ function StatCountUp({
       const easeOut = 1 - Math.pow(1 - progress, 3);
       const current = Math.round(easeOut * target);
 
-      setCount(current);
+      if (spanRef.current) {
+        spanRef.current.textContent = current.toLocaleString("en-IN");
+      }
 
       if (progress < 1) {
         animationFrameId = window.requestAnimationFrame(step);
       } else {
-        setCount(target);
+        if (spanRef.current) {
+          spanRef.current.textContent = target.toLocaleString("en-IN");
+        }
       }
     };
 
@@ -83,21 +94,26 @@ function StatCountUp({
     };
   }, [trigger, target, duration, prefersReduced]);
 
-  if (prefersReduced) {
-    return <span>{target}</span>;
-  }
-
-  return <span>{count}</span>;
+  return (
+    <span ref={spanRef}>
+      {prefersReduced ? target.toLocaleString("en-IN") : "0"}
+    </span>
+  );
 }
 
 interface StatCardProps {
   stat: StatMetric;
   indexNumber: string;
   isInView: boolean;
+  animate?: boolean;
 }
 
-function StatCard({ stat, indexNumber, isInView }: StatCardProps) {
+function StatCard({ stat, indexNumber, isInView, animate = true }: StatCardProps) {
   const Icon = statIconMap[stat.id] || Landmark;
+  const formattedStaticValue =
+    stat.numericValue !== null && stat.numericValue !== undefined
+      ? stat.numericValue.toLocaleString("en-IN")
+      : stat.value;
 
   return (
     <div className="w-[300px] sm:w-[340px] lg:w-[360px] shrink-0 px-3 h-full">
@@ -131,14 +147,14 @@ function StatCard({ stat, indexNumber, isInView }: StatCardProps) {
               </span>
             )}
             <span className="font-heading text-3xl sm:text-4xl lg:text-[2.65rem] font-bold text-white tracking-tight leading-none tabular-nums">
-              {stat.numericValue !== null && stat.numericValue !== undefined ? (
+              {animate && stat.numericValue !== null && stat.numericValue !== undefined ? (
                 <StatCountUp
                   target={stat.numericValue}
                   trigger={isInView}
                   duration={1.4}
                 />
               ) : (
-                stat.value
+                formattedStaticValue
               )}
             </span>
             {stat.suffix && (
@@ -208,9 +224,9 @@ export function StatsBar() {
             className="pointer-events-none absolute inset-0 z-0 select-none overflow-hidden"
           >
             <div className="absolute inset-0 bg-blueprint-grid-dark opacity-25 [mask-image:radial-gradient(ellipse_80%_70%_at_50%_50%,#000_65%,transparent_100%)]" />
-            <div className="absolute -top-32 -left-32 w-[520px] h-[520px] bg-sky-500/10 rounded-full blur-[110px]" />
-            <div className="absolute -bottom-32 -right-32 w-[520px] h-[520px] bg-amber-500/10 rounded-full blur-[110px]" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[680px] h-[360px] bg-[radial-gradient(ellipse_at_center,rgba(14,165,233,0.08)_0%,transparent_70%)] blur-[90px]" />
+            <div className="absolute -top-32 -left-32 w-[520px] h-[520px] rounded-full bg-[radial-gradient(circle,rgba(14,165,233,0.12)_0%,rgba(14,165,233,0.03)_45%,transparent_70%)]" />
+            <div className="absolute -bottom-32 -right-32 w-[520px] h-[520px] rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.12)_0%,rgba(245,158,11,0.03)_45%,transparent_70%)]" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[680px] h-[360px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(14,165,233,0.08)_0%,rgba(14,165,233,0.02)_45%,transparent_70%)]" />
             {/* Architectural coordinates */}
             <div className="absolute top-6 left-6 font-mono text-xs text-sky-400/40 select-none">+</div>
             <div className="absolute top-6 right-6 font-mono text-xs text-amber-400/40 select-none">+</div>
@@ -257,14 +273,14 @@ export function StatsBar() {
               {/* Marquee Track Container */}
               <div
                 className={cn(
-                  "flex w-max items-stretch py-2",
+                  "flex w-max items-stretch py-2 [transform:translateZ(0)] will-change-transform",
                   prefersReduced && "overflow-x-auto max-w-full px-4 scrollbar-none"
                 )}
               >
                 {/* Primary Track */}
                 <div
                   className={cn(
-                    "flex shrink-0 items-stretch",
+                    "flex shrink-0 items-stretch [transform:translateZ(0)]",
                     !prefersReduced &&
                       "animate-marquee-loop group-hover:[animation-play-state:paused] group-focus-within:[animation-play-state:paused]"
                   )}
@@ -278,6 +294,7 @@ export function StatsBar() {
                         "0"
                       )}
                       isInView={isInView}
+                      animate={true}
                     />
                   ))}
                 </div>
@@ -285,7 +302,7 @@ export function StatsBar() {
                 {/* Secondary Track for perfectly seamless wrapping */}
                 {!prefersReduced && (
                   <div
-                    className="flex shrink-0 items-stretch animate-marquee-loop group-hover:[animation-play-state:paused] group-focus-within:[animation-play-state:paused]"
+                    className="flex shrink-0 items-stretch [transform:translateZ(0)] animate-marquee-loop group-hover:[animation-play-state:paused] group-focus-within:[animation-play-state:paused]"
                     aria-hidden="true"
                   >
                     {verifiedStats.map((stat, idx) => (
@@ -296,7 +313,8 @@ export function StatsBar() {
                           2,
                           "0"
                         )}
-                        isInView={isInView}
+                        isInView={false}
+                        animate={false}
                       />
                     ))}
                   </div>
