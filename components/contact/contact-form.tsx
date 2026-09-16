@@ -45,24 +45,35 @@ export function ContactForm({ initialService = "" }: ContactFormProps) {
 
  const services = getAllServices();
 
- const {
- register,
- handleSubmit,
- control,
- reset,
- formState: { errors },
- } = useForm<ContactFormData>({
- resolver: zodResolver(contactFormSchema),
- defaultValues: {
- name: "",
- email: "",
- phone: "",
- company: "",
- service: prefillService || "cgtmse-funding",
- message: prefillSubject ? `Inquiry regarding: ${prefillSubject}` : "",
- website: "",
- },
- });
+  const {
+    register,
+    handleSubmit,
+    control,
+    reset,
+    setValue,
+    formState: { errors },
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
+      company: "",
+      service: initialService || "cgtmse-funding",
+      message: "",
+      website: "",
+    },
+  });
+
+  // Sync search parameters safely after mount to avoid SSR hydration mismatches
+  React.useEffect(() => {
+    if (prefillService) {
+      setValue("service", prefillService);
+    }
+    if (prefillSubject) {
+      setValue("message", `Inquiry regarding: ${prefillSubject}`);
+    }
+  }, [prefillService, prefillSubject, setValue]);
 
  // Submission handler
  const onSubmit = async (data: ContactFormData) => {
@@ -143,13 +154,13 @@ export function ContactForm({ initialService = "" }: ContactFormProps) {
 
  return (
  <div className="relative rounded-3xl bg-white/90 border border-white/95 shadow-[0_20px_50px_rgba(15,23,42,0.1)]  [transform:translateZ(0)] overflow-hidden">
- {/* Honeypot field for bot suppression */}
- <div className="absolute -left-[9999px] w-px h-px overflow-hidden" aria-hidden="true">
- <label htmlFor="website">Website</label>
- <input id="website" type="text" tabIndex={-1} autoComplete="off" {...register("website")} />
- </div>
+        {/* Honeypot field for bot suppression */}
+        <div className="absolute -left-[9999px] w-px h-px overflow-hidden" aria-hidden="true">
+          <label htmlFor="website">Website</label>
+          <input id="website" type="text" tabIndex={-1} autoComplete="off" suppressHydrationWarning {...register("website")} />
+        </div>
 
- <form onSubmit={handleSubmit(onSubmit)} className="p-6 sm:p-8 space-y-6" noValidate>
+        <form onSubmit={handleSubmit(onSubmit)} className="p-6 sm:p-8 space-y-6" noValidate suppressHydrationWarning>
  <div className="space-y-4">
  {/* Executive Contact & Financial Scope */}
  <div className="space-y-1">
@@ -277,6 +288,7 @@ export function ContactForm({ initialService = "" }: ContactFormProps) {
  <button
  type="submit"
  disabled={isSubmitting}
+ suppressHydrationWarning
  className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 text-slate-950 font-bold border border-amber-300/40 shadow-[0_8px_24px_rgba(245,158,11,0.25)] hover:from-amber-300 hover:to-amber-500 hover:shadow-[0_12px_32px_rgba(245,158,11,0.35)] transition-all text-sm font-sans disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
  >
  {isSubmitting ? (

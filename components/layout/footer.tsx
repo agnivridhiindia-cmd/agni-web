@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import {
  MapPin,
@@ -11,7 +12,6 @@ import {
  Instagram,
  Facebook,
  Youtube,
- Twitter,
  ArrowRight,
  ExternalLink,
  type LucideIcon,
@@ -28,6 +28,7 @@ interface SocialLinkDefinition {
 
 export function Footer() {
  const currentYear = new Date().getFullYear();
+ const [showInteractiveMap, setShowInteractiveMap] = React.useState(false);
 
  // Social links configuration with strict null-checks (zero '#' or dead links)
  const socialCandidates: SocialLinkDefinition[] = [
@@ -50,11 +51,6 @@ export function Footer() {
  name: "YouTube",
  href: siteConfig.socials.youtube,
  icon: Youtube,
- },
- {
- name: "Twitter / X",
- href: siteConfig.socials.twitter,
- icon: Twitter,
  },
  ];
 
@@ -132,43 +128,97 @@ export function Footer() {
  </span>
  </div>
 
- {/* Clean Location Map: Pinpointed to The IThum, Sector 62, Noida */}
- <div className="pt-2 w-full max-w-sm sm:max-w-md">
- <div className="relative w-full h-60 sm:h-64 rounded-xl overflow-hidden border border-slate-700/80 shadow-lg group">
- <iframe
- title="Agnivridhi India Office - The IThum, Sector 62, Noida"
- aria-hidden="true"
- src="https://www.openstreetmap.org/export/embed.html?bbox=77.3680%2C28.6240%2C77.3770%2C28.6310&layer=mapnik&marker=28.6276%2C77.3725"
- width="100%"
- height="100%"
- style={{ border: 0 }}
- loading="lazy"
- className="w-full h-full"
- />
+  {/* Clean Location Map: Pinpointed to The IThum, Sector 62, Noida */}
+  <div className="pt-2 w-full max-w-sm sm:max-w-md">
+    <div className="relative w-full h-60 sm:h-64 rounded-2xl overflow-hidden border border-slate-700/80 bg-slate-950 shadow-lg [transform:translateZ(0)] group">
+      {showInteractiveMap ? (
+        <>
+          <iframe
+            title="Agnivridhi India Office - The IThum, Sector 62, Noida"
+            aria-hidden="true"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=77.3680%2C28.6240%2C77.3770%2C28.6310&layer=mapnik&marker=28.6276%2C77.3725"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            className="w-full h-full"
+          />
 
- {/* Office Location Badge (Top-Left) */}
- <div className="absolute top-2.5 left-2.5 z-20 pointer-events-none">
- <span className="px-2.5 py-1 rounded-md bg-slate-900/90  border border-slate-700/90 text-[11px] font-mono text-cyan-300 flex items-center gap-1.5 shadow-sm">
- <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
- <span>The IThum &bull; Tower B</span>
- </span>
- </div>
+          {/* Top Actions when Live Map is Active */}
+          <div className="absolute top-2.5 inset-x-2.5 z-20 flex items-center justify-between">
+            <span className="px-2.5 py-1 rounded-md bg-slate-900/90 border border-slate-700 text-[10px] font-mono text-cyan-300 flex items-center gap-1.5 shadow-sm">
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+              <span>Live Map View</span>
+            </span>
 
- {/* Single Clean "Open Map" Action (Bottom-Right) */}
- <div className="absolute bottom-2.5 right-2.5 z-20">
- <a
- href="https://www.google.com/maps/search/?api=1&query=The+IThum,+Tower+B,+Sector+62,+Noida,+Uttar+Pradesh+201301"
- target="_blank"
- rel="noopener noreferrer"
- className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900/95 hover:bg-[#0891B2] text-white text-xs font-mono font-medium border border-slate-700 shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer"
- aria-label="Open office location in Google Maps"
- >
- <span>Open Map</span>
- <ExternalLink className="w-3.5 h-3.5 text-cyan-300" />
- </a>
- </div>
- </div>
- </div>
+            <div className="flex items-center gap-1.5">
+              <button
+                type="button"
+                onClick={() => setShowInteractiveMap(false)}
+                className="px-2.5 py-1 rounded-md bg-slate-900/95 hover:bg-slate-800 text-slate-300 hover:text-white text-[10px] font-mono border border-slate-700 shadow-sm transition-colors cursor-pointer"
+              >
+                Close Map
+              </button>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=The+IThum,+Tower+B,+Sector+62,+Noida,+Uttar+Pradesh+201301"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-[#0891B2] hover:bg-cyan-500 text-white text-[10px] font-mono shadow-sm transition-colors cursor-pointer"
+              >
+                <span>Google Maps</span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
+            </div>
+          </div>
+        </>
+      ) : (
+        <>
+          {/* Static Map Picture provided by user */}
+          <Image
+            src="/img/office-map-preview.png"
+            alt="Office Location - Ithum Tower B, Sector 62 Noida"
+            fill
+            sizes="(max-width: 768px) 100vw, 450px"
+            className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+          />
+
+          {/* Subtle Bottom & Top Gradient for Contrast */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F17]/95 via-[#0B0F17]/25 to-[#0B0F17]/40 pointer-events-none" />
+
+          {/* Top Row Badge */}
+          <div className="absolute top-2.5 left-2.5 z-20 pointer-events-none">
+            <span className="px-2.5 py-1 rounded-md bg-slate-950/90 border border-slate-700/90 text-[11px] font-mono text-cyan-300 flex items-center gap-1.5 shadow-sm">
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+              <span>The IThum &bull; Tower B</span>
+            </span>
+          </div>
+
+          {/* Bottom Action Bar */}
+          <div className="absolute bottom-2.5 inset-x-2.5 z-20 flex items-center justify-between gap-2">
+            <button
+              type="button"
+              onClick={() => setShowInteractiveMap(true)}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900/95 hover:bg-[#0891B2] text-white text-xs font-mono font-medium border border-slate-700 shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer"
+              aria-label="Open interactive map"
+            >
+              <MapPin className="w-3.5 h-3.5 text-cyan-400" />
+              <span>Open Map</span>
+            </button>
+
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=The+IThum,+Tower+B,+Sector+62,+Noida,+Uttar+Pradesh+201301"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-600/90 hover:bg-cyan-500 text-white text-xs font-mono font-medium border border-cyan-400/60 shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer"
+              aria-label="Open office location in Google Maps"
+            >
+              <span>Google Maps</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+          </div>
+        </>
+      )}
+    </div>
+  </div>
  </div>
 
  {/* ==========================================================
@@ -311,20 +361,19 @@ export function Footer() {
  <div className="flex items-center gap-2.5">
  {activeSocials.map((social) => {
  const Icon = social.icon;
- const brandIconClasses =
- social.name === "LinkedIn" ||
- social.name === "Facebook" ||
- social.name === "Twitter / X"
- ? "group-hover:fill-current"
- : "";
- const brandHoverClasses =
- social.name === "LinkedIn"
- ? "hover:text-white hover:border-[#0A66C2] hover:bg-[#0A66C2]"
- : social.name === "Facebook"
- ? "hover:text-white hover:border-[#1877F2] hover:bg-[#1877F2]"
- : social.name === "Twitter / X"
- ? "hover:text-white hover:border-[#1DA1F2] hover:bg-[#1DA1F2]"
- : "hover:text-white hover:border-[#0891B2] hover:bg-[#0891B2]";
+          const brandIconClasses =
+            social.name === "LinkedIn" ||
+            social.name === "Facebook"
+              ? "group-hover:fill-current"
+              : "";
+          const brandHoverClasses =
+            social.name === "LinkedIn"
+              ? "hover:text-white hover:border-[#0A66C2] hover:bg-[#0A66C2]"
+              : social.name === "Facebook"
+              ? "hover:text-white hover:border-[#1877F2] hover:bg-[#1877F2]"
+              : social.name === "Instagram"
+              ? "hover:text-white hover:border-[#E4405F] hover:bg-[#E4405F]"
+              : "hover:text-white hover:border-[#0891B2] hover:bg-[#0891B2]";
 
  return (
  <a

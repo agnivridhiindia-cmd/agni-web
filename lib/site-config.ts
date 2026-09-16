@@ -223,11 +223,11 @@ export const siteConfig: MasterSiteConfig = {
   },
 
   socials: {
-    linkedin: "https://linkedin.com/company/agnivridhiindia",
-    instagram: null,
-    facebook: "https://facebook.com/agnivridhiindia",
+    linkedin: "https://www.linkedin.com/company/agnivridhi-india/",
+    instagram: "https://www.instagram.com/agnivridhi/",
+    facebook: "https://www.facebook.com/share/1MEaBz4Muh/",
     youtube: null,
-    twitter: "https://twitter.com/agnivridhiindia",
+    twitter: null,
   },
 
   stats: {
@@ -334,7 +334,7 @@ export const siteConfig: MasterSiteConfig = {
     fullBio:
       "Recognized across leading national business publications as a young visionary building sustainable growth pathways for MSMEs, Rahul transformed Agnivridhi from a boutique consultancy into a 360-degree enterprise scale engine. Under his leadership, the firm has facilitated   -  50+ Cr in collateral-free credit, structured hundreds of statutory certifications, and deployed modern digital platforms for Indian industry.",
     image: "/img/rahul-kumar-singh.jpg",
-    linkedin: "https://linkedin.com/company/agnivridhiindia",
+    linkedin: "https://www.linkedin.com/company/agnivridhi-india/",
     credentials: [
       "Featured Visionary 2024",
       "MSME Advisory Specialist",

@@ -32,8 +32,8 @@ const practices: PracticeInfo[] = [
     subhead: "Project Reports & Bank Loans",
     description:
       "Get business funding without pledging property. We prepare bank-ready project reports (DPR) and help you secure up to ₹5 Crore collateral-free funding under CGTMSE, PMEGP subsidies, and bank credit.",
-    image: "/img/practice-capital.jpg",
-    imageAlt: "Indian automated CNC machining plant financed via sovereign debt",
+    image: "/img/service-funding.jpg",
+    imageAlt: "Institutional business funding and debt advisory boardroom session",
     tag: "Up to ₹5 Cr Without Collateral",
     deliverables: ["CGTMSE Collateral-Free Loans", "PMEGP Subsidy (Up to 35%)", "Bank Project Reports (DPR)"],
     anchor: "/services#funding",
@@ -47,8 +47,8 @@ const practices: PracticeInfo[] = [
     subhead: "Legal & Quality Standards",
     description:
       "End-to-end help for all government registrations and compliance. From MSME Udyam and GST filings to ISO 9001/14001 certification and brand trademark, we keep your company 100% legally compliant.",
-    image: "/img/practice-compliance.jpg",
-    imageAlt: "Indian industrial quality testing and ISO audit facility",
+    image: "/img/service-compliance.jpg",
+    imageAlt: "Corporate business license and statutory ISO compliance certification signing",
     tag: "100% Audit-Ready & Compliant",
     deliverables: ["ISO 9001 & 14001 Certification", "GST Advisory & Filing", "MSME Udyam & Trademark"],
     anchor: "/services#compliance",
@@ -62,8 +62,8 @@ const practices: PracticeInfo[] = [
     subhead: "Fast & Secure Technology",
     description:
       "Modern technology built specifically for your business. We develop high-speed websites, Android & iOS mobile apps, billing software, automated ERP systems, and cloud solutions.",
-    image: "/img/practice-systems.jpg",
-    imageAlt: "Indian enterprise cloud software architecture lab",
+    image: "/img/service-systems.jpg",
+    imageAlt: "Engineering team building bespoke enterprise software, web portals, and ERP systems",
     tag: "100% Full Code Ownership",
     deliverables: ["Modern Business Websites", "Android & iOS Mobile Apps", "Billing & ERP Software"],
     anchor: "/services#it",
@@ -77,8 +77,8 @@ const practices: PracticeInfo[] = [
     subhead: "Customer Leads & Market Access",
     description:
       "Attract real, verified buyers and corporate clients. We handle Google SEO ranking, high-converting social media ads, lead generation funnels, and corporate brand positioning to grow your sales.",
-    image: "/img/practice-growth.jpg",
-    imageAlt: "Indian enterprise executive strategy session on digital expansion",
+    image: "/img/service-digital.jpg",
+    imageAlt: "Growth marketing specialist analyzing digital campaigns, lead acquisition funnels, and omni-channel strategies",
     tag: "High-Intent Customer Leads",
     deliverables: ["Google SEO & Top Rankings", "Targeted B2B Lead Generation", "Social Media & Brand Marketing"],
     anchor: "/services#digital",
@@ -121,13 +121,13 @@ export function ServicesTeaser() {
             if (debounceTimer) clearTimeout(debounceTimer);
             debounceTimer = setTimeout(() => {
               setActivePracticeId((prev) => (prev !== id ? id : prev));
-            }, 30);
+            }, 100);
           }
         }
       },
       {
-        rootMargin: "-18% 0px -40% 0px",
-        threshold: [0, 0.2],
+        rootMargin: "-20% 0px -35% 0px",
+        threshold: [0.1],
       }
     );
 
@@ -351,7 +351,7 @@ export function ServicesTeaser() {
                       src={practice.image}
                       alt={practice.imageAlt}
                       fill
-                      priority={idx === 0}
+                      loading="eager"
                       sizes="(max-width: 1200px) 40vw, 500px"
                       className="object-cover object-center"
                     />

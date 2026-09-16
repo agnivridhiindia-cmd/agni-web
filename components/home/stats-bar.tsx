@@ -37,6 +37,8 @@ const statIconMap: Record<string, LucideIcon> = {
  "certifications-projects": BadgeCheck,
 };
 
+const inNumberFormatter = new Intl.NumberFormat("en-IN");
+
 function StatCountUp({
  target,
  trigger = true,
@@ -53,7 +55,7 @@ function StatCountUp({
  React.useEffect(() => {
  if (prefersReduced) {
  if (spanRef.current) {
- spanRef.current.textContent = target.toLocaleString("en-IN");
+ spanRef.current.textContent = inNumberFormatter.format(target);
  }
  return;
  }
@@ -73,14 +75,14 @@ function StatCountUp({
  const current = Math.round(easeOut * target);
 
  if (spanRef.current) {
- spanRef.current.textContent = current.toLocaleString("en-IN");
+ spanRef.current.textContent = inNumberFormatter.format(current);
  }
 
  if (progress < 1) {
  animationFrameId = window.requestAnimationFrame(step);
  } else {
  if (spanRef.current) {
- spanRef.current.textContent = target.toLocaleString("en-IN");
+ spanRef.current.textContent = inNumberFormatter.format(target);
  }
  }
  };
@@ -96,7 +98,7 @@ function StatCountUp({
 
  return (
  <span ref={spanRef}>
- {prefersReduced ? target.toLocaleString("en-IN") : "0"}
+ {prefersReduced ? inNumberFormatter.format(target) : "0"}
  </span>
  );
 }
@@ -112,7 +114,7 @@ function StatCard({ stat, indexNumber, isInView, animate = true }: StatCardProps
  const Icon = statIconMap[stat.id] || Landmark;
  const formattedStaticValue =
  stat.numericValue !== null && stat.numericValue !== undefined
- ? stat.numericValue.toLocaleString("en-IN")
+ ? inNumberFormatter.format(stat.numericValue)
  : stat.value;
 
  return (

@@ -216,7 +216,7 @@ export function Header() {
           aria-label="Main Navigation"
           className={cn(
             "pointer-events-auto relative w-full max-w-6xl rounded-2xl border select-none transition-[background-color,border-color,box-shadow] duration-200",
-            "backdrop-blur-md [transform:translateZ(0)]",
+            "backdrop-blur-sm [transform:translateZ(0)]",
             isScrolled
               ? "border-slate-800/90 bg-slate-950/95 px-5 py-2.5 shadow-[0_18px_44px_-24px_rgba(0,0,0,0.8)] sm:px-6 sm:py-2.5"
               : "border-slate-800/80 bg-slate-950/85 px-5 py-2.5 shadow-[0_20px_50px_-24px_rgba(0,0,0,0.7)] sm:px-6 sm:py-3"

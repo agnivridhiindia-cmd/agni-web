@@ -5,7 +5,6 @@ import { getOrganizationJsonLd } from "@/lib/seo";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { SmoothScroll } from "@/components/shared/smooth-scroll";
-import "lenis/dist/lenis.css";
 import "./globals.css";
 
 const inter = Inter({
@@ -100,6 +99,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${inter.variable} ${plusJakartaSans.variable} ${fraunces.variable} ${cormorant.variable} ${slabo13px.variable}`}
     >
       <head>
@@ -109,7 +109,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
       </head>
-      <body className={`${slabo13px.className} font-sans antialiased text-[#181226] bg-[#F8FAFC] flex min-h-screen flex-col selection:bg-cyan-100 selection:text-[#0891B2] relative`}>
+      <body
+        suppressHydrationWarning
+        className={`${slabo13px.className} font-sans antialiased text-[#181226] bg-[#F8FAFC] flex min-h-screen flex-col selection:bg-cyan-100 selection:text-[#0891B2] relative`}
+      >
         <SmoothScroll>
           <a
             href="#main-content"

@@ -119,9 +119,8 @@ export const SpotlightCard = React.forwardRef<HTMLDivElement, SpotlightCardProps
  {/* Layer 1: Cursor-Following Hairline Border Glow */}
  {!prefersReduced && (
  <div
- className="absolute inset-0 pointer-events-none transition-opacity duration-300 ease-out"
+ className="absolute inset-0 pointer-events-none opacity-0 group-hover/spotlight:opacity-100 transition-opacity duration-300 ease-out"
  style={{
- opacity: "var(--spotlight-opacity, 0)",
  background: `radial-gradient(${spotlightRadius}px circle at var(--mouse-x, -999px) var(--mouse-y, -999px), ${config.border}, transparent 65%)`,
  }}
  aria-hidden="true"
@@ -149,9 +148,8 @@ export const SpotlightCard = React.forwardRef<HTMLDivElement, SpotlightCardProps
  {/* Layer 4: Subtle Interior Ambient Glow */}
  {!prefersReduced && (
  <div
- className="absolute inset-0 pointer-events-none transition-opacity duration-300 ease-out"
+ className="absolute inset-0 pointer-events-none opacity-0 group-hover/spotlight:opacity-100 transition-opacity duration-300 ease-out"
  style={{
- opacity: "var(--spotlight-opacity, 0)",
  background: `radial-gradient(${spotlightRadius * 1.3}px circle at var(--mouse-x, -999px) var(--mouse-y, -999px), ${config.inner}, transparent 70%)`,
  }}
  aria-hidden="true"

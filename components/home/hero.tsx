@@ -49,6 +49,51 @@ const headlineLineReveal: Variants = {
   },
 };
 
+const heroCollection = [
+  {
+    src: "/img/hero-enterprise.jpg",
+    alt: "Agnivridhi Enterprise Infrastructure & Modern Headquarters",
+    location: "NOIDA, NCR",
+    category: "Industrial Scale • Capital • Engineering",
+  },
+  {
+    src: "/img/practice-capital.jpg",
+    alt: "Automated Industrial CNC Plant & Machinery",
+    location: "MANUFACTURING PLANT",
+    category: "CGTMSE Machinery Syndication",
+  },
+  {
+    src: "/img/pal_and_sons.png",
+    alt: "Pal & Sons Agro Food Processing Plant",
+    location: "UTTAR PRADESH",
+    category: "PMEGP Sovereign Subsidy Scale",
+  },
+  {
+    src: "/img/practice-compliance.jpg",
+    alt: "Industrial Quality Testing and Statutory Compliance Audit Lab",
+    location: "ISO 9001 / 14001 LAB",
+    category: "Quality Systems & Accreditations",
+  },
+  {
+    src: "/img/practice-systems.jpg",
+    alt: "Modern Software Architecture & Enterprise Cloud Lab",
+    location: "SYSTEMS ARCHITECTURE",
+    category: "Custom ERP & Automation Lab",
+  },
+  {
+    src: "/img/vedanta_cosmetic.jpg",
+    alt: "Commercial Production & Manufacturing Scale",
+    location: "MANUFACTURING UNIT",
+    category: "Commercial Scale & Debt Deployment",
+  },
+  {
+    src: "/img/aaditthya_filling_station.png",
+    alt: "Clean Energy Retail Outlet & Fuel Infrastructure",
+    location: "ENERGY INFRASTRUCTURE",
+    category: "Sovereign Debt & Retail Scale",
+  },
+];
+
 export interface HeroProps {
   isPinned?: boolean;
 }
@@ -57,6 +102,19 @@ export function Hero({ isPinned = false }: HeroProps) {
   const prefersReduced = useReducedMotionPreference();
   const { location } = siteConfig.company;
   const videoRef = React.useRef<HTMLVideoElement>(null);
+  const [activeSlide, setActiveSlide] = React.useState(0);
+  const [isPaused, setIsPaused] = React.useState(false);
+
+  // 2-second rotating picture collection timer
+  React.useEffect(() => {
+    if (prefersReduced || isPaused) return;
+
+    const timer = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % heroCollection.length);
+    }, 2000); // changes every 2 seconds
+
+    return () => clearInterval(timer);
+  }, [prefersReduced, isPaused]);
 
   // Bulletproof autoplay and off-screen pause
   React.useEffect(() => {
@@ -84,7 +142,7 @@ export function Hero({ isPinned = false }: HeroProps) {
                 if (!video.paused) video.pause();
               }
             },
-            { threshold: 0.05 }
+            { threshold: 0.2 }
           )
         : null;
 
@@ -314,39 +372,72 @@ export function Hero({ isPinned = false }: HeroProps) {
               <div className="absolute -top-2.5 -left-2.5 text-amber-400/50 font-mono text-xs z-30 select-none hidden sm:block">+</div>
               <div className="absolute -bottom-2.5 -right-2.5 text-cyan-400/50 font-mono text-xs z-30 select-none hidden sm:block">+</div>
 
-              {/* Main Architectural Image Container */}
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[28px] border border-slate-800/90 bg-slate-950 shadow-[0_28px_70px_-24px_rgba(0,0,0,0.8),0_12px_28px_rgba(0,0,0,0.5)] ring-1 ring-white/10 group">
-                <Image
-                  src="/img/hero-enterprise.jpg"
-                  alt="Agnivridhi Enterprise Infrastructure & Architecture"
-                  fill
-                  priority
-                  loading="eager"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-                  className="object-cover object-center transform transition-transform duration-1000 group-hover:scale-[1.03]"
-                />
+              {/* Main Architectural Image Container - 2-Second Rotating Picture Collection */}
+              <div
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
+                className="relative aspect-[4/3] w-full overflow-hidden rounded-[28px] border border-slate-800/90 bg-slate-950 shadow-[0_28px_70px_-24px_rgba(0,0,0,0.8),0_12px_28px_rgba(0,0,0,0.5)] ring-1 ring-white/10 group select-none"
+              >
+                {/* Images with smooth crossfade */}
+                {heroCollection.map((item, index) => {
+                  const isCurrent = index === activeSlide;
+                  return (
+                    <div
+                      key={item.src}
+                      className={cn(
+                        "absolute inset-0 transition-opacity duration-700 ease-in-out",
+                        isCurrent ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+                      )}
+                    >
+                      <Image
+                        src={item.src}
+                        alt={item.alt}
+                        fill
+                        loading="eager"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                        className="object-cover object-center transform transition-transform duration-1000 group-hover:scale-[1.03]"
+                      />
+                    </div>
+                  );
+                })}
 
                 {/* Subtle Cinematic Vignette & Grain */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050A18]/90 via-[#050A18]/30 to-transparent pointer-events-none" />
-                <div className="absolute inset-0 bg-noise pointer-events-none opacity-20" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050A18]/90 via-[#050A18]/30 to-transparent pointer-events-none z-10" />
+                <div className="absolute inset-0 bg-noise pointer-events-none opacity-20 z-10" />
 
-                {/* Top Pinned Editorial Labels */}
+                {/* Top Pinned Editorial Labels that update with active slide */}
                 <div className="absolute top-4 left-4 z-20 flex items-center gap-2">
-                  <div className="px-3 py-1 rounded-md bg-slate-950 border border-slate-800 text-[10px] font-mono text-white uppercase tracking-wider flex items-center gap-1.5 shadow-xs">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-                    <span>AGNIVRIDHI / 01 &bull; {location.city}, NCR</span>
+                  <div className="px-3 py-1 rounded-md bg-slate-950/90 border border-slate-800 text-[10px] font-mono text-white uppercase tracking-wider flex items-center gap-1.5 shadow-xs backdrop-blur-xs">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                    <span>AGNIVRIDHI &bull; {heroCollection[activeSlide].location}</span>
                   </div>
                 </div>
 
-                <div className="absolute top-4 right-4 z-20 hidden sm:flex items-center gap-2 bg-slate-950 px-3 py-1 rounded-md border border-slate-800 text-slate-300 text-[10px] font-mono shadow-xs">
+                <div className="absolute top-4 right-4 z-20 hidden sm:flex items-center gap-2 bg-slate-950/90 px-3 py-1 rounded-md border border-slate-800 text-slate-300 text-[10px] font-mono shadow-xs backdrop-blur-xs">
                   <Building2 className="w-3.5 h-3.5 text-amber-400" />
                   <span className="font-sans text-[11px] font-medium tracking-wide">
-                    Industrial Scale &bull; Capital &bull; Engineering
+                    {heroCollection[activeSlide].category}
                   </span>
                 </div>
 
+                {/* Bottom Center Apple-Style Slide Indicator Dots */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-950/80 border border-slate-800 backdrop-blur-xs">
+                  {heroCollection.map((_, i) => (
+                    <button
+                      key={i}
+                      type="button"
+                      onClick={() => setActiveSlide(i)}
+                      aria-label={`Go to picture ${i + 1}`}
+                      className={cn(
+                        "h-1.5 rounded-full transition-all duration-300 cursor-pointer",
+                        i === activeSlide ? "w-5 bg-amber-400" : "w-1.5 bg-slate-600 hover:bg-slate-400"
+                      )}
+                    />
+                  ))}
+                </div>
+
                 {/* Bottom Right Sovereign Mandate Tag */}
-                <div className="absolute bottom-4 right-4 z-20 flex items-center gap-1.5 bg-slate-950 px-3 py-1.5 rounded-md border border-amber-500/30 text-amber-300 text-[10px] font-mono shadow-xs">
+                <div className="absolute bottom-4 right-4 z-20 hidden sm:flex items-center gap-1.5 bg-slate-950/90 px-3 py-1.5 rounded-md border border-amber-500/30 text-amber-300 text-[10px] font-mono shadow-xs backdrop-blur-xs">
                   <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
                   <span className="font-semibold">SOVEREIGN MANDATE</span>
                 </div>
