@@ -11,50 +11,50 @@ export function AgniEngineMotif() {
     {
       id: "capital",
       num: "01",
-      name: "CAPITAL",
-      title: "Sovereign Debt Syndication",
-      metric: "₹5 Cr Collateral-Free",
+      name: "FUNDING",
+      title: "Business Loans & Subsidies",
+      metric: "Up to ₹5 Cr No Collateral",
       detail:
-        "Lead-bank appraisal & CGTMSE/PMEGP trust tagging to finance enterprise capex with zero promoter property pledge.",
+        "Get up to ₹5 Crore collateral-free business loans under CGTMSE and government subsidies like PMEGP with bank-ready project reports.",
       icon: Landmark,
       href: "/services#funding",
-      linkText: "Explore Debt Syndication",
+      linkText: "Explore Business Funding",
     },
     {
       id: "compliance",
       num: "02",
       name: "COMPLIANCE",
-      title: "Statutory Governance & Defense",
-      metric: "100% Audit Readiness",
+      title: "Licenses & ISO Certifications",
+      metric: "100% Legal & Compliant",
       detail:
-        "GST statutory defense, ISO 9001/14001 certification, MSME Udyam registration, and institutional risk mitigation.",
+        "Complete support for GST filings, ISO 9001/14001 certifications, MSME Udyam registration, and trademark protection.",
       icon: ShieldCheck,
       href: "/services#compliance",
-      linkText: "Explore Compliance Advisory",
+      linkText: "Explore Compliance Services",
     },
     {
       id: "technology",
       num: "03",
       name: "TECHNOLOGY",
-      title: "Systems & Software Engineering",
-      metric: "Enterprise Cloud & Web",
+      title: "Websites & Custom Software",
+      metric: "Fast & Secure Software",
       detail:
-        "High-throughput Next.js platforms, iOS/Android mobile applications, automated ERP workflows, and cloud DevOps.",
+        "High-speed business websites, Android & iOS mobile applications, billing software, and automated ERP systems.",
       icon: Cpu,
       href: "/services#it",
-      linkText: "Explore Technology & Software",
+      linkText: "Explore Tech & Software",
     },
     {
       id: "growth",
       num: "04",
-      name: "GROWTH",
-      title: "Market Access & Performance",
-      metric: "+65% Average Scale",
+      name: "MARKETING",
+      title: "Google Ranking & Customer Leads",
+      metric: "Verified Sales Leads",
       detail:
-        "B2B search dominance, high-intent conversion funnels, and enterprise brand authority across regional trade corridors.",
+        "Top Google SEO rankings, targeted social media ads, and customer lead generation to expand your sales and brand reach.",
       icon: TrendingUp,
       href: "/services#digital",
-      linkText: "Explore Digital Growth",
+      linkText: "Explore Marketing Growth",
     },
   ];
 
@@ -86,7 +86,7 @@ export function AgniEngineMotif() {
             <div className="max-w-3xl space-y-4">
               <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-amber-950/80 border border-amber-500/40 text-xs font-mono tracking-widest text-amber-300 shadow-xs font-semibold">
                 <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
-                <span>PROPRIETARY ARCHITECTURE &bull; THE AGNI MATRIX</span>
+                <span>COMPLETE GROWTH ECOSYSTEM</span>
               </div>
 
               <h2
@@ -94,13 +94,13 @@ export function AgniEngineMotif() {
                 className="font-heading text-3xl sm:text-4xl lg:text-[2.6rem] font-bold tracking-[-0.03em] text-white !leading-[1.14]"
               >
                 The Agni{" "}
-                <span className="text-amber-600 font-bold">
-                  Growth Engine Architecture.
+                <span className="text-amber-500 font-bold">
+                  Growth Engine.
                 </span>
               </h2>
 
               <p className="font-sans text-sm sm:text-base text-slate-300 max-w-2xl leading-[1.7]">
-                Scale is an engineering discipline. Our four interconnected pillars operate as a synchronized kinetic cycle—turning raw ambition into institutional dominance.
+                From business funding to legal compliance, modern technology, and customer leads—our four pillars work together to help your business scale rapidly.
               </p>
             </div>
 

@@ -73,34 +73,40 @@ export function Hero({ isPinned = false }: HeroProps) {
       return;
     }
 
+    const section = video.closest("section");
+    const observer =
+      section && "IntersectionObserver" in window
+        ? new IntersectionObserver(
+            ([entry]) => {
+              if (entry.isIntersecting && !document.hidden) {
+                if (video.paused) video.play().catch(() => {});
+              } else {
+                if (!video.paused) video.pause();
+              }
+            },
+            { threshold: 0.05 }
+          )
+        : null;
+
+    if (observer && section) {
+      observer.observe(section);
+    }
+
     const handleVisibility = () => {
       if (document.hidden) {
         video.pause();
-      } else if (window.scrollY < 1200) {
-        video.play().catch(() => {});
+      } else if (section) {
+        const rect = section.getBoundingClientRect();
+        if (rect.bottom > 0 && rect.top < window.innerHeight) {
+          video.play().catch(() => {});
+        }
       }
     };
 
-    let ticking = false;
-    const handleScroll = () => {
-      if (!ticking) {
-        ticking = true;
-        window.requestAnimationFrame(() => {
-          if (window.scrollY > 1200) {
-            if (!video.paused) video.pause();
-          } else {
-            if (video.paused) video.play().catch(() => {});
-          }
-          ticking = false;
-        });
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
     document.addEventListener("visibilitychange", handleVisibility);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      if (observer) observer.disconnect();
       document.removeEventListener("visibilitychange", handleVisibility);
     };
   }, [prefersReduced]);
@@ -347,7 +353,7 @@ export function Hero({ isPinned = false }: HeroProps) {
               </div>
 
               {/* Floating Leadership Glass Tag with Soft Depth */}
-              <div className="absolute -bottom-5 left-2 sm:-bottom-6 sm:-left-5 rounded-2xl bg-gradient-to-b from-[#131D38]/95 via-[#0E162B]/98 to-[#0A1020]/98 p-3.5 sm:p-4 border border-slate-700/60 shadow-[0_16px_40px_rgba(0,0,0,0.7),0_0_20px_rgba(245,158,11,0.15)] flex items-center gap-3.5 z-30 backdrop-blur-xl">
+              <div className="absolute -bottom-5 left-2 sm:-bottom-6 sm:-left-5 rounded-2xl bg-gradient-to-b from-[#131D38] via-[#0E162B] to-[#0A1020] p-3.5 sm:p-4 border border-slate-700/60 shadow-[0_16px_40px_rgba(0,0,0,0.7),0_0_20px_rgba(245,158,11,0.15)] flex items-center gap-3.5 z-30">
                 <div className="relative w-11 h-11 rounded-xl overflow-hidden border border-amber-500/40 shrink-0 bg-slate-900">
                   <Image
                     src="/img/rahul-kumar-singh.jpg"

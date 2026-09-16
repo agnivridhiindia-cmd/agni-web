@@ -205,7 +205,7 @@ export async function FeaturedStories() {
             <LinkButton
               href="/success-stories"
               variant="outline"
-              className="rounded-full px-7 py-3 border border-white bg-white/80 hover:bg-white text-slate-800 hover:text-slate-950 backdrop-blur-xl group inline-flex items-center gap-2 transition-all text-xs font-mono tracking-wider uppercase shadow-[inset_0_1px_2px_rgba(255,255,255,1),0_8px_20px_rgba(15,23,42,0.06)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
+              className="rounded-full px-7 py-3 border border-slate-200 bg-white hover:bg-slate-50 text-slate-800 hover:text-slate-950 group inline-flex items-center gap-2 transition-all text-xs font-mono tracking-wider uppercase shadow-[inset_0_1px_2px_rgba(255,255,255,1),0_8px_20px_rgba(15,23,42,0.06)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
               aria-label="View all enterprise success stories"
             >
               <span>View All Success Stories</span>

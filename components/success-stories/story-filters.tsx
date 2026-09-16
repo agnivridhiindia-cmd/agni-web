@@ -4,62 +4,62 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 export interface FilterCategory {
-  id: string;
-  label: string;
-  count: number;
+ id: string;
+ label: string;
+ count: number;
 }
 
 interface StoryFiltersProps {
-  categories: FilterCategory[];
-  activeCategory: string;
-  onSelectCategory: (categoryId: string) => void;
+ categories: FilterCategory[];
+ activeCategory: string;
+ onSelectCategory: (categoryId: string) => void;
 }
 
 export function StoryFilters({
-  categories,
-  activeCategory,
-  onSelectCategory,
+ categories,
+ activeCategory,
+ onSelectCategory,
 }: StoryFiltersProps) {
-  return (
-    <nav
-      aria-label="Filter case studies by practice category"
-      className="border-b border-[#A6CCEA]/80 pb-4 mb-8 sm:mb-12"
-    >
-      <div className="flex flex-wrap items-center gap-2 pb-1 -mb-1">
-        {categories.map((cat) => {
-          const isActive = activeCategory === cat.id;
+ return (
+ <nav
+ aria-label="Filter case studies by practice category"
+ className="border-b border-[#A6CCEA]/80 pb-4 mb-8 sm:mb-12"
+ >
+ <div className="flex flex-wrap items-center gap-2 pb-1 -mb-1">
+ {categories.map((cat) => {
+ const isActive = activeCategory === cat.id;
 
-          return (
-            <button
-              key={cat.id}
-              type="button"
-              onClick={() => onSelectCategory(cat.id)}
-              aria-pressed={isActive}
-              className={cn(
-                "relative inline-flex min-w-[calc(50%-0.25rem)] flex-1 items-center justify-center gap-2 rounded-xl px-2 py-2 text-center text-xs leading-tight sm:min-w-0 sm:flex-none sm:px-3.5 sm:text-sm sm:whitespace-nowrap font-medium transition-all duration-200 cursor-pointer select-none [transform:translateZ(0)]",
-                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2",
-                isActive
-                  ? "bg-amber-500 text-slate-950 border border-amber-400 shadow-[0_2px_12px_rgba(245,158,11,0.35)] font-bold backdrop-blur-md"
-                  : "bg-white/80 text-slate-700 border border-[#A6CCEA] hover:bg-white hover:text-slate-950 hover:border-amber-500/40 backdrop-blur-md shadow-2xs hover:-translate-y-0.5"
-              )}
-            >
-              <span>{cat.label}</span>
-              <span
-                className={cn(
-                  "px-1.5 py-0.5 rounded text-[11px] font-mono leading-none font-semibold",
-                  isActive
-                    ? "bg-black/15 text-slate-950 border border-black/10"
-                    : "bg-slate-100 text-slate-600 border border-slate-200"
-                )}
-              >
-                {cat.count}
-              </span>
+ return (
+ <button
+ key={cat.id}
+ type="button"
+ onClick={() => onSelectCategory(cat.id)}
+ aria-pressed={isActive}
+ className={cn(
+ "relative inline-flex min-w-[calc(50%-0.25rem)] flex-1 items-center justify-center gap-2 rounded-xl px-2 py-2 text-center text-xs leading-tight sm:min-w-0 sm:flex-none sm:px-3.5 sm:text-sm sm:whitespace-nowrap font-medium transition-all duration-200 cursor-pointer select-none [transform:translateZ(0)]",
+ "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2",
+ isActive
+ ? "bg-amber-500 text-slate-950 border border-amber-400 shadow-[0_2px_12px_rgba(245,158,11,0.35)] font-bold"
+ : "bg-white/80 text-slate-700 border border-[#A6CCEA] hover:bg-white hover:text-slate-950 hover:border-amber-500/40  shadow-2xs hover:-translate-y-0.5"
+ )}
+ >
+ <span>{cat.label}</span>
+ <span
+ className={cn(
+ "px-1.5 py-0.5 rounded text-[11px] font-mono leading-none font-semibold",
+ isActive
+ ? "bg-black/15 text-slate-950 border border-black/10"
+ : "bg-slate-100 text-slate-600 border border-slate-200"
+ )}
+ >
+ {cat.count}
+ </span>
 
-              {/* Active gold underline indicator */}
-              {isActive && (
-                <span
-                  aria-hidden="true"
-                  className="absolute -bottom-4 inset-x-2 h-0.5 bg-gradient-to-r from-amber-500 to-amber-600 rounded-full"
+ {/* Active gold underline indicator */}
+ {isActive && (
+ <span
+ aria-hidden="true"
+ className="absolute -bottom-4 inset-x-2 h-0.5 bg-gradient-to-r from-amber-500 to-amber-600 rounded-full"
                 />
               )}
             </button>

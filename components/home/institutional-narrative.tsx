@@ -117,25 +117,25 @@ export function InstitutionalNarrative() {
           {/* Right Column: Institutional Narrative */}
           <div className="lg:col-span-7 space-y-6 sm:space-y-7 text-left">
             <p className="font-sans text-sm sm:text-base lg:text-[1.05rem] text-slate-800 leading-[1.8] font-medium">
-              Agnivridhi India bridges the critical gap between ambitious MSMEs and commercial banking committees. We replace informal middlemen with audit-grade financial modeling, statutory compliance, and enterprise technology under one roof.
+              Agnivridhi India helps small businesses, MSMEs, and startups grow with complete confidence. We eliminate unreliable middlemen and provide bank-ready project reports, government compliance, modern software, and marketing under one roof.
             </p>
 
             {/* The Three Operating Principles in Apple Frosted Glass Bento Shell */}
             <div className="space-y-4 pt-1">
               <h3 className="font-mono text-xs uppercase tracking-widest text-[#0369A1] font-bold pl-1">
-                OUR OPERATING PRINCIPLES
+                OUR CORE PROMISES
               </h3>
 
-              <div className="rounded-[2rem] border border-white/80 bg-white/60 backdrop-blur-xl p-6 sm:p-7 shadow-[inset_0_1px_2px_rgba(255,255,255,0.95),0_20px_45px_-12px_rgba(14,165,233,0.08)] ring-1 ring-slate-900/5 divide-y divide-slate-200/60">
+              <div className="rounded-[2rem] border border-white/80 bg-white/95 p-6 sm:p-7 shadow-[inset_0_1px_2px_rgba(255,255,255,0.95),0_20px_45px_-12px_rgba(14,165,233,0.08)] ring-1 ring-slate-900/5 divide-y divide-slate-200/60">
                 <div className="pb-4 space-y-1.5 first:pt-0">
                   <div className="flex items-center gap-2.5">
                     <span className="font-mono text-xs text-amber-600 font-semibold">01</span>
                     <h4 className="font-heading text-lg sm:text-xl text-slate-900 font-semibold">
-                      Direct Institutional Syndication
+                      Direct Bank Approval & Zero Middlemen
                     </h4>
                   </div>
                   <p className="font-sans text-xs sm:text-sm text-slate-700 leading-[1.7] pl-6">
-                    Zero middlemen—audit-grade credit dossiers and TEV reports formulated for direct submission to scheduled commercial bank committees.
+                    No commissions or commission agents. We prepare bank-ready project reports (DPR) and submit them directly to bank decision-makers for fast approval.
                   </p>
                 </div>
 
@@ -143,11 +143,11 @@ export function InstitutionalNarrative() {
                   <div className="flex items-center gap-2.5">
                     <span className="font-mono text-xs text-amber-600 font-semibold">02</span>
                     <h4 className="font-heading text-lg sm:text-xl text-slate-900 font-semibold">
-                      Sovereign Collateral-Free Credit
+                      Collateral-Free Loans & Government Subsidies
                     </h4>
                   </div>
                   <p className="font-sans text-xs sm:text-sm text-slate-700 leading-[1.7] pl-6">
-                    Prioritizing sovereign guarantee backstops (CGTMSE up to ₹5 Cr, PMEGP 35% subsidies) to unlock capex without pledging promoter property.
+                    Get up to ₹5 Crore business loans under government CGTMSE without pledging property, plus up to 35% capital subsidies under PMEGP.
                   </p>
                 </div>
 
@@ -155,11 +155,11 @@ export function InstitutionalNarrative() {
                   <div className="flex items-center gap-2.5">
                     <span className="font-mono text-xs text-amber-600 font-semibold">03</span>
                     <h4 className="font-heading text-lg sm:text-xl text-slate-900 font-semibold">
-                      Quad-Desk Execution Synchronization
+                      Everything Under One Roof
                     </h4>
                   </div>
                   <p className="font-sans text-xs sm:text-sm text-slate-700 leading-[1.7] pl-6">
-                    Synchronized project finance, regulatory compliance, custom software, and digital marketing operating under one unified desk.
+                    No need to deal with different vendors. Bank funding, legal compliance, business software, and customer lead generation are all managed by one dedicated team.
                   </p>
                 </div>
               </div>
@@ -169,7 +169,7 @@ export function InstitutionalNarrative() {
             <div className="pt-3 flex flex-wrap items-center gap-4">
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-b from-slate-900/90 via-slate-900/95 to-slate-950/95 backdrop-blur-xl text-white font-sans font-semibold text-xs tracking-wider uppercase border border-white/20 shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.35),0_10px_24px_-4px_rgba(15,23,42,0.25)] hover:border-white/40 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all group [transform:translateZ(0)]"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-slate-950 text-white font-sans font-semibold text-xs tracking-wider uppercase border border-white/20 shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.35),0_10px_24px_-4px_rgba(15,23,42,0.25)] hover:border-white/40 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all group [transform:translateZ(0)]"
               >
                 <span>Read Full Story</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -177,9 +177,9 @@ export function InstitutionalNarrative() {
 
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/75 hover:bg-white/95 backdrop-blur-xl border border-white text-xs font-mono tracking-wider uppercase text-slate-800 shadow-[inset_0_1px_2px_rgba(255,255,255,1),0_8px_20px_rgba(15,23,42,0.06)] hover:border-white hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white hover:bg-slate-50 border border-slate-200 text-xs font-mono tracking-wider uppercase text-slate-800 shadow-[inset_0_1px_2px_rgba(255,255,255,1),0_8px_20px_rgba(15,23,42,0.06)] hover:border-white hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all"
               >
-                <span>Consult Leadership</span>
+                <span>Talk to an Advisor</span>
               </Link>
             </div>
           </div>

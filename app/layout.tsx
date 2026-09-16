@@ -4,6 +4,8 @@ import { siteConfig } from "@/lib/site-config";
 import { getOrganizationJsonLd } from "@/lib/seo";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { SmoothScroll } from "@/components/shared/smooth-scroll";
+import "lenis/dist/lenis.css";
 import "./globals.css";
 
 const inter = Inter({
@@ -108,18 +110,19 @@ export default function RootLayout({
         />
       </head>
       <body className={`${slabo13px.className} font-sans antialiased text-[#181226] bg-[#F8FAFC] flex min-h-screen flex-col selection:bg-cyan-100 selection:text-[#0891B2] relative`}>
-
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-[#0891B2] focus:px-4 focus:py-2 focus:text-white focus:shadow-elevated focus:outline-none focus:ring-2 focus:ring-[#0891B2] focus:ring-offset-2"
-        >
-          Skip to main content
-        </a>
-        <Header />
-        <main id="main-content" className="flex-1 relative z-10">
-          {children}
-        </main>
-        <Footer />
+        <SmoothScroll>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-[#0891B2] focus:px-4 focus:py-2 focus:text-white focus:shadow-elevated focus:outline-none focus:ring-2 focus:ring-[#0891B2] focus:ring-offset-2"
+          >
+            Skip to main content
+          </a>
+          <Header />
+          <main id="main-content" className="flex-1 relative z-10">
+            {children}
+          </main>
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   );

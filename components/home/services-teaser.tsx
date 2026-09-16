@@ -27,60 +27,60 @@ const practices: PracticeInfo[] = [
   {
     id: "funding",
     num: "01",
-    discipline: "CAPITAL & DEBT SYNDICATION",
-    headline: "Institutional Debt & Sovereign Credit",
-    subhead: "TEV & DPR Modeling",
+    discipline: "GOVERNMENT FUNDING & LOANS",
+    headline: "Collateral-Free Business Loans & Subsidies",
+    subhead: "Project Reports & Bank Loans",
     description:
-      "Direct banking liaison and audit-grade Detailed Project Reports (DPR) to secure collateral-free CGTMSE credit up to ₹5 Cr, 35% PMEGP subsidies, and project term loans.",
+      "Get business funding without pledging property. We prepare bank-ready project reports (DPR) and help you secure up to ₹5 Crore collateral-free funding under CGTMSE, PMEGP subsidies, and bank credit.",
     image: "/img/practice-capital.jpg",
     imageAlt: "Indian automated CNC machining plant financed via sovereign debt",
-    tag: "₹5 Cr Collateral-Free Ceiling",
-    deliverables: ["CGTMSE Guarantee Trust", "PMEGP 35% Capital Subsidies", "Lead Bank Sanctions"],
+    tag: "Up to ₹5 Cr Without Collateral",
+    deliverables: ["CGTMSE Collateral-Free Loans", "PMEGP Subsidy (Up to 35%)", "Bank Project Reports (DPR)"],
     anchor: "/services#funding",
     icon: Building2,
   },
   {
     id: "compliance",
     num: "02",
-    discipline: "STATUTORY & REGULATORY GOVERNANCE",
-    headline: "Statutory Certifications & Audits",
-    subhead: "ISO & Regulatory Shield",
+    discipline: "COMPLIANCE & CERTIFICATIONS",
+    headline: "Business Licenses, GST & ISO Certifications",
+    subhead: "Legal & Quality Standards",
     description:
-      "Turnkey regulatory advisory across GST statutory defenses, MSME/Udyam registrations, international ISO 9001/14001 certification frameworks, and corporate trademark protection.",
+      "End-to-end help for all government registrations and compliance. From MSME Udyam and GST filings to ISO 9001/14001 certification and brand trademark, we keep your company 100% legally compliant.",
     image: "/img/practice-compliance.jpg",
     imageAlt: "Indian industrial quality testing and ISO audit facility",
-    tag: "Audit-Grade Institutional Readiness",
-    deliverables: ["ISO 9001/14001 Audits", "GST Statutory Defense", "Trademark Defense"],
+    tag: "100% Audit-Ready & Compliant",
+    deliverables: ["ISO 9001 & 14001 Certification", "GST Advisory & Filing", "MSME Udyam & Trademark"],
     anchor: "/services#compliance",
     icon: ShieldCheck,
   },
   {
     id: "it",
     num: "03",
-    discipline: "SOFTWARE & SYSTEMS ENGINEERING",
-    headline: "Enterprise Platforms & Cloud Architecture",
-    subhead: "Full-Stack Engineering",
+    discipline: "WEBSITES & SOFTWARE ENGINEERING",
+    headline: "Custom Websites, Mobile Apps & ERP Systems",
+    subhead: "Fast & Secure Technology",
     description:
-      "Custom software engineering, high-throughput Next.js enterprise portals, native iOS & Android applications, automated cloud DevOps, and ERP workflows.",
+      "Modern technology built specifically for your business. We develop high-speed websites, Android & iOS mobile apps, billing software, automated ERP systems, and cloud solutions.",
     image: "/img/practice-systems.jpg",
     imageAlt: "Indian enterprise cloud software architecture lab",
-    tag: "100% Client Code Ownership",
-    deliverables: ["Next.js Enterprise Web", "Native iOS & Android Apps", "Automated Cloud DevOps"],
+    tag: "100% Full Code Ownership",
+    deliverables: ["Modern Business Websites", "Android & iOS Mobile Apps", "Billing & ERP Software"],
     anchor: "/services#it",
     icon: Cpu,
   },
   {
     id: "digital",
     num: "04",
-    discipline: "DIGITAL GROWTH & MARKET ACCESS",
-    headline: "B2B Search Authority & Growth Funnels",
-    subhead: "Search & Market Expansion",
+    discipline: "DIGITAL MARKETING & CUSTOMER LEADS",
+    headline: "Google Ranking, Online Ads & Brand Growth",
+    subhead: "Customer Leads & Market Access",
     description:
-      "Dominant B2B organic search engine positioning, high-intent performance advertising funnels, and institutional brand positioning designed to capture sovereign contracts.",
+      "Attract real, verified buyers and corporate clients. We handle Google SEO ranking, high-converting social media ads, lead generation funnels, and corporate brand positioning to grow your sales.",
     image: "/img/practice-growth.jpg",
     imageAlt: "Indian enterprise executive strategy session on digital expansion",
-    tag: "B2B Organic Discovery",
-    deliverables: ["Technical B2B SEO", "High-Intent Lead Funnels", "Corporate Brand Authority"],
+    tag: "High-Intent Customer Leads",
+    deliverables: ["Google SEO & Top Rankings", "Targeted B2B Lead Generation", "Social Media & Brand Marketing"],
     anchor: "/services#digital",
     icon: Globe,
   },
@@ -307,10 +307,10 @@ export function ServicesTeaser() {
                 <div className="space-y-1">
                   <div className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-amber-600">
                     <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
-                    <span>UNIFIED ADVISORY MANDATE</span>
+                    <span>ALL-IN-ONE BUSINESS SUPPORT</span>
                   </div>
                   <p className="text-xs sm:text-sm text-slate-600 font-medium">
-                    All four practice areas operate under a single, synchronized engagement framework with measurable milestone SLAs.
+                    All 4 services work seamlessly under one roof—saving your time and helping your business grow faster.
                   </p>
                 </div>
                 <Link
@@ -368,7 +368,7 @@ export function ServicesTeaser() {
                 <div className="flex items-center justify-between">
                   <span className="px-3 py-1 rounded-md bg-slate-900 border border-slate-700/60 text-[10px] font-mono text-sky-300 uppercase tracking-wider flex items-center gap-1.5 shadow-xs">
                     <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-                    <span>DESK {activePractice.num} &bull; CONTEXT</span>
+                    <span>SERVICE {activePractice.num} &bull; OVERVIEW</span>
                   </span>
                   <span className="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700/60 text-[10px] font-mono text-amber-400 shadow-xs font-semibold">
                     {activePractice.tag}
@@ -376,7 +376,7 @@ export function ServicesTeaser() {
                 </div>
 
                 {/* Bottom Caption */}
-                <div className="space-y-1 bg-gradient-to-b from-[#131D38]/95 via-[#0E162B]/98 to-[#0A1020]/98 p-4 rounded-2xl border border-slate-700/60 shadow-[0_8px_24px_rgba(0,0,0,0.6)] [transform:translateZ(0)] backdrop-blur-xl">
+                <div className="space-y-1 bg-gradient-to-b from-[#131D38] via-[#0E162B] to-[#0A1020] p-4 rounded-2xl border border-slate-700/60 shadow-[0_8px_24px_rgba(0,0,0,0.6)] [transform:translateZ(0)]">
                   <p className="text-[10px] font-mono uppercase tracking-widest text-amber-400 font-semibold">
                     {activePractice.discipline}
                   </p>

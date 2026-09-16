@@ -26,7 +26,7 @@ export function FinalCta() {
       <Container width="wide" className="relative z-10">
         <FadeIn direction="up" distance={24} delay={0.05}>
           {/* Flagship Conversion Container: Apple Specular Liquid Jewel Panel */}
-          <div className="relative overflow-hidden rounded-[3rem] border border-white/20 border-t-white/40 bg-[radial-gradient(circle_at_20%_20%,rgba(14,165,233,0.22),transparent_50%),radial-gradient(circle_at_85%_80%,rgba(245,158,11,0.18),transparent_45%),linear-gradient(135deg,#10162A_0%,#182444_50%,#0E1424_100%)] backdrop-blur-2xl p-8 text-white shadow-[0_40px_100px_-20px_rgba(0,0,0,0.85),inset_0_1.5px_2px_rgba(255,255,255,0.35)] ring-1 ring-white/10 sm:p-14 lg:p-20">
+          <div className="relative overflow-hidden rounded-[3rem] border border-white/20 border-t-white/40 bg-[radial-gradient(circle_at_20%_20%,rgba(14,165,233,0.22),transparent_50%),radial-gradient(circle_at_85%_80%,rgba(245,158,11,0.18),transparent_45%),linear-gradient(135deg,#10162A_0%,#182444_50%,#0E1424_100%)] p-8 text-white shadow-[0_40px_100px_-20px_rgba(0,0,0,0.85),inset_0_1.5px_2px_rgba(255,255,255,0.35)] ring-1 ring-white/10 sm:p-14 lg:p-20">
             {/* Background architectural grid inside the card */}
             <div
               className="pointer-events-none absolute inset-0 bg-blueprint-grid-dark opacity-25 select-none"
@@ -46,7 +46,7 @@ export function FinalCta() {
             {/* Inner Content Grid */}
             <div className="relative z-10 max-w-4xl space-y-6 sm:space-y-8">
               {/* Eyebrow */}
-              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/[0.08] backdrop-blur-xl border border-white/15 text-xs font-mono tracking-widest text-sky-300 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)]">
+              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/10 border border-white/15 text-xs font-mono tracking-widest text-sky-300 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)]">
                 <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
                 <span>READY TO TRANSFORM YOUR BUSINESS?</span>
               </div>
@@ -83,7 +83,7 @@ export function FinalCta() {
                 <LinkButton
                   href="/services"
                   variant="outline"
-                  className="w-full sm:w-auto rounded-full px-9 py-4 text-sm sm:text-base font-semibold border border-white/20 bg-white/[0.08] hover:bg-white/[0.15] backdrop-blur-xl hover:border-white/40 text-white hover:text-amber-300 justify-center transition-all inline-flex items-center gap-2 tracking-wide shadow-[inset_0_1px_1px_rgba(255,255,255,0.3),0_8px_24px_rgba(0,0,0,0.3)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] cursor-pointer [transform:translateZ(0)]"
+                  className="w-full sm:w-auto rounded-full px-9 py-4 text-sm sm:text-base font-semibold border border-white/20 bg-white/10 hover:bg-white/20 hover:border-white/40 text-white hover:text-amber-300 justify-center transition-all inline-flex items-center gap-2 tracking-wide shadow-[inset_0_1px_1px_rgba(255,255,255,0.3),0_8px_24px_rgba(0,0,0,0.3)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] cursor-pointer [transform:translateZ(0)]"
                   aria-label="Explore all four advisory practices and service catalog"
                 >
                   <span>Explore Our Services</span>

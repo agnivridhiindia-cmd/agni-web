@@ -83,7 +83,7 @@ export function AboutBrief({ isPinned = false }: AboutBriefProps) {
             </FadeIn>
 
             <FadeIn direction="up" distance={16} delay={0.15} className="lg:col-span-6">
-              <div className="rounded-[2rem] border border-white/80 bg-white/70 backdrop-blur-xl p-6 sm:p-8 shadow-[0_20px_45px_-12px_rgba(14,165,233,0.08),inset_0_1px_2px_rgba(255,255,255,0.95)] ring-1 ring-slate-900/5">
+              <div className="rounded-[2rem] border border-white/80 bg-white/95 p-6 sm:p-8 shadow-[0_20px_45px_-12px_rgba(14,165,233,0.08),inset_0_1px_2px_rgba(255,255,255,0.95)] ring-1 ring-slate-900/5">
                 <div className="divide-y divide-slate-100/90">
                   {[
                     ["01", "Capital readiness", "Bank-grade DPRs, CMA data, and structured funding pathways."],
@@ -107,14 +107,14 @@ export function AboutBrief({ isPinned = false }: AboutBriefProps) {
             <div className="flex flex-wrap items-center gap-4">
               <Link
                 href="/about"
-                className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-b from-slate-900/90 via-slate-900/95 to-slate-950/95 backdrop-blur-xl text-white font-semibold text-xs sm:text-sm font-sans tracking-wide border border-white/20 shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.35),0_10px_24px_-4px_rgba(15,23,42,0.25)] hover:border-white/40 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all [transform:translateZ(0)]"
+                className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-slate-950 text-white font-semibold text-xs sm:text-sm font-sans tracking-wide border border-white/20 shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.35),0_10px_24px_-4px_rgba(15,23,42,0.25)] hover:border-white/40 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all [transform:translateZ(0)]"
               >
                 <span>Explore Institutional Profile</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/75 hover:bg-white/95 backdrop-blur-xl border border-white text-xs sm:text-sm font-medium text-slate-800 shadow-[inset_0_1px_2px_rgba(255,255,255,1),0_8px_20px_rgba(15,23,42,0.06)] hover:border-white hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white hover:bg-slate-50 border border-slate-200 text-xs sm:text-sm font-medium text-slate-800 shadow-[inset_0_1px_2px_rgba(255,255,255,1),0_8px_20px_rgba(15,23,42,0.06)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all"
               >
                 <span>Schedule Consultation</span>
               </Link>

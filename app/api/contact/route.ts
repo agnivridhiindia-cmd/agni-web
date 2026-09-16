@@ -249,6 +249,64 @@ or call ${params.phone}.
 `.trim();
 }
 
+function buildUserAcknowledgmentHtml(params: {
+  name: string;
+  serviceName: string;
+  referenceCode: string;
+}): string {
+  return `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Agnivridhi India — Consultation Request Confirmation</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #0F172A; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #1E293B;">
+  <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: #0F172A; padding: 30px 15px;">
+    <tr>
+      <td align="center">
+        <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width: 580px; background-color: #FFFFFF; border-radius: 16px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.3);">
+          <tr>
+            <td style="background: linear-gradient(135deg, #10162A 0%, #1A243F 100%); padding: 28px 32px; border-bottom: 3px solid #F59E0B;">
+              <h2 style="margin: 0; color: #FFFFFF; font-size: 20px; font-weight: 700;">Agnivridhi India</h2>
+              <p style="margin: 6px 0 0 0; color: #F59E0B; font-size: 12px; font-family: monospace; letter-spacing: 1px;">CONSULTATION REQUEST CONFIRMATION</p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 28px 32px;">
+              <p style="font-size: 15px; color: #0F172A; line-height: 1.6; margin-top: 0;">
+                Dear <strong>${escapeHtml(params.name)}</strong>,
+              </p>
+              <p style="font-size: 14px; color: #334155; line-height: 1.6;">
+                Thank you for reaching out to <strong>Agnivridhi India</strong>. We have received your advisory inquiry regarding <strong>${escapeHtml(params.serviceName)}</strong>.
+              </p>
+              <div style="background-color: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 16px 20px; margin: 20px 0;">
+                <div style="font-size: 11px; font-family: monospace; color: #64748B; text-transform: uppercase;">Tracking Reference Code</div>
+                <div style="font-size: 16px; font-weight: 700; color: #B45309; font-family: monospace; margin-top: 4px;">${escapeHtml(params.referenceCode)}</div>
+              </div>
+              <p style="font-size: 14px; color: #334155; line-height: 1.6;">
+                Our senior advisory team is reviewing your requirements under our bilateral confidentiality protocol. A practice lead will connect with you within <strong>24 business hours</strong>.
+              </p>
+              <div style="font-size: 13px; color: #64748B; line-height: 1.5; margin-top: 24px; border-top: 1px solid #E2E8F0; padding-top: 16px;">
+                If you have urgent queries, feel free to reply directly to this email or call us at <strong>+91 92895 55190</strong>.
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td style="background-color: #F8FAFC; border-top: 1px solid #E2E8F0; padding: 18px 32px; text-align: center; font-size: 11px; color: #94A3B8;">
+              Agnivridhi India • B-750, Tower-B, IThum, Sector 62, Noida, UP 201301<br/>
+              <a href="https://agnivridhiindia.com" style="color: #0284C7; text-decoration: none;">agnivridhiindia.com</a>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+  `.trim();
+}
+
 async function deliverInquiryEmail(params: {
   name: string;
   email: string;
@@ -259,20 +317,30 @@ async function deliverInquiryEmail(params: {
   referenceCode: string;
   submittedAt: string;
 }): Promise<{ delivered: boolean; provider: "smtp" | "resend" | "simulated"; error?: string }> {
-  const toEmail = process.env.CONTACT_TO_EMAIL || siteConfig.contact.email || "info@agnivridhiindia.com";
+  const rawToEmail = process.env.CONTACT_TO_EMAIL || siteConfig.contact.email || "info@agnivridhiindia.com";
+  // Support comma-separated recipient emails (e.g. info@agnivridhiindia.com, founder@agnivridhiindia.com)
+  const toEmail = rawToEmail
+    .split(",")
+    .map((e) => e.trim())
+    .filter(Boolean)
+    .join(", ");
+
   const subject = `[New Advisory Lead - ${params.referenceCode}] ${params.name} • ${params.serviceName}`;
   const htmlContent = buildEmailHtml(params);
   const textContent = buildEmailText(params);
 
   // -------------------------------------------------------------
-  // Provider 1: Standard SMTP via Nodemailer (Gmail, Zoho, cPanel, etc.)
+  // Provider 1: Standard SMTP via Nodemailer (Hostinger, Gmail, Zoho, cPanel, etc.)
   // -------------------------------------------------------------
   if (process.env.SMTP_USER && process.env.SMTP_PASS) {
     try {
-      const isGmail =
-        !process.env.SMTP_HOST ||
-        process.env.SMTP_HOST.toLowerCase().includes("gmail");
+      const host = process.env.SMTP_HOST || "smtp.gmail.com";
+      const isGmail = host.toLowerCase().includes("gmail");
       const cleanPass = process.env.SMTP_PASS.replace(/\s+/g, "");
+      const port = Number(process.env.SMTP_PORT || (isGmail ? 465 : 465));
+      const secure =
+        process.env.SMTP_SECURE === "true" ||
+        (process.env.SMTP_SECURE !== "false" && port === 465);
 
       const transporter = isGmail
         ? nodemailer.createTransport({
@@ -283,14 +351,15 @@ async function deliverInquiryEmail(params: {
             },
           })
         : nodemailer.createTransport({
-            host: process.env.SMTP_HOST,
-            port: Number(process.env.SMTP_PORT || 465),
-            secure:
-              process.env.SMTP_SECURE === "true" ||
-              Number(process.env.SMTP_PORT || 465) === 465,
+            host,
+            port,
+            secure,
             auth: {
               user: process.env.SMTP_USER,
               pass: cleanPass,
+            },
+            tls: {
+              rejectUnauthorized: process.env.NODE_ENV === "production",
             },
           });
 
@@ -298,6 +367,7 @@ async function deliverInquiryEmail(params: {
         process.env.CONTACT_FROM_EMAIL ||
         `"Agnivridhi Advisory Portal" <${process.env.SMTP_USER}>`;
 
+      // 1. Deliver full lead notification to company mailbox
       await transporter.sendMail({
         from: fromAddress,
         to: toEmail,
@@ -307,10 +377,30 @@ async function deliverInquiryEmail(params: {
         html: htmlContent,
       });
 
-      console.log(`[contact-api] Email delivered successfully to ${toEmail} via SMTP.`);
+      console.log(`[contact-api] Inbound lead delivered successfully to company inbox (${toEmail}) via SMTP.`);
+
+      // 2. Send instant confirmation acknowledgment to the client (non-blocking)
+      try {
+        await transporter.sendMail({
+          from: fromAddress,
+          to: params.email,
+          subject: `Inquiry Confirmation - ${params.referenceCode} | Agnivridhi India`,
+          text: `Dear ${params.name},\n\nThank you for contacting Agnivridhi India. We have received your advisory inquiry regarding ${params.serviceName}.\nYour reference code is: ${params.referenceCode}.\n\nOur team will contact you within 24 business hours.\n\nWarm regards,\nAgnivridhi India`,
+          html: buildUserAcknowledgmentHtml(params),
+        });
+        console.log(`[contact-api] Confirmation auto-reply sent to client (${params.email}).`);
+      } catch (clientAckErr) {
+        console.warn("[contact-api] Client auto-acknowledgment skipped/failed:", clientAckErr);
+      }
+
       return { delivered: true, provider: "smtp" };
     } catch (smtpErr) {
-      console.error("[contact-api] SMTP dispatch failed:", smtpErr);
+      const errMessage = smtpErr instanceof Error ? smtpErr.message : String(smtpErr);
+      console.error("❌ [contact-api] SMTP dispatch failed! Error:", errMessage);
+      console.error(
+        "💡 TIP: Run 'npm run test:email' in terminal to diagnose your SMTP credentials."
+      );
+      // Fall through to console log lead details below to prevent losing the client lead
     }
   }
 
@@ -353,7 +443,7 @@ async function deliverInquiryEmail(params: {
   // Provider 3: Safe Fallback & Console Logging (Local / Unconfigured)
   // -------------------------------------------------------------
   console.log("\n=======================================================");
-  console.log("📨 NEW INBOUND INQUIRY RECEIVED (SIMULATED EMAIL DISPATCH)");
+  console.log("📨 NEW INBOUND INQUIRY RECEIVED (CONSOLE BACKUP / SIMULATED)");
   console.log(`Target Recipient (Company Mail): ${toEmail}`);
   console.log(`Reference Code:                  ${params.referenceCode}`);
   console.log(`Submitted At:                    ${params.submittedAt}`);
@@ -364,12 +454,7 @@ async function deliverInquiryEmail(params: {
   console.log(`Advisory Practice Desk:          ${params.serviceName}`);
   console.log(`Scope Summary:\n${params.message}`);
   console.log("-------------------------------------------------------");
-  console.log("ℹ️  To receive real emails in your inbox, set your SMTP or Resend credentials in .env.local.");
-  console.log("   Example for Gmail / Google Workspace in .env.local:");
-  console.log("   SMTP_HOST=smtp.gmail.com");
-  console.log("   SMTP_PORT=465");
-  console.log("   SMTP_USER=info@agnivridhiindia.com");
-  console.log("   SMTP_PASS=your_16_digit_app_password");
+  console.log("ℹ️  To receive real emails in your inbox, run 'npm run test:email' to test your credentials.");
   console.log("=======================================================\n");
 
   return { delivered: false, provider: "simulated" };
