@@ -17,8 +17,8 @@ export default function DisclaimerPage() {
   const { city, state, country } = siteConfig.company.location;
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* 1. Compact Editorial Header */}
+    <div className="min-h-screen bg-[#F8FAFC] text-slate-900">
+      {/* 1. Dark Mode Hero Header */}
       <LegalHeader
         eyebrow="REGULATORY DISCLOSURES"
         title="Regulatory Disclaimer"
@@ -26,15 +26,18 @@ export default function DisclaimerPage() {
         lastUpdated="August 2024"
       />
 
-      {/* 2. Legal Navigation Bar */}
+      {/* Luminous Hairline Divider */}
+      <div className="hairline-rule-brass w-full" aria-hidden="true" />
+
+      {/* 2. Light Mode Legal Navigation Bar */}
       <LegalNav currentPage="disclaimer" />
 
-      {/* 3. Structured Legal Reading Body */}
+      {/* 3. Light Mode Structured Legal Reading Body */}
       <LegalLayout>
         <section aria-labelledby="section-independence" className="space-y-3.5">
           <h2
             id="section-independence"
-            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-bold text-slate-900 tracking-tight pb-2 border-b border-slate-100"
           >
             1. Independent Advisory Firm
           </h2>
@@ -54,7 +57,7 @@ export default function DisclaimerPage() {
         <section aria-labelledby="section-no-guarantee" className="space-y-3.5">
           <h2
             id="section-no-guarantee"
-            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-bold text-slate-900 tracking-tight pb-2 border-b border-slate-100"
           >
             2. Strict No-Guarantee Policy on Loan Sanctions &amp; Subsidies
           </h2>
@@ -75,13 +78,13 @@ export default function DisclaimerPage() {
         <section aria-labelledby="section-gazette-accuracy" className="space-y-3.5">
           <h2
             id="section-gazette-accuracy"
-            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-bold text-slate-900 tracking-tight pb-2 border-b border-slate-100"
           >
             3. Informational Nature of Online Scheme Metrics
           </h2>
           <p>
             Statutory scheme ceilings, interest subsidy bands, and guarantee percentages referenced on
-            this website (such as the CGTMSE ÃƒÂ¢ - Å¡Ã‚Â¹5 Crore sovereign guarantee ceiling or PMEGP subsidy
+            this website (such as the CGTMSE ₹5 Crore sovereign guarantee ceiling or PMEGP subsidy
             allocations) reflect publicly available gazette notifications and circulars issued by
             statutory authorities.
           </p>
@@ -96,7 +99,7 @@ export default function DisclaimerPage() {
         <section aria-labelledby="section-due-diligence" className="space-y-3.5">
           <h2
             id="section-due-diligence"
-            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-bold text-slate-900 tracking-tight pb-2 border-b border-slate-100"
           >
             4. Professional Due Diligence &amp; Diagnostic Purpose
           </h2>
@@ -112,14 +115,22 @@ export default function DisclaimerPage() {
         <section aria-labelledby="section-contact" className="space-y-3.5">
           <h2
             id="section-contact"
-            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-bold text-slate-900 tracking-tight pb-2 border-b border-slate-100"
           >
             5. Verification &amp; Inquiries
           </h2>
           <p>
             For questions regarding our institutional scope, regulatory compliance framework, or to
             request verification of advisory credentials, connect directly with our advisory desk at
-            our registered location in {city}, {state}, {country}.
+            our registered location in {city}, {state}, {country}, or email{" "}
+            {siteConfig.contact.email && (
+              <a
+                href={`mailto:${siteConfig.contact.email}`}
+                className="text-amber-700 hover:text-amber-800 underline font-medium"
+              >
+                {siteConfig.contact.email}
+              </a>
+            )}.
           </p>
         </section>
       </LegalLayout>

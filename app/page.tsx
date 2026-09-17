@@ -22,52 +22,55 @@ export const metadata: Metadata = createPageMetadata({
 export default function HomePage() {
   return (
     <div className="min-h-screen text-slate-100">
-      {/* Flagship Homepage Hero - Top Dark Section Part 1 */}
+      {/* 1. Flagship Homepage Hero */}
       <Hero />
-
-      {/* Editorial Statistics & Metric Stream - Top Dark Section Part 2 */}
-      <StatsBar />
 
       {/* Luminous Multi-Tone Hairline Divider Transition to Light Canvas */}
       <div className="hairline-rule-multi w-full" aria-hidden="true" />
 
-      {/* About Section - Opening of Middle Light Section */}
+      {/* 2. ABOUT AGNIVRIDHI INDIA • AT A GLANCE */}
       <AboutBrief />
 
       {/* Luminous Brass Transition */}
       <div className="hairline-rule-brass w-full" aria-hidden="true" />
 
-      {/* Core Advisory Verticals */}
-      <ServicesTeaser />
+      {/* 3. ABOUT AGNIVRIDHI • INSTITUTIONAL LEADERSHIP */}
+      <InstitutionalNarrative />
 
       {/* Luminous Cyan Transition */}
       <div className="hairline-rule-cyan w-full" aria-hidden="true" />
 
-      {/* Proprietary Architecture: The Agni Growth Engine */}
-      <AgniEngineMotif />
-
-      {/* Luminous Multi-Tone Hairline Divider */}
-      <div className="hairline-rule-multi w-full" aria-hidden="true" />
-
-      {/* Featured Success Stories Section (Magazine Spreads) */}
-      <FeaturedStories />
+      {/* 4. Our Services */}
+      <ServicesTeaser />
 
       {/* Luminous Brass Transition */}
       <div className="hairline-rule-brass w-full" aria-hidden="true" />
 
-      {/* Recognition & Social Proof Section */}
-      <RecognitionSection />
+      {/* 5. COMPLETE GROWTH ECOSYSTEM (The Agni Growth Engine) */}
+      <AgniEngineMotif />
 
       {/* Luminous Cyan Transition */}
       <div className="hairline-rule-cyan w-full" aria-hidden="true" />
 
-      {/* Institutional Leadership & Philosophy Narrative */}
-      <InstitutionalNarrative />
+      {/* 6. OUR CORE ADVANTAGES • INSTITUTIONAL PARAMETERS */}
+      <StatsBar />
 
       {/* Luminous Multi-Tone Hairline Divider */}
       <div className="hairline-rule-multi w-full" aria-hidden="true" />
 
-      {/* Homepage Final CTA & Conversion Section */}
+      {/* 7. AWARDS & ACHIEVEMENTS • ACCREDITATIONS */}
+      <RecognitionSection />
+
+      {/* Luminous Brass Transition */}
+      <div className="hairline-rule-brass w-full" aria-hidden="true" />
+
+      {/* 8. PROVEN ENTERPRISE DELIVERABLES • EDITORIAL CASE ARCHIVE */}
+      <FeaturedStories />
+
+      {/* Luminous Multi-Tone Hairline Divider */}
+      <div className="hairline-rule-multi w-full" aria-hidden="true" />
+
+      {/* 9. Final CTA (Ready to Transform Your Business?) */}
       <FinalCta />
     </div>
   );

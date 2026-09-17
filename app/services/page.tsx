@@ -18,8 +18,13 @@ export default function ServicesPage() {
   const services = getAllServices();
   const categories = getServiceCategories();
 
+  const categoryCounts = categories.reduce((acc, cat) => {
+    acc[cat.id] = services.filter((s) => s.category === cat.id).length;
+    return acc;
+  }, {} as Record<string, number>);
+
   return (
-    <div className="min-h-screen text-slate-100">
+    <div className="min-h-screen bg-[#F8FAFC] text-slate-900">
       {/* Services Architecture:
           1. Services Hero: Strategic positioning & credibility parameters
           2. Category Navigation: Sticky accessible anchor rail with dynamic counts & scroll-spy
@@ -30,30 +35,34 @@ export default function ServicesPage() {
       {/* Luminous Hairline Divider */}
       <div className="hairline-rule-brass w-full" aria-hidden="true" />
 
-      <CategoryNavigation
-        categories={categories}
-        totalServicesCount={services.length}
-      />
+      {/* Services Directory with Sticky Navigation Dock */}
+      <div className="relative">
+        <CategoryNavigation
+          categories={categories}
+          totalServicesCount={services.length}
+          categoryCounts={categoryCounts}
+        />
 
-      <div>
-        {categories.map((cat, idx) => {
-          const catServices = services.filter((s) => s.category === cat.id);
-          return (
-            <React.Fragment key={cat.id}>
-              <ServiceCategorySection
-                category={cat}
-                services={catServices}
-                index={idx}
-              />
-              {idx < categories.length - 1 && (
-                <div
-                  className={idx % 2 === 0 ? "hairline-rule-cyan w-full" : "hairline-rule-brass w-full"}
-                  aria-hidden="true"
+        <div>
+          {categories.map((cat, idx) => {
+            const catServices = services.filter((s) => s.category === cat.id);
+            return (
+              <React.Fragment key={cat.id}>
+                <ServiceCategorySection
+                  category={cat}
+                  services={catServices}
+                  index={idx}
                 />
-              )}
-            </React.Fragment>
-          );
-        })}
+                {idx < categories.length - 1 && (
+                  <div
+                    className={idx % 2 === 0 ? "hairline-rule-cyan w-full" : "hairline-rule-brass w-full"}
+                    aria-hidden="true"
+                  />
+                )}
+              </React.Fragment>
+            );
+          })}
+        </div>
       </div>
 
       {/* Luminous Multi-Tone Hairline Divider */}

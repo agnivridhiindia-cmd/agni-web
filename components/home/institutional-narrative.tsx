@@ -10,6 +10,7 @@ export function InstitutionalNarrative() {
 
   return (
     <section
+      id="institutional-narrative"
       aria-labelledby="institutional-narrative-heading"
       className="relative py-14 sm:py-18 lg:py-22 border-b border-[#CBDDEB] overflow-hidden bg-gradient-to-b from-[#F1F5F9] via-[#E8F1F8] to-[#F1F5F9]"
     >

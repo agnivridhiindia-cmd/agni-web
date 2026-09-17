@@ -78,8 +78,8 @@ export function ServiceDetailHero({ service }: ServiceDetailHeroProps) {
  className="pointer-events-none absolute inset-0 z-0 select-none overflow-hidden"
  >
  <div className="absolute inset-0 bg-blueprint-grid opacity-20 [mask-image:radial-gradient(ellipse_80%_70%_at_50%_40%,#000_65%,transparent_100%)]" />
- <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full" />
- <div className="absolute bottom-0 left-0 w-96 h-96 bg-amber-500/10 rounded-full" />
+ <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+ <div className="absolute bottom-0 left-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
  </div>
 
  <Container width="wide" className="relative z-10">

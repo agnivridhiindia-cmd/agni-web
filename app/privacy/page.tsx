@@ -17,8 +17,8 @@ export default function PrivacyPage() {
   const { city, state, country } = siteConfig.company.location;
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* 1. Compact Editorial Header */}
+    <div className="min-h-screen bg-[#F8FAFC] text-slate-900">
+      {/* 1. Dark Mode Hero Header */}
       <LegalHeader
         eyebrow="GOVERNANCE & TRUST"
         title="Privacy Policy"
@@ -26,15 +26,18 @@ export default function PrivacyPage() {
         lastUpdated="August 2024"
       />
 
-      {/* 2. Legal Navigation Bar */}
+      {/* Luminous Hairline Divider */}
+      <div className="hairline-rule-brass w-full" aria-hidden="true" />
+
+      {/* 2. Light Mode Legal Navigation Bar */}
       <LegalNav currentPage="privacy" />
 
-      {/* 3. Structured Legal Reading Body */}
+      {/* 3. Light Mode Structured Legal Reading Body */}
       <LegalLayout>
         <section aria-labelledby="section-governance" className="space-y-3.5">
           <h2
             id="section-governance"
-            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-bold text-slate-900 tracking-tight pb-2 border-b border-slate-100"
           >
             1. Commitment to Data Governance
           </h2>
@@ -50,7 +53,7 @@ export default function PrivacyPage() {
         <section aria-labelledby="section-collection" className="space-y-3.5">
           <h2
             id="section-collection"
-            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-bold text-slate-900 tracking-tight pb-2 border-b border-slate-100"
           >
             2. Information Collection &amp; Purpose
           </h2>
@@ -58,7 +61,7 @@ export default function PrivacyPage() {
             We collect information provided directly by enterprise representatives through our
             consultation intake forms and diagnostic channels. This data may include:
           </p>
-          <ul className="list-disc pl-5 space-y-1.5 marker:text-teal-600">
+          <ul className="list-disc pl-5 space-y-2 marker:text-amber-500">
             <li>
               <strong>Business Contact Details:</strong> Representative name, corporate email address,
               and direct telephone number.
@@ -82,7 +85,7 @@ export default function PrivacyPage() {
         <section aria-labelledby="section-nda" className="space-y-3.5">
           <h2
             id="section-nda"
-            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-bold text-slate-900 tracking-tight pb-2 border-b border-slate-100"
           >
             3. Non-Disclosure &amp; Institutional Confidentiality
           </h2>
@@ -98,7 +101,7 @@ export default function PrivacyPage() {
         <section aria-labelledby="section-sharing" className="space-y-3.5">
           <h2
             id="section-sharing"
-            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-bold text-slate-900 tracking-tight pb-2 border-b border-slate-100"
           >
             4. Third-Party Sharing Restrictions
           </h2>
@@ -117,7 +120,7 @@ export default function PrivacyPage() {
         <section aria-labelledby="section-session" className="space-y-3.5">
           <h2
             id="section-session"
-            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-bold text-slate-900 tracking-tight pb-2 border-b border-slate-100"
           >
             5. Technical Safeguards &amp; Session Data
           </h2>
@@ -132,7 +135,7 @@ export default function PrivacyPage() {
         <section aria-labelledby="section-rights" className="space-y-3.5">
           <h2
             id="section-rights"
-            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-bold text-slate-900 tracking-tight pb-2 border-b border-slate-100"
           >
             6. Client Data Rights &amp; Advisory Inquiries
           </h2>
@@ -143,14 +146,22 @@ export default function PrivacyPage() {
           </p>
           <p>
             For privacy inquiries or data governance requests, connect with our advisory desk at our
-            registered location in {city}, {state}, {country}.
+            registered location in {city}, {state}, {country}, or write to{" "}
+            {siteConfig.contact.email && (
+              <a
+                href={`mailto:${siteConfig.contact.email}`}
+                className="text-amber-700 hover:text-amber-800 underline font-medium"
+              >
+                {siteConfig.contact.email}
+              </a>
+            )}.
           </p>
         </section>
 
         <section aria-labelledby="section-updates" className="space-y-3.5">
           <h2
             id="section-updates"
-            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-bold text-slate-900 tracking-tight pb-2 border-b border-slate-100"
           >
             7. Policy Modifications
           </h2>

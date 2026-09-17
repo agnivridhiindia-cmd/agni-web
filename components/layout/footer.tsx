@@ -296,7 +296,7 @@ export function Footer() {
  href="/services"
  className="text-xs font-mono font-medium text-[#22D3EE] hover:text-[#38BDF8] uppercase tracking-wider transition-colors inline-flex items-center gap-1.5"
  >
- <span>View All 24+ Services</span>
+ <span>View All Advisory Programs</span>
  <ArrowRight className="w-3.5 h-3.5" />
  </Link>
  </li>

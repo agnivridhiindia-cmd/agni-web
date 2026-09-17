@@ -23,6 +23,7 @@ import {
   FadeIn,
   useReducedMotionPreference,
 } from "@/components/shared/motion";
+import { cn } from "@/lib/utils";
 
 function getRecognitionMeta(type: RecognitionType): {
   icon: LucideIcon;
@@ -88,11 +89,12 @@ export function RecognitionSection() {
     setActiveIndex(nextIndex);
   }, [verifiedItems.length]);
 
+  // 3-second auto-rotation interval as requested
   React.useEffect(() => {
     if (prefersReduced || isPaused || verifiedItems.length < 2) return;
     const timer = window.setInterval(() => {
       showCard(activeIndex + 1);
-    }, 5000);
+    }, 3000);
     return () => window.clearInterval(timer);
   }, [activeIndex, isPaused, prefersReduced, showCard, verifiedItems.length]);
 
@@ -183,7 +185,7 @@ export function RecognitionSection() {
         </div>
 
         {/* ============================================================
-            EDITORIAL HORIZONTAL CARD DECK (Scroll & Drag Responsive Carousel)
+            3 COMPLETE CARDS - MIDDLE ONE HIGHLIGHTED
             ============================================================ */}
         <div
           onKeyDown={handleKeyDown}
@@ -194,72 +196,118 @@ export function RecognitionSection() {
           tabIndex={0}
           role="region"
           aria-label="Awards and accreditations carousel"
-          className="flex max-w-5xl items-stretch justify-center gap-4 overflow-hidden pb-4 pt-2 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-auto lg:px-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-4"
+          className="w-full max-w-6xl mx-auto px-2 sm:px-4 lg:px-6 py-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 rounded-3xl"
         >
-          {visibleItems.map(({ item, offset }) => {
-            const meta = getRecognitionMeta(item.type);
-            const Icon = meta.icon;
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-center">
+            {visibleItems.map(({ item, offset }) => {
+              const isMiddle = offset === 0;
+              const meta = getRecognitionMeta(item.type);
+              const Icon = meta.icon;
 
-            return (
-              <div
-                key={`${item.id}-${offset}`}
-                className={`w-full max-w-[360px] shrink-0 h-full ${offset !== 0 ? "hidden lg:block lg:opacity-60 lg:scale-[0.94]" : ""}`}
-              >
-                <SpotlightCard
-                  glowVariant="teal"
-                  className="h-[360px] sm:h-[400px] p-0 bg-slate-950 border border-slate-700/60 hover:border-sky-400/60 transition-all duration-300 shadow-[0_12px_32px_rgba(15,23,42,0.15)] hover:shadow-[0_16px_36px_rgba(15,23,42,0.22)] [transform:translateZ(0)] rounded-3xl"
-                  innerClassName="!p-0 justify-end bg-gradient-to-b from-[#111D3A]/90 via-[#0D162D]/95 to-[#0B1329]/98 text-white rounded-3xl overflow-hidden border border-slate-700/50"
-                >
-                  {item.logoImage ? (
-                    <Image
-                      src={item.logoImage}
-                      alt={`${item.publicationOrOrg} recognition`}
-                      fill
-                      sizes="(max-width: 640px) calc(100vw - 2rem), 360px"
-                      className="object-cover transition-transform duration-700 group-hover/spotlight:scale-105"
-                    />
-                  ) : (
-                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#132042] via-[#0E1833] to-[#0B1329]">
-                      <Icon className="h-16 w-16 text-amber-400" aria-hidden="true" />
-                    </div>
+              return (
+                <div
+                  key={`${item.id}-${offset}`}
+                  onClick={!isMiddle ? () => showCard(activeIndex + offset) : undefined}
+                  className={cn(
+                    "w-full transition-all duration-500 ease-out",
+                    !isMiddle && "hidden md:block"
                   )}
-
-                  <div className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-[#0B1329] via-[#0B1329]/90 to-transparent px-5 pb-5 pt-28 sm:px-6 sm:pb-6">
-                    <span className="mb-2 block font-mono text-[10px] uppercase tracking-[0.18em] text-amber-400 font-semibold">
-                      {item.publicationOrOrg} &bull; {item.year}
-                    </span>
-                    <h3 className="font-heading text-xl font-semibold leading-snug text-white sm:text-2xl line-clamp-2">
-                      {item.title}
-                    </h3>
-
-                    {item.url && (
-                      <a
-                        href={item.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-3 inline-flex items-center gap-1.5 font-mono text-xs tracking-wider text-sky-400 underline decoration-sky-400/50 underline-offset-4 transition-colors hover:text-sky-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
-                        aria-label={`Read coverage: ${item.title} (opens in a new tab)`}
-                      >
-                        <span>Read Coverage</span>
-                        <ArrowUpRight className="h-3.5 w-3.5" />
-                      </a>
+                >
+                  <SpotlightCard
+                    glowVariant={isMiddle ? "amber" : "teal"}
+                    borderBeam={isMiddle}
+                    className={cn(
+                      "h-[400px] sm:h-[440px] p-0 rounded-3xl transition-all duration-500 ease-out [transform:translateZ(0)] relative",
+                      isMiddle
+                        ? "bg-slate-950 border-2 border-amber-400 shadow-[0_20px_50px_-10px_rgba(245,158,11,0.35),0_0_30px_rgba(245,158,11,0.2)] ring-4 ring-amber-400/20 scale-100 md:scale-105 z-20"
+                        : "bg-slate-950/90 border border-slate-700/60 shadow-[0_12px_32px_rgba(15,23,42,0.15)] hover:border-sky-400/60 scale-[0.95] md:scale-[0.96] opacity-70 hover:opacity-95 z-10 cursor-pointer"
                     )}
-                  </div>
-                </SpotlightCard>
-              </div>
-            );
-          })}
+                    innerClassName="!p-0 justify-end bg-gradient-to-b from-[#111D3A]/90 via-[#0D162D]/95 to-[#0B1329]/98 text-white rounded-3xl overflow-hidden border border-slate-700/50 relative"
+                  >
+                    {isMiddle && (
+                      <div className="absolute top-4 right-4 z-20 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500 text-slate-950 text-[10px] font-mono font-bold tracking-widest uppercase shadow-md animate-pulse">
+                        <span className="w-1.5 h-1.5 rounded-full bg-slate-950" />
+                        <span>FEATURED</span>
+                      </div>
+                    )}
+
+                    {item.logoImage ? (
+                      <Image
+                        src={item.logoImage}
+                        alt={`${item.publicationOrOrg} recognition`}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 380px"
+                        className="object-cover object-top transition-transform duration-700 group-hover/spotlight:scale-105"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#132042] via-[#0E1833] to-[#0B1329]">
+                        <Icon className="h-16 w-16 text-amber-400" aria-hidden="true" />
+                      </div>
+                    )}
+
+                    <div className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-[#0B1329] via-[#0B1329]/95 to-transparent px-5 pb-5 pt-28 sm:px-6 sm:pb-6">
+                      {isMiddle ? (
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-amber-500/20 border border-amber-400/40 text-amber-300 font-mono text-[10px] uppercase tracking-[0.16em] font-semibold mb-2.5">
+                          <span className="w-1 h-1 rounded-full bg-amber-400" />
+                          {item.publicationOrOrg} &bull; {item.year}
+                        </span>
+                      ) : (
+                        <span className="mb-2 block font-mono text-[10px] uppercase tracking-[0.18em] text-slate-400 font-semibold">
+                          {item.publicationOrOrg} &bull; {item.year}
+                        </span>
+                      )}
+
+                      <h3
+                        className={cn(
+                          "font-heading font-semibold leading-snug text-white line-clamp-2",
+                          isMiddle ? "text-xl sm:text-2xl" : "text-lg sm:text-xl text-slate-200"
+                        )}
+                      >
+                        {item.title}
+                      </h3>
+
+                      {item.url && (
+                        isMiddle ? (
+                          <a
+                            href={item.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="mt-3.5 inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-mono text-xs font-bold tracking-wider uppercase transition-all shadow-[0_0_16px_rgba(245,158,11,0.4)] hover:shadow-[0_0_24px_rgba(245,158,11,0.6)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 cursor-pointer"
+                            aria-label={`Read coverage: ${item.title} (opens in a new tab)`}
+                          >
+                            <span>Read Coverage</span>
+                            <ArrowUpRight className="h-4 w-4" />
+                          </a>
+                        ) : (
+                          <div className="mt-3 inline-flex items-center gap-1.5 font-mono text-xs tracking-wider text-sky-400/80 transition-colors group-hover/spotlight:text-sky-300">
+                            <span>Click to view</span>
+                            <ArrowUpRight className="h-3.5 w-3.5" />
+                          </div>
+                        )
+                      )}
+                    </div>
+                  </SpotlightCard>
+                </div>
+              );
+            })}
+          </div>
         </div>
 
-        <div className="flex items-center justify-center gap-2" aria-label="Choose recognition card">
+        {/* Pagination indicators */}
+        <div className="flex items-center justify-center gap-2 pt-2" aria-label="Choose recognition card">
           {verifiedItems.map((item, index) => (
             <button
               key={item.id}
               type="button"
-              onClick={() => showCard(verifiedItems.length + index)}
+              onClick={() => showCard(index)}
               aria-label={`Show ${item.publicationOrOrg} recognition`}
               aria-current={activeIndex === index ? "true" : undefined}
-              className={`h-2 rounded-full transition-all cursor-pointer ${activeIndex === index ? "w-8 bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.5)]" : "w-2 bg-slate-300 hover:bg-slate-400"}`}
+              className={cn(
+                "h-2 rounded-full transition-all cursor-pointer",
+                activeIndex === index
+                  ? "w-8 bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.5)]"
+                  : "w-2 bg-slate-300 hover:bg-slate-400"
+              )}
             />
           ))}
         </div>

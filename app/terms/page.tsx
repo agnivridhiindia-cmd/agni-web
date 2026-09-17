@@ -17,8 +17,8 @@ export default function TermsPage() {
   const { state, country } = siteConfig.company.location;
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* 1. Compact Editorial Header */}
+    <div className="min-h-screen bg-[#F8FAFC] text-slate-900">
+      {/* 1. Dark Mode Hero Header */}
       <LegalHeader
         eyebrow="LEGAL & GOVERNANCE"
         title="Terms of Service"
@@ -26,15 +26,18 @@ export default function TermsPage() {
         lastUpdated="August 2024"
       />
 
-      {/* 2. Legal Navigation Bar */}
+      {/* Luminous Hairline Divider */}
+      <div className="hairline-rule-brass w-full" aria-hidden="true" />
+
+      {/* 2. Light Mode Legal Navigation Bar */}
       <LegalNav currentPage="terms" />
 
-      {/* 3. Structured Legal Reading Body */}
+      {/* 3. Light Mode Structured Legal Reading Body */}
       <LegalLayout>
         <section aria-labelledby="section-scope" className="space-y-3.5">
           <h2
             id="section-scope"
-            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-bold text-slate-900 tracking-tight pb-2 border-b border-slate-100"
           >
             1. Advisory Scope &amp; Formal Mandates
           </h2>
@@ -54,7 +57,7 @@ export default function TermsPage() {
         <section aria-labelledby="section-status" className="space-y-3.5">
           <h2
             id="section-status"
-            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-bold text-slate-900 tracking-tight pb-2 border-b border-slate-100"
           >
             2. Institutional Status &amp; Non-Banking Disclaimer
           </h2>
@@ -73,7 +76,7 @@ export default function TermsPage() {
         <section aria-labelledby="section-authenticity" className="space-y-3.5">
           <h2
             id="section-authenticity"
-            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-bold text-slate-900 tracking-tight pb-2 border-b border-slate-100"
           >
             3. Client Responsibility &amp; Information Authenticity
           </h2>
@@ -89,7 +92,7 @@ export default function TermsPage() {
         <section aria-labelledby="section-ip" className="space-y-3.5">
           <h2
             id="section-ip"
-            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-bold text-slate-900 tracking-tight pb-2 border-b border-slate-100"
           >
             4. Intellectual Property &amp; Advisory Deliverables
           </h2>
@@ -104,12 +107,12 @@ export default function TermsPage() {
         <section aria-labelledby="section-gazette" className="space-y-3.5">
           <h2
             id="section-gazette"
-            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-bold text-slate-900 tracking-tight pb-2 border-b border-slate-100"
           >
             5. Government Schemes &amp; Regulatory Changes
           </h2>
           <p>
-            Information regarding central schemes (such as the CGTMSE ÃƒÂ¢ - Å¡Ã‚Â¹5 Crore collateral waiver ceiling
+            Information regarding central schemes (such as the CGTMSE ₹5 Crore collateral waiver ceiling
             or PMEGP capital subsidies) is grounded in published guidelines from the Ministry of MSME,
             SIDBI, and KVIC. Central policies and subsidy caps are subject to periodic amendment by
             the Government of India. Agnivridhi is not responsible for policy modifications enacted by
@@ -120,7 +123,7 @@ export default function TermsPage() {
         <section aria-labelledby="section-liability" className="space-y-3.5">
           <h2
             id="section-liability"
-            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-bold text-slate-900 tracking-tight pb-2 border-b border-slate-100"
           >
             6. Limitation of Liability
           </h2>
@@ -135,7 +138,7 @@ export default function TermsPage() {
         <section aria-labelledby="section-jurisdiction" className="space-y-3.5">
           <h2
             id="section-jurisdiction"
-            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-bold text-slate-900 tracking-tight pb-2 border-b border-slate-100"
           >
             7. Governing Law &amp; Jurisdiction
           </h2>
@@ -150,7 +153,7 @@ export default function TermsPage() {
         <section aria-labelledby="section-amendments" className="space-y-3.5">
           <h2
             id="section-amendments"
-            className="font-serif text-xl sm:text-2xl font-semibold text-[#F3EFE7] tracking-tight"
+            className="font-serif text-xl sm:text-2xl font-bold text-slate-900 tracking-tight pb-2 border-b border-slate-100"
           >
             8. Amendments &amp; Communication
           </h2>
