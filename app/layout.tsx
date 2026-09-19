@@ -5,6 +5,7 @@ import { getOrganizationJsonLd } from "@/lib/seo";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { SmoothScroll } from "@/components/shared/smooth-scroll";
+import { ChatWidget } from "@/components/chat/chat-widget";
 import "./globals.css";
 
 const inter = Inter({
@@ -125,6 +126,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
+          <ChatWidget />
         </SmoothScroll>
       </body>
     </html>

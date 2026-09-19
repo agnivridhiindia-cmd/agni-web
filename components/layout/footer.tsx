@@ -414,7 +414,7 @@ export function Footer() {
  &copy; {currentYear} {siteConfig.company.name}. All rights reserved.
  </p>
 
- <nav aria-label="Legal Navigation" className="flex items-center gap-6">
+ <nav aria-label="Legal Navigation" className="flex items-center gap-6 sm:pr-20">
  {siteConfig.navigation.legalNav.map((legalItem) => (
  <Link
  key={legalItem.href}
